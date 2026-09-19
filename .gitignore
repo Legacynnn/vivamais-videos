@@ -1,0 +1,5 @@
+.thumbnails/
+snapshots/
+renders/
+*.mp4
+.hyperframes/

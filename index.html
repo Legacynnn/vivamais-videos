@@ -1,55 +1,190 @@
-<!doctype html>
-<html lang="en" data-resolution="portrait">
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1080, height=1920" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="brand/tokens.css">
     <style>
+      @font-face {
+        font-family: "Space Grotesk";
+        src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      @font-face {
+        font-family: "Space Grotesk";
+        src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 700;
+      }
+
+      @font-face {
+        font-family: "DM Sans";
+        src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: "DM Sans";
+        src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      @font-face {
+        font-family: "DM Sans";
+        src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 700;
+      }
+
       * {
-        margin: 0;
-        padding: 0;
         box-sizing: border-box;
       }
+
       html,
       body {
-        margin: 0;
         width: 1080px;
         height: 1920px;
+        margin: 0;
         overflow: hidden;
-        background: #0a0a0a;
+        background: var(--viva-canvas);
       }
-      #root {
+
+      #root,
+      .clip {
         width: 100%;
         height: 100%;
+      }
+
+      #root {
+        position: relative;
+        overflow: hidden;
+        color: var(--viva-ink-900);
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+
+      .aura {
+        position: absolute;
+        top: -340px;
+        right: -300px;
+        width: 880px;
+        height: 880px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(126, 59, 237, 0.23), rgba(126, 59, 237, 0));
+      }
+
+      .shell {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 118px 88px 106px;
+      }
+
+      .brand-bar,
+      .footer {
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        justify-content: space-between;
       }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
+
+      .brand-bar img {
+        width: 188px;
+        height: auto;
+      }
+
+      .eyebrow,
+      .footer {
+        font-family: "DM Sans";
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: var(--viva-violet-700);
+      }
+
+      .title {
+        max-width: 820px;
+        margin: 30px 0 0;
+        font-family: "Space Grotesk";
+        font-size: 116px;
+        font-weight: 700;
+        letter-spacing: -0.065em;
+        line-height: 0.94;
+      }
+
+      .copy {
+        max-width: 650px;
+        margin: 42px 0 0;
+        color: var(--viva-ink-600);
+        font-family: "DM Sans";
+        font-size: 38px;
+        line-height: 1.3;
+      }
+
+      .rule {
+        width: 144px;
+        height: 10px;
+        margin-top: 60px;
+        border-radius: var(--viva-radius-chip);
+        background: var(--viva-lime-400);
+      }
+
+      .footer {
+        color: var(--viva-ink-500);
+      }
+
+      .footer strong {
+        color: var(--viva-violet-600);
+        font-weight: 700;
       }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1080"
-      data-height="1920"
-    >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+    <div data-hf-id="hf-x1o3" id="root" data-composition-id="viva-video-system" data-start="0" data-duration="4.8" data-width="1080" data-height="1920">
+      <section data-hf-id="hf-679m" id="system-scene" class="clip" data-start="0" data-duration="4.8" data-track-index="0">
+        <div data-hf-id="hf-hpjw" class="aura" id="system-aura"></div>
+        <div data-hf-id="hf-fh3a" class="shell">
+          <header data-hf-id="hf-rmbu" class="brand-bar" id="system-brand">
+            <img data-hf-id="hf-yst7" src="assets/brand/logo.svg" alt="Viva Mais">
+            <p data-hf-id="hf-g1v4" class="eyebrow">Sistema de vídeo</p>
+          </header>
+          <main data-hf-id="hf-1xgg">
+            <p data-hf-id="hf-8dce" class="eyebrow" id="system-kicker">Consistência em escala</p>
+            <h1 data-hf-id="hf-zq8w" class="title" id="system-title">Viva Mais em movimento.</h1>
+            <p data-hf-id="hf-s89b" class="copy" id="system-copy">Formato, ritmo e estilo variam. Marca, espaço e intenção permanecem.</p>
+            <div data-hf-id="hf-otqu" class="rule" id="system-rule"></div>
+          </main>
+          <footer data-hf-id="hf-14rq" class="footer" id="system-footer">
+            <span data-hf-id="hf-02um">1080 × 1920 · 30 fps</span>
+            <strong data-hf-id="hf-73cc">Pronto</strong>
+          </footer>
+        </div>
+      </section>
     </div>
     <script>
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
-      window.__timelines["main"] = tl;
-      tl.seek(0);
+      const timeline = gsap.timeline({ paused: true });
+      timeline
+        .fromTo("#system-brand", { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" }, 0.18)
+        .fromTo("#system-kicker", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 0.42)
+        .fromTo("#system-title", { opacity: 0, x: 88 }, { opacity: 1, x: 0, duration: 0.58, ease: "power4.out" }, 0.54)
+        .fromTo("#system-copy", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.44, ease: "power3.out" }, 0.84)
+        .fromTo("#system-rule", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.32, ease: "power3.out" }, 1.04)
+        .fromTo("#system-footer", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.34, ease: "power3.out" }, 1.14);
+      window.__timelines["viva-video-system"] = timeline;
     </script>
   </body>
 </html>

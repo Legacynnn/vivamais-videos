@@ -1,0 +1,40 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "consulta→feedback",
+      "cut": 8,
+      "technique": "cut-the-curve LEFT",
+      "exit": { "selector": "#consulta-surface", "axis": "x", "dir": -1, "dur": 0.34 },
+      "entry": { "selector": "#feedback-surface", "axis": "x", "dir": -1, "dur": 0.43, "travel": 12 }
+    },
+    {
+      "id": "feedback→loading",
+      "cut": 18,
+      "technique": "cut-the-curve LEFT",
+      "exit": { "selector": "#feedback-surface", "axis": "x", "dir": -1, "dur": 0.34 },
+      "entry": { "selector": "#loading-surface", "axis": "x", "dir": -1, "dur": 0.43, "travel": 12 }
+    },
+    {
+      "id": "loading→documentos",
+      "cut": 29,
+      "technique": "cut-the-curve LEFT",
+      "exit": { "selector": "#loading-surface", "axis": "x", "dir": -1, "dur": 0.34 },
+      "entry": { "selector": "#documentos-surface", "axis": "x", "dir": -1, "dur": 0.43, "travel": 12 }
+    },
+    {
+      "id": "documentos→hub",
+      "cut": 41,
+      "technique": "cut-the-curve LEFT",
+      "exit": { "selector": "#documentos-surface", "axis": "x", "dir": -1, "dur": 0.34 },
+      "entry": { "selector": "#hub-surface", "axis": "x", "dir": -1, "dur": 0.43, "travel": 12 }
+    },
+    {
+      "id": "pós-consulta→ia",
+      "cut": 56.12,
+      "technique": "native iOS navigation push LEFT",
+      "exit": { "selector": "#pos", "axis": "x", "dir": -1, "dur": 0.78 },
+      "entry": { "selector": "#chat-shell", "axis": "x", "dir": -1, "dur": 0.78, "travel": 100 }
+    }
+  ]
+}

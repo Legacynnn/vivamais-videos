@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      *{box-sizing:border-box}
+      html,body{width:1080px;height:1920px;margin:0;overflow:hidden;background:#17151e}
+      #root{position:relative;width:100%;height:100%;overflow:hidden;background:#f3edff}
+      #scene-camera{position:absolute;inset:0;width:1080px;height:1920px;transform-origin:50% 52%;will-change:transform,opacity}
+      #clinic-plate{position:absolute;inset:0;width:1080px;height:1920px;object-fit:cover}
+      #screen-shell{position:absolute;width:548px;height:1168px;left:266px;top:345px;border-radius:72px;overflow:hidden;background:#f9f9fd;box-shadow:inset 0 0 0 2px rgba(23,21,30,.5)}
+      #ui-stage{position:absolute;width:1080px;height:1920px;left:-17px;top:0;transform:scale(.54,.6083);transform-origin:0 0;background:#f9f9fd;overflow:hidden}
+      #ui-stage .clip,#ui-stage [data-composition-src]{position:absolute;inset:0;width:100%;height:100%}
+      #ui-stage .notch{display:none!important}
+      #island{position:absolute;width:150px;height:42px;left:199px;top:15px;border-radius:24px;background:#08080c;box-shadow:0 3px 9px rgba(23,21,30,.28);z-index:40}
+      #island::before{content:"";position:absolute;width:9px;height:9px;right:17px;top:17px;border-radius:50%;background:#17151e;box-shadow:0 0 0 3px rgba(126,59,237,.12)}
+      #screen-reflection{position:absolute;inset:0;border-radius:72px;background:linear-gradient(118deg,rgba(249,249,253,.07) 0%,rgba(249,249,253,0) 27%,rgba(249,249,253,0) 78%,rgba(249,249,253,.035) 100%);pointer-events:none;z-index:50}
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-ej0l" id="root" data-composition-id="main" data-start="0" data-duration="61.4" data-width="1080" data-height="1920">
+      <div data-hf-id="hf-bvm5" id="scene-camera">
+        <img data-hf-id="hf-a00n" id="clinic-plate" src="assets/environment/clinic-waiting-room-hand-phone.png" alt="">
+        <div data-hf-id="hf-76v0" id="screen-shell">
+          <div data-hf-id="hf-jptm" id="ui-stage" data-layout-allow-overflow>
+            <div data-hf-id="hf-8f2s" id="el-intro" class="clip" data-composition-id="intro" data-composition-src="compositions/intro.html" data-start="0" data-duration="4" data-track-index="0" data-width="1080" data-height="1920"></div>
+            <div data-hf-id="hf-60y6" id="el-plantao" class="clip" data-composition-id="plantao" data-composition-src="compositions/plantao.html" data-start="4" data-duration="4.8" data-track-index="1" data-width="1080" data-height="1920"></div>
+            <div data-hf-id="hf-7rpb" id="el-pix" class="clip" data-composition-id="pix" data-composition-src="compositions/pix.html" data-start="8.8" data-duration="8.2" data-track-index="0" data-width="1080" data-height="1920"></div>
+            <div data-hf-id="hf-laim" id="el-anamnese" class="clip" data-composition-id="anamnese" data-composition-src="compositions/anamnese.html" data-start="17" data-duration="25.8" data-track-index="1" data-width="1080" data-height="1920"></div>
+            <div data-hf-id="hf-1zsk" id="el-fila" class="clip" data-composition-id="fila" data-composition-src="compositions/fila.html" data-start="42.8" data-duration="4.6" data-track-index="0" data-width="1080" data-height="1920"></div>
+            <div data-hf-id="hf-y4on" id="el-match" class="clip" data-composition-id="match" data-composition-src="compositions/match.html" data-start="47.4" data-duration="4.4" data-track-index="1" data-width="1080" data-height="1920"></div>
+            <div data-hf-id="hf-uemn" id="el-consulta" class="clip" data-composition-id="consulta" data-composition-src="compositions/consulta.html" data-start="51.8" data-duration="4.8" data-track-index="0" data-width="1080" data-height="1920"></div>
+            <div data-hf-id="hf-njip" id="el-outro" class="clip" data-composition-id="outro" data-composition-src="compositions/outro.html" data-start="56.6" data-duration="4.8" data-track-index="1" data-width="1080" data-height="1920"></div>
+          </div>
+          <div data-hf-id="hf-i9du" id="island"></div>
+          <div data-hf-id="hf-r2ux" id="screen-reflection"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl=gsap.timeline({paused:true});
+      window.__timelines["main"]=tl;
+
+      gsap.set("#el-intro",{opacity:1,xPercent:0,yPercent:0,scale:1,filter:"blur(0px)",transformOrigin:"50% 50%"});
+      gsap.set(["#el-plantao","#el-pix","#el-anamnese","#el-fila","#el-match","#el-consulta","#el-outro"],{opacity:0,xPercent:0,yPercent:0,scale:1,filter:"blur(0px)",transformOrigin:"50% 50%"});
+
+      tl.fromTo("#scene-camera",{x:18,y:44,scale:1.255,opacity:0},{x:0,y:0,scale:1.22,opacity:1,duration:1.05,ease:"power4.out"},0);
+      tl.to("#scene-camera",{x:-5,y:-10,scale:1.23,duration:24,ease:"sine.inOut"},1.05);
+      tl.to("#scene-camera",{x:4,y:-4,scale:1.224,duration:20,ease:"sine.inOut"},25.05);
+      tl.to("#scene-camera",{x:0,y:0,scale:1.22,duration:16.35,ease:"sine.inOut"},45.05);
+
+      tl.to("#el-intro",{xPercent:-12,opacity:0,duration:.34,ease:"power3.in"},3.66);
+      tl.set("#el-intro",{opacity:0},4);
+      tl.fromTo("#el-plantao",{xPercent:10,opacity:.35},{xPercent:0,opacity:1,duration:.42,ease:"power4.out",immediateRender:false},4);
+      tl.to("#el-plantao",{xPercent:-12,opacity:0,duration:.34,ease:"power3.in"},8.46);
+      tl.set("#el-plantao",{opacity:0},8.8);
+      tl.fromTo("#el-pix",{xPercent:10,opacity:.35},{xPercent:0,opacity:1,duration:.42,ease:"power4.out",immediateRender:false},8.8);
+      tl.to("#el-pix",{xPercent:-12,opacity:0,duration:.34,ease:"power3.in"},16.66);
+      tl.set("#el-pix",{opacity:0},17);
+      tl.fromTo("#el-anamnese",{xPercent:10,opacity:.35},{xPercent:0,opacity:1,duration:.42,ease:"power4.out",immediateRender:false},17);
+      tl.to("#el-anamnese",{xPercent:-12,opacity:0,duration:.34,ease:"power3.in"},42.46);
+      tl.set("#el-anamnese",{opacity:0},42.8);
+      tl.fromTo("#el-fila",{xPercent:10,opacity:.35},{xPercent:0,opacity:1,duration:.42,ease:"power4.out",immediateRender:false},42.8);
+      tl.to("#el-fila",{xPercent:-12,opacity:0,duration:.34,ease:"power3.in"},47.06);
+      tl.set("#el-fila",{opacity:0},47.4);
+      tl.fromTo("#el-match",{xPercent:10,opacity:.35},{xPercent:0,opacity:1,duration:.42,ease:"power4.out",immediateRender:false},47.4);
+      tl.to("#el-match",{xPercent:-12,opacity:0,duration:.34,ease:"power3.in"},51.46);
+      tl.set("#el-match",{opacity:0},51.8);
+      tl.fromTo("#el-consulta",{xPercent:10,opacity:.35},{xPercent:0,opacity:1,duration:.42,ease:"power4.out",immediateRender:false},51.8);
+      tl.to("#el-consulta",{xPercent:-12,opacity:0,duration:.34,ease:"power3.in"},56.26);
+      tl.set("#el-consulta",{opacity:0},56.6);
+      tl.fromTo("#el-outro",{xPercent:10,opacity:.35},{xPercent:0,opacity:1,duration:.42,ease:"power4.out",immediateRender:false},56.6);
+    </script>
+  </body>
+</html>

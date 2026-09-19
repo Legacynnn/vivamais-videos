@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      *{box-sizing:border-box}html,body{width:1080px;height:1920px;margin:0;overflow:hidden;background:#f9f9fd}#root{position:relative;width:100%;height:100%;overflow:hidden;background:#f9f9fd}.clip,[data-composition-src]{position:absolute;inset:0;width:100%;height:100%}
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-out1" id="root" data-composition-id="main" data-start="0" data-duration="61.4" data-width="1080" data-height="1920">
+      <div data-hf-id="hf-ceaw" id="el-intro" class="clip" data-composition-id="intro" data-composition-src="compositions/intro.html" data-start="0" data-duration="4" data-track-index="0"></div>
+      <div data-hf-id="hf-tt0z" id="el-plantao" class="clip" data-composition-id="plantao" data-composition-src="compositions/plantao.html" data-start="4" data-duration="4.8" data-track-index="1"></div>
+      <div data-hf-id="hf-494y" id="el-pix" class="clip" data-composition-id="pix" data-composition-src="compositions/pix.html" data-start="8.8" data-duration="8.2" data-track-index="0"></div>
+      <div data-hf-id="hf-oa64" id="el-anamnese" class="clip" data-composition-id="anamnese" data-composition-src="compositions/anamnese.html" data-start="17" data-duration="25.8" data-track-index="1"></div>
+      <div data-hf-id="hf-3n91" id="el-fila" class="clip" data-composition-id="fila" data-composition-src="compositions/fila.html" data-start="42.8" data-duration="4.6" data-track-index="0"></div>
+      <div data-hf-id="hf-irxy" id="el-match" class="clip" data-composition-id="match" data-composition-src="compositions/match.html" data-start="47.4" data-duration="4.4" data-track-index="1"></div>
+      <div data-hf-id="hf-p0wm" id="el-consulta" class="clip" data-composition-id="consulta" data-composition-src="compositions/consulta.html" data-start="51.8" data-duration="4.8" data-track-index="0"></div>
+      <div data-hf-id="hf-casb" id="el-outro" class="clip" data-composition-id="outro" data-composition-src="compositions/outro.html" data-start="56.6" data-duration="4.8" data-track-index="1"></div>
+    </div>
+    <script>
+      const tl=gsap.timeline({paused:true});
+      window.__timelines["main"]=tl;
+
+      gsap.set("#el-intro", { opacity: 1, xPercent: 0, yPercent: 0, scale: 1, filter: "blur(0px)", transformOrigin: "50% 50%" });
+      gsap.set(["#el-plantao","#el-pix","#el-anamnese","#el-fila","#el-match","#el-consulta","#el-outro"], { opacity: 0, xPercent: 0, yPercent: 0, scale: 1, filter: "blur(0px)", transformOrigin: "50% 50%" });
+
+      tl.to("#el-intro", { xPercent: -12, opacity: 0, duration: 0.34, ease: "power3.in" }, 3.66);
+      tl.set("#el-intro", { opacity: 0 }, 4);
+      tl.fromTo("#el-plantao", { xPercent: 10, opacity: 0.35 }, { xPercent: 0, opacity: 1, duration: 0.42, ease: "power4.out", immediateRender: false }, 4);
+
+      tl.to("#el-plantao", { xPercent: -12, opacity: 0, duration: 0.34, ease: "power3.in" }, 8.46);
+      tl.set("#el-plantao", { opacity: 0 }, 8.8);
+      tl.fromTo("#el-pix", { xPercent: 10, opacity: 0.35 }, { xPercent: 0, opacity: 1, duration: 0.42, ease: "power4.out", immediateRender: false }, 8.8);
+
+      tl.to("#el-pix", { xPercent: -12, opacity: 0, duration: 0.34, ease: "power3.in" }, 16.66);
+      tl.set("#el-pix", { opacity: 0 }, 17);
+      tl.fromTo("#el-anamnese", { xPercent: 10, opacity: 0.35 }, { xPercent: 0, opacity: 1, duration: 0.42, ease: "power4.out", immediateRender: false }, 17);
+
+      tl.to("#el-anamnese", { xPercent: -12, opacity: 0, duration: 0.34, ease: "power3.in" }, 42.46);
+      tl.set("#el-anamnese", { opacity: 0 }, 42.8);
+      tl.fromTo("#el-fila", { xPercent: 10, opacity: 0.35 }, { xPercent: 0, opacity: 1, duration: 0.42, ease: "power4.out", immediateRender: false }, 42.8);
+
+      tl.to("#el-fila", { xPercent: -12, opacity: 0, duration: 0.34, ease: "power3.in" }, 47.06);
+      tl.set("#el-fila", { opacity: 0 }, 47.4);
+      tl.fromTo("#el-match", { xPercent: 10, opacity: 0.35 }, { xPercent: 0, opacity: 1, duration: 0.42, ease: "power4.out", immediateRender: false }, 47.4);
+
+      tl.to("#el-match", { xPercent: -12, opacity: 0, duration: 0.34, ease: "power3.in" }, 51.46);
+      tl.set("#el-match", { opacity: 0 }, 51.8);
+      tl.fromTo("#el-consulta", { xPercent: 10, opacity: 0.35 }, { xPercent: 0, opacity: 1, duration: 0.42, ease: "power4.out", immediateRender: false }, 51.8);
+
+      tl.to("#el-consulta", { xPercent: -12, opacity: 0, duration: 0.34, ease: "power3.in" }, 56.26);
+      tl.set("#el-consulta", { opacity: 0 }, 56.6);
+      tl.fromTo("#el-outro", { xPercent: 10, opacity: 0.35 }, { xPercent: 0, opacity: 1, duration: 0.42, ease: "power4.out", immediateRender: false }, 56.6);
+    </script>
+  </body>
+</html>

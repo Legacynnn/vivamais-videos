@@ -1,0 +1,125 @@
+<template>
+  <div data-hf-id="hf-l6p4" data-composition-id="pix" data-width="1080" data-height="1920" data-duration="8.2">
+    <style>
+      @font-face{font-family:"Space Grotesk";src:url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype");font-weight:500}
+      @font-face{font-family:"DM Sans";src:url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype");font-weight:400}
+      @font-face{font-family:"DM Sans";src:url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype");font-weight:700}
+      *{box-sizing:border-box}
+      .screen{position:absolute;inset:0;overflow:hidden;background:#fafafe;color:#17151e;font-family:"DM Sans"}
+      .world{position:absolute;inset:0;transform-origin:50% 48%;will-change:transform}
+      .status{height:92px;padding:36px 58px 0;display:flex;justify-content:space-between;align-items:center;font-size:27px;font-weight:700}
+      .notch{position:absolute;left:50%;top:22px;width:252px;height:68px;margin-left:-126px;border-radius:40px;background:#08080c}
+      .header{height:104px;padding:16px 58px;display:flex;align-items:center;gap:24px;font-family:"Space Grotesk";font-size:34px;font-weight:500}
+      .back{width:64px;height:64px;display:grid;place-items:center;border-radius:50%;background:#f0eff5;color:#3c3945}
+      .back svg{width:28px;height:28px}
+      .content{padding:16px 58px 120px}
+      .amount{height:280px;padding:32px 34px;border-radius:34px;background:#2c0066;color:#fff;box-shadow:0 24px 70px rgba(44,0,102,.18)}
+      .amount small{color:#d6c3fb;font-size:20px;font-weight:700;letter-spacing:.4px}
+      .amount h1{margin:7px 0 25px;font-family:"Space Grotesk";font-size:58px;font-weight:500;line-height:1}
+      .subject{display:grid;grid-template-columns:58px 1fr;align-items:center;gap:17px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18)}
+      .subject-icon{width:58px;height:58px;display:grid;place-items:center;border-radius:18px;background:#fff;color:#7e3bed}
+      .subject-icon svg{width:30px;height:30px}
+      .subject strong{display:block;font-size:23px;line-height:1.1}
+      .subject span{display:flex;align-items:center;gap:7px;margin-top:6px;color:#d6c3fb;font-size:18px}
+      .subject span svg{width:19px;height:19px}
+      .summary{margin-top:20px;padding:27px 28px;border-radius:30px;background:#fff;box-shadow:0 18px 55px rgba(44,0,102,.055);font-size:23px}
+      .line{display:flex;align-items:center;justify-content:space-between;min-height:32px}
+      .coupon{margin:20px 0;padding:18px 20px;display:flex;align-items:center;gap:13px;border:2px dashed #ddd8e7;border-radius:20px;color:#7c7888;font-size:20px}
+      .coupon svg{width:22px;height:22px;color:#7e3bed}
+      .divider{height:1px;background:#eceaf0}
+      .total{padding-top:18px}
+      .pay-title{margin:30px 0 15px;font-size:24px;font-weight:700}
+      .method{height:122px;margin-top:14px;padding:20px 22px;display:grid;grid-template-columns:72px 1fr 48px;align-items:center;gap:18px;border:2px solid #ece9f1;border-radius:29px;background:#fff;box-shadow:0 12px 34px rgba(44,0,102,.035);transform-origin:50% 50%}
+      .method-icon{width:72px;height:72px;display:grid;place-items:center;border-radius:21px;background:#f2eafe;color:#7e3bed}
+      .method-icon svg{width:34px;height:34px}
+      .method-copy{min-width:0}
+      .method strong{display:block;font-size:25px;line-height:1.1}
+      .method span{display:block;margin-top:7px;color:#767281;font-size:19px;line-height:1.1}
+      .chev{width:48px;height:48px;display:grid;place-items:center;color:#9a96a5}
+      .chev svg{width:26px;height:26px}
+      #pix-method{border-color:#d7c2fb}
+      #pix-method .method-icon{background:#7e3bed;color:#fff}
+      .pix-panel{margin-top:18px;padding:28px;border-radius:32px;background:#fff;box-shadow:0 22px 70px rgba(44,0,102,.07);text-align:center}
+      .qr-wrap{position:relative;width:520px;height:520px;margin:0 auto;overflow:hidden;border-radius:24px;background:#fff}
+      .qr{width:100%;height:100%;object-fit:contain}
+      .scan-line{position:absolute;left:26px;right:26px;top:48px;height:5px;border-radius:99px;background:#7e3bed;box-shadow:0 0 24px rgba(126,59,237,.65);opacity:0}
+      .corner{position:absolute;width:54px;height:54px;border-color:#7e3bed;border-style:solid}
+      .corner-a{left:7px;top:7px;border-width:5px 0 0 5px;border-radius:16px 0 0 0}
+      .corner-b{right:7px;top:7px;border-width:5px 5px 0 0;border-radius:0 16px 0 0}
+      .corner-c{left:7px;bottom:7px;border-width:0 0 5px 5px;border-radius:0 0 0 16px}
+      .corner-d{right:7px;bottom:7px;border-width:0 5px 5px 0;border-radius:0 0 16px 0}
+      .validity{margin-top:18px;color:#706c7a;font-size:19px}
+      .timer{margin-top:2px;font-family:"Space Grotesk";font-size:34px}
+      .actions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+      .action{height:72px;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;background:#f1e9fd;color:#6a24db;font-size:20px;font-weight:700;transform-origin:center}
+      .action svg{width:23px;height:23px}
+      .waiting{height:46px;display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;color:#706c7a;font-size:20px}
+      .live{width:12px;height:12px;border-radius:50%;background:#b8f32f;box-shadow:0 0 0 7px rgba(184,243,47,.16)}
+      .touch-guide{position:absolute;left:0;top:0;width:88px;height:88px;display:grid;place-items:center;z-index:90;pointer-events:none;filter:drop-shadow(0 8px 18px rgba(44,0,102,.2));will-change:transform}
+      .touch-wave{position:absolute;width:82px;height:82px;border:5px solid rgba(126,59,237,.42);border-radius:50%;opacity:.55}
+      .touch-core{position:relative;width:30px;height:30px;border:7px solid #fff;border-radius:50%;background:#7e3bed;box-shadow:0 0 0 5px rgba(126,59,237,.2)}
+      .home{position:absolute;left:420px;bottom:14px;width:240px;height:8px;border-radius:99px;background:#17151e;z-index:100}
+      svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    <section data-hf-id="hf-4qqn" class="screen" id="checkout-screen">
+      <div data-hf-id="hf-exld" class="world" id="checkout-world">
+        <div data-hf-id="hf-8kim" class="status"><span data-hf-id="hf-zwmt">9:41</span><span data-hf-id="hf-fc51">▮▮▮ ◉ ▱</span></div><div data-hf-id="hf-8kjy" class="notch"></div>
+        <div data-hf-id="hf-lut5" class="header"><span data-hf-id="hf-p2fc" class="back"><svg data-hf-id="hf-ulu9" viewBox="0 0 24 24"><path data-hf-id="hf-n0rv" d="m15 18-6-6 6-6" /></svg></span>Pagamento</div>
+        <div data-hf-id="hf-mcm7" class="content">
+          <div data-hf-id="hf-6p1w" class="amount"><small data-hf-id="hf-opoa">Total a pagar</small><h1 data-hf-id="hf-5jhl">R$ 39,90</h1><div data-hf-id="hf-r97c" class="subject"><div data-hf-id="hf-fnwi" class="subject-icon"><svg data-hf-id="hf-1tol" viewBox="0 0 24 24"><path data-hf-id="hf-2bye" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /><path data-hf-id="hf-cd1j" d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></svg></div><div data-hf-id="hf-yeow"><strong data-hf-id="hf-jxh3">Plantão 24h</strong><span data-hf-id="hf-xj24"><svg data-hf-id="hf-30lo" viewBox="0 0 24 24"><path data-hf-id="hf-ms4z" d="m16 13 5.2 3.5c.3.2.8 0 .8-.4V7.9c0-.4-.4-.6-.8-.4L16 10.5" /><rect data-hf-id="hf-qx93" x="2" y="6" width="14" height="12" rx="2" /></svg>Consulta por vídeo</span></div></div></div>
+          <div data-hf-id="hf-2x6g" class="summary"><div data-hf-id="hf-np12" class="line"><span data-hf-id="hf-e4gy">Plantão 24h</span><strong data-hf-id="hf-1r1d">R$ 39,90</strong></div><div data-hf-id="hf-b0ez" class="coupon"><svg data-hf-id="hf-2man" viewBox="0 0 24 24"><path data-hf-id="hf-xo83" d="M20.6 13.6 11 23.2 1.8 14V4.8h9.2Z" /><circle data-hf-id="hf-x9gs" cx="7" cy="10" r="1.5" /></svg>Tem um cupom?</div><div data-hf-id="hf-jk23" class="divider"></div><div data-hf-id="hf-sz54" class="line total"><span data-hf-id="hf-7qep">Total</span><strong data-hf-id="hf-6051">R$ 39,90</strong></div></div>
+          <div data-hf-id="hf-5in6" class="pay-title">Como você quer pagar?</div>
+          <div data-hf-id="hf-dcge" class="method" id="pix-method"><div data-hf-id="hf-ouhb" class="method-icon"><svg data-hf-id="hf-3t7q" viewBox="0 0 24 24"><rect data-hf-id="hf-ou64" width="5" height="5" x="3" y="3" rx="1" /><rect data-hf-id="hf-053a" width="5" height="5" x="16" y="3" rx="1" /><rect data-hf-id="hf-bo1o" width="5" height="5" x="3" y="16" rx="1" /><path data-hf-id="hf-0mm3" d="M21 16h-3a2 2 0 0 0-2 2v3M21 21v.01M12 7v3a2 2 0 0 1-2 2H7M3 12h.01M12 3h.01M12 16v.01M16 12h1M21 12v.01M12 21v-1" /></svg></div><div data-hf-id="hf-ps5n" class="method-copy"><strong data-hf-id="hf-zu2v">Pix</strong><span data-hf-id="hf-rb0z">Aprovação em segundos</span></div><div data-hf-id="hf-rpzg" class="chev"><svg data-hf-id="hf-3ewp" viewBox="0 0 24 24"><path data-hf-id="hf-qnuk" d="m9 18 6-6-6-6" /></svg></div></div>
+          <div data-hf-id="hf-iw7v" class="method"><div data-hf-id="hf-hd9r" class="method-icon"><svg data-hf-id="hf-4lts" viewBox="0 0 24 24"><rect data-hf-id="hf-bpub" width="20" height="14" x="2" y="5" rx="2" /><path data-hf-id="hf-0f2s" d="M2 10h20" /></svg></div><div data-hf-id="hf-cvmz" class="method-copy"><strong data-hf-id="hf-glhf">Cartão de crédito</strong><span data-hf-id="hf-d3v1">Aprovação imediata</span></div><div data-hf-id="hf-cp5w" class="chev"><svg data-hf-id="hf-47ir" viewBox="0 0 24 24"><path data-hf-id="hf-dq5w" d="m9 18 6-6-6-6" /></svg></div></div>
+          <div data-hf-id="hf-50bf" class="method"><div data-hf-id="hf-gyyq" class="method-icon"><svg data-hf-id="hf-z1je" viewBox="0 0 24 24"><rect data-hf-id="hf-m05h" width="18" height="18" x="3" y="3" rx="2" /><path data-hf-id="hf-1j05" d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21" /></svg></div><div data-hf-id="hf-chby" class="method-copy"><strong data-hf-id="hf-41w5">Saldo Viva</strong><span data-hf-id="hf-slbu">Use o crédito da sua conta</span></div><div data-hf-id="hf-bi8t" class="chev"><svg data-hf-id="hf-yn8d" viewBox="0 0 24 24"><path data-hf-id="hf-cj8t" d="m9 18 6-6-6-6" /></svg></div></div>
+        </div>
+      </div>
+    </section>
+    <section data-hf-id="hf-crr2" class="screen" id="pix-screen">
+      <div data-hf-id="hf-73pe" class="world" id="pix-world">
+        <div data-hf-id="hf-8csi" class="status"><span data-hf-id="hf-rk89">9:41</span><span data-hf-id="hf-siuh">▮▮▮ ◉ ▱</span></div><div data-hf-id="hf-zwuq" class="notch"></div>
+        <div data-hf-id="hf-6h70" class="header"><span data-hf-id="hf-cnwg" class="back"><svg data-hf-id="hf-lxbj" viewBox="0 0 24 24"><path data-hf-id="hf-mz63" d="m15 18-6-6 6-6" /></svg></span>Pix</div>
+        <div data-hf-id="hf-i7rz" class="content">
+          <div data-hf-id="hf-bpt8" class="amount"><small data-hf-id="hf-giam">Total a pagar</small><h1 data-hf-id="hf-ddr1">R$ 39,90</h1><div data-hf-id="hf-a568" class="subject"><div data-hf-id="hf-joyu" class="subject-icon"><svg data-hf-id="hf-mbmk" viewBox="0 0 24 24"><path data-hf-id="hf-356y" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /><path data-hf-id="hf-r57r" d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></svg></div><div data-hf-id="hf-y7yw"><strong data-hf-id="hf-b12v">Plantão 24h</strong><span data-hf-id="hf-3ub8"><svg data-hf-id="hf-l4ph" viewBox="0 0 24 24"><path data-hf-id="hf-u98z" d="m16 13 5.2 3.5c.3.2.8 0 .8-.4V7.9c0-.4-.4-.6-.8-.4L16 10.5" /><rect data-hf-id="hf-7hsn" x="2" y="6" width="14" height="12" rx="2" /></svg>Consulta por vídeo</span></div></div></div>
+          <div data-hf-id="hf-rid3" class="pix-panel" id="pix-code"><div data-hf-id="hf-sg56" class="qr-wrap"><img data-hf-id="hf-m491" class="qr" src="assets/screens/pix-qr.png" alt="QR Code Pix"><div data-hf-id="hf-d3te" class="scan-line"></div><i data-hf-id="hf-qnx8" class="corner corner-a"></i><i data-hf-id="hf-zbt3" class="corner corner-b"></i><i data-hf-id="hf-vdp2" class="corner corner-c"></i><i data-hf-id="hf-41kx" class="corner corner-d"></i></div><div data-hf-id="hf-wtv1" class="validity">Código válido por</div><div data-hf-id="hf-ut99" class="timer" id="pix-timer">14:57</div><div data-hf-id="hf-zgc1" class="actions"><div data-hf-id="hf-r9oa" class="action" id="copy-action"><svg data-hf-id="hf-lj0i" viewBox="0 0 24 24"><rect data-hf-id="hf-su59" width="14" height="14" x="8" y="8" rx="2" /><path data-hf-id="hf-nfbv" d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg><span data-hf-id="hf-181p" id="copy-label">Copiar código</span></div><div data-hf-id="hf-pzzp" class="action" id="paid-action"><svg data-hf-id="hf-nijn" viewBox="0 0 24 24"><path data-hf-id="hf-2q26" d="M20 6 9 17l-5-5" /></svg>Já paguei</div></div><div data-hf-id="hf-2y3h" class="waiting"><span data-hf-id="hf-ww3z" class="live"></span><span data-hf-id="hf-v6wu" id="waiting-label">Aguardando pagamento…</span></div></div>
+        </div>
+      </div>
+    </section>
+    <div data-hf-id="hf-ixwi" class="touch-guide" id="touch-guide"><div data-hf-id="hf-unhh" class="touch-wave"></div><div data-hf-id="hf-oxv7" class="touch-core"></div></div><div data-hf-id="hf-fc6d" class="home"></div>
+    <script>
+      const tl=gsap.timeline({paused:true});
+      const click=(target,time)=>{tl.to("#touch-guide",{scale:.82,duration:.1,ease:"power2.in"},time);tl.to(target,{scale:.965,duration:.1,ease:"power2.in"},time);tl.fromTo(".touch-wave",{scale:.55,opacity:.65},{scale:1.7,opacity:0,duration:.36,ease:"power3.out",immediateRender:false},time);tl.to("#touch-guide",{scale:1,duration:.2,ease:"back.out(1.5)"},time+.1);tl.to(target,{scale:1,duration:.2,ease:"back.out(1.35)"},time+.1)};
+      tl.set("#pix-screen",{xPercent:100,opacity:1},0);
+      tl.set("#touch-guide",{x:760,y:1310,opacity:.9},0);
+      tl.fromTo("#checkout-screen .amount",{opacity:0,y:42},{opacity:1,y:0,duration:.48,ease:"power4.out"},.05);
+      tl.fromTo("#checkout-screen .summary",{opacity:0,y:34},{opacity:1,y:0,duration:.4,ease:"power4.out"},.28);
+      tl.fromTo("#checkout-screen .pay-title,#checkout-screen .method",{opacity:0,y:30},{opacity:1,y:0,duration:.38,ease:"power4.out",stagger:.075},.48);
+      tl.fromTo("#touch-guide",{x:760,y:1310},{x:895,y:830,duration:.72,ease:"power3.out",immediateRender:false},1.15);
+      tl.to("#checkout-world",{scale:1.035,y:-26,duration:.62,ease:"power2.inOut"},1.35);
+      tl.to("#pix-method",{borderColor:"#7e3bed",boxShadow:"0 22px 60px rgba(126,59,237,.18)",duration:.25,ease:"power2.out"},1.75);
+      click("#pix-method",2.05);
+      tl.to("#checkout-world",{x:-150,scale:1.12,duration:.34,ease:"power4.in"},2.44);
+      tl.to("#checkout-screen",{xPercent:-100,duration:.34,ease:"power4.in"},2.44);
+      tl.fromTo("#pix-screen",{xPercent:100,scale:.94},{xPercent:0,scale:1,duration:.48,ease:"power4.out",immediateRender:false},2.68);
+      tl.fromTo("#pix-code",{opacity:0,y:70,scale:.94},{opacity:1,y:0,scale:1,duration:.58,ease:"power4.out",immediateRender:false},2.92);
+      tl.to("#touch-guide",{x:260,y:1150,duration:.74,ease:"power3.inOut"},2.62);
+      tl.fromTo(".corner",{opacity:0,scale:.5},{opacity:1,scale:1,duration:.28,ease:"back.out(1.5)",stagger:.06},3.35);
+      tl.fromTo(".scan-line",{opacity:0,y:0},{opacity:.9,y:410,duration:.8,ease:"power1.inOut",immediateRender:false},3.72);
+      tl.to(".scan-line",{opacity:0,duration:.18,ease:"none"},4.54);
+      tl.to("#pix-world",{scale:1.04,y:-22,duration:.7,ease:"power2.inOut"},3.7);
+      click("#copy-action",4.62);
+      tl.set("#copy-label",{textContent:"Código copiado"},4.78);
+      tl.to("#copy-action",{backgroundColor:"#e8f6c6",color:"#426000",duration:.26,ease:"power2.out"},4.78);
+      tl.to("#touch-guide",{x:735,y:1150,duration:.72,ease:"power3.inOut"},5.08);
+      tl.to("#pix-world",{scale:1,y:0,duration:.72,ease:"power2.inOut"},5.08);
+      click("#paid-action",5.88);
+      tl.to("#pix-timer",{scale:1.12,color:"#6a24db",duration:.22,ease:"power3.out"},6.08);
+      tl.to("#pix-timer",{scale:1,color:"#17151e",duration:.34,ease:"power3.inOut"},6.3);
+      tl.set("#waiting-label",{textContent:"Pagamento localizado"},6.28);
+      tl.to(".live",{scale:1.7,duration:.22,ease:"back.out(1.6)"},6.28);
+      tl.to(".live",{scale:1,duration:.32,ease:"power3.out"},6.5);
+      tl.to("#touch-guide",{x:930,y:1510,duration:.65,ease:"power3.out"},6.46);
+      window.__timelines["pix"]=tl;
+    </script>
+  </div>
+</template>

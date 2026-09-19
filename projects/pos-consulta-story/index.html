@@ -1,0 +1,3301 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+        @font-face {
+            font-family: Space;
+            src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf")
+        }
+
+        @font-face {
+            font-family: Space;
+            src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf");
+            font-weight: 700
+        }
+
+        @font-face {
+            font-family: DM;
+            src: url("assets/brand/fonts/DMSans-Regular.ttf")
+        }
+
+        @font-face {
+            font-family: DM;
+            src: url("assets/brand/fonts/DMSans-Medium.ttf");
+            font-weight: 500
+        }
+
+        @font-face {
+            font-family: DM;
+            src: url("assets/brand/fonts/DMSans-Bold.ttf");
+            font-weight: 700
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            width: 1080px;
+            height: 1920px;
+            margin: 0;
+            overflow: hidden;
+            background: #fafafe
+        }
+
+        body {
+            font-family: DM;
+            color: #17151e
+        }
+
+        #root,
+        .clip,
+        .scene {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden
+        }
+
+        .scene {
+            background: #fafafe
+        }
+
+        #consulta {
+            opacity: 0
+        }
+
+        .status {
+            position: absolute;
+            inset: 0 0 auto;
+            height: 92px;
+            padding: 34px 58px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 27px;
+            font-weight: 700;
+            z-index: 80
+        }
+
+        .notch {
+            position: absolute;
+            left: 414px;
+            top: 22px;
+            width: 252px;
+            height: 68px;
+            border-radius: 40px;
+            background: #08080c;
+            z-index: 90
+        }
+
+        .home {
+            position: absolute;
+            left: 420px;
+            bottom: 14px;
+            width: 240px;
+            height: 8px;
+            border-radius: 99px;
+            background: #17151e;
+            z-index: 100
+        }
+
+        .icon {
+            width: 26px;
+            height: 26px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .touch {
+            position: absolute;
+            width: 86px;
+            height: 86px;
+            border: 6px solid rgba(126, 59, 237, .72);
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 140
+        }
+
+        .touch:after {
+            content: "";
+            position: absolute;
+            left: 21px;
+            top: 21px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #7e3bed;
+            box-shadow: 0 0 0 6px #fff
+        }
+
+        .ripple {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border: 4px solid rgba(126, 59, 237, .42);
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 130
+        }
+
+        .call {
+            background: #17151e;
+            color: #fff
+        }
+
+        .call-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 18%;
+            filter: brightness(.74)
+        }
+
+        .call-shade {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, .34), transparent 24%, transparent 56%, rgba(0, 0, 0, .78))
+        }
+
+        .live {
+            position: absolute;
+            left: 58px;
+            top: 92px;
+            padding: 14px 20px;
+            border-radius: 99px;
+            background: #0007;
+            font-size: 22px;
+            font-weight: 700
+        }
+
+        .live i {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: #c6ff34
+        }
+
+        .caption {
+            position: absolute;
+            left: 80px;
+            right: 80px;
+            bottom: 470px;
+            text-align: center;
+            font: 42px/1.2 Space;
+            text-shadow: 0 4px 18px #0008
+        }
+
+        .doctor-name {
+            position: absolute;
+            left: 58px;
+            bottom: 330px;
+            padding: 14px 18px;
+            border-radius: 16px;
+            background: #0008;
+            font-size: 24px;
+            font-weight: 700
+        }
+
+        .self {
+            position: absolute;
+            right: 38px;
+            top: 100px;
+            width: 235px;
+            height: 320px;
+            overflow: hidden;
+            border: 4px solid #fff;
+            border-radius: 28px;
+            background: linear-gradient(145deg, #e9defd, #7e3bed)
+        }
+
+        .self:before {
+            content: "";
+            position: absolute;
+            left: 68px;
+            top: 55px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #d7b396
+        }
+
+        .self:after {
+            content: "";
+            position: absolute;
+            left: 38px;
+            bottom: -20px;
+            width: 160px;
+            height: 170px;
+            border-radius: 90px 90px 0 0;
+            background: #f3edff
+        }
+
+        .self span {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            z-index: 2;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background: #17151ec9;
+            font-size: 20px;
+            font-weight: 700
+        }
+
+        .controls {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 98px;
+            display: flex;
+            justify-content: center;
+            gap: 24px
+        }
+
+        .control {
+            width: 92px;
+            height: 92px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #231f29db
+        }
+
+        .control svg {
+            width: 38px;
+            height: 38px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2.4
+        }
+
+        .control.end {
+            background: #b42318;
+            color: #fff
+        }
+
+        .ending {
+            position: absolute;
+            left: 80px;
+            right: 80px;
+            top: 760px;
+            padding: 36px;
+            border-radius: 32px;
+            background: #17151ee8;
+            text-align: center;
+            opacity: 0
+        }
+
+        .ending strong {
+            display: block;
+            font: 46px Space
+        }
+
+        .ending span {
+            display: block;
+            margin-top: 10px;
+            color: #d8d5df;
+            font-size: 23px
+        }
+
+        .aura {
+            position: absolute;
+            left: 190px;
+            top: 190px;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #7e3bed38, transparent 68%)
+        }
+
+        .complete {
+            position: absolute;
+            left: 58px;
+            right: 58px;
+            top: 310px;
+            text-align: center
+        }
+
+        .check {
+            width: 162px;
+            height: 162px;
+            margin: auto;
+            display: grid;
+            place-items: center;
+            border-radius: 54px;
+            background: #7e3bed;
+            color: #fff;
+            font-size: 76px;
+            font-weight: 700;
+            box-shadow: 0 28px 80px #5719b638
+        }
+
+        .complete h1 {
+            margin: 44px 0 0;
+            font: 700 66px/1.03 Space;
+            letter-spacing: -2px
+        }
+
+        .complete p {
+            max-width: 720px;
+            margin: 20px auto;
+            color: #726f80;
+            font-size: 27px;
+            line-height: 1.45
+        }
+
+        .confetti {
+            position: absolute;
+            left: 540px;
+            top: 500px
+        }
+
+        .confetti span {
+            position: absolute;
+            border-radius: 3px;
+            opacity: 0
+        }
+
+        .rating {
+            position: absolute;
+            left: 34px;
+            right: 34px;
+            bottom: 0;
+            height: 770px;
+            padding: 34px 44px 60px;
+            border-radius: 44px 44px 0 0;
+            background: #fff;
+            box-shadow: 0 -26px 80px #350e6f1f
+        }
+
+        .handle {
+            width: 96px;
+            height: 8px;
+            margin: 0 auto 32px;
+            border-radius: 99px;
+            background: #d8d5df
+        }
+
+        .rating h2 {
+            margin: 0;
+            text-align: center;
+            font: 42px Space
+        }
+
+        .rating p {
+            text-align: center;
+            color: #726f80;
+            font-size: 22px
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 42px
+        }
+
+        .star {
+            font-size: 70px;
+            color: #d8d5df
+        }
+
+        .feedback {
+            height: 128px;
+            margin-top: 40px;
+            padding: 26px;
+            border: 2px solid #e6e4ec;
+            border-radius: 24px;
+            font-size: 23px
+        }
+
+        .submit {
+            height: 88px;
+            margin-top: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 99px;
+            background: #7e3bed;
+            color: #fff;
+            font-size: 25px;
+            font-weight: 700
+        }
+
+        .toast {
+            position: absolute;
+            left: 160px;
+            right: 160px;
+            top: 120px;
+            padding: 18px;
+            border-radius: 99px;
+            background: #17151e;
+            color: #fff;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            opacity: 0
+        }
+
+        .loading {
+            position: absolute;
+            left: 58px;
+            right: 58px;
+            top: 280px
+        }
+
+        .eyebrow {
+            color: #6a24db;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase
+        }
+
+        .loading h1 {
+            margin: 14px 0 0;
+            font: 700 64px/1.05 Space;
+            letter-spacing: -2px
+        }
+
+        .loading>p {
+            margin: 16px 0 0;
+            color: #726f80;
+            font-size: 25px;
+            line-height: 1.45
+        }
+
+        .progress {
+            margin-top: 58px;
+            padding: 34px;
+            border-radius: 32px;
+            background: #fff
+        }
+
+        .prow {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid #eceaf0
+        }
+
+        .prow:nth-child(3) {
+            border-bottom: 0
+        }
+
+        .glyph {
+            width: 58px;
+            height: 58px;
+            display: grid;
+            place-items: center;
+            border-radius: 18px;
+            background: #f3edff
+        }
+
+        .glyph svg {
+            width: 46px;
+            height: 46px
+        }
+
+        .pcopy {
+            flex: 1
+        }
+
+        .pcopy strong {
+            display: block;
+            font-size: 23px
+        }
+
+        .pcopy span {
+            display: block;
+            margin-top: 5px;
+            color: #726f80;
+            font-size: 18px
+        }
+
+        .state {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #ebe8f0;
+            color: #a29fb0;
+            font-weight: 700
+        }
+
+        .state.done {
+            background: #e7ffd1;
+            color: #4f8d22
+        }
+
+        .rail {
+            height: 12px;
+            margin-top: 34px;
+            border-radius: 99px;
+            background: #e6e4ec;
+            overflow: hidden
+        }
+
+        .fill {
+            height: 100%;
+            background: #7e3bed;
+            transform: scaleX(0);
+            transform-origin: left
+        }
+
+        .app {
+            position: absolute;
+            inset: 0;
+            background: #fafafe;
+            opacity: 0
+        }
+
+        .topbar {
+            position: absolute;
+            inset: 0 0 auto;
+            height: 144px;
+            padding: 78px 50px 0;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: #fafafef7;
+            border-bottom: 1px solid #eceaf0;
+            z-index: 70
+        }
+
+        .top-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: url("assets/people/aladin-moraes.png") center 18%/cover
+        }
+
+        .topcopy strong {
+            display: block;
+            font-size: 21px
+        }
+
+        .topcopy span {
+            color: #726f80;
+            font-size: 16px
+        }
+
+        .viewport {
+            position: absolute;
+            inset: 144px 0 0;
+            overflow: hidden
+        }
+
+        .scroll {
+            padding: 34px 50px 160px
+        }
+
+        .hero {
+            text-align: center;
+            padding: 12px 0 34px
+        }
+
+        .avatar {
+            position: relative;
+            width: 116px;
+            height: 116px;
+            margin: auto;
+            border: 7px solid #fff;
+            border-radius: 50%;
+            background: url("assets/people/aladin-moraes.png") center 18%/cover
+        }
+
+        .avatar i {
+            position: absolute;
+            right: -2px;
+            bottom: -2px;
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border: 4px solid #fafafe;
+            border-radius: 50%;
+            background: #7e3bed;
+            color: #17151e;
+            font-style: normal;
+            font-weight: 700
+        }
+
+        .hero h1 {
+            margin: 22px 0 0;
+            font: 700 48px/1.05 Space
+        }
+
+        .hero p {
+            margin: 10px 0;
+            color: #726f80;
+            font-size: 21px
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 99px;
+            background: #fff;
+            font-size: 17px
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 16px
+        }
+
+        .stat {
+            padding: 10px 15px;
+            border-radius: 99px;
+            background: #fff;
+            font-size: 16px
+        }
+
+        .stat strong {
+            color: #6a24db
+        }
+
+        .summary {
+            padding: 28px;
+            border-radius: 28px;
+            background: #f3edff
+        }
+
+        .summary small {
+            color: #6a24db;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase
+        }
+
+        .summary h2 {
+            margin: 12px 0 0;
+            font: 500 30px/1.15 Space
+        }
+
+        .summary>p {
+            margin: 12px 0 0;
+            color: #403d4a;
+            font-size: 19px;
+            line-height: 1.45
+        }
+
+        .care,
+        .docs,
+        .records {
+            margin-top: 22px;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #fff
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 17px 18px;
+            border-bottom: 1px solid #eceaf0
+        }
+
+        .row:last-child {
+            border: 0
+        }
+
+        .ibox {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            background: #f3edff;
+            color: #6a24db
+        }
+
+        .rowcopy {
+            flex: 1
+        }
+
+        .rowcopy strong {
+            display: block;
+            font-size: 19px
+        }
+
+        .rowcopy span {
+            display: block;
+            margin-top: 4px;
+            color: #726f80;
+            font-size: 15px
+        }
+
+        .section {
+            margin-top: 28px
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 4px 14px;
+            font: 500 28px Space
+        }
+
+        .section-title span {
+            font: 16px DM;
+            color: #726f80
+        }
+
+        .reconsult,
+        .ask,
+        .rating-inline {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            border-radius: 24px;
+            background: #fff
+        }
+
+        .ask {
+            border: 2px solid #d6c3fb
+        }
+
+        .ask .ibox {
+            background: #7e3bed;
+            color: #fff
+        }
+
+        .grow {
+            flex: 1
+        }
+
+        .grow strong {
+            display: block;
+            font-size: 19px
+        }
+
+        .grow span {
+            display: block;
+            margin-top: 4px;
+            color: #726f80;
+            font-size: 16px
+        }
+
+        .score {
+            color: #7e3bed;
+            font-size: 20px;
+            font-weight: 700
+        }
+
+        .backdrop {
+            position: absolute;
+            inset: 0;
+            background: #17151e61;
+            opacity: 0;
+            z-index: 105
+        }
+
+        .sheet {
+            position: absolute;
+            left: 24px;
+            right: 24px;
+            top: 110px;
+            bottom: 0;
+            overflow: hidden;
+            border-radius: 36px 36px 0 0;
+            background: #e8e8ed;
+            box-shadow: 0 -20px 80px #17151e33;
+            z-index: 110;
+            opacity: 0
+        }
+
+        .grabber {
+            width: 86px;
+            height: 8px;
+            margin: 14px auto 8px;
+            border-radius: 99px;
+            background: #c8c6d0
+        }
+
+        .sheethead {
+            height: 112px;
+            padding: 12px 28px 18px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #fff
+        }
+
+        .sheetcopy {
+            flex: 1
+        }
+
+        .sheetcopy strong {
+            display: block;
+            font-size: 21px
+        }
+
+        .sheetcopy span {
+            color: #726f80;
+            font-size: 14px
+        }
+
+        .action {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center
+        }
+
+        .ground {
+            position: absolute;
+            inset: 140px 0 0;
+            padding: 18px 38px 80px;
+            overflow: hidden
+        }
+
+        .paper {
+            position: absolute;
+            left: 38px;
+            right: 38px;
+            top: 18px;
+            height: 1330px;
+            padding: 58px 64px;
+            background: #fff;
+            color: #111;
+            box-shadow: 0 10px 26px #00000014
+        }
+
+        .paper.exam {
+            opacity: 0
+        }
+
+        .paperhead {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 22px;
+            border-bottom: 2px solid #111
+        }
+
+        .paperhead strong {
+            font: 700 25px Space
+        }
+
+        .paperhead span {
+            font-size: 13px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase
+        }
+
+        .paper h2 {
+            margin: 55px 0 0;
+            text-align: center;
+            font: 700 31px Space;
+            text-transform: uppercase
+        }
+
+        .meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 52px
+        }
+
+        .field {
+            padding-bottom: 14px;
+            border-bottom: 1px solid #aaa
+        }
+
+        .field small {
+            display: block;
+            color: #555;
+            font-size: 13px;
+            text-transform: uppercase
+        }
+
+        .field strong {
+            display: block;
+            margin-top: 8px;
+            font-size: 18px
+        }
+
+        .paperbox {
+            margin-top: 38px;
+            padding: 25px;
+            border: 2px solid #111
+        }
+
+        .paperbox strong {
+            display: block;
+            font-size: 21px
+        }
+
+        .paperbox span {
+            display: block;
+            margin-top: 9px;
+            font-size: 18px;
+            line-height: 1.5
+        }
+
+        .paperbody {
+            margin-top: 38px;
+            font: 18px/1.6 Georgia
+        }
+
+        .sign {
+            position: absolute;
+            left: 64px;
+            right: 64px;
+            bottom: 54px;
+            padding-top: 22px;
+            border-top: 1px solid #aaa;
+            text-align: center;
+            font: 16px/1.5 Georgia
+        }
+
+        .zoom {
+            position: absolute;
+            right: 34px;
+            bottom: 28px;
+            padding: 13px 18px;
+            border-radius: 99px;
+            background: #fffffff5;
+            font-size: 14px;
+            font-weight: 500
+        }
+
+        .chathead {
+            position: absolute;
+            inset: 0 0 auto;
+            height: 178px;
+            padding: 96px 50px 0;
+            display: flex;
+            gap: 16px;
+            border-bottom: 1px solid #eceaf0;
+            z-index: 20
+        }
+
+        .chathead strong {
+            display: block;
+            font: 500 29px Space
+        }
+
+        .chathead span {
+            color: #726f80;
+            font-size: 16px
+        }
+
+        .context {
+            position: absolute;
+            left: 34px;
+            right: 34px;
+            top: 202px;
+            padding: 22px;
+            border: 2px solid #d6c3fb;
+            border-radius: 26px;
+            background: #fff;
+            z-index: 15
+        }
+
+        .ctop {
+            display: flex;
+            justify-content: space-between
+        }
+
+        .badge,
+        .chip {
+            padding: 7px 12px;
+            border-radius: 99px;
+            background: #f3edff;
+            color: #5719b6;
+            font-size: 14px;
+            font-weight: 700
+        }
+
+        .chips {
+            display: flex;
+            gap: 9px;
+            margin-top: 14px
+        }
+
+        .window {
+            position: absolute;
+            inset: 372px 0 142px;
+            overflow: hidden
+        }
+
+        .thread {
+            padding: 12px 34px 60px
+        }
+
+        .exchange {
+            margin-bottom: 28px
+        }
+
+        .user {
+            max-width: 790px;
+            margin-left: auto;
+            padding: 18px 22px;
+            border-radius: 26px 26px 7px 26px;
+            background: #7e3bed;
+            color: #fff;
+            font-size: 20px;
+            line-height: 1.42
+        }
+
+        .answer {
+            max-width: 880px;
+            margin-top: 16px;
+            padding: 20px 24px;
+            border-radius: 7px 26px 26px 26px;
+            background: #fff;
+            font-size: 19px;
+            line-height: 1.5
+        }
+
+        .answer strong {
+            color: #5719b6
+        }
+
+        .thinking {
+            display: flex;
+            gap: 7px;
+            margin: 14px 0 0 6px
+        }
+
+        .thinking i {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #7e3bed;
+            opacity: .25
+        }
+
+        .composer {
+            position: absolute;
+            left: 34px;
+            right: 34px;
+            bottom: 38px;
+            height: 82px;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            border: 2px solid #e6e4ec;
+            border-radius: 99px;
+            background: #fff;
+            color: #6a6775;
+            font-size: 19px
+        }
+
+        .close {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: #fafafe;
+            opacity: 0;
+            z-index: 50;
+            text-align: center
+        }
+
+        .close img {
+            width: 172px;
+            height: 172px;
+            border-radius: 42px
+        }
+
+        .close h1 {
+            margin: 34px 0 0;
+            font: 700 86px Space
+        }
+
+        .close p {
+            max-width: 800px;
+            margin: 30px auto;
+            color: #403d4a;
+            font-size: 38px;
+            line-height: 1.35
+        }
+
+        .close strong {
+            color: #6a24db
+        }
+
+        .post-topbar {
+            height: 164px;
+            padding: 92px 44px 18px;
+            background: rgba(250, 250, 254, .98)
+        }
+
+        .post-topbar .topcopy strong {
+            font: 500 30px/1 Space
+        }
+
+        .post-topbar .topcopy span {
+            margin-top: 5px;
+            display: block;
+            font-size: 15px
+        }
+
+        .post-viewport {
+            inset: 164px 0 0
+        }
+
+        .post-scroll {
+            padding: 38px 42px 190px
+        }
+
+        .visit-card {
+            display: grid;
+            grid-template-columns: 152px 1fr;
+            gap: 22px;
+            min-height: 248px;
+            padding: 34px;
+            border: 1px solid #e7e3ec;
+            border-radius: 30px;
+            background: #fff;
+            box-shadow: 0 14px 38px rgba(36, 24, 48, .06)
+        }
+
+        .visit-photo {
+            position: relative;
+            width: 142px;
+            height: 142px;
+            border-radius: 24px;
+            background: url("assets/people/aladin-moraes.png") center 18%/cover
+        }
+
+        .visit-photo i {
+            position: absolute;
+            right: -8px;
+            bottom: -8px;
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            background: #dfffd1;
+            color: #2f7d32;
+            font-style: normal;
+            font-weight: 700
+        }
+
+        .visit-copy small {
+            color: #6a24db;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 1.1px;
+            text-transform: uppercase
+        }
+
+        .visit-copy h1 {
+            margin: 7px 0 3px;
+            font: 500 36px/1.12 Space
+        }
+
+        .visit-copy p {
+            margin: 0;
+            color: #625e6d;
+            font-size: 21px
+        }
+
+        .visit-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px
+        }
+
+        .visit-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 13px;
+            border-radius: 999px;
+            background: #f3edff;
+            color: #5719b6;
+            font-size: 16px;
+            font-weight: 700
+        }
+
+        .visit-meta svg {
+            width: 15px;
+            height: 15px
+        }
+
+        .care-plan {
+            margin-top: 34px;
+            padding: 36px;
+            border-radius: 30px;
+            background: linear-gradient(145deg, #f3edff, #fbf9ff)
+        }
+
+        .care-plan .eyebrow-line {
+            color: #6a24db;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase
+        }
+
+        .care-plan h2 {
+            margin: 9px 0 8px;
+            font: 500 38px/1.15 Space
+        }
+
+        .care-plan>p {
+            margin: 0 0 20px;
+            color: #514d5b;
+            font-size: 23px;
+            line-height: 1.45
+        }
+
+        .plan-step {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 13px;
+            padding: 22px 0;
+            border-top: 1px solid #ded1f6
+        }
+
+        .plan-step .ibox {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: #fff
+        }
+
+        .plan-step strong {
+            display: block;
+            font-size: 23px
+        }
+
+        .plan-step span {
+            display: block;
+            margin-top: 3px;
+            color: #6a6674;
+            font-size: 19px
+        }
+
+        .document-row {
+            min-height: 126px;
+            padding: 22px
+        }
+
+        .document-row .glyph {
+            width: 70px;
+            height: 70px;
+            border-radius: 17px
+        }
+
+        .post-scroll .section {
+            margin-top: 42px
+        }
+
+        .post-scroll .section-title {
+            margin-bottom: 18px;
+            font-size: 35px
+        }
+
+        .post-scroll .row {
+            min-height: 112px;
+            padding: 22px
+        }
+
+        .post-scroll .rowcopy strong,
+        .post-scroll .grow strong {
+            font-size: 27px
+        }
+
+        .post-scroll .rowcopy span,
+        .post-scroll .grow span {
+            font-size: 21px
+        }
+
+        .post-scroll .reconsult,
+        .post-scroll .rating-inline,
+        .post-scroll .ask {
+            min-height: 124px;
+            padding: 25px
+        }
+
+        .doc-action {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #f5f2f8;
+            color: #5c5765
+        }
+
+        .doc-action svg {
+            width: 20px;
+            height: 20px
+        }
+
+        .pdf-sheet {
+            left: 18px;
+            right: 18px;
+            top: 96px;
+            border-radius: 34px 34px 0 0;
+            background: #dedee4
+        }
+
+        .pdf-sheet .sheethead {
+            height: 118px;
+            padding: 10px 24px 18px
+        }
+
+        .action-circle {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #f5f2f8;
+            color: #312d37
+        }
+
+        .action-circle svg {
+            width: 24px;
+            height: 24px
+        }
+
+        .pdf-ground {
+            inset: 146px 0 0;
+            padding: 18px 34px 70px
+        }
+
+        .backend-paper {
+            left: 34px;
+            right: 34px;
+            top: 18px;
+            height: 1338px;
+            padding: 50px 48px 58px;
+            font-family: Arial, Helvetica, sans-serif;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .12)
+        }
+
+        .backend-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb
+        }
+
+        .backend-brand {
+            display: flex;
+            align-items: center;
+            gap: 9px
+        }
+
+        .backend-brand img {
+            width: 48px;
+            height: 48px
+        }
+
+        .backend-brand strong {
+            color: #9531ff;
+            font-size: 28px;
+            letter-spacing: -.8px
+        }
+
+        .backend-created {
+            margin-top: 8px;
+            color: #6b7280;
+            font-size: 10px;
+            line-height: 1.4
+        }
+
+        .backend-doctor {
+            align-self: center;
+            text-align: right
+        }
+
+        .backend-doctor strong {
+            display: block;
+            font-size: 14px
+        }
+
+        .backend-doctor span {
+            display: block;
+            margin-top: 3px;
+            color: #6b7280;
+            font-size: 10px;
+            letter-spacing: .5px;
+            text-transform: uppercase
+        }
+
+        .backend-paper h2 {
+            margin: 24px 0 16px;
+            text-align: left;
+            font: 400 24px/1.25 Arial, Helvetica, sans-serif
+        }
+
+        .backend-patient {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 22px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e7eb
+        }
+
+        .backend-label {
+            display: block;
+            margin-bottom: 3px;
+            color: #6b7280;
+            font-size: 9px;
+            letter-spacing: .5px;
+            text-transform: uppercase
+        }
+
+        .backend-value {
+            display: block;
+            font-size: 13px;
+            font-weight: 600
+        }
+
+        .backend-sub {
+            display: block;
+            margin-top: 2px;
+            color: #6b7280;
+            font-size: 10px
+        }
+
+        .backend-type {
+            margin-top: 12px;
+            font-size: 11px
+        }
+
+        .backend-section {
+            margin-top: 24px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-transform: uppercase
+        }
+
+        .backend-item {
+            padding: 15px 0 5px
+        }
+
+        .backend-item strong {
+            display: block;
+            font-size: 12px
+        }
+
+        .backend-item span {
+            display: block;
+            margin-top: 4px;
+            color: #4b5563;
+            font-size: 11px;
+            line-height: 1.5
+        }
+
+        .backend-footer {
+            position: absolute;
+            left: 48px;
+            right: 48px;
+            bottom: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            text-align: center
+        }
+
+        .backend-footer>strong {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 10px;
+            letter-spacing: .45px
+        }
+
+        .qr {
+            width: 98px;
+            height: 98px;
+            margin: auto;
+            border: 8px solid #fff;
+            background:
+                linear-gradient(90deg, #111 10px, transparent 10px) 0 0/20px 20px,
+                linear-gradient(#111 10px, transparent 10px) 0 0/20px 20px,
+                repeating-conic-gradient(#111 0 25%, #fff 0 50%) 0 0/14px 14px;
+            outline: 1px solid #111
+        }
+
+        .validation {
+            margin-top: 8px;
+            color: #6b7280;
+            font-size: 9px
+        }
+
+        .signed {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: max-content;
+            margin-top: 18px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: #fff;
+            text-align: left;
+            font-size: 10px
+        }
+
+        .share-dim {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .28);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            z-index: 118
+        }
+
+        .share-panel {
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            padding: 14px 22px 22px;
+            border: 1px solid rgba(255, 255, 255, .78);
+            border-radius: 42px;
+            background: rgba(244, 244, 247, .96);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .24);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Arial, sans-serif;
+            opacity: 0;
+            z-index: 120
+        }
+
+        .share-grabber {
+            width: 72px;
+            height: 8px;
+            margin: 0 auto 18px;
+            border-radius: 999px;
+            background: #c7c7cc
+        }
+
+        .share-preview {
+            display: grid;
+            grid-template-columns: 74px 1fr 52px;
+            gap: 16px;
+            align-items: center;
+            padding: 0 4px 20px
+        }
+
+        .share-preview-page {
+            width: 74px;
+            height: 94px;
+            padding: 9px 8px;
+            border-radius: 9px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .12)
+        }
+
+        .share-preview-page i {
+            display: block;
+            width: 34px;
+            height: 5px;
+            margin: 0 0 8px;
+            border: 1px solid #111;
+            border-radius: 2px
+        }
+
+        .share-preview-page b {
+            display: block;
+            height: 2px;
+            margin: 5px 0;
+            background: #b6b6ba
+        }
+
+        .share-preview-copy strong {
+            display: block;
+            color: #111;
+            font-size: 25px;
+            font-weight: 650
+        }
+
+        .share-preview-copy span {
+            display: block;
+            margin-top: 5px;
+            color: #66666a;
+            font-size: 17px
+        }
+
+        .share-close {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #dddde1;
+            color: #54545a;
+            font-size: 26px;
+            font-weight: 600
+        }
+
+        .share-people,
+        .share-options {
+            display: flex;
+            gap: 20px;
+            padding: 20px 4px;
+            overflow: hidden;
+            border-top: 1px solid rgba(60, 60, 67, .16)
+        }
+
+        .share-person,
+        .share-option {
+            flex: 0 0 112px;
+            text-align: center;
+            color: #1c1c1e;
+            font-size: 16px
+        }
+
+        .share-person i {
+            width: 82px;
+            height: 82px;
+            margin: 0 auto 10px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #8b5cf6, #6d28d9);
+            color: #fff;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 650
+        }
+
+        .share-person:nth-child(2) i {
+            background: linear-gradient(145deg, #e8792e, #9a3412)
+        }
+
+        .share-person:nth-child(3) i {
+            background: linear-gradient(145deg, #3b82f6, #1d4ed8)
+        }
+
+        .share-person:nth-child(4) i {
+            background: linear-gradient(145deg, #8b5cf6, #5b21b6)
+        }
+
+        .share-option i {
+            width: 78px;
+            height: 78px;
+            margin: 0 auto 10px;
+            display: grid;
+            place-items: center;
+            border-radius: 18px;
+            background: #fff;
+            color: #111;
+            font-style: normal
+        }
+
+        .share-option.primary i {
+            background: #25d366;
+            color: #fff
+        }
+
+        .share-option.messages i {
+            background: #34c759;
+            color: #fff
+        }
+
+        .share-option.mail i {
+            background: #0a84ff;
+            color: #fff
+        }
+
+        .share-option.airdrop i {
+            color: #0a84ff
+        }
+
+        .share-option svg {
+            width: 36px;
+            height: 36px
+        }
+
+        .share-actions {
+            overflow: hidden;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, .82)
+        }
+
+        .share-action-row {
+            min-height: 68px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(60, 60, 67, .14);
+            color: #111;
+            font-size: 20px
+        }
+
+        .share-action-row:last-child {
+            border-bottom: 0
+        }
+
+        .share-action-row svg {
+            width: 26px;
+            height: 26px;
+            color: #2c2c2e
+        }
+
+        .share-toast {
+            position: absolute;
+            left: 230px;
+            right: 230px;
+            top: 116px;
+            padding: 16px;
+            border-radius: 999px;
+            background: #17151e;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            opacity: 0;
+            z-index: 150
+        }
+
+        .ai-entry {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #d8c8f6;
+            background: linear-gradient(135deg, #fff, #f4edff)
+        }
+
+        .ai-entry:after {
+            content: "";
+            position: absolute;
+            right: -80px;
+            top: -110px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(149, 49, 255, .14), transparent 67%)
+        }
+
+        .ai-entry .ibox {
+            z-index: 1;
+            background: #fff
+        }
+
+        .ai-entry .ibox img {
+            width: 31px;
+            height: 31px
+        }
+
+        .ai-entry .grow,
+        .ai-entry>.icon {
+            z-index: 1
+        }
+
+        #scene-chat {
+            overflow: visible;
+            pointer-events: none
+        }
+
+        .chat-stage {
+            background: transparent
+        }
+
+        .chat-shell {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            background: #fafafe;
+            border-radius: 0;
+            z-index: 100;
+            box-shadow: -34px 0 80px rgba(17, 17, 22, .24)
+        }
+
+        .chat-app-head {
+            position: absolute;
+            inset: 0 0 auto;
+            height: 184px;
+            padding: 91px 22px 14px;
+            display: grid;
+            grid-template-columns: 52px 1fr 52px;
+            align-items: center;
+            border-bottom: 1px solid #eceaf0;
+            background: #fafafe;
+            z-index: 20
+        }
+
+        .chat-back,
+        .chat-spacer {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center
+        }
+
+        .chat-title strong {
+            display: block;
+            font: 500 31px/1.1 Space
+        }
+
+        .chat-title span {
+            display: block;
+            margin-top: 4px;
+            color: #6f6a78;
+            font-size: 16px
+        }
+
+        .chat-window {
+            position: absolute;
+            inset: 414px 0 154px;
+            overflow: hidden
+        }
+
+        .chat-thread {
+            padding: 18px 24px 70px
+        }
+
+        .consultation-card {
+            display: grid;
+            grid-template-columns: 54px 1fr 24px;
+            gap: 14px;
+            margin: 0 0 22px;
+            padding: 24px;
+            border: 1px solid #d9c8f7;
+            border-radius: 24px;
+            background: #fff
+        }
+
+        .context-mark {
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            border-radius: 18px;
+            background: #f3edff
+        }
+
+        .context-mark img {
+            width: 34px;
+            height: 34px
+        }
+
+        .consultation-card strong {
+            display: block;
+            font-size: 21px
+        }
+
+        .consultation-card p {
+            margin: 4px 0 10px;
+            color: #686370;
+            font-size: 17px
+        }
+
+        .context-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px
+        }
+
+        .context-chips span {
+            padding: 6px 9px;
+            border-radius: 999px;
+            background: #f3edff;
+            color: #5719b6;
+            font-size: 14px;
+            font-weight: 700
+        }
+
+        .exchange {
+            margin-bottom: 34px
+        }
+
+        .user {
+            max-width: 780px;
+            padding: 20px 24px;
+            border-radius: 22px 22px 7px 22px;
+            font-size: 24px;
+            line-height: 1.42
+        }
+
+        .assistant-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 13px 0 7px;
+            color: #716d79;
+            font: 500 13px Space
+        }
+
+        .assistant-label img {
+            width: 22px;
+            height: 22px
+        }
+
+        .answer {
+            max-width: 900px;
+            margin: 0;
+            padding: 0 4px;
+            border-radius: 0;
+            background: transparent;
+            font-size: 23px;
+            line-height: 1.5
+        }
+
+        .answer:before {
+            content: "Assistente Viva Mais";
+            display: block;
+            margin-bottom: 7px;
+            color: #716d79;
+            font: 500 17px Space
+        }
+
+        .answer:after {
+            content: "Copiar";
+            display: block;
+            margin-top: 8px;
+            color: #8b8791;
+            font-size: 15px
+        }
+
+        .message-actions {
+            margin-top: 8px;
+            color: #8b8791;
+            font-size: 12px
+        }
+
+        .thinking {
+            margin: 9px 0 4px 4px
+        }
+
+        .chat-composer {
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            bottom: 34px;
+            height: 104px;
+            padding: 10px 12px 10px 17px;
+            display: grid;
+            grid-template-columns: 42px 1fr 42px 42px;
+            gap: 8px;
+            align-items: center;
+            border: 1px solid #dfdce4;
+            border-radius: 26px;
+            background: #fff;
+            color: #77727f;
+            font-size: 21px
+        }
+
+        .composer-button {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: #625d69
+        }
+
+        .composer-button.send {
+            background: #7e3bed;
+            color: #fff
+        }
+
+        .composer-button svg {
+            width: 21px;
+            height: 21px
+        }
+
+        .post-scroll {
+            padding: 28px 30px 210px
+        }
+
+        .visit-card {
+            grid-template-columns: 130px 1fr;
+            min-height: 286px;
+            padding: 28px;
+            border-radius: 34px;
+            border: 0;
+            box-shadow: 0 18px 55px rgba(48, 25, 69, .09)
+        }
+
+        .visit-photo {
+            width: 124px;
+            height: 154px;
+            border-radius: 26px
+        }
+
+        .visit-copy h1 {
+            font-size: 40px
+        }
+
+        .visit-copy p {
+            font-size: 24px
+        }
+
+        .doctor-facts {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 18px
+        }
+
+        .doctor-fact {
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: #f7f5fa
+        }
+
+        .doctor-fact strong {
+            display: block;
+            font-size: 22px
+        }
+
+        .doctor-fact span {
+            display: block;
+            margin-top: 3px;
+            color: #6f6977;
+            font-size: 17px
+        }
+
+        .care-plan {
+            padding: 30px;
+            border: 1px solid #e5ddf0;
+            background: #fff
+        }
+
+        .care-plan h2 {
+            font-size: 42px
+        }
+
+        .care-plan>p {
+            font-size: 25px
+        }
+
+        .post-scroll .section {
+            margin-top: 34px
+        }
+
+        .post-scroll .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            font-size: 36px
+        }
+
+        .post-scroll .docs {
+            display: flex;
+            gap: 16px;
+            overflow: hidden;
+            background: transparent;
+            border: 0;
+            border-radius: 0
+        }
+
+        .post-scroll .document-row {
+            flex: 0 0 430px;
+            min-height: 270px;
+            padding: 26px;
+            display: grid;
+            grid-template-columns: 1fr 40px;
+            grid-template-rows: 104px 1fr;
+            gap: 10px;
+            border: 1px solid #e5e1e9;
+            border-radius: 28px;
+            background: #fff
+        }
+
+        .post-scroll .document-row .glyph {
+            width: 90px;
+            height: 90px;
+            border-radius: 21px;
+            background: #f1ebfb
+        }
+
+        .post-scroll .document-row .rowcopy {
+            grid-column: 1 / -1
+        }
+
+        .post-scroll .document-row .rowcopy strong {
+            font-size: 27px
+        }
+
+        .post-scroll .document-row .rowcopy span {
+            margin-top: 7px;
+            font-size: 20px;
+            line-height: 1.35
+        }
+
+        .post-scroll .document-row>.icon {
+            width: 30px;
+            height: 30px;
+            align-self: center
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            margin-top: 14px
+        }
+
+        .carousel-dots i {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #d5cfdb
+        }
+
+        .carousel-dots i:first-child {
+            width: 22px;
+            border-radius: 5px;
+            background: #7e3bed
+        }
+
+        .post-scroll .reconsult {
+            min-height: 164px;
+            border: 1px solid #17151e;
+            border-radius: 28px;
+            background: #17151e;
+            color: #fff
+        }
+
+        .post-scroll .reconsult .ibox {
+            background: #fff;
+            color: #17151e
+        }
+
+        .post-scroll .reconsult .grow span {
+            color: #cbc7d0
+        }
+
+        .post-scroll .reconsult>.icon {
+            color: #fff
+        }
+
+        .comment-card {
+            padding: 25px;
+            border: 1px solid #e5e1e9;
+            border-radius: 26px;
+            background: #fff
+        }
+
+        .comment-card p {
+            margin: 0;
+            color: #3e3945;
+            font-size: 25px;
+            line-height: 1.45
+        }
+
+        .comment-card span {
+            display: block;
+            margin-top: 14px;
+            color: #716b79;
+            font-size: 18px
+        }
+
+        .rating-stars {
+            color: #7e3bed;
+            font-size: 32px;
+            letter-spacing: 5px
+        }
+
+        .post-scroll .rating-inline {
+            border: 1px solid #e5e1e9;
+            border-radius: 26px;
+            background: #fff
+        }
+
+        .post-scroll .ask {
+            min-height: 188px;
+            padding: 28px;
+            border: 0;
+            border-radius: 32px;
+            background: linear-gradient(135deg, #6320cf 0%, #8f43f4 65%, #a95cff 100%);
+            color: #fff;
+            box-shadow: 0 22px 55px rgba(106, 36, 219, .26)
+        }
+
+        .post-scroll .ask .ibox {
+            width: 62px;
+            height: 62px;
+            background: #fff
+        }
+
+        .post-scroll .ask .grow strong {
+            font-size: 30px
+        }
+
+        .post-scroll .ask .grow span {
+            color: #eee4ff;
+            font-size: 21px
+        }
+
+        .post-scroll .ask>.icon {
+            color: #fff
+        }
+
+        .ai-cta {
+            grid-column: 2 / -1;
+            width: max-content;
+            margin-top: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: #fff;
+            color: #6120c7;
+            font-size: 18px;
+            font-weight: 800
+        }
+
+        .backend-paper {
+            color: #111;
+            background: #fff
+        }
+
+        .backend-header {
+            padding-bottom: 18px;
+            border-bottom: 2px solid #111
+        }
+
+        .backend-brand img {
+            width: 42px;
+            height: 42px
+        }
+
+        .backend-brand strong {
+            color: #111;
+            font-size: 25px;
+            font-weight: 400
+        }
+
+        .backend-brand strong b {
+            font-weight: 800
+        }
+
+        .backend-created {
+            color: #777;
+            font-size: 9px;
+            letter-spacing: .4px;
+            text-transform: uppercase
+        }
+
+        .backend-doctor strong {
+            font-size: 18px;
+            letter-spacing: .8px;
+            text-transform: uppercase
+        }
+
+        .backend-doctor span {
+            color: #555
+        }
+
+        .pdf-parties {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 22px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #bbb
+        }
+
+        .pdf-party:last-child {
+            padding-left: 24px;
+            border-left: 1px solid #bbb
+        }
+
+        .pdf-context {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-bottom: 1px solid #bbb
+        }
+
+        .pdf-context>div {
+            padding: 16px 18px 16px 0
+        }
+
+        .pdf-table {
+            width: 100%;
+            margin-top: 14px;
+            border-collapse: collapse;
+            font-size: 11px
+        }
+
+        .pdf-table th {
+            padding: 8px;
+            background: #f1f1f1;
+            border-bottom: 1px solid #bbb;
+            color: #777;
+            font-size: 9px;
+            text-align: left;
+            text-transform: uppercase
+        }
+
+        .pdf-table td {
+            padding: 13px 8px;
+            border-bottom: 1px solid #bbb;
+            vertical-align: top
+        }
+
+        .pdf-table td strong,
+        .pdf-table td span {
+            display: block
+        }
+
+        .pdf-table td span {
+            margin-top: 4px;
+            color: #555
+        }
+
+        .backend-section {
+            border-bottom: 1px solid #111;
+            color: #111;
+            font-size: 10px
+        }
+
+        .backend-footer {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 18px;
+            align-items: center;
+            padding-top: 18px;
+            border-top: 0;
+            text-align: left
+        }
+
+        .backend-footer>strong {
+            grid-column: 1 / -1;
+            margin: 0;
+            color: #777;
+            font-weight: 400;
+            text-align: right
+        }
+
+        .backend-footer .qr {
+            width: 66px;
+            height: 66px;
+            margin: 0
+        }
+
+        .signature-copy {
+            color: #555;
+            font-size: 9px;
+            line-height: 1.45
+        }
+
+        .signature-copy b {
+            display: block;
+            margin-top: 5px;
+            color: #777;
+            font-family: monospace;
+            font-weight: 400
+        }
+
+        .signed {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <div data-hf-id="root" id="root" data-composition-id="main" data-start="0" data-duration="112" data-width="1080" data-height="1920">
+        <section data-hf-id="scene-consulta" id="scene-consulta" class="clip" data-start="0" data-duration="8">
+            <div data-hf-id="consulta" id="consulta" class="scene call"><img data-hf-id="doctor-photo" id="photo" class="call-photo" src="assets/people/aladin-moraes.png" alt="Médico">
+                <div data-hf-id="call-shade" class="call-shade"></div>
+                <div data-hf-id="live" class="live"><i data-hf-id="hf-wt6k"></i>Consulta em andamento</div>
+                <div data-hf-id="caption" id="caption" class="caption">Perfeito. Vou deixar receita e pedido de exames no seu pós-consulta.</div>
+                <div data-hf-id="doctor-name" class="doctor-name">Dr. Aladin Moraes</div>
+                <div data-hf-id="self" class="self"><span data-hf-id="hf-yxaf">Você</span></div>
+                <div data-hf-id="controls" class="controls">
+                    <div data-hf-id="hf-f5lj" class="control">••</div>
+                    <div data-hf-id="hf-uxis" class="control">＋</div>
+                    <div data-hf-id="end-call" id="end-call" class="control end">⌕</div>
+                </div>
+                <div data-hf-id="ending" id="ending" class="ending"><strong data-hf-id="hf-kn4a">Consulta finalizada</strong><span data-hf-id="hf-1bax">Seu cuidado continua no pós-consulta.</span></div>
+                <div data-hf-id="touch-call" id="touch-call" class="touch" style="left:497px;top:1670px"></div>
+                <div data-hf-id="ripple-call" id="ripple-call" class="ripple" style="left:495px;top:1668px"></div>
+                <div data-hf-id="hf-ga7c" class="home" style="background:#fff"></div>
+            </div>
+        </section>
+        <section data-hf-id="scene-feedback" id="scene-feedback" class="clip" data-start="8" data-duration="10">
+            <div data-hf-id="feedback-scene" id="feedback-scene" class="scene">
+                <div data-hf-id="hf-8kim" class="status"><span data-hf-id="hf-oykg">10:24</span><span data-hf-id="hf-m4l3">5G&#160;&#160;100%</span></div>
+                <div data-hf-id="hf-8kjy" class="notch"></div>
+                <div data-hf-id="hf-ykwx" class="aura"></div>
+                <div data-hf-id="hf-l5m5" class="complete">
+                    <div data-hf-id="check" id="check" class="check">✓</div>
+                    <h1 data-hf-id="hf-t90z">Cuidado concluído.</h1>
+                    <p data-hf-id="hf-yoph">Prontuário, receita e exames estão sendo preparados para você.</p>
+                </div>
+                <div data-hf-id="confetti" id="confetti" class="confetti"></div>
+                <div data-hf-id="rating" id="rating" class="rating">
+                    <div data-hf-id="hf-y2ai" class="handle"></div>
+                    <h2 data-hf-id="hf-i8c5">Como foi o atendimento?</h2>
+                    <p data-hf-id="hf-xosr">Sua nota ajuda outros pacientes a escolher.</p>
+                    <div data-hf-id="hf-h9kr" class="stars"><span data-hf-id="hf-rdv0" class="star">★</span><span data-hf-id="hf-n1c4" class="star">★</span><span data-hf-id="hf-luf1" class="star">★</span><span data-hf-id="hf-m8q2" class="star">★</span><span data-hf-id="hf-o897" class="star">★</span></div>
+                    <div data-hf-id="feedback" id="feedback" class="feedback"></div>
+                    <div data-hf-id="submit" id="submit" class="submit">Enviar avaliação</div>
+                </div>
+                <div data-hf-id="toast" id="toast" class="toast">Avaliação enviada</div>
+                <div data-hf-id="touch-rate" id="touch-rate" class="touch" style="left:497px;top:1740px"></div>
+                <div data-hf-id="ripple-rate" id="ripple-rate" class="ripple" style="left:495px;top:1738px"></div>
+                <div data-hf-id="hf-fc6d" class="home"></div>
+            </div>
+        </section>
+        <section data-hf-id="scene-pos" id="scene-pos" class="clip" data-start="18" data-duration="42" data-layout-allow-overlap="" data-layout-allow-occlusion="">
+            <div data-hf-id="pos" id="pos" class="scene" data-layout-allow-overlap="" data-layout-allow-occlusion="">
+                <div data-hf-id="hf-8csi" class="status"><span data-hf-id="hf-ok9f">10:25</span><span data-hf-id="hf-74jb">5G&#160;&#160;100%</span></div>
+                <div data-hf-id="hf-zwuq" class="notch"></div>
+                <div data-hf-id="loading" id="loading" class="loading">
+                    <div data-hf-id="hf-bbjj" class="eyebrow">Pós-consulta</div>
+                    <h1 data-hf-id="hf-oezk">Organizando seu cuidado</h1>
+                    <p data-hf-id="hf-ul7p">O médico assinou os documentos. Estamos reunindo tudo em um só lugar.</p>
+                    <div data-hf-id="hf-31j5" class="progress">
+                        <div data-hf-id="hf-jm1w" class="prow">
+                            <div data-hf-id="hf-4k1m" class="glyph"><svg data-hf-id="hf-b9l5" viewBox="0 0 46 46">
+                                    <path data-hf-id="hf-iopb" d="M8 14a3 3 0 0 1 3-3h9l4 4h11a3 3 0 0 1 3 3v17a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V14z" fill="#f3edff" stroke="#17151e" stroke-width="2.4" />
+                                    <path data-hf-id="hf-813m" d="M8 21h30M23 25v8M19 29h8" fill="none" stroke="#17151e" stroke-width="2.4" stroke-linecap="round" />
+                                    <circle data-hf-id="hf-pie4" cx="32" cy="31" r="2.4" fill="#c6ff34" stroke="#17151e" stroke-width="2" />
+                                </svg></div>
+                            <div data-hf-id="hf-hm73" class="pcopy"><strong data-hf-id="hf-nrw2">Prontuário completo</strong><span data-hf-id="hf-z2ba">Resumo, hipótese e orientações</span></div>
+                            <div data-hf-id="state-1" id="state-1" class="state">·</div>
+                        </div>
+                        <div data-hf-id="hf-i7fg" class="prow">
+                            <div data-hf-id="hf-ocny" class="glyph"><svg data-hf-id="hf-pn3x" viewBox="0 0 46 46">
+                                    <path data-hf-id="hf-e4d2" d="M12 9a3 3 0 0 1 3-3h12l9 9v24a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V9z" fill="#f3edff" stroke="#17151e" stroke-width="2.4" />
+                                    <path data-hf-id="hf-wz7d" d="M27 6v9h9M17 22h5a3 3 0 0 1 0 6h-5v-6zM17 28v6M22 28l6 6M28 28l-6 6" fill="none" stroke="#17151e" stroke-width="2.2" stroke-linecap="round" />
+                                    <circle data-hf-id="hf-zs7n" cx="33" cy="34" r="3.2" fill="#c6ff34" stroke="#17151e" stroke-width="2" />
+                                </svg></div>
+                            <div data-hf-id="hf-q68v" class="pcopy"><strong data-hf-id="hf-wqle">Receita simples</strong><span data-hf-id="hf-lpo0">Metformina 500 mg</span></div>
+                            <div data-hf-id="state-2" id="state-2" class="state">·</div>
+                        </div>
+                        <div data-hf-id="hf-h0id" class="prow">
+                            <div data-hf-id="hf-oqyz" class="glyph"><svg data-hf-id="hf-qu10" viewBox="0 0 46 46">
+                                    <path data-hf-id="hf-byii" d="M12 9a3 3 0 0 1 3-3h12l9 9v24a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V9z" fill="#f3edff" stroke="#17151e" stroke-width="2.4" />
+                                    <path data-hf-id="hf-rc2r" d="M27 6v9h9M20 20h6M21 20v6l-4.5 8a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L25 26v-6M18.6 31h8.8" fill="none" stroke="#17151e" stroke-width="2.2" stroke-linecap="round" />
+                                    <circle data-hf-id="hf-t5a7" cx="31" cy="35" r="2.6" fill="#c6ff34" stroke="#17151e" stroke-width="2" />
+                                </svg></div>
+                            <div data-hf-id="hf-prxu" class="pcopy"><strong data-hf-id="hf-z0nx">Pedido de exames</strong><span data-hf-id="hf-oxtd">Glicemia e hemoglobina glicada</span></div>
+                            <div data-hf-id="state-3" id="state-3" class="state">·</div>
+                        </div>
+                        <div data-hf-id="hf-qzq8" class="rail">
+                            <div data-hf-id="fill" id="fill" class="fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-hf-id="app" id="app" class="app">
+                    <div data-hf-id="hf-mndw" class="topbar post-topbar"><svg data-hf-id="hf-rkxe" class="icon">
+                            <path data-hf-id="hf-n0rv" d="m15 18-6-6 6-6" />
+                        </svg>
+                        <div data-hf-id="hf-jj3a" class="topcopy" data-layout-allow-overlap=""><strong data-hf-id="hf-bm4u" data-layout-allow-overlap="">Pós-consulta</strong><span data-hf-id="hf-py4r" data-layout-allow-overlap="">Seu cuidado, em um só lugar</span></div>
+                    </div>
+                    <div data-hf-id="hf-rhem" class="viewport post-viewport">
+                        <div data-hf-id="scroll" id="scroll" class="scroll post-scroll" data-layout-allow-overflow="">
+                            <div data-hf-id="hf-hie8" class="visit-card">
+                                <div data-hf-id="hf-o4a3" class="visit-photo"><i data-hf-id="hf-q7i5">✓</i></div>
+                                <div data-hf-id="visit-copy" class="visit-copy"><small data-hf-id="visit-label">Consulta finalizada</small>
+                                    <h1 data-hf-id="hf-oxwy">Dr. Aladin Moraes</h1>
+                                    <p data-hf-id="hf-3165">Clínica médica</p>
+                                    <div data-hf-id="visit-meta" class="visit-meta"><span data-hf-id="visit-date">Hoje, 18 set</span><span data-hf-id="visit-time">09:56–10:24</span><span data-hf-id="visit-type">Consulta por vídeo</span></div>
+                                </div>
+                                <div data-hf-id="doctor-facts" class="doctor-facts">
+                                    <div data-hf-id="doctor-crm" class="doctor-fact"><strong data-hf-id="hf-06yq">CRM 12457/MA</strong><span data-hf-id="hf-udhv">Registro profissional</span></div>
+                                    <div data-hf-id="doctor-rating" class="doctor-fact"><strong data-hf-id="hf-fy2a">★ 4,9</strong><span data-hf-id="hf-uki8">328 avaliações</span></div>
+                                    <div data-hf-id="doctor-count" class="doctor-fact"><strong data-hf-id="hf-1r0c">842</strong><span data-hf-id="hf-9no3">consultas realizadas</span></div>
+                                </div>
+                            </div>
+                            <div data-hf-id="hf-2x6g" class="summary care-plan" data-layout-allow-overflow=""><small data-hf-id="hf-u1xh" class="eyebrow-line">Seu plano de cuidado</small>
+                                <h2 data-hf-id="hf-r8gv">Controle glicêmico e próximos passos</h2>
+                                <p data-hf-id="hf-2yxo">Resultados compatíveis com alteração leve. Iniciar tratamento, ajustar rotina e repetir exames em 3 meses.</p>
+                                <div data-hf-id="hf-zl6z" class="care">
+                                    <div data-hf-id="hf-thy4" class="row">
+                                        <div data-hf-id="hf-dj9w" class="ibox"><svg data-hf-id="hf-gc52" class="icon">
+                                                <path data-hf-id="hf-24u2" d="m10.5 20.5-7-7a5 5 0 0 1 7-7l7 7a5 5 0 0 1-7 7Z" />
+                                                <path data-hf-id="hf-pjf9" d="m8.5 8.5 7 7" />
+                                            </svg></div>
+                                        <div data-hf-id="hf-qgor" class="rowcopy"><strong data-hf-id="hf-b9i1">Metformina 500 mg</strong><span data-hf-id="hf-waq5">1 comprimido após jantar · 90 dias</span></div>
+                                    </div>
+                                    <div data-hf-id="hf-lt04" class="row">
+                                        <div data-hf-id="hf-g1yk" class="ibox"><svg data-hf-id="hf-gqg3" class="icon">
+                                                <path data-hf-id="hf-4ny5" d="M9 3h6M10 9V3h4v6l5 9a2 2 0 0 1-1.8 3H6.8A2 2 0 0 1 5 18l5-9Z" />
+                                            </svg></div>
+                                        <div data-hf-id="hf-5fi3" class="rowcopy"><strong data-hf-id="hf-5rwy">Repetir exames</strong><span data-hf-id="hf-esuw">Glicemia, HbA1c e perfil lipídico · 3 meses</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-hf-id="hf-pvpx" class="section">
+                                <div data-hf-id="hf-rpxn" class="section-title">Documentos <span data-hf-id="hf-hs2e">3 assinados</span></div>
+                                <div data-hf-id="hf-hep9" class="docs">
+                                    <div data-hf-id="doc-rx" id="doc-rx" class="row document-row">
+                                        <div data-hf-id="hf-p5a0" class="glyph"><svg data-hf-id="hf-qfpz" viewBox="0 0 46 46">
+                                                <path data-hf-id="hf-cctj" d="M12 9a3 3 0 0 1 3-3h12l9 9v24a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V9z" fill="#f3edff" stroke="#17151e" stroke-width="2.4" />
+                                                <path data-hf-id="hf-1ekt" d="M27 6v9h9M17 22h5a3 3 0 0 1 0 6h-5v-6zM17 28v6M22 28l6 6M28 28l-6 6" fill="none" stroke="#17151e" stroke-width="2.2" stroke-linecap="round" />
+                                                <circle data-hf-id="hf-knw3" cx="33" cy="34" r="3.2" fill="#c6ff34" stroke="#17151e" stroke-width="2" />
+                                            </svg></div>
+                                        <div data-hf-id="hf-5172" class="rowcopy"><strong data-hf-id="hf-tsw6">Receita médica</strong><span data-hf-id="hf-psik" data-layout-allow-overlap="">Metformina 500 mg · assinada 10:24</span></div><svg data-hf-id="hf-h4r4" class="icon">
+                                            <path data-hf-id="hf-hwiq" d="M12 16V3M8 7l4-4 4 4M5 12v8h14v-8" />
+                                        </svg>
+                                    </div>
+                                    <div data-hf-id="doc-exam" id="doc-exam" class="row document-row">
+                                        <div data-hf-id="hf-md4t" class="glyph"><svg data-hf-id="hf-rmn2" viewBox="0 0 46 46">
+                                                <path data-hf-id="hf-cr4k" d="M12 9a3 3 0 0 1 3-3h12l9 9v24a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V9z" fill="#f3edff" stroke="#17151e" stroke-width="2.4" />
+                                                <path data-hf-id="hf-klib" d="M27 6v9h9M20 20h6M21 20v6l-4.5 8a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L25 26v-6M18.6 31h8.8" fill="none" stroke="#17151e" stroke-width="2.2" stroke-linecap="round" />
+                                                <circle data-hf-id="hf-nncv" cx="31" cy="35" r="2.6" fill="#c6ff34" stroke="#17151e" stroke-width="2" />
+                                            </svg></div>
+                                        <div data-hf-id="hf-4mw1" class="rowcopy"><strong data-hf-id="hf-2ur5" data-layout-allow-overlap="">Solicitação de exames</strong><span data-hf-id="hf-2mou">3 exames · assinada 10:24</span></div><svg data-hf-id="hf-aamt" class="icon">
+                                            <path data-hf-id="hf-rz5y" d="M12 16V3M8 7l4-4 4 4M5 12v8h14v-8" />
+                                        </svg>
+                                    </div>
+                                    <div data-hf-id="hf-km31" class="row document-row">
+                                        <div data-hf-id="hf-mrfu" class="glyph"><svg data-hf-id="hf-r8c1" viewBox="0 0 46 46">
+                                                <path data-hf-id="hf-7nvz" d="M8 14a3 3 0 0 1 3-3h9l4 4h11a3 3 0 0 1 3 3v17a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V14z" fill="#f3edff" stroke="#17151e" stroke-width="2.4" />
+                                                <path data-hf-id="hf-jdue" d="M8 21h30M23 25v8M19 29h8" fill="none" stroke="#17151e" stroke-width="2.4" stroke-linecap="round" />
+                                                <circle data-hf-id="hf-j5g4" cx="32" cy="31" r="2.4" fill="#c6ff34" stroke="#17151e" stroke-width="2" />
+                                            </svg></div>
+                                        <div data-hf-id="hf-48l0" class="rowcopy"><strong data-hf-id="hf-py9i">Prontuário completo</strong><span data-hf-id="hf-aw0j">Consulta de hoje</span></div><svg data-hf-id="hf-aoxu" class="icon">
+                                            <path data-hf-id="hf-sdgz" d="M12 16V3M8 7l4-4 4 4M5 12v8h14v-8" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div data-hf-id="carousel-dots" class="carousel-dots"><i data-hf-id="hf-jqbp"></i><i data-hf-id="hf-qkg0"></i><i data-hf-id="hf-q64z"></i></div>
+                            </div>
+                            <div data-hf-id="hf-g8i1" class="section">
+                                <div data-hf-id="hf-m9j5" class="reconsult" data-layout-allow-overlap="">
+                                    <div data-hf-id="hf-ev1h" class="ibox"><svg data-hf-id="hf-b38v" class="icon">
+                                            <rect data-hf-id="hf-8t75" x="3" y="5" width="18" height="16" rx="2" />
+                                            <path data-hf-id="hf-bcrm" d="M16 3v4M8 3v4M3 11h18M12 15v4M10 17h4" />
+                                        </svg></div>
+                                    <div data-hf-id="hf-fk21" class="grow"><strong data-hf-id="hf-3oyw" data-layout-allow-overlap="">Solicitar reconsulta</strong><span data-hf-id="hf-ddvf" data-layout-allow-overlap="">Retorne com novos exames em 3 meses.</span></div><svg data-hf-id="hf-bhjw" class="icon">
+                                        <path data-hf-id="hf-qnuk" d="m9 18 6-6-6-6" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div data-hf-id="hf-hff4" class="section">
+                                <div data-hf-id="hf-5vt5" class="section-title">Registro da consulta</div>
+                                <div data-hf-id="hf-uic6" class="records">
+                                    <div data-hf-id="hf-l0e2" class="row">
+                                        <div data-hf-id="hf-f9ci" class="ibox"><svg data-hf-id="hf-8pep" class="icon">
+                                                <path data-hf-id="hf-i2lr" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+                                                <path data-hf-id="hf-vkho" d="M14 2v6h6M8 13h8M8 17h6" />
+                                            </svg></div>
+                                        <div data-hf-id="hf-3u9z" class="rowcopy"><strong data-hf-id="hf-qckj">Prontuário completo</strong></div><svg data-hf-id="hf-93pq" class="icon">
+                                            <path data-hf-id="hf-dq5w" d="m9 18 6-6-6-6" />
+                                        </svg>
+                                    </div>
+                                    <div data-hf-id="hf-mzx7" class="row">
+                                        <div data-hf-id="hf-h8vn" class="ibox"><svg data-hf-id="hf-t0du" class="icon">
+                                                <path data-hf-id="hf-l2c9" d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" />
+                                            </svg></div>
+                                        <div data-hf-id="hf-3fyy" class="rowcopy"><strong data-hf-id="hf-5ntp">Conversa da consulta</strong></div><svg data-hf-id="hf-sm2t" class="icon">
+                                            <path data-hf-id="hf-cj8t" d="m9 18 6-6-6-6" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-hf-id="hf-h143" class="section">
+                                <div data-hf-id="hf-xomn" class="rating-inline">
+                                    <div data-hf-id="hf-hn6o" class="ibox"><svg data-hf-id="hf-tszw" class="icon">
+                                            <path data-hf-id="hf-ci5n" d="m12 2 3 6 7 .9-5 4.8 1.3 7-6.3-3.4-6.3 3.4 1.3-7-5-4.8L9 8Z" />
+                                        </svg></div>
+                                    <div data-hf-id="hf-61x9" class="grow"><strong data-hf-id="hf-hczm">Sua avaliação</strong><span data-hf-id="hf-mxhm">Atendimento claro e cuidadoso.</span></div>
+                                    <div data-hf-id="hf-88kd" class="rating-stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <div data-hf-id="comments-section" class="section">
+                                <div data-hf-id="comments-title" class="section-title">Comentários <span data-hf-id="hf-6vja">Privado</span></div>
+                                <div data-hf-id="comments-card" class="comment-card"><p data-hf-id="hf-l2e8">“Atendimento claro. Gostei de receber os próximos passos organizados.”</p><span data-hf-id="hf-jps5">Seu comentário · enviado às 10:25</span></div>
+                            </div>
+                            <div data-hf-id="hf-f1ky" class="section">
+                                <div data-hf-id="hf-3m0r" class="section-title">Ficou com dúvidas?</div>
+                                <div data-hf-id="ask" id="ask" class="ask ai-entry">
+                                    <div data-hf-id="hf-gg9l" class="ibox"><img data-hf-id="ask-logo" src="assets/brand/logo.svg" alt=""></div>
+                                    <div data-hf-id="hf-78uc" class="grow"><strong data-hf-id="hf-pup8">Pergunte à Assistente Viva Mais</strong><span data-hf-id="hf-4af8">Consulta, prontuário e documentos já anexados.</span></div><svg data-hf-id="hf-ully" class="icon">
+                                        <path data-hf-id="hf-cxju" d="m9 18 6-6-6-6" />
+                                    </svg>
+                                    <div data-hf-id="ai-cta" id="ai-cta" class="ai-cta">Perguntar sobre esta consulta</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-hf-id="backdrop" id="backdrop" class="backdrop"></div>
+                <div data-hf-id="sheet" id="sheet" class="sheet pdf-sheet" data-layout-allow-overlap="" data-layout-allow-occlusion="" data-layout-allow-overflow="">
+                    <div data-hf-id="hf-niod" class="grabber"></div>
+                    <div data-hf-id="hf-zewr" class="sheethead">
+                        <div data-hf-id="hf-o5li" class="sheetcopy"><strong data-hf-id="sheet-title" id="sheet-title">Receita médica</strong><span data-hf-id="hf-eehq">PDF assinado · 18/09/2026 às 10:24</span></div>
+                        <div data-hf-id="share-action" id="share-action" class="action-circle"><svg data-hf-id="share-action-svg" class="icon">
+                                <path data-hf-id="share-action-path" d="M12 16V3M8 7l4-4 4 4M5 12v8h14v-8" />
+                            </svg></div>
+                        <div data-hf-id="hf-sb0j" class="action-circle"><svg data-hf-id="close-action-svg" class="icon">
+                                <path data-hf-id="close-action-path" d="m6 6 12 12M18 6 6 18" />
+                            </svg></div>
+                    </div>
+                    <div data-hf-id="hf-ygft" class="ground pdf-ground">
+                        <article data-hf-id="paper-rx" id="paper-rx" class="paper backend-paper">
+                            <div data-hf-id="rx-backend-header" class="backend-header">
+                                <div data-hf-id="rx-brand-column">
+                                    <div data-hf-id="rx-brand" class="backend-brand"><img data-hf-id="rx-logo" src="assets/brand/logo-mono.svg" alt="Viva Mais"><strong data-hf-id="rx-brand-name">Viva<b data-hf-id="hf-im2n">mais</b></strong></div>
+                                    <div data-hf-id="rx-created" class="backend-created">Plataforma de telemedicina · vivamais.ai</div>
+                                </div>
+                                <div data-hf-id="rx-doctor" class="backend-doctor"><strong data-hf-id="rx-title">Receita médica</strong><span data-hf-id="rx-subtitle">Receita simples</span><span data-hf-id="rx-doc-meta">Documento 7C3F9A10 · Emitido em 18/09/2026 10:24</span></div>
+                            </div>
+                            <div data-hf-id="rx-parties" class="pdf-parties">
+                                <div data-hf-id="rx-professional" class="pdf-party"><span data-hf-id="hf-xcmx" class="backend-label">Profissional</span><strong data-hf-id="hf-z3d6" class="backend-value">Dr. Aladin Moraes</strong><span data-hf-id="hf-sy0t" class="backend-sub">CRM 12457/MA · Clínica Médica</span><span data-hf-id="hf-gvje" class="backend-sub">aladin.moraes@vivamais.ai</span></div>
+                                <div data-hf-id="rx-patient" class="pdf-party"><span data-hf-id="hf-lfuh" class="backend-label">Paciente</span><strong data-hf-id="hf-sfql" class="backend-value">Marina Almeida</strong><span data-hf-id="hf-34vi" class="backend-sub">CPF 123.456.789-00 · 38 anos</span><span data-hf-id="hf-yye0" class="backend-sub">marina.almeida@email.com</span></div>
+                            </div>
+                            <div data-hf-id="rx-context" class="pdf-context"><div data-hf-id="hf-y7yw"><span data-hf-id="hf-78il" class="backend-label">Consulta</span><strong data-hf-id="hf-vuws" class="backend-value">18/09/2026 · Vídeo</strong></div><div data-hf-id="hf-x11t"><span data-hf-id="hf-kbgu" class="backend-label">Nº do prontuário</span><strong data-hf-id="hf-njej" class="backend-value">PRT-2026-000481</strong></div><div data-hf-id="hf-xfcu"><span data-hf-id="hf-jtxn" class="backend-label">Duração</span><strong data-hf-id="hf-brw7" class="backend-value">28 minutos</strong></div></div>
+                            <div data-hf-id="rx-section" class="backend-section">MEDICAMENTOS PRESCRITOS</div>
+                            <table data-hf-id="rx-table" class="pdf-table"><thead data-hf-id="hf-zd89"><tr data-hf-id="hf-p3r7"><th data-hf-id="hf-7k7q">#</th><th data-hf-id="hf-z59p">Medicamento</th><th data-hf-id="hf-8c2a">Posologia</th><th data-hf-id="hf-wsne">Duração</th></tr></thead><tbody data-hf-id="hf-bsvf"><tr data-hf-id="hf-ddj7"><td data-hf-id="hf-si3g">1</td><td data-hf-id="hf-54xx"><strong data-hf-id="hf-7fxo">Metformina</strong><span data-hf-id="hf-4kjs">Metformina 500 mg</span></td><td data-hf-id="hf-rndv">1 comprimido após o jantar</td><td data-hf-id="hf-ty5z">90 dias</td></tr></tbody></table>
+                            <div data-hf-id="rx-footer" class="backend-footer"><strong data-hf-id="rx-signature-statement">Assinado digitalmente pelo profissional identificado no cabeçalho, com certificado ICP-Brasil vinculado ao registro profissional.</strong>
+                                <div data-hf-id="rx-qr" class="qr"></div>
+                                <div data-hf-id="rx-signature-copy" class="signature-copy">Válido somente com assinatura digital ICP-Brasil (MP 2.200-2/2001). Verifique a autenticidade em validar.iti.gov.br.<b data-hf-id="hf-8wdz">Documento 7c3f9a10-4b2e-4c88-9f01-000000000002 · gerado por Viva Mais</b></div>
+                            </div>
+                        </article>
+                        <article data-hf-id="paper-exam" id="paper-exam" class="paper backend-paper exam">
+                            <div data-hf-id="exam-backend-header" class="backend-header">
+                                <div data-hf-id="exam-brand-column">
+                                    <div data-hf-id="exam-brand" class="backend-brand"><img data-hf-id="exam-logo" src="assets/brand/logo-mono.svg" alt="Viva Mais"><strong data-hf-id="exam-brand-name">Viva<b data-hf-id="hf-njnj">mais</b></strong></div>
+                                    <div data-hf-id="exam-created" class="backend-created">Plataforma de telemedicina · vivamais.ai</div>
+                                </div>
+                                <div data-hf-id="exam-doctor" class="backend-doctor"><strong data-hf-id="exam-title">Solicitação de exames</strong><span data-hf-id="exam-subtitle">Investigação laboratorial</span><span data-hf-id="exam-doc-meta">Documento 7C3F9A10 · Emitido em 18/09/2026 10:24</span></div>
+                            </div>
+                            <div data-hf-id="exam-parties" class="pdf-parties">
+                                <div data-hf-id="exam-professional" class="pdf-party"><span data-hf-id="hf-8ah9" class="backend-label">Profissional</span><strong data-hf-id="hf-hy1a" class="backend-value">Dr. Aladin Moraes</strong><span data-hf-id="hf-vadt" class="backend-sub">CRM 12457/MA · Clínica Médica</span><span data-hf-id="hf-wsj2" class="backend-sub">aladin.moraes@vivamais.ai</span></div>
+                                <div data-hf-id="exam-patient" class="pdf-party"><span data-hf-id="hf-t5ql" class="backend-label">Paciente</span><strong data-hf-id="hf-4ti9" class="backend-value">Marina Almeida</strong><span data-hf-id="hf-0eia" class="backend-sub">CPF 123.456.789-00 · 38 anos</span><span data-hf-id="hf-m968" class="backend-sub">marina.almeida@email.com</span></div>
+                            </div>
+                            <div data-hf-id="exam-context" class="pdf-context"><div data-hf-id="hf-w8fr"><span data-hf-id="hf-eak1" class="backend-label">Consulta</span><strong data-hf-id="hf-m3zo" class="backend-value">18/09/2026 · Vídeo</strong></div><div data-hf-id="hf-wmqs"><span data-hf-id="hf-naqa" class="backend-label">Nº do prontuário</span><strong data-hf-id="hf-6egr" class="backend-value">PRT-2026-000481</strong></div><div data-hf-id="hf-vftp"><span data-hf-id="hf-qr5q" class="backend-label">Indicação clínica</span><strong data-hf-id="hf-sihp" class="backend-value">Alteração glicêmica</strong></div></div>
+                            <div data-hf-id="exam-section" class="backend-section">EXAMES SOLICITADOS</div>
+                            <table data-hf-id="exam-table" class="pdf-table"><thead data-hf-id="hf-qnil"><tr data-hf-id="hf-cz86"><th data-hf-id="hf-lzwa">#</th><th data-hf-id="hf-anpt">Exame</th><th data-hf-id="hf-svs3">Código TUSS</th></tr></thead><tbody data-hf-id="hf-2rij"><tr data-hf-id="hf-ckx5"><td data-hf-id="hf-twus">1</td><td data-hf-id="hf-t9cp"><strong data-hf-id="hf-splb">Glicemia de jejum</strong></td><td data-hf-id="hf-70os">40302040</td></tr><tr data-hf-id="hf-c6m4"><td data-hf-id="hf-rb6d">2</td><td data-hf-id="hf-ug9s"><strong data-hf-id="hf-mcvq">Hemoglobina glicada (HbA1c)</strong></td><td data-hf-id="hf-62hz">40302016</td></tr><tr data-hf-id="hf-bsb3"><td data-hf-id="hf-rphe">3</td><td data-hf-id="hf-u1yr"><strong data-hf-id="hf-4nyx">Perfil lipídico</strong></td><td data-hf-id="hf-4qp3">40301664</td></tr></tbody></table>
+                            <div data-hf-id="exam-guidance-title" class="backend-section">ORIENTAÇÕES</div>
+                            <div data-hf-id="exam-guidance" class="backend-item"><span data-hf-id="exam-guidance-copy">Jejum de 8 horas. Repetir em 3 meses e levar resultados na reconsulta.</span></div>
+                            <div data-hf-id="exam-footer" class="backend-footer"><strong data-hf-id="exam-signature-statement">Assinado digitalmente pelo profissional identificado no cabeçalho, com certificado ICP-Brasil vinculado ao registro profissional.</strong>
+                                <div data-hf-id="exam-qr" class="qr"></div>
+                                <div data-hf-id="exam-signature-copy" class="signature-copy">Válido somente com assinatura digital ICP-Brasil (MP 2.200-2/2001). Verifique a autenticidade em validar.iti.gov.br.<b data-hf-id="hf-2k7q">Documento 7c3f9a10-4b2e-4c88-9f01-000000000003 · gerado por Viva Mais</b></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div data-hf-id="share-dim" id="share-dim" class="share-dim"></div>
+                    <div data-hf-id="share-panel" id="share-panel" class="share-panel" data-layout-allow-occlusion="">
+                        <div data-hf-id="share-grabber" class="share-grabber"></div>
+                        <div data-hf-id="share-preview" class="share-preview">
+                            <div data-hf-id="share-preview-page" class="share-preview-page"><i data-hf-id="share-preview-logo"></i><b data-hf-id="share-preview-line-1"></b><b data-hf-id="share-preview-line-2"></b><b data-hf-id="share-preview-line-3"></b><b data-hf-id="share-preview-line-4"></b></div>
+                            <div data-hf-id="share-preview-copy" class="share-preview-copy"><strong data-hf-id="share-title">Receita médica</strong><span data-hf-id="share-subtitle">Documento PDF · 84 KB</span></div>
+                            <div data-hf-id="share-close" class="share-close">×</div>
+                        </div>
+                        <div data-hf-id="share-people" class="share-people">
+                            <div data-hf-id="share-person-mae" class="share-person" data-layout-allow-overlap=""><i data-hf-id="share-person-mae-avatar" data-layout-allow-overlap="">M</i>Mãe</div>
+                            <div data-hf-id="share-person-aladin" class="share-person" data-layout-allow-overlap=""><i data-hf-id="share-person-aladin-avatar" data-layout-allow-overlap="">A</i>Dr. Aladin</div>
+                            <div data-hf-id="share-person-ana" class="share-person" data-layout-allow-overlap=""><i data-hf-id="share-person-ana-avatar" data-layout-allow-overlap="">A</i>Ana</div>
+                            <div data-hf-id="share-person-more" class="share-person" data-layout-allow-overlap=""><i data-hf-id="share-person-more-avatar" data-layout-allow-overlap="">•••</i>Mais</div>
+                        </div>
+                        <div data-hf-id="share-options" class="share-options">
+                            <div data-hf-id="share-whatsapp" id="share-whatsapp" class="share-option primary"><i data-hf-id="share-whatsapp-icon"><svg data-hf-id="share-whatsapp-svg" class="icon">
+                                        <path data-hf-id="share-whatsapp-path" d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.8-.9L3 20.5l1.4-5a8.4 8.4 0 1 1 16.6-4Z" />
+                                        <path data-hf-id="share-whatsapp-phone" d="M8.2 8.1c.4 3 2.6 5.2 5.6 5.8" />
+                                    </svg></i>WhatsApp</div>
+                            <div data-hf-id="share-messages" class="share-option messages"><i data-hf-id="share-messages-icon"><svg data-hf-id="share-messages-svg" class="icon">
+                                        <path data-hf-id="share-messages-path" d="M4 5.5h16v10H10l-5 4v-4H4z" />
+                                    </svg></i>Mensagens</div>
+                            <div data-hf-id="share-mail" class="share-option mail"><i data-hf-id="share-mail-icon"><svg data-hf-id="share-mail-svg" class="icon">
+                                        <rect data-hf-id="share-mail-box" x="3" y="5" width="18" height="14" rx="2" />
+                                        <path data-hf-id="share-mail-path" d="m3 7 9 6 9-6" />
+                                    </svg></i>E-mail</div>
+                            <div data-hf-id="share-airdrop" class="share-option airdrop"><i data-hf-id="share-airdrop-icon"><svg data-hf-id="share-airdrop-svg" class="icon"><circle data-hf-id="share-airdrop-dot" cx="12" cy="15" r="2" /><path data-hf-id="share-airdrop-path-1" d="M7.8 11a6 6 0 0 1 8.4 0M4.5 7.8a10.5 10.5 0 0 1 15 0M10 18h4" /></svg></i>AirDrop</div>
+                        </div>
+                        <div data-hf-id="share-actions" class="share-actions">
+                            <div data-hf-id="share-copy" class="share-action-row"><span data-hf-id="share-copy-label">Copiar</span><svg data-hf-id="share-copy-svg" class="icon"><rect data-hf-id="share-copy-back" x="8" y="8" width="12" height="12" rx="2" /><path data-hf-id="share-copy-front" d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" /></svg></div>
+                            <div data-hf-id="share-files" class="share-action-row"><span data-hf-id="share-files-label">Salvar em Arquivos</span><svg data-hf-id="share-files-svg" class="icon"><path data-hf-id="share-files-path" d="M4 6h6l2 2h8v11H4z" /></svg></div>
+                            <div data-hf-id="share-print" class="share-action-row"><span data-hf-id="share-print-label">Imprimir</span><svg data-hf-id="share-print-svg" class="icon"><path data-hf-id="share-print-path" d="M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z" /></svg></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-hf-id="share-toast" id="share-toast" class="share-toast">Receita compartilhada</div>
+                <div data-hf-id="touch-share" id="touch-share" class="touch" style="left:865px;top:170px"></div>
+                <div data-hf-id="ripple-share" id="ripple-share" class="ripple" style="left:863px;top:168px"></div>
+                <div data-hf-id="touch-share-option" id="touch-share-option" class="touch" style="left:92px;top:1510px"></div>
+                <div data-hf-id="ripple-share-option" id="ripple-share-option" class="ripple" style="left:90px;top:1508px"></div>
+                <div data-hf-id="touch-doc" id="touch-doc" class="touch" style="left:190px;top:860px"></div>
+                <div data-hf-id="ripple-doc" id="ripple-doc" class="ripple" style="left:188px;top:858px"></div>
+                <div data-hf-id="touch-doc-exam" id="touch-doc-exam" class="touch" style="left:620px;top:860px"></div>
+                <div data-hf-id="ripple-doc-exam" id="ripple-doc-exam" class="ripple" style="left:618px;top:858px"></div>
+                <div data-hf-id="touch-ai" id="touch-ai" class="touch" style="left:497px;top:1589px"></div>
+                <div data-hf-id="ripple-ai" id="ripple-ai" class="ripple" style="left:495px;top:1587px"></div>
+                <div data-hf-id="hf-rik9" class="home"></div>
+            </div>
+        </section>
+        <section data-hf-id="scene-chat" id="scene-chat" class="clip" data-start="56" data-duration="56" data-layout-allow-overlap="" data-layout-allow-occlusion="">
+            <div data-hf-id="chat" id="chat" class="scene chat-stage" data-layout-allow-overlap="" data-layout-allow-occlusion="">
+                <div data-hf-id="chat-shell" id="chat-shell" class="chat-shell" data-layout-allow-overlap="" data-layout-allow-occlusion="">
+                    <div data-hf-id="hf-0b5r" class="notch"></div>
+                    <div data-hf-id="hf-929k" class="chathead chat-app-head"><svg data-hf-id="hf-u7ax" class="icon">
+                            <path data-hf-id="hf-mz63" d="m15 18-6-6 6-6" />
+                        </svg>
+                    <div data-hf-id="hf-yeow" class="chat-title" data-layout-allow-overlap=""><strong data-hf-id="hf-ttpd" data-layout-allow-overlap="">Análise da Consulta</strong><span data-hf-id="hf-jkym" data-layout-allow-overlap="">consulta de 18/09/2026 · clínica médica · 1 receita · 3 exames</span></div>
+                    </div>
+                    <div data-hf-id="hf-jxbd" id="consultation-card" class="context consultation-card">
+                        <div data-hf-id="context-mark" class="context-mark"><img data-hf-id="context-logo" src="assets/brand/logo.svg" alt=""></div>
+                    <div data-hf-id="context-copy" data-layout-allow-overlap="">
+                            <div data-hf-id="hf-rpzs" class="ctop"><strong data-hf-id="hf-ttzj">Consulta anexada</strong><span data-hf-id="hf-i31s" class="badge">IA</span></div>
+                        <p data-hf-id="context-doctor" data-layout-allow-overlap="">Clínica médica · Dr. Aladin Moraes</p>
+                            <div data-hf-id="hf-exrd" class="chips context-chips"><span data-hf-id="hf-wn85" class="chip" data-layout-allow-overlap="">18 set, 09:56</span><span data-hf-id="hf-3m76" class="chip" data-layout-allow-overlap="">Online</span><span data-hf-id="hf-rlkn" class="chip" data-layout-allow-overlap="">Prontuário pronto</span></div>
+                        </div>
+                        <svg data-hf-id="context-chevron" class="icon">
+                            <path data-hf-id="context-chevron-path" d="m9 18 6-6-6-6" />
+                        </svg>
+                    </div>
+                    <div data-hf-id="hf-6r44" class="window chat-window">
+                        <div data-hf-id="thread" id="thread" class="thread chat-thread" data-layout-allow-overflow="">
+                            <div data-hf-id="x1" id="x1" class="exchange">
+                                <div data-hf-id="hf-3wyo" class="user">Minha glicemia deu 112 mg/dL e a HbA1c 5,8%. Isso combina com o prontuário?</div>
+                                <div data-hf-id="hf-csw0" class="thinking"><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i><i data-hf-id="hf-ylp6"></i></div>
+                                <div data-hf-id="hf-fqsc" class="answer"><strong data-hf-id="hf-0ygt">Sim.</strong> O prontuário descreve alteração leve do controle glicêmico. Esses valores entram na faixa usada para investigar pré-diabetes, mas não fecham diagnóstico sozinhos.</div>
+                            </div>
+                            <div data-hf-id="x2" id="x2" class="exchange">
+                                <div data-hf-id="hf-ydl2" class="user">Preciso começar a metformina agora?</div>
+                                <div data-hf-id="hf-9cu0" class="thinking"><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-0zjc"></i><i data-hf-id="hf-zsm9"></i></div>
+                                <div data-hf-id="hf-76qv" class="answer">A receita orienta <strong data-hf-id="hf-upeh">metformina 500 mg após jantar por 90 dias</strong>. Siga a prescrição e não ajuste a dose sem falar com o médico.</div>
+                            </div>
+                            <div data-hf-id="x3" id="x3" class="exchange">
+                                <div data-hf-id="hf-89w6" class="user">Quais exames repito e quando?</div>
+                                <div data-hf-id="hf-85wx" class="thinking"><i data-hf-id="hf-06xa"></i><i data-hf-id="hf-26gf"></i><i data-hf-id="hf-2krg"></i></div>
+                                <div data-hf-id="hf-hukw" class="answer">O pedido inclui <strong data-hf-id="hf-ogfw">glicemia de jejum, HbA1c e perfil lipídico</strong> em 3 meses. O documento orienta jejum de 8 horas.</div>
+                            </div>
+                            <div data-hf-id="x4" id="x4" class="exchange">
+                                <div data-hf-id="hf-l80u" class="user">Quando devo procurar atendimento antes da reconsulta?</div>
+                                <div data-hf-id="hf-8k7y" class="thinking"><i data-hf-id="hf-oz7w"></i><i data-hf-id="hf-okwv"></i><i data-hf-id="hf-o6lu"></i></div>
+                                <div data-hf-id="hf-zrkt" class="answer">Procure atendimento se houver <strong data-hf-id="hf-k6ie">desmaio, vômitos persistentes, mal-estar importante ou piora súbita</strong>. Para dúvidas sobre dose ou efeitos, solicite reconsulta.</div>
+                            </div>
+                            <div data-hf-id="x5" id="x5" class="exchange">
+                                <div data-hf-id="x5-user" class="user">O que faço até a reconsulta?</div>
+                                <div data-hf-id="x5-thinking" class="thinking"><i data-hf-id="x5-dot-1"></i><i data-hf-id="x5-dot-2"></i><i data-hf-id="x5-dot-3"></i></div>
+                                <div data-hf-id="x5-answer" class="answer">Siga a prescrição, mantenha alimentação equilibrada e atividade física regular. Guarde os novos resultados para revisar na reconsulta.</div>
+                            </div>
+                            <div data-hf-id="x6" id="x6" class="exchange">
+                                <div data-hf-id="x6-user" class="user">E se a metformina me fizer mal?</div>
+                                <div data-hf-id="x6-thinking" class="thinking"><i data-hf-id="x6-dot-1"></i><i data-hf-id="x6-dot-2"></i><i data-hf-id="x6-dot-3"></i></div>
+                                <div data-hf-id="x6-answer" class="answer">Náusea e desconforto intestinal podem acontecer no início. Se forem intensos, persistentes ou acompanhados de piora importante, fale com o médico antes de mudar a dose.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-hf-id="hf-n9fz" class="composer chat-composer">
+                        <div data-hf-id="composer-attach" class="composer-button"><svg data-hf-id="composer-attach-svg" class="icon">
+                                <path data-hf-id="composer-attach-path" d="m21.4 11.6-8.9 8.9a6 6 0 0 1-8.5-8.5l9.6-9.6a4 4 0 0 1 5.7 5.7l-9.6 9.6a2 2 0 0 1-2.8-2.8l8.9-8.9" />
+                            </svg></div><span data-hf-id="composer-copy">Pergunte sobre sua consulta…</span>
+                        <div data-hf-id="composer-mic" class="composer-button"><svg data-hf-id="composer-mic-svg" class="icon">
+                                <rect data-hf-id="composer-mic-box" x="9" y="2" width="6" height="12" rx="3" />
+                                <path data-hf-id="composer-mic-path" d="M5 10a7 7 0 0 0 14 0M12 17v5" />
+                            </svg></div>
+                        <div data-hf-id="composer-send" class="composer-button send"><svg data-hf-id="composer-send-svg" class="icon">
+                                <path data-hf-id="composer-send-path" d="M12 19V5M7 10l5-5 5 5" />
+                            </svg></div>
+                    </div>
+                    <div data-hf-id="brand-close" id="brand-close" class="close" data-layout-allow-overlap="" data-layout-allow-occlusion="">
+                        <div data-hf-id="brand-inner" id="brand-inner"><img data-hf-id="hf-yst7" src="assets/brand/logo.svg" alt="Viva Mais">
+                            <h1 data-hf-id="hf-zxwk">Viva Mais</h1>
+                            <p data-hf-id="hf-iuqh">Depois da consulta, <strong data-hf-id="hf-5pe3">o cuidado continua.</strong></p>
+                        </div>
+                    </div>
+                    <div data-hf-id="hf-sphc" class="home"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        gsap.set("#sheet", {
+            opacity: 0,
+            y: 1720
+        });
+        gsap.set(["#touch-doc", "#ripple-doc", "#touch-doc-exam", "#ripple-doc-exam", "#touch-share", "#ripple-share", "#touch-share-option", "#ripple-share-option", "#touch-ai", "#ripple-ai"], {
+            opacity: 0,
+            y: 0,
+            scale: 1
+        });
+        gsap.set(["#share-panel", "#share-dim", "#share-toast"], {
+            opacity: 0
+        });
+        const tl = gsap.timeline({
+            paused: true
+        });
+        const typeText = (el, text, start, step) => {
+            for (let i = 0; i <= text.length; i += 1) tl.set(el, {
+                textContent: text.slice(0, i)
+            }, start + i * step)
+        };
+        const click = (c, r, t, s) => {
+            tl.fromTo(c, {
+                opacity: 0,
+                scale: .7,
+                y: 90
+            }, {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: .58,
+                ease: "power3.out",
+                immediateRender: false
+            }, s);
+            tl.to([c, t], {
+                scale: .96,
+                duration: .08,
+                ease: "power2.in",
+                yoyo: true,
+                repeat: 1
+            }, s + .7);
+            tl.fromTo(r, {
+                opacity: .8,
+                scale: .3
+            }, {
+                opacity: 0,
+                scale: 4,
+                duration: .7,
+                ease: "power3.out",
+                immediateRender: false
+            }, s + .72);
+            tl.to(c, {
+                opacity: 0,
+                y: -25,
+                duration: .3
+            }, s + 1.3)
+        };
+        const reply = (id, s, y) => {
+            tl.fromTo(`#${id} .user`, {
+                opacity: 0,
+                y: 28
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: .4,
+                ease: "power3.out"
+            }, s);
+            tl.fromTo(`#${id} .thinking`, {
+                opacity: 0,
+                y: 12
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: .25
+            }, s + .65);
+            tl.to(`#${id} .thinking i`, {
+                opacity: 1,
+                scale: 1.3,
+                duration: .2,
+                stagger: .12,
+                yoyo: true,
+                repeat: 2
+            }, s + .75);
+            tl.to(`#${id} .thinking`, {
+                opacity: 0,
+                duration: .18
+            }, s + 1.65);
+            tl.fromTo(`#${id} .answer`, {
+                opacity: 0,
+                y: 18
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: .38,
+                ease: "power3.out"
+            }, s + 1.8);
+            if (y) tl.to("#thread", {
+                y,
+                duration: .7,
+                ease: "power2.inOut"
+            }, s + 3.8)
+        };
+        tl.fromTo("#photo", {
+            opacity: 0,
+            scale: 1.12,
+            filter: "brightness(.42) blur(14px)"
+        }, {
+            opacity: 1,
+            scale: 1,
+            filter: "brightness(.74) blur(0px)",
+            duration: .8,
+            ease: "power4.out"
+        }, 0);
+        tl.fromTo("#caption", {
+            opacity: 0,
+            y: 36
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: .55
+        }, 1.2);
+        tl.to("#caption", {
+            opacity: 0,
+            y: -20,
+            duration: .35
+        }, 4.25);
+        click("#touch-call", "#ripple-call", "#end-call", 4.45);
+        tl.to("#photo", {
+            filter: "brightness(.34) blur(8px)",
+            scale: 1.04,
+            duration: .5
+        }, 5.25);
+        tl.fromTo("#ending", {
+            opacity: 0,
+            scale: .92
+        }, {
+            opacity: 1,
+            scale: 1,
+            duration: .5,
+            ease: "back.out(1.4)"
+        }, 5.45);
+        tl.fromTo("#check", {
+            opacity: 0,
+            scale: .5,
+            rotation: -12
+        }, {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: .62,
+            ease: "back.out(1.6)"
+        }, 8.35);
+        const f = document.getElementById("confetti"),
+            colors = ["#7e3bed", "#6a24db", "#c6ff34", "#12ffd7", "#17151e"];
+        for (let i = 0; i < 22; i++) {
+            const e = document.createElement("span");
+            e.style.cssText = `width:${10+i%8}px;height:8px;background:${colors[i%5]}`;
+            f.appendChild(e);
+            tl.fromTo(e, {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                rotation: 0
+            }, {
+                opacity: 0,
+                x: (i - 11) * 42,
+                y: 600 + i % 4 * 90,
+                rotation: i * 80,
+                duration: 1.3,
+                ease: "power2.in"
+            }, 8.7)
+        }
+        tl.fromTo("#rating", {
+            y: 780
+        }, {
+            y: 0,
+            duration: .72,
+            ease: "power4.out"
+        }, 10.15);
+        tl.to(".star", {
+            color: "#7e3bed",
+            scale: 1.12,
+            duration: .18,
+            stagger: .15
+        }, 11.35);
+        typeText("#feedback", "Atendimento claro e cuidadoso.", 12.35, .055);
+        click("#touch-rate", "#ripple-rate", "#submit", 14.45);
+        tl.fromTo("#toast", {
+            opacity: 0,
+            y: -20
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: .35
+        }, 15.7);
+        tl.to("#toast", {
+            opacity: 0
+        }, 17.1);
+        tl.fromTo("#loading", {
+            opacity: 0,
+            y: 48
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: .62
+        }, 18.25);
+        tl.to("#fill", {
+            scaleX: .34,
+            duration: .7
+        }, 19.5);
+        tl.set("#state-1", {
+            textContent: "✓",
+            className: "state done"
+        }, 20.15);
+        tl.to("#fill", {
+            scaleX: .68,
+            duration: .7
+        }, 20.55);
+        tl.set("#state-2", {
+            textContent: "✓",
+            className: "state done"
+        }, 21.2);
+        tl.to("#fill", {
+            scaleX: 1,
+            duration: .7
+        }, 21.6);
+        tl.set("#state-3", {
+            textContent: "✓",
+            className: "state done"
+        }, 22.25);
+        tl.to("#loading", {
+            opacity: 0,
+            y: -38,
+            duration: .4
+        }, 22.9);
+        tl.fromTo("#app", {
+            opacity: 0,
+            y: 62
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: .62,
+            ease: "power4.out"
+        }, 23.15);
+        tl.to("#scroll", {
+            y: -460,
+            duration: 2.4,
+            ease: "power2.inOut"
+        }, 26.3);
+        click("#touch-doc", "#ripple-doc", "#doc-rx", 29.1);
+        tl.to("#backdrop", {
+            opacity: 1,
+            duration: .25
+        }, 30);
+        tl.to("#scroll", {
+            opacity: .08,
+            duration: .25
+        }, 30);
+        tl.fromTo("#sheet", {
+            opacity: 1,
+            y: 1720
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: .62,
+            ease: "power4.out",
+            immediateRender: false
+        }, 30);
+        click("#touch-share", "#ripple-share", "#share-action", 31.5);
+        tl.to("#share-dim", {
+            opacity: 1,
+            duration: .25
+        }, 32.35);
+        tl.fromTo("#share-panel", {
+            opacity: 0,
+            y: 260
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: .5,
+            ease: "power4.out",
+            immediateRender: false
+        }, 32.35);
+        click("#touch-share-option", "#ripple-share-option", "#share-whatsapp", 33.35);
+        tl.to(["#share-panel", "#share-dim"], {
+            opacity: 0,
+            duration: .3
+        }, 34.45);
+        tl.fromTo("#share-toast", {
+            opacity: 0,
+            y: -18
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: .3,
+            immediateRender: false
+        }, 34.7);
+        tl.to("#share-toast", {
+            opacity: 0,
+            duration: .25
+        }, 35.55);
+        tl.to("#sheet", {
+            y: 1720,
+            duration: .55,
+            ease: "power4.in"
+        }, 36);
+        tl.to("#backdrop", {
+            opacity: 0,
+            duration: .25
+        }, 36.35);
+        tl.to("#scroll", {
+            opacity: 1,
+            duration: .25
+        }, 36.35);
+        tl.set("#sheet", {
+            opacity: 0
+        }, 36.65);
+        tl.set("#paper-rx", {
+            opacity: 0,
+            y: 0
+        }, 36.66);
+        tl.set("#paper-exam", {
+            opacity: 1,
+            y: 0
+        }, 36.66);
+        tl.set("#sheet-title", {
+            textContent: "Solicitação de exames"
+        }, 36.66);
+        click("#touch-doc-exam", "#ripple-doc-exam", "#doc-exam", 37);
+        tl.to("#backdrop", {
+            opacity: 1,
+            duration: .25
+        }, 37.9);
+        tl.to("#scroll", {
+            opacity: .08,
+            duration: .25
+        }, 37.9);
+        tl.fromTo("#sheet", {
+            opacity: 1,
+            y: 1720
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: .62,
+            ease: "power4.out",
+            immediateRender: false
+        }, 37.9);
+        tl.to("#paper-exam", {
+            y: -82,
+            duration: 1.5
+        }, 39.25);
+        tl.to("#sheet", {
+            y: 1720,
+            duration: .55,
+            ease: "power4.in"
+        }, 41.55);
+        tl.to("#backdrop", {
+            opacity: 0,
+            duration: .25
+        }, 41.9);
+        tl.to("#scroll", {
+            opacity: 1,
+            duration: .25
+        }, 41.9);
+        tl.set("#sheet", {
+            opacity: 0
+        }, 42.2);
+        tl.to("#scroll", {
+            y: -900,
+            duration: 2.6,
+            ease: "power2.inOut"
+        }, 42.6);
+        tl.fromTo("#ask", {
+            scale: .96
+        }, {
+            scale: 1,
+            duration: .72,
+            ease: "back.out(1.45)",
+            immediateRender: false
+        }, 52.35);
+        tl.fromTo("#ai-cta", {
+            opacity: 0,
+            x: 18
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: .5,
+            ease: "power3.out",
+            immediateRender: false
+        }, 52.55);
+        click("#touch-ai", "#ripple-ai", "#ask", 55.4);
+        tl.set("#chat-shell", {
+            x: 1080,
+            y: 0,
+            borderRadius: 48
+        }, 56);
+        tl.to("#chat-shell", {
+            x: 0,
+            y: 0,
+            borderRadius: 0,
+            duration: .78,
+            ease: "power4.out"
+        }, 56.12);
+        tl.to("#pos", {
+            x: -250,
+            scale: .965,
+            opacity: .72,
+            borderRadius: 42,
+            duration: .78,
+            ease: "power4.out"
+        }, 56.12);
+        reply("x1", 60.2, 0);
+        reply("x2", 67.7, -100);
+        reply("x3", 75.2, -250);
+        reply("x4", 82.7, -400);
+        reply("x5", 90.2, -550);
+        reply("x6", 97.7, -700);
+        tl.to([".chathead", ".context", ".window", ".composer"], {
+            opacity: 0,
+            duration: .35
+        }, 106.2);
+        tl.set("#brand-close", {
+            opacity: 1
+        }, 106.55);
+        tl.fromTo("#brand-inner", {
+            opacity: 0,
+            y: 50,
+            scale: .94
+        }, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: .65,
+            ease: "power4.out"
+        }, 106.55);
+        gsap.set("#consulta", {
+            autoAlpha: 1
+        });
+        gsap.set(["#feedback-scene", "#pos", "#chat"], {
+            autoAlpha: 0
+        });
+        tl.to("#consulta", {
+            xPercent: -12,
+            autoAlpha: 0,
+            duration: .34
+        }, 7.66);
+        tl.fromTo("#feedback-scene", {
+            xPercent: 12,
+            autoAlpha: .35
+        }, {
+            xPercent: 0,
+            autoAlpha: 1,
+            duration: .43,
+            immediateRender: false
+        }, 8);
+        tl.to("#feedback-scene", {
+            xPercent: -12,
+            autoAlpha: 0,
+            duration: .34
+        }, 17.66);
+        tl.fromTo("#pos", {
+            xPercent: 12,
+            autoAlpha: .35
+        }, {
+            xPercent: 0,
+            autoAlpha: 1,
+            duration: .43,
+            immediateRender: false
+        }, 18);
+        tl.fromTo("#chat", {
+            autoAlpha: 0
+        }, {
+            autoAlpha: 1,
+            duration: .01,
+            immediateRender: false
+        }, 56);
+        tl.set("#pos", {
+            autoAlpha: 0
+        }, 57.55);
+        window.__timelines["main"] = tl;
+    </script>
+</body>
+
+</html>
