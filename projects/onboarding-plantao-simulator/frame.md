@@ -1,6 +1,6 @@
 ---
 name: Viva Mais Video System
-source: ../src/theme/tokens.json
+source: ../vivamaisa-app/src/theme/tokens.json
 colors:
   canvas: "#FAFAFE"
   white: "#FFFFFF"
@@ -69,4 +69,4 @@ Video may change subject, format, scene count, narration, footage treatment, UI 
 
 ## Source Contract
 
-`../src/theme/tokens.json` remains app source of truth. Run `npm run sync:brand` after token changes. That command reads app tokens and rewrites only `videos/brand/tokens.css`.
+`../vivamaisa-app/src/theme/tokens.json` remains app source of truth. Run `npm run sync:brand` after token changes. That command reads app tokens and rewrites only `brand/tokens.css`.

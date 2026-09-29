@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
-const source = fileURLToPath(new URL("../../src/theme/tokens.json", import.meta.url));
+const source = fileURLToPath(new URL("../../vivamaisa-app/src/theme/tokens.json", import.meta.url));
 const output = fileURLToPath(new URL("../brand/tokens.css", import.meta.url));
 const tokens = JSON.parse(readFileSync(source, "utf8"));
 const colorVariables = Object.entries(tokens.color)

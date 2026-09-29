@@ -1,0 +1,13 @@
+import fs from 'fs';
+import { file } from './common.mjs';
+import { consulta, medicos } from './videos.mjs';
+const all = [consulta, medicos];
+const only = process.argv[2];
+const pick = only ? all.filter((v) => v.id === `onboard-${only}`) : all;
+if (!pick.length) throw new Error(`unknown video ${only}`);
+fs.mkdirSync('compositions', { recursive: true });
+for (const v of all) fs.writeFileSync(`compositions/${v.id}.html`, file(v.id, v.body, v.script, { framed: true, duration: v.duration }));
+let t = 0;
+const hosts = pick.map((v) => { const h = `  <div id="${v.id}" class="clip" data-composition-id="${v.id}" data-composition-src="compositions/${v.id}.html" data-start="${t.toFixed(2)}" data-duration="${v.duration}" data-track-index="1" data-width="1080" data-height="1080"></div>`; t += v.duration; return h; }).join('\n');
+fs.writeFileSync('index.html', `<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1080"><title>Viva Mais onboarding</title><script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>body{margin:0;background:#F4F3F8}#root{position:relative;width:100%;height:100%;overflow:hidden;background:#F4F3F8}.clip{position:absolute;inset:0}</style></head><body><div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1080" data-duration="${t.toFixed(2)}">\n${hosts}\n</div><script>const tl=gsap.timeline({paused:true});window.__timelines["main"]=tl;</script></body></html>`);
+console.log(pick.map((v) => v.id).join(', '), 'total', t.toFixed(2), 's');

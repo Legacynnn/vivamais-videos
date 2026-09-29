@@ -1,11 +1,10 @@
 # Viva Mais Video System
 
-HyperFrames workspace for Viva Mais videos. Expo app remains outside this workspace.
+HyperFrames workspace for Viva Mais videos. Standalone repo. Expo app lives in sibling `../vivamaisa-app`; nothing here is installed into it.
 
 ## Start a Video
 
 ```bash
-cd videos
 npm run new -- <slug> <portrait|square|landscape>
 ```
 
@@ -15,7 +14,7 @@ Example:
 npm run new -- consulta-em-minutos portrait
 ```
 
-Generator creates independent project in `videos/projects/<slug>`, copies local brand fonts/logo/tokens, writes `frame.md`, `formats.json`, starter composition, and a per-video `BRIEF.md`.
+Generator creates independent project in `projects/<slug>`, copies local brand fonts/logo/tokens, writes `frame.md`, `formats.json`, starter composition, and a per-video `BRIEF.md`.
 
 ## Brand Sync
 
@@ -23,7 +22,7 @@ Generator creates independent project in `videos/projects/<slug>`, copies local 
 npm run sync:brand
 ```
 
-Reads `../src/theme/tokens.json`. Writes only `videos/brand/tokens.css`.
+Reads `../vivamaisa-app/src/theme/tokens.json` (app checked out as sibling). Writes only `brand/tokens.css`.
 
 ## Workflow
 
@@ -41,3 +40,11 @@ npx hyperframes preview --background
 ```
 
 Root composition is brand-system proof, not production output.
+
+## Projects
+
+- `projects/walkthrough` — client-flow walkthrough (was `../vivamais-walkthrough-video`)
+- `projects/onboard` — onboarding slide videos; renders get copied into the app's `assets/videos/` (was `../vivamais-onboard-videos`)
+- `projects/onboarding-plantao-*`, `projects/pos-consulta-story` — generated from templates
+
+Each project with a `package-lock.json` installs its own deps: `npm ci` inside it.

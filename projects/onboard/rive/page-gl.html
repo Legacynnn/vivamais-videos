@@ -1,0 +1,39 @@
+<!doctype html><html><body style="margin:0;background:transparent"><canvas id="c"></canvas><canvas id="o"></canvas>
+<script type="module">
+import RiveFactory from '/node_modules/@rive-app/webgl2-advanced/webgl2_advanced.mjs';
+window.setup = async (rivUrl, size, anim, sm, bg) => {
+  const rive = await RiveFactory({ locateFile: () => '/node_modules/@rive-app/webgl2-advanced/rive.wasm' });
+  const bytes = new Uint8Array(await (await fetch(rivUrl)).arrayBuffer());
+  const file = await rive.load(bytes);
+  console.log('artboards', Array.from({ length: file.artboardCount() }, (_, i) => file.artboardByIndex(i).name).join(','));
+  const artboard = window.AB ? file.artboardByName(window.AB) : file.defaultArtboard();
+  const canvas = document.getElementById('c');
+  canvas.width = size; canvas.height = size;
+  const renderer = rive.makeRenderer(canvas);
+  const outCanvas = document.getElementById('o');
+  outCanvas.width = size; outCanvas.height = size;
+  const ctx = outCanvas.getContext('2d');
+  const player = sm
+    ? new rive.StateMachineInstance(artboard.stateMachineByName(sm), artboard)
+    : new rive.LinearAnimationInstance(artboard.animationByName(anim), artboard);
+  const duration = sm ? null : player.duration;
+  window.step = async (dt) => {
+    player.advance(dt);
+    if (!sm) player.apply(1);
+    artboard.advance(dt);
+    await new Promise((resolve) => rive.requestAnimationFrame(() => {
+      renderer.clear();
+      renderer.save();
+      renderer.align(rive.Fit.contain, rive.Alignment.center, { minX: 0, minY: 0, maxX: size, maxY: size }, artboard.bounds);
+      artboard.draw(renderer);
+      renderer.restore();
+      renderer.flush?.();
+      resolve();
+    }));
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, size, size);
+    ctx.drawImage(canvas, 0, 0);
+    return outCanvas.toDataURL('image/png');
+  };
+  return { duration, animations: Array.from({ length: artboard.animationCount() }, (_, i) => artboard.animationByIndex(i).name) };
+};
+</script></body></html>

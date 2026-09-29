@@ -1,5 +1,8 @@
+node_modules/
 .thumbnails/
 snapshots/
 renders/
+verify/
 *.mp4
 .hyperframes/
+.DS_Store

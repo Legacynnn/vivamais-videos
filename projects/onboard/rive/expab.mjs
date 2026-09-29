@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import { connect, call } from './lib.mjs';
+await connect();
+const [abName, out] = process.argv.slice(2);
+const l = await call('list_artboards');
+const ab = l.parsed.artboards.find((a) => a.name === abName);
+await call('set_property_values', { propertyValues: { '0-1': { 44: ab.id } } });
+const { parsed } = await call('export_file', { format: 'riv', destination: '/tmp/rivecli/out', inline_base64: true });
+fs.writeFileSync(out, Buffer.from(parsed.data, 'base64'));
+console.log(abName, parsed.bytes, out);

@@ -1,0 +1,18 @@
+{
+  "name": "riverender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@rive-app/canvas-advanced": "^2.42.2",
+    "@rive-app/webgl2-advanced": "^2.42.2",
+    "playwright-core": "^1.63.0"
+  }
+}
