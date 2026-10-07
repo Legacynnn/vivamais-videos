@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><title>ch12-outro</title></head>
+<body><template>
+<link rel="stylesheet" href="vm-kit.css">
+<style>
+@font-face{font-family:"DM Sans";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:500;font-display:block;src:url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:700;font-display:block;src:url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype")}
+#root{position:absolute;inset:0;overflow:hidden}
+
+.o0{position:absolute;inset:0;font-family:"DM Sans",sans-serif;color:#17151e}
+.o0-main{position:absolute;left:96px;right:96px;top:150px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.o0-logo{width:340px;height:91px;margin:0 0 20px}
+.o0-title{width:1300px;margin:26px 0 0;font-size:104px;font-weight:700;letter-spacing:-.045em;line-height:1;text-wrap:balance}
+.o0-title span{display:inline-block}
+.o0-title .v{color:#6a24db}
+.o0-path{position:absolute;left:260px;right:260px;top:640px;height:150px}
+.o0-line{position:absolute;left:110px;right:110px;top:29px;height:6px;border-radius:999px;background:#ebe1fd}
+.o0-fill{position:absolute;left:110px;right:110px;top:29px;height:6px;border-radius:999px;background:#7e3bed;transform-origin:0 50%}
+.o0-stops{position:absolute;inset:0;display:flex;justify-content:space-between}
+.o0-stop{display:flex;flex-direction:column;align-items:center;gap:18px;width:220px}
+.o0-stop b{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#7e3bed;color:#fff;font-size:26px;font-weight:700;box-shadow:0 0 0 8px #fafafe}
+.o0-stop span{font-size:28px;font-weight:500;color:#17151e}
+.o0-foot{position:absolute;left:0;right:0;bottom:96px;display:flex;justify-content:center;align-items:center;gap:18px;font-size:30px;font-weight:500;color:#4a4658}
+.o0-foot b{padding:10px 24px 12px;border-radius:999px;background:#22084a;color:#fff;font-weight:500}
+
+</style>
+<div data-hf-id="hf-smle" id="root" data-composition-id="ch12-outro" data-width="1920" data-height="1080" data-duration="5.8">
+<div data-hf-id="hf-mgce" class="vmk"><div data-hf-id="hf-5is5" class="o0">
+<div data-hf-id="hf-f2g5" class="o0-main">
+<img data-hf-id="hf-xww6" class="o0-logo" src="assets/brand/wordmark.png" alt="Viva Mais">
+<h1 data-hf-id="hf-q242" class="o0-title"><span data-hf-id="hf-4awa" data-layout-allow-overlap="">Pronto.</span> <span data-hf-id="hf-r1yt" data-layout-allow-overlap="">Sua</span> <span data-hf-id="hf-h921" data-layout-allow-overlap="">equipe</span> <span data-hf-id="hf-43pz" data-layout-allow-overlap="">já</span> <span data-hf-id="hf-b3cs" data-layout-allow-overlap="">pode</span> <span data-hf-id="hf-jwjl" class="v" data-layout-allow-overlap="">se</span> <span data-hf-id="hf-1aej" class="v" data-layout-allow-overlap="">cuidar.</span></h1>
+</div>
+<div data-hf-id="hf-g647" class="o0-path"><div data-hf-id="hf-fvuc" class="o0-line"></div><div data-hf-id="hf-t8w9" class="o0-fill"></div><div data-hf-id="hf-ez1h" class="o0-stops">
+<div data-hf-id="hf-hoo2" class="o0-stop"><b data-hf-id="hf-t4n0">1</b><span data-hf-id="hf-7z78">Empresa</span></div>
+<div data-hf-id="hf-atc6" class="o0-stop"><b data-hf-id="hf-rxpx">2</b><span data-hf-id="hf-y7yo">Vidas</span></div>
+<div data-hf-id="hf-b7n7" class="o0-stop"><b data-hf-id="hf-sc0y">3</b><span data-hf-id="hf-c9jq">Créditos</span></div>
+<div data-hf-id="hf-bly8" class="o0-stop"><b data-hf-id="hf-ubk3">4</b><span data-hf-id="hf-qei2">Fatura</span></div>
+<div data-hf-id="hf-8tt1" class="o0-stop"><b data-hf-id="hf-upv4">5</b><span data-hf-id="hf-tsla">Consulta</span></div>
+</div></div>
+<div data-hf-id="hf-z300" class="o0-foot">Comece agora em <b data-hf-id="hf-v0xe">vivamais.ai/empresas</b></div>
+</div></div>
+</div>
+<script>
+(function(){
+var root = document.querySelector('[data-composition-id="ch12-outro"]');
+var tl = gsap.timeline({ paused: true });
+(function (tl, root) {
+    var q = function (s) {
+      return Array.prototype.slice.call(root.querySelectorAll(s));
+    };
+    tl.fromTo(q(".o0-logo"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.5);
+    var at = 0.7;
+    var gap = 0.1;
+    q(".o0-title span").forEach(function (el) {
+      gsap.set(el, { opacity: 0 });
+      tl.set(el, { opacity: 1 }, at);
+      tl.fromTo(el, { y: 78 }, { y: 0, duration: 0.2, ease: "power4.out", immediateRender: false }, at);
+      at += gap;
+      gap = Math.max(0.05, gap * 0.88);
+    });
+    tl.fromTo(q(".o0-line"), { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 1.5);
+    tl.fromTo(q(".o0-fill"), { scaleX: 0 }, { scaleX: 1, duration: 1.6, ease: "power2.inOut" }, 1.7);
+    q(".o0-stop").forEach(function (el, i) {
+      var t = 1.7 + i * 0.4;
+      tl.fromTo(el.querySelector("b"), { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.34, ease: "power3.out" }, t);
+      tl.fromTo(el.querySelector("span"), { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, t + 0.08);
+    });
+    tl.fromTo(q(".o0-foot"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, 3.6);
+  })(tl, root);
+window.__timelines["ch12-outro"] = tl;
+})();
+</script>
+</template></body></html>

@@ -1,0 +1,185 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "ch00-intro→ch01-cadastro",
+      "cut": 6.4,
+      "technique": "zoom-through",
+      "exit": {
+        "selector": "#el-ch00-intro",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch01-cadastro",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch01-cadastro→ch02-painel",
+      "cut": 45.4,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-ch01-cadastro",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-ch02-painel",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "ch02-painel→ch03-vidas",
+      "cut": 58.7,
+      "technique": "cut-the-curve UP",
+      "exit": {
+        "selector": "#el-ch02-painel",
+        "axis": "y",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-ch03-vidas",
+        "axis": "y",
+        "dir": -1
+      }
+    },
+    {
+      "id": "ch03-vidas→ch04-planilha",
+      "cut": 78.5,
+      "technique": "zoom-through",
+      "exit": {
+        "selector": "#el-ch03-vidas",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch04-planilha",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch04-planilha→ch05-acesso",
+      "cut": 95.1,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-ch04-planilha",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-ch05-acesso",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "ch05-acesso→ch06-grupos",
+      "cut": 107.5,
+      "technique": "zoom-through",
+      "exit": {
+        "selector": "#el-ch05-acesso",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch06-grupos",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch06-grupos→ch07-creditos",
+      "cut": 126.6,
+      "technique": "cut-the-curve UP",
+      "exit": {
+        "selector": "#el-ch06-grupos",
+        "axis": "y",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-ch07-creditos",
+        "axis": "y",
+        "dir": -1
+      }
+    },
+    {
+      "id": "ch07-creditos→ch08-financeiro",
+      "cut": 151,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-ch07-creditos",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-ch08-financeiro",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "ch08-financeiro→ch09-agendar",
+      "cut": 172.6,
+      "technique": "zoom-through",
+      "exit": {
+        "selector": "#el-ch08-financeiro",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch09-agendar",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch09-agendar→ch10-consulta",
+      "cut": 191.8,
+      "technique": "cut-the-curve UP",
+      "exit": {
+        "selector": "#el-ch09-agendar",
+        "axis": "y",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-ch10-consulta",
+        "axis": "y",
+        "dir": -1
+      }
+    },
+    {
+      "id": "ch10-consulta→ch11-relatorio",
+      "cut": 206.8,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-ch10-consulta",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-ch11-relatorio",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "ch11-relatorio→ch12-outro",
+      "cut": 223.8,
+      "technique": "inverse zoom-through",
+      "exit": {
+        "selector": "#el-ch11-relatorio",
+        "axis": "z",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-ch12-outro",
+        "axis": "z",
+        "dir": -1
+      }
+    }
+  ]
+}

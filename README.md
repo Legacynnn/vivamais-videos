@@ -45,6 +45,17 @@ Root composition is brand-system proof, not production output.
 
 - `projects/walkthrough` — client-flow walkthrough (was `../vivamais-walkthrough-video`)
 - `projects/onboard` — onboarding slide videos; renders get copied into the app's `assets/videos/` (was `../vivamais-onboard-videos`)
+- `projects/tutorial-painel-empresarial` — long-form tutorial of the company panel; UI captured as real DOM from `../vivamais-web` (see its README)
+- `projects/intro-vivamais` — narrated ad (~1:53): a day at a client company, RH on the web and a collaborator on the phone; reuses both tutorials' captured UI (see its README)
 - `projects/onboarding-plantao-*`, `projects/pos-consulta-story` — generated from templates
 
 Each project with a `package-lock.json` installs its own deps: `npm ci` inside it.
+
+## TV Playlist
+
+```bash
+npm run tv
+npm run tv -- tutorial-painel-empresarial projects/onboard/renders/onboard-medicos-master.mp4
+```
+
+Builds `dist-tv/vivamais-tv.zip`: fullscreen looping player for another Mac on a TV. No args = newest render of each slug in `templates/tv/playlist.json`, in that order. Args override: project slug (newest render) or `.mp4` path. Copy zip to TV Mac, unzip, double-click `Play TV.command`. TV Mac needs no npm/Node. Keys: ←/→ previous/next, space pause. Instructions ship in its `README.txt`.

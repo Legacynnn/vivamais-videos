@@ -1,0 +1,37 @@
+{
+  "mood": "no narration; one track (HeyGen 843facbe, 160 BPM, 1.5s bars): build under the hook, first drop (track 24.03s) lands on the brand cut, cuts to silence on the 38,2\u00b0 break, re-enters in the pre-drop build, second drop (track 90.03s) lands on the doctor call, rides to the logo",
+  "brand": {
+    "on": "s03-rh",
+    "onAt": 0.3,
+    "off": "s12-fecho",
+    "offAt": 0
+  },
+  "segments": [
+    {
+      "src": ".media/audio/bgm/843facbe.wav",
+      "from": "s01-hook",
+      "to": "s07-plantao+0.08",
+      "drop": {
+        "at": "s02-marca",
+        "track": 24.03
+      },
+      "level": 0.8,
+      "duck": 0.8,
+      "fadeIn": 0.6,
+      "fadeOut": 0.08
+    },
+    {
+      "src": ".media/audio/bgm/843facbe.wav",
+      "from": "s07-plantao+2.25",
+      "to": "end",
+      "drop": {
+        "at": "s08-consulta",
+        "track": 90.03
+      },
+      "level": 0.8,
+      "duck": 0.8,
+      "fadeIn": 1.2,
+      "fadeOut": 2.2
+    }
+  ]
+}

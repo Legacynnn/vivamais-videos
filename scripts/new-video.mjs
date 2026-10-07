@@ -26,7 +26,7 @@ const init = spawnSync(
   "npx",
   [
     "--yes",
-    "hyperframes@0.8.46",
+    "hyperframes@0.8.91",
     "init",
     `projects/${slug}`,
     "--non-interactive",

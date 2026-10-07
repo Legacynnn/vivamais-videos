@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="vm-kit.css">
+    <link rel="stylesheet" href="vm-ad.css">
+    <link rel="stylesheet" href="vm-ui-phone.css">
+    <link rel="stylesheet" href="vm-ui-desktop.css">
+    <link rel="stylesheet" href="vm-ui-polish.css">
+    <style>
+@font-face{font-family:"DM Sans";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Regular.ttf")}
+@font-face{font-family:"DM Sans";font-weight:500;font-display:block;src:url("assets/brand/fonts/DMSans-Medium.ttf")}
+@font-face{font-family:"DM Sans";font-weight:700;font-display:block;src:url("assets/brand/fonts/DMSans-Bold.ttf")}
+@font-face{font-family:"DMSans_400Regular";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Regular.ttf")}
+@font-face{font-family:"DMSans_500Medium";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Medium.ttf")}
+@font-face{font-family:"DMSans_700Bold";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Bold.ttf")}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Bold.ttf")}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Medium.ttf")}
+@font-face{font-family:"SpaceGrotesk_700Bold";font-weight:400;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Bold.ttf")}
+@font-face{font-family:"SpaceGrotesk_500Medium";font-weight:400;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Medium.ttf")}
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #FAFAFE; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFE; }
+      #bg { position: absolute; inset: 0; background: #FAFAFE; }
+      #bg-aura { position: absolute; left: -260px; top: 260px; width: 1600px; height: 1600px; border-radius: 50%; background: radial-gradient(circle, rgba(126,59,237,0.2) 0%, rgba(126,59,237,0.08) 38%, rgba(250,250,254,0) 68%); }
+      #bg-grid { position: absolute; left: 0; top: 0; width: 1080px; height: 2400px; background-image: radial-gradient(rgba(87,25,182,0.14) 1.6px, transparent 1.6px); background-size: 48px 48px; }
+      #root > .clip { position: absolute; inset: 0; }
+      #sig-in, #sig-out { position: absolute; inset: 0; z-index: 60; pointer-events: none; opacity: 0; --m: 0px; background: #6A24DB; }
+      #sig-in { -webkit-mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat; mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat; }
+      #sig-out { -webkit-mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat, linear-gradient(#000, #000); -webkit-mask-composite: xor; mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat exclude, linear-gradient(#000, #000); }
+      #seam-wipe { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 50; }
+      #seam-panel { position: absolute; left: 0; top: -300px; width: 1700px; height: 2520px; background: #6A24DB; border-right: 16px solid #C6FF34; }
+      #seam-mark { position: absolute; left: 400px; top: 1100px; width: 280px; height: 280px; }
+      #seam-rise { position: absolute; left: -200px; top: 0; width: 1480px; height: 2600px; background: #22084A; border-top: 16px solid #C6FF34; }
+      #seam-rise img { position: absolute; left: 600px; top: 1100px; width: 280px; height: 280px; }
+      #brand { position: absolute; left: 56px; top: 64px; z-index: 40; padding: 13px 26px 13px 24px; border-radius: 999px; background: #fff; box-shadow: 0 14px 34px rgba(34,8,74,0.18), 0 2px 6px rgba(34,8,74,0.1); pointer-events: none; }
+      #brand img { display: block; width: 172px; height: 46px; }
+      #caps { position: absolute; left: 60px; right: 60px; top: 1610px; height: 190px; z-index: 45; pointer-events: none; }
+      .cap { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 62px; line-height: 1.12; letter-spacing: -0.025em; color: #fff; opacity: 0; visibility: hidden; }
+      .cap .cl { display: inline-block; max-width: 900px; padding: 10px 30px 16px; border-radius: 26px; background: rgba(23,21,30,0.86); box-shadow: 0 16px 40px rgba(23,21,30,0.28); }
+      .cap .cw { color: rgba(255,255,255,0.5); }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-t6jo" id="root" data-composition-id="main" data-start="0" data-duration="182.25" data-width="1080" data-height="1920">
+      <div data-hf-id="hf-2xc0" id="bg"><div data-hf-id="hf-r3kh" id="bg-grid"></div><div data-hf-id="hf-dywk" id="bg-aura"></div></div>
+      <div data-hf-id="hf-95rf" id="el-s01-hook" class="clip" data-composition-id="s01-hook" data-composition-src="compositions/s01-hook.html" data-start="0" data-duration="12" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-w0ig" id="el-s02-marca" class="clip" data-composition-id="s02-marca" data-composition-src="compositions/s02-marca.html" data-start="12" data-duration="10.5" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-5rvk" id="el-s03-rh" class="clip" data-composition-id="s03-rh" data-composition-src="compositions/s03-rh.html" data-start="22.5" data-duration="15.75" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-0pp2" id="el-s04-acesso" class="clip" data-composition-id="s04-acesso" data-composition-src="compositions/s04-acesso.html" data-start="38.25" data-duration="9" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-wnke" id="el-s05-beneficios" class="clip" data-composition-id="s05-beneficios" data-composition-src="compositions/s05-beneficios.html" data-start="47.25" data-duration="15.75" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-u1sr" id="el-s06-ia" class="clip" data-composition-id="s06-ia" data-composition-src="compositions/s06-ia.html" data-start="63" data-duration="9.75" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-wint" id="el-s07-plantao" class="clip" data-composition-id="s07-plantao" data-composition-src="compositions/s07-plantao.html" data-start="72.75" data-duration="16.5" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-iyj1" id="el-s07b-anamnese" class="clip" data-composition-id="s07b-anamnese" data-composition-src="compositions/s07b-anamnese.html" data-start="89.25" data-duration="30.75" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-96rl" id="el-s08-consulta" class="clip" data-composition-id="s08-consulta" data-composition-src="compositions/s08-consulta.html" data-start="120" data-duration="9.75" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-3gjd" id="el-s09-docs" class="clip" data-composition-id="s09-docs" data-composition-src="compositions/s09-docs.html" data-start="129.75" data-duration="15" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-n49e" id="el-s10-avisos" class="clip" data-composition-id="s10-avisos" data-composition-src="compositions/s10-avisos.html" data-start="144.75" data-duration="17.25" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-twm0" id="el-s11-painel" class="clip" data-composition-id="s11-painel" data-composition-src="compositions/s11-painel.html" data-start="162" data-duration="12.75" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-mxva" id="el-s12-fecho" class="clip" data-composition-id="s12-fecho" data-composition-src="compositions/s12-fecho.html" data-start="174.75" data-duration="7.5" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-ml6k" id="brand" data-layout-allow-overlap=""><img data-hf-id="hf-te8y" src="assets/brand/wordmark.png" alt="Viva Mais" data-layout-allow-overlap=""></div>
+      <div data-hf-id="hf-wjuq" id="caps" data-layout-allow-overlap="">
+        
+      </div>
+      <div data-hf-id="hf-pmm8" id="sig-in" data-layout-allow-overlap=""></div><div data-hf-id="hf-fb8v" id="sig-out" data-layout-allow-overlap=""></div>
+      <div data-hf-id="hf-65j1" id="seam-wipe"><div data-hf-id="hf-455q" id="seam-panel"><img data-hf-id="hf-qvg9" id="seam-mark" src="assets/brand/mark-white.svg" alt=""></div><div data-hf-id="hf-jvkb" id="seam-rise"><img data-hf-id="hf-qjt1" src="assets/brand/mark-white.svg" alt=""></div></div>
+      <audio data-hf-id="hf-dw7v" id="sfx-0-tick" src=".media/audio/sfx/tick.mp3" data-start="0.35" data-duration="0.4" data-track-index="30" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-drl8" id="sfx-1-whoosh" src=".media/audio/sfx/whoosh.mp3" data-start="3" data-duration="1.584" data-track-index="31" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-cqie" id="sfx-2-hit" src=".media/audio/sfx/hit.mp3" data-start="3.85" data-duration="1.8" data-track-index="32" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-nm65" id="sfx-3-whoosh" src=".media/audio/sfx/whoosh.mp3" data-start="6.85" data-duration="1.584" data-track-index="33" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-hhxu" id="sfx-4-pop" src=".media/audio/sfx/pop.mp3" data-start="8.3" data-duration="0.576" data-track-index="30" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-0p9c" id="sfx-5-pop" src=".media/audio/sfx/pop.mp3" data-start="9.2" data-duration="0.576" data-track-index="31" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-u5an" id="sfx-6-notif" src=".media/audio/sfx/notif.mp3" data-start="10.1" data-duration="0.72" data-track-index="32" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-iwfm" id="sfx-7-riser" src=".media/audio/sfx/riser.mp3" data-start="10.3" data-duration="1.6" data-track-index="33" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-cm4o" id="sfx-8-hit" src=".media/audio/sfx/hit.mp3" data-start="12" data-duration="1.8" data-track-index="30" data-volume="0.65"></audio>
+      <audio data-hf-id="hf-ltqp" id="sfx-9-whoosh" src=".media/audio/sfx/whoosh.mp3" data-start="21.7" data-duration="1.584" data-track-index="31" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-iz8p" id="sfx-10-tick" src=".media/audio/sfx/tick.mp3" data-start="22.885" data-duration="0.4" data-track-index="32" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-81a9" id="sfx-11-drop" src=".media/audio/sfx/drop.mp3" data-start="26.154" data-duration="0.864" data-track-index="33" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-9727" id="sfx-12-pop" src=".media/audio/sfx/pop.mp3" data-start="27.949" data-duration="0.576" data-track-index="30" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-6ig9" id="sfx-13-whoosh" src=".media/audio/sfx/whoosh.mp3" data-start="38.25" data-duration="1.584" data-track-index="31" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-q5rk" id="sfx-14-notif" src=".media/audio/sfx/notif.mp3" data-start="41.904" data-duration="0.72" data-track-index="32" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-4rrk" id="sfx-15-tap" src=".media/audio/sfx/tap.mp3" data-start="42.865" data-duration="0.24" data-track-index="33" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-c2pb" id="sfx-16-tap" src=".media/audio/sfx/tap.mp3" data-start="49.942" data-duration="0.24" data-track-index="30" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-w8u6" id="sfx-17-pop" src=".media/audio/sfx/pop.mp3" data-start="51.545" data-duration="0.576" data-track-index="31" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-xxxs" id="sfx-18-pop" src=".media/audio/sfx/pop.mp3" data-start="54.173" data-duration="0.576" data-track-index="32" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-4i8c" id="sfx-19-pop" src=".media/audio/sfx/pop.mp3" data-start="56.801" data-duration="0.576" data-track-index="33" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-lyhe" id="sfx-20-pop" src=".media/audio/sfx/pop.mp3" data-start="57.827" data-duration="0.576" data-track-index="30" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-fp15" id="sfx-21-hit" src=".media/audio/sfx/hit.mp3" data-start="59.494" data-duration="1.8" data-track-index="31" data-volume="0.55"></audio>
+      <audio data-hf-id="hf-t42q" id="sfx-22-whoosh" src=".media/audio/sfx/whoosh.mp3" data-start="63" data-duration="1.584" data-track-index="32" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-cgxg" id="sfx-23-tap" src=".media/audio/sfx/tap.mp3" data-start="66.91" data-duration="0.24" data-track-index="33" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-ftpx" id="sfx-24-pop" src=".media/audio/sfx/pop.mp3" data-start="68.769" data-duration="0.576" data-track-index="30" data-volume="0.35"></audio>
+      <audio data-hf-id="hf-n0og" id="sfx-25-heart" src=".media/audio/sfx/heart.mp3" data-start="73.006" data-duration="1.872" data-track-index="31" data-volume="0.9"></audio>
+      <audio data-hf-id="hf-aadp" id="sfx-26-hit" src=".media/audio/sfx/hit.mp3" data-start="73.417" data-duration="1.8" data-track-index="32" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-i9r6" id="sfx-27-riser" src=".media/audio/sfx/riser.mp3" data-start="74.673" data-duration="1.6" data-track-index="33" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-lxal" id="sfx-28-whoosh" src=".media/audio/sfx/whoosh.mp3" data-start="76.404" data-duration="1.584" data-track-index="30" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-73xj" id="sfx-29-tap" src=".media/audio/sfx/tap.mp3" data-start="77.814" data-duration="0.24" data-track-index="31" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-3oxu" id="sfx-30-tap" src=".media/audio/sfx/tap.mp3" data-start="79.801" data-duration="0.24" data-track-index="32" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-gwvq" id="sfx-31-cash" src=".media/audio/sfx/cash.mp3" data-start="84.801" data-duration="1.8" data-track-index="33" data-volume="0.55"></audio>
+      <audio data-hf-id="hf-owd2" id="sfx-32-type" src=".media/audio/sfx/type.mp3" data-start="90.788" data-duration="1.3" data-track-index="30" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-rh0d" id="sfx-33-tap" src=".media/audio/sfx/tap.mp3" data-start="95.788" data-duration="0.24" data-track-index="31" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-qgzx" id="sfx-34-tap" src=".media/audio/sfx/tap.mp3" data-start="102.327" data-duration="0.24" data-track-index="32" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-60fm" id="sfx-35-pop" src=".media/audio/sfx/pop.mp3" data-start="115.404" data-duration="0.576" data-track-index="33" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-33z7" id="sfx-36-whoosh" src=".media/audio/sfx/whoosh.mp3" data-start="120" data-duration="1.584" data-track-index="30" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-j5n7" id="sfx-37-pop" src=".media/audio/sfx/pop.mp3" data-start="121.41" data-duration="0.576" data-track-index="31" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-k6hu" id="sfx-38-notif" src=".media/audio/sfx/notif.mp3" data-start="122.628" data-duration="0.72" data-track-index="32" data-volume="0.8"></audio>
+      <audio data-hf-id="hf-vfso" id="sfx-39-tap" src=".media/audio/sfx/tap.mp3" data-start="123.782" data-duration="0.24" data-track-index="33" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-wugi" id="sfx-40-join" src=".media/audio/sfx/join.mp3" data-start="124.231" data-duration="0.744" data-track-index="30" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-423z" id="sfx-41-whoosh" src=".media/audio/sfx/whoosh.mp3" data-start="129.75" data-duration="1.584" data-track-index="31" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-638i" id="sfx-42-tap" src=".media/audio/sfx/tap.mp3" data-start="134.237" data-duration="0.24" data-track-index="32" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-y823" id="sfx-43-paper" src=".media/audio/sfx/paper.mp3" data-start="134.558" data-duration="1.008" data-track-index="33" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-g1ki" id="sfx-44-paper" src=".media/audio/sfx/paper.mp3" data-start="135.776" data-duration="1.008" data-track-index="30" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-uxyd" id="sfx-45-paper" src=".media/audio/sfx/paper.mp3" data-start="137.25" data-duration="1.008" data-track-index="31" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-1gdc" id="sfx-46-stamp" src=".media/audio/sfx/stamp.mp3" data-start="138.66" data-duration="1.152" data-track-index="32" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-vbd6" id="sfx-47-swoosh" src=".media/audio/sfx/swoosh.mp3" data-start="141.288" data-duration="0.288" data-track-index="33" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-jx8y" id="sfx-48-swoosh" src=".media/audio/sfx/swoosh.mp3" data-start="142.506" data-duration="0.288" data-track-index="30" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-l41g" id="sfx-49-whoosh" src=".media/audio/sfx/whoosh.mp3" data-start="144.75" data-duration="1.584" data-track-index="31" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-8drd" id="sfx-50-notif" src=".media/audio/sfx/notif.mp3" data-start="148.596" data-duration="0.72" data-track-index="32" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-jro4" id="sfx-51-notif" src=".media/audio/sfx/notif.mp3" data-start="150.071" data-duration="0.72" data-track-index="33" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-2d0i" id="sfx-52-notif" src=".media/audio/sfx/notif.mp3" data-start="152.571" data-duration="0.72" data-track-index="30" data-volume="0.75"></audio>
+      <audio data-hf-id="hf-jax7" id="sfx-53-wa" src=".media/audio/sfx/wa.mp3" data-start="157.058" data-duration="0.72" data-track-index="31" data-volume="0.55"></audio>
+      <audio data-hf-id="hf-jyiy" id="sfx-54-wa" src=".media/audio/sfx/wa.mp3" data-start="157.827" data-duration="0.72" data-track-index="32" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-bvma" id="sfx-55-wa" src=".media/audio/sfx/wa.mp3" data-start="158.596" data-duration="0.72" data-track-index="33" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-ugkl" id="sfx-56-tick" src=".media/audio/sfx/tick.mp3" data-start="162.321" data-duration="0.4" data-track-index="30" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-83m1" id="sfx-57-pop" src=".media/audio/sfx/pop.mp3" data-start="167.513" data-duration="0.576" data-track-index="31" data-volume="0.35"></audio>
+      <audio data-hf-id="hf-3z4g" id="sfx-58-pop" src=".media/audio/sfx/pop.mp3" data-start="168.795" data-duration="0.576" data-track-index="32" data-volume="0.35"></audio>
+      <audio data-hf-id="hf-3pmm" id="sfx-59-cash" src=".media/audio/sfx/cash.mp3" data-start="170.462" data-duration="1.8" data-track-index="33" data-volume="0.45"></audio>
+      <audio data-hf-id="hf-vlnh" id="sfx-60-hit" src=".media/audio/sfx/hit.mp3" data-start="172" data-duration="1.8" data-track-index="30" data-volume="0.5"></audio>
+      <audio data-hf-id="hf-w3wc" id="sfx-61-hit" src=".media/audio/sfx/hit.mp3" data-start="173.603" data-duration="1.8" data-track-index="31" data-volume="0.55"></audio>
+      <audio data-hf-id="hf-ga8j" id="sfx-62-hit" src=".media/audio/sfx/hit.mp3" data-start="175.545" data-duration="1.8" data-track-index="32" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-fngg" id="sfx-63-sweep" src=".media/audio/sfx/sweep.mp3" data-start="177.186" data-duration="1.44" data-track-index="33" data-volume="0.35"></audio>
+      <audio data-hf-id="hf-x049" id="sfx-64-pop" src=".media/audio/sfx/pop.mp3" data-start="181.417" data-duration="0.576" data-track-index="30" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-wp0h" id="bgm-0" src=".media/audio/bgm/843facbe.wav" data-start="0" data-duration="72.83" data-track-index="10" data-media-start="12.03" data-automation="{&quot;version&quot;:1,&quot;lanes&quot;:[{&quot;target&quot;:&quot;volume&quot;,&quot;points&quot;:[{&quot;t&quot;:0,&quot;v&quot;:0},{&quot;t&quot;:0.6,&quot;v&quot;:0.8},{&quot;t&quot;:72.75,&quot;v&quot;:0.8},{&quot;t&quot;:72.83,&quot;v&quot;:0}]}]}"></audio>
+      <audio data-hf-id="hf-mise" id="bgm-1" src=".media/audio/bgm/843facbe.wav" data-start="75" data-duration="107.25" data-track-index="11" data-media-start="45.03" data-automation="{&quot;version&quot;:1,&quot;lanes&quot;:[{&quot;target&quot;:&quot;volume&quot;,&quot;points&quot;:[{&quot;t&quot;:0,&quot;v&quot;:0},{&quot;t&quot;:1.2,&quot;v&quot;:0.8},{&quot;t&quot;:105.05,&quot;v&quot;:0.8},{&quot;t&quot;:107.25,&quot;v&quot;:0}]}]}"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+      // <seams:auto>
+      gsap.set(["#el-s02-marca","#el-s03-rh","#el-s04-acesso","#el-s05-beneficios","#el-s06-ia","#el-s07-plantao","#el-s07b-anamnese","#el-s08-consulta","#el-s09-docs","#el-s10-avisos","#el-s11-painel","#el-s12-fecho"], { opacity: 0 });
+      // SEAM s01-hook→s02-marca : signature plus @12
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power2.in", immediateRender: false }, 11.4);
+      tl.to("#el-s01-hook", { scale: 1.06, duration: 0.6, ease: "power2.in", transformOrigin: "50% 45%" }, 11.4);
+      tl.set("#el-s01-hook", { opacity: 0 }, 12);
+      tl.set("#sig-in", { opacity: 0 }, 12);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.9, ease: "power2.out", immediateRender: false }, 12);
+      tl.set("#sig-out", { opacity: 0 }, 12.9);
+      tl.fromTo("#el-s02-marca", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 1.1, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 12);
+      // SEAM s02-marca→s03-rh : signature plus @22.5
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power2.in", immediateRender: false }, 21.9);
+      tl.to("#el-s02-marca", { scale: 1.06, duration: 0.6, ease: "power2.in", transformOrigin: "50% 45%" }, 21.9);
+      tl.set("#el-s02-marca", { opacity: 0 }, 22.5);
+      tl.set("#sig-in", { opacity: 0 }, 22.5);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.9, ease: "power2.out", immediateRender: false }, 22.5);
+      tl.set("#sig-out", { opacity: 0 }, 23.4);
+      tl.fromTo("#el-s03-rh", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 1.1, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 22.5);
+      // SEAM s03-rh→s04-acesso : cut-the-curve UP @38.25
+      tl.to("#el-s03-rh", { yPercent: -10, duration: 0.6, ease: "power2.in" }, 37.65);
+      tl.set("#el-s03-rh", { opacity: 0 }, 38.25);
+      tl.fromTo("#el-s04-acesso", { opacity: 1, yPercent: 8 }, { opacity: 1, yPercent: 0, duration: 1.1, ease: "power3.out", immediateRender: false }, 38.25);
+      // SEAM s04-acesso→s05-beneficios : match cut: same phone, same framing @47.25
+      tl.set("#el-s04-acesso", { opacity: 0 }, 47.25);
+      tl.set("#el-s05-beneficios", { opacity: 1 }, 47.25);
+      // SEAM s05-beneficios→s06-ia : signature plus @63
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power2.in", immediateRender: false }, 62.4);
+      tl.to("#el-s05-beneficios", { scale: 1.06, duration: 0.6, ease: "power2.in", transformOrigin: "50% 45%" }, 62.4);
+      tl.set("#el-s05-beneficios", { opacity: 0 }, 63);
+      tl.set("#sig-in", { opacity: 0 }, 63);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.9, ease: "power2.out", immediateRender: false }, 63);
+      tl.set("#sig-out", { opacity: 0 }, 63.9);
+      tl.fromTo("#el-s06-ia", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 1.1, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 63);
+      // SEAM s06-ia→s07-plantao : hard cut to black (pattern break) @72.75
+      tl.set("#el-s06-ia", { opacity: 0 }, 72.75);
+      tl.set("#el-s07-plantao", { opacity: 1 }, 72.75);
+      // SEAM s07-plantao→s07b-anamnese : cut-the-curve UP @89.25
+      tl.to("#el-s07-plantao", { yPercent: -10, duration: 0.6, ease: "power2.in" }, 88.65);
+      tl.set("#el-s07-plantao", { opacity: 0 }, 89.25);
+      tl.fromTo("#el-s07b-anamnese", { opacity: 1, yPercent: 8 }, { opacity: 1, yPercent: 0, duration: 1.1, ease: "power3.out", immediateRender: false }, 89.25);
+      // SEAM s07b-anamnese→s08-consulta : cut-the-curve LEFT @120
+      tl.to("#el-s07b-anamnese", { xPercent: -10, duration: 0.6, ease: "power2.in" }, 119.4);
+      tl.set("#el-s07b-anamnese", { opacity: 0 }, 120);
+      tl.fromTo("#el-s08-consulta", { opacity: 1, xPercent: 8 }, { opacity: 1, xPercent: 0, duration: 1.1, ease: "power3.out", immediateRender: false }, 120);
+      // SEAM s08-consulta→s09-docs : signature plus @129.75
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power2.in", immediateRender: false }, 129.15);
+      tl.to("#el-s08-consulta", { scale: 1.06, duration: 0.6, ease: "power2.in", transformOrigin: "50% 45%" }, 129.15);
+      tl.set("#el-s08-consulta", { opacity: 0 }, 129.75);
+      tl.set("#sig-in", { opacity: 0 }, 129.75);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.9, ease: "power2.out", immediateRender: false }, 129.75);
+      tl.set("#sig-out", { opacity: 0 }, 130.65);
+      tl.fromTo("#el-s09-docs", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 1.1, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 129.75);
+      // SEAM s09-docs→s10-avisos : cut-the-curve LEFT @144.75
+      tl.to("#el-s09-docs", { xPercent: -10, duration: 0.6, ease: "power2.in" }, 144.15);
+      tl.set("#el-s09-docs", { opacity: 0 }, 144.75);
+      tl.fromTo("#el-s10-avisos", { opacity: 1, xPercent: 8 }, { opacity: 1, xPercent: 0, duration: 1.1, ease: "power3.out", immediateRender: false }, 144.75);
+      // SEAM s10-avisos→s11-painel : inverse zoom-through (pull back to the RH desk) @162
+      tl.to("#el-s10-avisos", { scale: 0.93, filter: "blur(4px)", duration: 0.6, ease: "power2.in", transformOrigin: "50% 50%" }, 161.4);
+      tl.set("#el-s10-avisos", { opacity: 0 }, 162);
+      tl.fromTo("#el-s11-painel", { opacity: 1, scale: 1.06, filter: "blur(4px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 1.1, ease: "power3.out", immediateRender: false, transformOrigin: "50% 50%" }, 162);
+      // SEAM s11-painel→s12-fecho : signature plus @174.75
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power2.in", immediateRender: false }, 174.15);
+      tl.to("#el-s11-painel", { scale: 1.06, duration: 0.6, ease: "power2.in", transformOrigin: "50% 45%" }, 174.15);
+      tl.set("#el-s11-painel", { opacity: 0 }, 174.75);
+      tl.set("#sig-in", { opacity: 0 }, 174.75);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.9, ease: "power2.out", immediateRender: false }, 174.75);
+      tl.set("#sig-out", { opacity: 0 }, 175.65);
+      tl.fromTo("#el-s12-fecho", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 1.1, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 174.75);
+      // </seams:auto>
+      gsap.set("#brand", { opacity: 0 });
+      tl.fromTo("#bg-aura", { x: -120, y: -200 }, { x: 260, y: 700, duration: 182.25, ease: "sine.inOut" }, 0);
+      tl.fromTo("#bg-grid", { y: 0 }, { y: -240, duration: 182.25, ease: "none" }, 0);
+      tl.fromTo("#brand", { opacity: 0, y: -28 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, 22.8);
+      tl.to("#brand", { opacity: 0, y: -28, duration: 0.4, ease: "power3.in" }, 174.75);
+      
+      gsap.set("#seam-panel", { x: 1300, skewX: -12 });
+      gsap.set("#seam-mark", { skewX: 12 });
+      gsap.set("#seam-rise", { y: 2100, skewY: -5 });
+      gsap.set("#seam-rise img", { skewY: 5 });
+      
+      
+      tl.set({}, {}, 182.25);
+    </script>
+  </body>
+</html>

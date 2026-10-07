@@ -1,0 +1,38 @@
+[
+ {
+  "audio_url": "https://heygen-product.s3-accelerate.amazonaws.com/astral_generated_music/c5bd757ef6cb413e9bcb401f7dba7230.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3FLD4S3AS7WYJKBK%2F20260930%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20260930T051314Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b2259b3454b9dd5ec40c51559337d8c849579ba1327e49c8c93fa1161849818c",
+  "description": "light corporate background music track, friendly and confident",
+  "duration": 91,
+  "id": "c5bd757ef6cb413e9bcb401f7dba7230",
+  "name": "Astral Generated Music: c5bd757e",
+  "score": 0.8624659180641174,
+  "type": "music"
+ },
+ {
+  "audio_url": "https://heygen-product.s3-accelerate.amazonaws.com/astral_generated_music/3ec151d7d0da42fcb3f393265b5b65e9.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3FLD4S3AS7WYJKBK%2F20260930%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20260930T051320Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=7ee48ed495c9a4451458ba3e80c8d36f253d65565742d554aa4577fdf7eb9530",
+  "description": "Modern cinematic documentary background music, hopeful, inspiring, soft electronic pulses, building intensity.",
+  "duration": 100,
+  "id": "3ec151d7d0da42fcb3f393265b5b65e9",
+  "name": "Astral Generated Music: 3ec151d7",
+  "score": 0.766405463218689,
+  "type": "music"
+ },
+ {
+  "audio_url": "https://heygen-product.s3-accelerate.amazonaws.com/astral_generated_music/a58de12506c7400e8b20a2afdf637856.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3FLD4S3AS7WYJKBK%2F20260930%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20260930T051320Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=0a087a6b5e19d04155fda087dd385ed19360d385493e0deb75312dec76cbb4f1",
+  "description": "serious educational documentary score, cinematic strings and deep ambient pads",
+  "duration": 98,
+  "id": "a58de12506c7400e8b20a2afdf637856",
+  "name": "Astral Generated Music: a58de125",
+  "score": 0.7509642243385315,
+  "type": "music"
+ },
+ {
+  "audio_url": "https://heygen-product.s3-accelerate.amazonaws.com/astral_generated_music/843facbe35264a37bbbc4572b624d3e9.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3FLD4S3AS7WYJKBK%2F20260930%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20260930T051320Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=3176829dbc8cc0cbbd7dcc28bc46f4cc367366dade69471fb25de24f0fa95c62",
+  "description": "energetic corporate lo-fi blend background music for business documentary",
+  "duration": 450,
+  "id": "843facbe35264a37bbbc4572b624d3e9",
+  "name": "Astral Generated Music: 843facbe",
+  "score": 0.7498016357421875,
+  "type": "music"
+ }
+]

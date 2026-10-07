@@ -1,0 +1,322 @@
+[
+  {
+    "key": "hook-wait",
+    "file": "hook-wait.mp4",
+    "mixkitId": 21668,
+    "title": "people sitting in a hospital waiting room",
+    "w": 1280,
+    "h": 720,
+    "dur": 13.45,
+    "cx": 0.3,
+    "cy": 0.45,
+    "best": [
+      6,
+      10
+    ],
+    "notes": "Bright blue clinic bench, man bored (drinks water 0-2s), woman joins right ~3s and stares up bored ~12s (alt crop cx 0.78); only 2 people, not crowded; no text/logos"
+  },
+  {
+    "key": "hook-clock",
+    "file": "hook-clock.mp4",
+    "mixkitId": 9335,
+    "title": "wall clock on white background time lapse",
+    "w": 1280,
+    "h": 720,
+    "dur": 16.02,
+    "cx": 0.5,
+    "cy": 0.5,
+    "best": [
+      4,
+      8
+    ],
+    "notes": "Red-rim clock on pure white, time-lapse hands sweeping; clock wider than 405px window so crop reads as face+hands close-up; clean"
+  },
+  {
+    "key": "mont-1",
+    "file": "mont-1.mp4",
+    "mixkitId": 32833,
+    "title": "happy workgroup for successfully closing a deal",
+    "w": 1280,
+    "h": 720,
+    "dur": 15.84,
+    "cx": 0.5,
+    "cy": 0.4,
+    "best": [
+      5,
+      9
+    ],
+    "notes": "Bright office, team of 6 cheering around laptops; 405 window holds ~2 faces, 810 split holds group; laptops closed/no logos"
+  },
+  {
+    "key": "mont-2",
+    "file": "mont-2.mp4",
+    "mixkitId": 40776,
+    "title": "young woman jogging head on outdoors",
+    "w": 720,
+    "h": 1280,
+    "dur": 12.29,
+    "cx": 0.5,
+    "cy": 0.5,
+    "best": [
+      4,
+      8
+    ],
+    "notes": "NATIVE PORTRAIT 720x1280; woman jogging toward camera on track, soft daylight slightly overcast; no crop needed"
+  },
+  {
+    "key": "mont-3",
+    "file": "mont-3.mp4",
+    "mixkitId": 4527,
+    "title": "father and son playing piggyback",
+    "w": 1280,
+    "h": 720,
+    "dur": 7,
+    "cx": 0.55,
+    "cy": 0.5,
+    "best": [
+      1.5,
+      5
+    ],
+    "notes": "Bright bedroom, dad crawling with laughing son on back, both stay within 0.4-0.65; clean"
+  },
+  {
+    "key": "mont-4",
+    "file": "mont-4.mp4",
+    "mixkitId": 8997,
+    "title": "man using mobile app reflected in glasses",
+    "w": 1280,
+    "h": 720,
+    "dur": 10.47,
+    "cx": 0.6,
+    "cy": 0.45,
+    "best": [
+      2,
+      6
+    ],
+    "notes": "Warm terracotta cafe, bearded man smiling down at phone; static; phone back faces camera (no visible logo seen)"
+  },
+  {
+    "key": "mont-5",
+    "file": "mont-5.mp4",
+    "mixkitId": 46002,
+    "title": "two workout buddies sharing a high five after exercising",
+    "w": 1280,
+    "h": 720,
+    "dur": 5,
+    "cx": 0.42,
+    "cy": 0.4,
+    "best": [
+      1,
+      4
+    ],
+    "notes": "Outdoor park, high five peaks 2.1-3.0s; man faces camera, woman back-to-camera on right; short 5s clip"
+  },
+  {
+    "key": "mont-6",
+    "file": "mont-6.mp4",
+    "mixkitId": 42898,
+    "title": "woman exercising in her living room",
+    "w": 1280,
+    "h": 720,
+    "dur": 14.18,
+    "cx": 0.45,
+    "cy": 0.5,
+    "best": [
+      3,
+      7
+    ],
+    "notes": "Warm plant-filled living room, woman doing lunges on yoga mat, stays centered; healthy/home vibe; clean"
+  },
+  {
+    "key": "rh-office",
+    "file": "rh-office.mp4",
+    "mixkitId": 11602,
+    "title": "woman receiving good news at the office",
+    "w": 1280,
+    "h": 720,
+    "dur": 11.24,
+    "cx": 0.5,
+    "cy": 0.4,
+    "best": [
+      1,
+      4.5
+    ],
+    "notes": "Bright white office with plants, woman at laptop working 0-5s, celebrates arms-up 6.5-10s (usable as reaction beat); laptop lid plain"
+  },
+  {
+    "key": "phone-pickup",
+    "file": "phone-pickup.mp4",
+    "mixkitId": 100050,
+    "title": "woman smiling at her phone on a cozy couch",
+    "w": 1280,
+    "h": 720,
+    "dur": 14.35,
+    "cx": 0.45,
+    "cy": 0.45,
+    "best": [
+      5,
+      9
+    ],
+    "notes": "Latina-looking woman on coral sofa, warm; already holding red phone (no pick-up motion), smile grows over clip; phone back faces camera, fingers cover logo area"
+  },
+  {
+    "key": "sick-bed",
+    "file": "sick-bed.mp4",
+    "mixkitId": 47868,
+    "title": "woman lying in bed on her phone sick",
+    "w": 1280,
+    "h": 720,
+    "dur": 26.12,
+    "cx": 0.47,
+    "cy": 0.4,
+    "best": [
+      14,
+      18
+    ],
+    "notes": "Bright white bed + brick wall; thermometer in mouth while on phone, pulls it out to read ~15-19s; clean"
+  },
+  {
+    "key": "thermometer",
+    "file": "thermometer.mp4",
+    "mixkitId": 17404,
+    "title": "hands holding thermometer",
+    "w": 1280,
+    "h": 720,
+    "dur": 16.36,
+    "cx": 0.5,
+    "cy": 0.55,
+    "best": [
+      6,
+      10
+    ],
+    "notes": "Glass mercury thermometer held diagonally over soft green blur; center crop shows 37-39 scale; printed scale digits only, no overlay text"
+  },
+  {
+    "key": "doctor-call",
+    "file": "doctor-call.mp4",
+    "mixkitId": 4863,
+    "title": "female doctor in white coat in her office talking",
+    "w": 1280,
+    "h": 720,
+    "dur": 14.25,
+    "cx": 0.66,
+    "cy": 0.3,
+    "best": [
+      5,
+      9
+    ],
+    "notes": "Asian female doctor talking straight to camera, bright beige office; face centered at x~0.66 so portrait crop is clean; smiles 12-14s"
+  },
+  {
+    "key": "pharmacy",
+    "file": "pharmacy.mp4",
+    "mixkitId": 5433,
+    "title": "woman visits pharmacy to pay for prescription",
+    "w": 1280,
+    "h": 720,
+    "dur": 18.76,
+    "cx": 0.6,
+    "cy": 0.35,
+    "best": [
+      13,
+      17
+    ],
+    "notes": "Pharmacy counter, customer woman smiles at blurred pharmacist (foreground left 0.1-0.3); shelves with small blurry packaging, pink posts; no readable brands"
+  },
+  {
+    "key": "lab",
+    "file": "lab.mp4",
+    "mixkitId": 21454,
+    "title": "laboratory worker looking at a test tube",
+    "w": 1280,
+    "h": 720,
+    "dur": 15.92,
+    "cx": 0.45,
+    "cy": 0.45,
+    "best": [
+      6,
+      10
+    ],
+    "notes": "Blue-gloved hands inspecting red blood tubes, technician face soft-focus right (x~0.72); bright, shallow focus; clean"
+  },
+  {
+    "key": "relief",
+    "file": "relief.mp4",
+    "mixkitId": 43394,
+    "title": "cheerful woman drinking a cup of coffee",
+    "w": 720,
+    "h": 1280,
+    "dur": 8.51,
+    "cx": 0.5,
+    "cy": 0.4,
+    "best": [
+      3,
+      7
+    ],
+    "notes": "NATIVE PORTRAIT 720x1280; red-haired woman smiling with mug in warm kitchen, back-to-normal morning; clean"
+  },
+  {
+    "key": "texting",
+    "file": "texting.mp4",
+    "mixkitId": 51123,
+    "title": "woman sending messages on whatsapp zoom shot",
+    "w": 1280,
+    "h": 720,
+    "dur": 8.38,
+    "cx": 0.5,
+    "cy": 0.6,
+    "best": [
+      0.5,
+      4
+    ],
+    "notes": "Close-up hands typing on phone, pink-striped top; screen shows keyboard only; framing drifts right after 5s (cx~0.65); title says WhatsApp but no app UI/logo readable"
+  },
+  {
+    "key": "team-end",
+    "file": "team-end.mp4",
+    "mixkitId": 100319,
+    "title": "team collaboration in a colorful workspace",
+    "w": 1280,
+    "h": 720,
+    "dur": 7.17,
+    "cx": 0.5,
+    "cy": 0.4,
+    "best": [
+      3,
+      6.5
+    ],
+    "notes": "Diverse team of 5 around laptop, colorful cactus/sun mural, bright; laugh together 5-7s; laptop lid has a round emblem (generic, cover or crop low)"
+  },
+  {
+    "key": "hook-clinic",
+    "file": "assets/stock/hook-clinic.mp4",
+    "mixkitId": "4766",
+    "title": "clinic staff at a hospital reception",
+    "w": 1280,
+    "h": 720,
+    "dur": 12.36,
+    "cx": 0.22,
+    "cy": 0.5,
+    "best": [
+      0,
+      1.5
+    ],
+    "notes": "reception desk + corridor with waiting chairs; after ~2s it becomes a posed staff group"
+  },
+  {
+    "key": "montage",
+    "file": "assets/stock/montage.mp4",
+    "title": "beat montage (mont-1, mont-2, mont-6)",
+    "w": 900,
+    "h": 1100,
+    "dur": 10.8,
+    "cx": 0.5,
+    "cy": 0.5,
+    "best": [
+      0,
+      10.8
+    ],
+    "cut": 4.2,
+    "notes": "generated by build/montage.mjs, long shots with dissolves"
+  }
+]

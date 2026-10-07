@@ -1,0 +1,240 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "s01-hook→s02-marca",
+      "cut": 12,
+      "technique": "signature plus",
+      "sig": "50% 45%",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s01-hook",
+        "axis": "z",
+        "dir": 1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s02-marca",
+        "axis": "z",
+        "dir": 1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s02-marca→s03-rh",
+      "cut": 22.5,
+      "technique": "signature plus",
+      "sig": "50% 45%",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s02-marca",
+        "axis": "z",
+        "dir": 1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s03-rh",
+        "axis": "z",
+        "dir": 1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s03-rh→s04-acesso",
+      "cut": 38.25,
+      "technique": "cut-the-curve UP",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s03-rh",
+        "axis": "y",
+        "dir": -1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s04-acesso",
+        "axis": "y",
+        "dir": -1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s04-acesso→s05-beneficios",
+      "cut": 47.25,
+      "technique": "match cut: same phone, same framing",
+      "type": "match",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s04-acesso",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s05-beneficios",
+        "axis": "x",
+        "dir": -1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s05-beneficios→s06-ia",
+      "cut": 63,
+      "technique": "signature plus",
+      "sig": "50% 45%",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s05-beneficios",
+        "axis": "z",
+        "dir": 1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s06-ia",
+        "axis": "z",
+        "dir": 1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s06-ia→s07-plantao",
+      "cut": 72.75,
+      "technique": "hard cut to black (pattern break)",
+      "type": "match",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s06-ia",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s07-plantao",
+        "axis": "x",
+        "dir": -1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s07-plantao→s07b-anamnese",
+      "cut": 89.25,
+      "technique": "cut-the-curve UP",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s07-plantao",
+        "axis": "y",
+        "dir": -1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s07b-anamnese",
+        "axis": "y",
+        "dir": -1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s07b-anamnese→s08-consulta",
+      "cut": 120,
+      "technique": "cut-the-curve LEFT",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s07b-anamnese",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s08-consulta",
+        "axis": "x",
+        "dir": -1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s08-consulta→s09-docs",
+      "cut": 129.75,
+      "technique": "signature plus",
+      "sig": "50% 45%",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s08-consulta",
+        "axis": "z",
+        "dir": 1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s09-docs",
+        "axis": "z",
+        "dir": 1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s09-docs→s10-avisos",
+      "cut": 144.75,
+      "technique": "cut-the-curve LEFT",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s09-docs",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s10-avisos",
+        "axis": "x",
+        "dir": -1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s10-avisos→s11-painel",
+      "cut": 162,
+      "technique": "inverse zoom-through (pull back to the RH desk)",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s10-avisos",
+        "axis": "z",
+        "dir": -1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s11-painel",
+        "axis": "z",
+        "dir": -1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    },
+    {
+      "id": "s11-painel→s12-fecho",
+      "cut": 174.75,
+      "technique": "signature plus",
+      "sig": "50% 45%",
+      "blur": 8,
+      "exit": {
+        "selector": "#el-s11-painel",
+        "axis": "z",
+        "dir": 1,
+        "dur": 0.6
+      },
+      "entry": {
+        "selector": "#el-s12-fecho",
+        "axis": "z",
+        "dir": 1,
+        "dur": 1.1,
+        "travel": 6
+      }
+    }
+  ]
+}

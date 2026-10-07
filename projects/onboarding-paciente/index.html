@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="vm-kit.css">
+    <link rel="stylesheet" href="vm-ui-phone.css">
+    <style>
+@font-face{font-family:"DM Sans";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:500;font-display:block;src:url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:700;font-display:block;src:url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype")}
+@font-face{font-family:"DMSans_400Regular";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype")}
+@font-face{font-family:"DMSans_500Medium";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype")}
+@font-face{font-family:"DMSans_700Bold";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype")}
+@font-face{font-family:"SpaceGrotesk_700Bold";font-weight:400;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype")}
+@font-face{font-family:"SpaceGrotesk_500Medium";font-weight:400;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype")}
+@font-face{font-family:"SFMono-Regular";src:local("Menlo")}
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #FAFAFE; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFE; }
+      #bg { position: absolute; inset: 0; background: #FAFAFE; }
+      #bg-aura { position: absolute; left: -260px; top: 260px; width: 1500px; height: 1500px; border-radius: 50%; background: radial-gradient(circle, rgba(126,59,237,0.24) 0%, rgba(126,59,237,0.1) 38%, rgba(250,250,254,0) 68%); }
+      #bg-grid { position: absolute; left: 0; top: 0; width: 1080px; height: 2400px; background-image: radial-gradient(rgba(87,25,182,0.16) 1.6px, transparent 1.6px); background-size: 48px 48px; }
+      #root > .clip { position: absolute; inset: 0; }
+      #sig-in, #sig-out { position: absolute; inset: 0; z-index: 60; pointer-events: none; opacity: 0; --m: 0px; background: #6A24DB; }
+      #sig-in { -webkit-mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat; mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat; }
+      #sig-out { -webkit-mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat, linear-gradient(#000, #000); -webkit-mask-composite: xor; mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat exclude, linear-gradient(#000, #000); }
+      #brand { position: absolute; left: 56px; top: 64px; z-index: 40; padding: 13px 26px 13px 24px; border-radius: 999px; background: #fff; box-shadow: 0 14px 34px rgba(34,8,74,0.18), 0 2px 6px rgba(34,8,74,0.1); pointer-events: none; }
+      #brand img { display: block; width: 172px; height: 46px; }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-szux" id="root" data-composition-id="main" data-start="0" data-duration="336.7" data-width="1080" data-height="1920">
+      <div data-hf-id="hf-2xc0" id="bg"><div data-hf-id="hf-r3kh" id="bg-grid"></div><div data-hf-id="hf-dywk" id="bg-aura"></div></div>
+      <div data-hf-id="hf-bdaj" id="el-c00-abertura" class="clip" data-composition-id="c00-abertura" data-composition-src="compositions/c00-abertura.html" data-start="0" data-duration="5" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-8l29" id="el-c02-acesso" class="clip" data-composition-id="c02-acesso" data-composition-src="compositions/c02-acesso.html" data-start="5" data-duration="58" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-sqbo" id="el-c03-beneficios" class="clip" data-composition-id="c03-beneficios" data-composition-src="compositions/c03-beneficios.html" data-start="63" data-duration="17.7" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-my88" id="el-c05-agendar" class="clip" data-composition-id="c05-agendar" data-composition-src="compositions/c05-agendar.html" data-start="80.7" data-duration="58.4" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-0x1w" id="el-c06-anamnese" class="clip" data-composition-id="c06-anamnese" data-composition-src="compositions/c06-anamnese.html" data-start="139.1" data-duration="47.1" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-2319" id="el-c07-historico" class="clip" data-composition-id="c07-historico" data-composition-src="compositions/c07-historico.html" data-start="186.2" data-duration="33" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-bkxg" id="el-c08-dependentes" class="clip" data-composition-id="c08-dependentes" data-composition-src="compositions/c08-dependentes.html" data-start="219.2" data-duration="28.5" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-27x1" id="el-c09-ia" class="clip" data-composition-id="c09-ia" data-composition-src="compositions/c09-ia.html" data-start="247.7" data-duration="26.7" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-1l59" id="el-c10-ia-agenda" class="clip" data-composition-id="c10-ia-agenda" data-composition-src="compositions/c10-ia-agenda.html" data-start="274.4" data-duration="49.7" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-7v1l" id="el-c99-fecho" class="clip" data-composition-id="c99-fecho" data-composition-src="compositions/c99-fecho.html" data-start="324.1" data-duration="12.6" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-ml6k" id="brand" data-layout-allow-overlap=""><img data-hf-id="hf-te8y" src="assets/brand/wordmark.png" alt="Viva Mais" data-layout-allow-overlap=""></div>
+      <div data-hf-id="hf-pmm8" id="sig-in" data-layout-allow-overlap=""></div><div data-hf-id="hf-fb8v" id="sig-out" data-layout-allow-overlap=""></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+      // <seams:auto> — generated by seam-stamp.mjs from ledger.json; do not hand-edit.
+      // Regenerate: node <motion-doctrine>/scripts/seam-stamp.mjs --ledger ledger.json --write index.html
+      gsap.set("#el-c00-abertura", { opacity: 1, xPercent: 0, yPercent: 0, scale: 1, filter: "blur(0px)", transformOrigin: "50% 50%" });
+      gsap.set("#el-c02-acesso", { opacity: 0, scale: 0.78, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      gsap.set("#el-c03-beneficios", { opacity: 0, scale: 0.78, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      gsap.set("#el-c05-agendar", { opacity: 0, scale: 0.78, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      gsap.set("#el-c06-anamnese", { opacity: 0, scale: 0.78, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      gsap.set("#el-c07-historico", { opacity: 0, scale: 0.78, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      gsap.set("#el-c08-dependentes", { opacity: 0, scale: 0.78, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      gsap.set("#el-c09-ia", { opacity: 0, scale: 0.78, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      gsap.set("#el-c10-ia-agenda", { opacity: 0, scale: 0.78, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      gsap.set("#el-c99-fecho", { opacity: 0, scale: 0.78, filter: "blur(18px)", xPercent: 0, yPercent: 0, transformOrigin: "50% 50%" });
+      
+      // SEAM — c00-abertura→c02-acesso : signature plus (cut @5)
+      tl.to("#el-c00-abertura", { scale: 1.18, filter: "blur(18px)", duration: 0.21, ease: "power3.in" }, 4.79);
+      tl.to("#el-c00-abertura", { opacity: 0, duration: 0.21, ease: "none" }, 4.79);
+      tl.set("#el-c00-abertura", { opacity: 0 }, 5);
+      tl.fromTo("#el-c02-acesso", { opacity: 0.15, scale: 0.78, filter: "blur(18px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 5);
+      
+      // SEAM — c02-acesso→c03-beneficios : signature plus (cut @63)
+      tl.to("#el-c02-acesso", { scale: 1.18, filter: "blur(18px)", duration: 0.21, ease: "power3.in" }, 62.79);
+      tl.to("#el-c02-acesso", { opacity: 0, duration: 0.21, ease: "none" }, 62.79);
+      tl.set("#el-c02-acesso", { opacity: 0 }, 63);
+      tl.fromTo("#el-c03-beneficios", { opacity: 0.15, scale: 0.78, filter: "blur(18px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 63);
+      
+      // SEAM — c03-beneficios→c05-agendar : signature plus (cut @80.7)
+      tl.to("#el-c03-beneficios", { scale: 1.18, filter: "blur(18px)", duration: 0.21, ease: "power3.in" }, 80.49);
+      tl.to("#el-c03-beneficios", { opacity: 0, duration: 0.21, ease: "none" }, 80.49);
+      tl.set("#el-c03-beneficios", { opacity: 0 }, 80.7);
+      tl.fromTo("#el-c05-agendar", { opacity: 0.15, scale: 0.78, filter: "blur(18px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 80.7);
+      
+      // SEAM — c05-agendar→c06-anamnese : signature plus (cut @139.1)
+      tl.to("#el-c05-agendar", { scale: 1.18, filter: "blur(18px)", duration: 0.21, ease: "power3.in" }, 138.89);
+      tl.to("#el-c05-agendar", { opacity: 0, duration: 0.21, ease: "none" }, 138.89);
+      tl.set("#el-c05-agendar", { opacity: 0 }, 139.1);
+      tl.fromTo("#el-c06-anamnese", { opacity: 0.15, scale: 0.78, filter: "blur(18px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 139.1);
+      
+      // SEAM — c06-anamnese→c07-historico : signature plus (cut @186.2)
+      tl.to("#el-c06-anamnese", { scale: 1.18, filter: "blur(18px)", duration: 0.21, ease: "power3.in" }, 185.99);
+      tl.to("#el-c06-anamnese", { opacity: 0, duration: 0.21, ease: "none" }, 185.99);
+      tl.set("#el-c06-anamnese", { opacity: 0 }, 186.2);
+      tl.fromTo("#el-c07-historico", { opacity: 0.15, scale: 0.78, filter: "blur(18px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 186.2);
+      
+      // SEAM — c07-historico→c08-dependentes : signature plus (cut @219.2)
+      tl.to("#el-c07-historico", { scale: 1.18, filter: "blur(18px)", duration: 0.21, ease: "power3.in" }, 218.99);
+      tl.to("#el-c07-historico", { opacity: 0, duration: 0.21, ease: "none" }, 218.99);
+      tl.set("#el-c07-historico", { opacity: 0 }, 219.2);
+      tl.fromTo("#el-c08-dependentes", { opacity: 0.15, scale: 0.78, filter: "blur(18px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 219.2);
+      
+      // SEAM — c08-dependentes→c09-ia : signature plus (cut @247.7)
+      tl.to("#el-c08-dependentes", { scale: 1.18, filter: "blur(18px)", duration: 0.21, ease: "power3.in" }, 247.49);
+      tl.to("#el-c08-dependentes", { opacity: 0, duration: 0.21, ease: "none" }, 247.49);
+      tl.set("#el-c08-dependentes", { opacity: 0 }, 247.7);
+      tl.fromTo("#el-c09-ia", { opacity: 0.15, scale: 0.78, filter: "blur(18px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 247.7);
+      
+      // SEAM — c09-ia→c10-ia-agenda : signature plus (cut @274.4)
+      tl.to("#el-c09-ia", { scale: 1.18, filter: "blur(18px)", duration: 0.21, ease: "power3.in" }, 274.19);
+      tl.to("#el-c09-ia", { opacity: 0, duration: 0.21, ease: "none" }, 274.19);
+      tl.set("#el-c09-ia", { opacity: 0 }, 274.4);
+      tl.fromTo("#el-c10-ia-agenda", { opacity: 0.15, scale: 0.78, filter: "blur(18px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 274.4);
+      
+      // SEAM — c10-ia-agenda→c99-fecho : signature plus (cut @324.1)
+      tl.to("#el-c10-ia-agenda", { scale: 1.18, filter: "blur(18px)", duration: 0.21, ease: "power3.in" }, 323.89);
+      tl.to("#el-c10-ia-agenda", { opacity: 0, duration: 0.21, ease: "none" }, 323.89);
+      tl.set("#el-c10-ia-agenda", { opacity: 0 }, 324.1);
+      tl.fromTo("#el-c99-fecho", { opacity: 0.15, scale: 0.78, filter: "blur(18px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.5, ease: "expo.out", immediateRender: false }, 324.1);
+      
+      // </seams:auto>
+      tl.fromTo("#bg-aura", { x: -120, y: -200 }, { x: 260, y: 700, duration: 336.7, ease: "sine.inOut" }, 0);
+      tl.fromTo("#bg-grid", { y: 0 }, { y: -240, duration: 336.7, ease: "none" }, 0);
+      tl.fromTo("#brand", { opacity: 0, y: -28 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 5.3);
+      tl.to("#brand", { opacity: 0, y: -28, duration: 0.4, ease: "power3.in" }, 323.55);
+      tl.set({}, {}, 336.7);
+    </script>
+  </body>
+</html>

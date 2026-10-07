@@ -1,0 +1,35 @@
+<!doctype html><html><body style="margin:0;background:transparent"><canvas id="c"></canvas><canvas id="o"></canvas>
+<script type="module">
+import RiveFactory from '/node_modules/@rive-app/webgl2-advanced/webgl2_advanced.mjs';
+window.setup = async (rivUrl, w, h, anim, bg) => {
+  const rive = await RiveFactory({ locateFile: () => '/node_modules/@rive-app/webgl2-advanced/rive.wasm' });
+  const bytes = new Uint8Array(await (await fetch(rivUrl)).arrayBuffer());
+  const file = await rive.load(bytes);
+  const artboard = file.artboardByName('Intro');
+  const canvas = document.getElementById('c');
+  canvas.width = w; canvas.height = h;
+  const renderer = rive.makeRenderer(canvas);
+  const out = document.getElementById('o');
+  out.width = w; out.height = h;
+  const ctx = out.getContext('2d');
+  const player = new rive.LinearAnimationInstance(artboard.animationByName(anim), artboard);
+  window.step = async (dt) => {
+    player.advance(dt);
+    player.apply(1);
+    artboard.advance(dt);
+    await new Promise((resolve) => rive.requestAnimationFrame(() => {
+      renderer.clear();
+      renderer.save();
+      renderer.align(rive.Fit.contain, rive.Alignment.center, { minX: 0, minY: 0, maxX: w, maxY: h }, artboard.bounds);
+      artboard.draw(renderer);
+      renderer.restore();
+      renderer.flush?.();
+      resolve();
+    }));
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h);
+    ctx.drawImage(canvas, 0, 0);
+    return out.toDataURL('image/png');
+  };
+  return { duration: player.duration };
+};
+</script></body></html>

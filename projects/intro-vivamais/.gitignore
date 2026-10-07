@@ -1,0 +1,10 @@
+build/.tmp/
+_fidelity-*.html
+capture/shots/
+capture/mock.log
+node_modules/
+snapshots/
+renders/
+.hyperframes/
+.thumbnails/
+rive/out/

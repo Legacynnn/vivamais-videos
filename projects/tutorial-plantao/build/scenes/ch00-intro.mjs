@@ -1,0 +1,62 @@
+export default {
+  id: "ch00-intro",
+  tail: 0,
+  frame: {
+    title: "Abertura",
+    scene: "Escritório claro (imagem gerada): uma funcionária mostra o celular com o app Viva Mais aberto na tela real do Início; a marca acende no painel da parede; a câmera mergulha no celular",
+    poster: 3,
+    motion: "push-in contínuo (Ken Burns), waterfall-entry (título), coordinate-target-zoom (celular), zoom-through para a UI real",
+    body: "Plano aberto de um coworking claro com poltrona e caderno violeta e planta lima. A funcionária segura o celular de frente; a tela acende com o Início real do app. O painel branco da parede recebe a marca Viva Mais. Título “Médico online em minutos.” entra em cascata à esquerda com um subtítulo. O texto sai e a câmera mergulha no celular até a UI real ocupar o quadro.",
+  },
+  css: `
+.i0{position:absolute;inset:0;overflow:hidden;font-family:"DM Sans",sans-serif;color:#17151e;background:#f4f0fb}
+.i0-cam{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:903px 741px;will-change:transform}
+.i0-room{position:absolute;left:-1511px;top:0;width:3413px;height:1920px;object-fit:cover}
+.i0-phone{position:absolute;left:805px;top:544px;width:196px;height:395px;overflow:hidden;border-radius:16px;background:#fafafe;transform:rotate(-1deg)}
+.i0-phone img{display:block;width:196px;height:auto}
+.i0-glow{position:absolute;left:775px;top:514px;width:256px;height:455px;border-radius:40px;box-shadow:0 0 80px 26px rgba(126,59,237,.22);pointer-events:none}
+.i0-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,250,254,0) 46%,rgba(250,250,254,.86) 64%,rgba(250,250,254,.97) 78%)}
+.i0-copy{position:absolute;left:80px;right:80px;bottom:150px}
+.i0-kick{display:inline-flex;align-items:center;gap:12px;margin:0 0 28px;padding:12px 22px;border-radius:999px;background:#22084a;color:#fafafe;font-size:28px;font-weight:600;letter-spacing:.2px}
+.i0-kick i{width:12px;height:12px;border-radius:50%;background:#c6ff34}
+.i0-title{margin:0;font-family:"Space Grotesk",sans-serif;font-size:132px;font-weight:700;letter-spacing:-.04em;line-height:1}
+.i0-title .l{display:block;overflow:hidden;padding:.04em .06em .14em 0;margin:0 0 -.14em}
+.i0-title .w{display:inline-block}
+.i0-title .v{color:#6a24db}
+.i0-sub{margin:36px 0 0;font-size:40px;line-height:1.34;color:#3a3646;text-wrap:balance}
+`,
+  html: `<div class="vmk"><div class="i0">
+<div class="i0-cam">
+<img class="i0-room clip" id="ch00-room" src="assets/intro/scene.jpg" alt="" data-start="0" data-duration="6.4" data-track-index="0">
+<div class="i0-glow" data-layout-allow-overlap></div>
+<div class="i0-phone" data-layout-allow-overlap><img src="assets/intro/ui-home.png" alt="" data-layout-allow-overlap></div>
+</div>
+<div class="i0-scrim" data-layout-allow-overlap></div>
+<div class="i0-copy" data-layout-allow-overlap>
+<div class="i0-kick" data-layout-allow-overlap><i></i>Plantão 24h · Viva+ Empresarial</div>
+<h1 class="i0-title" data-layout-allow-overlap><span class="l"><span class="w" data-layout-allow-overlap>Médico online</span></span><span class="l"><span class="w" data-layout-allow-overlap>em <span class="v" data-layout-allow-overlap>minutos.</span></span></span></h1>
+<p class="i0-sub" data-layout-allow-overlap>O guia do Plantão 24h no app Viva Mais: do plano da empresa à consulta por vídeo, sem pagar nada.</p>
+</div>
+</div></div>`,
+  run: function (tl, root) {
+    var q = function (s) {
+      return Array.prototype.slice.call(root.querySelectorAll(s));
+    };
+    var cam = q(".i0-cam");
+    var words = q(".i0-title .w");
+    words.forEach(function (el) {
+      gsap.set(el, { yPercent: 115 });
+    });
+    tl.fromTo(cam, { scale: 1 }, { scale: 1.06, duration: 4.9, ease: "none" }, 0);
+    tl.fromTo(q(".i0-phone"), { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out", immediateRender: false }, 0.9);
+    tl.fromTo(q(".i0-glow"), { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power2.out" }, 0.9);
+    tl.fromTo(q(".i0-kick"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.7);
+    words.forEach(function (el, i) {
+      tl.fromTo(el, { yPercent: 115 }, { yPercent: 0, duration: 0.7, ease: "expo.out", immediateRender: false }, 0.95 + i * 0.12);
+    });
+    tl.fromTo(q(".i0-sub"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 1.55);
+    tl.to(q(".i0-copy"), { y: 220, opacity: 0, duration: 0.5, ease: "power3.in" }, 4.4);
+    tl.to(q(".i0-scrim"), { opacity: 0, duration: 0.6, ease: "power2.inOut" }, 4.5);
+    tl.to(cam, { scale: 6.4, duration: 1.5, ease: "power3.in" }, 4.9);
+  },
+};

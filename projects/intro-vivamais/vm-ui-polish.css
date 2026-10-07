@@ -1,0 +1,213 @@
+:is(.vm-ui, .vm-tab) {
+  --vm-ink: #17151e;
+  --vm-violet: #7e3bed;
+  --vm-violet-strong: #6a24db;
+  --vm-mist: #f3edff;
+  --vm-line: #e4e0ee;
+  --vm-line-soft: #efecf6;
+  --vm-surface: #faf9fd;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "ss01", "cv11";
+}
+
+:is(.vm-ui, .vm-tab) [class~="text-gray-900"],
+:is(.vm-ui, .vm-tab) [class~="text-foreground"],
+:is(.vm-ui, .vm-tab) [class~="text-card-foreground"] {
+  color: #17151e;
+}
+:is(.vm-ui, .vm-tab) [class~="text-gray-800"] {
+  color: #24212e;
+}
+:is(.vm-ui, .vm-tab) [class~="text-gray-700"] {
+  color: #3a3646;
+}
+:is(.vm-ui, .vm-tab) [class~="text-gray-600"],
+:is(.vm-ui, .vm-tab) [class~="text-zinc-600"] {
+  color: #55516a;
+}
+:is(.vm-ui, .vm-tab) [class~="text-gray-500"],
+:is(.vm-ui, .vm-tab) [class~="text-muted-foreground"] {
+  color: #6b6780;
+}
+:is(.vm-ui, .vm-tab) [class~="text-gray-400"] {
+  color: #8a869c;
+}
+:is(.vm-ui, .vm-tab) [class~="text-gray-300"] {
+  color: #b9b5c8;
+}
+
+:is(.vm-ui, .vm-tab) [class~="text-[#9531FF]"],
+:is(.vm-ui, .vm-tab) [class~="text-[#9633FF]"],
+:is(.vm-ui, .vm-tab) [class~="text-[#7E3AEE]"],
+:is(.vm-ui, .vm-tab) [class~="text-purple-600"],
+:is(.vm-ui, .vm-tab) [class~="text-violet-700"] {
+  color: #6a24db;
+}
+:is(.vm-ui, .vm-tab) [class~="bg-[#9531FF]"],
+:is(.vm-ui, .vm-tab) [class~="bg-[#9633FF]"],
+:is(.vm-ui, .vm-tab) [class~="bg-[#7E3AEE]"],
+:is(.vm-ui, .vm-tab) [class~="bg-purple-600"],
+:is(.vm-ui, .vm-tab) [class~="bg-primary"] {
+  background-color: #7e3bed;
+}
+:is(.vm-ui, .vm-tab) button[class~="bg-[#9531FF]"],
+:is(.vm-ui, .vm-tab) button[class~="bg-[#9633FF]"],
+:is(.vm-ui, .vm-tab) button[class~="bg-[#7E3AEE]"],
+:is(.vm-ui, .vm-tab) button[class~="bg-purple-600"],
+:is(.vm-ui, .vm-tab) button[class~="bg-primary"] {
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(34, 8, 74, 0.24),
+    0 6px 14px -6px rgba(106, 36, 219, 0.5);
+}
+:is(.vm-ui, .vm-tab) [class~="bg-[#9531FF]/10"],
+:is(.vm-ui, .vm-tab) [class~="bg-purple-100"],
+:is(.vm-ui, .vm-tab) [class~="bg-violet-50"] {
+  background-color: #f3edff;
+}
+:is(.vm-ui, .vm-tab) [class~="bg-[#9531FF]/5"],
+:is(.vm-ui, .vm-tab) [class~="bg-purple-50"] {
+  background-color: #f8f4ff;
+}
+:is(.vm-ui, .vm-tab) [class~="border-[#9531FF]"],
+:is(.vm-ui, .vm-tab) [class~="border-[#9633FF]"],
+:is(.vm-ui, .vm-tab) [class~="border-[#7E3AEE]"],
+:is(.vm-ui, .vm-tab) [class~="border-violet-400"] {
+  border-color: #7e3bed;
+}
+:is(.vm-ui, .vm-tab) [class~="border-[#9531FF]/20"],
+:is(.vm-ui, .vm-tab) [class~="border-purple-100"] {
+  border-color: #e2d5fb;
+}
+:is(.vm-ui, .vm-tab) [class*="from-[#A855F7]"],
+:is(.vm-ui, .vm-tab) [class*="from-[#9633FF]"] {
+  background-image: none;
+  background-color: #6a24db;
+}
+
+:is(.vm-ui, .vm-tab) [class~="bg-gray-50"],
+:is(.vm-ui, .vm-tab) [class~="bg-[#F9FAFB]"],
+:is(.vm-ui, .vm-tab) [class~="bg-zinc-50"] {
+  background-color: #faf9fd;
+}
+:is(.vm-ui, .vm-tab) [class~="bg-gray-100"] {
+  background-color: #f3f1f9;
+}
+:is(.vm-ui, .vm-tab) [class~="bg-gray-200"] {
+  background-color: #e9e6f2;
+}
+:is(.vm-ui, .vm-tab) [class~="border-gray-100"] {
+  border-color: #efecf6;
+}
+:is(.vm-ui, .vm-tab) [class~="border-gray-200"],
+:is(.vm-ui, .vm-tab) [class~="border-[#E5E7EB]"],
+:is(.vm-ui, .vm-tab) [class~="border-input"],
+:is(.vm-ui, .vm-tab) [class~="border-slate-200"] {
+  border-color: #e4e0ee;
+}
+:is(.vm-ui, .vm-tab) [class~="border-gray-300"] {
+  border-color: #d3cee0;
+}
+
+:is(.vm-ui, .vm-tab) [class~="shadow-xs"] {
+  box-shadow: 0 1px 1px rgba(34, 8, 74, 0.04);
+}
+:is(.vm-ui, .vm-tab) [class~="shadow-sm"] {
+  box-shadow:
+    0 0 0 1px rgba(34, 8, 74, 0.03),
+    0 1px 2px rgba(34, 8, 74, 0.05);
+}
+:is(.vm-ui, .vm-tab) [class~="shadow-md"],
+:is(.vm-ui, .vm-tab) [class~="shadow-lg"] {
+  box-shadow:
+    0 0 0 1px rgba(34, 8, 74, 0.04),
+    0 2px 4px rgba(34, 8, 74, 0.04),
+    0 14px 32px -16px rgba(34, 8, 74, 0.16);
+}
+:is(.vm-ui, .vm-tab) aside[class~="shadow-lg"] {
+  box-shadow: 1px 0 0 #ece8f5;
+}
+:is(.vm-ui, .vm-tab) header[class~="shadow-lg"] {
+  box-shadow: 0 1px 0 #ece8f5;
+}
+:is(.vm-ui, .vm-tab) [role="dialog"] {
+  border-color: transparent;
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(34, 8, 74, 0.06),
+    0 36px 90px -24px rgba(34, 8, 74, 0.45),
+    0 12px 28px -12px rgba(34, 8, 74, 0.2);
+}
+:is(.vm-ui, .vm-tab) [role="listbox"] {
+  border-color: #e4e0ee;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px rgba(34, 8, 74, 0.03),
+    0 18px 40px -14px rgba(34, 8, 74, 0.28);
+}
+:is(.vm-ui, .vm-tab) [class~="bg-black/50"] {
+  background-color: rgba(23, 12, 46, 0.46);
+}
+
+:is(.vm-ui, .vm-tab) [class~="rounded-md"] {
+  border-radius: 10px;
+}
+:is(.vm-ui, .vm-tab) [class~="rounded-lg"] {
+  border-radius: 12px;
+}
+:is(.vm-ui, .vm-tab) [class~="rounded-xl"] {
+  border-radius: 16px;
+}
+
+:is(.vm-ui, .vm-tab) h1 {
+  letter-spacing: -0.028em;
+}
+:is(.vm-ui, .vm-tab) h2,
+:is(.vm-ui, .vm-tab) h3,
+:is(.vm-ui, .vm-tab) [data-slot="dialog-title"] {
+  letter-spacing: -0.018em;
+}
+:is(.vm-ui, .vm-tab) [class~="text-2xl"][class~="font-bold"],
+:is(.vm-ui, .vm-tab) [class~="text-xl"][class~="font-bold"],
+:is(.vm-ui, .vm-tab) [class~="text-3xl"][class~="font-bold"] {
+  letter-spacing: -0.03em;
+}
+:is(.vm-ui, .vm-tab) th {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #6b6780;
+}
+:is(.vm-ui, .vm-tab) tbody tr {
+  border-color: #efecf6;
+}
+:is(.vm-ui, .vm-tab) input,
+:is(.vm-ui, .vm-tab) button[role="combobox"] {
+  border-color: #dcd7ea;
+}
+:is(.vm-ui, .vm-tab) aside nav a {
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+:is(.vm-ui, .vm-tab) [class~="bg-green-100"],
+:is(.vm-ui, .vm-tab) [class~="bg-emerald-100"] {
+  background-color: #dff5e7;
+}
+:is(.vm-ui, .vm-tab) [class~="bg-emerald-50"],
+:is(.vm-ui, .vm-tab) [class~="bg-green-50"] {
+  background-color: #f0faf3;
+}
+:is(.vm-ui, .vm-tab) [class~="border-emerald-200"],
+:is(.vm-ui, .vm-tab) [class~="border-green-200"] {
+  border-color: #c4e9d1;
+}
+:is(.vm-ui, .vm-tab) [class~="bg-yellow-100"] {
+  background-color: #fdf3d0;
+}
+:is(.vm-ui, .vm-tab) [data-slot="badge"],
+:is(.vm-ui, .vm-tab) span[class~="rounded-full"][class~="text-xs"] {
+  letter-spacing: 0.005em;
+  font-weight: 600;
+}

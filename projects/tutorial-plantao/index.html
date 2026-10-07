@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="vm-kit.css">
+    <link rel="stylesheet" href="vm-ui-phone.css">
+    <style>
+@font-face{font-family:"DM Sans";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:500;font-display:block;src:url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:700;font-display:block;src:url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype")}
+@font-face{font-family:"DMSans_400Regular";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype")}
+@font-face{font-family:"DMSans_500Medium";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype")}
+@font-face{font-family:"DMSans_700Bold";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype")}
+@font-face{font-family:"SpaceGrotesk_700Bold";font-weight:400;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype")}
+@font-face{font-family:"SpaceGrotesk_500Medium";font-weight:400;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype")}
+@font-face{font-family:"SFMono-Regular";src:local("Menlo")}
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #FAFAFE; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFE; }
+      #bg { position: absolute; inset: 0; background: #FAFAFE; }
+      #bg-aura { position: absolute; left: -260px; top: 260px; width: 1500px; height: 1500px; border-radius: 50%; background: radial-gradient(circle, rgba(126,59,237,0.24) 0%, rgba(126,59,237,0.1) 38%, rgba(250,250,254,0) 68%); }
+      #bg-grid { position: absolute; left: 0; top: 0; width: 1080px; height: 2400px; background-image: radial-gradient(rgba(87,25,182,0.16) 1.6px, transparent 1.6px); background-size: 48px 48px; }
+      #root > .clip { position: absolute; inset: 0; }
+      #sig-in, #sig-out { position: absolute; inset: 0; z-index: 60; pointer-events: none; opacity: 0; --m: 0px; background: #6A24DB; }
+      #sig-in { -webkit-mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat; mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat; }
+      #sig-out { -webkit-mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat, linear-gradient(#000, #000); -webkit-mask-composite: xor; mask: url("assets/brand/plus-solid.svg") 50% 45% / var(--m) var(--m) no-repeat exclude, linear-gradient(#000, #000); }
+      #brand { position: absolute; left: 56px; top: 64px; z-index: 40; padding: 13px 26px 13px 24px; border-radius: 999px; background: #fff; box-shadow: 0 14px 34px rgba(34,8,74,0.18), 0 2px 6px rgba(34,8,74,0.1); pointer-events: none; }
+      #brand img { display: block; width: 172px; height: 46px; }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-uun5" id="root" data-composition-id="main" data-start="0" data-duration="301.9" data-width="1080" data-height="1920">
+      <div data-hf-id="hf-2xc0" id="bg"><div data-hf-id="hf-r3kh" id="bg-grid"></div><div data-hf-id="hf-dywk" id="bg-aura"></div></div>
+      <div data-hf-id="hf-v8go" id="el-ch00-intro" class="clip" data-composition-id="ch00-intro" data-composition-src="compositions/ch00-intro.html" data-start="0" data-duration="6.4" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-qhim" id="el-ch01-inicio" class="clip" data-composition-id="ch01-inicio" data-composition-src="compositions/ch01-inicio.html" data-start="6.4" data-duration="32.6" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-c0x5" id="el-ch02-beneficios" class="clip" data-composition-id="ch02-beneficios" data-composition-src="compositions/ch02-beneficios.html" data-start="39" data-duration="29.5" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-r6em" id="el-ch03-plantao" class="clip" data-composition-id="ch03-plantao" data-composition-src="compositions/ch03-plantao.html" data-start="68.5" data-duration="19.8" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-28lc" id="el-ch04-cobertura" class="clip" data-composition-id="ch04-cobertura" data-composition-src="compositions/ch04-cobertura.html" data-start="88.3" data-duration="14.1" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-jcnv" id="el-ch05-anamnese" class="clip" data-composition-id="ch05-anamnese" data-composition-src="compositions/ch05-anamnese.html" data-start="102.4" data-duration="37.2" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-p2mg" id="el-ch06-fila" class="clip" data-composition-id="ch06-fila" data-composition-src="compositions/ch06-fila.html" data-start="139.6" data-duration="28.1" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-k14g" id="el-ch07-consulta" class="clip" data-composition-id="ch07-consulta" data-composition-src="compositions/ch07-consulta.html" data-start="167.7" data-duration="50.7" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-7z0h" id="el-ch08-pos" class="clip" data-composition-id="ch08-pos" data-composition-src="compositions/ch08-pos.html" data-start="218.4" data-duration="36.3" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-w1mt" id="el-ch09-ia" class="clip" data-composition-id="ch09-ia" data-composition-src="compositions/ch09-ia.html" data-start="254.7" data-duration="41.4" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-rcl4" id="el-ch99-outro" class="clip" data-composition-id="ch99-outro" data-composition-src="compositions/ch99-outro.html" data-start="296.1" data-duration="5.8" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-ml6k" id="brand" data-layout-allow-overlap=""><img data-hf-id="hf-te8y" src="assets/brand/wordmark.png" alt="Viva Mais" data-layout-allow-overlap=""></div>
+      <div data-hf-id="hf-pmm8" id="sig-in" data-layout-allow-overlap=""></div><div data-hf-id="hf-fb8v" id="sig-out" data-layout-allow-overlap=""></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+      // <seams:auto>
+      gsap.set(["#el-ch01-inicio","#el-ch02-beneficios","#el-ch03-plantao","#el-ch04-cobertura","#el-ch05-anamnese","#el-ch06-fila","#el-ch07-consulta","#el-ch08-pos","#el-ch09-ia","#el-ch99-outro"], { opacity: 0 });
+      // SEAM ch00-intro→ch01-inicio : signature plus @6.4
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 5.98);
+      tl.to("#el-ch00-intro", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 5.98);
+      tl.set("#el-ch00-intro", { opacity: 0 }, 6.4);
+      tl.set("#sig-in", { opacity: 0 }, 6.4);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 6.4);
+      tl.set("#sig-out", { opacity: 0 }, 7);
+      tl.fromTo("#el-ch01-inicio", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 6.4);
+      // SEAM ch01-inicio→ch02-beneficios : signature plus @39
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 38.58);
+      tl.to("#el-ch01-inicio", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 38.58);
+      tl.set("#el-ch01-inicio", { opacity: 0 }, 39);
+      tl.set("#sig-in", { opacity: 0 }, 39);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 39);
+      tl.set("#sig-out", { opacity: 0 }, 39.6);
+      tl.fromTo("#el-ch02-beneficios", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 39);
+      // SEAM ch02-beneficios→ch03-plantao : signature plus @68.5
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 68.08);
+      tl.to("#el-ch02-beneficios", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 68.08);
+      tl.set("#el-ch02-beneficios", { opacity: 0 }, 68.5);
+      tl.set("#sig-in", { opacity: 0 }, 68.5);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 68.5);
+      tl.set("#sig-out", { opacity: 0 }, 69.1);
+      tl.fromTo("#el-ch03-plantao", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 68.5);
+      // SEAM ch03-plantao→ch04-cobertura : signature plus @88.3
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 87.88);
+      tl.to("#el-ch03-plantao", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 87.88);
+      tl.set("#el-ch03-plantao", { opacity: 0 }, 88.3);
+      tl.set("#sig-in", { opacity: 0 }, 88.3);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 88.3);
+      tl.set("#sig-out", { opacity: 0 }, 88.9);
+      tl.fromTo("#el-ch04-cobertura", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 88.3);
+      // SEAM ch04-cobertura→ch05-anamnese : signature plus @102.4
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 101.98);
+      tl.to("#el-ch04-cobertura", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 101.98);
+      tl.set("#el-ch04-cobertura", { opacity: 0 }, 102.4);
+      tl.set("#sig-in", { opacity: 0 }, 102.4);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 102.4);
+      tl.set("#sig-out", { opacity: 0 }, 103);
+      tl.fromTo("#el-ch05-anamnese", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 102.4);
+      // SEAM ch05-anamnese→ch06-fila : signature plus @139.6
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 139.18);
+      tl.to("#el-ch05-anamnese", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 139.18);
+      tl.set("#el-ch05-anamnese", { opacity: 0 }, 139.6);
+      tl.set("#sig-in", { opacity: 0 }, 139.6);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 139.6);
+      tl.set("#sig-out", { opacity: 0 }, 140.2);
+      tl.fromTo("#el-ch06-fila", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 139.6);
+      // SEAM ch06-fila→ch07-consulta : signature plus @167.7
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 167.28);
+      tl.to("#el-ch06-fila", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 167.28);
+      tl.set("#el-ch06-fila", { opacity: 0 }, 167.7);
+      tl.set("#sig-in", { opacity: 0 }, 167.7);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 167.7);
+      tl.set("#sig-out", { opacity: 0 }, 168.3);
+      tl.fromTo("#el-ch07-consulta", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 167.7);
+      // SEAM ch07-consulta→ch08-pos : signature plus @218.4
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 217.98);
+      tl.to("#el-ch07-consulta", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 217.98);
+      tl.set("#el-ch07-consulta", { opacity: 0 }, 218.4);
+      tl.set("#sig-in", { opacity: 0 }, 218.4);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 218.4);
+      tl.set("#sig-out", { opacity: 0 }, 219);
+      tl.fromTo("#el-ch08-pos", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 218.4);
+      // SEAM ch08-pos→ch09-ia : signature plus @254.7
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 254.28);
+      tl.to("#el-ch08-pos", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 254.28);
+      tl.set("#el-ch08-pos", { opacity: 0 }, 254.7);
+      tl.set("#sig-in", { opacity: 0 }, 254.7);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 254.7);
+      tl.set("#sig-out", { opacity: 0 }, 255.3);
+      tl.fromTo("#el-ch09-ia", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 254.7);
+      // SEAM ch09-ia→ch99-outro : signature plus @296.1
+      tl.fromTo("#sig-in", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.42, ease: "power3.in", immediateRender: false }, 295.68);
+      tl.to("#el-ch09-ia", { scale: 1.06, duration: 0.42, ease: "power2.in", transformOrigin: "50% 45%" }, 295.68);
+      tl.set("#el-ch09-ia", { opacity: 0 }, 296.1);
+      tl.set("#sig-in", { opacity: 0 }, 296.1);
+      tl.fromTo("#sig-out", { "--m": "0px", opacity: 1 }, { "--m": "4400px", opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, 296.1);
+      tl.set("#sig-out", { opacity: 0 }, 296.7);
+      tl.fromTo("#el-ch99-outro", { opacity: 1, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 45%" }, 296.1);
+      // </seams:auto>
+      tl.fromTo("#bg-aura", { x: -120, y: -200 }, { x: 260, y: 700, duration: 301.9, ease: "sine.inOut" }, 0);
+      tl.fromTo("#bg-grid", { y: 0 }, { y: -240, duration: 301.9, ease: "none" }, 0);
+      tl.fromTo("#brand", { opacity: 0, y: -28 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.35);
+      tl.to("#brand", { opacity: 0, y: -28, duration: 0.4, ease: "power3.in" }, 295.55);
+      tl.set({}, {}, 301.9);
+    </script>
+  </body>
+</html>

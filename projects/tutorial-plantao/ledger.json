@@ -1,0 +1,165 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "ch00-intro→ch01-inicio",
+      "cut": 6.4,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch00-intro",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch01-inicio",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch01-inicio→ch02-beneficios",
+      "cut": 39,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch01-inicio",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch02-beneficios",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch02-beneficios→ch03-plantao",
+      "cut": 68.5,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch02-beneficios",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch03-plantao",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch03-plantao→ch04-cobertura",
+      "cut": 88.3,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch03-plantao",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch04-cobertura",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch04-cobertura→ch05-anamnese",
+      "cut": 102.4,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch04-cobertura",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch05-anamnese",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch05-anamnese→ch06-fila",
+      "cut": 139.6,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch05-anamnese",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch06-fila",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch06-fila→ch07-consulta",
+      "cut": 167.7,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch06-fila",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch07-consulta",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch07-consulta→ch08-pos",
+      "cut": 218.4,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch07-consulta",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch08-pos",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch08-pos→ch09-ia",
+      "cut": 254.7,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch08-pos",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch09-ia",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "ch09-ia→ch99-outro",
+      "cut": 296.1,
+      "technique": "signature plus",
+      "sig": true,
+      "exit": {
+        "selector": "#el-ch09-ia",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-ch99-outro",
+        "axis": "z",
+        "dir": 1
+      }
+    }
+  ]
+}

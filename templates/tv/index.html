@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Viva Mais TV</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; cursor: none; }
+  video { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; opacity: 0; }
+  video.on { opacity: 1; z-index: 1; }
+</style>
+</head>
+<body>
+<video muted playsinline preload="auto"></video>
+<video muted playsinline preload="auto"></video>
+<script>
+const list = __PLAYLIST__;
+const players = [...document.querySelectorAll("video")];
+let index = 0;
+let active = 1;
+let lastTime = -1;
+let stalls = 0;
+let paused = false;
+let seq = 0;
+
+const src = (i) => "videos/" + encodeURIComponent(list[i]);
+
+const load = (video, i) => {
+  video.src = src(i);
+  video.load();
+};
+
+const show = (i) => {
+  const token = ++seq;
+  index = (i + list.length) % list.length;
+  active = 1 - active;
+  const video = players[active];
+  const idle = players[1 - active];
+  if (!video.src.endsWith(src(index))) load(video, index);
+  video.muted = true;
+  video.currentTime = 0;
+  paused = false;
+  video.play().catch(() => token === seq && setTimeout(() => token === seq && show(index + 1), 1000));
+  video.classList.add("on");
+  idle.classList.remove("on");
+  idle.pause();
+  load(idle, (index + 1) % list.length);
+  stalls = 0;
+  lastTime = -1;
+};
+
+const resume = () => players[active].play().catch(() => {});
+
+const toggle = () => {
+  paused = !paused;
+  paused ? players[active].pause() : resume();
+};
+
+players.forEach((video) => {
+  video.addEventListener("ended", () => video === players[active] && show(index + 1));
+  video.addEventListener("error", () => {
+    const token = seq;
+    if (video === players[active]) setTimeout(() => token === seq && show(index + 1), 1000);
+  });
+});
+
+// Safari pauses covered windows; resume instead of treating it as a stall.
+document.addEventListener("visibilitychange", () => !document.hidden && !paused && resume());
+
+setInterval(() => {
+  const video = players[active];
+  if (paused || document.hidden) return (stalls = 0);
+  if (video.paused) resume();
+  stalls = video.currentTime === lastTime ? stalls + 1 : 0;
+  lastTime = video.currentTime;
+  if (stalls >= 3) show(index + 1);
+}, 5000);
+
+const fullscreen = () => {
+  const el = document.documentElement;
+  if (document.fullscreenElement || document.webkitFullscreenElement) return;
+  (el.requestFullscreen || el.webkitRequestFullscreen)?.call(el);
+};
+
+addEventListener("click", fullscreen);
+addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") show(index + 1);
+  else if (e.key === "ArrowLeft") show(index - 1);
+  else if (e.key === " ") {
+    e.preventDefault();
+    toggle();
+  } else fullscreen();
+});
+
+show(0);
+</script>
+</body>
+</html>

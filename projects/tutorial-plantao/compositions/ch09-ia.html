@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><title>ch09-ia</title></head>
+<body><template>
+<link rel="stylesheet" href="vm-kit.css">
+<link rel="stylesheet" href="vm-ui-phone.css">
+<style>
+@font-face{font-family:"DM Sans";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:500;font-display:block;src:url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype")}
+@font-face{font-family:"DM Sans";font-weight:700;font-display:block;src:url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype")}
+@font-face{font-family:"DMSans_400Regular";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype")}
+@font-face{font-family:"DMSans_500Medium";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype")}
+@font-face{font-family:"DMSans_700Bold";font-weight:400;font-display:block;src:url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype")}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype")}
+@font-face{font-family:"SpaceGrotesk_700Bold";font-weight:400;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype")}
+@font-face{font-family:"SpaceGrotesk_500Medium";font-weight:400;font-display:block;src:url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype")}
+@font-face{font-family:"SFMono-Regular";src:local("Menlo")}
+#root{position:absolute;inset:0;overflow:hidden}
+
+.ai-scan{position:absolute;left:20px;right:20px;bottom:150px;display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border-radius:14px;background:#22084a;color:#fafafe;font-family:DMSans_500Medium;font-size:13px;opacity:0;box-shadow:0 12px 30px rgba(34,8,74,.3)}
+.ai-scan-sp{flex:none;width:16px;height:16px;border-radius:50%;border:2.5px solid rgba(250,250,254,.25);border-top-color:#c6ff34}
+.ai-scan-t{position:relative;flex:1;height:18px}
+.ai-scan-t b{position:absolute;left:0;top:0;font-weight:400;white-space:nowrap;opacity:0}
+.ai-ans-p2{display:none}
+.ai-src-line{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ai-src-line span{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;border-radius:999px;background:#f3edff;font-family:DMSans_500Medium;font-size:11px;color:#5719b6;opacity:0}
+.ai-src-line svg{width:12px;height:12px}
+.ai-tr li p span.hit{background:#e4ff94;border-radius:4px;box-shadow:0 0 0 2px #e4ff94}
+
+.ai{position:absolute;inset:0;background:#fafafe;overflow:hidden}
+.ai *{box-sizing:border-box}
+.ai-top{position:absolute;left:0;right:0;top:62px;height:56px;display:flex;align-items:center;gap:6px;padding:0 16px 0 8px}
+.ai-back{display:grid;place-items:center;width:44px;height:44px}
+.ai-back svg{width:24px;height:24px}
+.ai-ttl{display:flex;flex-direction:column;gap:2px}
+.ai-ttl b{font-family:DMSans_700Bold;font-weight:400;font-size:17px;color:#17151e}
+.ai-ttl span{font-family:DMSans_400Regular;font-size:13px;color:#726f80}
+.ai-seg{position:absolute;left:20px;right:20px;top:126px;height:44px;border-radius:14px;background:#f2f1f6;display:flex;padding:4px}
+.ai-seg span{position:relative;z-index:1;flex:1;display:grid;place-items:center;font-family:DMSans_500Medium;font-size:15px;color:#403d4a}
+.ai-seg u{position:absolute;left:4px;top:4px;width:calc(50% - 4px);height:36px;border-radius:11px;background:#fff;box-shadow:0 1px 3px rgba(23,21,30,.12)}
+.ai-pages{position:absolute;left:0;right:0;top:182px;bottom:0;overflow:hidden}
+.ai-page{position:absolute;left:0;top:0;width:402px;bottom:0;overflow:hidden}
+.ai-pb{transform:translateX(402px)}
+.ai-in{position:absolute;left:0;top:0;width:402px;padding:6px 20px 200px}
+.ai-src{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;background:#22084a;font-family:DMSans_500Medium;font-size:13px;color:#ebe1fd}
+.ai-src svg{flex:none;width:18px;height:18px}
+.ai-load{position:absolute;left:20px;right:20px;top:66px}
+.ai-load-steps{display:flex;flex-direction:column;gap:12px}
+.ai-load-steps span{display:flex;align-items:center;gap:10px;font-family:DMSans_500Medium;font-size:15px;color:#403d4a}
+.ai-load-steps i{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 2.5px #d6c3fb}
+.ai-sk{margin-top:26px;display:flex;flex-direction:column;gap:10px}
+.ai-sk u{display:block;height:14px;border-radius:7px;background:linear-gradient(90deg,#f2f1f6 0%,#ebe1fd 50%,#f2f1f6 100%);background-size:300px 100%}
+.ai-sk2{margin-top:30px}
+.ai-body{opacity:0}
+.ai-h{margin:22px 0 8px;font-family:SpaceGrotesk_700Bold;font-weight:400;font-size:21px;letter-spacing:-.3px;color:#17151e}
+.ai-sum{margin:0;font-family:DMSans_400Regular;font-size:16px;line-height:24px;color:#403d4a}
+.ai-sum b{font-family:DMSans_700Bold;font-weight:400;color:#17151e}
+.ai-steps{margin:0;padding:0;list-style:none}
+.ai-steps li{display:flex;align-items:center;gap:14px;min-height:66px;box-shadow:inset 0 -1px 0 #e6e4ec}
+.ai-steps li>i{flex:none;width:28px;height:28px}
+.ai-steps li>i svg{width:28px;height:28px}
+.ai-steps li>div{flex:1;display:flex;flex-direction:column;gap:3px}
+.ai-steps b{font-family:DMSans_500Medium;font-weight:400;font-size:16px;color:#17151e}
+.ai-steps span{font-family:DMSans_400Regular;font-size:13px;color:#726f80}
+.ai-tg{position:relative;flex:none;width:44px;height:26px;border-radius:13px;background:#e6e4ec}
+.ai-tg u{position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(23,21,30,.25)}
+.ai-btn{flex:none;padding:7px 12px;border-radius:12px;background:#f3edff;font-style:normal;font-family:DMSans_700Bold;font-size:13px;color:#5719b6}
+.ai-warn{margin-top:22px;padding:16px;border-radius:20px;background:#fef2f2;box-shadow:inset 0 0 0 1px #fecaca}
+.ai-warn-h{display:flex;align-items:center;gap:10px}
+.ai-warn-h svg{width:24px;height:24px}
+.ai-warn-h b{font-family:DMSans_700Bold;font-weight:400;font-size:16px;color:#7f1d1d}
+.ai-warn ul{margin:10px 0 0;padding:0 0 0 34px;display:flex;flex-direction:column;gap:6px;font-family:DMSans_400Regular;font-size:14px;color:#7f1d1d}
+.ai-search{display:flex;align-items:center;gap:10px;height:46px;padding:0 14px;border-radius:14px;background:#f2f1f6;font-family:DMSans_400Regular;font-size:15px;color:#726f80}
+.ai-search svg{width:20px;height:20px}
+.ai-meta{margin:12px 0 4px;font-family:DMSans_400Regular;font-size:13px;color:#726f80}
+.ai-tr{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+.ai-tr li{display:flex;flex-direction:column;gap:4px;max-width:318px;padding:12px 14px;border-radius:18px 18px 18px 6px;background:#fff;box-shadow:0 0 0 1px #ebe1fd}
+.ai-tr li.pat{align-self:flex-end;border-radius:18px 18px 6px 18px;background:#f3edff;box-shadow:none}
+.ai-tr-m{display:flex;align-items:baseline;gap:8px}
+.ai-tr-m b{font-family:DMSans_700Bold;font-weight:400;font-size:13px;color:#5719b6}
+.ai-tr li.pat .ai-tr-m b{color:#17151e}
+.ai-tr-m em{font-style:normal;font-family:DMSans_400Regular;font-size:12px;color:#a29fb0}
+.ai-tr p{margin:0;font-family:DMSans_400Regular;font-size:15px;line-height:21px;color:#17151e}
+.ai-tr span.k{background:linear-gradient(transparent 58%,#e4ff94 58%)}
+.ai-link{display:flex;align-items:center;gap:6px;margin-top:6px;align-self:flex-start;padding:6px 10px;border-radius:10px;background:#f3edff;font-family:DMSans_500Medium;font-size:13px;color:#5719b6}
+.ai-link svg{width:16px;height:16px}
+.ai-ans{position:absolute;left:16px;right:16px;bottom:150px;padding:14px 16px;border-radius:20px 20px 20px 6px;background:#fff;box-shadow:0 0 0 1px #ebe1fd,0 16px 36px rgba(53,14,111,.14);opacity:0;z-index:2}
+.ai-ans-h{display:flex;align-items:center;gap:8px}
+.ai-ans-h svg{width:18px;height:18px}
+.ai-ans-h b{font-family:DMSans_700Bold;font-weight:400;font-size:13px;color:#5719b6}
+.ai-ans-h u{display:flex;gap:3px;margin-left:4px;text-decoration:none}
+.ai-ans-h u i{width:5px;height:5px;border-radius:50%;background:#7e3bed}
+.ai-ans p{margin:6px 0 0;font-family:DMSans_400Regular;font-size:15px;line-height:21px;color:#17151e}
+.ai-ask{z-index:3;position:absolute;left:0;right:0;bottom:0;padding:12px 16px 34px;background:linear-gradient(rgba(250,250,254,0),#fafafe 22%)}
+.ai-chips{display:flex;gap:8px;margin-bottom:10px}
+.ai-chips span{padding:8px 12px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px #d6c3fb;font-family:DMSans_500Medium;font-size:13px;color:#5719b6;white-space:nowrap}
+.ai-field{display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 6px 0 18px;border-radius:18px;background:#fff;box-shadow:0 0 0 1px #e6e4ec,0 10px 24px rgba(53,14,111,.08)}
+.ai-q{font-family:DMSans_400Regular;font-size:15px;color:#a29fb0}
+.ai-field i{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:#7e3bed}
+.ai-field svg{width:20px;height:20px}
+
+</style>
+<div data-hf-id="hf-e1vv" id="root" data-composition-id="ch09-ia" data-width="1080" data-height="1920" data-duration="41.4">
+<div data-hf-id="hf-mgce" class="vmk">
+<div data-hf-id="hf-qer6" class="vmk-cam-outer"><div data-hf-id="hf-lian" class="vmk-cam-inner">
+<div data-hf-id="hf-2b7q" class="vmk-device vmk-iphone" style="left:266px;top:419px">
+<div data-hf-id="hf-jfiq" class="vmk-lid">
+<div data-hf-id="hf-9det" class="vmk-screen" style="width:522.6px;height:1136.2px">
+<div data-hf-id="hf-j031" class="vmk-screen-inner" style="width:402px;height:874px;transform:scale(1.3)">
+<div data-hf-id="hf-77d2" class="vm-ph" style="position:absolute;left:0;top:0">
+<div data-hf-id="hf-9nmd" class="vmk-state" data-state="pos" data-scroll="5000"><div data-hf-id="hf-yvod" class="vm-ph-body">
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    
+    <!-- The root element for your Expo app. -->
+    <div data-hf-id="hf-01yo" data-layout-allow-overlap="" data-id="root"><div data-hf-id="hf-cw3e" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-41em" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-qgip" data-layout-allow-overlap="" class="css-g5y9jx" style="flex: 1 1 0%;"><div data-hf-id="hf-pjxy" data-layout-allow-overlap="" class="css-g5y9jx" data-id="0" style="flex: 1 1 0%;"><div data-hf-id="hf-n797" data-layout-allow-overlap="" class="css-g5y9jx r-1d2f490 r-u8s1d r-zchlnj r-12vffkv" style="top: 0px; bottom: 0px; overflow: hidden;"></div><div data-hf-id="hf-4fpn" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-4u0o" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-3u6v" data-layout-allow-overlap="" class="css-g5y9jx" data-id="1" style="flex: 1 1 0%; transform: scale(1) translateY(0px); border-radius: 0px; overflow: visible;"><div data-hf-id="hf-epx5" data-layout-allow-overlap="" style="position: absolute; inset: 0px; pointer-events: none; visibility: hidden;"></div><div data-hf-id="hf-21vh" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-d8mp" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af" style="background-color: rgb(242, 242, 242); display: flex;"><div data-hf-id="hf-2g6i" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-2uhj" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-2kr1" data-layout-allow-overlap="" style="position: absolute; inset: 0px; pointer-events: none; visibility: hidden;"></div><div data-hf-id="hf-38sk" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-dsdh" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af" style="background-color: rgb(242, 242, 242); display: flex;"><div data-hf-id="hf-6tjt" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-77uu" data-layout-allow-overlap="" class="css-g5y9jx r-13awgt0"><div data-hf-id="hf-fkfv" data-layout-allow-overlap="" class="css-g5y9jx flex-1" style="background-color: rgb(250, 250, 254);"><div data-hf-id="hf-ke42" data-layout-allow-overlap="" class="css-g5y9jx r-150rngu r-eqz5dr r-16y2uox r-1wbh5a2 r-11yh6sk r-1rnoaur r-agouwx flex-1 r-2eszeu" data-vm-scroll="935" data-vm-top="0" data-vm-left="0"><div data-hf-id="hf-gvek" data-layout-allow-overlap="" class="css-g5y9jx" style="padding-top: 110px; padding-bottom: 66px;"><div data-hf-id="hf-3per" data-layout-allow-overlap="" class="css-g5y9jx" style="align-items: center; padding-right: 20px; padding-left: 20px; padding-bottom: 24px;"><div data-hf-id="hf-joez" data-layout-allow-overlap="" class="css-g5y9jx r-633pao" data-id="2" style="position: absolute; top: -190px; align-self: center; transform: translateY(0px) scale(1);"><svg data-hf-id="hf-s3r2" width="440" height="440" style="opacity: 1;"><defs data-hf-id="hf-mh0t"><radialgradient data-hf-id="hf-s04y" cx="50%" cy="50%" r="50%" id="ch09-ia-pos-aura-pos-consulta"><stop data-hf-id="hf-vu6l" offset="0%" stop-color="#9D6BF2" stop-opacity="0.22" /><stop data-hf-id="hf-us79" offset="55%" stop-color="#BC9CF7" stop-opacity="0.1" /><stop data-hf-id="hf-ka1n" offset="100%" stop-color="#D6C3FB" stop-opacity="0" /></radialgradient></defs><circle data-hf-id="hf-24gu" cx="50%" cy="50%" r="50%" fill="url(#ch09-ia-pos-aura-pos-consulta)" /></svg></div><div data-hf-id="hf-p8fw" data-layout-allow-overlap="" class="css-g5y9jx" data-id="3" style="opacity: 1; transform: translateY(0px) scale(1);"><div data-hf-id="hf-uuyj" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center rounded-full bg-white" style="width: 84px; height: 84px;"><div data-hf-id="hf-kouj" data-layout-allow-overlap="" class="css-g5y9jx" style="width: 76px; height: 76px; border-radius: 38px; overflow: hidden; background-color: rgb(242, 241, 246);"><div data-hf-id="hf-v7h1" data-layout-allow-overlap="" data-expoimage="true" class="css-g5y9jx" style="overflow: hidden; width: 76px; height: 76px;"><div data-hf-id="hf-a6dw" data-layout-allow-overlap="" class="cross-dissolve-container"><img data-hf-id="hf-demc" data-layout-allow-overlap="" class="cross-dissolve transitioning cross-dissolve-active image-timing-null" fetchpriority="auto" src="assets/ui/7ec41b258b34.jpg" style="object-position: left 50% top 50%; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; object-fit: cover;"></div></div></div></div><div data-hf-id="hf-2rgx" data-layout-allow-overlap="" class="css-g5y9jx absolute items-center justify-center rounded-full" style="right: -2px; bottom: -2px; width: 28px; height: 28px; background-color: rgb(126, 59, 237); border-width: 3px; border-color: rgb(250, 250, 254);"><svg data-hf-id="hf-dash" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-y66p" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5" /></svg></div></div><div data-hf-id="hf-oj82" data-layout-allow-overlap="" class="css-g5y9jx" data-id="5" style="align-items: center; align-self: stretch; opacity: 1; transform: translateY(0px);"><div data-hf-id="hf-aa5k" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mt-3.5 text-center font-brand text-[26px] leading-[30px] text-ink-900">Consulta concluída</div><div data-hf-id="hf-acva" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a mt-1 text-center font-text text-[14px] text-ink-500">com <span data-hf-id="hf-9492" data-layout-allow-overlap="" class="css-1jxf684 font-text-bold text-[14px] text-ink-900">Camila Rocha</span> · Médico Clínico</div><div data-hf-id="hf-upsi" data-layout-allow-overlap="" class="css-g5y9jx mt-3 flex-row items-center rounded-full bg-white px-3 py-1.5" style="gap: 6px;"><svg data-hf-id="hf-osq7" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6A24DB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-xt5f" fill="none" stroke="#6A24DB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect data-hf-id="hf-awk4" fill="none" stroke="#6A24DB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" x="2" y="6" width="14" height="12" rx="2" /></svg><div data-hf-id="hf-zlmf" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a font-text-medium text-[13px] text-ink-700">Vídeo · 29 de setembro de 2026 · 14 min</div></div><div data-hf-id="hf-r9w8" data-layout-allow-overlap="" class="css-g5y9jx mt-3 flex-row flex-wrap justify-center" style="gap: 6px;"><div data-hf-id="hf-lr24" data-layout-allow-overlap="" aria-label="4 documentos" class="css-g5y9jx flex-row items-baseline rounded-full bg-white px-2.5 py-1" style="gap: 4px;"><div data-hf-id="hf-kqeb" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-bold text-[13px] text-violet-700">4</div><div data-hf-id="hf-pqx9" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text text-[13px] text-ink-500">documentos</div></div><div data-hf-id="hf-5bvl" data-layout-allow-overlap="" aria-label="2 remédios" class="css-g5y9jx flex-row items-baseline rounded-full bg-white px-2.5 py-1" style="gap: 4px;"><div data-hf-id="hf-ick5" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-bold text-[13px] text-violet-700">2</div><div data-hf-id="hf-ntkc" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text text-[13px] text-ink-500">remédios</div></div><div data-hf-id="hf-7mii" data-layout-allow-overlap="" aria-label="2 exames" class="css-g5y9jx flex-row items-baseline rounded-full bg-white px-2.5 py-1" style="gap: 4px;"><div data-hf-id="hf-1utl" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-bold text-[13px] text-violet-700">2</div><div data-hf-id="hf-vza5" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text text-[13px] text-ink-500">exames</div></div></div></div></div><div data-hf-id="hf-dfod" data-layout-allow-overlap="" class="css-g5y9jx" data-id="13"><div data-hf-id="hf-8d8e" data-layout-allow-overlap="" class="css-g5y9jx" data-id="22" style="margin-right: 20px; margin-left: 20px; margin-bottom: 24px; padding: 16px; gap: 18px; background-color: rgb(243, 237, 255); border-radius: 24px;"><div data-hf-id="hf-pu0p" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-center justify-between px-1"><div data-hf-id="hf-94nf" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-brand text-[20px] text-ink-900">Resumo</div><div data-hf-id="hf-7s41" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-center rounded-full bg-white px-2.5 py-1" style="gap: 5px;"><svg data-hf-id="hf-lszm" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-cbtt" fill="none" stroke="#5719B6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M4.2 4.2A2 2 0 0 0 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 1.82-1.18" /><path data-hf-id="hf-ogj0" fill="none" stroke="#5719B6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M21 15.5V6a2 2 0 0 0-2-2H9.5" /><path data-hf-id="hf-8o3e" fill="none" stroke="#5719B6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M16 2v4" /><path data-hf-id="hf-tuh2" fill="none" stroke="#5719B6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M3 10h7" /><path data-hf-id="hf-sda0" fill="none" stroke="#5719B6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M21 10h-5.5" /><path data-hf-id="hf-7slj" fill="none" stroke="#5719B6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m2 2 20 20" /></svg><div data-hf-id="hf-qyd4" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-medium text-[12px] text-ink-900">1 dia de afastamento</div></div></div><div data-hf-id="hf-otxa" data-layout-allow-overlap="" class="css-g5y9jx px-1"><div data-hf-id="hf-k4kw" data-layout-allow-overlap="" class="css-g5y9jx"><div data-hf-id="hf-i59c" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mb-2 font-text-medium text-[12px] uppercase tracking-[0.6px] text-violet-700">Orientações</div><div data-hf-id="hf-uiny" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text text-[16px] leading-[24px] text-ink-900">Beba bastante água, faça pausas a cada hora de tela e durma bem. Se a dor piorar ou vier com febre, volte ao plantão.</div></div></div><div data-hf-id="hf-ccwy" data-layout-allow-overlap="" class="css-g5y9jx px-1"><div data-hf-id="hf-snfs" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mb-2 font-text-medium text-[12px] uppercase tracking-[0.6px] text-violet-700">Observações</div><div data-hf-id="hf-19a0" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-8akbws r-krxsd3 r-dnmrzs r-1qsk4np r-1udbk01 font-text text-[15px] leading-[22px] text-ink-700" style="-webkit-line-clamp: 3;">Cefaleia tensional sem sinais de alarme. Hidratação, pausas de tela e analgésico se necessário.</div></div><div data-hf-id="hf-ycjs" data-layout-allow-overlap="" class="css-g5y9jx"><div data-hf-id="hf-atvp" data-layout-allow-overlap="" class="css-g5y9jx overflow-hidden bg-white" style="border-radius: 16px;"><div data-hf-id="hf-23mk" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-center px-3.5 py-3"><div data-hf-id="hf-f9pi" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 32px; height: 32px; border-radius: 10.24px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-upcu" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-v7vy" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path data-hf-id="hf-5fqn" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8.5 8.5 7 7" /></svg></div><div data-hf-id="hf-iyaq" data-layout-allow-overlap="" class="css-g5y9jx ml-3 flex-1"><div data-hf-id="hf-ogfp" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-medium text-[15px] text-ink-900">Dipirona 500 mg</div><div data-hf-id="hf-f372" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mt-0.5 font-text text-[13px] leading-[18px] text-ink-500">1 comprimido a cada 6 horas, se dor · 3 dias</div></div></div><div data-hf-id="hf-52uk" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-center px-3.5 py-3 border-t border-ink-100"><div data-hf-id="hf-kt4a" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 32px; height: 32px; border-radius: 10.24px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-optu" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-1bqq" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path data-hf-id="hf-x72n" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8.5 8.5 7 7" /></svg></div><div data-hf-id="hf-uozq" data-layout-allow-overlap="" class="css-g5y9jx ml-3 flex-1"><div data-hf-id="hf-3uer" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-medium text-[15px] text-ink-900">Ciclobenzaprina 5 mg</div><div data-hf-id="hf-7lrp" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mt-0.5 font-text text-[13px] leading-[18px] text-ink-500">1 comprimido à noite · 5 dias</div></div></div><div data-hf-id="hf-pnfd" data-layout-allow-overlap="" aria-label="Exame: Hemograma completo" class="css-g5y9jx flex-row items-center px-3.5 py-3 border-t border-ink-100"><div data-hf-id="hf-l7fb" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 32px; height: 32px; border-radius: 10.24px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-p44v" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-ak58" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path data-hf-id="hf-j9b0" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.453 15h11.094" /><path data-hf-id="hf-hmnp" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 2h7" /></svg></div><div data-hf-id="hf-0ujl" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 ml-3 flex-1 font-text-medium text-[15px] leading-[20px] text-ink-900">Hemograma completo</div></div><div data-hf-id="hf-08l6" data-layout-allow-overlap="" aria-label="Exame: Glicemia de jejum" class="css-g5y9jx flex-row items-center px-3.5 py-3 border-t border-ink-100"><div data-hf-id="hf-llqc" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 32px; height: 32px; border-radius: 10.24px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-pifw" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-fuus" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path data-hf-id="hf-7yz8" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.453 15h11.094" /><path data-hf-id="hf-o2eh" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 2h7" /></svg></div><div data-hf-id="hf-rdpm" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 ml-3 flex-1 font-text-medium text-[15px] leading-[20px] text-ink-900">Glicemia de jejum</div></div></div><div data-hf-id="hf-j1re" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mt-2 px-1 font-text text-[13px] leading-[19px] text-ink-500">Jejum de 8 horas.</div></div><div data-hf-id="hf-tf6h" data-layout-allow-overlap="" class="css-g5y9jx overflow-hidden bg-white" style="border-radius: 16px;"><div data-hf-id="hf-hne6" data-layout-allow-overlap="" aria-label="Ver diagnóstico" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 min-h-[52px] flex-row items-center px-3.5 py-3 active:bg-ink-50" type="button" style="display:flex;padding:12px 14px;border:0px solid rgb(0, 0, 0);background-color:rgba(0, 0, 0, 0);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:normal;flex-direction:row;margin:0px;border-radius:0px;overflow:visible;" data-vm-button="1"><div data-hf-id="hf-m01d" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 32px; height: 32px; border-radius: 10.24px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-pwqx" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-31xp" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 2v2" /><path data-hf-id="hf-11fy" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 2v2" /><path data-hf-id="hf-1v9p" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path data-hf-id="hf-z79t" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 15a6 6 0 0 0 12 0v-3" /><circle data-hf-id="hf-mxtz" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="20" cy="10" r="2" /></svg></div><div data-hf-id="hf-v3ar" data-layout-allow-overlap="" class="css-g5y9jx ml-3 flex-1"><div data-hf-id="hf-h18m" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-medium text-[15px] text-ink-900">Diagnóstico</div><div data-hf-id="hf-07v3" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text text-[13px] text-ink-500">Toque para ver</div></div><div data-hf-id="hf-9awd" data-layout-allow-overlap="" class="css-g5y9jx" style="transform: rotate(0deg);"><svg data-hf-id="hf-sceq" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-s7sv" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" /></svg></div></div></div></div></div><div data-hf-id="hf-pqtg" data-layout-allow-overlap="" class="css-g5y9jx" data-id="14"><div data-hf-id="hf-gifa" data-layout-allow-overlap="" class="css-g5y9jx" data-id="15" style="transform: scale(1); margin-right: 20px; margin-left: 20px; margin-bottom: 24px;"><div data-hf-id="hf-97nk" data-layout-allow-overlap="" aria-label="Perguntar à IA. Tire dúvidas sobre o que foi registrado nesta consulta." role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 flex-row items-center border border-violet-200 bg-white px-4 py-4" type="button" style="display:flex;padding:16px;border:1px solid rgb(214, 195, 251);background-color:rgb(255, 255, 255);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:normal;flex-direction:row;margin:0px;border-radius:20px;overflow:visible;border-radius: 20px;" data-vm-button="1"><div data-hf-id="hf-karw" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 40px; height: 40px; border-radius: 12.8px; background-color: rgb(126, 59, 237);"><svg data-hf-id="hf-4jfo" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-jltz" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path data-hf-id="hf-h6da" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 3v4" /><path data-hf-id="hf-yk6p" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 5h-4" /><path data-hf-id="hf-prpn" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 17v2" /><path data-hf-id="hf-j22u" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 18H3" /></svg></div><div data-hf-id="hf-vhls" data-layout-allow-overlap="" class="css-g5y9jx ml-3 flex-1"><div data-hf-id="hf-83ze" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-medium text-[15px] text-ink-900">Perguntar à IA</div><div data-hf-id="hf-t6n9" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mt-0.5 font-text text-[13px] leading-[18px] text-ink-500">Tire dúvidas sobre remédios, exames e o que foi registrado.</div></div><svg data-hf-id="hf-s8gn" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D2CFDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-b46x" fill="none" stroke="#D2CFDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6" /></svg></div></div></div><div data-hf-id="hf-n6bq" data-layout-allow-overlap="" class="css-g5y9jx" data-id="16"><div data-hf-id="hf-wsfw" data-layout-allow-overlap="" class="css-g5y9jx mb-6"><div data-hf-id="hf-b9em" data-layout-allow-overlap="" class="css-g5y9jx mx-5 mb-2.5 flex-row items-baseline"><div data-hf-id="hf-paqv" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-brand text-[15px] text-ink-700">Documentos</div><div data-hf-id="hf-22lp" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 ml-2 font-text-medium text-[13px] text-ink-400">4</div></div><div data-hf-id="hf-g7gm" data-layout-allow-overlap="" class="css-g5y9jx r-150rngu r-18u37iz r-16y2uox r-1wbh5a2 r-lltvgl r-buy8e9 r-agouwx r-2eszeu" data-vm-scroll="0" data-vm-top="0" data-vm-left="0"><div data-hf-id="hf-uorn" data-layout-allow-overlap="" class="css-g5y9jx r-18u37iz" style="padding-right: 20px; padding-left: 20px; gap: 10px;"><div data-hf-id="hf-yefe" data-layout-allow-overlap="" class="css-g5y9jx" data-id="23" style="transform: scale(1); width: 156px;"><div data-hf-id="hf-0ar1" data-layout-allow-overlap="" aria-label="Abrir Receita: Receita simples" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 bg-white p-3.5" type="button" style="display:flex;padding:14px;border:0px solid rgb(0, 0, 0);background-color:rgb(255, 255, 255);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:stretch;justify-content:normal;flex-direction:column;margin:0px;border-radius:20px;overflow:visible;border-radius: 20px; height: 112px;" data-vm-button="1"><div data-hf-id="hf-z0by" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-start justify-between"><div data-hf-id="hf-f1pe" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 36px; height: 36px; border-radius: 11.52px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-d15m" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-1q1r" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path data-hf-id="hf-wsrm" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8.5 8.5 7 7" /></svg></div><div data-hf-id="hf-zka6" data-layout-allow-overlap="" aria-label="Compartilhar Receita simples" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 -mr-1.5 -mt-1.5 h-11 w-11 items-center justify-center rounded-full active:bg-ink-50" type="button" style="display:flex;padding:0px;border:0px solid rgb(0, 0, 0);background-color:rgba(0, 0, 0, 0);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:center;flex-direction:column;margin:-6px -6px 0px 0px;border-radius:9999px;overflow:visible;" data-vm-button="1"><svg data-hf-id="hf-eo07" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle data-hf-id="hf-jx4k" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="18" cy="5" r="3" /><circle data-hf-id="hf-9cyz" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="6" cy="12" r="3" /><circle data-hf-id="hf-bzud" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="18" cy="19" r="3" /><line data-hf-id="hf-r9ve" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="8.59" x2="15.42" y1="13.51" y2="17.49" /><line data-hf-id="hf-q5cs" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></svg></div></div><div data-hf-id="hf-ebmx" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a mt-auto font-text-bold text-[14px] leading-[18px] text-ink-900">Receita simples</div></div></div><div data-hf-id="hf-b2m9" data-layout-allow-overlap="" class="css-g5y9jx" data-id="24" style="transform: scale(1); width: 156px;"><div data-hf-id="hf-3jm5" data-layout-allow-overlap="" aria-label="Abrir Pedido de exame: Pedido de exames" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 bg-white p-3.5" type="button" style="display:flex;padding:14px;border:0px solid rgb(0, 0, 0);background-color:rgb(255, 255, 255);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:stretch;justify-content:normal;flex-direction:column;margin:0px;border-radius:20px;overflow:visible;border-radius: 20px; height: 112px;" data-vm-button="1"><div data-hf-id="hf-9xma" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-start justify-between"><div data-hf-id="hf-es06" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 36px; height: 36px; border-radius: 11.52px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-bfi6" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-enxp" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path data-hf-id="hf-6s25" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.453 15h11.094" /><path data-hf-id="hf-p9bk" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 2h7" /></svg></div><div data-hf-id="hf-5et1" data-layout-allow-overlap="" aria-label="Compartilhar Pedido de exames" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 -mr-1.5 -mt-1.5 h-11 w-11 items-center justify-center rounded-full active:bg-ink-50" type="button" style="display:flex;padding:0px;border:0px solid rgb(0, 0, 0);background-color:rgba(0, 0, 0, 0);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:center;flex-direction:column;margin:-6px -6px 0px 0px;border-radius:9999px;overflow:visible;" data-vm-button="1"><svg data-hf-id="hf-3msn" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle data-hf-id="hf-yrnw" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="18" cy="5" r="3" /><circle data-hf-id="hf-fk5n" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="6" cy="12" r="3" /><circle data-hf-id="hf-oh9l" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="18" cy="19" r="3" /><line data-hf-id="hf-7jvi" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="8.59" x2="15.42" y1="13.51" y2="17.49" /><line data-hf-id="hf-3hck" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></svg></div></div><div data-hf-id="hf-lcjg" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a mt-auto font-text-bold text-[14px] leading-[18px] text-ink-900">Pedido de exames</div></div></div><div data-hf-id="hf-uztw" data-layout-allow-overlap="" class="css-g5y9jx" data-id="25" style="transform: scale(1); width: 156px;"><div data-hf-id="hf-3h8n" data-layout-allow-overlap="" aria-label="Abrir Atestado: Atestado médico" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 bg-white p-3.5" type="button" style="display:flex;padding:14px;border:0px solid rgb(0, 0, 0);background-color:rgb(255, 255, 255);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:stretch;justify-content:normal;flex-direction:column;margin:0px;border-radius:20px;overflow:visible;border-radius: 20px; height: 112px;" data-vm-button="1"><div data-hf-id="hf-abxb" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-start justify-between"><div data-hf-id="hf-j8ab" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 36px; height: 36px; border-radius: 11.52px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-btt7" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-581r" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22h6a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3.072" /><path data-hf-id="hf-v3d9" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 2v4a2 2 0 0 0 2 2h4" /><path data-hf-id="hf-kzs3" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6.69 16.479 1.29 4.88a.5.5 0 0 1-.698.591l-1.843-.849a1 1 0 0 0-.88.001l-1.846.85a.5.5 0 0 1-.693-.593l1.29-4.88" /><circle data-hf-id="hf-o93d" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="5" cy="14" r="3" /></svg></div><div data-hf-id="hf-owc8" data-layout-allow-overlap="" aria-label="Compartilhar Atestado médico" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 -mr-1.5 -mt-1.5 h-11 w-11 items-center justify-center rounded-full active:bg-ink-50" type="button" style="display:flex;padding:0px;border:0px solid rgb(0, 0, 0);background-color:rgba(0, 0, 0, 0);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:center;flex-direction:column;margin:-6px -6px 0px 0px;border-radius:9999px;overflow:visible;" data-vm-button="1"><svg data-hf-id="hf-38hm" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle data-hf-id="hf-xkqt" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="18" cy="5" r="3" /><circle data-hf-id="hf-f5um" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="6" cy="12" r="3" /><circle data-hf-id="hf-po6o" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="18" cy="19" r="3" /><line data-hf-id="hf-7y6j" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="8.59" x2="15.42" y1="13.51" y2="17.49" /><line data-hf-id="hf-2afh" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></svg></div></div><div data-hf-id="hf-5lyb" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a mt-auto font-text-bold text-[14px] leading-[18px] text-ink-900">Atestado médico</div></div></div><div data-hf-id="hf-wii3" data-layout-allow-overlap="" class="css-g5y9jx" data-id="26" style="transform: scale(1); width: 156px;"><div data-hf-id="hf-c6s6" data-layout-allow-overlap="" aria-label="Abrir Prontuário: Prontuário da consulta" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 bg-white p-3.5" type="button" style="display:flex;padding:14px;border:0px solid rgb(0, 0, 0);background-color:rgb(255, 255, 255);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:stretch;justify-content:normal;flex-direction:column;margin:0px;border-radius:20px;overflow:visible;border-radius: 20px; height: 112px;" data-vm-button="1"><div data-hf-id="hf-aq8c" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-start justify-between"><div data-hf-id="hf-jmlc" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 36px; height: 36px; border-radius: 11.52px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-c848" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-g3sj" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path data-hf-id="hf-ow75" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 2v4a2 2 0 0 0 2 2h4" /><path data-hf-id="hf-xq4z" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 9H8" /><path data-hf-id="hf-s9ge" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 13H8" /><path data-hf-id="hf-4vjm" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 17H8" /></svg></div><div data-hf-id="hf-rtcb" data-layout-allow-overlap="" aria-label="Compartilhar Prontuário da consulta" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 -mr-1.5 -mt-1.5 h-11 w-11 items-center justify-center rounded-full active:bg-ink-50" type="button" style="display:flex;padding:0px;border:0px solid rgb(0, 0, 0);background-color:rgba(0, 0, 0, 0);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:center;flex-direction:column;margin:-6px -6px 0px 0px;border-radius:9999px;overflow:visible;" data-vm-button="1"><svg data-hf-id="hf-2u6l" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle data-hf-id="hf-xz1u" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="18" cy="5" r="3" /><circle data-hf-id="hf-erjl" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="6" cy="12" r="3" /><circle data-hf-id="hf-p9vn" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="18" cy="19" r="3" /><line data-hf-id="hf-8chk" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="8.59" x2="15.42" y1="13.51" y2="17.49" /><line data-hf-id="hf-2oqi" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></svg></div></div><div data-hf-id="hf-bksq" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a mt-auto font-text-bold text-[14px] leading-[18px] text-ink-900">Prontuário da consulta</div><div data-hf-id="hf-fkj3" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mt-1 font-text text-[12px] text-ink-500">29 de set de 2026</div></div></div></div></div></div></div><div data-hf-id="hf-q2ih" data-layout-allow-overlap="" class="css-g5y9jx" data-id="17"><div data-hf-id="hf-8ak9" data-layout-allow-overlap="" aria-label="Precisa de um retorno?" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 mx-5 mb-6 flex-row items-center border px-4 py-4 active:opacity-90 border-transparent bg-white" type="button" style="display:flex;padding:16px;border:1px solid rgba(0, 0, 0, 0);background-color:rgb(255, 255, 255);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:normal;flex-direction:row;margin:0px 20px 24px;border-radius:20px;overflow:visible;border-radius: 20px;" data-vm-button="1"><div data-hf-id="hf-j1hr" data-layout-allow-overlap="" class="css-g5y9jx h-9 w-9 items-center justify-center rounded-full bg-violet-50"><svg data-hf-id="hf-obtv" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6A24DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-8agn" fill="none" stroke="#6A24DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 19h6" /><path data-hf-id="hf-yczj" fill="none" stroke="#6A24DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 2v4" /><path data-hf-id="hf-6l07" fill="none" stroke="#6A24DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 16v6" /><path data-hf-id="hf-8fod" fill="none" stroke="#6A24DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.598V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5" /><path data-hf-id="hf-3f55" fill="none" stroke="#6A24DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 10h18" /><path data-hf-id="hf-jbb6" fill="none" stroke="#6A24DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 2v4" /></svg></div><div data-hf-id="hf-spgl" data-layout-allow-overlap="" class="css-g5y9jx ml-3 flex-1"><div data-hf-id="hf-ywh3" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-medium text-[14px] text-ink-900">Precisa de um retorno?</div><div data-hf-id="hf-qgfr" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mt-0.5 font-text text-[13px] leading-[18px] text-ink-500">O retorno sem custo é marcado pelo médico. Toque para agendar com ele de novo.</div></div><svg data-hf-id="hf-jbh3" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D2CFDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-lakt" fill="none" stroke="#D2CFDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6" /></svg></div></div><div data-hf-id="hf-k128" data-layout-allow-overlap="" class="css-g5y9jx" data-id="18"><div data-hf-id="hf-1w8k" data-layout-allow-overlap="" class="css-g5y9jx mb-6"><div data-hf-id="hf-jz2a" data-layout-allow-overlap="" class="css-g5y9jx mx-5 mb-2.5 flex-row items-baseline"><div data-hf-id="hf-9goz" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-brand text-[15px] text-ink-700">Registro da consulta</div></div><div data-hf-id="hf-eplb" data-layout-allow-overlap="" class="css-g5y9jx mx-5 flex-row flex-wrap" style="gap: 10px;"><div data-hf-id="hf-wrpp" data-layout-allow-overlap="" class="css-g5y9jx" data-id="27" style="transform: scale(1); flex-basis: 47%; flex-grow: 1;"><div data-hf-id="hf-t549" data-layout-allow-overlap="" aria-label="Prontuário completo. Tudo o que o médico registrou nesta consulta." role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 flex-row items-center bg-white px-3 py-3" type="button" style="display:flex;padding:12px;border:0px solid rgb(0, 0, 0);background-color:rgb(255, 255, 255);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:normal;flex-direction:row;margin:0px;border-radius:18px;overflow:visible;border-radius: 18px; min-height: 60px;" data-vm-button="1"><div data-hf-id="hf-csh1" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 36px; height: 36px; border-radius: 11.52px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-9fz1" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-aif5" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 2v2" /><path data-hf-id="hf-8xaq" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 2v2" /><path data-hf-id="hf-t2gx" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path data-hf-id="hf-71tx" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 15a6 6 0 0 0 12 0v-3" /><circle data-hf-id="hf-um07" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="20" cy="10" r="2" /></svg></div><div data-hf-id="hf-3lae" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-8akbws r-krxsd3 r-dnmrzs r-1qsk4np r-1udbk01 ml-2.5 flex-1 font-text-medium text-[14px] leading-[18px] text-ink-900" style="-webkit-line-clamp: 2;">Prontuário completo</div></div></div><div data-hf-id="hf-99n0" data-layout-allow-overlap="" class="css-g5y9jx" data-id="19" style="transform: scale(1); flex-basis: 47%; flex-grow: 1;"><div data-hf-id="hf-dceg" data-layout-allow-overlap="" aria-label="Sua anamnese. As respostas que você enviou antes da consulta." role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 flex-row items-center bg-white px-3 py-3" type="button" style="display:flex;padding:12px;border:0px solid rgb(0, 0, 0);background-color:rgb(255, 255, 255);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:normal;flex-direction:row;margin:0px;border-radius:18px;overflow:visible;border-radius: 18px; min-height: 60px;" data-vm-button="1"><div data-hf-id="hf-d6s2" data-layout-allow-overlap="" class="css-g5y9jx items-center justify-center" style="width: 36px; height: 36px; border-radius: 11.52px; background-color: rgb(235, 225, 253);"><svg data-hf-id="hf-9ua2" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect data-hf-id="hf-b3hd" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="8" height="4" x="8" y="2" rx="1" ry="1" /><path data-hf-id="hf-bfnb" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path data-hf-id="hf-h7qg" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 11h4" /><path data-hf-id="hf-s9j5" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 16h4" /><path data-hf-id="hf-xm5i" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 11h.01" /><path data-hf-id="hf-cpj7" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 16h.01" /></svg></div><div data-hf-id="hf-lj3n" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-8akbws r-krxsd3 r-dnmrzs r-1qsk4np r-1udbk01 ml-2.5 flex-1 font-text-medium text-[14px] leading-[18px] text-ink-900" style="-webkit-line-clamp: 2;">Sua anamnese</div></div></div></div></div></div><div data-hf-id="hf-4767" data-layout-allow-overlap="" class="css-g5y9jx" data-id="20"><div data-hf-id="hf-0pbh" data-layout-allow-overlap="" class="css-g5y9jx mb-6"><div data-hf-id="hf-i5t5" data-layout-allow-overlap="" aria-label="Avaliar o atendimento" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 mx-5 flex-row items-center bg-white px-4 py-4 active:opacity-90" type="button" style="display:flex;padding:16px;border:0px solid rgb(0, 0, 0);background-color:rgb(255, 255, 255);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:normal;flex-direction:row;margin:0px 20px;border-radius:20px;overflow:visible;border-radius: 20px;" data-vm-button="1"><div data-hf-id="hf-puil" data-layout-allow-overlap="" class="css-g5y9jx flex-1"><div data-hf-id="hf-5bwd" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-medium text-[14px] text-ink-900">Como foi o atendimento?</div><div data-hf-id="hf-2r8w" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 mt-0.5 font-text text-[12px] text-ink-500">Sua nota ajuda outros pacientes a escolher.</div></div><div data-hf-id="hf-tboi" data-layout-allow-overlap="" class="css-g5y9jx flex-row" style="gap: 3px;"><svg data-hf-id="hf-w5uu" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-t72a" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg><svg data-hf-id="hf-zx9m" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-f61y" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg><svg data-hf-id="hf-0bkn" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-fkcz" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg><svg data-hf-id="hf-0pvo" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-fyo0" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg><svg data-hf-id="hf-146p" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-d6it" fill="transparent" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg></div></div></div></div><div data-hf-id="hf-4dx8" data-layout-allow-overlap="" class="css-g5y9jx" data-id="21"><div data-hf-id="hf-iphm" data-layout-allow-overlap="" aria-label="Ver nota fiscal" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 mx-5 mb-6 border-t border-ink-100 pt-4 active:opacity-70" type="button" style="display:flex;padding:16px 0px 0px;border:;background-color:rgba(0, 0, 0, 0);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:stretch;justify-content:normal;flex-direction:column;margin:0px 20px 24px;border-radius:0px;overflow:visible;" data-vm-button="1"><div data-hf-id="hf-rd4c" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-center"><svg data-hf-id="hf-nywa" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-do0m" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path data-hf-id="hf-ckwq" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path data-hf-id="hf-vqr8" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 17.5v-11" /></svg><div data-hf-id="hf-5pnn" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 ml-2.5 flex-1 font-text text-[13px] text-ink-500">R$ 59,90 · pago</div><div data-hf-id="hf-kn2r" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 font-text-medium text-[13px] text-violet-600">Ver nota</div></div></div></div></div></div><div data-hf-id="hf-ceyq" data-layout-allow-overlap="" class="css-g5y9jx r-12vffkv" style="position: absolute; top: 0px; left: 0px; right: 0px; z-index: 10;"><div data-hf-id="hf-908s" data-layout-allow-overlap="" class="css-g5y9jx r-633pao" data-id="11" style="position: absolute; inset: 0px; background-color: rgb(250, 250, 254); border-bottom-width: 1px; border-bottom-color: rgb(242, 241, 246); opacity: 0;"></div><div data-hf-id="hf-g8ee" data-layout-allow-overlap="" class="css-g5y9jx flex-row items-center px-5" style="padding-top: 62px; height: 110px;"><div data-hf-id="hf-q1t4" data-layout-allow-overlap="" aria-label="Voltar" role="button" tabindex="0" class="css-g5y9jx r-1loqt21 r-1otgn73 h-11 w-11 items-center justify-center rounded-full active:bg-ink-100 -ml-2.5" type="button" style="display:flex;padding:0px;border:0px solid rgb(0, 0, 0);background-color:rgba(0, 0, 0, 0);font-family:ui-sans-serif, system-ui, sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:normal;text-align:center;color:rgb(0, 0, 0);box-sizing:border-box;align-items:center;justify-content:center;flex-direction:column;margin:0px 0px 0px -10px;border-radius:9999px;overflow:visible;" data-vm-button="1"><svg data-hf-id="hf-ocam" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: -2px;"><path data-hf-id="hf-wao3" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m15 18-6-6 6-6" style="margin-left: -2px;" /></svg></div><div data-hf-id="hf-mgfa" data-layout-allow-overlap="" class="css-g5y9jx r-633pao" data-id="12" style="flex: 1 1 0%; flex-direction: row; align-items: center; gap: 8px; opacity: 0; transform: translateY(8px);"><div data-hf-id="hf-7svt" data-layout-allow-overlap="" class="css-g5y9jx" style="width: 28px; height: 28px; border-radius: 14px; overflow: hidden; background-color: rgb(242, 241, 246);"><div data-hf-id="hf-x0fx" data-layout-allow-overlap="" data-expoimage="true" class="css-g5y9jx" style="overflow: hidden; width: 28px; height: 28px;"><div data-hf-id="hf-39po" data-layout-allow-overlap="" class="cross-dissolve-container"><img data-hf-id="hf-0rjw" data-layout-allow-overlap="" class="cross-dissolve transitioning cross-dissolve-active image-timing-null" fetchpriority="auto" src="assets/ui/7ec41b258b34.jpg" style="object-position: left 50% top 50%; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; object-fit: cover;"></div></div></div><div data-hf-id="hf-x9zz" data-layout-allow-overlap="" class="css-g5y9jx" style="flex: 1 1 0%; min-width: 0px;"><div data-hf-id="hf-pok8" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a font-text-bold text-[15px] text-ink-900">Consulta concluída</div><div data-hf-id="hf-48cs" data-layout-allow-overlap="" dir="auto" class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-1iln25a font-text text-[12px] text-ink-500">Camila Rocha</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div data-hf-id="hf-3np0" data-layout-allow-overlap="" style="position: absolute; inset: 0px; pointer-events: none;"></div></div></div></div><div data-hf-id="hf-4gg5" data-layout-allow-overlap="" class="css-g5y9jx r-hvic4v r-u8s1d" style="transform: translateX(0px) translateY(0px);"></div></div></div></div></div>
+  
+
+<div data-hf-id="hf-bmby" data-layout-allow-overlap="" style="position: fixed; left: 0px; top: 0px; width: 0px; height: 0px; z-index: -1; overflow: hidden; visibility: hidden; padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right);"></div></div></div>
+<div data-hf-id="hf-mcw8" class="vmk-layer" data-vmk-layer="ai"><div data-hf-id="hf-l5w2" class="ai">
+<div data-hf-id="hf-drw0" class="ai-top"><div data-hf-id="hf-gk0a" class="ai-back"><svg data-hf-id="hf-a7md" viewBox="0 0 24 24" fill="none"><path data-hf-id="hf-888n" d="M15 5l-7 7 7 7" stroke="#17151e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg></div><div data-hf-id="hf-tryt" class="ai-ttl"><b data-hf-id="hf-ncew">Análise da consulta</b><span data-hf-id="hf-2dmx">Dra. Camila · 29 set · 14 min</span></div></div>
+<div data-hf-id="hf-h3em" class="ai-seg"><u data-hf-id="hf-w5wo"></u><span data-hf-id="hf-tn70">Análise IA</span><span data-hf-id="hf-g1ha">Transcrição</span></div>
+<div data-hf-id="hf-bvpl" class="ai-pages">
+<div data-hf-id="hf-5w5s" class="ai-page ai-pa"><div data-hf-id="hf-c592" class="ai-in">
+<div data-hf-id="hf-c8rj" class="ai-src"><svg data-hf-id="hf-k9qh" viewBox="0 0 24 24" fill="none"><path data-hf-id="hf-ljor" d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" fill="#c6ff34" stroke="#17151e" stroke-width="1.6" stroke-linejoin="round" /></svg><span data-hf-id="hf-drin">Feita com sua anamnese, a conversa e 3 documentos</span></div>
+<div data-hf-id="hf-21r3" class="ai-load"><div data-hf-id="hf-c269" class="ai-load-steps"><span data-hf-id="hf-1yqa"><i data-hf-id="hf-wt6k"></i>Lendo sua anamnese</span><span data-hf-id="hf-bgdr"><i data-hf-id="hf-zeb8"></i>Lendo a conversa</span><span data-hf-id="hf-3dc4"><i data-hf-id="hf-y7e5"></i>Cruzando os documentos</span></div><div data-hf-id="hf-c9z9" class="ai-sk"><u data-hf-id="hf-g08r" style="width:92%"></u><u data-hf-id="hf-oh79" style="width:100%"></u><u data-hf-id="hf-10hb" style="width:74%"></u></div><div data-hf-id="hf-xwd2" class="ai-sk ai-sk2"><u data-hf-id="hf-bt1e" style="width:60%"></u><u data-hf-id="hf-t988" style="width:84%"></u></div></div>
+<div data-hf-id="hf-6w4b" class="ai-body">
+<h3 data-hf-id="hf-ech8" class="ai-h">Em resumo</h3>
+<p data-hf-id="hf-51kz" class="ai-sum">Você teve uma <b data-hf-id="hf-qpiu">cefaleia tensional</b>, sem sinais de alarme. A dor piora com telas e não melhorou só com dipirona.</p>
+<h3 data-hf-id="hf-e8yl" class="ai-h">O que fazer agora</h3>
+<ol data-hf-id="hf-tr36" class="ai-steps"><li data-hf-id="hf-a4s6"><i data-hf-id="hf-ylp6"><svg data-hf-id="hf-tca5" viewBox="0 0 28 28" fill="none"><path data-hf-id="hf-5kdz" d="M14 5.6a5.2 5.2 0 0 1 7.4 7.4L14 20.4z" fill="#c6ff34" /><rect data-hf-id="hf-93ri" x="2.6" y="10.4" width="22.8" height="10.4" rx="5.2" transform="rotate(-45 14 15.6)" stroke="#17151e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /><path data-hf-id="hf-zkh1" d="M10.3 9.3l7.4 7.4" stroke="#17151e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg></i><div data-hf-id="hf-yeow"><b data-hf-id="hf-sgc0">Dipirona 500 mg</b><span data-hf-id="hf-p2y1">1 comprimido a cada 6 h, se dor · até 2 out</span></div><em data-hf-id="hf-hc3t" class="ai-tg"><u data-hf-id="hf-0jxc"></u></em></li><li data-hf-id="hf-9x5m"><i data-hf-id="hf-0l8b"><svg data-hf-id="hf-jeox" viewBox="0 0 28 28" fill="none"><path data-hf-id="hf-ex9h" d="M20.5 17.8A8.5 8.5 0 0 1 10.2 7.5a8.5 8.5 0 1 0 10.3 10.3z" fill="#ebe1fd" stroke="#17151e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /><path data-hf-id="hf-xvp2" d="M19 5.5v3M17.5 7h3" stroke="#17151e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg></i><div data-hf-id="hf-y7yw"><b data-hf-id="hf-41mk">Ciclobenzaprina 5 mg</b><span data-hf-id="hf-har1">1 comprimido à noite · 5 dias</span></div><em data-hf-id="hf-24ql" class="ai-tg"><u data-hf-id="hf-zd09"></u></em></li><li data-hf-id="hf-abgn"><i data-hf-id="hf-0zjc"><svg data-hf-id="hf-klm0" viewBox="0 0 28 28" fill="none"><path data-hf-id="hf-h4tz" d="M3 14s4-7 11-7 11 7 11 7-4 7-11 7S3 14 3 14z" fill="#ebe1fd" stroke="#17151e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /><circle data-hf-id="hf-e3fo" cx="14" cy="14" r="3.4" fill="#c6ff34" stroke="#17151e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg></i><div data-hf-id="hf-x11t"><b data-hf-id="hf-fn6b">Pausas de tela</b><span data-hf-id="hf-y0xd">A cada 20 min, olhe 20 s para longe</span></div></li><li data-hf-id="hf-apro"><i data-hf-id="hf-zsm9"><svg data-hf-id="hf-k7az" viewBox="0 0 28 28" fill="none"><path data-hf-id="hf-3mxj" d="M14 4s7 7.6 7 12.2a7 7 0 0 1-14 0C7 11.6 14 4 14 4z" fill="#ebe1fd" stroke="#17151e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /><path data-hf-id="hf-fjq6" d="M11 17a3 3 0 0 0 3 3" stroke="#17151e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg></i><div data-hf-id="hf-xfcu"><b data-hf-id="hf-yzvn">Hidratação</b><span data-hf-id="hf-65jo">2 litros de água por dia</span></div></li><li data-hf-id="hf-b42p"><i data-hf-id="hf-06xa"><svg data-hf-id="hf-i7ru" viewBox="0 0 28 28" fill="none"><path data-hf-id="hf-yqxq" d="M8.2 19.2h11.6l2.3 4.1H5.9z" fill="#c6ff34" /><path data-hf-id="hf-8qp6" d="M11 4.5v7.2L5 22a1.3 1.3 0 0 0 1.1 1.9h15.8A1.3 1.3 0 0 0 23 22l-6-10.3V4.5M9.4 4.5h9.2" stroke="#17151e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg></i><div data-hf-id="hf-w8fr"><b data-hf-id="hf-5o5c">Exames até 6 out</b><span data-hf-id="hf-02t3">Hemograma e glicemia · jejum de 8 h</span></div><em data-hf-id="hf-cxqc" class="ai-btn">Agendar</em></li></ol>
+<div data-hf-id="hf-jbif" class="ai-warn"><div data-hf-id="hf-xzvs" class="ai-warn-h"><svg data-hf-id="hf-htgt" viewBox="0 0 28 28" fill="none"><path data-hf-id="hf-c7aq" d="M14 4.5l10 17.5H4z" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.9" stroke-linejoin="round" /><path data-hf-id="hf-4wbm" d="M14 11v5" stroke="#b91c1c" stroke-width="2.2" stroke-linecap="round" /><circle data-hf-id="hf-j48t" cx="14" cy="19" r="1.3" fill="#b91c1c" /></svg><b data-hf-id="hf-bpnk">Volte ao plantão se tiver</b></div><ul data-hf-id="hf-ovcc"><li data-hf-id="hf-63ou">Febre acima de 38 °C</li><li data-hf-id="hf-b1et">Rigidez no pescoço</li><li data-hf-id="hf-3wz8">Visão turva ou dor súbita muito forte</li></ul></div>
+</div>
+</div></div>
+<div data-hf-id="hf-grnf" class="ai-page ai-pb"><div data-hf-id="hf-71x6" class="ai-in">
+<div data-hf-id="hf-e1nj" class="ai-search"><svg data-hf-id="hf-lgnk" viewBox="0 0 24 24" fill="none"><circle data-hf-id="hf-fj1g" cx="11" cy="11" r="6.5" stroke="#726f80" stroke-width="2" /><path data-hf-id="hf-ordw" d="M16 16l4 4" stroke="#726f80" stroke-width="2" stroke-linecap="round" /></svg><span data-hf-id="hf-agj7">Buscar na conversa</span></div>
+<div data-hf-id="hf-wwx3" class="ai-meta">14 min · 2 participantes · gravada com consentimento</div>
+<ul data-hf-id="hf-zbqh" class="ai-tr"><li data-hf-id="hf-e8k8" class="doc"><div data-hf-id="hf-01u3" class="ai-tr-m"><b data-hf-id="hf-3ejd">Dra. Camila</b><em data-hf-id="hf-w04t">00:02</em></div><p data-hf-id="hf-q1an"><span data-hf-id="hf-kiq7">Oi,</span> <span data-hf-id="hf-qbe8">Ana!</span> <span data-hf-id="hf-t6pv">Tudo</span> <span data-hf-id="hf-y68c">bem?</span> <span data-hf-id="hf-8ifv">Eu</span> <span data-hf-id="hf-wfey">sou</span> <span data-hf-id="hf-zhz4">a</span> <span data-hf-id="hf-7gpn">doutora</span> <span data-hf-id="hf-bqrs">Camila,</span> <span data-hf-id="hf-5yhc">do</span> <span data-hf-id="hf-lbew">Plantão</span> <span data-hf-id="hf-msp1">Viva</span> <span data-hf-id="hf-wod3">Mais.</span></p></li><li data-hf-id="hf-pa28" class="doc"><div data-hf-id="hf-frmz" class="ai-tr-m"><b data-hf-id="hf-fh2l">Dra. Camila</b><em data-hf-id="hf-xlcx">00:06</em></div><p data-hf-id="hf-wo4v"><span data-hf-id="hf-fgkw">Já</span> <span data-hf-id="hf-v08q">li</span> <span data-hf-id="hf-wqew">a</span> <span data-hf-id="hf-p960">sua</span> <span data-hf-id="hf-q0gp">anamnese:</span> <span data-hf-id="hf-vi25" class="k">dor</span> <span data-hf-id="hf-jonj" class="k">de</span> <span data-hf-id="hf-ftbh" class="k">cabeça</span> <span data-hf-id="hf-p6un">forte</span> <span data-hf-id="hf-9b1w">desde</span> <span data-hf-id="hf-sfie">ontem,</span> <span data-hf-id="hf-v187" class="k">sem</span> <span data-hf-id="hf-tczy" class="k">febre.</span></p></li><li data-hf-id="hf-o355" class="doc"><div data-hf-id="hf-fdby" class="ai-tr-m"><b data-hf-id="hf-gnzo">Dra. Camila</b><em data-hf-id="hf-awam">00:10</em></div><p data-hf-id="hf-w9tu"><span data-hf-id="hf-evg3">Me</span> <span data-hf-id="hf-ucyc">conta,</span> <span data-hf-id="hf-7bxj">você</span> <span data-hf-id="hf-an7r">tomou</span> <span data-hf-id="hf-4mob">algum</span> <span data-hf-id="hf-pjli">remédio</span> <span data-hf-id="hf-d88f">até</span> <span data-hf-id="hf-46lc">agora?</span></p></li><li data-hf-id="hf-kq45" class="pat"><div data-hf-id="hf-ez0x" class="ai-tr-m"><b data-hf-id="hf-2m4l">Ana</b><em data-hf-id="hf-bowo">00:12</em></div><p data-hf-id="hf-vvit"><span data-hf-id="hf-2ux9">Tomei</span> <span data-hf-id="hf-dp6u">uma</span> <span data-hf-id="hf-d9wy" class="k">dipirona</span> <span data-hf-id="hf-ov0u">ontem</span> <span data-hf-id="hf-g6hf">à</span> <span data-hf-id="hf-r5wi">noite,</span> <span data-hf-id="hf-6ex0">mas</span> <span data-hf-id="hf-27it">hoje</span> <span data-hf-id="hf-oeqg">cedo</span> <span data-hf-id="hf-vjht">a</span> <span data-hf-id="hf-xbly">dor</span> <span data-hf-id="hf-wi3w">voltou.</span></p></li><li data-hf-id="hf-fii1" class="pat"><div data-hf-id="hf-ekpw" class="ai-tr-m"><b data-hf-id="hf-qdax">Ana</b><em data-hf-id="hf-8wrh">00:15</em></div><p data-hf-id="hf-yno0"><span data-hf-id="hf-l6y4">E</span> <span data-hf-id="hf-ndvp" class="k">piora</span> <span data-hf-id="hf-dibb">bastante</span> <span data-hf-id="hf-trwl">quando</span> <span data-hf-id="hf-6s1n">eu</span> <span data-hf-id="hf-kjlq">fico</span> <span data-hf-id="hf-3p2u">no</span> <span data-hf-id="hf-4wo8" class="k">computador.</span></p></li><li data-hf-id="hf-ohg6" class="doc"><div data-hf-id="hf-e6ev" class="ai-tr-m"><b data-hf-id="hf-g9on">Dra. Camila</b><em data-hf-id="hf-doft">00:19</em></div><p data-hf-id="hf-y9cz"><span data-hf-id="hf-24re">Certo.</span> <span data-hf-id="hf-1ckh">Vou</span> <span data-hf-id="hf-xkf2">te</span> <span data-hf-id="hf-lofb">passar</span> <span data-hf-id="hf-jl56">uma</span> <span data-hf-id="hf-26eb" class="k">receita</span> <span data-hf-id="hf-xwr0">e</span> <span data-hf-id="hf-05cn">algumas</span> <span data-hf-id="hf-t3do" class="k">orientações,</span></p><div data-hf-id="hf-p6n3" class="ai-link"><svg data-hf-id="hf-l2cj" viewBox="0 0 24 24" fill="none"><path data-hf-id="hf-dg8v" d="M7 3h7l4 4v14H7z" stroke="#5719b6" stroke-width="1.8" stroke-linejoin="round" /><path data-hf-id="hf-snp0" d="M14 3v4h4M9.5 12h5M9.5 16h5" stroke="#5719b6" stroke-width="1.8" stroke-linecap="round" /></svg><span data-hf-id="hf-plef">Receita simples</span></div></li><li data-hf-id="hf-naj3" class="doc"><div data-hf-id="hf-ds3u" class="ai-tr-m"><b data-hf-id="hf-hglq">Dra. Camila</b><em data-hf-id="hf-bbjw">00:23</em></div><p data-hf-id="hf-xv1y"><span data-hf-id="hf-pn38">e</span> <span data-hf-id="hf-5nc3">tudo</span> <span data-hf-id="hf-mxfw">fica</span> <span data-hf-id="hf-y03s">salvo</span> <span data-hf-id="hf-r2my">no</span> <span data-hf-id="hf-naas">app,</span> <span data-hf-id="hf-u046">logo</span> <span data-hf-id="hf-mdcj">depois</span> <span data-hf-id="hf-0e6y">da</span> <span data-hf-id="hf-2kcw">consulta.</span></p></li><li data-hf-id="hf-nou4" class="doc"><div data-hf-id="hf-ddst" class="ai-tr-m"><b data-hf-id="hf-h2ap">Dra. Camila</b><em data-hf-id="hf-cws0">00:27</em></div><p data-hf-id="hf-xgqx"><span data-hf-id="hf-tg8z">Qualquer</span> <span data-hf-id="hf-lppu">coisa,</span> <span data-hf-id="hf-dec8">é</span> <span data-hf-id="hf-4e4f">só</span> <span data-hf-id="hf-r42t">voltar</span> <span data-hf-id="hf-0bql">aqui.</span></p></li></ul>
+</div></div>
+</div>
+<div data-hf-id="hf-hx9o" class="ai-scan"><i data-hf-id="hf-alcc" class="ai-scan-sp"></i><span data-hf-id="hf-r7ro" class="ai-scan-t"><b data-hf-id="hf-kjge">Buscando na transcrição…</b><b data-hf-id="hf-i4oo">Lendo a receita simples…</b><b data-hf-id="hf-yhgv">Conferindo o plano de cuidado…</b></span></div>
+<div data-hf-id="hf-hl3t" class="ai-ans"><div data-hf-id="hf-dl4i" class="ai-ans-h"><svg data-hf-id="hf-j2te" viewBox="0 0 24 24" fill="none"><path data-hf-id="hf-ydhn" d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" fill="#c6ff34" stroke="#17151e" stroke-width="1.6" stroke-linejoin="round" /></svg><b data-hf-id="hf-t8qp">IA Viva Mais</b><u data-hf-id="hf-zrba"><i data-hf-id="hf-26gf"></i><i data-hf-id="hf-2krg"></i><i data-hf-id="hf-oz7w"></i></u></div><p data-hf-id="hf-pmxn" class="ai-ans-p1">Pode, sim. Café não interfere na dipirona. Só respeite o intervalo de 6 horas entre as doses.</p><p data-hf-id="hf-j1gt" class="ai-ans-p2">Se a dor voltar forte, tome a dipirona conforme a receita e faça pausas de tela. Se vier com febre acima de 38 °C ou rigidez no pescoço, volte ao plantão.</p><div data-hf-id="hf-5jza" class="ai-src-line"><span data-hf-id="hf-3eih" class="ai-src-a"><svg data-hf-id="hf-ioid" viewBox="0 0 24 24" fill="none"><circle data-hf-id="hf-93vg" cx="11" cy="11" r="6.5" stroke="#726f80" stroke-width="2" /><path data-hf-id="hf-d93w" d="M16 16l4 4" stroke="#726f80" stroke-width="2" stroke-linecap="round" /></svg>Transcrição · 00:12</span><span data-hf-id="hf-3pb5" class="ai-src-b"><svg data-hf-id="hf-jvfg" viewBox="0 0 24 24" fill="none"><path data-hf-id="hf-age7" d="M7 3h7l4 4v14H7z" stroke="#5719b6" stroke-width="1.8" stroke-linejoin="round" /><path data-hf-id="hf-3c3w" d="M14 3v4h4M9.5 12h5M9.5 16h5" stroke="#5719b6" stroke-width="1.8" stroke-linecap="round" /></svg>Receita simples</span><span data-hf-id="hf-g5sz" class="ai-src-c"><svg data-hf-id="hf-j0dw" viewBox="0 0 28 28" fill="none"><path data-hf-id="hf-v54m" d="M14 4.5l10 17.5H4z" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.9" stroke-linejoin="round" /><path data-hf-id="hf-gy9y" d="M14 11v5" stroke="#b91c1c" stroke-width="2.2" stroke-linecap="round" /><circle data-hf-id="hf-vck1" cx="14" cy="19" r="1.3" fill="#b91c1c" /></svg>Sinais de alerta</span></div></div>
+<div data-hf-id="hf-q796" class="ai-ask"><div data-hf-id="hf-pax4" class="ai-chips"><span data-hf-id="hf-9nd3">Posso tomar com café?</span><span data-hf-id="hf-lztf">E se a dor voltar?</span></div><div data-hf-id="hf-jgq9" class="ai-field"><span data-hf-id="hf-eiyi" class="ai-q">Pergunte sobre sua consulta</span><i data-hf-id="hf-okwv"><svg data-hf-id="hf-jh4f" viewBox="0 0 24 24" fill="none"><path data-hf-id="hf-zipu" d="M5 12h13M13 6.5l5.5 5.5-5.5 5.5" stroke="#fafafe" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" /></svg></i></div></div>
+</div></div>
+</div>
+<div data-hf-id="hf-jilp" class="vmk-status"><span data-hf-id="hf-zwmt">9:41</span><span data-hf-id="hf-8dw9" class="ic"><svg data-hf-id="hf-8r5c" width="19" height="12" viewBox="0 0 19 12" fill="currentColor"><rect data-hf-id="hf-dctd" x="0" y="8" width="3.2" height="4" rx="1" /><rect data-hf-id="hf-z5jd" x="5" y="5.5" width="3.2" height="6.5" rx="1" /><rect data-hf-id="hf-xy6y" x="10" y="3" width="3.2" height="9" rx="1" /><rect data-hf-id="hf-5h28" x="15" y="0" width="3.2" height="12" rx="1" /></svg><svg data-hf-id="hf-opqg" width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><path data-hf-id="hf-0my3" d="M8.5 2.3c2.4 0 4.6.9 6.3 2.5l1.2-1.2A10.6 10.6 0 0 0 8.5.6 10.6 10.6 0 0 0 1 3.6l1.2 1.2a9 9 0 0 1 6.3-2.5z" /><path data-hf-id="hf-56we" d="M8.5 5.6c1.5 0 2.9.6 4 1.6l1.2-1.2a7.3 7.3 0 0 0-10.4 0l1.2 1.2c1.1-1 2.5-1.6 4-1.6z" /><path data-hf-id="hf-2j7i" d="M8.5 8.9c.6 0 1.2.2 1.6.6L8.5 11.2 6.9 9.5c.4-.4 1-.6 1.6-.6z" /></svg><svg data-hf-id="hf-g4e6" width="27" height="13" viewBox="0 0 27 13" fill="none"><rect data-hf-id="hf-r06z" x=".5" y=".5" width="23" height="12" rx="3.8" stroke="currentColor" opacity=".4" /><rect data-hf-id="hf-fclx" x="2" y="2" width="20" height="9" rx="2.5" fill="currentColor" /><path data-hf-id="hf-ab2b" d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill="currentColor" opacity=".45" /></svg></span></div>
+<div data-hf-id="hf-8tef" class="vmk-status dark"><span data-hf-id="hf-rk89">9:41</span><span data-hf-id="hf-hovh" class="ic"><svg data-hf-id="hf-kbig" width="19" height="12" viewBox="0 0 19 12" fill="currentColor"><rect data-hf-id="hf-1q9h" x="0" y="8" width="3.2" height="4" rx="1" /><rect data-hf-id="hf-8hq5" x="5" y="5.5" width="3.2" height="6.5" rx="1" /><rect data-hf-id="hf-sebi" x="10" y="3" width="3.2" height="9" rx="1" /><rect data-hf-id="hf-7pug" x="15" y="0" width="3.2" height="12" rx="1" /></svg><svg data-hf-id="hf-n2yo" width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><path data-hf-id="hf-syrv" d="M8.5 2.3c2.4 0 4.6.9 6.3 2.5l1.2-1.2A10.6 10.6 0 0 0 8.5.6 10.6 10.6 0 0 0 1 3.6l1.2 1.2a9 9 0 0 1 6.3-2.5z" /><path data-hf-id="hf-a3oy" d="M8.5 5.6c1.5 0 2.9.6 4 1.6l1.2-1.2a7.3 7.3 0 0 0-10.4 0l1.2 1.2c1.1-1 2.5-1.6 4-1.6z" /><path data-hf-id="hf-bhcy" d="M8.5 8.9c.6 0 1.2.2 1.6.6L8.5 11.2 6.9 9.5c.4-.4 1-.6 1.6-.6z" /></svg><svg data-hf-id="hf-hesi" width="27" height="13" viewBox="0 0 27 13" fill="none"><rect data-hf-id="hf-9vnf" x=".5" y=".5" width="23" height="12" rx="3.8" stroke="currentColor" opacity=".4" /><rect data-hf-id="hf-87gp" x="2" y="2" width="20" height="9" rx="2.5" fill="currentColor" /><path data-hf-id="hf-vdoj" d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill="currentColor" opacity=".45" /></svg></span></div>
+<div data-hf-id="hf-xcdg" class="vmk-island"></div>
+<div data-hf-id="hf-aqfx" class="vmk-homebar"></div>
+<div data-hf-id="hf-s48t" class="vmk-homebar light"></div>
+<div data-hf-id="hf-udbl" class="vmk-overlay"><div data-hf-id="hf-6gql" class="vmk-cursor vmk-touch"><i data-hf-id="hf-o6lu"></i></div></div>
+</div>
+</div>
+</div>
+</div>
+
+</div></div>
+<div data-hf-id="hf-haw4" class="vmk-hud" data-layout-allow-overlap="">
+<div data-hf-id="hf-2brr" class="vmk-title" data-layout-allow-overlap=""><h2 data-hf-id="hf-gwuk" data-layout-allow-overlap=""><span data-hf-id="hf-e457" class="l"><span data-hf-id="hf-hc0t" class="w" data-layout-allow-overlap="">A IA explica</span></span><span data-hf-id="hf-5ut7" class="l"><span data-hf-id="hf-qmj0" class="w" data-layout-allow-overlap="">a consulta<u data-hf-id="hf-yke7"></u></span></span></h2><p data-hf-id="hf-0utk" data-layout-allow-overlap="">Resumo, plano de cuidado e a conversa inteira, em linguagem simples.</p></div>
+<div data-hf-id="hf-kfjw" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-ceob" data-layout-allow-overlap=""><span data-hf-id="hf-fm1g" data-layout-allow-overlap="">Perguntar</span> <span data-hf-id="hf-y0i2" data-layout-allow-overlap="">à</span> <span data-hf-id="hf-wa3w" data-layout-allow-overlap="">IA</span></h3><p data-hf-id="hf-ogxq" data-layout-allow-overlap="">Toque para abrir <b data-hf-id="hf-7d0v" data-layout-allow-overlap="">a análise da sua consulta</b>.</p></div><div data-hf-id="hf-0vn8" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-unxn" data-layout-allow-overlap=""><span data-hf-id="hf-pqry" data-layout-allow-overlap="">Analisando</span></h3><p data-hf-id="hf-ecu5" data-layout-allow-overlap="">A IA lê <b data-hf-id="hf-xzw3" data-layout-allow-overlap="">anamnese, conversa e documentos</b>.</p></div><div data-hf-id="hf-zoq5" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-u9mm" data-layout-allow-overlap=""><span data-hf-id="hf-9ihg" data-layout-allow-overlap="">Em</span> <span data-hf-id="hf-qbq3" data-layout-allow-overlap="">resumo</span></h3><p data-hf-id="hf-md1a" data-layout-allow-overlap="">O diagnóstico explicado <b data-hf-id="hf-sswq" data-layout-allow-overlap="">em linguagem simples</b>.</p></div><div data-hf-id="hf-0316" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-tvbl" data-layout-allow-overlap=""><span data-hf-id="hf-a1fy" data-layout-allow-overlap="">Plano</span> <span data-hf-id="hf-xnb5" data-layout-allow-overlap="">de</span> <span data-hf-id="hf-s9xf" data-layout-allow-overlap="">cuidado</span></h3><p data-hf-id="hf-4gcn" data-layout-allow-overlap="">Remédios, pausas e exames, com <b data-hf-id="hf-aam1" data-layout-allow-overlap="">lembretes</b> no horário.</p></div><div data-hf-id="hf-22kb" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-th0k" data-layout-allow-overlap=""><span data-hf-id="hf-fogb" data-layout-allow-overlap="">Sinais</span> <span data-hf-id="hf-x9p1" data-layout-allow-overlap="">de</span> <span data-hf-id="hf-imyv" data-layout-allow-overlap="">alerta</span></h3><p data-hf-id="hf-u604" data-layout-allow-overlap="">Quando <b data-hf-id="hf-ban1" data-layout-allow-overlap="">voltar ao plantão</b>, sem adivinhação.</p></div><div data-hf-id="hf-2gvc" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-t2pj" data-layout-allow-overlap=""><span data-hf-id="hf-xjkf" data-layout-allow-overlap="">Transcrição</span></h3><p data-hf-id="hf-tq4t" data-layout-allow-overlap="">A conversa inteira, com os <b data-hf-id="hf-c8hw" data-layout-allow-overlap="">pontos-chave destacados</b>.</p></div><div data-hf-id="hf-19y9" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-soei" data-layout-allow-overlap=""><span data-hf-id="hf-7its" data-layout-allow-overlap="">Tudo</span> <span data-hf-id="hf-mv94" data-layout-allow-overlap="">conectado</span></h3><p data-hf-id="hf-z42p" data-layout-allow-overlap="">Da fala da médica <b data-hf-id="hf-xoad" data-layout-allow-overlap="">direto para a receita</b>.</p></div><div data-hf-id="hf-1o9a" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-sa3h" data-layout-allow-overlap=""><span data-hf-id="hf-3eo7" data-layout-allow-overlap="">Buscando</span></h3><p data-hf-id="hf-cbxi" data-layout-allow-overlap="">A IA procura na <b data-hf-id="hf-ppcz" data-layout-allow-overlap="">transcrição</b> e abre a <b data-hf-id="hf-r3kl" data-layout-allow-overlap="">receita</b> antes de responder.</p></div><div data-hf-id="hf-3nsf" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-y8ow" data-layout-allow-overlap=""><span data-hf-id="hf-8kw1" data-layout-allow-overlap="">Resposta</span> <span data-hf-id="hf-cqin" data-layout-allow-overlap="">com</span> <span data-hf-id="hf-q3xa" data-layout-allow-overlap="">fonte</span></h3><p data-hf-id="hf-lk6i" data-layout-allow-overlap="">Cada resposta mostra <b data-hf-id="hf-9jeq" data-layout-allow-overlap="">de onde veio</b>: fala da médica e receita.</p></div><div data-hf-id="hf-423g" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-xudv" data-layout-allow-overlap=""><span data-hf-id="hf-v4f7" data-layout-allow-overlap="">Segunda</span> <span data-hf-id="hf-s9u6" data-layout-allow-overlap="">pergunta</span></h3><p data-hf-id="hf-napb" data-layout-allow-overlap="">Agora ela confere o <b data-hf-id="hf-brqw" data-layout-allow-overlap="">plano de cuidado</b> e os sinais de alerta.</p></div><div data-hf-id="hf-axcc" class="vmk-bub" data-layout-allow-overlap=""><h3 data-hf-id="hf-acxt" data-layout-allow-overlap=""><span data-hf-id="hf-hkoq" data-layout-allow-overlap="">Pergunte</span></h3><p data-hf-id="hf-dqnu" data-layout-allow-overlap="">Tire dúvidas sobre a consulta <b data-hf-id="hf-2mez" data-layout-allow-overlap="">a qualquer hora</b>.</p></div>
+</div>
+</div>
+</div>
+<script>
+(function(){
+function VMKit(cfg) {
+  const W = 1080;
+  const H = 1920;
+  const G = cfg.geo;
+  const root = document.querySelector('[data-composition-id="' + cfg.id + '"]');
+  const one = (sel, scope) => (scope || root).querySelector(sel);
+  const all = (sel, scope) => Array.from((scope || root).querySelectorAll(sel));
+  const outer = one(".vmk-cam-outer");
+  const inner = one(".vmk-cam-inner");
+  const screenInner = one(".vmk-screen-inner");
+  const overlay = one(".vmk-overlay");
+  const cursor = one(".vmk-cursor");
+  const hud = one(".vmk-hud");
+  const device = one(".vmk-device");
+  const scopeEl = one("." + cfg.scope);
+  const bar = one(".vmk-progress");
+  const TOUCH = !!cfg.touch;
+  const BAKED = cfg.baked || null;
+  const rectLog = [];
+  const audits = [];
+  let rectIndex = 0;
+  const scrollOf = {};
+  const tl = gsap.timeline();
+  const master = gsap.timeline({ paused: true });
+  const queue = [];
+  const add = (fn) => queue.push(fn);
+  const HOLD = cfg.hold || 0;
+  const HOLD_FROM = 3.05;
+  const CUR = 76;
+  const HOT = TOUCH ? { x: CUR * 0.5, y: CUR * 0.5 } : { x: CUR * 0.21, y: CUR * 0.14 };
+  const ORIGIN = TOUCH ? "50% 50%" : "21% 14%";
+  const free = (el) => {
+    el.setAttribute("data-layout-allow-overlap", "");
+    all("*", el).forEach((n) => n.setAttribute("data-layout-allow-overlap", ""));
+    return el;
+  };
+  const FULL_H = G.uh + G.chrome;
+  let shown = null;
+  let camState = { cx: G.uw / 2, cy: FULL_H / 2, zoom: G.k, wide: true };
+  let curPos = null;
+  let camFree = 0;
+
+  const num = (fn) => {
+    const i = rectIndex++;
+    const v = BAKED && BAKED[i] ? BAKED[i][0] : fn();
+    rectLog.push([+v.toFixed(2), 0, 0, 0]);
+    return v;
+  };
+  const fx = (el, origin) => {
+    if (!el.__vmk) {
+      el.__vmk = true;
+      el.style.setProperty("--vx", "0px");
+      el.style.setProperty("--vy", "0px");
+      el.style.setProperty("--vs", "1");
+      el.style.transform = "translate(var(--vx, 0px), var(--vy, 0px)) scale(var(--vs, 1))";
+    }
+    if (origin) el.style.transformOrigin = origin;
+    return el;
+  };
+  const px = (v) => v + "px";
+
+  const states = {};
+  const scrollers = {};
+  const want = {};
+  const limit = {};
+  const SAFE_TOP = cfg.safeTop == null ? 118 : cfg.safeTop;
+  const SAFE_BOTTOM = cfg.safeBottom == null ? 150 : cfg.safeBottom;
+  all(".vmk-state").forEach((el) => {
+    const name = el.getAttribute("data-state");
+    states[name] = el;
+    all("[data-vm-scroll]", el).forEach((n) => {
+      n.scrollTop = Number(n.getAttribute("data-vm-top") || 0);
+      n.scrollLeft = Number(n.getAttribute("data-vm-left") || 0);
+    });
+    let best = null;
+    all("[data-vm-scroll]", el).forEach((n) => {
+      if (n.clientWidth < 300 || n.scrollHeight - n.clientHeight < 20) return;
+      if (!best || n.clientHeight > best.clientHeight) best = n;
+    });
+    scrollers[name] = best;
+    const max = best ? num(() => best.scrollHeight - best.clientHeight) : num(() => 0);
+    const y = Math.min(Number(el.getAttribute("data-scroll") || 0), max);
+    if (best) best.scrollTop = y;
+    limit[name] = max;
+    want[name] = y;
+    scrollOf[name] = y;
+  });
+  const layers = {};
+  all(".vmk-layer").forEach((el) => {
+    layers[el.getAttribute("data-vmk-layer")] = el;
+  });
+  const statusEl = one(".vmk-status:not(.dark)");
+  const statusDark = one(".vmk-status.dark");
+  const homebar = one(".vmk-homebar:not(.light)");
+  const homebarLight = one(".vmk-homebar.light");
+  if (statusDark) gsap.set([statusDark, homebarLight], { opacity: 0 });
+
+  if (hud) hud.style.pointerEvents = "none";
+  const layered = '[role="dialog"], [role="listbox"], [data-sonner-toaster], [data-radix-popper-content-wrapper]';
+  all(layered).forEach((el) => {
+    el.setAttribute("data-layout-allow-overlap", "");
+    all("*", el).forEach((n) => n.setAttribute("data-layout-allow-overlap", ""));
+  });
+  all(".vmk-hud *").forEach((n) => n.setAttribute("data-layout-allow-overlap", ""));
+
+  const state = (name) => {
+    if (!states[name]) throw new Error("state " + name);
+    return states[name];
+  };
+
+  const norm = (s) => s.replace(/\s+/g, " ").trim();
+
+  function find(name, sel, text, nth) {
+    let list = all(sel, state(name));
+    if (text != null) {
+      const re = text instanceof RegExp ? text : null;
+      list = list.filter((el) => (re ? re.test(norm(el.textContent)) : norm(el.textContent).includes(text)));
+      list.sort((a, b) => a.textContent.length - b.textContent.length);
+      const shortest = list.length ? list[0].textContent.length : 0;
+      list = list.filter((el) => el.textContent.length === shortest);
+    }
+    const el = list[nth || 0];
+    if (!el) throw new Error("find " + name + " " + sel + " " + text);
+    return el;
+  }
+
+  function pick(name, text, o) {
+    const opt = o || {};
+    const scope = opt.within || state(name);
+    const re = text instanceof RegExp ? text : null;
+    let list = all(opt.sel || "div", scope).filter((el) => {
+      const t = norm(el.textContent || "");
+      return re ? re.test(t) : t === text;
+    });
+    list = list.filter((el) => !list.some((x) => x !== el && el.contains(x)));
+    list = list.filter((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.width <= 0 || r.height <= 0) return false;
+      let n = el;
+      while (n && n !== scope) {
+        const cs = getComputedStyle(n);
+        if (cs.display === "none" || /visibility:\s*hidden|display:\s*none/.test(n.getAttribute("style") || "")) return false;
+        n = n.parentElement;
+      }
+      return true;
+    });
+    if (!opt.within && opt.hit !== false) {
+      const st = state(name);
+      const keep = [st.style.visibility, st.style.opacity, st.style.zIndex];
+      st.style.visibility = "visible";
+      st.style.opacity = "1";
+      st.style.zIndex = "50";
+      const sr = screenInner.getBoundingClientRect();
+      const topList = list.filter((el) => {
+        const r = el.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        if (cx < sr.left || cx > sr.right || cy < sr.top || cy > sr.bottom) return true;
+        const hit = document.elementFromPoint(cx, cy);
+        return !!hit && (hit === el || el.contains(hit) || hit.contains(el));
+      });
+      st.style.visibility = keep[0];
+      st.style.opacity = keep[1];
+      st.style.zIndex = keep[2];
+      if (topList.length) list = topList;
+    }
+    if (opt.sort === "y") list.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+    let el = opt.last ? list[list.length - 1] : list[opt.nth || 0];
+    if (!el) throw new Error("pick " + name + " " + text);
+    if (opt.btn) el = el.closest('[role="button"], [data-vm-button], [tabindex="0"]') || el;
+    for (let i = 0; i < (opt.up || 0); i++) el = el.parentElement;
+    return el;
+  }
+
+  function isFixed(el, stop) {
+    let n = el;
+    while (n && n !== stop) {
+      if (getComputedStyle(n).position === "fixed") return true;
+      n = n.parentElement;
+    }
+    return false;
+  }
+
+  function live(el) {
+    const r = el.getBoundingClientRect();
+    const sr = screenInner.getBoundingClientRect();
+    const k = sr.width / G.uw;
+    return { x: (r.left - sr.left) / k, y: (r.top - sr.top) / k, w: r.width / k, h: r.height / k };
+  }
+
+  function rect(el) {
+    const i = rectIndex++;
+    let out;
+    if (BAKED && BAKED[i]) {
+      out = { x: BAKED[i][0], y: BAKED[i][1], w: BAKED[i][2], h: BAKED[i][3] };
+    } else {
+      const st = el.closest(".vmk-state");
+      const scr = st ? scrollers[st.getAttribute("data-state")] : null;
+      const inside = scr && scr.contains(el);
+      const keep = inside ? scr.scrollTop : 0;
+      if (inside) scr.scrollTop = scrollOf[st.getAttribute("data-state")];
+      out = live(el);
+      if (inside) scr.scrollTop = keep;
+      if (el.__vmk) {
+        const cs = getComputedStyle(el);
+        const vs = Number(cs.getPropertyValue("--vs")) || 1;
+        if (vs !== 1) {
+          out.x -= (out.w / vs - out.w) / 2;
+          out.y -= (out.h / vs - out.h) / 2;
+          out.w /= vs;
+          out.h /= vs;
+        }
+      }
+    }
+    rectLog.push([+out.x.toFixed(2), +out.y.toFixed(2), +out.w.toFixed(2), +out.h.toFixed(2)]);
+    out.cx = out.x + out.w / 2;
+    out.cy = out.y + out.h / 2;
+    Object.defineProperty(out, "el", { value: el, enumerable: false });
+    return out;
+  }
+
+  function box(el) {
+    const i = rectIndex++;
+    const out = BAKED && BAKED[i] ? { w: BAKED[i][2], h: BAKED[i][3] } : { w: el.offsetWidth, h: el.offsetHeight };
+    rectLog.push([0, 0, out.w, out.h]);
+    return out;
+  }
+
+  const focus = [];
+  const claimed = [];
+  const reveals = [];
+  const claim = (els) => els.forEach((el) => el && claimed.push(el));
+  const isClaimed = (el) => claimed.some((c) => c === el || c.contains(el) || el.contains(c));
+
+  const anchors = [];
+  const rests = [];
+  function travel(t, a, b, dur) {
+    for (let i = 0; i <= 4; i++) {
+      const f = toFrame({ x: a.x + ((b.x - a.x) * i) / 4, y: a.y + ((b.y - a.y) * i) / 4 });
+      focus.push({ a: t, b: t + dur, x: f.x, y: f.y, of: -1 });
+    }
+    const r = toFrame(b);
+    rests.push({ t: t + dur, x: r.x, y: r.y });
+  }
+  function settle() {
+    rests.sort((a, b) => a.t - b.t);
+    rests.forEach((r, i) => {
+      const next = rests[i + 1];
+      focus.push({ a: r.t, b: next ? next.t : r.t + 60, x: r.x, y: r.y, of: -1 });
+    });
+  }
+  function attend(t, target, until) {
+    if (!target) return;
+    const r = target instanceof Element ? rect(target) : target;
+    const pts = r.w == null ? [r] : [{ x: r.x, y: r.y }, { x: r.x + r.w, y: r.y }, { x: r.x, y: r.y + r.h }, { x: r.x + r.w, y: r.y + r.h }, { x: r.cx, y: r.cy }];
+    const id = anchors.length;
+    if (r.w != null && r.w > 0) anchors.push({ id: id, a: t, ui: { x: r.x, y: r.y, w: r.w, h: r.h }, cam: { cx: camState.cx, cy: camState.cy, zoom: camState.zoom, wide: camState.wide } });
+    pts.forEach((q) => {
+      const f = toFrame(q);
+      focus.push({ a: t, b: until == null ? t : until, x: f.x, y: f.y, of: r.w != null && r.w > 0 ? id : -1 });
+    });
+  }
+
+  function frameAt(p, c) {
+    if (c.wide) return { x: G.sx + p.x * G.k, y: G.sy + p.y * G.k };
+    return { x: W / 2 + (p.x - c.cx) * c.zoom, y: H / 2 + (p.y - c.cy) * c.zoom };
+  }
+
+  function frameNow(p) {
+    const sc = Number(gsap.getProperty(outer, "scale")) || 1;
+    const tx = Number(gsap.getProperty(inner, "x")) || 0;
+    const ty = Number(gsap.getProperty(inner, "y")) || 0;
+    return { x: W / 2 + (G.sx + p.x * G.k + tx - W / 2) * sc, y: H / 2 + (G.sy + p.y * G.k + ty - H / 2) * sc };
+  }
+
+  function toFrame(p) {
+    if (camState.wide) return { x: G.sx + p.x * G.k, y: G.sy + p.y * G.k };
+    return { x: W / 2 + (p.x - camState.cx) * camState.zoom, y: H / 2 + (p.y - camState.cy) * camState.zoom };
+  }
+
+  function audit(kind, t, target, data) {
+    const el = target instanceof Element ? target : target && target.el;
+    if (el) audits.push({ kind: kind, t: t, el: el, data: data });
+  }
+
+  function pt(target) {
+    if (target instanceof Element) {
+      const r = rect(target);
+      return { x: r.cx, y: r.cy };
+    }
+    if (target.cx != null) return { x: target.cx, y: target.cy };
+    return target;
+  }
+
+  function show(t, name, o) {
+    const el = state(name);
+    const prev = shown;
+    const fade = o && o.fade != null ? o.fade : 0.28;
+    shown = name;
+    if (t === 0 && !prev) {
+      gsap.set(el, { autoAlpha: 1 });
+      return;
+    }
+    add(() => {
+      if (fade) {
+        tl.set(el, { zIndex: 2 }, t);
+        tl.fromTo(el, { autoAlpha: 0 }, { autoAlpha: 1, duration: fade, ease: "power2.out", immediateRender: false }, t);
+        if (prev) tl.set(state(prev), { autoAlpha: 0 }, t + fade);
+        tl.set(el, { zIndex: 0 }, t + fade);
+        return;
+      }
+      if (prev) tl.set(state(prev), { autoAlpha: 0 }, t);
+      tl.set(el, { autoAlpha: 1 }, t);
+    });
+  }
+
+  const block = (n, html) => Array.from({ length: n }, () => html).join("");
+  const PANEL_SKELETON =
+    '<div class="min-h-screen bg-gray-50 p-4 md:p-8"><div class="mb-8 space-y-3"><div class="h-8 w-56 rounded-lg bg-gray-200"></div><div class="h-4 w-80 max-w-full rounded bg-gray-200"></div></div><div class="mb-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">' +
+    block(4, '<div class="h-28 rounded-xl border border-gray-100 bg-white shadow-sm"></div>') +
+    '</div><div class="rounded-xl border border-gray-100 bg-white p-5 shadow-sm"><div class="mb-6 h-6 w-44 rounded bg-gray-200"></div><div class="space-y-4">' +
+    block(6, '<div class="h-12 rounded-lg bg-gray-100"></div>') +
+    "</div></div></div>";
+  const PAGE_SKELETON =
+    '<div class="vmk-skel"><div class="vmk-skel-head"><i></i><b></b><b></b><b></b></div><div class="vmk-skel-body"><i class="t"></i><i class="s"></i><div class="vmk-skel-card"><i></i><i></i><i></i><i></i></div></div></div>';
+
+  function loaderFor(name) {
+    const st = state(name);
+    const aside = one("aside", st);
+    const x = aside && getComputedStyle(aside).display !== "none" ? rect(aside).w : 0;
+    const el = document.createElement("div");
+    el.className = "vmk-loader";
+    el.style.left = x + "px";
+    el.style.width = G.uw - x + "px";
+    el.style.height = G.uh + "px";
+    el.innerHTML = x ? PANEL_SKELETON : PAGE_SKELETON;
+    scopeEl.appendChild(free(el));
+    return { el: el, inner: el.firstChild };
+  }
+
+  function loading(L, from, out) {
+    const beats = Math.max(1, Math.round((out - from) / 0.42));
+    add(() => {
+      tl.to(L.el, { opacity: 0, duration: 0.42, ease: "power2.inOut" }, out);
+      tl.set(L.el, { visibility: "hidden" }, out + 0.42);
+      if (bar) {
+        tl.fromTo(bar, { scaleX: 0, opacity: 1 }, { scaleX: 0.74, duration: out - from - 0.02, ease: "power2.out", immediateRender: false }, from);
+        tl.to(bar, { scaleX: 1, duration: 0.2, ease: "power2.in" }, out);
+        tl.to(bar, { opacity: 0, duration: 0.22, ease: "none" }, out + 0.2);
+      }
+    });
+  }
+
+  function boot(name) {
+    show(0, name);
+    return 0;
+  }
+
+  function slide(t, name, o) {
+    const opt = o || {};
+    const el = state(name);
+    const prev = shown;
+    const pel = prev ? state(prev) : null;
+    shown = name;
+    const d = opt.dur || 0.52;
+    const e = "power3.inOut";
+    add(() => {
+      tl.set(el, { autoAlpha: 1, zIndex: 3 }, t);
+      if (opt.kind === "modal") {
+        tl.fromTo(el, { y: G.uh, x: 0 }, { y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+        if (pel) tl.fromTo(pel, { scale: 1, y: 0 }, { scale: 0.93, y: 10, duration: d, ease: "power3.out", immediateRender: false, transformOrigin: "50% 100%" }, t);
+      } else if (opt.kind === "back") {
+        tl.fromTo(el, { x: -110, y: 0 }, { x: 0, duration: d, ease: e, immediateRender: false }, t);
+        if (pel) {
+          tl.set(pel, { zIndex: 4 }, t);
+          tl.fromTo(pel, { x: 0 }, { x: G.uw, duration: d, ease: e, immediateRender: false }, t);
+        }
+      } else if (opt.kind === "fade") {
+        tl.fromTo(el, { opacity: 0, x: 0, y: 0 }, { opacity: 1, duration: d * 0.6, ease: "power2.out", immediateRender: false }, t);
+      } else {
+        tl.fromTo(el, { x: G.uw, y: 0 }, { x: 0, duration: d, ease: e, immediateRender: false }, t);
+        if (pel) tl.fromTo(pel, { x: 0 }, { x: -110, duration: d, ease: e, immediateRender: false }, t);
+      }
+      if (pel) {
+        tl.set(pel, { autoAlpha: 0, x: 0, y: 0, scale: 1, zIndex: 0 }, t + d);
+      }
+      tl.set(el, { zIndex: 0 }, t + d);
+    });
+    return t + d;
+  }
+
+  function nav(t, name, o) {
+    return slide(t, name, o);
+  }
+
+  function layer(name) {
+    if (!layers[name]) throw new Error("layer " + name);
+    return layers[name];
+  }
+
+  function layerIn(t, name, o) {
+    const opt = o || {};
+    const el = layer(name);
+    const d = opt.dur || 0.5;
+    add(() => {
+      tl.set(el, { visibility: "visible", opacity: opt.from === "right" || opt.from === "up" ? 1 : 0 }, t);
+      if (opt.from === "right") tl.fromTo(el, { x: G.uw }, { x: 0, duration: d, ease: "power3.inOut", immediateRender: false }, t);
+      else if (opt.from === "up") tl.fromTo(el, { y: G.uh }, { y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      else if (opt.from === "zoom") tl.fromTo(el, { scale: 1.12, opacity: 0 }, { scale: 1, opacity: 1, duration: d, ease: "power3.out", immediateRender: false, transformOrigin: "50% 50%" }, t);
+      else tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d, ease: "power2.out", immediateRender: false }, t);
+    });
+    return t + d;
+  }
+
+  function layerOut(t, name, o) {
+    const opt = o || {};
+    const el = layer(name);
+    const d = opt.dur || 0.4;
+    add(() => {
+      if (opt.to === "left") tl.to(el, { x: -G.uw, duration: d, ease: "power3.inOut" }, t);
+      else if (opt.to === "down") tl.to(el, { y: G.uh, duration: d, ease: "power3.in" }, t);
+      else if (opt.to === "zoom") tl.to(el, { scale: 0.92, opacity: 0, duration: d, ease: "power3.in", transformOrigin: "50% 50%" }, t);
+      else tl.to(el, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      tl.set(el, { autoAlpha: 0, x: 0, y: 0, scale: 1 }, t + d);
+    });
+    return t + d;
+  }
+
+  function status(t, dark, o) {
+    if (!statusEl) return;
+    const d = (o && o.dur) || 0.25;
+    add(() => {
+      tl.to([statusEl, homebar], { opacity: dark ? 0 : 1, duration: d, ease: "none" }, t);
+      tl.to([statusDark, homebarLight], { opacity: dark ? 1 : 0, duration: d, ease: "none" }, t);
+    });
+  }
+
+  function url(t, key) {
+    const items = all(".vmk-url-item");
+    add(() => {
+      items.forEach((el) => {
+        tl.set(el, { display: el.getAttribute("data-url") === key ? "inline" : "none" }, t);
+      });
+    });
+  }
+
+  function clampCenter(cx, cy, zoom) {
+    const halfW = W / zoom / 2;
+    const halfH = H / zoom / 2;
+    const mx = 70 / zoom;
+    const x = G.uw * zoom >= W ? Math.min(Math.max(cx, halfW), G.uw - halfW) : Math.min(Math.max(cx, G.uw - halfW + mx), halfW - mx);
+    const y = FULL_H * zoom >= H ? Math.min(Math.max(cy, halfH - 40 / zoom), FULL_H - halfH + 40 / zoom) : FULL_H / 2;
+    return { x, y };
+  }
+
+  function cam(t, o, dur, ease) {
+    const d = dur == null ? 1.1 : dur;
+    const e = ease || "power3.inOut";
+    let s = 1;
+    let tx = 0;
+    let ty = 0;
+    if (o.wide) {
+      camState = { cx: G.uw / 2, cy: FULL_H / 2, zoom: G.k, wide: true };
+    } else {
+      const P = cfg.portrait && !o.free;
+      const zoom = P ? Math.max(o.zoom, cfg.portrait.zoom) : o.zoom;
+      const px = o.x - ((o.ax == null ? W / 2 : o.ax) - W / 2) / zoom;
+      const py = o.y - ((o.ay == null ? H / 2 : o.ay) - H / 2) / zoom;
+      let c = o.free ? { x: px, y: py } : clampCenter(px, py, zoom);
+      if (P) {
+        const T0 = cfg.portrait.top;
+        const ph = FULL_H * zoom;
+        const lo = Math.min(T0, H - ph);
+        const top = Math.max(lo, Math.min(T0, (T0 + H) / 2 - o.y * zoom));
+        c = { x: G.uw / 2, y: (H / 2 - top) / zoom };
+      }
+      s = zoom / G.k;
+      tx = -(G.sx + c.x * G.k - W / 2);
+      ty = -(G.sy + c.y * G.k - H / 2);
+      camState = { cx: c.x, cy: c.y, zoom, wide: false, free: !!o.free };
+    }
+    camFree = Math.max(camFree, t + d);
+    if (t <= 0.02 && d <= 0.05) {
+      gsap.set(outer, { scale: s });
+      gsap.set(inner, { x: tx, y: ty });
+    }
+    add(() => {
+      tl.to(outer, { scale: s, duration: d, ease: e }, t);
+      tl.to(inner, { x: tx, y: ty, duration: d, ease: e }, t);
+    });
+  }
+
+  function ensure(t, target, o) {
+    const el = target instanceof Element ? target : target && target.el;
+    if (!el) return;
+    const opt = o || {};
+    const st = el.closest(".vmk-state");
+    let r = rect(el);
+    const scr0 = st ? scrollers[st.getAttribute("data-state")] : null;
+    if (st && scr0 && scr0.contains(el) && !opt.noScroll && r.h < G.uh - 240) {
+      const name = st.getAttribute("data-state");
+      const top = SAFE_TOP;
+      const bottom = FULL_H - SAFE_BOTTOM;
+      const delta = r.y + r.h > bottom ? r.y + r.h - bottom + 60 : r.y < top ? r.y - top - 60 : 0;
+      const to = Math.max(0, Math.min(limit[name], scrollOf[name] + delta));
+      if (delta && Math.abs(to - scrollOf[name]) > 1) {
+        const group = Object.keys(states).filter((n) => Math.abs(scrollOf[n] - scrollOf[name]) < 0.5 && limit[n] >= to - 0.5);
+        scroll(Math.max(t - 0.8, 0), group, to, 0.6);
+        r = rect(el);
+      }
+    }
+    if (camState.wide || !opt.cam) return;
+    const L = 60;
+    const R = W - 60;
+    const T = 470;
+    const B = H - 330;
+    const fit = Math.min(camState.zoom, (R - L) / (r.w + 40), (B - T) / (r.h + 40));
+    const zoom = opt.fit && fit < camState.zoom - 0.01 ? Math.max(fit, 1.3334) : camState.zoom;
+    const a = { x: W / 2 + (r.x - camState.cx) * zoom, y: H / 2 + (r.y - camState.cy) * zoom };
+    const b = { x: a.x + r.w * zoom, y: a.y + r.h * zoom };
+    let dx = 0;
+    let dy = 0;
+    if (b.x - a.x > R - L) dx = (a.x + b.x) / 2 - W / 2;
+    else if (b.x > R) dx = b.x - R;
+    else if (a.x < L) dx = a.x - L;
+    if (b.y - a.y > B - T) dy = (a.y + b.y) / 2 - (T + B) / 2;
+    else if (b.y > B) dy = b.y - B;
+    else if (a.y < T) dy = a.y - T;
+    if (!dx && !dy && zoom === camState.zoom) return;
+    const start = Math.max(camFree, t - 0.6);
+    const dur = Math.max(0.25, Math.min(0.55, t - start));
+    cam(Math.min(start, t - 0.25), { x: camState.cx + dx / zoom, y: camState.cy + dy / zoom, zoom: zoom, free: camState.free }, dur, "power3.inOut");
+  }
+
+  function camOn(t, target, o, dur, ease) {
+    const opt = o || {};
+    const r = target instanceof Element ? rect(target) : target;
+    const pad = opt.pad == null ? 90 : opt.pad;
+    const fit = Math.min(W / (r.w + pad * 2), (H - (opt.keep == null ? 0 : opt.keep)) / (r.h + pad * 2));
+    const zoom = Math.max(opt.min || 1.3334, Math.min(opt.max || 2.2, fit));
+    cam(t, { x: r.cx + (opt.dx || 0), y: r.cy + (opt.dy || 0), zoom, ax: opt.ax, ay: opt.ay, free: opt.free }, dur, ease);
+  }
+
+  function view() {
+    if (camState.wide) return { left: 0, top: 0, right: G.uw, bottom: FULL_H };
+    const halfW = W / camState.zoom / 2;
+    const halfH = H / camState.zoom / 2;
+    return {
+      left: Math.max(0, camState.cx - halfW),
+      right: Math.min(G.uw, camState.cx + halfW),
+      top: Math.max(0, camState.cy - halfH),
+      bottom: Math.min(FULL_H, camState.cy + halfH),
+    };
+  }
+
+  gsap.set(cursor, { x: -300, y: -300 });
+
+  function cursorEnter(t, target, dur) {
+    ensure(t + (dur || 0.8), target);
+    const p = pt(target);
+    const v = view();
+    const from = { x: p.x + 40, y: v.bottom + 90 };
+    travel(t, TOUCH ? p : from, p, dur || 0.8);
+    curPos = p;
+    audit("point", t + (dur || 0.8), target);
+    attend(t + (dur || 0.8), p);
+    if (TOUCH) {
+      add(() => {
+        tl.set(cursor, { x: p.x - HOT.x, y: p.y - HOT.y }, t);
+        tl.fromTo(
+          cursor,
+          { opacity: 0, scale: 1.7 },
+          { opacity: 1, scale: 1, duration: dur || 0.8, ease: "power3.out", immediateRender: false, transformOrigin: ORIGIN },
+          t
+        );
+      });
+      return;
+    }
+    add(() => {
+      tl.fromTo(
+        cursor,
+        { x: from.x - HOT.x, y: from.y - HOT.y },
+        { x: p.x - HOT.x, y: p.y - HOT.y, duration: dur || 0.8, ease: "power3.out", immediateRender: false },
+        t
+      );
+    });
+  }
+
+  function cursorTo(t, target, dur, ease) {
+    ensure(t + (dur || 0.6), target);
+    const p = pt(target);
+    if (curPos) travel(t, curPos, p, dur || 0.6);
+    curPos = p;
+    audit("point", t + (dur || 0.6), target);
+    attend(t + (dur || 0.6), p);
+    add(() => {
+      tl.to(cursor, { x: p.x - HOT.x, y: p.y - HOT.y, duration: dur || 0.6, ease: ease || "power2.inOut" }, t);
+    });
+  }
+
+  function cursorAside(t, dx, dy, dur) {
+    const p = { x: curPos.x + dx, y: curPos.y + dy };
+    travel(t, curPos, p, dur || 0.7);
+    curPos = p;
+    add(() => {
+      tl.to(cursor, { x: p.x - HOT.x, y: p.y - HOT.y, duration: dur || 0.7, ease: "power2.out" }, t);
+    });
+  }
+
+  function cursorExit(t, dir, dur) {
+    const v = view();
+    const p =
+      dir === "down"
+        ? { x: curPos.x + 60, y: v.bottom + 120 }
+        : dir === "left"
+          ? { x: v.left - 140, y: curPos.y + 40 }
+          : { x: v.right + 140, y: curPos.y + 40 };
+    travel(t, curPos, p, dur || 0.55);
+    curPos = p;
+    add(() => {
+      if (TOUCH) tl.to(cursor, { opacity: 0, scale: 1.5, duration: dur || 0.55, ease: "power2.in", transformOrigin: ORIGIN }, t);
+      else tl.to(cursor, { x: p.x - HOT.x, y: p.y - HOT.y, duration: dur || 0.55, ease: "power2.in" }, t);
+    });
+  }
+
+  function click(t, target, o) {
+    const opt = o || {};
+    if (target) ensure(t, target);
+    const p = target ? pt(target) : curPos;
+    const ring = document.createElement("div");
+    ring.className = "vmk-ring";
+    overlay.insertBefore(ring, cursor);
+    gsap.set(ring, { x: p.x, y: p.y, scale: 0.2 });
+    const echo = document.createElement("div");
+    echo.className = "vmk-ring vmk-ring-echo";
+    overlay.insertBefore(echo, cursor);
+    gsap.set(echo, { x: p.x, y: p.y, scale: 0.2 });
+    const dot = document.createElement("div");
+    dot.className = "vmk-ring-dot";
+    overlay.insertBefore(dot, cursor);
+    gsap.set(dot, { x: p.x, y: p.y, scale: 0 });
+    if (target) audit("click", t, target);
+    attend(t, target instanceof Element ? target : p, t + 0.4);
+    add(() => {
+      tl.to(cursor, { scale: 0.84, duration: 0.1, ease: "power2.in", transformOrigin: ORIGIN }, t);
+      tl.to(cursor, { scale: 1, duration: 0.22, ease: "power2.out", transformOrigin: ORIGIN }, t + 0.1);
+      tl.fromTo(ring, { scale: 0.2, opacity: 1 }, { scale: 1.25, opacity: 0, duration: 0.5, ease: "expo.out", immediateRender: false }, t + 0.04);
+      tl.fromTo(echo, { scale: 0.2, opacity: 0.8 }, { scale: 2, opacity: 0, duration: 0.75, ease: "expo.out", immediateRender: false }, t + 0.12);
+      tl.fromTo(dot, { scale: 0, opacity: 0.55 }, { scale: 1, opacity: 0, duration: 0.34, ease: "power3.out", immediateRender: false }, t);
+      if (opt.press && target instanceof Element) {
+        fx(target, "50% 50%");
+        tl.fromTo(target, { "--vs": 1 }, { "--vs": 0.95, duration: 0.1, ease: "power2.in", immediateRender: false }, t);
+        tl.fromTo(target, { "--vs": 0.95 }, { "--vs": 1, duration: 0.24, ease: "power3.out", immediateRender: false }, t + 0.1);
+      }
+    });
+  }
+
+  function go(t, target, o) {
+    const opt = o || {};
+    const move = opt.move == null ? 0.6 : opt.move;
+    cursorTo(t, target, move, opt.ease);
+    const at = t + move + (opt.wait == null ? 0.12 : opt.wait);
+    click(at, target, { press: opt.press !== false });
+    return at;
+  }
+
+  function focusRing(t, input, end) {
+    const off = { boxShadow: "0 0 0 0px rgba(126,59,237,0)", borderColor: "#dcd7ea" };
+    const on = { boxShadow: "0 0 0 4px rgba(126,59,237,0.22)", borderColor: "#7e3bed" };
+    add(() => {
+      tl.fromTo(input, off, Object.assign({ duration: 0.14, ease: "power2.out", immediateRender: false }, on), t);
+      tl.fromTo(input, on, Object.assign({ duration: 0.14, ease: "power2.in", immediateRender: false }, off), end);
+    });
+  }
+
+  function type(t, input, text, o) {
+    const opt = o || {};
+    const dur = opt.dur || text.length / (opt.cps || 15);
+    const from = opt.from || "";
+    const p = { n: 0 };
+    input.value = from;
+    input.setAttribute("value", from);
+    attend(t, input, t + dur);
+    if (opt.ring !== false) focusRing(t - 0.05, input, t + dur + (opt.hold == null ? 0.25 : opt.hold));
+    add(() => {
+      tl.to(
+        p,
+        {
+          n: text.length,
+          duration: dur,
+          ease: "none",
+          onUpdate: () => {
+            input.value = from + text.slice(0, Math.round(p.n));
+          },
+        },
+        t
+      );
+    });
+    return t + dur;
+  }
+
+  function flip(t, fn) {
+    const p = { v: 0 };
+    fn(false);
+    add(() => {
+      tl.to(p, { v: 1, duration: 0.02, ease: "none", onUpdate: () => fn(p.v >= 0.5) }, t);
+    });
+  }
+
+  function setText(t, el, text) {
+    const old = el.textContent;
+    flip(t, (on) => {
+      el.textContent = on ? text : old;
+    });
+  }
+
+  function count(t, el, from, to, fmt, dur) {
+    claim([el]);
+    const p = { v: from };
+    const old = el.textContent;
+    add(() => {
+      tl.to(
+        p,
+        {
+          v: to,
+          duration: dur || 0.9,
+          ease: "power2.out",
+          onUpdate: () => {
+            el.textContent = tl.time() < t + (t >= HOLD_FROM ? HOLD : 0) ? old : fmt(p.v);
+          },
+        },
+        t
+      );
+    });
+  }
+
+  function tick(t, el, dur) {
+    const text = el.textContent;
+    const m = text.match(/\d[\d.]*(,\d+)?/);
+    if (!m) return;
+    const to = Number(m[0].replace(/\./g, "").replace(",", "."));
+    if (!to) return;
+    const digits = m[1] ? m[1].length - 1 : 0;
+    const head = text.slice(0, m.index);
+    const tail = text.slice(m.index + m[0].length);
+    count(t, el, 0, to, (v) => head + v.toLocaleString("pt-BR", { minimumFractionDigits: digits, maximumFractionDigits: digits }) + tail, dur || 0.9);
+  }
+
+  function reveal(t, name) {
+    reveals.push({ t: t, name: name });
+  }
+
+  function runReveals() {
+    reveals.forEach((r) => {
+      const st = state(r.name);
+      const picked = [];
+      all("main h1, main [class*='bg-card'], main table tbody tr", st).forEach((el) => {
+        if (picked.length >= 14 || isClaimed(el) || picked.some((x) => x.contains(el))) return;
+        if (el.closest('[role="dialog"]')) return;
+        picked.push(el);
+      });
+      all("main .grid .text-2xl", st)
+        .filter((el) => !el.children.length && !claimed.includes(el))
+        .slice(0, 6)
+        .forEach((el, i) => tick(r.t + 0.15 + i * 0.08, el, 0.9));
+      picked.forEach((el, i) => {
+        gsap.set(fx(el), { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, "--vy": "22px" }, { opacity: 1, "--vy": "0px", duration: 0.36, ease: "power4.out", immediateRender: false }, r.t + i * 0.05);
+      });
+    });
+  }
+
+  function scroll(t, names, want_, dur, ease) {
+    const y = Math.min.apply(null, [want_].concat(names.map((n) => limit[n])));
+    const list = names.map((n) => ({ el: state(n), name: n, from: scrollOf[n] }));
+    names.forEach((n) => {
+      scrollOf[n] = y;
+    });
+    const p = { v: 0 };
+    add(() => {
+      tl.to(
+        p,
+        {
+          v: 1,
+          duration: dur || 0.9,
+          ease: ease || "power3.inOut",
+          onUpdate: () => {
+            list.forEach((s) => {
+              want[s.name] = s.from + (y - s.from) * p.v;
+              if (scrollers[s.name]) scrollers[s.name].scrollTop = want[s.name];
+            });
+          },
+        },
+        t
+      );
+    });
+  }
+
+  function dialogIn(t, name) {
+    const st = state(name);
+    const panel = one('[role="dialog"]', st);
+    const veil = one('[data-slot="dialog-overlay"], [data-slot="sheet-overlay"]', st);
+    gsap.set(panel, { opacity: 0 });
+    fx(panel, "50% 50%");
+    if (veil) gsap.set(veil, { opacity: 0 });
+    attend(t, panel, t + 1.2);
+    add(() => {
+      if (veil) tl.fromTo(veil, { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, t);
+      tl.fromTo(panel, { "--vs": 0.94, opacity: 0 }, { "--vs": 1, opacity: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+    });
+  }
+
+  function popIn(t, el, o) {
+    const opt = o || {};
+    gsap.set(el, { opacity: 0 });
+    fx(el, opt.origin || "50% 0%");
+    claim([el]);
+    add(() => {
+      tl.fromTo(
+        el,
+        { "--vs": opt.from || 0.96, opacity: 0, "--vy": px(opt.y || 0) },
+        { "--vs": 1, opacity: 1, "--vy": "0px", duration: opt.dur || 0.3, ease: "power3.out", immediateRender: false },
+        t
+      );
+    });
+  }
+
+  function toastIn(t, name) {
+    const el = one("[data-sonner-toaster]", state(name));
+    if (!el) throw new Error("toast " + name);
+    gsap.set(el, { opacity: 0 });
+    fx(el);
+    add(() => {
+      tl.fromTo(el, { "--vy": "60px", opacity: 0 }, { "--vy": "0px", opacity: 1, duration: 0.36, ease: "power3.out", immediateRender: false }, t);
+    });
+  }
+
+  function rows(t, els, o) {
+    const opt = o || {};
+    const step = opt.stagger || 0.05;
+    els.forEach((el) => gsap.set(fx(el), { opacity: 0 }));
+    claim(els);
+    els.slice(0, 8).forEach((el) => attend(t, el, t + 1.6));
+    add(() => {
+      els.forEach((el, i) => {
+        tl.fromTo(
+          el,
+          { opacity: 0, "--vy": px(opt.y == null ? 18 : opt.y) },
+          { opacity: 1, "--vy": "0px", duration: opt.dur || 0.3, ease: "power4.out", immediateRender: false },
+          t + i * step
+        );
+      });
+    });
+  }
+
+  const marks = [];
+  function mark(t, target, o) {
+    const opt = o || {};
+    ensure(t, target, { fit: true, stay: opt.stay });
+    const el0 = target instanceof Element ? target : target && target.el;
+    const r = el0 ? rect(el0) : target;
+    const pad = opt.pad == null ? 8 : opt.pad;
+    const w = r.w + pad * 2;
+    const h = r.h + pad * 2;
+    const rad = Math.min(opt.radius || 14, h / 2, w / 2);
+    const el = document.createElement("div");
+    el.className = "vmk-mark";
+    el.innerHTML =
+      '<b></b><svg width="' +
+      w +
+      '" height="' +
+      h +
+      '" viewBox="0 0 ' +
+      w +
+      " " +
+      h +
+      '" fill="none"><rect class="halo" x="2" y="2" width="' +
+      (w - 4) +
+      '" height="' +
+      (h - 4) +
+      '" rx="' +
+      rad +
+      '" pathLength="1"/><rect class="line" x="2" y="2" width="' +
+      (w - 4) +
+      '" height="' +
+      (h - 4) +
+      '" rx="' +
+      rad +
+      '" pathLength="1"/></svg><i></i>';
+    overlay.insertBefore(free(el), cursor);
+    gsap.set(el, { x: r.x - pad, y: r.y - pad, width: w, height: h });
+    const tint = one("b", el);
+    const halo = one(".halo", el);
+    const line = one(".line", el);
+    const spark = one("i", el);
+    tint.style.borderRadius = rad + "px";
+    gsap.set([halo, line], { strokeDasharray: 1, strokeDashoffset: 1 });
+    gsap.set(tint, { opacity: 0 });
+    gsap.set(spark, { opacity: 0 });
+    const hold = opt.hold || 1.6;
+    audit("mark", t + 0.5, target, { mark: el, pad: pad });
+    attend(t, { x: r.x, y: r.y, w: r.w, h: r.h, cx: r.cx, cy: r.cy }, t + hold);
+    const item = { a: t, b: t + hold, tint: tint, solo: true };
+    marks.push(item);
+    let tag = null;
+    const tagY = opt.below ? r.y + r.h + pad + 10 : r.y - pad - 46;
+    if (opt.label) {
+      tag = document.createElement("div");
+      tag.className = "vmk-tag";
+      tag.textContent = opt.label;
+      overlay.insertBefore(free(tag), cursor);
+      gsap.set(tag, { x: r.x - pad, y: tagY });
+    }
+    add(() => {
+      tl.set(el, { opacity: 1 }, t);
+      tl.fromTo(line, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "power3.inOut", immediateRender: false }, t);
+      tl.fromTo(halo, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "power3.inOut", immediateRender: false }, t + 0.06);
+      tl.fromTo(tint, { opacity: 0 }, { opacity: 0.7, duration: 0.6, ease: "sine.out", immediateRender: false }, t + 0.2);
+      tl.to([line, halo], { strokeDashoffset: -1, duration: 0.4, ease: "power3.in" }, t + hold);
+      tl.to(tint, { opacity: 0, duration: 0.4, ease: "sine.in" }, t + hold);
+      tl.set(el, { opacity: 0 }, t + hold + 0.42);
+      if (tag) {
+        tl.fromTo(tag, { opacity: 0, y: tagY + 14 }, { opacity: 1, y: tagY, duration: 0.28, ease: "power4.out", immediateRender: false }, t + 0.08);
+        tl.to(tag, { opacity: 0, duration: 0.2, ease: "power2.in" }, t + hold);
+      }
+    });
+  }
+
+  function spotlights() {
+    marks.forEach((m) => {
+      if (m.b - m.a < 1.2) m.solo = false;
+      marks.forEach((n) => {
+        if (n !== m && n.a < m.b + 0.4 && n.b > m.a - 0.4) m.solo = false;
+      });
+      if (m.solo) m.tint.classList.add("spot");
+    });
+  }
+
+  const title = one(".vmk-title");
+  const bubbles = all(".vmk-bub");
+  const bubSize = bubbles.map((el) => box(el));
+  const capPlan = [];
+  const tracked = [];
+  const BW = 24;
+  bubbles.forEach((el) => gsap.set(el, { opacity: 0 }));
+  if (device) gsap.set(device, { opacity: 0 });
+
+  function clearance(r, from, to, skip) {
+    let best = 900;
+    focus.forEach((f) => {
+      if (f.b < from || f.a > to || f.of === skip) return;
+      const dx = Math.max(r.x - f.x, 0, f.x - (r.x + r.w));
+      const dy = Math.max(r.y - f.y, 0, f.y - (r.y + r.h));
+      best = Math.min(best, Math.sqrt(dx * dx + dy * dy));
+    });
+    return best;
+  }
+
+  function introIn(t) {
+    const words = all("h2 .w", title);
+    const sweep = one("h2 u", title);
+    const lead = one("p", title);
+    words.forEach((el) => gsap.set(el, { yPercent: 115 }));
+    gsap.set(sweep, { scaleX: 0 });
+    gsap.set(lead, { opacity: 0 });
+    add(() => {
+      let at = t;
+      words.forEach((el) => {
+        tl.fromTo(el, { yPercent: 115 }, { yPercent: 0, duration: 0.62, ease: "expo.out", immediateRender: false }, at);
+        at += 0.09;
+      });
+      tl.fromTo(sweep, { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.inOut", immediateRender: false }, at + 0.05);
+      tl.fromTo(lead, { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, at + 0.2);
+    });
+  }
+
+  function dive(from, to, dur, ease) {
+    const s = from.zoom / G.k;
+    gsap.set(title, { autoAlpha: 0 });
+    gsap.set(device, { opacity: 1 });
+    gsap.set(outer, { scale: s });
+    gsap.set(inner, { x: (from.ax - W / 2) / s + W / 2 - G.sx - from.x * G.k, y: (from.ay - H / 2) / s + H / 2 - G.sy - from.y * G.k });
+    cam(0, to, dur, ease || "power2.out");
+  }
+
+  function introOut(t) {
+    const lines = all("h2 .l", title);
+    const lead = one("p", title);
+    add(() => {
+      lines.forEach((el, i) => {
+        tl.to(el, { x: i % 2 ? 760 : -760, duration: 0.5, ease: "power3.in" }, t + i * 0.04);
+        tl.to(el, { opacity: 0, duration: 0.3, ease: "none" }, t + 0.2 + i * 0.04);
+      });
+      tl.to(lead, { opacity: 0, y: 40, duration: 0.3, ease: "power2.in" }, t);
+      tl.fromTo(device, { y: 300, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: "expo.out", immediateRender: false, transformOrigin: "50% 50%" }, t + 0.18);
+    });
+  }
+
+  function caption(t, index, o) {
+    const opt = o || {};
+    const at = opt.at ? (opt.at instanceof Element ? rect(opt.at) : opt.at) : null;
+    capPlan.push({ t: t, index: index, side: opt.side, at: at, cam: { cx: camState.cx, cy: camState.cy, zoom: camState.zoom, wide: camState.wide } });
+  }
+
+  function capTo() {}
+
+  function captionOut(t) {
+    capPlan.push({ t: t, index: -1 });
+  }
+
+  function place(c, end, size) {
+    if (cfg.portrait) return { fixed: { x: (W - size.w) / 2, y: Math.max(150, cfg.portrait.top - 30 - size.h), origin: "50% 100%" }, origin: "50% 100%", size: size, ui: null };
+    let anchor = c.at ? { id: -2, ui: c.at, cam: c.cam } : null;
+    if (!anchor) {
+      const list = anchors.filter((x) => x.a >= c.t - 0.12 && x.a < end).sort((x, y) => x.a - y.a);
+      anchor = list[0] || null;
+    }
+    const safe = (r) => r.x >= BW && r.y >= BW && r.x + r.w <= W - BW && r.y + r.h <= H - BW && !(r.x < 330 && r.y < 124);
+    if (anchor) {
+      const p0 = frameAt({ x: anchor.ui.x, y: anchor.ui.y }, anchor.cam);
+      const z = anchor.cam.wide ? G.k : anchor.cam.zoom;
+      const R = { x: p0.x, y: p0.y, w: anchor.ui.w * z, h: anchor.ui.h * z };
+      const gap = 54;
+      const mid = Math.max(132, Math.min(H - BW - size.h, R.y + R.h / 2 - size.h / 2));
+      const cen = Math.max(BW, Math.min(W - BW - size.w, R.x + R.w / 2 - size.w / 2));
+      const pl = frameAt({ x: 0, y: 0 }, anchor.cam).x - 14 * z;
+      const pr = frameAt({ x: G.uw, y: 0 }, anchor.cam).x + 14 * z;
+      const options = {
+        right: { x: Math.max(R.x + R.w + gap, pr + 34), y: mid, ax: anchor.ui.x + anchor.ui.w, ay: anchor.ui.y + anchor.ui.h / 2, origin: "0% 50%" },
+        left: { x: Math.min(R.x - gap, pl - 34) - size.w, y: mid, ax: anchor.ui.x, ay: anchor.ui.y + anchor.ui.h / 2, origin: "100% 50%" },
+        below: { x: cen, y: R.y + R.h + gap, ax: anchor.ui.x + anchor.ui.w / 2, ay: anchor.ui.y + anchor.ui.h, origin: "50% 0%" },
+        above: { x: cen, y: R.y - gap - size.h, ax: anchor.ui.x + anchor.ui.w / 2, ay: anchor.ui.y, origin: "50% 100%" },
+      };
+      let best = null;
+      let top = -1;
+      (c.side ? [c.side] : ["right", "left", "below", "above"]).forEach((side, i) => {
+        const q = options[side];
+        const r = { x: q.x, y: q.y, w: size.w, h: size.h };
+        if (!c.side && !safe(r)) return;
+        const room = clearance(r, c.t - 0.1, end, anchor.id);
+        if (!c.side && room < 30) return;
+        const score = Math.min(room, 300) - i * 12;
+        if (score > top) {
+          top = score;
+          best = q;
+        }
+      });
+      if (best) {
+        const a = frameAt({ x: best.ax, y: best.ay }, anchor.cam);
+        return { ui: { x: best.ax, y: best.ay }, dx: best.x - a.x, dy: best.y - a.y, origin: best.origin, size: size };
+      }
+    }
+    let slot = null;
+    let top = -1;
+    [
+      { x: 56, y: H - 56 - size.h, origin: "0% 100%" },
+      { x: W - 56 - size.w, y: H - 56 - size.h, origin: "100% 100%" },
+      { x: W - 56 - size.w, y: 56, origin: "100% 0%" },
+      { x: 56, y: 150, origin: "0% 0%" },
+    ].forEach((q, i) => {
+      const score = Math.min(clearance({ x: q.x, y: q.y, w: size.w, h: size.h }, c.t - 0.1, end, -9), 400) - i * 10;
+      if (score > top) {
+        top = score;
+        slot = q;
+      }
+    });
+    return { fixed: slot, origin: slot.origin, size: size, ui: null };
+  }
+
+  function layCaptions() {
+    capPlan.sort((a, b) => a.t - b.t);
+    const last = tl.duration();
+    let prev = null;
+    capPlan.forEach((c, i) => {
+      const next = capPlan[i + 1];
+      const end = next ? next.t : last + 0.2;
+      if (c.index < 0) {
+        if (prev) {
+          tl.to(prev.card, { scale: 0.8, opacity: 0, duration: 0.22, ease: "power3.in" }, c.t);
+          tl.to(prev.line, { scaleX: 0, duration: 0.18, ease: "power3.in" }, c.t);
+          tl.to(prev.dot, { scale: 0, duration: 0.18, ease: "power3.in" }, c.t + 0.06);
+        }
+        prev = null;
+        return;
+      }
+      const card = bubbles[c.index];
+      const p = place(c, end, bubSize[c.index]);
+      const line = document.createElement("div");
+      line.className = "vmk-bub-line";
+      const dot = document.createElement("div");
+      dot.className = "vmk-bub-dot";
+      hud.insertBefore(line, bubbles[0]);
+      hud.insertBefore(dot, bubbles[0]);
+      const words = all("h3 span", card);
+      const body = one("p", card);
+      const keys = all("p b", card);
+      const rec = { card: card, line: line, dot: dot, p: p, from: prev, next: null, blend: { v: prev ? 0 : 1 }, pos: null };
+      words.forEach((w) => gsap.set(w, { opacity: 0 }));
+      gsap.set(body, { opacity: 0 });
+      gsap.set(line, { scaleX: 0, transformOrigin: "0% 50%" });
+      gsap.set(dot, { scale: 0 });
+      card.style.transformOrigin = p.origin;
+      let w;
+      if (prev) {
+        prev.next = rec;
+        tl.to(prev.line, { scaleX: 0, duration: 0.16, ease: "power3.in" }, c.t);
+        tl.to(prev.dot, { scale: 0, duration: 0.16, ease: "power3.in" }, c.t + 0.04);
+        tl.fromTo(rec.blend, { v: 0 }, { v: 1, duration: 0.62, ease: "power3.inOut", immediateRender: false }, c.t + 0.06);
+        tl.to(prev.card, { opacity: 0, duration: 0.24, ease: "power2.in" }, c.t + 0.16);
+        tl.fromTo(card, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.34, ease: "power3.out", immediateRender: false }, c.t + 0.3);
+        tl.fromTo(dot, { scale: 0 }, { scale: 1, duration: 0.3, ease: "expo.out", immediateRender: false }, c.t + 0.58);
+        tl.fromTo(line, { scaleX: 0 }, { scaleX: 1, duration: 0.28, ease: "power3.out", immediateRender: false }, c.t + 0.62);
+        w = c.t + 0.4;
+      } else {
+        tl.fromTo(dot, { scale: 0 }, { scale: 1, duration: 0.3, ease: "expo.out", immediateRender: false }, c.t);
+        tl.fromTo(line, { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, c.t + 0.08);
+        tl.fromTo(card, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.42, ease: "expo.out", immediateRender: false }, c.t + 0.16);
+        w = c.t + 0.24;
+      }
+      words.forEach((span) => {
+        tl.set(span, { opacity: 1 }, w);
+        tl.fromTo(span, { y: 26 }, { y: 0, duration: 0.24, ease: "power4.out", immediateRender: false }, w);
+        w += 0.045;
+      });
+      tl.fromTo(body, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.32, ease: "power3.out", immediateRender: false }, w + 0.03);
+      keys.forEach((k) => {
+        tl.fromTo(k, { backgroundSize: "0% 100%" }, { backgroundSize: "100% 100%", duration: 0.45, ease: "power3.inOut", immediateRender: false }, w + 0.3);
+        tl.fromTo(k, { color: "#c6ff34" }, { color: "#22084a", duration: 0.28, ease: "power2.inOut", immediateRender: false }, w + 0.4);
+      });
+      prev = rec;
+      tracked.push(rec);
+    });
+  }
+
+  function track() {
+    tracked.forEach((k) => {
+      const p = k.p;
+      const A = p.fixed ? null : frameNow(p.ui);
+      let x;
+      let y;
+      if (p.fixed) {
+        x = p.fixed.x;
+        y = p.fixed.y;
+      } else {
+        x = Math.max(BW, Math.min(W - BW - p.size.w, A.x + p.dx));
+        y = Math.max(BW, Math.min(H - BW - p.size.h, A.y + p.dy));
+        if (x < 330 && y < 124) y = 124;
+      }
+      k.own = { x: x, y: y };
+      k.A = A;
+    });
+    tracked.forEach((k) => {
+      const b = k.blend.v;
+      k.pos = k.from && b < 1 ? { x: k.from.own.x + (k.own.x - k.from.own.x) * b, y: k.from.own.y + (k.own.y - k.from.own.y) * b } : k.own;
+    });
+    tracked.forEach((k) => {
+      const at = k.next && k.next.blend.v > 0 ? k.next.pos : k.pos;
+      gsap.set(k.card, { x: at.x, y: at.y });
+      const A = k.A;
+      const seen = A && A.x > 10 && A.x < W - 10 && A.y > 10 && A.y < H - 10;
+      if (!seen) {
+        k.dot.style.opacity = 0;
+        k.line.style.opacity = 0;
+        return;
+      }
+      const ex = Math.max(at.x, Math.min(at.x + k.p.size.w, A.x));
+      const ey = Math.max(at.y, Math.min(at.y + k.p.size.h, A.y));
+      const len = Math.sqrt((ex - A.x) * (ex - A.x) + (ey - A.y) * (ey - A.y));
+      const show = Math.max(0, Math.min(1, ((cfg.lineMax || 190) - len) / 50));
+      k.dot.style.opacity = show;
+      k.line.style.opacity = show;
+      gsap.set(k.dot, { x: A.x, y: A.y });
+      k.line.style.width = len + "px";
+      gsap.set(k.line, { x: A.x, y: A.y, rotation: (Math.atan2(ey - A.y, ex - A.x) * 180) / Math.PI });
+    });
+  }
+
+  function flash(t, lines, o) {
+    const opt = o || {};
+    const dur = opt.dur || 1.7;
+    const from = toFrame(curPos || { x: G.uw / 2, y: FULL_H / 2 });
+    const el = document.createElement("div");
+    el.className = "vmk-flash";
+    el.innerHTML =
+      '<div class="vmk-flash-fill"><h2>' +
+      lines
+        .map((line, i) => '<span class="l"><span class="w' + (i === lines.length - 1 ? " k" : "") + '">' + line + "</span></span>")
+        .join("") +
+      "</h2></div>";
+    hud.appendChild(free(el));
+    const fill = one(".vmk-flash-fill", el);
+    const words = all(".w", el);
+    const spot = from.x + "px " + from.y + "px";
+    gsap.set(el, { visibility: "hidden" });
+    gsap.set(fill, { clipPath: "circle(0px at " + spot + ")" });
+    words.forEach((w) => gsap.set(w, { yPercent: 115 }));
+    const cover = t + 0.5;
+    const out = t + dur;
+    add(() => {
+      tl.set(el, { visibility: "visible" }, t);
+      tl.fromTo(fill, { clipPath: "circle(0px at " + spot + ")" }, { clipPath: "circle(2400px at " + spot + ")", duration: 0.62, ease: "power3.in", immediateRender: false }, t);
+      words.forEach((w, i) => {
+        tl.fromTo(w, { yPercent: 115 }, { yPercent: 0, duration: 0.55, ease: "expo.out", immediateRender: false }, t + 0.42 + i * 0.1);
+        tl.to(w, { yPercent: -115, duration: 0.34, ease: "power3.in" }, out - 0.34 + i * 0.05);
+      });
+      tl.fromTo(el, { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 100% 0%)", duration: 0.55, ease: "power3.inOut", immediateRender: false }, out);
+      tl.set(el, { visibility: "hidden" }, out + 0.56);
+    });
+    return { cover: cover, out: out, end: out + 0.5 };
+  }
+
+  function drag(t, label, from, to, o) {
+    const opt = o || {};
+    const a = pt(from);
+    const b = pt(to);
+    const reach = opt.reach == null ? 0.5 : opt.reach;
+    const dur = opt.dur || 0.95;
+    const OFF = { x: 26, y: 30 };
+    const el = document.createElement("div");
+    el.className = "vmk-file";
+    el.innerHTML = "<b>CSV</b>";
+    el.appendChild(document.createTextNode(label));
+    overlay.insertBefore(free(el), cursor);
+    const ring = document.createElement("div");
+    ring.className = "vmk-ring";
+    overlay.insertBefore(ring, cursor);
+    gsap.set(ring, { x: b.x, y: b.y, scale: 0.2 });
+    const grab = t + reach + 0.1;
+    const move = grab + 0.3;
+    const drop = move + dur + 0.08;
+    curPos = b;
+    audit("point", drop, to);
+    add(() => {
+      tl.to(cursor, { x: a.x - HOT.x, y: a.y - HOT.y, duration: reach, ease: "power2.inOut" }, t);
+      tl.to(cursor, { scale: 0.84, duration: 0.1, ease: "power2.in", transformOrigin: ORIGIN }, grab);
+      tl.fromTo(
+        el,
+        { x: a.x + OFF.x, y: a.y + OFF.y, scale: 0.6, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.24, ease: "power3.out", immediateRender: false, transformOrigin: "0% 0%" },
+        grab + 0.04
+      );
+      tl.to(cursor, { x: b.x - HOT.x, y: b.y - HOT.y, duration: dur, ease: "power2.inOut" }, move);
+      tl.to(el, { x: b.x + OFF.x, y: b.y + OFF.y, duration: dur, ease: "power2.inOut" }, move);
+      tl.to(cursor, { scale: 1, duration: 0.22, ease: "power2.out", transformOrigin: ORIGIN }, drop);
+      tl.to(el, { x: b.x - 60, y: b.y - 18, scale: 0.72, opacity: 0, duration: 0.26, ease: "power2.in", transformOrigin: "0% 0%" }, drop);
+      tl.fromTo(ring, { scale: 0.2, opacity: 0.9 }, { scale: 1.5, opacity: 0, duration: 0.55, ease: "power2.out", immediateRender: false }, drop + 0.04);
+    });
+    return drop;
+  }
+
+  function busy(t, btn, label) {
+    const keep = document.createElement("span");
+    while (btn.firstChild) keep.appendChild(btn.firstChild);
+    const wait = document.createElement("div");
+    wait.className = "flex items-center gap-2";
+    wait.style.display = "none";
+    wait.innerHTML = '<div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full"></div>';
+    wait.appendChild(document.createTextNode(label));
+    btn.appendChild(keep);
+    btn.appendChild(wait);
+    const spin = wait.firstChild;
+    add(() => {
+      tl.set(keep, { display: "none" }, t);
+      tl.set(wait, { display: "flex" }, t);
+      tl.set(btn, { opacity: 0.6 }, t);
+      tl.fromTo(spin, { rotation: 0 }, { rotation: 1440, duration: 4, ease: "none", immediateRender: false }, t);
+    });
+  }
+
+  function scan(t, target, o) {
+    const opt = o || {};
+    const r = target instanceof Element ? rect(target) : target;
+    const pad = opt.pad == null ? 12 : opt.pad;
+    const dur = opt.dur || 1.9;
+    const passes = opt.passes || 3;
+    const h = r.h + pad * 2;
+    const box = document.createElement("div");
+    box.className = "vmk-scan";
+    box.innerHTML = "<i></i><i></i><i></i><i></i><b></b>";
+    overlay.insertBefore(free(box), cursor);
+    gsap.set(box, { x: r.x - pad, y: r.y - pad, width: r.w + pad * 2, height: h });
+    const corners = all("i", box);
+    const line = one("b", box);
+    const lock = t + 0.3 + dur;
+    audit("mark", t + 0.4, target, { mark: box, pad: pad });
+    add(() => {
+      tl.fromTo(box, { opacity: 0, scale: 1.14 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false, transformOrigin: "50% 50%" }, t);
+      tl.fromTo(line, { y: 0, opacity: 1 }, { y: h - 4, duration: dur / passes, ease: "sine.inOut", yoyo: true, repeat: passes - 1, immediateRender: false }, t + 0.3);
+      tl.to(line, { opacity: 0, duration: 0.12, ease: "none" }, lock);
+      tl.to(corners, { borderColor: "#16a34a", duration: 0.12, ease: "none" }, lock);
+      tl.to(box, { scale: 0.94, duration: 0.12, ease: "power2.in", transformOrigin: "50% 50%" }, lock);
+      tl.to(box, { scale: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 50%" }, lock + 0.12);
+      tl.to(box, { opacity: 0, duration: 0.3, ease: "power2.in" }, lock + (opt.hold == null ? 0.9 : opt.hold));
+    });
+    return lock;
+  }
+
+  function phone(t, qr, o) {
+    const opt = o || {};
+    const r = rect(qr);
+    const c = toFrame({ x: r.cx, y: r.cy });
+    const zoom = camState.wide ? G.k : camState.zoom;
+    const PW = 380;
+    const PH = 780;
+    const x = Math.min(W - PW - 40, c.x + (r.w / 2) * zoom + (opt.gap == null ? 70 : opt.gap));
+    const y = Math.max(120, Math.min(H - PH - 60, c.y - PH / 2 + (opt.dy || 40)));
+    const dur = opt.dur || 1.9;
+    const row = (k, v) => "<dt>" + k + "</dt><dd>" + v + "</dd>";
+    const el = document.createElement("div");
+    el.className = "vmk-phone";
+    el.innerHTML =
+      '<div class="vmk-phone-body"><u></u><div class="vmk-phone-screen">' +
+      '<div class="vmk-ps vmk-ps-scan"><h5>Pagar com Pix</h5><p>Aponte a câmera para o QR Code</p><div class="vmk-ps-view"><img alt=""><i></i><i></i><i></i><i></i><b></b></div><em>Lendo QR Code</em></div>' +
+      '<div class="vmk-ps vmk-ps-pay"><s></s><h5>Confirmar Pix</h5><strong></strong><dl>' +
+      row("Para", opt.to) +
+      row("Descrição", opt.about) +
+      row("Quando", "Agora") +
+      '</dl><span class="vmk-ps-btn"><span>Confirmar pagamento</span><a></a></span><q></q></div>' +
+      '<div class="vmk-ps vmk-ps-done"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="52" fill="#16a34a"/><path d="M38 62l15 15 30-33" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg><h5>Pix enviado</h5><strong></strong><div class="vmk-ps-slip"><h6>Comprovante</h6><dl>' +
+      row("Para", opt.to) +
+      row("Descrição", opt.about) +
+      row("Data", opt.when || "29/09/2026, 12:06") +
+      row("ID", opt.code || "E1823…6A1B2") +
+      "</dl></div></div></div></div>";
+    hud.appendChild(free(el));
+    all("strong", el).forEach((n) => {
+      n.textContent = opt.amount;
+    });
+    one("img", el).src = qr.tagName.toLowerCase() === "img" ? qr.getAttribute("src") : "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(qr));
+    const body = one(".vmk-phone-body", el);
+    const finder = one(".vmk-ps-view", el);
+    const img = one("img", el);
+    const line = one("b", finder);
+    const corners = all("i", finder);
+    const pay = one(".vmk-ps-pay", el);
+    const done = one(".vmk-ps-done", el);
+    const btn = one(".vmk-ps-btn", el);
+    const label = one(".vmk-ps-btn span", el);
+    const spin = one(".vmk-ps-btn a", el);
+    const tap = one("q", el);
+    const check = one("path", done);
+    const disc = one("svg", done);
+    const slip = one(".vmk-ps-slip", el);
+    const parts = [one("h5", done), one("strong", done)];
+    const rows = all("dt, dd", slip);
+    gsap.set(el, { x: x, y: y, opacity: 0 });
+    gsap.set(pay, { y: PH });
+    gsap.set(done, { opacity: 0 });
+    gsap.set(tap, { opacity: 0 });
+    gsap.set(spin, { opacity: 0 });
+    gsap.set(check, { strokeDasharray: 70, strokeDashoffset: 70 });
+    gsap.set(slip, { opacity: 0 });
+    parts.concat(rows).forEach((n) => gsap.set(n, { opacity: 0 }));
+    const read = t + 0.55;
+    const lock = scan(read, qr, { dur: dur, pad: opt.pad, hold: 0.8 });
+    const sheet = lock + 0.45;
+    const press = sheet + 1.15;
+    const sent = press + 0.95;
+    const receipt = sent + 0.75;
+    const settled = receipt + 0.9;
+    const pf = { a: t };
+    [
+      [x, y],
+      [x + PW, y],
+      [x, y + PH],
+      [x + PW, y + PH],
+      [x + PW / 2, y + PH / 2],
+      [x, y + PH / 2],
+    ].forEach((q) => focus.push({ a: pf.a, b: settled + 6, x: q[0], y: q[1], of: -1 }));
+    add(() => {
+      tl.set(el, { opacity: 1 }, t);
+      tl.fromTo(body, { y: H, rotation: 14 }, { y: 0, rotation: 3, duration: 0.8, ease: "power3.out", immediateRender: false, transformOrigin: "50% 100%" }, t);
+      tl.fromTo(img, { scale: 1.5, opacity: 0.5 }, { scale: 1, opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false, transformOrigin: "50% 50%" }, read - 0.1);
+      tl.fromTo(line, { y: 0, opacity: 1 }, { y: 236, duration: dur / 3, ease: "sine.inOut", yoyo: true, repeat: 2, immediateRender: false }, read + 0.3);
+      tl.to(line, { opacity: 0, duration: 0.12, ease: "none" }, lock);
+      tl.to(corners, { borderColor: "#4ade80", duration: 0.12, ease: "none" }, lock);
+      tl.to(finder, { scale: 0.95, duration: 0.12, ease: "power2.in", transformOrigin: "50% 50%" }, lock);
+      tl.to(finder, { scale: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 50%" }, lock + 0.12);
+      tl.to(pay, { y: 0, duration: 0.5, ease: "power3.out" }, sheet);
+      tl.fromTo(tap, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false, transformOrigin: "50% 50%" }, press - 0.4);
+      tl.to(tap, { scale: 0.8, duration: 0.1, ease: "power2.in", transformOrigin: "50% 50%" }, press);
+      tl.to(btn, { scale: 0.96, duration: 0.1, ease: "power2.in", transformOrigin: "50% 50%" }, press);
+      tl.to(btn, { scale: 1, duration: 0.24, ease: "power3.out", transformOrigin: "50% 50%" }, press + 0.1);
+      tl.to(tap, { opacity: 0, scale: 1.5, duration: 0.3, ease: "power2.out", transformOrigin: "50% 50%" }, press + 0.1);
+      tl.to(label, { opacity: 0, duration: 0.12, ease: "none" }, press + 0.12);
+      tl.to(spin, { opacity: 1, duration: 0.12, ease: "none" }, press + 0.2);
+      tl.fromTo(spin, { rotation: 0 }, { rotation: 540, duration: 0.8, ease: "none", immediateRender: false }, press + 0.2);
+      tl.to(done, { opacity: 1, duration: 0.25, ease: "power2.out" }, sent);
+      tl.fromTo(disc, { scale: 0.3 }, { scale: 1, duration: 0.45, ease: "expo.out", immediateRender: false, transformOrigin: "50% 50%" }, sent);
+      tl.to(check, { strokeDashoffset: 0, duration: 0.32, ease: "power2.out" }, sent + 0.2);
+      parts.forEach((n, i) => {
+        tl.fromTo(n, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, sent + 0.3 + i * 0.08);
+      });
+      tl.fromTo(slip, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out", immediateRender: false }, receipt);
+      rows.forEach((n, i) => {
+        tl.fromTo(n, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, receipt + 0.2 + Math.floor(i / 2) * 0.09);
+      });
+    });
+    return {
+      lock: lock,
+      sheet: sheet,
+      press: press,
+      sent: sent,
+      receipt: receipt,
+      settled: settled,
+      dock: (at, fx, fy) => {
+        add(() => {
+          tl.to(el, { x: fx, y: fy, duration: 0.8, ease: "power3.inOut" }, at);
+          tl.to(body, { rotation: -3, scale: 0.9, duration: 0.8, ease: "power3.inOut", transformOrigin: "50% 50%" }, at);
+        });
+        [
+          [fx, fy],
+          [fx + PW, fy + PH],
+          [fx, fy + PH],
+          [fx + PW / 2, fy + PH / 2],
+        ].forEach((q) => focus.push({ a: at, b: at + 8, x: q[0], y: q[1], of: -1 }));
+      },
+      out: (at) => {
+        add(() => {
+          tl.to(body, { y: H, rotation: 12, duration: 0.6, ease: "power3.in" }, at);
+          tl.set(el, { opacity: 0 }, at + 0.6);
+        });
+        return at + 0.6;
+      },
+    };
+  }
+
+  function verify(t, card, o) {
+    const opt = o || {};
+    const r = card instanceof Element ? rect(card) : card;
+    const steps = opt.steps || ["Aguardando o banco", "PIX recebido", "Ativando a assinatura"];
+    const el = document.createElement("div");
+    el.className = "vmk-verify";
+    el.innerHTML =
+      '<div class="vmk-verify-ring"><svg viewBox="0 0 120 120" fill="none"><circle class="bg" cx="60" cy="60" r="52"/><circle class="ok" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" transform="rotate(-90 60 60)"/><path d="M38 62l15 15 30-33"/></svg></div>' +
+      '<div class="vmk-verify-title"><span>' + (opt.wait || "Verificando pagamento...") + "</span><span>" +
+      (opt.title || "Pagamento confirmado!") +
+      '</span></div><div class="vmk-verify-step">' +
+      steps.map((x) => "<span>" + x + "</span>").join("") +
+      "<span>" +
+      (opt.sub || "Sua assinatura está ativa.") +
+      "</span></div>";
+    overlay.insertBefore(free(el), cursor);
+    gsap.set(el, { x: r.x, y: r.y, width: r.w, height: r.h, opacity: 0 });
+    const LEN = 326.73;
+    const ring = one(".vmk-verify-ring", el);
+    const fg = one(".fg", el);
+    const ok = one(".ok", el);
+    const check = one("path", el);
+    const titles = all(".vmk-verify-title span", el);
+    const lines = all(".vmk-verify-step span", el);
+    gsap.set(fg, { strokeDasharray: LEN, strokeDashoffset: LEN });
+    gsap.set(check, { strokeDasharray: 70, strokeDashoffset: 70 });
+    gsap.set(ok, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" });
+    gsap.set(titles[1], { opacity: 0 });
+    lines.forEach((n) => gsap.set(n, { opacity: 0 }));
+    const each = opt.each || 0.8;
+    const start = t + 0.3;
+    const done = start + steps.length * each + 0.1;
+    audit("mark", t + 0.4, card, { mark: el, pad: 0 });
+    attend(t, { x: r.x, y: r.y, w: r.w, h: r.h, cx: r.cx, cy: r.cy }, done + 2);
+    const swap = (from, to, at) => {
+      if (from) {
+        tl.to(from, { y: -14, duration: 0.18, ease: "power3.in" }, at - 0.18);
+        tl.to(from, { opacity: 0, duration: 0.14, ease: "none" }, at - 0.16);
+      }
+      tl.fromTo(to, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power4.out", immediateRender: false }, at);
+    };
+    add(() => {
+      tl.to(el, { opacity: 1, duration: 0.26, ease: "power2.out" }, t);
+      tl.fromTo(ring, { scale: 0.7 }, { scale: 1, duration: 0.4, ease: "power3.out", immediateRender: false, transformOrigin: "50% 50%" }, t);
+      steps.forEach((x, i) => {
+        const at = start + i * each;
+        swap(i ? lines[i - 1] : null, lines[i], at);
+        tl.to(fg, { strokeDashoffset: LEN * (1 - (i + 1) / steps.length), duration: each - 0.12, ease: "power2.inOut" }, at);
+      });
+      tl.to(ring, { scale: 0.9, duration: 0.12, ease: "power2.in", transformOrigin: "50% 50%" }, done);
+      tl.to(ring, { scale: 1, duration: 0.45, ease: "expo.out", transformOrigin: "50% 50%" }, done + 0.12);
+      tl.to(ok, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, done + 0.1);
+      tl.to(fg, { opacity: 0, duration: 0.2, ease: "none" }, done + 0.1);
+      tl.to(check, { strokeDashoffset: 0, duration: 0.34, ease: "power2.out" }, done + 0.24);
+      swap(titles[0], titles[1], done + 0.2);
+      swap(lines[steps.length - 1], lines[steps.length], done + 0.3);
+    });
+    return {
+      done: done,
+      burst: done + 0.26,
+      at: { x: r.cx, y: r.y + r.h * 0.36 },
+      hide: (at) => add(() => tl.to(el, { opacity: 0, scale: 0.96, duration: 0.3, ease: "power2.in", transformOrigin: "50% 50%" }, at)),
+    };
+  }
+
+  function confetti(t, at, o) {
+    const opt = o || {};
+    const p = opt.frame ? at : toFrame(pt(at));
+    const n = opt.count || 80;
+    const spread = opt.spread == null ? Math.PI * 1.5 : opt.spread;
+    const aim = opt.aim == null ? -Math.PI / 2 : opt.aim;
+    const power = opt.power || 1;
+    const colors = ["#7E3BED", "#C6FF34", "#22084A", "#B98CFF", "#16A34A", "#FFFFFF"];
+    let seed = opt.seed || 11;
+    const rnd = () => {
+      seed = (seed * 1664525 + 1013904223) % 4294967296;
+      return seed / 4294967296;
+    };
+    const box = document.createElement("div");
+    box.className = "vmk-confetti";
+    hud.appendChild(box);
+    const parts = [];
+    for (let i = 0; i < n; i++) {
+      const el = document.createElement("i");
+      const kind = i % 3;
+      const size = 10 + rnd() * 12;
+      el.style.width = (kind === 2 ? size * 0.45 : size) + "px";
+      el.style.height = (kind === 0 ? size : kind === 1 ? size * 0.6 : size * 1.7) + "px";
+      el.style.borderRadius = kind === 0 ? "50%" : "3px";
+      el.style.background = colors[i % colors.length];
+      box.appendChild(el);
+      const angle = aim + (rnd() - 0.5) * spread;
+      const speed = (240 + rnd() * 560) * power;
+      parts.push({
+        el: el,
+        dx: Math.cos(angle) * speed,
+        dy: Math.sin(angle) * speed,
+        fall: 620 + rnd() * 520,
+        drift: (rnd() - 0.5) * 220,
+        rot: (rnd() - 0.5) * 1260,
+        flip: 540 + rnd() * 900,
+        up: 0.45 + rnd() * 0.3,
+        down: 1.15 + rnd() * 0.7,
+        delay: rnd() * 0.14,
+      });
+      gsap.set(el, { x: p.x, y: p.y, opacity: 0 });
+    }
+    free(box);
+    add(() => {
+      parts.forEach((q) => {
+        const s = t + q.delay;
+        tl.set(q.el, { opacity: 1 }, s);
+        tl.fromTo(
+          q.el,
+          { x: p.x, y: p.y, scale: 0.3, rotation: 0 },
+          { x: p.x + q.dx, y: p.y + q.dy, scale: 1, rotation: q.rot * 0.4, duration: q.up, ease: "power3.out", immediateRender: false },
+          s
+        );
+        tl.to(q.el, { x: p.x + q.dx + q.drift, y: p.y + q.dy + q.fall, rotation: q.rot, duration: q.down, ease: "power1.in" }, s + q.up);
+        tl.fromTo(q.el, { rotationX: 0 }, { rotationX: q.flip, duration: q.up + q.down, ease: "none", immediateRender: false }, s);
+        tl.to(q.el, { opacity: 0, duration: 0.3, ease: "none" }, s + q.up + q.down - 0.3);
+      });
+    });
+    return t + 2.2;
+  }
+
+  function note(name, t) {
+    if (window.__vmNotes) window.__vmNotes[name] = +t.toFixed(2);
+  }
+
+  function done() {
+    runReveals();
+    spotlights();
+    queue.forEach((fn) => fn(tl));
+    settle();
+    layCaptions();
+    if (HOLD) tl.shiftChildren(HOLD, false, HOLD_FROM);
+    tl.timeScale(cfg.speed || 1);
+    master.add(tl, 0);
+    master.eventCallback("onUpdate", () => {
+      for (const name in states) {
+        const scr = scrollers[name];
+        if (scr && Math.abs(scr.scrollTop - want[name]) > 0.5) scr.scrollTop = want[name];
+      }
+      track();
+    });
+    track();
+    window.__timelines[cfg.id] = master;
+    if (window.__vmProbe) {
+      window.__vmProbe[cfg.id] = {
+        rects: rectLog,
+        audits: audits,
+        hot: HOT,
+        cursor: cursor,
+        live: live,
+        at: (t) => (t >= HOLD_FROM ? t + HOLD : t) / (cfg.speed || 1),
+      };
+    }
+  }
+
+  return {
+    tl,
+    add,
+    one,
+    all,
+    state,
+    find,
+    pick,
+    rect,
+    pt,
+    show,
+    url,
+    cam,
+    camOn,
+    view,
+    cursorEnter,
+    cursorTo,
+    cursorAside,
+    cursorExit,
+    click,
+    go,
+    type,
+    flip,
+    setText,
+    count,
+    scroll,
+    dialogIn,
+    popIn,
+    toastIn,
+    rows,
+    mark,
+    boot,
+    nav,
+    slide,
+    layer,
+    layerIn,
+    layerOut,
+    status,
+    scrollers,
+    drag,
+    busy,
+    scan,
+    phone,
+    verify,
+    confetti,
+    toFrame,
+    flash,
+    reveal,
+    tick,
+    attend,
+    introIn,
+    introOut,
+    dive,
+    caption,
+    captionOut,
+    capTo,
+    focusRing,
+    done,
+    note,
+    G,
+    FULL_H,
+  };
+}
+
+var S = VMKit({ id: "ch09-ia", portrait: { zoom: 1.6, top: 470 }, geo: {"sx":279,"sy":432,"k":1.3,"uw":402,"uh":874,"chrome":0}, scope: "vm-ph", touch: true, baked: [[935,0,0,0],[0,0,900,162],[0,0,900,162],[0,0,900,162],[0,0,900,162],[0,0,900,162],[0,0,900,162],[0,0,900,162],[0,0,900,206],[0,0,900,206],[0,0,900,206],[0,0,900,162],[89,133,258,58],[89,133,258,58],[89,133,258,58],[89,133,258,20],[89,133,258,20],[89,133,258,20],[89,133,258,20],[89,133,258,20],[20,248,362,247.5],[20,308.5,362,72],[20,308.5,362,72],[20,308.5,362,72],[20,442,362,330],[20,794,362,141],[20,794,362,141],[201,130,177,36],[201,130,177,36],[201,130,177,36],[201,130,177,36],[201,130,177,36],[422,373,318,89.5],[436,874.5,138.41,31.5],[436,874.5,138.41,31.5],[16,742.5,167.44,35.5],[16,742.5,167.44,35.5],[16,742.5,167.44,35.5],[16,742.5,167.44,35.5],[16,742.5,167.44,35.5],[20,680,362,44],[16,565.5,370,158.5],[191.44,742.5,129.08,35.5],[191.44,742.5,129.08,35.5],[191.44,742.5,129.08,35.5],[191.44,742.5,129.08,35.5],[191.44,742.5,129.08,35.5],[20,680,362,44],[16,565.5,370,158.5]], speed: 1.1, lineMax: 460, hold: 0.5 });
+var DATA = null;
+
+(function (S) {
+    S.boot("pos");
+    S.introIn(0.05);
+    S.introOut(2.9);
+    var t = 3.6;
+    var ask = S.pick("pos", "Perguntar à IA", { hit: false });
+    var askCard = ask;
+    while (askCard.parentElement && askCard.getBoundingClientRect().height < 60) askCard = askCard.parentElement;
+    S.cam(t, { x: 201, y: 460, zoom: 1.45 }, 1.0);
+    S.mark(t + 1.0, askCard, { hold: 1.2, pad: 4, radius: 20 });
+    S.caption(t + 1.1, 0, { at: S.rect(askCard) });
+    t += 2.4;
+    S.cursorEnter(t, ask, 0.6);
+    S.click(t + 0.8, ask, { press: true });
+    S.captionOut(t + 0.9);
+    var ai = S.layer("ai");
+    var a0 = S.layerIn(t + 0.95, "ai", { from: "right", dur: 0.55 });
+    S.cursorExit(a0, "down", 0.4);
+    S.cam(a0 - 0.3, { x: 201, y: 400, zoom: 1.45 }, 0.8);
+    var q = function (s) {
+      return S.one(s, ai);
+    };
+    var qa = function (s) {
+      return S.all(s, ai);
+    };
+    var load = q(".ai-load");
+    var body = q(".ai-body");
+    var dots = qa(".ai-load-steps i");
+    var sk = qa(".ai-sk u");
+    S.caption(a0 + 0.2, 1, { at: S.rect(load) });
+    (function (a0) {
+      S.add(function (tl) {
+        tl.fromTo(sk, { backgroundPosition: "-300px 0" }, { backgroundPosition: "300px 0", duration: 1.1, ease: "none", repeat: 2, immediateRender: false }, a0);
+        dots.forEach(function (d, i) {
+          var at = a0 + 0.5 + i * 0.7;
+          tl.to(d, { backgroundColor: "#7e3bed", boxShadow: "inset 0 0 0 0px #7e3bed", duration: 0.25, ease: "power2.out" }, at);
+          tl.fromTo(d, { scale: 0.6 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false, transformOrigin: "50% 50%" }, at);
+        });
+        tl.to(load, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, a0 + 2.75);
+        tl.set(body, { opacity: 1 }, a0 + 3.0);
+        var blocks = body.querySelectorAll(".ai-h, .ai-sum, .ai-steps li, .ai-warn");
+        tl.fromTo(blocks, { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out", stagger: 0.09, immediateRender: false }, a0 + 3.05);
+      });
+    })(a0);
+    t = a0 + 3.4;
+    S.caption(t, 2, { at: S.rect(q(".ai-sum")) });
+    S.mark(t + 0.3, q(".ai-sum"), { hold: 1.4, pad: 6, radius: 14 });
+    t += 2.4;
+    var inA = q(".ai-pa .ai-in");
+    var sy = 0;
+    function scrollTo(at, y, d, el) {
+      var from = sy;
+      sy = y;
+      S.add(function (tl) {
+        tl.fromTo(el, { y: -from }, { y: -y, duration: d, ease: "power3.inOut", immediateRender: false }, at);
+      });
+    }
+    function at(el) {
+      var r = S.rect(el);
+      return { x: r.x, y: r.y - sy, w: r.w, h: r.h, cx: r.cx, cy: r.cy - sy };
+    }
+    scrollTo(t, 220, 0.9, inA);
+    S.cam(t, { x: 201, y: 480, zoom: 1.4 }, 0.9);
+    var steps = q(".ai-steps");
+    var tgs = qa(".ai-tg");
+    S.caption(t + 0.8, 3, { at: at(steps) });
+    (function (t) {
+      S.add(function (tl) {
+        tgs.forEach(function (g, i) {
+          var s = t + 1.2 + i * 0.35;
+          tl.to(g, { backgroundColor: "#7e3bed", duration: 0.2, ease: "none" }, s);
+          tl.to(g.querySelector("u"), { x: 18, duration: 0.25, ease: "power3.out" }, s);
+        });
+      });
+    })(t);
+    t += 3.0;
+    scrollTo(t, 470, 0.9, inA);
+    var warn = q(".ai-warn");
+    S.caption(t + 0.8, 4, { at: at(warn), side: "right" });
+    S.mark(t + 0.9, at(warn), { hold: 1.3, pad: 4, radius: 22 });
+    t += 2.8;
+    var seg = qa(".ai-seg span");
+    var pill = q(".ai-seg u");
+    S.captionOut(t - 0.1);
+    S.cam(t, { x: 201, y: 360, zoom: 1.4 }, 0.8);
+    S.cursorEnter(t + 0.2, seg[1], 0.6);
+    S.click(t + 1.0, seg[1], { press: true });
+    var bubbles = qa(".ai-tr li");
+    var inB = q(".ai-pb .ai-in");
+    var s0 = t + 1.05;
+    (function (s0) {
+      S.add(function (tl) {
+        tl.to(pill, { xPercent: 100, duration: 0.4, ease: "power3.inOut" }, s0);
+        tl.to(q(".ai-pa"), { x: -402, duration: 0.5, ease: "power3.inOut" }, s0);
+        tl.fromTo(q(".ai-pb"), { x: 402 }, { x: 0, duration: 0.5, ease: "power3.inOut", immediateRender: false }, s0);
+        tl.fromTo(bubbles, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out", stagger: 0.12, immediateRender: false }, s0 + 0.3);
+      });
+    })(s0);
+    S.cursorExit(s0 + 0.4, "down", 0.4);
+    S.caption(s0 + 0.7, 5, { at: S.rect(bubbles[1]) });
+    t = s0 + 2.8;
+    sy = 0;
+    scrollTo(t, 520, 1.2, inB);
+    S.cam(t, { x: 201, y: 460, zoom: 1.4 }, 1.0);
+    var link = q(".ai-link");
+    S.caption(t + 1.2, 6, { at: at(link) });
+    S.mark(t + 1.3, at(link), { hold: 1.2, pad: 4, radius: 12 });
+    t += 3.2;
+    var field = q(".ai-q");
+    var ans = q(".ai-ans");
+    var chips = qa(".ai-chips span");
+    var scan = q(".ai-scan");
+    var scanT = qa(".ai-scan-t b");
+    var srcs = qa(".ai-src-line span");
+    var p1 = q(".ai-ans-p1");
+    var p2 = q(".ai-ans-p2");
+    var hits = qa(".ai-tr li p span").filter(function (w) {
+      return /dipirona|remédio|receita/i.test(w.textContent);
+    });
+    var placeholder = field.textContent;
+    function askType(k0, text) {
+      var p = { n: 0 };
+      S.add(function (tl) {
+        tl.to(p, { n: text.length, duration: 1.0, ease: "none", immediateRender: false, onUpdate: function () {
+          var n = Math.round(p.n);
+          field.textContent = n < 1 ? placeholder : text.slice(0, n);
+          field.style.color = n < 1 ? "" : "#17151e";
+        } }, k0);
+      });
+      return k0 + 1.05;
+    }
+    function scanning(at, idx, dur) {
+      S.add(function (tl) {
+        tl.to(scan, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, at);
+        scanT.forEach(function (b, i) {
+          tl.to(b, { opacity: i === idx ? 1 : 0, duration: 0.2, ease: "none" }, at);
+        });
+        tl.fromTo(q(".ai-scan-sp"), { rotation: 0 }, { rotation: 360 * Math.ceil(dur), duration: dur, ease: "none", immediateRender: false, transformOrigin: "50% 50%" }, at);
+      });
+    }
+    function scanOff(at) {
+      S.add(function (tl) {
+        tl.to(scan, { opacity: 0, y: 10, duration: 0.25, ease: "power2.in" }, at);
+      });
+    }
+    S.cam(t, { x: 201, y: 700, zoom: 1.45 }, 0.9);
+    S.cursorEnter(t + 0.3, chips[0], 0.6);
+    S.click(t + 1.0, chips[0], { press: true });
+    var k0 = askType(t + 1.1, "Posso tomar dipirona com café?");
+    S.cursorExit(k0 - 0.6, "down", 0.4);
+    scanning(k0, 0, 2.2);
+    S.caption(k0 + 0.3, 7, { at: S.rect(scan), side: "right" });
+    sy = 0;
+    scrollTo(k0 + 0.2, 180, 0.9, inB);
+    S.cam(k0 + 0.2, { x: 201, y: 430, zoom: 1.4 }, 0.9);
+    (function (k0) {
+      S.add(function (tl) {
+        hits.forEach(function (w, i) {
+          var at = k0 + 0.9 + i * 0.28;
+          tl.fromTo(w, { backgroundColor: "rgba(228,255,148,0)" }, { backgroundColor: "#e4ff94", duration: 0.2, ease: "none", immediateRender: false }, at);
+        });
+        var lk = q(".ai-link");
+        tl.to(lk, { backgroundColor: "#c6ff34", duration: 0.25, ease: "none" }, k0 + 2.4);
+      });
+    })(k0);
+    scanning(k0 + 2.3, 1, 1.4);
+    scanOff(k0 + 3.9);
+    var a1 = k0 + 4.1;
+    S.cam(a1 - 0.2, { x: 201, y: 640, zoom: 1.45 }, 0.8);
+    (function (a1) {
+      S.add(function (tl) {
+        tl.fromTo(ans, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, a1);
+        Array.prototype.slice.call(ans.querySelectorAll(".ai-ans-h u i")).forEach(function (d, i) {
+          for (var k = 0; k < 2; k++) tl.fromTo(d, { y: 0 }, { y: -4, duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, a1 + 0.1 + k * 0.4 + i * 0.1);
+        });
+        tl.fromTo(p1, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none", immediateRender: false }, a1 + 0.9);
+        tl.to([srcs[0], srcs[1]], { opacity: 1, duration: 0.3, ease: "none", stagger: 0.15 }, a1 + 1.2);
+      });
+    })(a1);
+    S.caption(a1 + 1.1, 8, { at: S.rect(ans), side: "right" });
+    S.note("asked", a1 + 1.2);
+    t = a1 + 3.4;
+    S.captionOut(t - 0.1);
+    S.cursorEnter(t, chips[1], 0.6);
+    S.click(t + 0.7, chips[1], { press: true });
+    var k1 = askType(t + 0.8, "E se a dor voltar?");
+    S.cursorExit(k1 - 0.5, "down", 0.4);
+    (function (k1) {
+      S.add(function (tl) {
+        tl.to(p1, { opacity: 0.35, duration: 0.3, ease: "none" }, k1);
+        tl.to([srcs[0], srcs[1]], { opacity: 0, duration: 0.2, ease: "none" }, k1);
+      });
+    })(k1);
+    scanning(k1, 2, 1.8);
+    S.caption(k1 + 0.3, 9, { at: S.rect(scan), side: "right" });
+    scanOff(k1 + 1.9);
+    var a2 = k1 + 2.1;
+    (function (a2) {
+      S.add(function (tl) {
+        tl.set(p2, { display: "block", opacity: 0 }, a2);
+        tl.set(p1, { display: "none" }, a2);
+        tl.fromTo(p2, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, a2 + 0.05);
+        tl.to([srcs[1], srcs[2]], { opacity: 1, duration: 0.3, ease: "none", stagger: 0.15 }, a2 + 0.5);
+      });
+    })(a2);
+    S.caption(a2 + 0.9, 10, { at: S.rect(ans), side: "right" });
+    t = a2 + 3.6;
+    S.captionOut(t - 0.2);
+    S.cam(t, { x: 201, y: 437, zoom: 1.1 }, 1.0);
+  })(S);
+S.done();
+var M = window.__timelines["ch09-ia"];
+var DRIFT = 41.4;
+if (DRIFT) M.fromTo(document.querySelector('[data-composition-id="ch09-ia"] .vmk'), { scale: 1 }, { scale: 1.03, duration: DRIFT, ease: "sine.inOut", immediateRender: false, transformOrigin: "50% 45%" }, 0);
+M.progress(1, true).progress(0, true);
+})();
+</script>
+</template></body></html>
