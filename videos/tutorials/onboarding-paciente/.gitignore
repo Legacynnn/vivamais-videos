@@ -8,3 +8,21 @@ renders/
 .hyperframes/
 .thumbnails/
 rive/out/
+
+# sync:start
+/assets/app/ana.jpg
+/assets/app/medico.png
+/assets/app/plantao-hero.jpg
+/assets/brand/
+/assets/doctors/bruno-d.jpg
+/assets/doctors/camila.jpg
+/assets/doctors/julia-d.png
+/assets/doctors/julia.jpg
+/assets/doctors/mariana.jpg
+/assets/doctors/rafael.jpg
+/assets/illustrations/ai-empty.webp
+/assets/illustrations/channel-video.webp
+/assets/illustrations/docs-empty.webp
+/assets/illustrations/form-sheet-complete.webp
+/assets/illustrations/plantao-24h.webp
+# sync:end

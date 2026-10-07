@@ -1,0 +1,16 @@
+{
+  "assets/app/ana.jpg": "people/ana.jpg",
+  "assets/app/medico.png": "app/icons/medico.png",
+  "assets/app/plantao-hero.jpg": "app/plantao-hero.jpg",
+  "assets/doctors/bruno-d.jpg": "people/doctors/rafael.jpg",
+  "assets/doctors/camila.jpg": "people/doctors/camila.jpg",
+  "assets/doctors/julia-d.png": "people/doctors/d2.png",
+  "assets/doctors/julia.jpg": "people/doctors/julia.jpg",
+  "assets/doctors/mariana.jpg": "people/doctors/mariana.jpg",
+  "assets/doctors/rafael.jpg": "people/doctors/rafael.jpg",
+  "assets/illustrations/ai-empty.webp": "app/illustrations/ai-empty.webp",
+  "assets/illustrations/channel-video.webp": "app/illustrations/channel-video.webp",
+  "assets/illustrations/docs-empty.webp": "app/illustrations/docs-empty.webp",
+  "assets/illustrations/form-sheet-complete.webp": "app/illustrations/form-sheet-complete.webp",
+  "assets/illustrations/plantao-24h.webp": "app/illustrations/plantao-24h.webp"
+}

@@ -8,3 +8,26 @@ renders/
 .hyperframes/
 .thumbnails/
 rive/out/
+
+# sync:start
+/assets/app/ana.jpg
+/assets/app/medico.png
+/assets/app/plantao-hero.jpg
+/assets/brand/
+/assets/doctors/camila.jpg
+/assets/doctors/julia.jpg
+/assets/doctors/mariana.jpg
+/assets/doctors/rafael.jpg
+/assets/illustrations/ai-empty.webp
+/assets/illustrations/channel-video.webp
+/assets/illustrations/docs-empty.webp
+/assets/illustrations/form-sheet-complete.webp
+/assets/illustrations/plantao-24h.webp
+/assets/video/doutora-end.jpg
+/assets/video/doutora-raw.mp4
+/assets/video/doutora.mp4
+/assets/video/paciente-a.jpg
+/assets/video/paciente-b.jpg
+/assets/video/paciente-raw.mp4
+/assets/video/paciente.mp4
+# sync:end

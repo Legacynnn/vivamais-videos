@@ -2,7 +2,7 @@ import http from "node:http";
 import QRCode from "qrcode";
 import { readFileSync } from "node:fs";
 
-const DOCTOR_DIR = new URL("../../onboard/public/app/doctors/", import.meta.url);
+const DOCTOR_DIR = new URL("../../../../assets/people/doctors/", import.meta.url);
 
 const PORT = Number(process.env.MOCK_PORT || 8787);
 const COMPANY_ID = "c0a1f7e2-aurora";
