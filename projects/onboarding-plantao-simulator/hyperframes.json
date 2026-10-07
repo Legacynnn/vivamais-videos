@@ -9,17 +9,5 @@
   "media": {
     "autoProxy": true
   },
-  "authoringSkill": "general-video",
-  "registryItems": [
-    {
-      "name": "zoom-through-transition",
-      "type": "hyperframes:component",
-      "target": "compositions/components/zoom-through-transition.html"
-    },
-    {
-      "name": "simulated-cursor",
-      "type": "hyperframes:component",
-      "target": "compositions/components/simulated-cursor.html"
-    }
-  ]
+  "authoringSkill": "general-video"
 }

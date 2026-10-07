@@ -9,12 +9,5 @@
   "media": {
     "autoProxy": true
   },
-  "authoringSkill": "general-video",
-  "registryItems": [
-    {
-      "name": "confetti",
-      "type": "hyperframes:component",
-      "target": "compositions/components/confetti.html"
-    }
-  ]
+  "authoringSkill": "general-video"
 }

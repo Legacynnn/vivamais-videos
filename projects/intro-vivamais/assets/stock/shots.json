@@ -16,22 +16,6 @@
     "notes": "Bright blue clinic bench, man bored (drinks water 0-2s), woman joins right ~3s and stares up bored ~12s (alt crop cx 0.78); only 2 people, not crowded; no text/logos"
   },
   {
-    "key": "hook-clock",
-    "file": "hook-clock.mp4",
-    "mixkitId": 9335,
-    "title": "wall clock on white background time lapse",
-    "w": 1280,
-    "h": 720,
-    "dur": 16.02,
-    "cx": 0.5,
-    "cy": 0.5,
-    "best": [
-      4,
-      8
-    ],
-    "notes": "Red-rim clock on pure white, time-lapse hands sweeping; clock wider than 405px window so crop reads as face+hands close-up; clean"
-  },
-  {
     "key": "mont-1",
     "file": "mont-1.mp4",
     "mixkitId": 32833,
@@ -160,22 +144,6 @@
     "notes": "Latina-looking woman on coral sofa, warm; already holding red phone (no pick-up motion), smile grows over clip; phone back faces camera, fingers cover logo area"
   },
   {
-    "key": "sick-bed",
-    "file": "sick-bed.mp4",
-    "mixkitId": 47868,
-    "title": "woman lying in bed on her phone sick",
-    "w": 1280,
-    "h": 720,
-    "dur": 26.12,
-    "cx": 0.47,
-    "cy": 0.4,
-    "best": [
-      14,
-      18
-    ],
-    "notes": "Bright white bed + brick wall; thermometer in mouth while on phone, pulls it out to read ~15-19s; clean"
-  },
-  {
     "key": "thermometer",
     "file": "thermometer.mp4",
     "mixkitId": 17404,
@@ -208,70 +176,6 @@
     "notes": "Asian female doctor talking straight to camera, bright beige office; face centered at x~0.66 so portrait crop is clean; smiles 12-14s"
   },
   {
-    "key": "pharmacy",
-    "file": "pharmacy.mp4",
-    "mixkitId": 5433,
-    "title": "woman visits pharmacy to pay for prescription",
-    "w": 1280,
-    "h": 720,
-    "dur": 18.76,
-    "cx": 0.6,
-    "cy": 0.35,
-    "best": [
-      13,
-      17
-    ],
-    "notes": "Pharmacy counter, customer woman smiles at blurred pharmacist (foreground left 0.1-0.3); shelves with small blurry packaging, pink posts; no readable brands"
-  },
-  {
-    "key": "lab",
-    "file": "lab.mp4",
-    "mixkitId": 21454,
-    "title": "laboratory worker looking at a test tube",
-    "w": 1280,
-    "h": 720,
-    "dur": 15.92,
-    "cx": 0.45,
-    "cy": 0.45,
-    "best": [
-      6,
-      10
-    ],
-    "notes": "Blue-gloved hands inspecting red blood tubes, technician face soft-focus right (x~0.72); bright, shallow focus; clean"
-  },
-  {
-    "key": "relief",
-    "file": "relief.mp4",
-    "mixkitId": 43394,
-    "title": "cheerful woman drinking a cup of coffee",
-    "w": 720,
-    "h": 1280,
-    "dur": 8.51,
-    "cx": 0.5,
-    "cy": 0.4,
-    "best": [
-      3,
-      7
-    ],
-    "notes": "NATIVE PORTRAIT 720x1280; red-haired woman smiling with mug in warm kitchen, back-to-normal morning; clean"
-  },
-  {
-    "key": "texting",
-    "file": "texting.mp4",
-    "mixkitId": 51123,
-    "title": "woman sending messages on whatsapp zoom shot",
-    "w": 1280,
-    "h": 720,
-    "dur": 8.38,
-    "cx": 0.5,
-    "cy": 0.6,
-    "best": [
-      0.5,
-      4
-    ],
-    "notes": "Close-up hands typing on phone, pink-striped top; screen shows keyboard only; framing drifts right after 5s (cx~0.65); title says WhatsApp but no app UI/logo readable"
-  },
-  {
     "key": "team-end",
     "file": "team-end.mp4",
     "mixkitId": 100319,
@@ -286,22 +190,6 @@
       6.5
     ],
     "notes": "Diverse team of 5 around laptop, colorful cactus/sun mural, bright; laugh together 5-7s; laptop lid has a round emblem (generic, cover or crop low)"
-  },
-  {
-    "key": "hook-clinic",
-    "file": "assets/stock/hook-clinic.mp4",
-    "mixkitId": "4766",
-    "title": "clinic staff at a hospital reception",
-    "w": 1280,
-    "h": 720,
-    "dur": 12.36,
-    "cx": 0.22,
-    "cy": 0.5,
-    "best": [
-      0,
-      1.5
-    ],
-    "notes": "reception desk + corridor with waiting chairs; after ~2s it becomes a posed staff group"
   },
   {
     "key": "montage",
