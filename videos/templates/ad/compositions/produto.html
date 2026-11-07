@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #produto .scr { padding: 72px 24px 0; font-family: var(--vm-font-text); }
+        #produto .hello { margin: 0; font-family: var(--vm-font-display); font-weight: 700; font-size: 28px; line-height: 34px; color: var(--vm-ink-900); }
+        #produto .hello-sub { margin: 6px 0 22px; font-size: 15px; color: var(--vm-ink-500); }
+        #produto .card { padding: 22px; border-radius: 20px; background: var(--vm-tile); }
+        #produto .card b { display: block; font-size: 19px; color: var(--vm-ink-900); }
+        #produto .card span { display: block; margin-top: 6px; font-size: 14px; line-height: 20px; color: var(--vm-ink-500); }
+        #produto .btn { margin-top: 18px; height: 52px; border-radius: 999px; background: var(--vm-primary); color: #fff; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+        #produto #p-call { opacity: 0; visibility: hidden; }
+        #produto .doc { display: flex; flex-direction: column; align-items: center; padding-top: 120px; text-align: center; }
+        #produto .doc img { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 0 0 8px var(--vm-violet-50); }
+        #produto .doc b { margin-top: 24px; font-size: 22px; color: var(--vm-ink-900); }
+        #produto .doc span { margin-top: 6px; font-size: 15px; color: var(--vm-ink-600); }
+        #produto .doc i { margin-top: 26px; padding: 8px 16px; border-radius: 999px; background: var(--vm-violet-50); color: var(--vm-violet-700); font-style: normal; font-weight: 700; font-size: 14px; }
+      </style>
+      <div id="produto" class="vm-scene vm-bg-violet" data-composition-id="produto" data-start="0" data-duration="5.5" data-width="__W__" data-height="__H__">
+        <div class="p-copy vm-ad-copy" data-layout-allow-overflow>
+          <h2 id="p-sub" class="vm-sub">Toque, entre na fila e <em>fale com um médico.</em></h2>
+        </div>
+        <div class="cam vm-ad-dev" data-layout-allow-overflow>
+          <div class="dev">
+            <div class="bezel" data-layout-allow-overflow data-layout-allow-occlusion></div>
+            <div class="screen" data-layout-allow-overflow>
+              <div class="island"></div>
+              <div id="p-home" class="scr">
+                <p class="hello">Olá, Ana</p>
+                <p class="hello-sub">Como podemos te ajudar hoje?</p>
+                <div class="card">
+                  <b>Plantão agora</b>
+                  <span>Atendimento por vídeo em poucos minutos, incluso no seu plano.</span>
+                  <div id="p-btn" class="btn">Entrar na fila</div>
+                </div>
+              </div>
+              <div id="p-call" class="scr">
+                <div class="doc">
+                  <img src="assets/people/camila.jpg" alt="">
+                  <b>Dra. Camila</b>
+                  <span>Clínica geral</span>
+                  <i>Conectando…</i>
+                </div>
+              </div>
+            </div>
+            <div class="lift"></div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="produto"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const m = VMMotion.create({ root, tl });
+            const k = VMKit.create({ root, tl });
+            m.plusReveal(0);
+            m.device(".cam", 0.15, { from: "bottom" });
+            m.rise("#p-sub", 0.5);
+            const b = k.center("#p-btn");
+            k.tap(b.x, b.y, 2.4, "#p-btn");
+            m.swap("#p-home", "#p-call", 2.75);
+            m.exit(".p-copy", 5.05);
+            m.exit(".cam", 5.05);
+            window.__timelines["produto"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

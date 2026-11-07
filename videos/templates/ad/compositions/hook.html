@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+      </style>
+      <div id="hook" class="vm-scene vm-bg-canvas" data-composition-id="hook" data-start="0" data-duration="4" data-width="__W__" data-height="__H__">
+        <img class="vm-logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+        <div class="vm-stage" data-layout-allow-overflow>
+          <span id="hook-chip" class="vm-chip">Plantão 24h</span>
+          <h1 id="hook-head" class="vm-head">Médico em <em>minutos</em>, sem sair de casa.</h1>
+          <span id="hook-mark" class="vm-mark"></span>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="hook"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const m = VMMotion.create({ root, tl });
+            m.pop("#hook-chip", 0.2, { origin: "0% 50%" });
+            const said = m.rise("#hook-head", 0.4);
+            m.mark("#hook-mark", said + 0.1);
+            m.exit(".vm-stage", 3.3);
+            m.plusCover(4);
+            window.__timelines["hook"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

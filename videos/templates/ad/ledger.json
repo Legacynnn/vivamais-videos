@@ -1,0 +1,7 @@
+{
+  "fps": 30,
+  "seams": [
+    { "id": "hook-produto", "cut": 4, "technique": "plus cover → plus reveal (signature match cut)", "exit": { "selector": "#el-hook", "axis": "x", "dir": -1 }, "entry": { "selector": "#el-produto", "axis": "x", "dir": -1 } },
+    { "id": "produto-fim", "cut": 9.5, "technique": "exit LEFT → hard cut to end card", "exit": { "selector": "#el-produto", "axis": "x", "dir": -1 }, "entry": { "selector": "#el-fim", "axis": "x", "dir": -1 } }
+  ]
+}

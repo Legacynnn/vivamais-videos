@@ -1,4 +1,5 @@
 ---
+model: tutorial
 workflow: general-video
 flow: automation
 storyboard: no

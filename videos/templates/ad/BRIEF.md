@@ -8,7 +8,7 @@ status: draft
 
 # [Video name]
 
-Short ad: motion + narrator voice + music. 15–60s.
+Ad: motion-led, 6–60s. Narration optional; music always.
 
 ## Message
 
@@ -16,33 +16,29 @@ Short ad: motion + narrator voice + music. 15–60s.
 
 ## Audience
 
-[Who sees it, where it plays: office TV (muted → burned captions), Instagram, WhatsApp]
+[Who sees it, where it plays: office TV (muted → burned text), Instagram/Reels, WhatsApp, YouTube]
 
 ## Output
 
 - Format: [portrait | square | landscape]
+- Cut-downs: [none | square + landscape versions, same scenes]
 - Duration: [seconds]
 - Language: pt-BR
-- Voice: HeyGen TTS, Marisol (`16cae89929d94c25bc28b5af6f04822a`), `--locale pt-BR`
-- Music: one long track, beat-mapped (`hyperframes beats`), drops pinned to scene starts
-
-## Rules
-
-- Text-led hook first: a question or claim that gives context before any footage or UI.
-- One headline + one device (or one stock shot) per frame. Never many small texts.
-- One VO line per scene; motion lands on spoken words (`A.w("word")` in `videos/kit/ad.js`). VO scenes run at speed 1.
-- Stock holds ~4s with dissolves. Footage never flashes.
-- Real UI only: reuse captured states from the tutorials, never redraw app screens.
-- Cuts stay opaque, app screens crossfade, no pumps or pulses.
-- Ends on the lockup + CTA (vivamais.ai).
+- Voice: [none | HeyGen Marisol `16cae89929d94c25bc28b5af6f04822a`, `--locale pt-BR`]
+- Music: one long track, beat-mapped (`npx hyperframes beats`), drops pinned to scene starts
 
 ## Scene Plan
 
-| # | VO line | Visual | Caption |
-|---|---------|--------|---------|
-| 1 | [line] | [hook card] | [text] |
-| 2 | [line] | [stock / UI] | [text] |
+One row per sub-composition in `compositions/`. Times are absolute.
 
-## Reference
+| # | File | Start–end | VO / on-screen text | Visual | Exit → next |
+|---|------|-----------|---------------------|--------|-------------|
+| 1 | hook.html | 0–4 | [question or claim] | [type on canvas] | plus cover |
+| 2 | [scene].html | 4–9.5 | [line] | [device + recreated screen / stock] | exit left |
+| 3 | fim.html | 9.5–13 | [line] | lockup + CTA vivamais.ai | — |
 
-`videos/ads/intro-vivamais` (kit + `ad.js`, VO sync, stock montage, burned captions).
+## Notes
+
+[Screens to recreate (app file paths), assets needed, images to brief to the user]
+
+Rules live in `videos/STYLE.md` (Ads) and `brand/frame.md`. Starter scenes show the kit: `kit/motion` (type, device, plus transition, end card) and `kit/screens` (taps, tips, screen pushes).

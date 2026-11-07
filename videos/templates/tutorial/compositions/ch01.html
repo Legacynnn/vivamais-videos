@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch01 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch01 .scr { padding: 72px 24px 0; }
+        #ch01 .h1 { margin: 0; }
+        #ch01 .sub { margin: 6px 0 22px; color: var(--vm-ink-600); }
+        #ch01 .card { padding: 22px; border-radius: 20px; background: var(--vm-tile); }
+        #ch01 .card b { display: block; font-size: 19px; color: var(--vm-ink-900); }
+        #ch01 .card span { display: block; margin-top: 6px; font-size: 14px; line-height: 20px; color: var(--vm-ink-500); }
+        #ch01 .btn { margin-top: 18px; height: 52px; border-radius: 999px; background: var(--vm-primary); color: #fff; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+        #ch01 .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+        #ch01 .slot { height: 48px; border-radius: 14px; background: var(--vm-tile); display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 15px; color: var(--vm-ink-900); }
+        #ch01 .slot .on { position: absolute; inset: 0; border-radius: 14px; background: var(--vm-primary); opacity: 0; }
+        #ch01 .slot { position: relative; }
+        #ch01 .slot .lbl { position: relative; }
+      </style>
+      <div id="ch01" data-composition-id="ch01" data-start="0" data-duration="16" data-width="__W__" data-height="__H__">
+        <div id="c01-bg" class="clip" data-start="0" data-duration="16" data-track-index="0">
+          <div class="backdrop"></div>
+          <div class="grid"></div>
+          <div class="glow glow-a"></div>
+          <div class="glow glow-b"></div>
+        </div>
+        <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+
+        <section id="c01-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+          <div class="chapter-words">
+            <div class="chapter-line"><span class="w">Agende</span><span class="w">sua</span></div>
+            <div class="chapter-line"><span class="w v">consulta</span></div>
+            <span class="chapter-spark"></span>
+          </div>
+        </section>
+
+        <section id="c01-phone" class="clip" data-start="3" data-duration="13" data-track-index="2">
+          <div class="cam" data-layout-allow-overflow>
+            <div class="dev">
+              <div class="bezel" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow></div>
+              <div class="screen" data-layout-allow-overflow>
+                <div class="island"></div>
+                <div id="c01-sA" class="scr" data-layout-allow-overlap>
+                  <p class="h1" data-layout-allow-overlap>Olá, Ana</p>
+                  <p class="sub" data-layout-allow-overlap>Como podemos te ajudar hoje?</p>
+                  <div class="card">
+                    <b>Consulta com especialista</b>
+                    <span>Escolha o médico e o melhor horário.</span>
+                    <div id="c01-go" class="btn">Agendar</div>
+                  </div>
+                </div>
+                <div id="c01-sB" class="scr" data-layout-allow-overlap>
+                  <p class="h1" data-layout-allow-overlap>Dra. Camila</p>
+                  <p class="sub" data-layout-allow-overlap>Clínica geral · amanhã</p>
+                  <div class="slots">
+                    <div class="slot"><span class="lbl">08:00</span></div>
+                    <div class="slot"><span class="lbl">09:30</span></div>
+                    <div class="slot"><span class="lbl">11:00</span></div>
+                    <div class="slot"><span class="lbl">14:00</span></div>
+                    <div id="c01-slot" class="slot"><i class="on"></i><span class="lbl">15:30</span></div>
+                    <div class="slot"><span class="lbl">17:00</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="lift"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch01"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const { $, tap, center, tip, showTip, enable, titleCard } = k;
+            const cam = $(".cam");
+
+            k.screens(["c01-sA", "c01-sB"]);
+            titleCard("#c01-t1", { at: 0.15, sparkAt: 0.75, out: 2.58 });
+
+            tl.fromTo(cam, { opacity: 0, y: 160 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 3);
+            const go = center("#c01-go");
+            tap(go.x, go.y, 5.2, "#c01-go");
+            k.push("c01-sA", "c01-sB", 5.4);
+
+            const slot = center("#c01-slot");
+            const t1 = tip("Escolha o horário", slot.x, slot.y + 26, "down");
+            showTip(t1, 7, 2.6);
+            tap(slot.x, slot.y, 9.2, "#c01-slot");
+            enable("#c01-slot", 9.3);
+
+            tl.to(cam, { xPercent: -24, opacity: 0, duration: 0.42, ease: "power4.in" }, 15.4);
+            window.__timelines["ch01"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

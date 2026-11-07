@@ -10,6 +10,10 @@ Brand, videos, and presentations for Viva Mais. Standalone repo; the apps live i
 - `presentations/` — static HTML decks (apresentação + proposta), not HyperFrames. Read `presentations/README.md` before editing a deck.
 - `tools/` — repo scripts behind the root `package.json`.
 
+## Making videos
+
+Use the `/video` skill for any video request: it runs the `video-director` → parallel `scene-builder` → `video-reviewer` agents (`.claude/agents/`) and renders. House taste: `videos/STYLE.md`. Catalog: `npm run list`.
+
 ## Brand rules
 
 - Change a colour, font, or radius in `brand/tokens.json`, then `npm run sync:brand`. Decks read `--vm-*` through `shared/deck.css`; videos link `assets/brand/tokens.css`.

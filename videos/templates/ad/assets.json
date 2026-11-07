@@ -1,0 +1,7 @@
+{
+  "assets/kit/motion.js": "@kit/motion/motion.js",
+  "assets/kit/motion.css": "@kit/motion/motion.css",
+  "assets/kit/screens.js": "@kit/screens/screens.js",
+  "assets/kit/screens.css": "@kit/screens/screens.css",
+  "assets/people/camila.jpg": "people/doctors/camila.jpg"
+}

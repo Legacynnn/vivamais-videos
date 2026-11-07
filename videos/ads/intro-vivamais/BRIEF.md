@@ -1,4 +1,5 @@
 ---
+model: ad
 workflow: product-launch-video
 flow: automation
 storyboard: no

@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = fileURLToPath(new URL("..", import.meta.url));
 const brand = join(root, "brand");
 const library = join(root, "assets");
+const kit = join(root, "videos/kit");
 const START = "# sync:start";
 const END = "# sync:end";
 
@@ -38,7 +39,7 @@ function syncLibrary(dir) {
   const manifest = join(dir, "assets.json");
   if (!existsSync(manifest)) return [];
   const entries = Object.entries(JSON.parse(readFileSync(manifest, "utf8")));
-  for (const [local, source] of entries) copy(join(library, source), join(dir, local));
+  for (const [local, source] of entries) copy(source.startsWith("@kit/") ? join(kit, source.slice(5)) : join(library, source), join(dir, local));
   return entries.map(([local]) => `/${local}`);
 }
 

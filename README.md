@@ -9,9 +9,10 @@ videos/
   ads/           short: motion + voice + music
   tutorials/     long: chapters + transitions + on-screen text
   clips/         small clips shipped in the app
-  kit/           shared real-UI build kit
+  kit/           motion/ + screens/ runtime libraries, legacy capture kit
   capture/       Expo-on-web capture (webcap)
-  templates/     BRIEF per model + starter composition
+  templates/     per model: BRIEF, index, starter scenes
+  STYLE.md       house style learned from reviews
 presentations/   static HTML decks (apresentação, proposta)
 tools/           repo scripts
 ```
@@ -35,18 +36,25 @@ npm run sync:brand   # regenerate tokens.css (+ app-ui.css from ../vivamaisa-app
 
 ## Videos
 
+With an agent (Claude Code): ask for the video, the `/video` skill plans it (`video-director`), builds every scene in parallel (`scene-builder`), reviews (`video-reviewer`) and renders. House style in `videos/STYLE.md`, kit API in `videos/kit/README.md`.
+
+By hand:
+
 ```bash
 npm run new -- ad consulta-em-minutos portrait
 npm run new -- tutorial agendar-consulta landscape
 ```
 
-Creates `videos/<ads|tutorials>/<slug>` with the model's `BRIEF.md`, `frame.md`, `formats.json`, a starter `index.html` on brand tokens, and synced brand files. Fill `BRIEF.md`, build, then:
+Creates `videos/<ads|tutorials>/<slug>` from `videos/templates/<model>/`: `BRIEF.md`, `index.html`, working starter scenes in `compositions/` (motion kit for ads, recreated-screen kit for tutorials), `ledger.json`, `assets.json`, synced brand + kit. Fill `BRIEF.md`, build, then:
 
 ```bash
+npm run list                  # catalog: model, size, length, status, renders
 npm run check                 # every video
 npm run check -- <slug>       # one video
-cd videos/<group>/<slug> && npm run render
+npm run render -- <slug>      # sync + check + render + strip vertical rotation flag
 ```
+
+HyperFrames skills are per machine: `npx hyperframes skills update` once after cloning.
 
 | Video | Model | Format | Notes |
 |---|---|---|---|
@@ -55,6 +63,8 @@ cd videos/<group>/<slug> && npm run render
 | `tutorials/tutorial-plantao` | tutorial | 1080×1920, ~5:00 | client app, plantão |
 | `tutorials/tutorial-painel-empresarial` | tutorial | 1920×1080, ~3:50 | web company panel |
 | `tutorials/onboarding-paciente` | tutorial | 1080×1920, ~5:40 | new patient onboarding, in progress |
+| `tutorials/tutorial-medico` | tutorial | 1080×1920, ~11:00 | doctor journey, recreated screens, 2 parts |
+| `clips/landing-demo` | clip | 390×840 @2× | tap-driven demo for the web landing |
 | `clips/onboard` | clip | 1080×1080 | app onboarding carousel |
 
 ## Shared assets

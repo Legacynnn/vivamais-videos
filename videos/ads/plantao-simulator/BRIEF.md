@@ -1,4 +1,5 @@
 ---
+model: ad
 workflow: general-video
 flow: automation
 storyboard: no

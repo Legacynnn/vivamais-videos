@@ -2,24 +2,29 @@
 
 Every video is its own HyperFrames project at `videos/<group>/<slug>/`. Run commands from inside that folder.
 
+## Editor workflow
+
+Every request to make, change, re-cut or render a video goes through the `/video` skill (`.claude/skills/video/SKILL.md`): `video-director` plans, `scene-builder` agents build one composition file each in parallel, `video-reviewer` checks, `npm run render -- <slug>` renders. House taste lives in `STYLE.md`; read it before planning or building.
+
 ## Models
 
-Assign the model before anything else; it decides the folder, the BRIEF template, and the reference project.
+Assign the model first; it decides the folder, template and reference.
 
-- **ad** (`ads/`): short, motion + narrator voice + music. Template `templates/ad/BRIEF.md`, reference `ads/intro-vivamais`.
-- **tutorial** (`tutorials/`): a set of long chapters joined by transitions, carried by on-screen text. Template `templates/tutorial/BRIEF.md`, reference `tutorials/onboarding-paciente` (phone) and `tutorials/tutorial-painel-empresarial` (web).
-- `clips/onboard`: square clips shipped inside the app; frozen.
+- **ad** (`ads/`): motion-led, 6–60s, music, optional narrator. Starter: hook → product on device → end card, built on `kit/motion`. Reference `ads/intro-vivamais` (narrated, legacy kit).
+- **tutorial** (`tutorials/`): long chapters joined by full-screen chapter text, on-screen tooltips, usually silent. Starter chapter on `kit/screens`. Reference `tutorials/tutorial-medico`.
+- `clips/`: in-app clips (`onboard`, frozen) and landing demos (`landing-demo`, own exporter).
 
-New video: `npm run new -- <ad|tutorial> <slug> [portrait|square|landscape]` from the repo root.
+`npm run new -- <ad|tutorial> <slug> [portrait|square|landscape]` scaffolds from `templates/<model>/` (BRIEF, `index.html`, starter `compositions/`, `ledger.json`, `assets.json`) and syncs. `npm run list` shows every video.
 
-App screens in new videos are recreated in HTML, never captured from the running app: same layout, tokens (`brand/app-ui.css`) and fonts as the app, simplified to what each beat needs and built to animate. Read the app source in `../vivamais-monorepo/apps/mobile` (or `apps/web`) for layout and copy. The DOM-capture pipeline (`capture/webcap`, kit `ui-css`/`fidelity`) only serves the finished videos that already use it.
+App screens are recreated in HTML from the app source (`../vivamais-monorepo/apps/mobile`, `apps/web`), never captured. The DOM-capture pipeline (`capture/webcap`, legacy kit) only serves the finished videos that already use it.
 
 ## Shared pieces
 
-- `kit/`: real-UI build kit (camera, cursor, tooltips, device frames in `kit.js`/`kit.css`; VO word sync in `ad.js`; reusable UI parts in `parts/`; `ui-css`, `measure`, `preview`, `audit-marks`, `stamp`, `fidelity`, `flicker` tools). Tools resolve the project from the cwd: run `node ../../kit/<tool>.mjs` inside a video. Kit changes reach every video that imports it, so rebuild and diff `compositions/` of those videos after editing.
-- `capture/webcap/`: runs the Expo app on web for DOM capture (`npm run app:setup`, `npm run app:web` in a phone tutorial).
-- Brand files land in each video as `assets/brand/` (fonts, logos, `tokens.css`), library files per `assets.json`. Both are copies made by `npm run sync` and gitignored: edit `brand/` or `assets/` at the repo root, never the copies.
-- `intro-vivamais`, `tutorial-plantao` and `tutorial-painel-empresarial` are finished and keep their own `build/kit.js`; edit those only when that video itself needs a change.
+- `kit/motion` and `kit/screens`: runtime libraries for new videos, mapped in `assets.json` as `@kit/...` and synced into `assets/kit/`. API in `kit/README.md`. A kit change reaches every video on the next sync, so re-check those videos (`npm run check`).
+- `kit/` root files: legacy DOM-capture kit (`onboarding-paciente`) and its tools.
+- Brand files land in each video as `assets/brand/`, library files per `assets.json`; both are gitignored copies made by `npm run sync`. Edit `brand/`, `assets/` or `kit/` at the source, never the copies.
+- `intro-vivamais`, `tutorial-plantao` and `tutorial-painel-empresarial` are finished and keep their own `build/kit.js`; edit only when that video needs a change.
+- Sub-composition `<style>` is scoped by HyperFrames: `html[data-resolution]` selectors inside a scene never match. Per-format layout uses the vars in `kit/motion/motion.css`.
 
 ## Skills — USE THESE FIRST
 
@@ -59,7 +64,7 @@ npx hyperframes preview --background  # agent-safe persistent Studio preview
 npx hyperframes preview --status      # verify the persistent preview is listening
 npx hyperframes preview --stop        # stop it when review is finished
 npm run check        # lint + runtime + layout + motion + contrast (one command)
-npm run render       # render to MP4
+npm run render       # render to MP4 (from the repo root prefer `npm run render -- <slug>`: sync + check + render + rotation fix)
 npm run publish      # publish and get a shareable link
 npx hyperframes lint --verbose  # include info-level findings
 npx hyperframes lint --json     # machine-readable output for CI
