@@ -1,0 +1,17 @@
+.frames/
+out/
+# sync:start
+/assets/brand/
+/assets/icons/cardio.png
+/assets/icons/derma.png
+/assets/icons/ginecologia.png
+/assets/icons/medico.png
+/assets/icons/neurologia.png
+/assets/icons/ortopedia.png
+/assets/icons/pediatria.png
+/assets/icons/psicologia.png
+/assets/illustrations/handoff-sheet.webp
+/assets/illustrations/plantao-24h.webp
+/assets/people/camila.jpg
+/assets/people/mariana.jpg
+# sync:end

@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch04 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch04 .scr.pg { background: #F3F4FA; }
+        #ch04 .pf-ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+        #ch04 .pf { background: var(--vm-panel); }
+        #ch04 .pf-scroll { position: absolute; left: 0; top: 0; width: 402px; height: 1640px; }
+        #ch04 .pf-title { position: absolute; left: 20px; top: 102px; height: 52px; padding-top: 4px; font-weight: 700; font-size: 34px; line-height: 42px; letter-spacing: -0.6px; color: var(--vm-ink-900); }
+        #ch04 .pf-bar { position: absolute; left: 0; top: 0; width: 402px; height: 98px; background: var(--vm-panel); z-index: 20; opacity: 0; }
+        #ch04 .pf-bar span { position: absolute; left: 0; right: 0; top: 54px; height: 44px; line-height: 44px; text-align: center; font-weight: 500; font-size: 17px; color: var(--vm-ink-900); }
+        #ch04 .pf-bar i { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch04 .pf-acc { position: absolute; left: 0; top: 156px; width: 402px; text-align: center; }
+        #ch04 .pf-avatar { position: relative; width: 92px; height: 92px; margin: 0 auto; }
+        #ch04 .pf-avatar img { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; display: block; }
+        #ch04 .pf-cam-badge { position: absolute; right: -2px; bottom: -2px; width: 30px; height: 30px; border-radius: 50%; background: var(--vm-violet-600); border: 3px solid var(--vm-panel); display: flex; align-items: center; justify-content: center; color: #fff; }
+        #ch04 .pf-cam-badge .pf-ic { width: 14px; height: 14px; stroke-width: 2.4; }
+        #ch04 .pf-nm { margin-top: 12px; padding-left: 20px; display: flex; align-items: center; justify-content: center; gap: 2px; font-weight: 700; font-size: 24px; letter-spacing: -0.4px; color: var(--vm-ink-900); }
+        #ch04 .pf-nm .pf-ic { width: 18px; height: 18px; color: var(--vm-ink-300); stroke-width: 2.2; }
+        #ch04 .pf-em { margin-top: 2px; font-size: 14.5px; color: var(--vm-ink-500); }
+        #ch04 .pf-hero { position: absolute; left: 20px; right: 20px; top: 334px; }
+        #ch04 .pf-hf { position: relative; border-radius: 20px; background: #fff; padding: 16px; overflow: hidden; }
+        #ch04 .pf-eb { font-weight: 500; font-size: 11.5px; letter-spacing: 0.9px; text-transform: uppercase; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch04 .pf-rb { display: flex; align-items: center; justify-content: space-between; height: 18px; }
+        #ch04 .pf-pillbox { position: relative; width: 100px; height: 18px; }
+        #ch04 .pf-pl { position: absolute; right: 0; top: 0; height: 18px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 13px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch04 .pf-pl i { display: block; width: 7px; height: 7px; border-radius: 50%; }
+        #ch04 .pf-pl-a i { background: #F59E0B; }
+        #ch04 .pf-pl-b i { background: #22C55E; }
+        #ch04 .pf-pl-b, #ch04 .pf-bd-b { opacity: 0; }
+        #ch04 .pf-bdbox { position: relative; height: 60px; margin-top: 10px; }
+        #ch04 .pf-bd { position: absolute; left: 0; right: 0; top: 0; font-size: 14.5px; line-height: 20px; color: var(--vm-ink-600); }
+        #ch04 .pf-hrow { display: flex; gap: 12px; margin-top: 12px; }
+        #ch04 .pf-hh { flex: 1; min-height: 132px; display: flex; flex-direction: column; }
+        #ch04 .pf-hh .pf-rb { height: 18px; }
+        #ch04 .pf-hh .pf-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--vm-ink-400); }
+        #ch04 .pf-ht { margin-top: 10px; font-weight: 700; font-size: 19px; line-height: 24px; letter-spacing: -0.3px; color: var(--vm-ink-900); }
+        #ch04 .pf-hs { margin-top: 2px; font-size: 13px; line-height: 17px; color: var(--vm-ink-500); }
+        #ch04 .pf-hfoot { margin-top: auto; padding-top: 10px; display: flex; align-items: center; gap: 2px; font-weight: 500; font-size: 13px; line-height: 17px; color: var(--vm-violet-600); }
+        #ch04 .pf-hfoot .pf-ic { width: 14px; height: 14px; stroke-width: 2.4; }
+        #ch04 .pf-groups { position: absolute; left: 0; right: 0; top: 618px; }
+        #ch04 .pf-grp { margin: 0 20px 24px; }
+        #ch04 .pf-gt { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--vm-ink-600); }
+        #ch04 .pf-gf { margin: 8px 4px 0; font-size: 13px; line-height: 18px; color: var(--vm-ink-600); }
+        #ch04 .pf-gc { border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch04 .pf-ir { position: relative; display: flex; align-items: center; gap: 14px; min-height: 56px; padding: 10px 14px 10px 16px; }
+        #ch04 .pf-ir + .pf-ir::before { content: ""; position: absolute; left: 66px; right: 0; top: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch04 .pf-it { width: 36px; height: 36px; flex: none; border-radius: 11px; background: var(--vm-violet-100); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch04 .pf-it .pf-ic { width: 19px; height: 19px; stroke-width: 1.9; }
+        #ch04 .pf-it.pf-red { background: #FDECEC; color: #DC2626; }
+        #ch04 .pf-ib { flex: 1; font-weight: 500; font-size: 16px; line-height: 21px; color: var(--vm-ink-900); white-space: nowrap; }
+        #ch04 .pf-ib.pf-red { color: #DC2626; }
+        #ch04 .pf-iv { font-size: 15px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch04 .pf-iv.pf-acc-v { color: var(--vm-violet-600); }
+        #ch04 .pf-ir > .pf-ic { width: 18px; height: 18px; flex: none; color: var(--vm-ink-400); }
+        #ch04 .pf-sw { position: relative; width: 46px; height: 28px; flex: none; border-radius: 14px; background: #22C55E; }
+        #ch04 .pf-sw.pf-off { background: var(--vm-ink-200); }
+        #ch04 .pf-sw::after { content: ""; position: absolute; top: 2px; left: 20px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(23, 21, 30, 0.25); }
+        #ch04 .pf-sw.pf-off::after { left: 2px; }
+        #ch04 .pf-ver { margin-top: -8px; text-align: center; font-size: 12px; color: var(--vm-ink-500); }
+        #ch04 .pf-sk { position: absolute; left: 0; top: 156px; width: 402px; height: 718px; background: var(--vm-panel); z-index: 10; }
+        #ch04 .pf-sk i { position: absolute; display: block; background: var(--vm-ink-100); }
+        #ch04 .pf-tabbar { position: absolute; left: 16px; right: 16px; bottom: 34px; height: 72px; z-index: 21; }
+        #ch04 .pf-tb-bar { position: absolute; left: 0; top: 0; width: 302px; height: 72px; border-radius: 999px; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: space-evenly; padding: 0 8px; }
+        #ch04 .pf-tb-item { flex: 1; display: flex; justify-content: center; }
+        #ch04 .pf-tb-ind { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 12px; border-radius: 999px; color: var(--vm-ink-600); }
+        #ch04 .pf-tb-ind.pf-on { background: var(--vm-violet-100); color: var(--vm-violet-600); }
+        #ch04 .pf-tb-ind span { font-weight: 500; font-size: 9px; line-height: 12px; }
+        #ch04 .pf-tb-plus { position: absolute; right: 0; top: 8px; width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: center; color: var(--vm-violet-600); }
+        #ch04 .pf-tb-plus .pf-ic { width: 22px; height: 22px; stroke-width: 2.25; }
+        #ch04 .pf-home { position: absolute; left: 134px; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: var(--vm-ink-900); z-index: 25; }
+        #ch04 .pf-stk { display: inline-grid; justify-items: start; }
+        #ch04 .pf-stk > * { grid-area: 1 / 1; }
+        #ch04 .pf-stk > .pf-alt { opacity: 0; }
+        #ch04 .pf-stk.pf-e { justify-items: end; }
+        #ch04 .pf-stk.pf-blk { display: grid; }
+        #ch04 .pf-hfoot .pf-stk > span { display: flex; align-items: center; gap: 2px; }
+        #ch04 .pf-hfoot .pf-stk > .pf-alt, #ch04 .pf-hfoot.pf-q { color: var(--vm-ink-500); }
+        #ch04 .pf-iv .pf-acc-v, #ch04 .pf-iv.pf-acc-v { color: var(--vm-violet-600); }
+        #ch04 .pf-press { position: absolute; inset: 0; background: rgba(85, 82, 95, 0.12); opacity: 0; pointer-events: none; }
+        #ch04 .pf-ring { position: absolute; inset: 0; border-radius: 20px; border: 3px solid #22C55E; opacity: 0; pointer-events: none; }
+        #ch04 .pf-hh .pf-dot { position: relative; }
+        #ch04 .pf-shine { position: absolute; top: 0; bottom: 0; left: 0; width: 160px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.7), rgba(255,255,255,0)); transform: translateX(-200px); }
+        #ch04 .pf-sk { overflow: hidden; }
+        #ch04 .c4-spin { position: absolute; left: 100px; top: 17px; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; opacity: 0; }
+        #ch04 .btn .lbl-alt { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; color: #fff; }
+        #ch04 .nav-t { font-weight: 700; font-size: 17px; color: var(--vm-ink-900); }
+        #ch04 .ctn { position: absolute; left: 0; right: 0; }
+        #ch04 .ig { margin: 0 20px 24px; }
+        #ch04 .ig-t { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; line-height: 14px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--vm-ink-500); }
+        #ch04 .ig-c { position: relative; border-radius: 20px; background: #fff; overflow: hidden; }
+        #ch04 .ig-f { margin: 8px 4px 0; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); }
+        #ch04 .hl { height: 1px; background: #ECEAF2; margin-left: 66px; }
+        #ch04 .hl.s { margin-left: 16px; }
+        #ch04 .ir { position: relative; display: flex; align-items: center; min-height: 56px; padding: 10px 14px 10px 16px; gap: 14px; background: #fff; }
+        #ch04 .ir > * { position: relative; }
+        #ch04 .ir > .prs { position: absolute; inset: 0; background: var(--vm-ink-100); opacity: 0; }
+        #ch04 .ir .tile { width: 36px; height: 36px; flex: none; border-radius: 11px; background: var(--vm-violet-100); display: flex; align-items: center; justify-content: center; }
+        #ch04 .ir .tile svg { width: 19px; height: 19px; }
+        #ch04 .ir.dest .tile { background: #FEE9E9; }
+        #ch04 .ir .bd { flex: 1; min-width: 0; }
+        #ch04 .ir .lb { font-weight: 500; font-size: 16px; line-height: 21px; color: var(--vm-ink-900); white-space: nowrap; }
+        #ch04 .ir.dest .lb { color: #DC2626; }
+        #ch04 .ir .dt { margin-top: 1px; font-size: 13px; line-height: 17px; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch04 .ir .vl { font-size: 15px; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch04 .ir .chv { width: 18px; height: 18px; flex: none; }
+        #ch04 .sw2 { position: relative; }
+        #ch04 .sw2 > span { position: absolute; left: 0; right: 0; top: 0; }
+        #ch04 .sw2 > .b { opacity: 0; }
+        #ch04 .tg { width: 51px; height: 31px; flex: none; border-radius: 16px; background: #22C55E; }
+        #ch04 .tg i { display: block; width: 27px; height: 27px; margin: 2px 2px 0 22px; border-radius: 50%; background: #fff; }
+        #ch04 .msg { padding: 14px 16px; font-size: 15px; line-height: 21px; color: var(--vm-ink-600); background: #fff; }
+        #ch04 .live { position: absolute; right: 16px; width: 10px; height: 10px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.22); }
+        #ch04 .skb { position: absolute; border-radius: 14px; background: var(--vm-ink-200); }
+        #ch04 .sk-ov { position: absolute; left: 0; right: 0; bottom: 0; background: #F3F4FA; overflow: hidden; z-index: 5; }
+        #ch04 .shine { position: absolute; top: 0; bottom: 0; left: 0; width: 160px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.7), rgba(255,255,255,0)); transform: translateX(-200px); }
+        #ch04 .seg2 { position: relative; margin: 0 20px; height: 44px; padding: 4px; border-radius: 16px; background: #fff; display: flex; }
+        #ch04 .seg2 .ind { position: absolute; left: 4px; top: 4px; width: 177px; height: 36px; border-radius: 12px; background: var(--vm-violet-500); }
+        #ch04 .seg2 .sg { position: relative; z-index: 1; flex: 1; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 15px; color: var(--vm-ink-600); }
+        #ch04 .seg2 .sg.on { color: #fff; }
+        #ch04 .panes { position: relative; margin-top: 16px; }
+        #ch04 .pane { position: absolute; left: 0; right: 0; top: 0; }
+        #ch04 .field-card { padding: 22px 14px 14px; background: #fff; border-radius: 20px; }
+        #ch04 .field-card .field { margin: 0; }
+        #ch04 .field-card .label { background: #fff; }
+        #ch04 .lead { display: flex; gap: 12px; align-items: flex-start; margin: 0 20px 18px; padding: 12px; border-radius: 16px; background: var(--vm-violet-50); }
+        #ch04 .lead .lt { width: 40px; height: 40px; flex: none; border-radius: 12px; background: #fff; display: flex; align-items: center; justify-content: center; }
+        #ch04 .lead .lt svg { width: 22px; height: 22px; }
+        #ch04 .lead p { margin: 0; font-size: 14px; line-height: 20px; color: var(--vm-ink-600); }
+        #ch04 .pv { position: relative; height: 54px; margin: 0 20px 10px; border-radius: 16px; border: 1px solid var(--vm-ink-200); background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; font-weight: 500; font-size: 16px; color: var(--vm-ink-600); }
+        #ch04 .pv .nm2 { position: relative; }
+        #ch04 .pv .pvs { position: absolute; inset: -1px; border-radius: 16px; border: 1.5px solid var(--vm-violet-500); background: var(--vm-violet-50); opacity: 0; }
+        #ch04 .pv .ck { position: relative; width: 20px; height: 20px; opacity: 0; }
+        #ch04 .pv-sk { position: absolute; left: 0; right: 0; top: 0; height: 250px; background: #F3F4FA; overflow: hidden; }
+        #ch04 .dim { position: absolute; inset: 0; background: rgba(23, 21, 30, 0.4); opacity: 0; z-index: 8; }
+        #ch04 .sheet { position: absolute; left: 0; right: 0; bottom: 0; height: 440px; border-radius: 28px 28px 0 0; background: #F2F2F7; z-index: 9; box-shadow: 0 -10px 40px rgba(23, 21, 30, 0.18); }
+        #ch04 .sheet .grab { position: absolute; left: 50%; top: 8px; width: 36px; height: 5px; margin-left: -18px; border-radius: 3px; background: #C7C7CC; }
+        #ch04 .sheet .sh-h { position: absolute; left: 20px; right: 20px; top: 24px; height: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: var(--vm-violet-600); }
+        #ch04 .sheet .sh-h b { color: var(--vm-ink-900); font-weight: 700; }
+        #ch04 .sheet .sh-h span:last-child { width: 56px; }
+        #ch04 .sheet .fl { position: absolute; left: 0; right: 0; top: 68px; }
+        #ch04 .fi { width: 40px; height: 40px; flex: none; border-radius: 10px; background: var(--vm-ink-100); display: flex; align-items: center; justify-content: center; }
+        #ch04 .fi svg { width: 22px; height: 22px; }
+        #ch04 .fi.k { background: var(--vm-violet-100); }
+        #ch04 .ir .fm { font-size: 13px; line-height: 17px; color: var(--vm-ink-500); }
+        #ch04 .qh { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 26px; line-height: 32px; color: var(--vm-ink-900); }
+        #ch04 .qr-card { position: relative; width: 250px; margin: 22px auto 0; padding: 20px; border-radius: 20px; background: #fff; }
+        #ch04 .qr-card svg.qr { display: block; width: 210px; height: 210px; }
+        #ch04 .qr-card .scan { position: absolute; left: 14px; right: 14px; top: 18px; height: 4px; border-radius: 2px; background: var(--vm-violet-500); box-shadow: 0 0 16px 4px rgba(126, 59, 237, 0.45); opacity: 0; }
+        #ch04 .qr-ok { position: absolute; inset: 0; border-radius: 20px; background: rgba(255, 255, 255, 0.9); display: flex; align-items: center; justify-content: center; opacity: 0; }
+        #ch04 .qr-ok div { width: 84px; height: 84px; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; }
+        #ch04 .qr-ok svg { width: 44px; height: 44px; }
+        #ch04 .st { display: flex; gap: 12px; align-items: center; margin: 0 24px 14px; font-size: 15px; line-height: 21px; color: var(--vm-ink-900); }
+        #ch04 .st .n { width: 28px; height: 28px; flex: none; border-radius: 50%; background: var(--vm-violet-100); color: var(--vm-violet-600); font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+        #ch04 .stt { position: relative; margin: 8px 24px 0; height: 44px; }
+        #ch04 .stt > div { position: absolute; left: 0; right: 0; top: 0; display: flex; gap: 10px; align-items: center; font-size: 14px; line-height: 20px; color: var(--vm-ink-600); }
+        #ch04 .stt > .ok { opacity: 0; color: var(--vm-green-800); font-weight: 700; }
+        #ch04 .stt .sp { width: 18px; height: 18px; flex: none; border-radius: 50%; border: 2.5px solid var(--vm-violet-100); border-top-color: var(--vm-violet-500); }
+        #ch04 .stt .okc { width: 18px; height: 18px; flex: none; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; }
+        #ch04 .stt .okc svg { width: 11px; height: 11px; }
+        #ch04 .btn.out { background: #fff; color: var(--vm-violet-600); box-shadow: inset 0 0 0 1.5px var(--vm-violet-300); }
+        #ch04 .seal { display: flex; align-items: center; gap: 14px; margin: 0 20px 24px; padding: 16px; border-radius: 20px; background: var(--vm-violet-50); }
+        #ch04 .seal .sl { width: 52px; height: 52px; flex: none; border-radius: 16px; background: var(--vm-violet-500); display: flex; align-items: center; justify-content: center; }
+        #ch04 .seal .sl svg { width: 28px; height: 28px; }
+        #ch04 .seal b { display: block; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 21px; line-height: 26px; color: var(--vm-ink-900); }
+        #ch04 .seal span { display: block; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); }
+      </style>
+
+      <div id="ch04" data-composition-id="ch04-certificado" data-start="0" data-duration="42.2" data-width="1080" data-height="1920">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="c04-i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+        <symbol id="c04-i-cal" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></symbol>
+        <symbol id="c04-i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 17.5v-11" /></symbol>
+        <symbol id="c04-i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
+        <symbol id="c04-i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14" /></symbol>
+        <symbol id="c04-i-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+        <symbol id="c04-i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z" /><circle cx="12" cy="13" r="3" /></symbol>
+        <symbol id="c04-i-dollar" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 18V6" /></symbol>
+        <symbol id="c04-i-calclock" viewBox="0 0 24 24"><path d="M16 14v2.2l1.6 1" /><path d="M16 2v4M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" /><path d="M3 10h5M8 2v4" /><circle cx="16" cy="16" r="6" /></symbol>
+        <symbol id="c04-i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol>
+        <symbol id="c04-i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
+        <symbol id="c04-i-bank" viewBox="0 0 24 24"><path d="M10 18v-7M14 18v-7M18 18v-7M6 18v-7" /><path d="M3 22h18" /><path d="M12 2 3 7h18z" /></symbol>
+        <symbol id="c04-i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+        <symbol id="c04-i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></symbol>
+        <symbol id="c04-i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+        <symbol id="c04-i-key" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" /></symbol>
+        <symbol id="c04-i-out" viewBox="0 0 24 24"><path d="m16 17 5-5-5-5M21 12H9M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></symbol>
+        </svg>
+      <div id="c04-bg" class="clip" data-start="0" data-duration="42.2" data-track-index="0">
+        <div class="backdrop"></div>
+        <div class="grid"></div>
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+      </div>
+
+      <section id="c04-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Seu</span><span class="w">certificado</span></div>
+          <div class="chapter-line"><span class="w v">digital</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c04-t2" class="clip chapter" data-start="20.12" data-duration="3.2" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Ou</span><span class="w">use</span><span class="w">o</span></div>
+          <div class="chapter-line"><span class="w v">A3</span><span class="w">na</span><span class="w">nuvem</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c04-phone" class="clip" data-start="3" data-duration="39.2" data-track-index="2">
+        <div class="cam">
+          <div class="dev">
+            <div class="bezel"></div>
+            <div class="screen">
+              <div class="scr pf" id="c04-sP">
+                <div class="pf-scroll" id="c04-pfScroll" data-layout-allow-occlusion data-layout-allow-overflow data-layout-allow-overlap>
+                  <div class="pf-title">Perfil</div>
+                  <div class="pf-acc" id="c04-pfAcc" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="pf-avatar"><img src="assets/doctors/camila.jpg" alt=""><div class="pf-cam-badge"><svg class="pf-ic"><use href="#c04-i-camera" /></svg></div></div>
+                    <div class="pf-nm">Dra. Camila Rocha<svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                    <div class="pf-em">CRM-SP 123456 · Clínica Geral</div>
+                  </div>
+
+                  <div class="pf-hero" id="c04-pfHero" style="top: 334px;">
+                    <div class="pf-hrow" style="margin-top: 0;">
+                      <div class="pf-hf pf-hh" id="c04-hcIcp">
+                      <div class="pf-press"></div>
+                      <div class="pf-ring"></div>
+                      <div class="pf-rb"><div class="pf-eb">Certificado ICP</div><i class="pf-dot" style=""></i></div>
+                      <div class="pf-ht"><span class="pf-stk pf-blk"><span>Não enviado</span><span class="pf-alt">Ativo na nuvem</span></span></div>
+                      <div class="pf-hs"><span class="pf-stk pf-blk"><span>Envie seu A1 para assinar documentos</span><span class="pf-alt">Assinatura digital liberada</span></span></div>
+                      <div class="pf-hfoot"><span class="pf-stk"><span>Configurar<svg class="pf-ic"><use href="#c04-i-chev" /></svg></span><span class="pf-alt">Gerenciar</span></span></div>
+                    </div>
+                      <div class="pf-hf pf-hh" id="c04-hcPlan">
+                      <div class="pf-press"></div>
+                      <div class="pf-ring"></div>
+                      <div class="pf-rb"><div class="pf-eb">Seu plano</div><i class="pf-dot" style="opacity: 0; background: #22C55E;"></i></div>
+                      <div class="pf-ht">Sem plano</div>
+                      <div class="pf-hs">Mais destaque e recursos para atender.</div>
+                      <div class="pf-hfoot">Ver planos<svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="pf-groups" id="c04-pfGroups" style="top: 490px;" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Atendimento</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir" id="c04-rowPreco"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-dollar" /></svg></div><div class="pf-ib">Preço e duração</div><div class="pf-iv">Nenhuma</div><svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                        <div class="pf-ir" id="c04-rowDisp"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-calclock" /></svg></div><div class="pf-ib">Disponibilidade</div><div class="pf-iv pf-acc-v">Definir</div><svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-gift" /></svg></div><div class="pf-ib">Benefícios</div><svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Conta</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-user" /></svg></div><div class="pf-ib">Informações pessoais</div><svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-phone" /></svg></div><div class="pf-ib">Contatos</div><div class="pf-iv pf-acc-v">Adicionar</div><svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Financeiro</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-bank" /></svg></div><div class="pf-ib">Conta bancária</div><div class="pf-iv pf-acc-v">Adicionar</div><svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                      </div>
+                      <div class="pf-gf">Os saques caem na conta marcada para saques.</div>
+                    </div>
+                    <div class="pf-grp" id="c04-gIcp">
+                      <div class="pf-gt">Assinatura digital</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir" id="c04-rowIcp"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-shield" /></svg></div><div class="pf-ib">Certificado ICP</div><div class="pf-iv"><span class="pf-stk pf-e"><span>Não enviado</span><span class="pf-alt" id="c04-icpRowB">Ativo na nuvem</span></span></div><svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Preferências</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-bell" /></svg></div><div class="pf-ib">Notificações</div><div class="pf-sw"></div></div>
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-pin" /></svg></div><div class="pf-ib">Localização</div><div class="pf-sw pf-off"></div></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Segurança</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c04-i-key" /></svg></div><div class="pf-ib">Alterar senha</div><svg class="pf-ic"><use href="#c04-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it pf-red"><svg class="pf-ic"><use href="#c04-i-out" /></svg></div><div class="pf-ib pf-red">Sair da conta</div></div>
+                      </div>
+                    </div>
+                    <div class="pf-ver">Viva Mais · versão 2.4.0</div>
+                  </div>
+                </div>
+
+                <div class="pf-sk" id="c04-pfSkel">
+                  <i style="left: 155px; top: 0; width: 92px; height: 92px; border-radius: 50%;"></i>
+                  <i style="left: 111px; top: 106px; width: 180px; height: 22px; border-radius: 8px;"></i>
+                  <i style="left: 131px; top: 136px; width: 140px; height: 14px; border-radius: 6px;"></i>
+                  <i style="left: 20px; top: 178px; width: 175px; height: 132px; border-radius: 20px;"></i>
+                  <i style="left: 207px; top: 178px; width: 175px; height: 132px; border-radius: 20px;"></i>
+                  <i style="left: 20px; top: 334px; width: 362px; height: 144px; border-radius: 22px;"></i>
+                  <i style="left: 20px; top: 502px; width: 362px; height: 144px; border-radius: 22px;"></i>
+                  <div class="pf-shine" id="c04-pfShine"></div>
+                </div>
+                <div class="pf-bar" id="c04-pfBar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow><span>Perfil</span><i></i></div>
+
+                <div class="pf-tabbar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                  <div class="pf-tb-bar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="pf-tb-item"><div class="pf-tb-ind"><svg class="pf-ic"><use href="#c04-i-house" /></svg><span>Dashboard</span></div></div>
+                    <div class="pf-tb-item"><div class="pf-tb-ind"><svg class="pf-ic"><use href="#c04-i-cal" /></svg><span>Consultas</span></div></div>
+                    <div class="pf-tb-item"><div class="pf-tb-ind"><svg class="pf-ic"><use href="#c04-i-receipt" /></svg><span>Faturamento</span></div></div>
+                    <div class="pf-tb-item"><div class="pf-tb-ind pf-on"><svg class="pf-ic"><use href="#c04-i-user" /></svg><span>Perfil</span></div></div>
+                  </div>
+                  <div class="pf-tb-plus"><svg class="pf-ic"><use href="#c04-i-plus" /></svg></div>
+                </div>
+              </div>
+
+              <div class="scr pg" id="c04-sC">
+                <div class="auth-head">
+                  <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div class="nav-t">Certificado digital</div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="ctn" style="top: 124px;">
+                  <div class="seg2" id="c04-seg"><div class="ind" id="c04-ind"></div><div class="sg on" id="c04-segA1">A1 · Arquivo</div><div class="sg" id="c04-segA3">A3 · Nuvem</div></div>
+                  <div class="panes">
+                    <div class="pane" id="c04-pA1"><div id="c04-a1Html"></div></div>
+                    <div class="pane" id="c04-pA3">
+                      <div class="lead"><div class="lt"><svg viewBox="0 0 24 24" fill="none" stroke="#7E3BED" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v1M14 20h1M18 18h3v3"/></svg></div><p>Escolha a instituição onde está seu certificado em nuvem. Você verá as opções disponíveis para o CPF do seu perfil.</p></div>
+                      <div id="c04-pvList">
+                        <div class="pv" id="c04-pvBry"><div class="pvs"></div><span class="nm2">BRy</span><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="#7E3BED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+                        <div class="pv"><div class="pvs"></div><span class="nm2">Certisign</span><svg class="ck" viewBox="0 0 24 24"></svg></div>
+                        <div class="pv"><div class="pvs"></div><span class="nm2">Serasa Experian</span><svg class="ck" viewBox="0 0 24 24"></svg></div>
+                        <div class="pv"><div class="pvs"></div><span class="nm2">Soluti</span><svg class="ck" viewBox="0 0 24 24"></svg></div>
+                      </div>
+                      <div class="pv-sk" id="c04-pvSk" style="top: 106px;">
+                        <div class="skb" style="left: 20px; top: 0; width: 362px; height: 54px; border-radius: 16px;"></div>
+                        <div class="skb" style="left: 20px; top: 64px; width: 362px; height: 54px; border-radius: 16px;"></div>
+                        <div class="skb" style="left: 20px; top: 128px; width: 362px; height: 54px; border-radius: 16px;"></div>
+                        <div class="skb" style="left: 20px; top: 192px; width: 362px; height: 54px; border-radius: 16px;"></div>
+                        <div class="shine" id="c04-pvShine"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn off" id="c04-btn1" style="top: 764px;"><div class="on"></div><span class="c4-spin" id="c04-spin1"></span><span class="lbl" id="c04-lbl1">Enviar certificado</span><span class="lbl lbl-alt" id="c04-lbl1b">Validando...</span></div>
+                <div class="btn off" id="c04-btn3" style="top: 764px;"><div class="on"></div><span class="lbl">Autorizar</span></div>
+                <div class="sk-ov" id="c04-cSk" style="top: 124px; z-index: 7;">
+                  <div class="skb" style="left: 20px; top: 0; width: 362px; height: 44px; border-radius: 16px;"></div>
+                  <div class="skb" style="left: 20px; top: 60px; width: 362px; height: 120px; border-radius: 20px;"></div>
+                  <div class="skb" style="left: 20px; top: 204px; width: 362px; height: 58px; border-radius: 20px;"></div>
+                  <div class="skb" style="left: 20px; top: 286px; width: 362px; height: 80px; border-radius: 20px;"></div>
+                  <div class="shine" id="c04-cShine"></div>
+                </div>
+                <div class="dim" id="c04-dim" data-layout-allow-overlap></div>
+                <div class="sheet" id="c04-sheet" data-layout-allow-overlap>
+                  <div class="grab"></div>
+                  <div class="sh-h" data-layout-allow-overlap><span>Cancelar</span><b data-layout-allow-overlap>Arquivos</b><span></span></div>
+                  <div class="fl">
+                    <div class="ig" style="margin-bottom: 0;">
+                      <div class="ig-c" id="c04-flist"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="scr pg" id="c04-sV">
+                <div class="auth-head">
+                  <div class="back" id="c04-vBack"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div class="nav-t">Certificado digital</div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="ctn" style="top: 130px;" id="c04-vBody"></div>
+              </div>
+
+              <div class="scr pg" id="c04-sQ">
+                <div class="auth-head">
+                  <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div class="nav-t">Assinatura em nuvem</div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="ctn" style="top: 126px;">
+                  <div style="padding: 0 24px;" id="c04-qHead"><div class="qh">Autorizar na BRy</div><p class="sub">Aprove a assinatura no app do seu certificado digital usando o QR code.</p></div>
+                  <div id="c04-qrW"><div class="qr-card" id="c04-qrCard"><svg class="qr" id="c04-qr" viewBox="0 0 25 25" shape-rendering="crispEdges"></svg><div class="scan" id="c04-scan"></div><div class="qr-ok" id="c04-qrOk"><div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></div></div></div></div>
+                  <div style="margin-top: 22px;" id="c04-qSteps">
+                    <div class="st"><div class="n">1</div><span>Leia o QR code com o app do certificado</span></div>
+                    <div class="st"><div class="n">2</div><span>Aprove a operação no aplicativo</span></div>
+                  </div>
+                  <div class="stt" id="c04-qStat">
+                    <div class="wt"><div class="sp" id="c04-qSp"></div><span>Aguardando aprovação no aplicativo do certificado...</span></div>
+                    <div class="ok"><div class="okc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></div><span>Autorização recebida</span></div>
+                  </div>
+                </div>
+                <div class="btn out" style="top: 764px;"><span class="lbl">Já autorizei no app</span></div>
+              </div>
+
+              <div class="scr pg" id="c04-sA">
+                <div class="auth-head">
+                  <div class="back" id="c04-aBack"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div class="nav-t">Certificado digital</div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="ctn" style="top: 126px;" id="c04-aBody"></div>
+              </div>
+
+              <div class="status" data-layout-allow-overlap><span>9:41</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+              <div class="island"></div>
+              <div class="pf-home"></div>
+            </div>
+            <div class="lift"></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="c04-brand" class="clip" data-start="0" data-duration="42.2" data-track-index="3">
+        <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+      </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch04-certificado"]');
+          const ICON = {
+            dollar: '<circle cx="12" cy="12" r="9"/><path d="M14.5 9.2c-.5-.9-1.5-1.2-2.5-1.2-1.4 0-2.4.7-2.4 1.8s1 1.5 2.4 1.9 2.4.8 2.4 1.9-1 1.8-2.4 1.8c-1 0-2-.4-2.5-1.2M12 6.5V8M12 16v1.5"/>',
+            cal: '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M12 13v3l2 1"/>',
+            gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v8a1 1 0 001 1h12a1 1 0 001-1v-8M8 8a2.5 2.5 0 110-5c2 0 4 2 4 5 0-3 2-5 4-5a2.5 2.5 0 110 5"/>',
+            user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>',
+            phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/>',
+            bank: '<path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/>',
+            shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+            alert: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 8v4M12 15.5v.01"/>',
+            bell: '<path d="M6 16v-5a6 6 0 0112 0v5l2 2H4zM10 21h4"/>',
+            pin: '<path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+            key: '<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/>',
+            out: '<path d="M9 4H5a2 2 0 00-2 2v12a2 2 0 002 2h4M16 8l4 4-4 4M20 12H9"/>',
+            fkey: '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><circle cx="10" cy="15" r="2"/><path d="M12 15h4"/>',
+            repeat: '<path d="M17 2l4 4-4 4M3 11V9a3 3 0 013-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 01-3 3H3"/>',
+            trash: '<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/>',
+            file: '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/>',
+            image: '<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/>'
+          };
+          const ico = (n, c) => '<svg viewBox="0 0 24 24" fill="none" stroke="' + (c || "#6A24DB") + '" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + ICON[n] + "</svg>";
+          const CHV = '<svg class="chv" viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+          const sw2 = (a, b, h) => '<div class="sw2" style="height:' + h + 'px"><span class="a" data-layout-allow-overlap>' + a + '</span><span class="b" data-layout-allow-overlap>' + b + "</span></div>";
+          const R = (o) => '<div class="ir' + (o.dest ? " dest" : "") + '"' + (o.id ? ' id="' + o.id + '"' : "") + '><div class="prs"></div>' +
+            (o.icon ? '<div class="tile">' + ico(o.icon, o.dest ? "#DC2626" : null) + "</div>" : "") +
+            '<div class="bd"><div class="lb">' + (o.labelHtml || o.label) + "</div>" + (o.detail ? '<div class="dt">' + o.detail + "</div>" : "") + (o.detailHtml ? o.detailHtml : "") + "</div>" +
+            (o.value ? '<div class="vl"' + (o.tint ? ' style="color:' + o.tint + '"' : "") + ">" + o.value + "</div>" : "") +
+            (o.toggle ? '<div class="tg"><i></i></div>' : "") + (o.live ? '<div class="live" id="' + o.live + '"></div>' : "") + (o.chev ? CHV : "") + "</div>";
+          const G = (o) => '<div class="gw"><div class="ig">' + (o.title ? '<div class="ig-t">' + o.title + "</div>" : "") +
+            '<div class="ig-c"' + (o.id ? ' id="' + o.id + '"' : "") + ">" + o.rows.join('<div class="hl' + (o.s ? " s" : "") + '"></div>') + "</div>" + (o.footer ? '<div class="ig-f">' + o.footer + "</div>" : "") + "</div></div>";
+
+          root.querySelector("#c04-a1Html").innerHTML =
+            '<div class="ig" style="margin-bottom:16px"><div class="ig-c">' +
+            R({ icon: "alert", label: "Não enviado", detail: "Envie seu A1 para assinar documentos" }) +
+            '<div class="hl s"></div><div class="msg" style="padding-top:12px;padding-bottom:12px;font-size:14px;line-height:20px">O A1 é o arquivo .pfx ou .p12 da sua certificadora ICP-Brasil.</div></div></div>' +
+            '<div class="ig"><div class="ig-t">Enviar A1</div><div class="ig-c" id="c04-gFile">' +
+            R({ id: "c04-rowFile", icon: "fkey", labelHtml: sw2("Escolher arquivo", "Trocar arquivo", 21), detailHtml: '<div class="dt">' + sw2("Arquivo .pfx ou .p12", "camila-rocha.pfx · 4 KB", 17) + "</div>", chev: 1 }) +
+            "</div></div>" +
+            '<div class="ig"><div class="field-card" id="c04-gPw"><div class="field" id="c04-fPw"><div class="box"></div><div class="box-focus"></div><div class="label">Senha do certificado</div><div class="val" data-final="••••••••••"></div><div class="caret"></div></div></div>' +
+            '<div class="ig-f">' + sw2("A senha é usada só para validar e assinar. Ela fica criptografada.", "Validando a cadeia ICP-Brasil. Pode levar até um minuto.", 36).replace('class="sw2"', 'class="sw2" id="c04-pwFoot"') + "</div></div>";
+
+          const FILES = [["receita-modelo.pdf", "126 KB · Ontem", "file", ""], ["camila-rocha.pfx", "4 KB · Hoje", "fkey", " k"], ["foto-crm.jpg", "1,2 MB · 2 de out.", "image", ""], ["diploma-medicina.pdf", "880 KB · 28 de set.", "file", ""]];
+          root.querySelector("#c04-flist").innerHTML = FILES.map((f, i) => '<div class="ir"' + (i === 1 ? ' id="c04-fpfx"' : "") + '><div class="prs"></div><div class="fi' + f[3] + '">' + ico(f[2], f[3] ? "#6A24DB" : "#726F80") + '</div><div class="bd"><div class="lb">' + f[0] + '</div><div class="fm">' + f[1] + "</div></div></div>").join('<div class="hl"></div>');
+
+          const CERT_A1 = G({ id: "c04-vCert", title: "Certificado", s: 1, rows: [R({ label: "Tipo", value: "A1" }), R({ label: "Válido até", value: "05/10/2027" }), R({ label: "Emitido em", value: "05/10/2026" }), R({ label: "Último uso", value: "Nunca usado" }), R({ label: "Impressão digital", value: "A41F…7C9E" })] });
+          root.querySelector("#c04-vBody").innerHTML =
+            G({ title: "Status", rows: [R({ id: "c04-vStat", icon: "shield", label: "Válido até 05/10/2027", detail: "Assinatura digital liberada", live: "c04-vLive" })] }) + CERT_A1 +
+            G({ footer: "Envie um novo A1 para renovar ou trocar de certificadora.", rows: [R({ icon: "repeat", label: "Substituir certificado", chev: 1 })] }) +
+            G({ rows: [R({ icon: "trash", label: "Remover certificado", dest: 1 })] });
+
+          root.querySelector("#c04-aBody").innerHTML =
+            '<div class="gw" id="c04-sealW"><div class="seal" id="c04-seal"><div class="sl"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><div><b>ICP-Brasil</b><span>Assinatura com validade jurídica</span></div></div></div>' +
+            G({ title: "Status", rows: [R({ id: "c04-aStat", icon: "shield", label: "Ativo na nuvem", detail: "Assinatura digital liberada", live: "c04-aLive" })] }) +
+            G({ title: "Certificado", s: 1, footer: "Este certificado fica no seu provedor em nuvem. Para trocar ou renovar, faça por lá.", rows: [R({ label: "Tipo", value: "A3 Cloud" }), R({ label: "Válido até", value: "14/03/2028" }), R({ label: "Emitido em", value: "14/03/2025" }), R({ label: "Último uso", value: "Nunca usado" })] }) +
+            G({ rows: [R({ icon: "trash", label: "Remover certificado", dest: 1 })] });
+
+          (function () {
+            let s = 11;
+            const rnd = () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
+            const N = 25, fin = (x, y) => (x < 8 && y < 8) || (x > 16 && y < 8) || (x < 8 && y > 16);
+            let h = "";
+            for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { if (!fin(x, y) && rnd() > 0.5) h += '<rect x="' + x + '" y="' + y + '" width="1" height="1"/>'; }
+            [[0, 0], [18, 0], [0, 18]].forEach((p) => { h += '<path fill-rule="evenodd" d="M' + p[0] + " " + p[1] + "h7v7h-7zM" + (p[0] + 1) + " " + (p[1] + 1) + "v5h5v-5z\"/><rect x=\"" + (p[0] + 2) + '" y="' + (p[1] + 2) + '" width="3" height="3"/>'; });
+            root.querySelector("#c04-qr").innerHTML = '<g fill="#17151E">' + h + "</g>";
+          })();
+
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const { $, $$, E, tip, tap, center, posIn, push, enable, showTip, liftOut, focusField, blurField, typeIn, titleCard, finalClone } = k;
+            const cam = $(".cam");
+            const S = (s) => $("#c04-" + s);
+
+            k.screens(["sP", "sC", "sV", "sQ", "sA"].map((s) => "c04-" + s));
+            $$("#c04-sP, #c04-sP *").forEach((n) => ["occlusion", "overlap", "overflow"].forEach((a) => n.setAttribute("data-layout-allow-" + a, "")));
+            tl.set(S("pA3"), { autoAlpha: 0 }, 0);
+            tl.set(S("btn3"), { autoAlpha: 0 }, 0);
+            tl.set(S("sheet"), { y: 460 }, 0);
+
+            titleCard("#c04-t1", { at: 0.15, sparkAt: 0.75, out: 2.58 });
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out" }, 3);
+
+            const shine = (el, t, d) => tl.fromTo(el, { x: -200 }, { x: 640, duration: d, ease: "power1.inOut" }, t);
+            const swap = (el, t) => { tl.to(el.querySelector(".a"), { opacity: 0, duration: 0.2 }, t); tl.to(el.querySelector(".b"), { opacity: 1, duration: 0.25 }, t + 0.05); };
+            const press = (row, t) => tl.to(row.querySelector(".prs, .pf-press"), { opacity: 1, duration: 0.1 }, t);
+
+            const pfScroll = S("pfScroll");
+            const rowIcp = S("rowIcp");
+            const rc = center(rowIcp);
+            const SY = Math.round(rc.y - 540);
+            shine(S("pfShine"), 3.1, 0.8);
+            tl.to(S("pfSkel"), { autoAlpha: 0, duration: 0.3 }, 4.0);
+            tl.fromTo([S("pfAcc"), S("pfHero"), S("pfGroups")], { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: E, stagger: 0.12 }, 3.95);
+            tl.to(cam, { scale: 1.05, y: 30, duration: 1.5, ease: "power2.inOut" }, 4.9);
+            tl.to(pfScroll, { y: -SY, duration: 1.4, ease: "power2.inOut" }, 4.9);
+            tl.fromTo(S("pfBar"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 5.6);
+            tap(rc.x, rc.y - SY, 6.5, null);
+            press(rowIcp, 6.5);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, 6.1);
+            push("c04-sP", "c04-sC", 6.75);
+
+            shine(S("cShine"), 6.9, 0.7);
+            tl.to(S("cSk"), { autoAlpha: 0, duration: 0.3 }, 7.6);
+
+            const rowFile = S("rowFile");
+            const rf = center(rowFile);
+            tap(rf.x, rf.y, 8.4, null);
+            press(rowFile, 8.4);
+            tl.to(rowFile.querySelector(".prs"), { opacity: 0, duration: 0.3 }, 8.7);
+            tl.to(S("dim"), { opacity: 1, duration: 0.4 }, 8.55);
+            tl.to(S("sheet"), { y: 0, duration: 0.55, ease: "power3.out" }, 8.55);
+            const fpfx = S("fpfx");
+            const fp = center(fpfx);
+            tap(fp.x, fp.y, 9.75, null);
+            press(fpfx, 9.75);
+            const clone = finalClone(fpfx).node;
+            const dy = rf.p.y - fp.p.y;
+            tl.set(clone, { opacity: 1 }, 9.9);
+            tl.fromTo(clone, { y: 0, scale: 1 }, { y: dy, duration: 0.6, ease: "power3.inOut" }, 9.9);
+            tl.fromTo(clone, { scale: 1 }, { scale: 1.05, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1 }, 9.9);
+            tl.to(S("sheet"), { y: 460, duration: 0.45, ease: "power3.in" }, 10.0);
+            tl.to(S("dim"), { opacity: 0, duration: 0.35 }, 10.05);
+            swap(rowFile.querySelector(".bd > .lb .sw2"), 10.4);
+            swap(rowFile.querySelector(".dt .sw2"), 10.4);
+            tl.to(clone, { opacity: 0, duration: 0.2 }, 10.6);
+
+            const fPw = S("fPw");
+            const pc = center(fPw);
+            tl.to(cam, { scale: 1.06, y: 40, duration: 1.0, ease: "power2.inOut" }, 10.9);
+            tap(pc.x, pc.y, 11.5, null);
+            focusField(fPw, 11.55);
+            typeIn(fPw, 11.65, 1.1);
+            blurField(fPw, 12.95);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.7, ease: "power2.inOut" }, 12.8);
+            enable(S("btn1"), 13.2);
+            tap(201, 790, 13.7, "#c04-btn1");
+            tl.set(S("spin1"), { opacity: 1 }, 13.8);
+            tl.set(S("lbl1"), { opacity: 0 }, 13.8);
+            tl.set(S("lbl1b"), { opacity: 1 }, 13.8);
+            tl.fromTo(S("spin1"), { rotation: 0 }, { rotation: 720, duration: 1.3, ease: "none" }, 13.8);
+            swap(S("pwFoot"), 13.8);
+            push("c04-sC", "c04-sV", 15.2);
+
+            tl.fromTo([...$$("#c04-vBody > .gw")], { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: E, stagger: 0.08 }, 15.4);
+            tl.fromTo(S("vLive"), { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.4)" }, 15.8);
+            const vc = S("vCert");
+            const vcc = center(vc);
+            liftOut(vc, 16.4, 2.0, 0, 1.07);
+            showTip(tip("A1: arquivo e senha", vcc.x, vcc.p.y + vcc.p.h + 8, "down"), 16.7, 1.65);
+
+            const bk = center(S("vBack"));
+            tap(bk.x, bk.y, 19.0, null);
+            tl.set(S("sC"), { autoAlpha: 1 }, 19.1);
+            tl.fromTo(S("sC"), { x: -120 }, { x: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, 19.1);
+            tl.fromTo(S("sV"), { x: 0 }, { x: 402, duration: 0.5, ease: "power3.out", immediateRender: false }, 19.1);
+            tl.set(S("sV"), { autoAlpha: 0 }, 19.62);
+            tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, 19.7);
+            tl.set(cam, { opacity: 0 }, 20.12);
+            tl.set(S("rowFile").querySelector(".bd > .lb .sw2 .a"), { opacity: 1 }, 20.2);
+            tl.set(S("rowFile").querySelector(".bd > .lb .sw2 .b"), { opacity: 0 }, 20.2);
+            tl.set(S("rowFile").querySelector(".dt .sw2 .a"), { opacity: 1 }, 20.2);
+            tl.set(S("rowFile").querySelector(".dt .sw2 .b"), { opacity: 0 }, 20.2);
+            tl.set(fPw.querySelector(".val"), { opacity: 0 }, 20.2);
+            tl.set(fPw.querySelector(".label"), { y: 0, scale: 1, color: "#A29FB0" }, 20.2);
+            tl.set(S("btn1").querySelector(".on"), { opacity: 0 }, 20.2);
+            tl.set(S("btn1").querySelector(".lbl"), { color: "#55525F" }, 20.2);
+            tl.set(S("spin1"), { opacity: 0 }, 20.2);
+            tl.set(S("lbl1"), { opacity: 1 }, 20.2);
+            tl.set(S("lbl1b"), { opacity: 0 }, 20.2);
+            tl.set(S("pwFoot").querySelector(".a"), { opacity: 1 }, 20.2);
+            tl.set(S("pwFoot").querySelector(".b"), { opacity: 0 }, 20.2);
+
+            titleCard("#c04-t2", { at: 20.12, sparkAt: 20.62, out: 22.9, from: { x: 160 }, stagger: 0.07 });
+            tl.set(cam, { opacity: 1 }, 23.32);
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out", immediateRender: false }, 23.32);
+
+            const sg3 = center(S("segA3"));
+            tap(sg3.x, sg3.y, 24.6, null);
+            tl.to(S("ind"), { x: 177, duration: 0.4, ease: "power3.out" }, 24.62);
+            tl.to(S("segA1"), { color: "#55525F", duration: 0.2 }, 24.62);
+            tl.to(S("segA3"), { color: "#FFFFFF", duration: 0.2 }, 24.62);
+            tl.to(S("pA1"), { autoAlpha: 0, x: -24, duration: 0.25, ease: "power2.in" }, 24.7);
+            tl.fromTo(S("pA3"), { autoAlpha: 0, x: 24 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: E, immediateRender: false }, 24.9);
+            tl.to(S("btn1"), { autoAlpha: 0, duration: 0.2 }, 24.7);
+            tl.to(S("btn3"), { autoAlpha: 1, duration: 0.3 }, 24.9);
+            tl.to(cam, { scale: 1.05, y: 40, duration: 1.2, ease: "power2.inOut" }, 24.9);
+            shine(S("pvShine"), 25.2, 0.8);
+            tl.to(S("pvSk"), { autoAlpha: 0, duration: 0.3 }, 26.0);
+            tl.fromTo($$("#c04-pvList .pv"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: E, stagger: 0.07 }, 26.0);
+            const bry = S("pvBry");
+            const bc = center(bry);
+            tap(bc.x, bc.y, 27.0, bry);
+            tl.to(bry.querySelector(".pvs"), { opacity: 1, duration: 0.2 }, 27.0);
+            tl.to(bry.querySelector(".nm2"), { color: "#6A24DB", duration: 0.2 }, 27.0);
+            tl.fromTo(bry.querySelector(".ck"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 27.05);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.7, ease: "power2.inOut" }, 27.7);
+            enable(S("btn3"), 27.9);
+            tap(201, 790, 28.4, "#c04-btn3");
+            push("c04-sC", "c04-sQ", 28.6);
+
+            tl.fromTo(S("qHead"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: E }, 28.85);
+            tl.fromTo(S("qrW"), { opacity: 0, scale: 0.88 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.5)" }, 29.0);
+            tl.fromTo($$("#c04-qSteps .st"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: E, stagger: 0.12 }, 29.45);
+            tl.fromTo(S("qStat"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 29.9);
+            tl.fromTo(S("qSp"), { rotation: 0 }, { rotation: 1440, duration: 3.2, ease: "none" }, 29.9);
+            const qc = center(S("qrCard"));
+            liftOut(S("qrCard"), 30.3, 2.0, 0, 1.12);
+            showTip(tip("A3: na nuvem, sem token", qc.x, qc.p.y + qc.p.h + 10, "down"), 30.6, 1.65);
+            tl.set(S("scan"), { opacity: 1 }, 32.85);
+            tl.fromTo(S("scan"), { y: 0 }, { y: 196, duration: 0.7, ease: "power1.inOut", immediateRender: false }, 32.85);
+            tl.set(S("scan"), { opacity: 0 }, 33.55);
+            tl.fromTo(S("qrOk"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 33.5);
+            tl.fromTo(S("qrOk").firstElementChild, { scale: 0.5 }, { scale: 1, duration: 0.45, ease: "back.out(2)" }, 33.55);
+            tl.to(S("qStat").querySelector(".wt"), { opacity: 0, duration: 0.2 }, 33.7);
+            tl.to(S("qStat").querySelector(".ok"), { opacity: 1, duration: 0.3 }, 33.8);
+            push("c04-sQ", "c04-sA", 34.7);
+
+                        tl.fromTo($$("#c04-aBody > .gw"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: E, stagger: 0.08 }, 35.15);
+            tl.fromTo(S("aLive"), { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.4)" }, 35.5);
+            const sl = center(S("seal"));
+            liftOut(S("seal"), 36.2, 2.4, 0, 1.08);
+            showTip(tip("Receitas válidas com ICP-Brasil", sl.x, sl.p.y + sl.p.h + 8, "down"), 36.5, 1.95);
+
+            const ab = center(S("aBack"));
+            tap(ab.x, ab.y, 39.1, null);
+            tl.set(S("pfScroll"), { y: 0 }, 39.0);
+            tl.set(S("pfBar"), { opacity: 0 }, 39.0);
+            const hc = S("hcIcp");
+            const flip = (stk, t) => {
+              tl.to(stk.children[0], { opacity: 0, duration: 0.2 }, t);
+              tl.to(stk.children[1], { opacity: 1, duration: 0.25 }, t + 0.05);
+            };
+            hc.querySelectorAll(".pf-stk").forEach((n) => flip(n, 39.0));
+            flip(S("rowIcp").querySelector(".pf-stk"), 39.0);
+            tl.to(hc.querySelector(".pf-dot"), { backgroundColor: "#22C55E", duration: 0.2 }, 39.0);
+            tl.set(S("sP"), { autoAlpha: 1 }, 39.2);
+            tl.fromTo(S("sP"), { x: -120 }, { x: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, 39.2);
+            tl.fromTo(S("sA"), { x: 0 }, { x: 402, duration: 0.5, ease: "power3.out", immediateRender: false }, 39.2);
+            tl.set(S("sA"), { autoAlpha: 0 }, 39.72);
+            tl.fromTo(hc, { scale: 1 }, { scale: 1.05, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 39.9);
+            tl.set(hc.querySelector(".pf-ring"), { opacity: 0.9 }, 39.9);
+            tl.to(hc.querySelector(".pf-ring"), { opacity: 0, duration: 0.8, ease: "power2.out" }, 39.9);
+            tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, 41.6);
+            tl.set(cam, { opacity: 0 }, 42.02);
+
+            window.__timelines["ch04-certificado"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

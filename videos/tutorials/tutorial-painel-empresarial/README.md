@@ -10,7 +10,7 @@ The UI is not redrawn. `capture/` drives the real `vivamais-web` app in headless
 # terminal 1: mock API on :8787 (fictional company Aurora Logística)
 npm run capture:mock
 
-# terminal 2: the web app pointed at the mock, from ../../../vivamais-web
+# terminal 2: the web app pointed at the mock, from ../../../../vivamais-web
 NEXT_PUBLIC_REACT_APP_API='http://127.0.0.1:8787/' ./node_modules/.bin/next dev --turbopack -p 3457
 
 # terminal 3: capture every state, then rebuild

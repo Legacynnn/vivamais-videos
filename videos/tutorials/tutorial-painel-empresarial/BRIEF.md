@@ -23,7 +23,7 @@ More text than the earlier walkthrough: on-screen step titles and explainer line
 
 ## Assets
 
-- ../../../vivamais-web — source of truth for every screen; UI is captured from the running app, not redrawn
+- ../../../../../vivamais-web — source of truth for every screen; UI is captured from the running app, not redrawn
 - capture/states/*.html — real DOM snapshots of each screen state, rendered by the app against a mock API
 - capture/ui.css — the app's compiled Tailwind stylesheet, scoped to `.vm-ui`
 - assets/ui/fonts — Poppins files the app ships via next/font

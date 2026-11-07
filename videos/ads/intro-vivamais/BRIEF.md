@@ -32,7 +32,7 @@ then each feature in the real UI (RH web, collaborator phone), RH panel, sign-of
 
 ## Assets
 
-- Real captured UI, reused: phone states from `../tutorial-plantao/capture/states` (Expo app), web states from `../tutorial-painel-empresarial/capture/states` (vivamais-web). Both re-scoped here.
+- Real captured UI, reused: phone states from `../../tutorials/tutorial-plantao/capture/states` (Expo app), web states from `../../tutorials/tutorial-painel-empresarial/capture/states` (vivamais-web). Both re-scoped here.
 - Custom-built screens from the plantão project (benefícios, IA, documentos) and new ones where the app has no screen (lock-screen notifications, WhatsApp).
 - Real doctor portraits, persona photo `assets/app/ana.jpg`, HeyGen doctor clip `assets/video/doutora.mp4`.
 - Brand: `frame.md`, `brand/tokens.css`, transparent wordmark + vector mark only.

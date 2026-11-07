@@ -1,0 +1,29 @@
+HEADER |  | 0 | 0 | 402 | 60 | "" | rawline | 14px | 400 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+A |  | 0 | 0 | 120 | 60 | "" | rawline | 12.6px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+IMG |  | 10 | 10 | 100 | 36 | "" | rawline | 12.6px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | https://sso.acesso.gov.br/assets/govbr/img/govbr.png
+A |  | 328 | 22 | 15 | 18 | "" | rawline | 12.6px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+A |  | 367 | 22 | 15 | 18 | "" | rawline | 12.6px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+DIV | card | 31 | 86 | 340 | 679 | "" | rawline | 14px | 400 | rgb(51, 51, 51) | rgb(255, 255, 255) | b:0px rgb(51, 51, 51) | r:0px | 
+H3 |  | 41 | 96 | 227 | 25 | "Identifique-se no gov.br com:" | rawline | 16.38px | 700 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+A |  | 41 | 161 | 142 | 23 | "Número do CPF" | rawline | 14px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+IMG |  | 41 | 163 | 24 | 21 | "" | rawline | 14px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | https://sso.acesso.gov.br/assets/govbr/img/icons/id-card-solid.png
+P |  | 41 | 196 | 315 | 19 | "Digite seu CPF para ou sua conta gov.br" | rawline | 12.8px | 400 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+STRONG |  | 160 | 197 | 28 | 18 | "criar" | rawline | 12.8px | 700 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+STRONG |  | 209 | 197 | 47 | 18 | "acessar" | rawline | 12.8px | 700 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+LABEL |  | 41 | 228 | 26 | 21 | "CPF" | rawline | 14px | 600 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+INPUT |  | 41 | 254 | 320 | 40 | "" | Arial | 14px | 400 | rgb(0, 0, 0) | rgba(242, 227, 23, 0.3) | b:1px rgb(136, 136, 136) | r:4px | Digite seu CPF
+BUTTON | button-continuar | 41 | 324 | 320 | 40 | "Continuar" | Arial | 14px | 700 | rgb(255, 255, 255) | rgb(19, 81, 180) | b:0px rgb(255, 255, 255) | r:24px | 
+LABEL |  | 41 | 389 | 208 | 21 | "Outras opções de identificação:" | rawline | 14px | 600 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+HR |  | 41 | 415 | 320 | 2 | "" | rawline | 14px | 400 | rgb(128, 128, 128) | rgba(0, 0, 0, 0) | b:1px rgb(128, 128, 128) | r:0px | 
+BUTTON | button-href-mimic2 | 41 | 437 | 278 | 24 | "Login com seu banco" | rawline | 14px | 500 | rgb(0, 140, 50) | rgba(0, 0, 0, 0) | b:0px rgb(0, 140, 50) | r:24px | 
+IMG |  | 41 | 437 | 24 | 24 | "" | rawline | 14px | 500 | rgb(0, 140, 50) | rgba(0, 0, 0, 0) | b:0px rgb(0, 140, 50) | r:0px | https://sso.acesso.gov.br/assets/govbr/img/icons/InternetBanking-green.png
+SPAN |  | 231 | 441 | 88 | 16 | "SUA CONTA SERÁ PRATA" | rawline | 7px | 500 | rgb(255, 255, 255) | rgb(0, 140, 50) | b:0px rgb(255, 255, 255) | r:0px | 
+A |  | 41 | 481 | 173 | 24 | "Seu aplicativo gov.br" | rawline | 14px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | 
+IMG |  | 41 | 481 | 24 | 24 | "" | rawline | 14px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | https://sso.acesso.gov.br/assets/govbr/img/icons/app-identidade-govbr.png
+BUTTON | button-href-mimic2 | 41 | 525 | 180 | 24 | "Seu certificado digital" | rawline | 14px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:24px | 
+IMG |  | 41 | 525 | 24 | 24 | "" | rawline | 14px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | https://sso.acesso.gov.br/assets/govbr/img/icons/CD.png
+BUTTON | button-href-mimic2 | 41 | 569 | 253 | 24 | "Seu certificado digital em nuvem" | rawline | 14px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:24px | 
+IMG |  | 41 | 569 | 24 | 24 | "" | rawline | 14px | 500 | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px | https://sso.acesso.gov.br/assets/govbr/img/icons/CD-Nuvem.png
+A |  | 68 | 694 | 275 | 20 | "Está com dúvidas e precisa de ajuda?" | rawline | 14px | 500 | rgb(19, 81, 180) | rgba(0, 0, 0, 0) | b:0px rgb(19, 81, 180) | r:0px | 
+IMG |  | 68 | 698 | 14 | 14 | "" | rawline | 14px | 500 | rgb(19, 81, 180) | rgba(0, 0, 0, 0) | b:0px rgb(19, 81, 180) | r:0px | https://sso.acesso.gov.br/assets/govbr/fontawesome/webfonts/circle-question-solid.svg
+A |  | 41 | 734 | 320 | 21 | "Termo de Uso e Aviso de Privacidade" | rawline | 14px | 500 | rgb(19, 81, 180) | rgba(0, 0, 0, 0) | b:0px rgb(19, 81, 180) | r:0px | 

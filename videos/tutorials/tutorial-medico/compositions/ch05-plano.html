@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch05 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch05 .ic { display: inline-block; flex: none; }
+        #ch05 .ic svg { display: block; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        #ch05 .gc { background: var(--vm-canvas); }
+        #ch05 .gt { background: var(--vm-tile); }
+        #ch05 .gp { background: var(--vm-panel); }
+        #ch05 .pf-ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+        #ch05 .pf { background: var(--vm-panel); }
+        #ch05 .pf-scroll { position: absolute; left: 0; top: 0; width: 402px; height: 1640px; }
+        #ch05 .pf-title { position: absolute; left: 20px; top: 102px; height: 52px; padding-top: 4px; font-weight: 700; font-size: 34px; line-height: 42px; letter-spacing: -0.6px; color: var(--vm-ink-900); }
+        #ch05 .pf-bar { position: absolute; left: 0; top: 0; width: 402px; height: 98px; background: var(--vm-panel); z-index: 20; opacity: 0; }
+        #ch05 .pf-bar span { position: absolute; left: 0; right: 0; top: 54px; height: 44px; line-height: 44px; text-align: center; font-weight: 500; font-size: 17px; color: var(--vm-ink-900); }
+        #ch05 .pf-bar i { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch05 .pf-acc { position: absolute; left: 0; top: 156px; width: 402px; text-align: center; }
+        #ch05 .pf-avatar { position: relative; width: 92px; height: 92px; margin: 0 auto; }
+        #ch05 .pf-avatar img { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; display: block; }
+        #ch05 .pf-cam-badge { position: absolute; right: -2px; bottom: -2px; width: 30px; height: 30px; border-radius: 50%; background: var(--vm-violet-600); border: 3px solid var(--vm-panel); display: flex; align-items: center; justify-content: center; color: #fff; }
+        #ch05 .pf-cam-badge .pf-ic { width: 14px; height: 14px; stroke-width: 2.4; }
+        #ch05 .pf-nm { margin-top: 12px; padding-left: 20px; display: flex; align-items: center; justify-content: center; gap: 2px; font-weight: 700; font-size: 24px; letter-spacing: -0.4px; color: var(--vm-ink-900); }
+        #ch05 .pf-nm .pf-ic { width: 18px; height: 18px; color: var(--vm-ink-300); stroke-width: 2.2; }
+        #ch05 .pf-em { margin-top: 2px; font-size: 14.5px; color: var(--vm-ink-500); }
+        #ch05 .pf-hero { position: absolute; left: 20px; right: 20px; top: 334px; }
+        #ch05 .pf-hf { position: relative; border-radius: 20px; background: #fff; padding: 16px; overflow: hidden; }
+        #ch05 .pf-eb { font-weight: 500; font-size: 11.5px; letter-spacing: 0.9px; text-transform: uppercase; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch05 .pf-rb { display: flex; align-items: center; justify-content: space-between; height: 18px; }
+        #ch05 .pf-pillbox { position: relative; width: 100px; height: 18px; }
+        #ch05 .pf-pl { position: absolute; right: 0; top: 0; height: 18px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 13px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch05 .pf-pl i { display: block; width: 7px; height: 7px; border-radius: 50%; }
+        #ch05 .pf-pl-a i { background: #F59E0B; }
+        #ch05 .pf-pl-b i { background: #22C55E; }
+        #ch05 .pf-pl-b, #ch05 .pf-bd-b { opacity: 0; }
+        #ch05 .pf-bdbox { position: relative; height: 60px; margin-top: 10px; }
+        #ch05 .pf-bd { position: absolute; left: 0; right: 0; top: 0; font-size: 14.5px; line-height: 20px; color: var(--vm-ink-600); }
+        #ch05 .pf-hrow { display: flex; gap: 12px; margin-top: 12px; }
+        #ch05 .pf-hh { flex: 1; min-height: 132px; display: flex; flex-direction: column; }
+        #ch05 .pf-hh .pf-rb { height: 18px; }
+        #ch05 .pf-hh .pf-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--vm-ink-400); }
+        #ch05 .pf-ht { margin-top: 10px; font-weight: 700; font-size: 19px; line-height: 24px; letter-spacing: -0.3px; color: var(--vm-ink-900); }
+        #ch05 .pf-hs { margin-top: 2px; font-size: 13px; line-height: 17px; color: var(--vm-ink-500); }
+        #ch05 .pf-hfoot { margin-top: auto; padding-top: 10px; display: flex; align-items: center; gap: 2px; font-weight: 500; font-size: 13px; line-height: 17px; color: var(--vm-violet-600); }
+        #ch05 .pf-hfoot .pf-ic { width: 14px; height: 14px; stroke-width: 2.4; }
+        #ch05 .pf-groups { position: absolute; left: 0; right: 0; top: 618px; }
+        #ch05 .pf-grp { margin: 0 20px 24px; }
+        #ch05 .pf-gt { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--vm-ink-600); }
+        #ch05 .pf-gf { margin: 8px 4px 0; font-size: 13px; line-height: 18px; color: var(--vm-ink-600); }
+        #ch05 .pf-gc { border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch05 .pf-ir { position: relative; display: flex; align-items: center; gap: 14px; min-height: 56px; padding: 10px 14px 10px 16px; }
+        #ch05 .pf-ir + .pf-ir::before { content: ""; position: absolute; left: 66px; right: 0; top: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch05 .pf-it { width: 36px; height: 36px; flex: none; border-radius: 11px; background: var(--vm-violet-100); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch05 .pf-it .pf-ic { width: 19px; height: 19px; stroke-width: 1.9; }
+        #ch05 .pf-it.pf-red { background: #FDECEC; color: #DC2626; }
+        #ch05 .pf-ib { flex: 1; font-weight: 500; font-size: 16px; line-height: 21px; color: var(--vm-ink-900); white-space: nowrap; }
+        #ch05 .pf-ib.pf-red { color: #DC2626; }
+        #ch05 .pf-iv { font-size: 15px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch05 .pf-iv.pf-acc-v { color: var(--vm-violet-600); }
+        #ch05 .pf-ir > .pf-ic { width: 18px; height: 18px; flex: none; color: var(--vm-ink-400); }
+        #ch05 .pf-sw { position: relative; width: 46px; height: 28px; flex: none; border-radius: 14px; background: #22C55E; }
+        #ch05 .pf-sw.pf-off { background: var(--vm-ink-200); }
+        #ch05 .pf-sw::after { content: ""; position: absolute; top: 2px; left: 20px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(23, 21, 30, 0.25); }
+        #ch05 .pf-sw.pf-off::after { left: 2px; }
+        #ch05 .pf-ver { margin-top: -8px; text-align: center; font-size: 12px; color: var(--vm-ink-500); }
+        #ch05 .pf-sk { position: absolute; left: 0; top: 156px; width: 402px; height: 718px; background: var(--vm-panel); z-index: 10; }
+        #ch05 .pf-sk i { position: absolute; display: block; background: var(--vm-ink-100); }
+        #ch05 .pf-tabbar { position: absolute; left: 16px; right: 16px; bottom: 34px; height: 72px; z-index: 21; }
+        #ch05 .pf-tb-bar { position: absolute; left: 0; top: 0; width: 302px; height: 72px; border-radius: 999px; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: space-evenly; padding: 0 8px; }
+        #ch05 .pf-tb-item { flex: 1; display: flex; justify-content: center; }
+        #ch05 .pf-tb-ind { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 12px; border-radius: 999px; color: var(--vm-ink-600); }
+        #ch05 .pf-tb-ind.pf-on { background: var(--vm-violet-100); color: var(--vm-violet-600); }
+        #ch05 .pf-tb-ind span { font-weight: 500; font-size: 9px; line-height: 12px; }
+        #ch05 .pf-tb-plus { position: absolute; right: 0; top: 8px; width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: center; color: var(--vm-violet-600); }
+        #ch05 .pf-tb-plus .pf-ic { width: 22px; height: 22px; stroke-width: 2.25; }
+        #ch05 .pf-home { position: absolute; left: 134px; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: var(--vm-ink-900); z-index: 25; }
+        #ch05 .pf-stk { display: inline-grid; justify-items: start; }
+        #ch05 .pf-stk > * { grid-area: 1 / 1; }
+        #ch05 .pf-stk > .pf-alt { opacity: 0; }
+        #ch05 .pf-stk.pf-e { justify-items: end; }
+        #ch05 .pf-stk.pf-blk { display: grid; }
+        #ch05 .pf-hfoot .pf-stk > span { display: flex; align-items: center; gap: 2px; }
+        #ch05 .pf-hfoot .pf-stk > .pf-alt, #ch05 .pf-hfoot.pf-q { color: var(--vm-ink-500); }
+        #ch05 .pf-iv .pf-acc-v, #ch05 .pf-iv.pf-acc-v { color: var(--vm-violet-600); }
+        #ch05 .pf-press { position: absolute; inset: 0; background: rgba(85, 82, 95, 0.12); opacity: 0; pointer-events: none; }
+        #ch05 .pf-ring { position: absolute; inset: 0; border-radius: 20px; border: 3px solid #22C55E; opacity: 0; pointer-events: none; }
+        #ch05 .pf-hh .pf-dot { position: relative; }
+        #ch05 .pf-shine { position: absolute; top: 0; bottom: 0; left: 0; width: 160px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.7), rgba(255,255,255,0)); transform: translateX(-200px); }
+        #ch05 .pf-sk { overflow: hidden; }
+        #ch05 .p5-nav { position: absolute; left: 0; right: 0; top: 0; height: 106px; z-index: 6; display: flex; align-items: center; padding: 54px 16px 0; background: inherit; }
+        #ch05 .p5-nav .side { width: 90px; display: flex; align-items: center; }
+        #ch05 .p5-nav .ttl { flex: 1; text-align: center; font-weight: 700; font-size: 16px; color: var(--vm-ink-900); }
+        #ch05 .p5-sc { position: absolute; left: 0; right: 0; top: 106px; }
+        #ch05 .p5-abs { position: absolute; left: 0; right: 0; }
+        #ch05 .p5-h1 { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 28px; line-height: 33px; letter-spacing: -0.5px; color: var(--vm-ink-900); }
+        #ch05 .p5-cap { margin: 6px 0 0; font-size: 15px; line-height: 21px; color: var(--vm-ink-600); }
+        #ch05 .p5-pr { position: absolute; inset: 0; border-radius: inherit; background: rgba(245, 240, 254, 0.85); opacity: 0; }
+        #ch05 .p5-grp { margin: 0 20px 24px; }
+        #ch05 .p5-grp .gt0 { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--vm-ink-500); }
+        #ch05 .p5-grp .card { background: #fff; border-radius: 20px; overflow: hidden; }
+        #ch05 .p5-irow { position: relative; display: flex; align-items: center; gap: 14px; min-height: 56px; padding: 10px 14px 10px 16px; }
+        #ch05 .p5-irow + .p5-irow::before { content: ""; position: absolute; left: 66px; right: 0; top: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch05 .p5-irow .tile { width: 36px; height: 36px; border-radius: 11px; background: var(--vm-violet-100); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch05 .p5-irow .tile .ic { width: 19px; height: 19px; }
+        #ch05 .p5-irow .lb { flex: 1; font-weight: 500; font-size: 16px; line-height: 21px; color: var(--vm-ink-900); }
+        #ch05 .p5-irow .vl { font-size: 15px; color: var(--vm-ink-500); }
+        #ch05 .p5-irow .chv { width: 18px; height: 18px; color: var(--vm-ink-400); }
+        #ch05 .p5-irow.bad .lb { color: #DC2626; }
+        #ch05 .p5-irow.bad .tile { background: #FEE2E2; color: #EF4444; }
+        #ch05 .p5-phead { padding: 8px 20px 20px; }
+        #ch05 .p5-phead .p5-row { display: flex; align-items: center; gap: 12px; }
+        #ch05 .p5-phead h2 { flex: 1; margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 30px; line-height: 34px; letter-spacing: -0.6px; color: var(--vm-ink-900); }
+        #ch05 .p5-phead .meta { margin-top: 6px; font-size: 14.5px; line-height: 20px; color: var(--vm-ink-500); }
+        #ch05 .p5-pill { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; border-radius: 999px; background: var(--vm-ink-100); color: var(--vm-ink-700); font-weight: 500; font-size: 12.5px; white-space: nowrap; }
+        #ch05 .p5-pill.live { background: var(--vm-green-100); color: var(--vm-ink-900); }
+        #ch05 .p5-pill.live i { display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--vm-green-600); }
+        #ch05 .p5-pill.sm { height: 22px; padding: 0 8px; font-size: 11.5px; }
+        #ch05 .p5-sech { padding: 8px 20px 4px; font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--vm-ink-500); }
+        #ch05 .p5-ben { position: relative; display: flex; gap: 14px; padding: 16px 20px; }
+        #ch05 .p5-ben + .p5-ben::before { content: ""; position: absolute; left: 78px; right: 0; top: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch05 .p5-ben .tile { width: 44px; height: 44px; flex: none; border-radius: 14px; background: var(--vm-violet-50); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch05 .p5-ben .tile .ic { width: 22px; height: 22px; }
+        #ch05 .p5-ben .bd { flex: 1; }
+        #ch05 .p5-ben .tr { display: flex; align-items: baseline; gap: 10px; }
+        #ch05 .p5-ben .tt { flex: 1; font-weight: 500; font-size: 16.5px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch05 .p5-ben .ct { font-weight: 500; font-size: 13px; color: var(--vm-ink-700); }
+        #ch05 .p5-ben .sl { margin-top: 3px; font-size: 14px; line-height: 19px; color: var(--vm-ink-500); }
+        #ch05 .p5-ben .seg { display: flex; gap: 3px; margin-top: 6px; }
+        #ch05 .p5-ben .seg i { display: block; width: 16px; height: 4px; border-radius: 2px; background: var(--vm-ink-200); }
+        #ch05 .p5-ben .seg i.f { background: var(--vm-violet-500); }
+        #ch05 .p5-upg { padding: 28px 20px 0; }
+        #ch05 .p5-upg .tt { font-weight: 500; font-size: 13px; letter-spacing: 0.3px; text-transform: uppercase; color: var(--vm-ink-500); }
+        #ch05 .p5-upg .ln { display: flex; gap: 10px; margin-top: 10px; font-size: 16px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch05 .p5-upg .ln .ic { width: 15px; height: 15px; margin-top: 3px; color: var(--vm-violet-500); stroke-width: 2.6; }
+        #ch05 .p5-upg .ln:first-of-type { margin-top: 12px; }
+        #ch05 .p5-upg .from { margin-top: 12px; font-size: 14px; color: var(--vm-ink-500); }
+        #ch05 .p5-btn { position: relative; height: 52px; border-radius: 16px; background: var(--vm-violet-500); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 16px; }
+        #ch05 .p5-btn.quiet { background: #fff; border: 1px solid var(--vm-ink-200); color: var(--vm-violet-700); }
+        #ch05 .p5-btn.soft { background: var(--vm-violet-50); color: var(--vm-violet-700); }
+        #ch05 .p5-btn .lb2 { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 8px; opacity: 0; }
+        #ch05 .p5-spin { width: 20px; height: 20px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; }
+        #ch05 .p5-spin.v { border-color: var(--vm-violet-100); border-top-color: var(--vm-violet-500); }
+        #ch05 .p5-skl { position: absolute; left: 0; right: 0; opacity: 0; visibility: hidden; }
+        #ch05 .p5-skb { display: block; border-radius: 8px; background: var(--vm-ink-200); }
+        #ch05 .p5-plans { display: flex; flex-direction: column; gap: 14px; }
+        #ch05 .p5-plan { position: relative; padding: 20px; border-radius: 20px; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; flex-direction: column; gap: 14px; }
+        #ch05 .p5-plan .nm { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 22px; line-height: 27px; letter-spacing: -0.3px; color: var(--vm-ink-900); }
+        #ch05 .p5-plan .pr { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 24px; line-height: 29px; letter-spacing: -0.4px; color: var(--vm-ink-900); }
+        #ch05 .p5-plan .sc2 { margin-top: 2px; font-size: 13.5px; line-height: 17px; color: var(--vm-ink-500); }
+        #ch05 .p5-plan .fts { display: flex; flex-direction: column; gap: 8px; }
+        #ch05 .p5-plan .ft { display: flex; gap: 8px; font-size: 15px; line-height: 21px; color: var(--vm-ink-700); }
+        #ch05 .p5-plan .ft .ic { width: 15px; height: 15px; margin-top: 3px; color: var(--vm-violet-500); stroke-width: 2.6; }
+        #ch05 .p5-plan .p5-btn { margin-top: 4px; }
+        #ch05 .p5-free { margin-top: 24px; padding: 14px 0; border-top: 1px solid var(--vm-ink-200); }
+        #ch05 .p5-free b { display: block; font-weight: 500; font-size: 16.5px; color: var(--vm-ink-900); }
+        #ch05 .p5-free span { display: block; margin-top: 2px; font-size: 13.5px; color: var(--vm-ink-500); }
+        #ch05 .p5-dh { display: flex; align-items: center; height: 44px; }
+        #ch05 .p5-dh .bk { width: 44px; height: 44px; margin-left: -10px; display: flex; align-items: center; justify-content: center; color: var(--vm-ink-900); }
+        #ch05 .p5-dh .bk .ic { width: 24px; height: 24px; }
+        #ch05 .p5-dh .ttl { margin-left: 3px; flex: 1; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -0.22px; color: var(--vm-ink-900); }
+        #ch05 .p5-amt { margin-top: 20px; padding: 20px; border-radius: 20px; background: var(--vm-violet-950); }
+        #ch05 .p5-amt .l1 { font-weight: 500; font-size: 13px; color: var(--vm-violet-200); }
+        #ch05 .p5-amt .tot { position: relative; margin-top: 4px; height: 42px; }
+        #ch05 .p5-amt .tot b { position: absolute; left: 0; top: 0; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 36px; line-height: 42px; letter-spacing: -0.5px; color: #fff; }
+        #ch05 .p5-amt .subj { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.12); display: flex; align-items: center; }
+        #ch05 .p5-amt .bdg { width: 44px; height: 44px; border-radius: 14px; background: #fff; color: var(--vm-violet-700); display: flex; align-items: center; justify-content: center; }
+        #ch05 .p5-amt .bdg .ic { width: 24px; height: 24px; }
+        #ch05 .p5-amt .tx { margin-left: 12px; }
+        #ch05 .p5-amt .tx b { display: block; font-weight: 700; font-size: 15px; color: #fff; }
+        #ch05 .p5-amt .tx span { display: block; margin-top: 2px; font-size: 13px; color: var(--vm-violet-200); }
+        #ch05 .p5-sum { margin-top: 12px; padding: 20px; border-radius: 20px; background: #fff; }
+        #ch05 .p5-sum .ln { position: relative; display: flex; justify-content: space-between; align-items: center; height: 22px; font-size: 15px; color: var(--vm-ink-500); }
+        #ch05 .p5-sum .ln b { font-weight: 500; color: var(--vm-ink-900); }
+        #ch05 .p5-sum .dv { height: 1px; background: var(--vm-ink-200); margin: 16px 0 8px; }
+        #ch05 .p5-sum .cp { display: flex; justify-content: space-between; align-items: center; height: 40px; font-weight: 500; font-size: 15px; color: var(--vm-ink-700); }
+        #ch05 .p5-sum .cp .ic { width: 18px; height: 18px; color: var(--vm-ink-400); }
+        #ch05 .p5-note { margin: 12px 4px 0; font-size: 13px; line-height: 20px; color: var(--vm-ink-500); }
+        #ch05 .p5-ask { margin: 28px 0 0; font-weight: 700; font-size: 15px; color: var(--vm-ink-900); }
+        #ch05 .p5-meths { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+        #ch05 .p5-meth { position: relative; display: flex; align-items: center; padding: 16px 18px; border-radius: 18px; background: #fff; }
+        #ch05 .p5-meth .bd { flex: 1; }
+        #ch05 .p5-meth b { display: block; font-weight: 700; font-size: 16px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch05 .p5-meth span.s { display: block; margin-top: 2px; font-size: 13px; color: var(--vm-ink-500); }
+        #ch05 .p5-meth .brands { display: flex; gap: 6px; margin-top: 10px; }
+        #ch05 .p5-meth .brands i { width: 32px; height: 22px; border-radius: 5px; border: 1px solid var(--vm-ink-200); background: #fff; display: flex; align-items: center; justify-content: center; font-style: normal; font-weight: 700; font-size: 9px; color: var(--vm-ink-700); }
+        #ch05 .p5-meth .cv { width: 30px; height: 30px; margin-left: 12px; border-radius: 50%; background: var(--vm-ink-50); display: flex; align-items: center; justify-content: center; color: var(--vm-ink-700); }
+        #ch05 .p5-meth .cv .ic { width: 16px; height: 16px; }
+        #ch05 .p5-slot { position: relative; margin-top: 16px; height: 464px; }
+        #ch05 .p5-panel { position: absolute; left: 0; right: 0; top: 0; padding: 20px; border-radius: 20px; background: #fff; }
+        #ch05 .p5-panel .pt { margin: 0 0 16px; font-weight: 700; font-size: 16px; color: var(--vm-ink-900); }
+        #ch05 .p5-step { display: flex; align-items: flex-start; }
+        #ch05 .p5-step + .p5-step { margin-top: 14px; }
+        #ch05 .p5-sb { position: relative; width: 24px; height: 24px; flex: none; border-radius: 50%; background: var(--vm-violet-50); color: var(--vm-violet-700); font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+        #ch05 .p5-sd { position: absolute; inset: 0; border-radius: 50%; background: #22C55E; color: #fff; display: flex; align-items: center; justify-content: center; opacity: 0; }
+        #ch05 .p5-sd .ic { width: 14px; height: 14px; stroke-width: 3.2; }
+        #ch05 .p5-step p { flex: 1; margin: 0 0 0 12px; font-size: 15px; line-height: 22px; color: var(--vm-ink-700); }
+        #ch05 .p5-sticky { position: absolute; left: 0; right: 0; bottom: 0; height: 98px; padding: 12px 20px 0; background: #fff; box-shadow: 0 -8px 24px rgba(23, 21, 30, 0.1); z-index: 5; }
+        #ch05 .p5-pix { position: absolute; left: 0; right: 0; top: 0; height: 464px; padding: 24px; border-radius: 20px; background: #fff; display: flex; flex-direction: column; align-items: center; opacity: 0; }
+        #ch05 .p5-qrw { position: relative; width: 244px; height: 244px; padding: 12px; background: #fff; }
+        #ch05 .p5-qrw svg { display: block; width: 220px; height: 220px; }
+        #ch05 .p5-pix .cl { margin-top: 20px; font-size: 13px; color: var(--vm-ink-500); }
+        #ch05 .p5-pix .cd { font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -0.22px; color: var(--vm-ink-900); }
+        #ch05 .p5-pix .acts { margin-top: 20px; width: 100%; display: flex; gap: 10px; }
+        #ch05 .p5-pix .acts .p5-btn { flex: 1; font-size: 15px; }
+        #ch05 .p5-pix .wt { margin-top: 16px; display: flex; align-items: center; font-size: 14px; color: var(--vm-ink-500); }
+        #ch05 .p5-pix .wt i { display: block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: var(--vm-green-400); }
+        #ch05 .p5-val { position: absolute; left: 0; right: 0; top: 0; height: 464px; padding: 28px 24px; border-radius: 20px; background: #fff; display: flex; flex-direction: column; align-items: center; opacity: 0; }
+        #ch05 .p5-val .big { position: relative; width: 72px; height: 72px; }
+        #ch05 .p5-val .big .p5-spin { position: absolute; inset: 0; width: 72px; height: 72px; border-width: 5px; }
+        #ch05 .p5-val .big .okb { position: absolute; inset: 0; border-radius: 50%; background: #22C55E; color: #fff; display: flex; align-items: center; justify-content: center; opacity: 0; }
+        #ch05 .p5-val .big .okb .ic { width: 38px; height: 38px; stroke-width: 3; }
+        #ch05 .p5-val .tl2 { position: relative; margin-top: 20px; width: 100%; height: 28px; }
+        #ch05 .p5-val .tl2 b { position: absolute; left: 0; right: 0; text-align: center; font-weight: 700; font-size: 20px; line-height: 28px; letter-spacing: -0.2px; color: var(--vm-ink-900); }
+        #ch05 .p5-val .sb2 { margin-top: 4px; font-size: 14px; color: var(--vm-ink-500); }
+        #ch05 .p5-val .stp { margin-top: 28px; width: 100%; padding-top: 22px; border-top: 1px solid var(--vm-ink-200); }
+        #ch05 .p5-ok { position: absolute; left: 0; right: 0; top: 0; bottom: 0; padding: 0 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        #ch05 .p5-ok .mk { width: 104px; height: 104px; }
+        #ch05 .p5-ok .mk img { width: 104px; height: auto; display: block; }
+        #ch05 .p5-ok h1 { margin: 28px 0 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 28px; line-height: 34px; letter-spacing: -0.42px; color: var(--vm-ink-900); text-align: center; }
+        #ch05 .p5-sm { width: 100%; margin-top: 28px; padding: 20px; border-radius: 20px; background: #fff; }
+        #ch05 .p5-sm b { display: block; font-weight: 700; font-size: 18px; color: var(--vm-ink-900); }
+        #ch05 .p5-sm span { display: block; margin-top: 4px; font-size: 14px; color: var(--vm-ink-500); }
+        #ch05 .p5-sm .dv { height: 1px; margin: 16px 0; background: var(--vm-ink-200); }
+        #ch05 .p5-sm p { margin: 0; font-size: 15px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch05 .p5-ok .p5-btn { width: 100%; margin-top: 32px; }
+        #ch05 .p5-inv { position: relative; display: flex; align-items: center; gap: 12px; padding: 14px 20px; }
+        #ch05 .p5-inv .bd { flex: 1; }
+        #ch05 .p5-inv .am { font-weight: 500; font-size: 16.5px; color: var(--vm-ink-900); }
+        #ch05 .p5-inv .dt { margin-top: 2px; font-size: 13.5px; color: var(--vm-ink-500); }
+        #ch05 .p5-inv .ic { width: 17px; height: 17px; color: var(--vm-ink-400); stroke-width: 2.2; }
+        #ch05 .p5-bank { position: absolute; left: 590px; top: 650px; width: 460px; height: 970px; }
+        #ch05 .p5-bank .bdev { position: absolute; left: 0; top: 0; width: 426px; height: 898px; transform: scale(1.08); transform-origin: 0 0; }
+        #ch05 .p5-bank .bezel { box-shadow: 0 40px 90px rgba(15, 23, 42, 0.38), inset 0 0 0 2px #3a3f48; background: #11151b; }
+        #ch05 .p5-bank .touch { background: rgba(51, 65, 85, 0.2); border-color: rgba(51, 65, 85, 0.85); }
+        #ch05 .p5-bank .status { color: #fff; }
+        #ch05 .p5-bank .status-icons i { background: currentColor; }
+        #ch05 .p5-bank .scr { font-family: "DM Sans", sans-serif; }
+        #ch05 .p5-cam { background: radial-gradient(ellipse at 50% 36%, #2a3440 0%, #0b0f14 72%); }
+        #ch05 .p5-vf { position: absolute; left: 71px; top: 230px; width: 260px; height: 260px; }
+        #ch05 .p5-fr { position: absolute; inset: 0; color: #fff; }
+        #ch05 .p5-fr i { position: absolute; display: block; width: 44px; height: 44px; border: 0 solid currentColor; }
+        #ch05 .p5-fr i:nth-child(1) { left: 0; top: 0; border-top-width: 5px; border-left-width: 5px; border-top-left-radius: 18px; }
+        #ch05 .p5-fr i:nth-child(2) { right: 0; top: 0; border-top-width: 5px; border-right-width: 5px; border-top-right-radius: 18px; }
+        #ch05 .p5-fr i:nth-child(3) { left: 0; bottom: 0; border-bottom-width: 5px; border-left-width: 5px; border-bottom-left-radius: 18px; }
+        #ch05 .p5-fr i:nth-child(4) { right: 0; bottom: 0; border-bottom-width: 5px; border-right-width: 5px; border-bottom-right-radius: 18px; }
+        #ch05 .p5-sl { position: absolute; left: 10px; right: 10px; top: 0; height: 3px; border-radius: 3px; background: #7DD3FC; box-shadow: 0 0 18px 4px rgba(125, 211, 252, 0.7); opacity: 0; }
+        #ch05 .p5-qok { position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: #22C55E; color: #fff; display: flex; align-items: center; justify-content: center; opacity: 0; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5); }
+        #ch05 .p5-qok .ic { width: 40px; height: 40px; stroke-width: 3.2; }
+        #ch05 .p5-bcap { position: absolute; left: 0; right: 0; top: 520px; height: 24px; text-align: center; color: rgba(255, 255, 255, 0.78); font-size: 15px; }
+        #ch05 .p5-bcap span { position: absolute; left: 0; right: 0; }
+        #ch05 .p5-bhd { position: absolute; left: 0; right: 0; top: 54px; height: 52px; display: flex; align-items: center; padding: 0 20px; color: #fff; }
+        #ch05 .p5-bhd .ic { width: 24px; height: 24px; }
+        #ch05 .p5-bhd .tt { flex: 1; text-align: center; font-weight: 700; font-size: 17px; }
+        #ch05 .p5-bhd.dk { color: #0F172A; }
+        #ch05 .p5-bpill { position: absolute; left: 50%; top: 740px; margin-left: -94px; width: 188px; height: 46px; border-radius: 23px; background: rgba(255, 255, 255, 0.14); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 14px; }
+        #ch05 .p5-bcard { position: absolute; left: 20px; right: 20px; top: 126px; padding: 22px; border-radius: 20px; background: #fff; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06); }
+        #ch05 .p5-bcard .k { font-size: 14px; color: #64748B; }
+        #ch05 .p5-bcard .v { margin-top: 4px; font-weight: 700; font-size: 40px; line-height: 46px; letter-spacing: -1px; color: #0F172A; }
+        #ch05 .p5-bcard .dv { height: 1px; margin: 18px 0 6px; background: #E2E8F0; }
+        #ch05 .p5-bcard .r { display: flex; justify-content: space-between; padding: 9px 0; font-size: 14.5px; color: #64748B; }
+        #ch05 .p5-bcard .r b { font-weight: 500; color: #0F172A; text-align: right; }
+        #ch05 .p5-bbtn { position: absolute; left: 24px; right: 24px; height: 52px; border-radius: 16px; background: #1E293B; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+        #ch05 .p5-bbtn .lb2 { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 10px; opacity: 0; }
+        #ch05 .p5-rcp { position: absolute; left: 0; right: 0; top: 140px; display: flex; flex-direction: column; align-items: center; }
+        #ch05 .p5-rcp .bd { position: relative; width: 84px; height: 84px; border-radius: 50%; background: #22C55E; color: #fff; display: flex; align-items: center; justify-content: center; }
+        #ch05 .p5-rcp .bd .ic { width: 44px; height: 44px; stroke-width: 3.2; }
+        #ch05 .p5-rcp .bd .rg { position: absolute; inset: -14px; border-radius: 50%; border: 3px solid rgba(34, 197, 94, 0.35); }
+        #ch05 .p5-rcp h4 { margin: 22px 0 0; font-weight: 700; font-size: 22px; color: #0F172A; }
+        #ch05 .p5-rcp .am { margin-top: 8px; font-weight: 700; font-size: 38px; letter-spacing: -1px; color: #0F172A; }
+        #ch05 .p5-rcp .dt { margin-top: 4px; font-size: 14px; color: #64748B; }
+        #ch05 .p5-rcp .bx { width: 354px; margin-top: 28px; padding: 14px 18px; border-radius: 18px; background: #F1F5F9; }
+        #ch05 .p5-rcp .bx .r { display: flex; justify-content: space-between; padding: 7px 0; font-size: 14px; color: #4B5A6E; }
+        #ch05 .p5-rcp .bx .r b { font-weight: 500; color: #0F172A; }
+        #ch05 .p5-fly { position: absolute; left: 0; top: 0; width: 420px; height: 420px; margin: -210px 0 0 -210px; padding: 20px; border-radius: 34px; background: #fff; box-shadow: 0 40px 80px rgba(23, 21, 30, 0.35); opacity: 0; }
+        #ch05 .p5-fly svg { display: block; width: 100%; height: 100%; }
+        #ch05 .p5-flash { position: absolute; left: 0; right: 0; display: flex; justify-content: center; opacity: 0; }
+        #ch05 .p5-flash span { padding: 20px 36px; border-radius: 26px; background: var(--vm-violet-600); color: #fff; font-weight: 700; font-size: 32px; line-height: 40px; box-shadow: 0 20px 44px rgba(53, 14, 111, 0.3); }
+        #ch05 .p5-skh { opacity: 0; }
+      </style>
+
+      <div id="ch05" data-composition-id="ch05-plano" data-start="0" data-duration="44.15" data-width="1080" data-height="1920">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="c05-i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+        <symbol id="c05-i-cal" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></symbol>
+        <symbol id="c05-i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 17.5v-11" /></symbol>
+        <symbol id="c05-i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
+        <symbol id="c05-i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14" /></symbol>
+        <symbol id="c05-i-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+        <symbol id="c05-i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z" /><circle cx="12" cy="13" r="3" /></symbol>
+        <symbol id="c05-i-dollar" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 18V6" /></symbol>
+        <symbol id="c05-i-calclock" viewBox="0 0 24 24"><path d="M16 14v2.2l1.6 1" /><path d="M16 2v4M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" /><path d="M3 10h5M8 2v4" /><circle cx="16" cy="16" r="6" /></symbol>
+        <symbol id="c05-i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol>
+        <symbol id="c05-i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
+        <symbol id="c05-i-bank" viewBox="0 0 24 24"><path d="M10 18v-7M14 18v-7M18 18v-7M6 18v-7" /><path d="M3 22h18" /><path d="M12 2 3 7h18z" /></symbol>
+        <symbol id="c05-i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+        <symbol id="c05-i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></symbol>
+        <symbol id="c05-i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+        <symbol id="c05-i-key" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" /></symbol>
+        <symbol id="c05-i-out" viewBox="0 0 24 24"><path d="m16 17 5-5-5-5M21 12H9M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></symbol>
+        </svg>
+      <div id="c05-bg" class="clip" data-start="0" data-duration="44.15" data-track-index="0">
+        <div class="backdrop"></div>
+        <div class="grid"></div>
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+      </div>
+
+      <section id="c05-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Escolha</span><span class="w">seu</span></div>
+          <div class="chapter-line"><span class="w v">plano</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c05-phone" class="clip" data-start="3" data-duration="41.15" data-track-index="2">
+        <div class="cam">
+          <div class="dev">
+            <div class="bezel"></div>
+            <div class="screen">
+
+              <div class="scr pf" id="c05-sPerfil">
+                <div class="pf-scroll" id="c05-pfScroll" data-layout-allow-occlusion data-layout-allow-overflow data-layout-allow-overlap>
+                  <div class="pf-title">Perfil</div>
+                  <div class="pf-acc" id="c05-pfAcc" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="pf-avatar"><img src="assets/doctors/camila.jpg" alt=""><div class="pf-cam-badge"><svg class="pf-ic"><use href="#c05-i-camera" /></svg></div></div>
+                    <div class="pf-nm">Dra. Camila Rocha<svg class="pf-ic"><use href="#c05-i-chev" /></svg></div>
+                    <div class="pf-em">CRM-SP 123456 · Clínica Geral</div>
+                  </div>
+
+                  <div class="pf-hero" id="c05-pfHero" style="top: 334px;">
+                    <div class="pf-hrow" style="margin-top: 0;">
+                      <div class="pf-hf pf-hh" id="c05-hcIcp">
+                      <div class="pf-press"></div>
+                      <div class="pf-ring"></div>
+                      <div class="pf-rb"><div class="pf-eb">Certificado ICP</div><i class="pf-dot" style="background: #22C55E;"></i></div>
+                      <div class="pf-ht">Ativo na nuvem</div>
+                      <div class="pf-hs">Assinatura digital liberada</div>
+                      <div class="pf-hfoot pf-q">Gerenciar</div>
+                    </div>
+                      <div class="pf-hf pf-hh" id="c05-heroPlan">
+                      <div class="pf-press" id="c05-heroPr"></div>
+                      <div class="pf-ring"></div>
+                      <div class="pf-rb"><div class="pf-eb">Seu plano</div><i class="pf-dot" style="opacity: 0; background: #22C55E;"></i></div>
+                      <div class="pf-ht"><span class="pf-stk pf-blk"><span>Sem plano</span><span class="pf-alt">Pro</span></span></div>
+                      <div class="pf-hs"><span class="pf-stk pf-blk"><span>Mais destaque e recursos para atender.</span><span class="pf-alt">Ativo</span></span></div>
+                      <div class="pf-hfoot"><span class="pf-stk"><span>Ver planos<svg class="pf-ic"><use href="#c05-i-chev" /></svg></span><span class="pf-alt">Gerenciar</span></span></div>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="pf-groups" id="c05-pfGroups" style="top: 490px;" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Atendimento</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir" id="c05-rowPreco"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-dollar" /></svg></div><div class="pf-ib">Preço e duração</div><div class="pf-iv">Nenhuma</div><svg class="pf-ic"><use href="#c05-i-chev" /></svg></div>
+                        <div class="pf-ir" id="c05-rowDisp"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-calclock" /></svg></div><div class="pf-ib">Disponibilidade</div><div class="pf-iv pf-acc-v">Definir</div><svg class="pf-ic"><use href="#c05-i-chev" /></svg></div>
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-gift" /></svg></div><div class="pf-ib">Benefícios</div><svg class="pf-ic"><use href="#c05-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Conta</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-user" /></svg></div><div class="pf-ib">Informações pessoais</div><svg class="pf-ic"><use href="#c05-i-chev" /></svg></div>
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-phone" /></svg></div><div class="pf-ib">Contatos</div><div class="pf-iv pf-acc-v">Adicionar</div><svg class="pf-ic"><use href="#c05-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Financeiro</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-bank" /></svg></div><div class="pf-ib">Conta bancária</div><div class="pf-iv pf-acc-v">Adicionar</div><svg class="pf-ic"><use href="#c05-i-chev" /></svg></div>
+                      </div>
+                      <div class="pf-gf">Os saques caem na conta marcada para saques.</div>
+                    </div>
+                    <div class="pf-grp" id="c05-gIcp">
+                      <div class="pf-gt">Assinatura digital</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir" id="c05-rowIcp"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-shield" /></svg></div><div class="pf-ib">Certificado ICP</div><div class="pf-iv">Ativo na nuvem</div><svg class="pf-ic"><use href="#c05-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Preferências</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-bell" /></svg></div><div class="pf-ib">Notificações</div><div class="pf-sw"></div></div>
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-pin" /></svg></div><div class="pf-ib">Localização</div><div class="pf-sw pf-off"></div></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Segurança</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c05-i-key" /></svg></div><div class="pf-ib">Alterar senha</div><svg class="pf-ic"><use href="#c05-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it pf-red"><svg class="pf-ic"><use href="#c05-i-out" /></svg></div><div class="pf-ib pf-red">Sair da conta</div></div>
+                      </div>
+                    </div>
+                    <div class="pf-ver">Viva Mais · versão 2.4.0</div>
+                  </div>
+                </div>
+
+                <div class="pf-bar" id="c05-pfBar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow><span>Perfil</span><i></i></div>
+
+                <div class="pf-tabbar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                  <div class="pf-tb-bar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="pf-tb-item"><div class="pf-tb-ind"><svg class="pf-ic"><use href="#c05-i-house" /></svg><span>Dashboard</span></div></div>
+                    <div class="pf-tb-item"><div class="pf-tb-ind"><svg class="pf-ic"><use href="#c05-i-cal" /></svg><span>Consultas</span></div></div>
+                    <div class="pf-tb-item"><div class="pf-tb-ind"><svg class="pf-ic"><use href="#c05-i-receipt" /></svg><span>Faturamento</span></div></div>
+                    <div class="pf-tb-item"><div class="pf-tb-ind pf-on"><svg class="pf-ic"><use href="#c05-i-user" /></svg><span>Perfil</span></div></div>
+                  </div>
+                  <div class="pf-tb-plus"><svg class="pf-ic"><use href="#c05-i-plus" /></svg></div>
+                </div>
+              </div>
+
+              <div class="scr gc" id="c05-sPlan">
+                <div class="p5-nav" data-layout-allow-overlap data-layout-allow-occlusion><div class="side"><i class="ic" data-i="chevL" style="width: 26px; height: 26px; margin-left: -6px; color: var(--vm-ink-900);"></i></div><div class="ttl">Meu plano</div><div class="side"></div></div>
+                <div class="p5-sc" data-layout-allow-overlap id="c05-sc1">
+                  <div class="p5-rv">
+                    <div class="p5-phead">
+                      <div class="p5-row"><h2>Grátis</h2><div class="p5-pill">Plano gratuito</div></div>
+                    </div>
+                  </div>
+                  <div class="p5-rv"><div class="p5-sech">Seus benefícios</div></div>
+                  <div style="margin-top: 4px;">
+                    <div class="p5-rv"><div class="p5-ben"><div class="tile"><i class="ic" data-i="chat"></i></div><div class="bd"><div class="tr"><span class="tt">Chat com IA</span><span class="ct">3 de 5</span></div><div class="sl">Mensagens por dia</div><div class="seg"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div></div></div></div>
+                    <div class="p5-rv"><div class="p5-ben"><div class="tile"><i class="ic" data-i="users"></i></div><div class="bd"><div class="tr"><span class="tt">Pacientes</span><span class="ct">4 de 10</span></div><div class="sl">Até 10 pacientes ativos</div></div></div></div>
+                    <div class="p5-rv"><div class="p5-ben"><div class="tile"><i class="ic" data-i="brief"></i></div><div class="bd"><div class="tr"><span class="tt">Serviços particulares</span></div><div class="sl">Até 2 serviços particulares</div></div></div></div>
+                  </div>
+                  <div class="p5-rv">
+                    <div class="p5-upg">
+                      <div class="tt">Nos planos pagos</div>
+                      <div class="ln"><i class="ic" data-i="check"></i><span>Chat com IA ilimitado</span></div>
+                      <div class="ln"><i class="ic" data-i="check"></i><span>Pacientes ilimitados</span></div>
+                      <div class="ln"><i class="ic" data-i="check"></i><span>Resumo clínico com IA ilimitado</span></div>
+                      <div class="ln"><i class="ic" data-i="check"></i><span>IA no WhatsApp ilimitada</span></div>
+                      <div class="from">A partir de R$ 49,90 /mês</div>
+                    </div>
+                  </div>
+                  <div class="p5-rv" style="margin: 24px 20px 0;"><div class="p5-btn" id="c05-btnVer"><div class="p5-pr" id="c05-btnVerPr" style="background: rgba(255,255,255,0.18);"></div>Ver planos</div></div>
+                  <div style="height: 48px;"></div>
+                </div>
+                <div class="p5-skl" id="c05-skl1" style="top: 106px; padding: 12px 20px;">
+                  <span class="p5-skb" style="width: 52%; height: 32px; border-radius: 10px;"></span>
+                  <span class="p5-skb" style="width: 34%; height: 13px; margin-top: 28px;"></span>
+                  <div style="display: flex; gap: 14px; margin-top: 22px;"><span class="p5-skb" style="width: 44px; height: 44px; border-radius: 14px;"></span><div style="flex: 1;"><span class="p5-skb" style="width: 60%; height: 16px;"></span><span class="p5-skb" style="width: 80%; height: 13px; margin-top: 10px;"></span></div></div>
+                  <div style="display: flex; gap: 14px; margin-top: 30px;"><span class="p5-skb" style="width: 44px; height: 44px; border-radius: 14px;"></span><div style="flex: 1;"><span class="p5-skb" style="width: 50%; height: 16px;"></span><span class="p5-skb" style="width: 70%; height: 13px; margin-top: 10px;"></span></div></div>
+                  <div style="display: flex; gap: 14px; margin-top: 30px;"><span class="p5-skb" style="width: 44px; height: 44px; border-radius: 14px;"></span><div style="flex: 1;"><span class="p5-skb" style="width: 66%; height: 16px;"></span><span class="p5-skb" style="width: 76%; height: 13px; margin-top: 10px;"></span></div></div>
+                </div>
+              </div>
+
+              <div class="scr gc" id="c05-sChoose">
+                <div class="p5-nav" data-layout-allow-overlap data-layout-allow-occlusion><div class="side"><i class="ic" data-i="chevL" style="width: 26px; height: 26px; margin-left: -6px; color: var(--vm-ink-900);"></i></div><div class="ttl">Planos</div><div class="side"></div></div>
+                <div class="p5-sc" data-layout-allow-overlap id="c05-sc2" style="padding: 0 20px;">
+                  <h1 class="p5-h1" style="margin-top: 8px;">Escolha seu plano</h1>
+                  <p class="p5-cap" style="margin-bottom: 20px;">Cobrança mensal. Você muda ou cancela quando quiser.</p>
+                  <div class="p5-plans">
+                    <div class="p5-rv"><div class="p5-plan"><h3 class="nm">Essencial</h3><div><div class="pr">R$ 49,90 /mês</div><div class="sc2">R$ 41,58 /mês no anual</div></div><div class="fts"><div class="ft"><i class="ic" data-i="check"></i><span>Chat com IA · 20 mensagens por dia</span></div><div class="ft"><i class="ic" data-i="check"></i><span>Até 50 pacientes ativos</span></div><div class="ft"><i class="ic" data-i="check"></i><span>Até 3 serviços particulares</span></div></div><div class="p5-btn quiet">Assinar</div></div></div>
+                    <div class="p5-rv"><div class="p5-plan" id="c05-planPro"><div class="p5-pr" id="c05-planProPr"></div><h3 class="nm">Pro</h3><div><div class="pr">R$ 99,90 /mês</div><div class="sc2">R$ 83,25 /mês no anual</div></div><div class="fts"><div class="ft"><i class="ic" data-i="check"></i><span>Chat com IA · 100 mensagens por dia</span></div><div class="ft"><i class="ic" data-i="check"></i><span>Pacientes ilimitados</span></div><div class="ft"><i class="ic" data-i="check"></i><span>Resumo clínico com IA ilimitado</span></div></div><div class="p5-btn quiet" id="c05-btnPro">Assinar</div></div></div>
+                    <div class="p5-rv"><div class="p5-plan"><h3 class="nm">Premium</h3><div><div class="pr">R$ 199,90 /mês</div><div class="sc2">R$ 166,58 /mês no anual</div></div><div class="fts"><div class="ft"><i class="ic" data-i="check"></i><span>Chat com IA ilimitado</span></div><div class="ft"><i class="ic" data-i="check"></i><span>Pacientes ilimitados</span></div><div class="ft"><i class="ic" data-i="check"></i><span>IA no WhatsApp ilimitada</span></div></div><div class="p5-btn quiet">Assinar</div></div></div>
+                  </div>
+                  <div class="p5-free"><b>Plano gratuito</b><span>Sem mensalidade · Chat com IA · 5 mensagens por dia</span></div>
+                  <div style="height: 48px;"></div>
+                </div>
+                <div class="p5-skl" id="c05-skl2" style="top: 194px; padding: 0 20px;">
+                  <span class="p5-skb" style="width: 100%; height: 176px; border-radius: 20px;"></span>
+                  <span class="p5-skb" style="width: 100%; height: 176px; border-radius: 20px; margin-top: 14px;"></span>
+                  <span class="p5-skb" style="width: 100%; height: 176px; border-radius: 20px; margin-top: 14px;"></span>
+                </div>
+              </div>
+
+              <div class="scr gt" id="c05-sCk">
+                <div class="p5-abs" style="top: 62px; padding: 0 20px;">
+                  <div class="p5-dh"><div class="bk"><i class="ic" data-i="chevL"></i></div><div class="ttl">Pagamento</div></div>
+                  <div class="p5-amt" id="c05-ckAmt">
+                    <div class="l1">Total a pagar</div>
+                    <div class="tot"><b id="c05-ckTot">R$ 99,90</b><span class="p5-skb p5-skh" id="c05-ckSk" style="position: absolute; left: 0; top: 4px; width: 140px; height: 34px; border-radius: 10px; background: rgba(255,255,255,0.18);"></span></div>
+                    <div class="subj"><div class="bdg"><i class="ic" data-i="spark"></i></div><div class="tx"><b>Pro</b><span>Plano mensal</span></div></div>
+                  </div>
+                  <div class="p5-sum">
+                    <div class="ln"><span>Plano mensal</span><b id="c05-ckLine">R$ 99,90</b><span class="p5-skb p5-skh" id="c05-ckLineSk" style="position: absolute; right: 0; top: 3px; width: 78px; height: 16px; border-radius: 8px;"></span></div>
+                    <div class="dv"></div>
+                    <div class="cp"><span>Tem um cupom?</span><i class="ic" data-i="chevD"></i></div>
+                  </div>
+                  <div class="p5-note">Benefícios liberados assim que o pagamento for confirmado.</div>
+                  <div class="p5-ask">Como você quer pagar?</div>
+                  <div class="p5-meths" id="c05-ckMeths">
+                    <div class="p5-meth" id="c05-methPix"><div class="p5-pr" id="c05-methPixPr" style="background: rgba(245,240,254,0.9);"></div><div class="bd"><b>Pix</b><span class="s">Aprovação em segundos</span></div><div class="cv"><i class="ic" data-i="chevR"></i></div></div>
+                    <div class="p5-meth"><div class="bd"><b>Cartão de crédito</b><span class="s">Aprovação imediata</span><div class="brands"><i>VISA</i><i>MC</i><i>ELO</i></div></div><div class="cv"><i class="ic" data-i="chevR"></i></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="scr gt" id="c05-sPay">
+                <div class="p5-abs" style="top: 62px; padding: 0 20px;">
+                  <div class="p5-dh"><div class="bk"><i class="ic" data-i="chevL"></i></div><div class="ttl">Pagar com Pix</div></div>
+                  <div class="p5-amt">
+                    <div class="l1">Total a pagar</div>
+                    <div class="tot"><b>R$ 99,90</b></div>
+                    <div class="subj"><div class="bdg"><i class="ic" data-i="spark"></i></div><div class="tx"><b>Pro</b><span>Plano mensal</span></div></div>
+                  </div>
+                  <div class="p5-slot" id="c05-slot">
+                    <div class="p5-panel" id="c05-steps">
+                      <h4 class="pt">Como funciona</h4>
+                      <div class="p5-step"><div class="p5-sb">1</div><p>Toque em Gerar Pix para criar o código.</p></div>
+                      <div class="p5-step"><div class="p5-sb">2</div><p>Pague pelo app do seu banco: QR code ou copia e cola.</p></div>
+                      <div class="p5-step"><div class="p5-sb">3</div><p>O plano ativa assim que o banco avisar. Leva segundos.</p></div>
+                    </div>
+                    <div class="p5-pix" id="c05-pix">
+                      <div class="p5-qrw" id="c05-qrw" data-qr="7"></div>
+                      <div class="cl">Código válido por</div>
+                      <div class="cd" id="c05-cd">29:59</div>
+                      <div class="acts">
+                        <div class="p5-btn soft" id="c05-btnCopy"><span id="c05-lbCopy">Copiar código</span><span class="lb2" id="c05-lbCopied"><i class="ic" data-i="check" style="width: 17px; height: 17px; stroke-width: 2.6;"></i>Copiado</span></div>
+                        <div class="p5-btn soft">Já paguei</div>
+                      </div>
+                      <div class="wt"><i></i>Aguardando pagamento…</div>
+                    </div>
+                    <div class="p5-val" id="c05-val">
+                      <div class="big"><div class="p5-spin v" id="c05-valSpin"></div><div class="okb" id="c05-valOk"><i class="ic" data-i="check"></i></div></div>
+                      <div class="tl2"><b id="c05-valT1">Validando pagamento…</b><b id="c05-valT2" style="opacity: 0;">Pagamento confirmado</b></div>
+                      <div class="sb2">Estamos conferindo com o banco.</div>
+                      <div class="stp">
+                        <div class="p5-step"><div class="p5-sb">1<div class="p5-sd" id="c05-sd1"><i class="ic" data-i="check"></i></div></div><p>Código Pix gerado.</p></div>
+                        <div class="p5-step"><div class="p5-sb">2<div class="p5-sd" id="c05-sd2"><i class="ic" data-i="check"></i></div></div><p>Pagamento feito no app do banco.</p></div>
+                        <div class="p5-step"><div class="p5-sb">3<div class="p5-sd" id="c05-sd3"><i class="ic" data-i="check"></i></div></div><p>Banco avisa a Viva Mais e o plano ativa.</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p5-sticky" id="c05-sticky"><div class="p5-btn" id="c05-btnGerar"><span id="c05-lbGerar">Gerar Pix</span><span class="lb2" id="c05-lbGerando"><span class="p5-spin" id="c05-spinG"></span></span></div></div>
+              </div>
+
+              <div class="scr gc" id="c05-sOk">
+                <div class="p5-ok">
+                  <div class="mk" id="c05-okMark"><img src="assets/brand/simbolo-cor.svg" alt=""></div>
+                  <h1 id="c05-okTitle">Plano ativo</h1>
+                  <div id="c05-okSumW" style="width: 100%;"><div class="p5-sm" id="c05-okSum"><b>Pro</b><span>Plano mensal · R$ 99,90 /mês</span><div class="dv"></div><p>Os recursos do plano já estão liberados na sua conta.</p></div></div>
+                  <div class="p5-btn" id="c05-btnVer2"><div class="p5-pr" style="background: rgba(255,255,255,0.18);" id="c05-btnVer2Pr"></div>Ver meu plano</div>
+                </div>
+              </div>
+
+              <div class="scr gc" id="c05-sPlan2">
+                <div class="p5-nav" data-layout-allow-overlap data-layout-allow-occlusion><div class="side"><i class="ic" data-i="chevL" style="width: 26px; height: 26px; margin-left: -6px; color: var(--vm-ink-900);"></i></div><div class="ttl">Meu plano</div><div class="side"></div></div>
+                <div class="p5-sc" data-layout-allow-overlap id="c05-sc3">
+                  <div class="p5-rv"><div class="p5-phead"><div class="p5-row"><h2>Pro</h2><div class="p5-pill live"><i></i>Ativo</div></div><div class="meta">R$ 99,90 /mês · renova 13 nov</div></div></div>
+                  <div class="p5-rv"><div class="p5-sech">Seus benefícios</div></div>
+                  <div style="margin-top: 4px;">
+                    <div class="p5-rv"><div class="p5-ben"><div class="tile"><i class="ic" data-i="chat"></i></div><div class="bd"><div class="tr"><span class="tt">Chat com IA</span><span class="ct">100 por dia</span></div><div class="sl">Mensagens por dia</div><div class="seg"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div></div></div></div>
+                    <div class="p5-rv"><div class="p5-ben"><div class="tile"><i class="ic" data-i="users"></i></div><div class="bd"><div class="tr"><span class="tt">Pacientes</span></div><div class="sl">Pacientes ilimitados</div></div></div></div>
+                    <div class="p5-rv"><div class="p5-ben"><div class="tile"><i class="ic" data-i="brief"></i></div><div class="bd"><div class="tr"><span class="tt">Resumo clínico com IA</span></div><div class="sl">Resumos ilimitados</div></div></div></div>
+                  </div>
+                  <div class="p5-rv">
+                    <div class="p5-grp" style="margin-top: 28px;">
+                      <div class="card">
+                        <div class="p5-irow" id="c05-rowFat"><div class="p5-pr" id="c05-rowFatPr" style="background: var(--vm-violet-50);"></div><div class="tile"><i class="ic" data-i="receipt"></i></div><div class="lb">Faturas</div><i class="ic chv" data-i="chevR"></i></div>
+                        <div class="p5-irow"><div class="tile"><i class="ic" data-i="repeat"></i></div><div class="lb">Mudar de plano</div><i class="ic chv" data-i="chevR"></i></div>
+                        <div class="p5-irow bad"><div class="tile"><i class="ic" data-i="xc"></i></div><div class="lb">Cancelar assinatura</div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p5-skl" id="c05-skl3" style="top: 106px; padding: 12px 20px;">
+                  <span class="p5-skb" style="width: 36%; height: 32px; border-radius: 10px;"></span>
+                  <span class="p5-skb" style="width: 58%; height: 14px; margin-top: 14px;"></span>
+                  <span class="p5-skb" style="width: 34%; height: 13px; margin-top: 30px;"></span>
+                  <div style="display: flex; gap: 14px; margin-top: 24px;"><span class="p5-skb" style="width: 44px; height: 44px; border-radius: 14px;"></span><div style="flex: 1;"><span class="p5-skb" style="width: 60%; height: 16px;"></span><span class="p5-skb" style="width: 80%; height: 13px; margin-top: 10px;"></span></div></div>
+                  <div style="display: flex; gap: 14px; margin-top: 30px;"><span class="p5-skb" style="width: 44px; height: 44px; border-radius: 14px;"></span><div style="flex: 1;"><span class="p5-skb" style="width: 50%; height: 16px;"></span><span class="p5-skb" style="width: 70%; height: 13px; margin-top: 10px;"></span></div></div>
+                  <div style="display: flex; gap: 14px; margin-top: 30px;"><span class="p5-skb" style="width: 44px; height: 44px; border-radius: 14px;"></span><div style="flex: 1;"><span class="p5-skb" style="width: 66%; height: 16px;"></span><span class="p5-skb" style="width: 76%; height: 13px; margin-top: 10px;"></span></div></div>
+                </div>
+              </div>
+
+              <div class="scr gc" id="c05-sInv">
+                <div class="p5-nav" data-layout-allow-overlap data-layout-allow-occlusion><div class="side"><i class="ic" data-i="chevL" style="width: 26px; height: 26px; margin-left: -6px; color: var(--vm-ink-900);"></i></div><div class="ttl">Faturas</div><div class="side"></div></div>
+                <div class="p5-sc" data-layout-allow-overlap id="c05-sc4" style="padding-top: 8px;">
+                  <div class="p5-rv">
+                    <div class="p5-inv" id="c05-invRow">
+                      <div class="bd"><div class="am">R$ 99,90</div><div class="dt">13 out 2026</div></div>
+                      <div class="p5-pill sm">Pago</div>
+                      <i class="ic" data-i="chevR"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="p5-skl" id="c05-skl4" style="top: 114px;">
+                  <div style="display: flex; align-items: center; gap: 12px; padding: 14px 20px;"><div style="flex: 1;"><span class="p5-skb" style="width: 40%; height: 16px; border-radius: 6px;"></span><span class="p5-skb" style="width: 28%; height: 13px; margin-top: 8px; border-radius: 6px;"></span></div><span class="p5-skb" style="width: 64px; height: 22px; border-radius: 11px;"></span></div>
+                  <div style="display: flex; align-items: center; gap: 12px; padding: 14px 20px;"><div style="flex: 1;"><span class="p5-skb" style="width: 36%; height: 16px; border-radius: 6px;"></span><span class="p5-skb" style="width: 30%; height: 13px; margin-top: 8px; border-radius: 6px;"></span></div><span class="p5-skb" style="width: 64px; height: 22px; border-radius: 11px;"></span></div>
+                </div>
+              </div>
+
+              <div class="status" data-layout-allow-overlap><span>9:41</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+              <div class="island"></div>
+              <div class="pf-home"></div>
+            </div>
+            <div class="lift"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="c05-bank" class="clip" data-start="23.8" data-duration="8.3" data-track-index="3">
+        <div class="p5-bank" id="c05-bankwrap">
+          <div class="bdev">
+            <div class="bezel"></div>
+            <div class="screen" id="c05-bscreen">
+              <div class="scr p5-cam" id="c05-bCam">
+                <div class="p5-bhd"><i class="ic" data-i="x"></i><div class="tt">Ler QR Code</div><div style="width: 24px;"></div></div>
+                <div class="p5-vf" id="c05-vf">
+                  <div class="p5-fr" id="c05-fr"><i></i><i></i><i></i><i></i></div>
+                  <div class="p5-sl" id="c05-sl"></div>
+                  <div class="p5-qok" id="c05-qok"><i class="ic" data-i="check"></i></div>
+                </div>
+                <div class="p5-bcap"><span id="c05-bcap1">Aponte a câmera para o QR Code</span><span id="c05-bcap2" style="opacity: 0; color: #fff; font-weight: 700;">QR Code lido</span></div>
+                <div class="p5-bpill">Colar código Pix</div>
+              </div>
+              <div class="scr" id="c05-bPay" style="background: #F1F5F9;">
+                <div class="p5-bhd dk"><i class="ic" data-i="chevL"></i><div class="tt">Pagar com Pix</div><div style="width: 24px;"></div></div>
+                <div class="p5-bcard">
+                  <div class="k">Valor a pagar</div>
+                  <div class="v">R$ 99,90</div>
+                  <div class="dv"></div>
+                  <div class="r"><span>Para</span><b>Viva Mais Saúde Ltda.</b></div>
+                  <div class="r"><span>Origem</span><b>Conta corrente ••4821</b></div>
+                  <div class="r"><span>Quando</span><b>Agora</b></div>
+                </div>
+                <div class="p5-bbtn" id="c05-bbtn" style="top: 764px;"><span id="c05-blb1">Pagar R$ 99,90</span><span class="lb2" id="c05-blb2"><span class="p5-spin"></span>Processando</span></div>
+              </div>
+              <div class="scr" id="c05-bRec" style="background: #fff;">
+                <div class="p5-rcp">
+                  <div class="bd" id="c05-rBadge"><div class="rg" id="c05-rRing"></div><i class="ic" data-i="check"></i></div>
+                  <h4 id="c05-rH">Pagamento realizado</h4>
+                  <div class="am" id="c05-rAm">R$ 99,90</div>
+                  <div class="dt" id="c05-rDt">13 out 2026 · 14:32</div>
+                  <div class="bx" id="c05-rBx">
+                    <div class="r"><span>Para</span><b>Viva Mais Saúde Ltda.</b></div>
+                    <div class="r"><span>Tipo</span><b>Pix · QR Code</b></div>
+                    <div class="r"><span>ID</span><b>E18236120…a9X7k2</b></div>
+                  </div>
+                </div>
+                <div class="p5-bbtn" style="top: 764px;">Concluir</div>
+              </div>
+              <div class="status" id="c05-bstatus"><span>9:41</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+              <div class="island"></div>
+            </div>
+            <div class="lift" id="c05-blift"></div>
+          </div>
+        </div>
+        <div class="p5-fly" id="c05-fly" data-qr="7"></div>
+        <div class="p5-flash" id="c05-cap1" style="top: 1672px;"><span>Pague pelo app do seu banco</span></div>
+        <div class="p5-flash" id="c05-cap2" style="top: 1672px;"><span>O banco confirma o Pix</span></div>
+      </section>
+
+      <div id="c05-brand" class="clip" data-start="0" data-duration="44.15" data-track-index="4">
+        <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+      </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch05-plano"]');
+          document.fonts.ready.then(() => {
+            const IC = {
+              chevR: '<path d="m9 18 6-6-6-6"/>',
+              chevL: '<path d="m15 18-6-6 6-6"/>',
+              chevD: '<path d="m6 9 6 6 6-6"/>',
+              check: '<path d="M20 6 9 17l-5-5"/>',
+              x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+              camera: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
+              badge: '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/>',
+              cal: '<path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h5"/><path d="M17.5 17.5 16 16.3V14"/><circle cx="16" cy="16" r="6"/>',
+              gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>',
+              chat: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+              users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+              brief: '<path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>',
+              spark: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>',
+              receipt: '<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/>',
+              repeat: '<path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>',
+              xc: '<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>',
+            };
+            root.querySelectorAll("[data-i]").forEach((el) => {
+              el.innerHTML = '<svg viewBox="0 0 24 24">' + IC[el.dataset.i] + "</svg>";
+            });
+
+            root.querySelectorAll(".p5-sc, .p5-sc *").forEach((el) => el.setAttribute("data-layout-allow-overlap", ""));
+
+            function qrSvg(seed) {
+              const N = 25;
+              let s = (seed * 2654435761) >>> 0;
+              const rnd = () => {
+                s = (s + 0x6d2b79f5) >>> 0;
+                let t = s;
+                t = Math.imul(t ^ (t >>> 15), t | 1);
+                t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+                return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+              };
+              const finder = (dx, dy) => {
+                if (dx < 0 || dy < 0 || dx > 6 || dy > 6) return false;
+                return dx === 0 || dx === 6 || dy === 0 || dy === 6 || (dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4);
+              };
+              let d = "";
+              for (let y = 0; y < N; y++) {
+                for (let x = 0; x < N; x++) {
+                  let on;
+                  const inF = (x < 8 && y < 8) || (x > 16 && y < 8) || (x < 8 && y > 16);
+                  if (inF) on = finder(x, y) || finder(x - 18, y) || finder(x, y - 18);
+                  else if (x === 6 || y === 6) on = (x + y) % 2 === 0;
+                  else on = rnd() > 0.52;
+                  if (on) d += "M" + x + " " + y + "h1v1h-1z";
+                }
+              }
+              return '<svg viewBox="0 0 25 25" shape-rendering="crispEdges"><path d="' + d + '" fill="#17151E"/></svg>';
+            }
+            root.querySelectorAll("[data-qr]").forEach((el) => (el.innerHTML = qrSvg(+el.dataset.qr)));
+
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const kb = VMKit.create({ root, tl, screenEl: k.$("#c05-bscreen"), liftEl: k.$("#c05-blift") });
+            const { $, $$, E, tap, center, push, liftOut, titleCard } = k;
+            const cam = $(".cam");
+
+            k.screens(["sPerfil", "sPlan", "sChoose", "sCk", "sPay", "sOk", "sPlan2", "sInv"].map((s) => "c05-" + s));
+            $$("#c05-sPerfil, #c05-sPerfil *").forEach((n) => ["occlusion", "overlap", "overflow"].forEach((a) => n.setAttribute("data-layout-allow-" + a, "")));
+            kb.screens(["c05-bCam", "c05-bPay", "c05-bRec"]);
+
+            tl.set($$(".p5-rv"), { opacity: 0, y: 14 }, 0);
+
+            const skel = (sel, t, dur) => {
+              const el = $(sel);
+              tl.set(el, { autoAlpha: 1 }, t);
+              tl.fromTo(el.querySelectorAll(".p5-skb"), { opacity: 0.35 }, { opacity: 0.85, duration: dur / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t);
+              tl.to(el, { autoAlpha: 0, duration: 0.2, ease: "power2.in" }, t + dur);
+            };
+            const reveal = (sc, t, step) => tl.to($$(sc + " .p5-rv"), { opacity: 1, y: 0, duration: 0.5, ease: E, stagger: step }, t);
+            const press = (sel, t) => tl.fromTo($(sel), { opacity: 0 }, { opacity: 1, duration: 0.15 }, t);
+            const spin = (sel, t, dur, deg) => tl.fromTo($(sel), { rotation: 0 }, { rotation: deg, duration: dur, ease: "none" }, t);
+
+            titleCard("#c05-t1", { at: 0.15, sparkAt: 0.75, out: 2.58 });
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out" }, 3);
+
+            const hero = $("#c05-heroPlan");
+            let c = center(hero);
+            tl.to(cam, { scale: 1.05, y: 40, duration: 0.8, ease: "power2.inOut" }, 3.9);
+            tap(c.x, c.y, 4.3, hero);
+            press("#c05-heroPr", 4.3);
+            liftOut(hero, 4.5, 0.75, -8, 1.12);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.55, ease: "power2.inOut" }, 4.9);
+            push("c05-sPerfil", "c05-sPlan", 5.5);
+
+            skel("#c05-skl1", 5.6, 0.75);
+            reveal("#c05-sc1", 6.4, 0.06);
+            tl.to($("#c05-sc1"), { y: -150, duration: 1.1, ease: "power2.inOut" }, 7.5);
+            const bV = $("#c05-btnVer");
+            c = center(bV);
+            tap(c.x, c.y - 150, 9.0, bV);
+            press("#c05-btnVerPr", 9.0);
+            push("c05-sPlan", "c05-sChoose", 9.25);
+
+            skel("#c05-skl2", 9.35, 0.7);
+            reveal("#c05-sc2", 10.1, 0.12);
+            tl.to($("#c05-sc2"), { y: -250, duration: 1.1, ease: "power2.inOut" }, 11.0);
+            const pro = $("#c05-planPro");
+            c = center($("#c05-btnPro"));
+            tl.to(cam, { scale: 1.04, y: 20, duration: 0.7, ease: "power2.inOut" }, 12.2);
+            tap(c.x, c.y - 250, 12.6, $("#c05-btnPro"));
+            press("#c05-planProPr", 12.6);
+            const proLift = liftOut(pro, 12.75, 0.8, 0, 1.06);
+            proLift.style.top = parseFloat(proLift.style.top) - 250 + "px";
+            tl.to(cam, { scale: 1, y: 0, duration: 0.5, ease: "power2.inOut" }, 13.4);
+            push("c05-sChoose", "c05-sCk", 14.05);
+
+            const pulse = (sel) => tl.fromTo($(sel), { opacity: 0.45 }, { opacity: 1, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 14.1);
+            tl.set($("#c05-ckSk"), { opacity: 1 }, 0);
+            tl.set($("#c05-ckLineSk"), { opacity: 1 }, 0);
+            tl.set($("#c05-ckTot"), { opacity: 0 }, 0);
+            tl.set($("#c05-ckLine"), { opacity: 0 }, 0);
+            tl.set($("#c05-ckMeths"), { opacity: 0.5 }, 0);
+            pulse("#c05-ckSk");
+            pulse("#c05-ckLineSk");
+            tl.to($("#c05-ckSk"), { opacity: 0, duration: 0.2 }, 14.95);
+            tl.to($("#c05-ckLineSk"), { opacity: 0, duration: 0.2 }, 14.95);
+            tl.to([$("#c05-ckTot"), $("#c05-ckLine")], { opacity: 1, duration: 0.3, ease: E }, 15.0);
+            tl.to($("#c05-ckMeths"), { opacity: 1, duration: 0.4 }, 15.0);
+            tl.to(cam, { scale: 1.06, y: 60, duration: 0.8, ease: "power2.inOut" }, 15.4);
+            liftOut($("#c05-ckAmt"), 15.6, 1.3, 0, 1.05);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, 17.0);
+            const mp = $("#c05-methPix");
+            c = center(mp);
+            tap(c.x, c.y, 17.7, mp);
+            press("#c05-methPixPr", 17.7);
+            push("c05-sCk", "c05-sPay", 17.95);
+
+            tl.fromTo($("#c05-slot"), { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.6, ease: E }, 18.1);
+            tl.fromTo($("#c05-sticky"), { y: 110 }, { y: 0, duration: 0.55, ease: E }, 18.2);
+            liftOut($("#c05-steps"), 18.9, 1.4, 0, 1.06);
+            const bG = $("#c05-btnGerar");
+            c = center(bG);
+            tap(c.x, c.y, 20.75, bG);
+            tl.to($("#c05-lbGerar"), { opacity: 0, duration: 0.12 }, 20.85);
+            tl.to($("#c05-lbGerando"), { opacity: 1, duration: 0.12 }, 20.85);
+            spin("#c05-spinG", 20.85, 0.8, 540);
+            tl.to($("#c05-steps"), { opacity: 0, duration: 0.25 }, 21.6);
+            tl.to($("#c05-sticky"), { y: 110, opacity: 0, duration: 0.35, ease: "power3.in" }, 21.55);
+            tl.fromTo($("#c05-pix"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, 21.75);
+            tl.fromTo($("#c05-qrw"), { scale: 0.88 }, { scale: 1, duration: 0.55, ease: "back.out(1.5)" }, 21.8);
+            const cd = $("#c05-cd");
+            const cs = { n: 1799 };
+            tl.fromTo(cs, { n: 1799 }, {
+              n: 1789,
+              duration: 10,
+              ease: "none",
+              onUpdate() {
+                const n = Math.floor(cs.n);
+                cd.textContent = Math.floor(n / 60) + ":" + String(n % 60).padStart(2, "0");
+              },
+            }, 21.75);
+            tl.to(cam, { scale: 1.05, y: 50, duration: 0.8, ease: "power2.inOut" }, 22.0);
+            const bC = $("#c05-btnCopy");
+            c = center(bC);
+            tap(c.x, c.y, 22.75, bC);
+            tl.to($("#c05-lbCopy"), { opacity: 0, duration: 0.12 }, 22.85);
+            tl.to($("#c05-lbCopied"), { opacity: 1, duration: 0.15 }, 22.85);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.55, ease: "power2.inOut" }, 23.35);
+
+            const CAM_SHIFT = -0.22 * 733;
+            const qc = center($("#c05-qrw"));
+            const sx = 173 + (12 + qc.x) * 1.72 + CAM_SHIFT;
+            const sy = 318 + (12 + qc.y) * 1.72;
+            const tx = 590 + (12 + 201) * 1.08;
+            const ty = 650 + (12 + 360) * 1.08;
+            const fly = $("#c05-fly");
+            fly.style.left = sx + "px";
+            fly.style.top = sy + "px";
+
+            tl.to(cam, { xPercent: -22, duration: 0.7, ease: "power3.inOut" }, 23.9);
+            tl.fromTo($("#c05-bankwrap"), { x: 640 }, { x: 0, duration: 0.8, ease: "power4.out" }, 24.3);
+            tl.fromTo($("#c05-cap1"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 24.7);
+            tl.set($("#c05-qrw"), { opacity: 0 }, 25.2);
+            tl.set(fly, { opacity: 1 }, 25.2);
+            tl.fromTo(fly, { scale: 1 }, { scale: 1.07, duration: 0.3, ease: E }, 25.2);
+            tl.to(fly, { x: tx - sx, y: ty - sy, scale: 0.512, rotation: -3, duration: 0.85, ease: "power3.inOut" }, 25.6);
+            tl.to($("#c05-fr"), { scale: 0.93, duration: 0.3, ease: E }, 26.4);
+            tl.set($("#c05-sl"), { opacity: 1 }, 26.4);
+            tl.fromTo($("#c05-sl"), { y: 8 }, { y: 248, duration: 0.5, ease: "sine.inOut" }, 26.4);
+            tl.to($("#c05-sl"), { y: 8, duration: 0.5, ease: "sine.inOut" }, 26.9);
+            tl.to($("#c05-sl"), { opacity: 0, duration: 0.12 }, 27.4);
+            tl.to($("#c05-fr"), { color: "#22C55E", duration: 0.2 }, 27.45);
+            tl.to(fly, { opacity: 0.3, duration: 0.2 }, 27.45);
+            tl.fromTo($("#c05-qok"), { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 27.5);
+            tl.to($("#c05-bcap1"), { opacity: 0, duration: 0.15 }, 27.5);
+            tl.to($("#c05-bcap2"), { opacity: 1, duration: 0.2 }, 27.55);
+            tl.to($("#c05-cap1"), { opacity: 0, duration: 0.25, ease: "power2.in" }, 27.3);
+            tl.to(fly, { opacity: 0, duration: 0.2 }, 27.95);
+            tl.set($("#c05-qrw"), { opacity: 1 }, 27.95);
+            kb.push("c05-bCam", "c05-bPay", 28.0);
+            tl.to($("#c05-bstatus"), { color: "#0F172A", duration: 0.2 }, 28.15);
+
+            const bb = kb.center($("#c05-bbtn"));
+            kb.tap(bb.x, bb.y, 28.65, $("#c05-bbtn"));
+            tl.to($("#c05-blb1"), { opacity: 0, duration: 0.12 }, 28.75);
+            tl.to($("#c05-blb2"), { opacity: 1, duration: 0.12 }, 28.75);
+            spin("#c05-bbtn .p5-spin", 28.75, 0.7, 540);
+            kb.push("c05-bPay", "c05-bRec", 29.5);
+            tl.fromTo($("#c05-rBadge"), { scale: 0.5 }, { scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 29.7);
+            tl.fromTo($("#c05-rRing"), { scale: 0.8, opacity: 1 }, { scale: 1.25, opacity: 0, duration: 0.8, ease: "power2.out" }, 29.95);
+            tl.fromTo(["#c05-rH", "#c05-rAm", "#c05-rDt", "#c05-rBx"].map($), { y: 18 }, { y: 0, duration: 0.45, ease: E, stagger: 0.09 }, 29.85);
+            tl.fromTo($("#c05-cap2"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 29.95);
+            tl.to($("#c05-cap2"), { opacity: 0, duration: 0.25, ease: "power2.in" }, 31.35);
+            tl.to($("#c05-bankwrap"), { x: 640, duration: 0.45, ease: "power4.in" }, 31.5);
+            tl.to(cam, { xPercent: 0, duration: 0.6, ease: "power3.inOut" }, 31.5);
+
+            tl.to($("#c05-pix"), { opacity: 0, duration: 0.3 }, 32.2);
+            tl.fromTo($("#c05-val"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: E }, 32.3);
+            spin("#c05-valSpin", 32.3, 2.0, 720);
+            ["#c05-sd1", "#c05-sd2", "#c05-sd3"].map($).forEach((d, i) => tl.fromTo(d, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 32.8 + i * 0.5));
+            tl.to($("#c05-valSpin"), { opacity: 0, duration: 0.15 }, 34.1);
+            tl.fromTo($("#c05-valOk"), { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.8)" }, 34.1);
+            tl.to($("#c05-valT1"), { opacity: 0, duration: 0.15 }, 34.1);
+            tl.to($("#c05-valT2"), { opacity: 1, duration: 0.2 }, 34.15);
+            push("c05-sPay", "c05-sOk", 34.85);
+
+            tl.fromTo($("#c05-okMark"), { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }, 35.1);
+            tl.fromTo($("#c05-okTitle"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: E }, 35.25);
+            tl.fromTo($("#c05-okSumW"), { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, 35.4);
+            tl.fromTo($("#c05-btnVer2"), { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, 35.55);
+            liftOut($("#c05-okSum"), 36.1, 0.9, 0, 1.05);
+            const b2 = $("#c05-btnVer2");
+            c = center(b2);
+            tap(c.x, c.y, 37.45, b2);
+            press("#c05-btnVer2Pr", 37.45);
+            push("c05-sOk", "c05-sPlan2", 37.65);
+
+            skel("#c05-skl3", 37.75, 0.55);
+            reveal("#c05-sc3", 38.4, 0.05);
+            const rF = $("#c05-rowFat");
+            c = center(rF);
+            tap(c.x, c.y, 39.55, rF);
+            press("#c05-rowFatPr", 39.55);
+            push("c05-sPlan2", "c05-sInv", 39.75);
+
+            skel("#c05-skl4", 39.85, 0.45);
+            reveal("#c05-sc4", 40.4, 0.05);
+            tl.to(cam, { scale: 1.04, y: 30, duration: 0.7, ease: "power2.inOut" }, 40.6);
+            liftOut($("#c05-invRow"), 40.75, 0.5, 0, 1.04);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.3, ease: "power2.inOut" }, 41.3);
+
+            const back = (from, to, t) => {
+              tl.set($("#" + to), { autoAlpha: 1 }, t);
+              tl.fromTo($("#" + to), { x: -120 }, { x: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, t);
+              tl.fromTo($("#" + from), { x: 0 }, { x: 402, duration: 0.5, ease: "power3.out", immediateRender: false }, t);
+              tl.set($("#" + from), { autoAlpha: 0 }, t + 0.52);
+            };
+            const bk1 = center($("#c05-sInv .p5-nav .ic"));
+            tap(bk1.x, bk1.y, 41.4, null);
+            back("c05-sInv", "c05-sPlan2", 41.5);
+            const bk2 = center($("#c05-sPlan2 .p5-nav .ic"));
+            tap(bk2.x, bk2.y, 42.1, null);
+            const hp = $("#c05-heroPlan");
+            hp.querySelectorAll(".pf-stk").forEach((n) => {
+              tl.set(n.children[0], { opacity: 0 }, 42.0);
+              tl.set(n.children[1], { opacity: 1 }, 42.0);
+            });
+            tl.set(hp.querySelector(".pf-dot"), { opacity: 1 }, 42.0);
+            tl.to($("#c05-heroPr"), { opacity: 0, duration: 0.2 }, 42.0);
+            back("c05-sPlan2", "c05-sPerfil", 42.2);
+            tl.fromTo(hp, { scale: 1 }, { scale: 1.05, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 42.8);
+            tl.set(hp.querySelector(".pf-ring"), { opacity: 0.9 }, 42.8);
+            tl.to(hp.querySelector(".pf-ring"), { opacity: 0, duration: 0.8, ease: "power2.out" }, 42.8);
+            tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, 43.7);
+            tl.set(cam, { opacity: 0 }, 44.12);
+
+            window.__timelines["ch05-plano"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

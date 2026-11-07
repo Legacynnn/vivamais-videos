@@ -2,21 +2,21 @@
 name: Viva Mais
 source: brand/tokens.json
 colors:
-  noite: "#22084A"
-  viva: "#7E3BED"
-  violetStrong: "#6A24DB"
-  eletrico: "#9531FF"
-  tint: "#F3EDFF"
-  verde: "#4EEB8C"
-  verdeFundo: "#0F9E62"
-  azul: "#62B8FF"
-  papel: "#FAFAFE"
-  branco: "#FFFFFF"
-  surface: "#F6F5F9"
-  ink: "#22084A"
-  body: "#5C5078"
-  muted: "#7E7498"
-  line: "#E6E4EC"
+  primary: "#7E3BED"
+  primaryStrong: "#6A24DB"
+  primarySoft: "#F5F0FE"
+  secondary: "#4EEB8C"
+  secondaryStrong: "#0D883F"
+  iris: "#9681EB"
+  aqua: "#45CFDD"
+  foreground: "#17151E"
+  mutedForeground: "#726F80"
+  border: "#E6E4EC"
+  tile: "#F6F5F9"
+  panel: "#F3F4FA"
+  canvas: "#FAFAFE"
+  mist: "#F3EDFF"
+  white: "#FFFFFF"
 typography:
   display:
     family: Space Grotesk
@@ -55,10 +55,12 @@ Warm, human healthcare. Energetic and calm at once; never cold, bureaucratic, fi
 
 ## Color
 
-- Violet dominates (`viva` #7E3BED, `noite` #22084A). Verde #4EEB8C is the secondary accent: tags, checks, highlighted words on dark. Azul #62B8FF only when a third distinct value is truly needed, never a fill.
-- Backgrounds are violet or paper, never verde/azul. Dark frames use `--vm-grad-escuro` (purple only). Light frames sit on `branco`/`papel`; cards on them use `surface` #F6F5F9 with no border.
-- Solid fills by default. No gradient text except the cover/closing headline. The symbol gradient (aqua → elétrico) belongs to the logo only.
-- Text on light: `ink` / `body` / `muted`. Text on dark: white, verde for emphasis.
+Names match the product (`packages/theme/tokens.json` in the monorepo): scales `violet`, `ink`, plus brand-only `iris`, `aqua`, `green`, each 50–950 (`--vm-violet-500`). Roles point at scale steps (`--vm-foreground` = `ink-900`).
+
+- Violet dominates (`primary` = violet-500 #7E3BED). Green is the secondary accent (`secondary` = green-400 #4EEB8C; `secondary-strong` green-700 for green text or fills on light): tags, checks, highlighted words on dark. Iris #9681EB and aqua #45CFDD are supporting tones for illustration, charts, and a third value when needed; never large fills.
+- Backgrounds are violet or white/`canvas`, never green/aqua. Dark frames use `--vm-grad-escuro` (purple only). Cards on light frames use `tile` #F6F5F9 with no border, product style; white wells inside a tile when content needs a second level.
+- Text on light: `foreground` ink-900, body ink-600, `muted-foreground` ink-500. Text on dark: white, green for emphasis.
+- Solid fills by default. No gradient text except the cover/closing headline. `logo-aqua` → `logo-purple` belongs to the logo only.
 
 ## Type
 

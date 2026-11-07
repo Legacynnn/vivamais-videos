@@ -1,0 +1,14 @@
+{
+  "assets/icons/medico.png": "app/icons/medico.png",
+  "assets/icons/cardio.png": "app/icons/cardio.png",
+  "assets/icons/pediatria.png": "app/icons/pediatria.png",
+  "assets/icons/psicologia.png": "app/icons/psicologia.png",
+  "assets/icons/derma.png": "app/icons/derma.png",
+  "assets/icons/ginecologia.png": "app/icons/ginecologia.png",
+  "assets/icons/ortopedia.png": "app/icons/ortopedia.png",
+  "assets/icons/neurologia.png": "app/icons/neurologia.png",
+  "assets/people/camila.jpg": "people/doctors/camila.jpg",
+  "assets/people/mariana.jpg": "people/doctors/mariana.jpg",
+  "assets/illustrations/plantao-24h.webp": "app/illustrations/plantao-24h.webp",
+  "assets/illustrations/handoff-sheet.webp": "app/illustrations/handoff-sheet.webp"
+}

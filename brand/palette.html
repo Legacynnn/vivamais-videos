@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Viva Mais palette</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; padding: 64px; width: 1600px; background: var(--vm-white); color: var(--vm-foreground); font-family: var(--vm-font-text); }
+  h1, h2 { font-family: var(--vm-font-display); font-weight: 700; margin: 0 0 16px; }
+  h1 { font-size: 44px; } h2 { font-size: 22px; margin-top: 48px; }
+  .scale { display: grid; grid-template-columns: 120px repeat(11, 1fr); gap: 6px; align-items: center; margin-bottom: 6px; }
+  .scale b { font-size: 15px; }
+  .sw { height: 64px; border-radius: 12px; padding: 8px; font-size: 11px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .roles { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; }
+  .roles .sw { height: 88px; box-shadow: inset 0 0 0 1px rgb(23 21 30 / 0.06); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .demo { border-radius: var(--vm-radius-card); padding: 32px; background: var(--vm-tile); }
+  .demo .dark { margin-top: 16px; border-radius: 20px; padding: 28px; background: var(--vm-grad-escuro); color: var(--vm-white); }
+  .demo h3 { font-family: var(--vm-font-display); font-size: 30px; margin: 0 0 8px; }
+  .demo p { color: var(--vm-ink-600); margin: 0 0 16px; }
+  .chip { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; color: var(--vm-foreground); margin-right: 8px; }
+  .well { background: var(--vm-white); border-radius: 12px; padding: 16px; display: flex; gap: 12px; align-items: center; margin-top: 12px; }
+  .dot { width: 22px; height: 22px; border-radius: 50%; }
+  .big { font-family: var(--vm-font-display); font-size: 56px; font-weight: 700; }
+  .label { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--vm-muted-foreground); margin-bottom: 12px; font-weight: 700; }
+</style>
+</head>
+<body>
+<h1>Viva Mais palette</h1>
+<div id="scales"></div>
+<h2>Roles</h2>
+<div class="roles" id="roles"></div>
+<h2>Secondary accent</h2>
+<div class="pair">
+  <div class="demo" style="--acc: var(--vm-green-400); --acc-strong: var(--vm-green-700)">
+    <div class="label">A · green secondary</div>
+    <h3>Saúde para o seu <span style="color: var(--vm-primary)">time inteiro.</span></h3>
+    <p>Clínico geral, psicologia e nutrição no mesmo plano.</p>
+    <span class="chip" style="background: var(--acc)">Grátis</span><span class="chip" style="background: var(--vm-primary); color: #fff">Recomendado</span>
+    <div class="well"><span class="dot" style="background: var(--acc)"></span>Ferramentas de IA <b style="margin-left: auto; color: var(--acc-strong)">incluso</b></div>
+    <div class="dark"><div class="big" style="color: var(--acc)">+200.000</div>Vidas cuidadas</div>
+  </div>
+  <div class="demo" style="--acc: var(--vm-aqua-400); --acc-strong: var(--vm-aqua-700)">
+    <div class="label">B · aqua secondary</div>
+    <h3>Saúde para o seu <span style="color: var(--vm-primary)">time inteiro.</span></h3>
+    <p>Clínico geral, psicologia e nutrição no mesmo plano.</p>
+    <span class="chip" style="background: var(--acc)">Grátis</span><span class="chip" style="background: var(--vm-primary); color: #fff">Recomendado</span>
+    <div class="well"><span class="dot" style="background: var(--acc)"></span>Ferramentas de IA <b style="margin-left: auto; color: var(--acc-strong)">incluso</b></div>
+    <div class="dark"><div class="big" style="color: var(--acc)">+200.000</div>Vidas cuidadas</div>
+  </div>
+</div>
+<script>
+  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const steps = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"];
+  const ink = (i) => (i >= 5 ? "#fff" : "var(--vm-foreground)");
+  document.getElementById("scales").innerHTML = ["violet", "ink", "iris", "aqua", "green"]
+    .map((family) => `<div class="scale"><b>${family}</b>${steps.map((s, i) => `<div class="sw" style="background: var(--vm-${family}-${s}); color: ${ink(i)}">${s}<br>${css(`--vm-${family}-${s}`)}</div>`).join("")}</div>`)
+    .join("");
+  const roles = ["primary", "primary-strong", "primary-soft", "secondary", "secondary-strong", "foreground", "muted-foreground", "foreground-subtle", "border", "border-strong", "tile", "panel", "canvas", "mist", "logo-aqua", "logo-purple"];
+  const dark = ["primary", "primary-strong", "secondary-strong", "foreground", "muted-foreground", "logo-purple"];
+  document.getElementById("roles").innerHTML = roles
+    .map((r) => `<div class="sw" style="background: var(--vm-${r}); color: ${dark.includes(r) ? "#fff" : "var(--vm-foreground)"}"><b>${r}</b></div>`)
+    .join("");
+</script>
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch09 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch09 .c09-ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+        #ch09 .c09-sw { position: absolute; inset: 0; }
+        #ch09 .c09-tag { position: absolute; left: 173px; top: 232px; width: 733px; text-align: center; }
+        #ch09 .c09-tag span { display: inline-block; padding: 12px 30px; border-radius: 999px; background: var(--vm-violet-100); color: var(--vm-violet-600); font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.01em; }
+        #ch09 .status { color: #fff; }
+        #ch09 .status-icons i { background: currentColor; }
+        #ch09 .c09-home { position: absolute; left: 134px; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: var(--vm-ink-900); z-index: 25; }
+        #ch09 .c09-sk { position: absolute; left: 0; top: 0; width: 402px; height: 874px; z-index: 12; opacity: 0; overflow: hidden; pointer-events: none; }
+        #ch09 .c09-sk i { position: absolute; display: block; background: #E9E7F0; }
+        #ch09 .c09-sk i.c09-on { background: rgba(214, 195, 251, 0.55); }
+
+        #ch09 .c09-dbg { position: absolute; left: 0; right: 0; top: 0; height: 520px; background: linear-gradient(180deg, #5719B6 0%, #7E3BED 100%); }
+        #ch09 .c09-dav { position: absolute; left: 24px; top: 60px; width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.55); }
+        #ch09 .c09-dbl { position: absolute; right: 24px; top: 60px; width: 42px; height: 42px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); color: #fff; display: flex; align-items: center; justify-content: center; }
+        #ch09 .c09-ddt { position: absolute; left: 24px; top: 116px; font-size: 14px; line-height: 18px; color: rgba(255, 255, 255, 0.78); }
+        #ch09 .c09-dgr { position: absolute; left: 24px; top: 136px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 30px; line-height: 36px; letter-spacing: -0.02em; color: #fff; }
+        #ch09 .c09-dsb { position: absolute; left: 24px; top: 176px; font-size: 14.5px; line-height: 20px; color: rgba(255, 255, 255, 0.82); white-space: nowrap; }
+        #ch09 .c09-nc { position: absolute; left: 20px; right: 20px; top: 216px; height: 168px; border-radius: 26px; background: var(--vm-violet-950); box-shadow: 0 16px 34px rgba(34, 8, 74, 0.35); }
+        #ch09 .c09-eyd { position: absolute; left: 20px; top: 18px; font-weight: 700; font-size: 11px; letter-spacing: 1.7px; text-transform: uppercase; color: var(--vm-violet-300); }
+        #ch09 .c09-hl { position: absolute; left: 20px; top: 38px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 36px; line-height: 44px; letter-spacing: -0.02em; color: #fff; white-space: nowrap; }
+        #ch09 .c09-ncs { position: absolute; left: 20px; top: 86px; font-size: 14px; line-height: 20px; color: var(--vm-violet-200); white-space: nowrap; }
+        #ch09 .c09-ncf { position: absolute; left: 20px; right: 16px; top: 118px; height: 36px; display: flex; align-items: center; gap: 10px; }
+        #ch09 .c09-ncf::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 1px; background: rgba(255, 255, 255, 0.12); }
+        #ch09 .c09-ncf img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
+        #ch09 .c09-ncf b { font-size: 15px; color: #fff; white-space: nowrap; }
+        #ch09 .c09-arw { position: absolute; right: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; background: #fff; color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch09 .c09-arw .c09-ic { width: 17px; height: 17px; }
+        #ch09 .c09-dsh { position: absolute; left: 0; top: 404px; width: 402px; height: 470px; border-radius: 30px 30px 0 0; background: #fff; }
+        #ch09 .c09-qa { position: absolute; left: 0; top: 428px; width: 402px; display: flex; gap: 6px; padding: 0 12px; }
+        #ch09 .c09-qa div { width: 76px; text-align: center; font-size: 11.5px; line-height: 14px; color: var(--vm-ink-700); }
+        #ch09 .c09-qa i { display: flex; width: 46px; height: 46px; margin: 0 auto 6px; border-radius: 50%; background: var(--vm-violet-50); color: var(--vm-violet-600); align-items: center; justify-content: center; }
+        #ch09 .c09-hj { position: absolute; left: 20px; right: 20px; top: 534px; display: flex; justify-content: space-between; align-items: center; }
+        #ch09 .c09-hj h3 { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 20px; color: var(--vm-ink-900); }
+        #ch09 .c09-hj span { display: flex; align-items: center; font-weight: 500; font-size: 14px; color: var(--vm-violet-600); }
+        #ch09 .c09-hj .c09-ic { width: 16px; height: 16px; }
+        #ch09 .c09-ws { position: absolute; left: 12px; right: 12px; top: 574px; display: flex; justify-content: space-between; }
+        #ch09 .c09-ws div { width: 51px; text-align: center; font-size: 11px; color: var(--vm-ink-500); }
+        #ch09 .c09-ws i { display: flex; width: 34px; height: 34px; margin: 4px auto 2px; border-radius: 50%; align-items: center; justify-content: center; font-style: normal; font-weight: 500; font-size: 14.5px; color: var(--vm-ink-900); }
+        #ch09 .c09-ws .c09-td i { background: var(--vm-violet-500); color: #fff; }
+        #ch09 .c09-ws u { display: block; width: 5px; height: 5px; margin: 0 auto; border-radius: 50%; background: var(--vm-violet-400); }
+        #ch09 .c09-sch { position: absolute; left: 20px; right: 20px; top: 652px; height: 84px; }
+        #ch09 .c09-rw { position: absolute; left: 0; right: 0; top: 0; height: 72px; }
+        #ch09 .c09-gt { position: absolute; left: 0; top: 4px; width: 56px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 17px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch09 .c09-gt span { display: block; font-family: "DM Sans", sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: var(--vm-ink-500); }
+        #ch09 .c09-rc { position: absolute; left: 60px; right: 0; top: 0; height: 72px; border-radius: 20px; background: var(--vm-tile); }
+        #ch09 .c09-rc img { position: absolute; left: 12px; top: 15px; width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+        #ch09 .c09-rc b { position: absolute; left: 64px; top: 13px; font-size: 15.5px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch09 .c09-r2 { position: absolute; left: 64px; top: 38px; display: flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch09 .c09-r2 .c09-ic { width: 14px; height: 14px; }
+        #ch09 .c09-rc > .c09-ic { position: absolute; right: 12px; top: 26px; width: 20px; height: 20px; color: var(--vm-ink-400); }
+        #ch09 .c09-tabbar { position: absolute; left: 16px; right: 16px; bottom: 34px; height: 72px; z-index: 21; }
+        #ch09 .c09-tb-bar { position: absolute; left: 0; top: 0; width: 302px; height: 72px; border-radius: 999px; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: space-evenly; padding: 0 8px; }
+        #ch09 .c09-tb-item { flex: 1; display: flex; justify-content: center; }
+        #ch09 .c09-tb-ind { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 12px; border-radius: 999px; color: var(--vm-ink-600); }
+        #ch09 .c09-tbon { position: absolute; inset: 0; border-radius: 999px; background: var(--vm-violet-100); opacity: 0; }
+        #ch09 .c09-tbc { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        #ch09 .c09-tb-ind span { font-weight: 500; font-size: 9px; line-height: 12px; }
+        #ch09 .c09-tb-plus { position: absolute; right: 0; top: 8px; width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: center; color: var(--vm-violet-600); }
+        #ch09 .c09-tb-plus .c09-ic { width: 22px; height: 22px; stroke-width: 2.25; }
+
+        #ch09 .c09-sc { position: absolute; left: 0; top: 0; width: 402px; }
+        #ch09 .c09-bgv { position: absolute; left: 0; top: 0; width: 402px; height: 380px; background: linear-gradient(180deg, #5719B6 0%, #7E3BED 100%); }
+        #ch09 .c09-hero { position: relative; padding: 106px 20px 4px; }
+        #ch09 .c09-hero img { display: block; width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.45); }
+        #ch09 .c09-hn { margin-top: 14px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 30px; line-height: 35px; letter-spacing: -0.6px; color: #fff; }
+        #ch09 .c09-hs { margin-top: 2px; font-weight: 500; font-size: 15px; line-height: 20px; color: rgba(255, 255, 255, 0.86); }
+        #ch09 .c09-hf { margin-top: 14px; font-weight: 700; font-size: 16px; line-height: 20px; color: #fff; white-space: pre; }
+        #ch09 .c09-cd { margin-top: 4px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 24px; line-height: 30px; letter-spacing: -0.4px; color: #fff; font-variant-numeric: tabular-nums; }
+        #ch09 .c09-sheet { position: relative; margin-top: 20px; padding: 24px 0 140px; min-height: 1500px; background: var(--vm-panel); border-radius: 30px 30px 0 0; }
+        #ch09 .c09-pay { display: flex; align-items: center; justify-content: space-between; margin: 0 20px 28px; }
+        #ch09 .c09-pay > span { font-size: 15px; color: var(--vm-ink-600); }
+        #ch09 .c09-pv { display: flex; align-items: center; gap: 8px; }
+        #ch09 .c09-pv b { font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 17px; color: var(--vm-ink-900); font-variant-numeric: tabular-nums; }
+        #ch09 .c09-st { display: flex; align-items: center; gap: 5px; padding: 2px 8px; border-radius: 999px; background: rgba(34, 197, 94, 0.12); font-weight: 500; font-size: 12px; line-height: 18px; color: var(--vm-ink-700); }
+        #ch09 .c09-st i { display: block; width: 6px; height: 6px; border-radius: 50%; background: #22C55E; }
+        #ch09 .c09-sec { margin: 4px 20px 8px; font-weight: 500; font-size: 15px; line-height: 20px; color: var(--vm-ink-700); }
+        #ch09 .c09-ap { margin: 0 20px 32px; }
+        #ch09 .c09-apr { display: flex; align-items: baseline; gap: 12px; padding: 10px 0; }
+        #ch09 .c09-apr + .c09-apr { border-top: 1px solid var(--vm-ink-200); }
+        #ch09 .c09-apr b { width: 96px; flex: none; font-weight: 700; font-size: 15px; line-height: 20px; }
+        #ch09 .c09-apr span { flex: 1; font-weight: 500; font-size: 16px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch09 .c09-ai { margin: 0 20px 32px; }
+        #ch09 .c09-aih { display: flex; align-items: center; gap: 8px; }
+        #ch09 .c09-aih .c09-ico { width: 22px; height: 22px; border-radius: 7px; background: var(--vm-violet-500); color: #fff; display: flex; align-items: center; justify-content: center; }
+        #ch09 .c09-aih .c09-ico .c09-ic { width: 13px; height: 13px; }
+        #ch09 .c09-aih b { flex: 1; font-weight: 700; font-size: 17px; letter-spacing: -0.2px; color: var(--vm-ink-900); }
+        #ch09 .c09-aih span { display: flex; align-items: center; gap: 2px; font-weight: 500; font-size: 14px; color: var(--vm-violet-600); }
+        #ch09 .c09-aih span .c09-ic { width: 16px; height: 16px; }
+        #ch09 .c09-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        #ch09 .c09-chip { min-height: 44px; display: flex; align-items: center; padding: 0 16px; border-radius: 22px; background: var(--vm-violet-100); font-weight: 500; font-size: 15px; color: var(--vm-violet-800); }
+        #ch09 .c09-an { margin: 0 20px 24px; padding: 16px 16px 0; border-radius: 22px; background: #fff; display: flex; flex-direction: column; gap: 14px; }
+        #ch09 .c09-an .c09-lb { font-weight: 500; font-size: 13px; line-height: 17px; color: var(--vm-violet-600); }
+        #ch09 .c09-an .c09-rs { margin-top: 4px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 20px; line-height: 26px; color: var(--vm-ink-900); }
+        #ch09 .c09-pn { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        #ch09 .c09-pn span { font-weight: 500; font-size: 14px; color: var(--vm-ink-900); }
+        #ch09 .c09-pn b { font-weight: 700; font-size: 13px; color: #F59E0B; }
+        #ch09 .c09-bar { height: 6px; border-radius: 3px; background: var(--vm-ink-200); overflow: hidden; }
+        #ch09 .c09-bar i { display: block; height: 100%; width: 60%; border-radius: 3px; background: #F59E0B; }
+        #ch09 .c09-more { display: flex; align-items: center; min-height: 46px; border-top: 1px solid var(--vm-ink-200); font-weight: 500; font-size: 14px; color: var(--vm-ink-600); }
+        #ch09 .c09-more span { flex: 1; }
+        #ch09 .c09-more .c09-ic { width: 17px; height: 17px; color: var(--vm-ink-300); }
+        #ch09 .c09-grp { margin: 0 20px 24px; border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch09 .c09-ir { display: flex; align-items: center; gap: 14px; min-height: 56px; padding: 10px 14px 10px 16px; }
+        #ch09 .c09-ir + .c09-ir { position: relative; }
+        #ch09 .c09-ir + .c09-ir::before { content: ""; position: absolute; left: 66px; right: 0; top: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch09 .c09-it { width: 36px; height: 36px; flex: none; border-radius: 11px; background: var(--vm-violet-100); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch09 .c09-it .c09-ic { width: 19px; height: 19px; stroke-width: 1.9; }
+        #ch09 .c09-ib { flex: 1; min-width: 0; }
+        #ch09 .c09-ib b { display: block; font-weight: 500; font-size: 16px; line-height: 21px; color: var(--vm-ink-900); white-space: nowrap; }
+        #ch09 .c09-ib span { display: block; margin-top: 1px; font-size: 13px; line-height: 17px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch09 .c09-ir > .c09-ic { width: 18px; height: 18px; flex: none; color: var(--vm-ink-400); }
+        #ch09 .c09-note { padding: 14px 16px; }
+        #ch09 .c09-note b { display: block; font-weight: 500; font-size: 16px; line-height: 21px; color: var(--vm-ink-900); }
+        #ch09 .c09-note span { display: block; margin-top: 4px; font-size: 14px; line-height: 20px; color: var(--vm-ink-600); }
+        #ch09 .c09-acts { margin: 0 20px; display: flex; flex-direction: column; gap: 10px; }
+        #ch09 .c09-act { min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 16px; background: #fff; font-weight: 500; font-size: 16px; color: var(--vm-ink-900); }
+        #ch09 .c09-act .c09-ic { width: 18px; height: 18px; stroke-width: 2.1; }
+        #ch09 .c09-act.c09-dg { color: #EF4444; }
+        #ch09 .c09-hd { position: absolute; left: 0; right: 0; top: 0; height: 100px; z-index: 10; }
+        #ch09 .c09-hds { position: absolute; inset: 0; background: var(--vm-panel); border-bottom: 1px solid var(--vm-ink-200); opacity: 0; }
+        #ch09 .c09-hbar { position: absolute; left: 12px; right: 12px; top: 54px; height: 44px; display: flex; align-items: center; color: #fff; }
+        #ch09 .c09-hbar .c09-bk { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        #ch09 .c09-hbar .c09-bk .c09-ic { width: 24px; height: 24px; stroke-width: 2.2; }
+        #ch09 .c09-hbar .c09-ht { flex: 1; text-align: center; font-weight: 500; font-size: 17px; }
+        #ch09 .c09-hbar .c09-sp { width: 40px; }
+        #ch09 .c09-ft { position: absolute; left: 0; right: 0; top: 760px; height: 114px; z-index: 10; background: var(--vm-panel); border-top: 1px solid var(--vm-ink-200); }
+        #ch09 .c09-cta { position: absolute; left: 20px; right: 20px; top: 12px; height: 54px; border-radius: 16px; overflow: hidden; }
+        #ch09 .c09-cta > div { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; font-size: 16px; font-variant-numeric: tabular-nums; }
+        #ch09 .c09-cta .c09-ic { width: 18px; height: 18px; stroke-width: 2.1; }
+        #ch09 .c09-coff { background: var(--vm-ink-200); color: var(--vm-ink-400); }
+        #ch09 .c09-con { background: var(--vm-violet-500); color: #fff; opacity: 0; }
+        #ch09 .c09-flash { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.85); z-index: 11; opacity: 0; pointer-events: none; }
+        #ch09 .c09-skip { position: absolute; left: 0; right: 0; top: 116px; display: flex; justify-content: center; z-index: 11; opacity: 0; pointer-events: none; }
+        #ch09 .c09-skip span { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; background: var(--vm-violet-100); color: var(--vm-violet-800); font-weight: 700; font-size: 15px; box-shadow: 0 10px 24px rgba(53, 14, 111, 0.22); }
+        #ch09 .c09-skip .c09-ic { width: 18px; height: 18px; }
+
+        #ch09 .c09-chat { background: var(--vm-canvas); }
+        #ch09 .c09-chh { position: absolute; left: 0; right: 0; top: 54px; height: 56px; display: flex; align-items: flex-start; padding: 0 8px; }
+        #ch09 .c09-chh .c09-bk { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: var(--vm-ink-900); }
+        #ch09 .c09-chh .c09-bk .c09-ic { width: 22px; height: 22px; }
+        #ch09 .c09-cht { position: relative; flex: 1; padding: 0 4px; }
+        #ch09 .c09-cht b { display: block; margin-top: 2px; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 16px; line-height: 20px; color: var(--vm-ink-900); }
+        #ch09 .c09-cht span { position: absolute; left: 4px; top: 24px; font-size: 11.5px; line-height: 16px; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch09 .c09-cht span.c09-busy { color: var(--vm-violet-600); opacity: 0; }
+        #ch09 .c09-chh .c09-hi { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: var(--vm-ink-700); }
+        #ch09 .c09-ctx { position: absolute; left: 12px; right: 12px; top: 128px; padding: 16px; border-radius: 24px; border: 1px solid var(--vm-violet-200); background: #fff; display: flex; gap: 12px; }
+        #ch09 .c09-ctx .c09-ci { width: 48px; height: 48px; flex: none; border-radius: 16px; background: var(--vm-violet-50); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch09 .c09-ctx .c09-ci .c09-ic { width: 26px; height: 26px; }
+        #ch09 .c09-ctx .c09-cb { flex: 1; min-width: 0; }
+        #ch09 .c09-ctx .c09-c1 { display: flex; align-items: center; justify-content: space-between; font-weight: 500; font-size: 15px; color: var(--vm-ink-900); }
+        #ch09 .c09-ctx .c09-c1 em { font-style: normal; font-weight: 700; font-size: 10px; padding: 4px 8px; border-radius: 999px; background: var(--vm-violet-100); color: var(--vm-violet-700); }
+        #ch09 .c09-ctx .c09-c2 { margin-top: 4px; font-size: 13px; color: var(--vm-ink-600); }
+        #ch09 .c09-ctx .c09-c3 { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+        #ch09 .c09-ctx .c09-c3 span { padding: 4px 10px; border-radius: 999px; background: var(--vm-violet-50); font-weight: 500; font-size: 11px; color: var(--vm-violet-600); }
+        #ch09 .c09-ctx .c09-c4 { margin-top: 10px; font-size: 13px; line-height: 18px; color: var(--vm-ink-800); }
+        #ch09 .c09-msgs { position: absolute; left: 0; right: 0; top: 330px; bottom: 150px; display: flex; flex-direction: column; justify-content: flex-end; }
+        #ch09 .c09-ub { padding: 0 16px 18px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; opacity: 0; }
+        #ch09 .c09-ub div { padding: 11px 15px; border-radius: 20px 20px 8px 20px; background: var(--vm-violet-500); color: #fff; font-size: 15.5px; line-height: 22px; }
+        #ch09 .c09-ub span { font-size: 11px; color: var(--vm-ink-400); }
+        #ch09 .c09-ab { position: relative; padding: 0 16px 18px; opacity: 0; }
+        #ch09 .c09-abh { display: flex; align-items: baseline; gap: 8px; font-weight: 500; font-size: 13px; color: var(--vm-ink-500); }
+        #ch09 .c09-abh span { font-weight: 400; font-size: 11px; color: var(--vm-ink-400); opacity: 0; }
+        #ch09 .c09-abt { position: relative; margin-top: 10px; font-size: 15.5px; line-height: 23px; color: var(--vm-ink-900); min-height: 92px; }
+        #ch09 .c09-abt b { font-weight: 700; }
+        #ch09 .c09-abt .c09-rest { visibility: hidden; }
+        #ch09 .c09-dots { position: absolute; left: 16px; top: 44px; display: flex; gap: 6px; opacity: 0; }
+        #ch09 .c09-dots i { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--vm-violet-400); }
+        #ch09 .c09-aba { margin-top: 8px; display: flex; gap: 4px; opacity: 0; }
+        #ch09 .c09-aba span { display: flex; align-items: center; gap: 5px; padding: 6px 8px; font-size: 11.5px; color: var(--vm-ink-500); }
+        #ch09 .c09-aba .c09-ic { width: 13px; height: 13px; color: var(--vm-ink-400); }
+        #ch09 .c09-comp { position: absolute; left: 12px; right: 12px; bottom: 34px; height: 52px; border-radius: 26px; border: 1px solid var(--vm-ink-200); background: #fff; display: flex; align-items: center; padding: 0 8px 0 14px; gap: 10px; }
+        #ch09 .c09-comp .c09-ic { width: 19px; height: 19px; color: var(--vm-ink-500); flex: none; }
+        #ch09 .c09-comp span { flex: 1; font-size: 15.5px; color: var(--vm-ink-400); }
+        #ch09 .c09-comp i { width: 36px; height: 36px; border-radius: 50%; background: var(--vm-ink-100); color: var(--vm-ink-400); display: flex; align-items: center; justify-content: center; flex: none; }
+        #ch09 .c09-comp i .c09-ic { width: 17px; height: 17px; color: currentColor; }
+
+        #ch09 .c09-call { background: #17151E; }
+        #ch09 .c09-call .c09-cw { position: absolute; left: 0; right: 0; top: 270px; display: flex; flex-direction: column; align-items: center; }
+        #ch09 .c09-av { position: relative; width: 132px; height: 132px; }
+        #ch09 .c09-av img { position: relative; width: 132px; height: 132px; border-radius: 50%; object-fit: cover; display: block; border: 3px solid rgba(255, 255, 255, 0.7); }
+        #ch09 .c09-rg { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid rgba(157, 107, 242, 0.7); opacity: 0; }
+        #ch09 .c09-call h2 { margin: 36px 0 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 30px; line-height: 36px; letter-spacing: -0.02em; color: #fff; }
+        #ch09 .c09-call p { margin: 8px 0 0; font-size: 15px; color: rgba(255, 255, 255, 0.66); }
+        #ch09 .c09-call .c09-cdots { margin-top: 22px; display: flex; gap: 8px; }
+        #ch09 .c09-call .c09-cdots i { display: block; width: 9px; height: 9px; border-radius: 50%; background: #fff; opacity: 0.35; }
+      </style>
+
+      <div id="ch09" data-composition-id="ch09-pre-consulta" data-start="0" data-duration="32" data-width="1080" data-height="1920">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+          <symbol id="c09-i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+          <symbol id="c09-i-cal" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></symbol>
+          <symbol id="c09-i-calplus" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18M12 13v5M9.5 15.5h5" /></symbol>
+          <symbol id="c09-i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 17.5v-11" /></symbol>
+          <symbol id="c09-i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
+          <symbol id="c09-i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14" /></symbol>
+          <symbol id="c09-i-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+          <symbol id="c09-i-chevl" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+          <symbol id="c09-i-arrowl" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" /></symbol>
+          <symbol id="c09-i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></symbol>
+          <symbol id="c09-i-arrowup" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" /></symbol>
+          <symbol id="c09-i-video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect x="2" y="6" width="14" height="12" rx="2" /></symbol>
+          <symbol id="c09-i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></symbol>
+          <symbol id="c09-i-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2" /><path d="M2 10h20" /></symbol>
+          <symbol id="c09-i-spark" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /></symbol>
+          <symbol id="c09-i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" /><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" /></symbol>
+          <symbol id="c09-i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></symbol>
+          <symbol id="c09-i-flask" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2" /><path d="M8.5 2h7" /></symbol>
+          <symbol id="c09-i-clip" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /></symbol>
+          <symbol id="c09-i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></symbol>
+          <symbol id="c09-i-xc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="m15 9-6 6M9 9l6 6" /></symbol>
+          <symbol id="c09-i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3" /></symbol>
+          <symbol id="c09-i-clipx" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48" /></symbol>
+          <symbol id="c09-i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol>
+          <symbol id="c09-i-redo" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16M8 16H3v5" /></symbol>
+        </svg>
+
+        <div id="c09-bg" class="clip" data-start="0" data-duration="32" data-track-index="0">
+          <div class="backdrop"></div>
+          <div class="grid"></div>
+          <div class="glow glow-a"></div>
+          <div class="glow glow-b"></div>
+        </div>
+
+        <section id="c09-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+          <div class="chapter-words">
+            <div class="chapter-line"><span class="w">Antes</span><span class="w">de</span></div>
+            <div class="chapter-line"><span class="w v">entrar</span></div>
+            <span class="chapter-spark"></span>
+          </div>
+        </section>
+
+        <section id="c09-phone" class="clip" data-start="2.9" data-duration="29.1" data-track-index="2">
+          <div class="c09-sw" id="c09-sw">
+            <div class="c09-tag"><span>Seu app · Dra. Camila</span></div>
+            <div class="cam" id="c09-cam">
+              <div class="dev">
+                <div class="bezel"></div>
+                <div class="screen" id="c09-screen">
+                  <div class="scr" id="c09-sA">
+                    <div class="c09-dbg"></div>
+                    <img class="c09-dav" src="assets/doctors/camila.jpg" alt="">
+                    <div class="c09-dbl"><svg class="c09-ic"><use href="#c09-i-bell" /></svg></div>
+                    <div class="c09-ddt">sexta-feira, 9/10</div>
+                    <div class="c09-dgr">Boa tarde, Camila.</div>
+                    <div class="c09-dsb">1 consulta hoje · próxima em 2 min</div>
+                    <div class="c09-dsh"></div>
+                    <div class="c09-nc" id="c09-nc">
+                      <div class="c09-eyd">Próxima consulta</div>
+                      <div class="c09-hl">Em 2 min</div>
+                      <div class="c09-ncs">14:00 · Videochamada · Clínica Geral</div>
+                      <div class="c09-ncf"><img src="assets/people/ana.jpg" alt=""><b>Ana Souza</b><div class="c09-arw" id="c09-arw"><svg class="c09-ic"><use href="#c09-i-arrow" /></svg></div></div>
+                    </div>
+                    <div class="c09-qa">
+                      <div><i><svg class="c09-ic"><use href="#c09-i-calplus" /></svg></i>Consulta</div>
+                      <div><i><svg class="c09-ic"><use href="#c09-i-pill" /></svg></i>Receita</div>
+                      <div><i><svg class="c09-ic"><use href="#c09-i-flask" /></svg></i>Pedido de exame</div>
+                      <div><i><svg class="c09-ic"><use href="#c09-i-file" /></svg></i>Atestado</div>
+                      <div><i><svg class="c09-ic"><use href="#c09-i-file" /></svg></i>Laudo</div>
+                    </div>
+                    <div class="c09-hj"><h3>Hoje</h3><span>Ver agenda<svg class="c09-ic"><use href="#c09-i-chev" /></svg></span></div>
+                    <div class="c09-ws">
+                      <div>S<i>5</i><u style="opacity:0"></u></div><div>T<i>6</i><u style="opacity:0"></u></div><div>Q<i>7</i><u style="opacity:0"></u></div><div>Q<i>8</i><u style="opacity:0"></u></div><div class="c09-td">S<i>9</i><u></u></div><div>S<i>10</i><u style="opacity:0"></u></div><div>D<i>11</i><u style="opacity:0"></u></div>
+                    </div>
+                    <div class="c09-sch">
+                      <div class="c09-rw">
+                        <div class="c09-gt">14:00<span>30 min</span></div>
+                        <div class="c09-rc"><img src="assets/people/ana.jpg" alt=""><b>Ana Souza</b><div class="c09-r2"><svg class="c09-ic"><use href="#c09-i-video" /></svg>Clínica Geral · Online</div><svg class="c09-ic"><use href="#c09-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="c09-tabbar" id="c09-tabbar">
+                      <div class="c09-tb-bar">
+                        <div class="c09-tb-item"><div class="c09-tb-ind"><div class="c09-tbon" style="opacity:1"></div><div class="c09-tbc"><svg class="c09-ic"><use href="#c09-i-house" /></svg><span>Dashboard</span></div></div></div>
+                        <div class="c09-tb-item"><div class="c09-tb-ind"><div class="c09-tbon"></div><div class="c09-tbc"><svg class="c09-ic"><use href="#c09-i-cal" /></svg><span>Consultas</span></div></div></div>
+                        <div class="c09-tb-item"><div class="c09-tb-ind"><div class="c09-tbon"></div><div class="c09-tbc"><svg class="c09-ic"><use href="#c09-i-receipt" /></svg><span>Faturamento</span></div></div></div>
+                        <div class="c09-tb-item"><div class="c09-tb-ind"><div class="c09-tbon"></div><div class="c09-tbc"><svg class="c09-ic"><use href="#c09-i-user" /></svg><span>Perfil</span></div></div></div>
+                      </div>
+                      <div class="c09-tb-plus"><svg class="c09-ic"><use href="#c09-i-plus" /></svg></div>
+                    </div>
+                  </div>
+
+                  <div class="scr" id="c09-sB" style="background: var(--vm-panel);">
+                    <div class="c09-sc" id="c09-sc">
+                      <div class="c09-bgv"></div>
+                      <div class="c09-hero" id="c09-hero">
+                        <img id="c09-hav" src="assets/people/ana.jpg" alt="">
+                        <div class="c09-hn" id="c09-hn">Ana Souza</div>
+                        <div class="c09-hs" id="c09-hs">Feminino · 34 anos</div>
+                        <div class="c09-hf" id="c09-hf">Hoje, 14:00  ·  Online  ·  30 min</div>
+                        <div class="c09-cd" id="c09-cd">Inicia em <span id="c09-hcd">00:01:12</span></div>
+                      </div>
+                      <div class="c09-sheet" id="c09-sheet">
+                        <div class="c09-pay" id="c09-pay"><span>Valor da consulta</span><div class="c09-pv"><b>R$ 140,00</b><div class="c09-st" id="c09-st"><i></i>Pago</div></div></div>
+
+                        <div class="c09-sec">Pontos de atenção</div>
+                        <div class="c09-ap" id="c09-ap">
+                          <div class="c09-apr"><b style="color:#EF4444">Alergia</b><span>Dipirona</span></div>
+                          <div class="c09-apr"><b style="color:#F59E0B">Dor 6/10</b><span>Cabeça</span></div>
+                          <div class="c09-apr"><b style="color:var(--vm-violet-600)">Em uso</b><span>Anticoncepcional oral</span></div>
+                        </div>
+
+                        <div class="c09-ai" id="c09-ai">
+                          <div class="c09-aih"><div class="c09-ico"><svg class="c09-ic"><use href="#c09-i-spark" /></svg></div><b>Prepare-se com a IA</b><span>Abrir<svg class="c09-ic"><use href="#c09-i-chev" /></svg></span></div>
+                          <div class="c09-chips">
+                            <div class="c09-chip" id="c09-chip1">Resumir o caso</div>
+                            <div class="c09-chip">Hipóteses diagnósticas</div>
+                            <div class="c09-chip">Perguntas ao paciente</div>
+                            <div class="c09-chip">Alergias e interações</div>
+                          </div>
+                        </div>
+
+                        <div class="c09-sec">Anamnese</div>
+                        <div class="c09-an" id="c09-an">
+                          <div><div class="c09-lb">Queixa principal</div><div class="c09-rs">Ansiedade e dificuldade para dormir há 3 meses</div></div>
+                          <div><div class="c09-pn"><span>Cabeça</span><b>6/10</b></div><div class="c09-bar"><i></i></div></div>
+                          <div class="c09-more"><span>Ver detalhes</span><svg class="c09-ic"><use href="#c09-i-chev" /></svg></div>
+                        </div>
+
+                        <div class="c09-sec">Paciente</div>
+                        <div class="c09-grp" id="c09-pac">
+                          <div class="c09-ir"><div class="c09-it"><svg class="c09-ic"><use href="#c09-i-bell" /></svg></div><div class="c09-ib"><b>Lembrar consulta</b><span>Envia uma notificação ao paciente</span></div><svg class="c09-ic"><use href="#c09-i-chev" /></svg></div>
+                          <div class="c09-ir"><div class="c09-it"><svg class="c09-ic"><use href="#c09-i-card" /></svg></div><div class="c09-ib"><b>Enviar cobrança</b><span>Reenvia o link de pagamento</span></div><svg class="c09-ic"><use href="#c09-i-chev" /></svg></div>
+                        </div>
+
+                        <div class="c09-sec">Sala virtual</div>
+                        <div class="c09-grp" id="c09-sala">
+                          <div class="c09-note"><b>Videochamada</b><span>O atendimento será realizado por videochamada. O link estará disponível quando a consulta iniciar.</span></div>
+                          <div class="c09-ir"><div class="c09-it"><svg class="c09-ic"><use href="#c09-i-video" /></svg></div><div class="c09-ib"><b>Entrar na sala</b></div><svg class="c09-ic"><use href="#c09-i-chev" /></svg></div>
+                        </div>
+
+                        <div class="c09-acts">
+                          <div class="c09-act"><svg class="c09-ic"><use href="#c09-i-calplus" /></svg>Solicitar reconsulta (gratuita)</div>
+                          <div class="c09-act c09-dg"><svg class="c09-ic"><use href="#c09-i-xc" /></svg>Cancelar consulta</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="c09-hd" id="c09-hd">
+                      <div class="c09-hds" id="c09-hds"></div>
+                      <div class="c09-hbar" id="c09-hbar"><div class="c09-bk"><svg class="c09-ic"><use href="#c09-i-chevl" /></svg></div><div class="c09-ht">Detalhes do agendamento</div><div class="c09-sp"></div></div>
+                    </div>
+                    <div class="c09-ft" id="c09-ft">
+                      <div class="c09-cta" id="c09-cta">
+                        <div class="c09-coff"><svg class="c09-ic"><use href="#c09-i-clock" /></svg><span>Inicia em <span id="c09-fcd">00:01:12</span></span></div>
+                        <div class="c09-con" id="c09-con"><svg class="c09-ic"><use href="#c09-i-clip" /></svg><span>Iniciar atendimento</span></div>
+                      </div>
+                    </div>
+                    <div class="c09-skip" id="c09-skip"><span><svg class="c09-ic"><use href="#c09-i-clock" /></svg>Chegou a hora marcada</span></div>
+                    <div class="c09-flash" id="c09-flash"></div>
+                    <div class="c09-sk" id="c09-skB"></div>
+                  </div>
+
+                  <div class="scr c09-chat" id="c09-sC">
+                    <div class="c09-chh">
+                      <div class="c09-bk" id="c09-chBack"><svg class="c09-ic"><use href="#c09-i-arrowl" /></svg></div>
+                      <div class="c09-cht"><b>Assistente</b><span id="c09-sCtx">consulta de 9 de out. · clínica geral · 1 alergia</span><span class="c09-busy" id="c09-sThk">Analisando sua pergunta</span><span class="c09-busy" id="c09-sWrt">Escrevendo</span></div>
+                      <div class="c09-hi"><svg class="c09-ic"><use href="#c09-i-clock" /></svg></div>
+                    </div>
+                    <div class="c09-ctx" id="c09-ctx">
+                      <div class="c09-ci"><svg class="c09-ic"><use href="#c09-i-spark" /></svg></div>
+                      <div class="c09-cb">
+                        <div class="c09-c1">Consulta anexada<em>IA</em></div>
+                        <div class="c09-c2">Clínica Geral</div>
+                        <div class="c09-c3"><span>09 de out, 14:00</span><span>Online</span><span>Anamnese</span></div>
+                        <div class="c09-c4">Ansiedade e dificuldade para dormir há 3 meses</div>
+                      </div>
+                    </div>
+                    <div class="c09-msgs">
+                      <div class="c09-ub" id="c09-ub"><div>Resumir o caso</div><span>13:58</span></div>
+                      <div class="c09-ab" id="c09-ab">
+                        <div class="c09-abh">Assistente Viva Mais<span id="c09-abtm">13:58</span></div>
+                        <div class="c09-abt" id="c09-abt"></div>
+                        <div class="c09-dots" id="c09-dots"><i></i><i></i><i></i></div>
+                        <div class="c09-aba" id="c09-aba"><span><svg class="c09-ic"><use href="#c09-i-copy" /></svg>Copiar</span><span><svg class="c09-ic"><use href="#c09-i-redo" /></svg>Refazer</span></div>
+                      </div>
+                    </div>
+                    <div class="c09-comp"><svg class="c09-ic"><use href="#c09-i-clipx" /></svg><svg class="c09-ic"><use href="#c09-i-mic" /></svg><span>Pergunte sobre este caso…</span><i><svg class="c09-ic"><use href="#c09-i-arrowup" /></svg></i></div>
+                  </div>
+
+                  <div class="scr c09-call" id="c09-sD">
+                    <div class="c09-cw">
+                      <div class="c09-av"><div class="c09-rg" id="c09-rg1"></div><div class="c09-rg" id="c09-rg2"></div><img src="assets/people/ana.jpg" alt=""></div>
+                      <h2>Conectando…</h2>
+                      <p>Ana Souza · Videochamada</p>
+                      <div class="c09-cdots" id="c09-cdots"><i></i><i></i><i></i></div>
+                    </div>
+                    <div class="c09-home" style="background:#fff; opacity:0.9;"></div>
+                  </div>
+
+                  <div class="status" id="c09-status"><span id="c09-clock">13:58</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                  <div class="island"></div>
+                  <div class="c09-home" id="c09-homebar"></div>
+                </div>
+                <div class="lift" id="c09-lift"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="c09-brand" class="clip" data-start="0" data-duration="32" data-track-index="4">
+          <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch09-pre-consulta"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl, screenEl: root.querySelector("#c09-screen"), liftEl: root.querySelector("#c09-lift") });
+            const { $, $$, E, center: dc, tap: dtap, showTip, tip } = k;
+            const cam = $("#c09-cam"), sw = $("#c09-sw");
+            const sB = $("#c09-sB"), sC = $("#c09-sC"), sc = $("#c09-sc");
+            const status = $("#c09-status");
+
+            k.screens(["c09-sA", "c09-sB", "c09-sC", "c09-sD"]);
+
+            const lift = (kit, el, t, hold, dx, sc, o = {}) => {
+              el = kit.$(el);
+              const { node } = kit.finalClone(el);
+              node.querySelectorAll(".c09-gone").forEach((n) => n.remove());
+              Object.assign(node.firstElementChild.style, { position: "relative", left: "0px", top: "0px", right: "auto" });
+              if (o.dy) node.style.top = parseFloat(node.style.top) + o.dy + "px";
+              if (o.bg) node.style.background = o.bg;
+              if (o.r) node.style.borderRadius = o.r;
+              tl.set(el, { opacity: 0 }, t);
+              tl.set(node, { opacity: 1 }, t);
+              tl.fromTo(node, { scale: 1, x: 0, y: 0 }, { scale: sc, x: dx, y: -6, duration: 0.6, ease: E, immediateRender: false }, t);
+              tl.to(node, { scale: 1, x: 0, y: 0, duration: 0.45, ease: "power3.inOut" }, t + hold);
+              tl.set(node, { opacity: 0 }, t + hold + 0.45);
+              tl.set(el, { opacity: 1 }, t + hold + 0.45);
+              return node;
+            };
+            const padNode = (n, px, py) => {
+              const l = parseFloat(n.style.left), t = parseFloat(n.style.top), w = parseFloat(n.style.width), h = parseFloat(n.style.height);
+              Object.assign(n.style, { left: l - px + "px", top: t - py + "px", width: w + 2 * px + "px", height: h + 2 * py + "px", padding: py + "px " + px + "px" });
+            };
+            const punch = (t, s, y, d = 1) => tl.to(cam, { scale: s, y, duration: d, ease: "power2.inOut" }, t);
+            const pop = (el, t, d = 0.5) => tl.fromTo(el, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: d, ease: "back.out(1.7)", immediateRender: false }, t);
+            const rise = (els, t, st = 0.08) => tl.fromTo(els, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: E, stagger: st, immediateRender: false }, t);
+            const mkSk = (host, blocks) => {
+              $(host).innerHTML = blocks.map(([x, y, w, h, r, c, cls]) => `<i${cls ? ` class="${cls}"` : ""} style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;border-radius:${r}px;${c ? "background:" + c : ""}"></i>`).join("");
+            };
+            const skeleton = (id, t, end) => {
+              const sk = $(id);
+              const n = Math.max(1, Math.round((end - t) / 0.3) - 1);
+              tl.fromTo(sk, { opacity: 0 }, { opacity: 1, duration: 0.12, immediateRender: false }, t);
+              tl.fromTo(sk.querySelectorAll("i:not(.c09-bgr)"), { opacity: 0.55 }, { opacity: 1, duration: 0.3, repeat: n, yoyo: true, ease: "sine.inOut", immediateRender: false }, t);
+              tl.to(sk, { opacity: 0, duration: 0.3 }, end);
+            };
+            mkSk("#c09-skB", [
+              [0, 0, 402, 380, 0, "#6B2FD0", "c09-bgr"],
+              [0, 317, 402, 557, 30, "#F3F4FA", "c09-bgr"],
+              [20, 106, 52, 52, 26, "rgba(214,195,251,0.55)"],
+              [20, 172, 190, 28, 10, "rgba(214,195,251,0.55)"],
+              [20, 208, 120, 14, 6, "rgba(214,195,251,0.55)"],
+              [20, 244, 250, 16, 6, "rgba(214,195,251,0.55)"],
+              [20, 268, 180, 26, 8, "rgba(214,195,251,0.55)"],
+              [20, 350, 140, 14, 6],
+              [20, 404, 120, 14, 6],
+              [20, 436, 362, 120, 18, "#fff"],
+              [20, 590, 160, 16, 6],
+              [20, 620, 362, 96, 20, "#fff"],
+              [0, 760, 402, 114, 0, "#F3F4FA", "c09-bgr"],
+              [20, 772, 362, 54, 16, "#E3E5F0"]
+            ]);
+
+            const seg = (a, from, to) => {
+              let pos = 0, out = "";
+              a.forEach(([s, b]) => {
+                const lo = Math.max(from - pos, 0), hi = Math.min(to - pos, s.length);
+                if (hi > lo) out += b ? `<b>${s.slice(lo, hi)}</b>` : s.slice(lo, hi);
+                pos += s.length;
+              });
+              return out;
+            };
+            const ans = [["Ana, 34 anos. Ansiedade e insônia há 3 meses, cefaleia 6/10. Usa anticoncepcional oral. ", 0], ["Alergia a dipirona: evitar.", 1]];
+            const total = ans.reduce((n, p) => n + p[0].length, 0);
+            const abt = $("#c09-abt");
+            const paint = (n) => (abt.innerHTML = `${seg(ans, 0, n)}<span class="c09-rest">${seg(ans, n, total)}</span>`);
+            paint(0);
+            const stream = { n: 0 };
+
+            const pad2 = (n) => (n < 10 ? "0" + n : "" + n);
+            const fmt = (s) => {
+              const v = Math.max(0, Math.round(s));
+              return "00:" + pad2(Math.floor(v / 60)) + ":" + pad2(v % 60);
+            };
+            const hcd = $("#c09-hcd"), fcd = $("#c09-fcd");
+            const cd = { s: 72 };
+            const cdSeg = (from, to, t, d, ease) =>
+              tl.fromTo(cd, { s: from }, { s: to, duration: d, ease, immediateRender: false, onUpdate() { const x = fmt(cd.s); hcd.textContent = x; fcd.textContent = x; } }, t);
+
+            const S1 = 170, S2 = 520, S3 = 640, S4 = 770;
+            const scrollTo = (y, t, d) => tl.to(sc, { y: -y, duration: d, ease: "power1.inOut", immediateRender: false }, t);
+
+            tl.set(sw, { x: 165, opacity: 0 }, 0);
+            k.titleCard("#c09-t1", { at: 0.15, sparkAt: 0.75, out: 2.45 });
+
+            tl.set(sw, { opacity: 1 }, 2.9);
+            tl.fromTo(sw, { x: 165 }, { x: 0, duration: 0.8, ease: "power4.out", immediateRender: false }, 2.9);
+
+            const nc = k.posIn($("#c09-nc"));
+            punch(3.7, 1.05, 12, 0.8);
+            lift(k, "#c09-nc", 3.8, 1.0, 0, 1.08, { r: "26px", bg: "transparent" });
+            showTip(tip("Começa em 2 minutos", nc.x + nc.w / 2, nc.y + nc.h + 18, "down"), 4.1, 0.75);
+
+            const arw = dc("#c09-arw");
+            dtap(arw.x, arw.y, 5.3, $("#c09-arw"));
+            punch(5.2, 1, 0, 0.5);
+            k.push("c09-sA", "c09-sB", 5.45);
+            skeleton("#c09-skB", 5.45, 6.1);
+
+            cdSeg(72, 52.8, 5.45, 19.2, "none");
+            cdSeg(52.8, 5, 24.5, 1.0, "power2.inOut");
+            cdSeg(5, 0, 25.6, 1.7, "none");
+
+            const sheet = $("#c09-sheet");
+            tl.fromTo(sheet, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.5, ease: E, immediateRender: false }, 6.0);
+            pop($("#c09-hav"), 5.95, 0.5);
+            rise([$("#c09-hn"), $("#c09-hs"), $("#c09-hf"), $("#c09-cd")], 6.05, 0.08);
+            pop($("#c09-st"), 6.65, 0.45);
+
+            punch(6.0, 1.06, 70, 0.9);
+            const cdp = k.posIn($("#c09-cd"));
+            showTip(tip("Contagem ao vivo", 290, cdp.y + 14, "up"), 6.6, 1.05);
+            punch(7.5, 1.04, 20, 0.7);
+
+            scrollTo(S1, 7.6, 0.95);
+            tl.to(status, { color: "#17151E", duration: 0.2 }, 8.0);
+            tl.to($("#c09-hds"), { opacity: 1, duration: 0.2 }, 8.0);
+            tl.to($("#c09-hbar"), { color: "#17151E", duration: 0.2 }, 8.0);
+
+            const ap = k.posIn($("#c09-ap"));
+            const apn = lift(k, "#c09-ap", 8.75, 1.3, 0, 1.05, { dy: -S1, bg: "#fff", r: "20px" });
+            padNode(apn, 14, 6);
+            showTip(tip("O que importa, em destaque", ap.x + ap.w / 2, ap.y + ap.h - S1 + 18, "down"), 9.05, 0.95);
+
+            const ai = k.posIn($("#c09-ai"));
+            const ain = lift(k, "#c09-ai", 10.5, 1.3, 0, 1.05, { dy: -S1, bg: "#fff", r: "22px" });
+            padNode(ain, 12, 10);
+            showTip(tip("Pergunte à IA antes de entrar", ai.x + ai.w / 2, ai.y + ai.h - S1 + 24, "down"), 10.8, 0.95);
+
+            const chip = dc("#c09-chip1");
+            const chipEl = $("#c09-chip1");
+            dtap(chip.x, chip.y - S1, 12.35, chipEl);
+            tl.to(chipEl, { backgroundColor: "#D6C3FB", duration: 0.12 }, 12.35);
+            tl.to(chipEl, { backgroundColor: "#EDE3FD", duration: 0.3 }, 12.9);
+            punch(12.3, 1, 0, 0.5);
+            k.push("c09-sB", "c09-sC", 12.5);
+
+            tl.set($("#c09-ub"), { opacity: 0 }, 0);
+            punch(13.1, 1.05, 70, 0.9);
+            tl.to($("#c09-ctx"), { opacity: 0, y: -10, duration: 0.3 }, 13.25);
+            tl.fromTo($("#c09-ub"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: E, immediateRender: false }, 13.3);
+            tl.fromTo($("#c09-sCtx"), { opacity: 1 }, { opacity: 0, duration: 0.2, immediateRender: false }, 13.6);
+            tl.fromTo($("#c09-sThk"), { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, 13.65);
+            tl.fromTo($("#c09-ab"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: E, immediateRender: false }, 13.9);
+            tl.fromTo($("#c09-dots"), { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, 14.0);
+            tl.fromTo($$("#c09-dots i"), { y: 0, opacity: 0.4 }, { y: -5, opacity: 1, duration: 0.3, repeat: 3, yoyo: true, ease: "sine.inOut", stagger: 0.12, immediateRender: false }, 14.0);
+            tl.to($("#c09-dots"), { opacity: 0, duration: 0.15 }, 15.1);
+            tl.to($("#c09-sThk"), { opacity: 0, duration: 0.2 }, 15.1);
+            tl.fromTo($("#c09-sWrt"), { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, 15.2);
+            tl.fromTo(stream, { n: 0 }, { n: total, duration: 2.5, ease: "none", immediateRender: false, onUpdate() { paint(Math.round(stream.n)); } }, 15.3);
+            tl.to($("#c09-sWrt"), { opacity: 0, duration: 0.2 }, 17.8);
+            tl.fromTo($("#c09-sCtx"), { opacity: 0 }, { opacity: 1, duration: 0.25, immediateRender: false }, 17.9);
+            tl.fromTo($("#c09-abtm"), { opacity: 0 }, { opacity: 1, duration: 0.25, immediateRender: false }, 17.85);
+            tl.fromTo($("#c09-aba"), { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, 17.9);
+
+            const absel = k.posIn($("#c09-ab"));
+            showTip(tip("Resumo pronto em segundos", 200, absel.y + absel.h - 24, "down"), 18.0, 1.05);
+
+            const bk = dc("#c09-chBack");
+            dtap(bk.x, bk.y, 19.35, $("#c09-chBack"));
+            punch(19.3, 1, 0, 0.5);
+            tl.set(sB, { autoAlpha: 1 }, 19.45);
+            tl.fromTo(sB, { x: -120 }, { x: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, 19.45);
+            tl.fromTo(sC, { x: 0 }, { x: 402, duration: 0.5, ease: "power3.out", immediateRender: false }, 19.45);
+            tl.set(sC, { autoAlpha: 0 }, 19.97);
+
+            scrollTo(S2, 20.0, 0.8);
+            punch(20.8, 1.06, 40, 0.8);
+            const an = k.posIn($("#c09-an"));
+            lift(k, "#c09-an", 21.0, 1.3, 0, 1.06, { dy: -S2, r: "22px" });
+            showTip(tip("O paciente já contou o caso", an.x + an.w / 2, an.y + an.h - S2 + 12, "down"), 21.3, 1.0);
+
+            scrollTo(S3, 22.7, 0.9);
+            punch(22.7, 1.04, 0, 0.8);
+            const pac = k.posIn($("#c09-pac"));
+            showTip(tip("Lembre ou cobre o paciente", pac.x + pac.w / 2, pac.y - S3 - 4, "up"), 23.7, 1.0);
+            scrollTo(S4, 24.5, 0.9);
+            punch(24.6, 1, 0, 0.6);
+
+            tl.fromTo($("#c09-flash"), { opacity: 0 }, { opacity: 1, duration: 0.12, immediateRender: false }, 24.5);
+            tl.to($("#c09-flash"), { opacity: 0, duration: 0.5 }, 24.65);
+            tl.fromTo($("#c09-skip"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: E, immediateRender: false }, 24.7);
+            tl.to($("#c09-skip"), { opacity: 0, duration: 0.3 }, 26.2);
+            tl.set($("#c09-clock"), { textContent: "13:59" }, 17.2);
+            tl.set($("#c09-clock"), { textContent: "14:00" }, 25.5);
+
+            tl.to($("#c09-con"), { opacity: 1, duration: 0.3, ease: "power2.out" }, 27.3);
+            tl.fromTo($("#c09-cta"), { scale: 1 }, { scale: 1.04, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 27.3);
+            punch(27.2, 1.07, -50, 0.8);
+            const cta = dc("#c09-cta");
+            showTip(tip("Abre na hora marcada", cta.x, cta.p.y - 8, "up"), 27.7, 1.0);
+
+            dtap(cta.x, cta.y, 29.0, $("#c09-cta"));
+            punch(29.1, 1, 0, 0.5);
+            k.push("c09-sB", "c09-sD", 29.2);
+            tl.to(status, { color: "#FFFFFF", duration: 0.2 }, 29.3);
+            tl.to($("#c09-homebar"), { opacity: 0, duration: 0.1 }, 29.3);
+            [$("#c09-rg1"), $("#c09-rg2")].forEach((r, i) => {
+              tl.fromTo(r, { scale: 1, opacity: 0.8 }, { scale: 1.7, opacity: 0, duration: 1.0, repeat: 2, ease: "power1.out", immediateRender: false }, 29.5 + i * 0.5);
+            });
+            tl.fromTo($$("#c09-cdots i"), { opacity: 0.35 }, { opacity: 1, duration: 0.3, repeat: 5, yoyo: true, stagger: 0.15, immediateRender: false }, 29.6);
+
+            tl.to(sw, { x: -176, duration: 0.42, ease: "power4.in" }, 31.5);
+            tl.set(sw, { opacity: 0 }, 31.93);
+
+            $$("#c09-screen, #c09-screen *, #c09-lift, #c09-lift *").forEach((n) => ["overlap", "occlusion", "overflow"].forEach((a) => n.setAttribute("data-layout-allow-" + a, "")));
+
+            window.__timelines["ch09-pre-consulta"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "fps": 30,
+  "seams": [
+    { "id": "t1→cadastro", "cut": 3, "technique": "cut-the-curve LEFT", "exit": { "selector": "#t1-words", "axis": "x", "dir": -1 }, "entry": { "selector": "#dev", "axis": "x", "dir": -1 } },
+    { "id": "cadastro→t2", "cut": 29, "technique": "cut-the-curve LEFT", "exit": { "selector": "#dev", "axis": "x", "dir": -1 }, "entry": { "selector": "#t2-words .w", "axis": "x", "dir": -1 } },
+    { "id": "t2→documentos", "cut": 32.2, "technique": "cut-the-curve LEFT", "exit": { "selector": "#t2-words", "axis": "x", "dir": -1 }, "entry": { "selector": "#dev", "axis": "x", "dir": -1 } }
+  ]
+}

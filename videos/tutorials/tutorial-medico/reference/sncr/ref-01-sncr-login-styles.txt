@@ -1,0 +1,18 @@
+HEADER | br-header mb-4 | 0 | 0 | 402 | 80 | "" | Rawline | 14px | 400 | 20.3px | rgb(51, 51, 51) | rgb(255, 255, 255) | b:0px rgb(51, 51, 51) | r:0px | sh | 
+IMG |  | 8 | 28 | 24 | 24 | "" | Rawline | 14px | 400 | 20.3px | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px |  | https://sncr.anvisa.gov.br/assets/img/logo_anvisa_80.jpg
+A | br-button primary | 58 | 24 | 48 | 40 | "" | Rawline | 16.8px | 600 | 24.36px | rgb(255, 255, 255) | rgb(19, 81, 180) | b:0px rgb(255, 255, 255) | r:1680px |  | 
+SPAN | mr-2 | -21 | 32 | 174 | 24 | "Consultar Receituário" | Rawline | 16.8px | 600 | 24.36px | rgb(255, 255, 255) | rgba(0, 0, 0, 0) | b:0px rgb(255, 255, 255) | r:0px |  | 
+DIV | text-weight-bold | 114 | 38 | 320 | 20 | "Visitante" | Rawline | 14px | 700 | 20.3px | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px |  | 
+H1 | mt-2 text-primary-default | 0 | 112 | 402 | 67 | "Sistema Nacional de Controle de Receituários" | Rawline | 29.036px | 500 | 33.3914px | rgb(19, 81, 180) | rgba(0, 0, 0, 0) | b:0px rgb(19, 81, 180) | r:0px |  | 
+DIV | br-card | 8 | 199 | 386 | 488 | "" | Rawline | 14px | 400 | 20.3px | rgb(51, 51, 51) | rgb(255, 255, 255) | b:0px rgb(51, 51, 51) | r:0px | sh | 
+A |  | 146 | 249 | 111 | 16 | "" | Rawline | 14px | 400 | 20.3px | rgb(19, 81, 180) | rgba(0, 0, 0, 0) | b:0px rgb(19, 81, 180) | r:0px |  | 
+IMG |  | 146 | 239 | 111 | 40 | "" | Rawline | 14px | 400 | 20.3px | rgb(19, 81, 180) | rgba(0, 0, 0, 0) | b:0px rgb(19, 81, 180) | r:0px |  | https://sncr.anvisa.gov.br/assets/img/logo-govbr.png
+H4 |  | 32 | 311 | 338 | 19 | "Autenticação" | Rawline | 16.8px | 700 | 19.32px | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px |  | 
+P | mt-3 | 32 | 350 | 338 | 61 | "O acesso ao SNCR é feito através do Login Único do Governo Federal.\n  " | Rawline | 14px | 400 | 20.3px | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px |  | 
+P |  | 32 | 427 | 338 | 41 | "Utilize a opção abaixo para fazer Login no sistema ou Solicitar Acesso" | Rawline | 14px | 400 | 20.3px | rgb(51, 51, 51) | rgba(0, 0, 0, 0) | b:0px rgb(51, 51, 51) | r:0px |  | 
+A | br-button sign-in primary | 112 | 532 | 179 | 40 | "Entrar com" | Rawline | 16.8px | 600 | 24.36px | rgb(255, 255, 255) | rgb(19, 81, 180) | b:0px rgb(255, 255, 255) | r:1680px |  | 
+SPAN | text-black | 224 | 539 | 50 | 24 | "gov.br" | Rawline | 16.8px | 900 | 24.36px | rgb(255, 255, 255) | rgba(0, 0, 0, 0) | b:0px rgb(255, 255, 255) | r:0px |  | 
+SPAN | divider-text sm my-3 | 56 | 588 | 290 | 15 | "OU ACESSE COMO" | Rawline | 10px | 700 | 14.5px | rgb(153, 153, 153) | rgba(0, 0, 0, 0) | b:0px rgb(153, 153, 153) | r:0px |  | 
+A | btn-login-anvisa | 111 | 618 | 179 | 20 | "COLABORADOR ANVISA" | Rawline | 14px | 700 | 20.3px | rgb(192, 192, 192) | rgba(0, 0, 0, 0) | b:0px rgb(192, 192, 192) | r:0px |  | 
+FOOTER | br-footer pt-0 | 0 | 816 | 402 | 58 | "" | Rawline | 14px | 400 | 20.3px | rgb(255, 255, 255) | rgb(7, 29, 65) | b:1px rgb(204, 204, 204) | r:0px |  | 
+DIV | text-medium | 16 | 825 | 370 | 41 | "Sistema Nacional de Controle de Receituários - 2026 - v2.1.0b" | Rawline | 14px | 500 | 20.3px | rgb(255, 255, 255) | rgba(0, 0, 0, 0) | b:0px rgb(255, 255, 255) | r:0px |  | 

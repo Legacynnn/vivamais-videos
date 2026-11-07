@@ -1,27 +1,25 @@
 @import url("../assets/brand/tokens.css");
 
 :root {
-  --paper: var(--vm-branco);
-  --card: var(--vm-branco);
+  --white: var(--vm-white);
+  --card: var(--vm-white);
   --card-soft: #FBFCFD;
-  --tint: var(--vm-tint);
-  --surface: var(--vm-surface);
-  --line: var(--vm-line);
-  --ink: var(--vm-ink);
-  --body: var(--vm-body);
-  --muted: var(--vm-muted);
-  --purple: var(--vm-viva);
-  --violet-950: var(--vm-noite);
+  --mist: var(--vm-mist);
+  --tile: var(--vm-tile);
+  --border: var(--vm-border);
+  --foreground: var(--vm-foreground);
+  --body: var(--vm-ink-600);
+  --muted-foreground: var(--vm-muted-foreground);
+  --primary: var(--vm-primary);
   --violet-900: var(--vm-violet-900);
   --violet-700: var(--vm-violet-700);
   --violet-600: var(--vm-violet-600);
   --violet-300: var(--vm-violet-300);
   --violet-100: var(--vm-violet-100);
-  --verde: var(--vm-verde);
-  --verde-fundo: var(--vm-verde-fundo);
-  --azul: var(--vm-azul);
-  --g-fresco: var(--vm-grad-fresco);
-  --grad-panel: var(--vm-grad-painel);
+  --secondary: var(--vm-secondary);
+  --secondary-strong: var(--vm-secondary-strong);
+  --aqua: var(--vm-aqua-400);
+  --grad-fresco: var(--vm-grad-fresco);
   --font-display: var(--vm-font-display);
   --font-text: var(--vm-font-text);
   --pad: 96px;
@@ -41,7 +39,7 @@ html {
 
 body {
   font-family: var(--font-text);
-  color: var(--ink);
+  color: var(--foreground);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -61,7 +59,7 @@ body {
   width: 1920px;
   height: 1080px;
   overflow: hidden;
-  background: var(--paper);
+  background: var(--white);
   padding: 80px var(--pad) 0;
 }
 
@@ -104,11 +102,11 @@ body.print .slide {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .dark .eyebrow {
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .title {
@@ -121,11 +119,11 @@ body.print .slide {
 .title em,
 .accent {
   font-style: normal;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .dark .title em {
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .sub {
@@ -142,18 +140,18 @@ body.print .slide {
 }
 
 .card {
-  background: var(--surface);
+  background: var(--tile);
   border-radius: var(--r-card);
 }
 
 .dark .card {
   background: var(--card-soft);
   border-color: transparent;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .card.hero {
-  background: var(--purple);
+  background: var(--primary);
   border-color: transparent;
   color: #fff;
 }
@@ -163,7 +161,7 @@ body.print .slide {
   flex: none;
   width: 44px;
   height: 44px;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .icon svg {
@@ -246,7 +244,7 @@ body.print .slide {
   flex-direction: column;
   padding: 26px 24px 24px;
   border-radius: var(--r-card);
-  border: 2px solid var(--line);
+  border: 2px solid var(--border);
   background: var(--card);
   box-shadow: 0 18px 40px rgba(34, 8, 74, 0.06);
 }
@@ -288,7 +286,7 @@ body.print .slide {
   height: 60px;
   padding: 0 14px 0 8px;
   border-radius: 18px;
-  background: var(--tint);
+  background: var(--mist);
 }
 
 .pcard li .ic {
@@ -334,7 +332,7 @@ body.print .slide {
   font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .pcard li em.inf {
@@ -346,7 +344,7 @@ body.print .slide {
 .pcard .price {
   margin-top: 32px;
   padding-top: 16px;
-  border-top: 2px solid var(--line);
+  border-top: 2px solid var(--border);
 }
 
 .pcard .price p {
@@ -362,13 +360,13 @@ body.print .slide {
   white-space: nowrap;
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .pcard .price p span {
   font-size: 17px;
   font-weight: 500;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .pcard .price small {
@@ -377,7 +375,7 @@ body.print .slide {
   font-size: 16px;
   line-height: 22px;
   font-weight: 500;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .pcard .price small i {
@@ -386,7 +384,7 @@ body.print .slide {
 
 .pcard.best {
   border-color: transparent;
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
   box-shadow: 0 30px 60px rgba(34, 8, 74, 0.3);
 }
@@ -405,7 +403,7 @@ body.print .slide {
 }
 
 .pcard.best li em {
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .pcard.best .price {
@@ -413,7 +411,7 @@ body.print .slide {
 }
 
 .pcard.best .price b {
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .pcard.best .price p span,
@@ -432,7 +430,7 @@ body.print .slide {
   height: 84px;
   padding: 0 14px;
   border-radius: 42px;
-  background: var(--tint);
+  background: var(--mist);
   font-size: 22px;
   font-weight: 700;
   color: var(--violet-900);
@@ -461,12 +459,12 @@ body.print .slide {
   height: 56px;
   padding: 0 26px 0 18px;
   border-radius: 28px;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .free-bar .lbl .icon {
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .pcard li em.ok .icon {
@@ -474,8 +472,8 @@ body.print .slide {
   height: 22px;
   padding: 4px;
   border-radius: 50%;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .phases {
@@ -495,7 +493,7 @@ body.print .slide {
   font-size: 72px;
   line-height: 90px;
   font-weight: 700;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .phases h3 {
@@ -567,7 +565,7 @@ body.print .slide {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: var(--tint);
+  background: var(--mist);
 }
 
 .dn-wa .hd {
@@ -597,7 +595,7 @@ body.print .slide {
 
 .dn-wa .hd > .icon {
   margin-left: auto;
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .dn-wa .hd b {
@@ -640,7 +638,7 @@ body.print .slide {
   flex: none;
   width: 15px;
   height: 15px;
-  color: var(--verde-fundo);
+  color: var(--secondary-strong);
 }
 
 .dn-wa .msg {
@@ -649,7 +647,7 @@ body.print .slide {
   border-radius: 16px;
   font-size: 17px;
   line-height: 23px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .dn-wa .msg.in {
@@ -672,13 +670,13 @@ body.print .slide {
   margin: 6px 0 0 12px;
   font-size: 12px;
   line-height: 16px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .dn-wa time .icon {
   width: 16px;
   height: 16px;
-  color: var(--verde-fundo);
+  color: var(--secondary-strong);
 }
 
 .dn-wa .media {
@@ -729,7 +727,7 @@ body.print .slide {
 .dn-wa .media p .icon {
   width: 16px;
   height: 16px;
-  color: var(--verde-fundo);
+  color: var(--secondary-strong);
 }
 
 .dn-wa .media time {
@@ -751,7 +749,7 @@ body.print .slide {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--verde-fundo);
+  background: var(--secondary-strong);
   color: #fff;
 }
 
@@ -774,7 +772,7 @@ body.print .slide {
   flex: 1;
   height: 40%;
   border-radius: 2px;
-  background: var(--verde-fundo);
+  background: var(--secondary-strong);
   opacity: 0.55;
 }
 
@@ -786,7 +784,7 @@ body.print .slide {
 .dn-wa .voice small {
   font-size: 13px;
   font-weight: 500;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .dn-wa .voice time {
@@ -811,13 +809,13 @@ body.print .slide {
   border-radius: 26px;
   background: #fff;
   font-size: 17px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .dn-wa .bar .icon {
   width: 20px;
   height: 20px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .dn-wa .bar .mic {
@@ -839,7 +837,7 @@ body.print .slide {
   flex-direction: column;
   gap: 18px;
   padding: 28px;
-  background: var(--surface);
+  background: var(--tile);
 }
 
 .dn-proofs .hd {
@@ -858,7 +856,7 @@ body.print .slide {
 .dn-proofs .hd span {
   padding: 6px 14px;
   border-radius: 16px;
-  background: var(--purple);
+  background: var(--primary);
   font-size: 15px;
   font-weight: 700;
   color: #fff;
@@ -887,7 +885,7 @@ body.print .slide {
   width: 56px;
   height: 56px;
   border-radius: 16px;
-  background: var(--tint);
+  background: var(--mist);
 }
 
 .dn-proofs .ic .icon {
@@ -906,19 +904,19 @@ body.print .slide {
   display: block;
   font-size: 16px;
   line-height: 22px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .dn-proofs li em {
   margin-left: auto;
   padding: 6px 12px;
   border-radius: 14px;
-  background: var(--tint);
+  background: var(--mist);
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
   white-space: nowrap;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .dn-proofs .note {
@@ -928,11 +926,11 @@ body.print .slide {
   margin-top: auto;
   padding: 16px 18px;
   border-radius: 20px;
-  background: var(--tint);
+  background: var(--mist);
   font-size: 17px;
   line-height: 24px;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .dn-proofs .note .icon {
@@ -964,7 +962,7 @@ body.print .slide {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--line);
+  background: var(--border);
 }
 
 .dn-site .bar span {
@@ -976,7 +974,7 @@ body.print .slide {
   margin-left: 10px;
   padding: 0 14px;
   border-radius: 15px;
-  background: var(--surface);
+  background: var(--tile);
   font-size: 14px;
   font-weight: 500;
   color: var(--body);
@@ -985,7 +983,7 @@ body.print .slide {
 .dn-site .bar .icon {
   width: 14px;
   height: 14px;
-  color: var(--verde-fundo);
+  color: var(--secondary-strong);
 }
 
 .dnp {
@@ -1339,7 +1337,7 @@ body.print .slide {
   width: 250px;
   height: 250px;
   transform: rotate(-10deg);
-  fill: var(--verde);
+  fill: var(--secondary);
 }
 
 #capa .lockup .logo {
@@ -1356,7 +1354,7 @@ body.print .slide {
   width: 300px;
   height: 300px;
   transform: rotate(-10deg);
-  fill: var(--verde);
+  fill: var(--secondary);
 }
 
 #capa .b2 {
@@ -1365,7 +1363,7 @@ body.print .slide {
   width: 110px;
   height: 110px;
   transform: rotate(14deg);
-  fill: var(--verde);
+  fill: var(--secondary);
 }
 
 #capa .b3 {
@@ -1383,7 +1381,7 @@ body.print .slide {
   width: 80px;
   height: 80px;
   transform: rotate(-18deg);
-  fill: var(--azul);
+  fill: var(--aqua);
 }
 
 #capa .b5 {
@@ -1431,7 +1429,7 @@ body.print .slide {
   width: 980px;
   height: 980px;
   transform: rotate(-10deg);
-  fill: var(--verde);
+  fill: var(--secondary);
 }
 
 .s-hero .hero-cross {
@@ -1460,8 +1458,8 @@ body.print .slide {
 
 #capa h1 em {
   background-image: none;
-  -webkit-text-fill-color: var(--verde);
-  color: var(--verde);
+  -webkit-text-fill-color: var(--secondary);
+  color: var(--secondary);
 }
 
 .s-hero .lead {
@@ -1516,7 +1514,7 @@ body.print .slide {
   border-radius: 28px;
   background: #fff;
   box-shadow: 0 30px 60px rgba(34, 8, 74, 0.35);
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .s-hero .hero-call img {
@@ -1545,7 +1543,7 @@ body.print .slide {
   gap: 6px;
   font-size: 17px;
   line-height: 22px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .s-hero .live {
@@ -1556,10 +1554,10 @@ body.print .slide {
   height: 36px;
   padding: 0 14px;
   border-radius: 18px;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 16px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .s-hero .live::before {
@@ -1567,7 +1565,7 @@ body.print .slide {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--foreground);
 }
 
 .s-hero .hero-chip {
@@ -1583,7 +1581,7 @@ body.print .slide {
   box-shadow: 0 24px 48px rgba(34, 8, 74, 0.3);
   font-size: 22px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .s-hero .hero-chip .icon {
@@ -1591,8 +1589,8 @@ body.print .slide {
   height: 34px;
   padding: 6px;
   border-radius: 50%;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .s-hero .star {
@@ -1647,7 +1645,7 @@ body.print .slide {
 .s-intro h1 em {
   font-style: normal;
   font-weight: 700;
-  background-image: var(--g-fresco);
+  background-image: var(--grad-fresco);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-box-decoration-break: clone;
@@ -1683,27 +1681,27 @@ body.print .slide {
   padding: 0 22px;
   height: 52px;
   border-radius: 26px;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 20px;
   line-height: 52px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .client .sep {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--azul);
+  background: var(--aqua);
 }
 
 .s-about {
   background:
     radial-gradient(900px 700px at 0% 0%, #EBE1FD, transparent 62%),
     radial-gradient(1000px 760px at 100% 100%, #E4D8FD, transparent 60%),
-    var(--paper);
+    var(--white);
 }
 
 .s-about .col {
@@ -1734,7 +1732,7 @@ body.print .slide {
 
 .s-about .text b {
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .s-about .promise {
@@ -1742,19 +1740,19 @@ body.print .slide {
   margin-top: 44px;
   padding: 30px 40px;
   border-radius: var(--r-card);
-  background: var(--tint);
+  background: var(--mist);
   font-family: var(--font-display);
   font-size: 34px;
   line-height: 46px;
   font-weight: 500;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .s-about .promise em {
   font-style: normal;
   font-weight: 700;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .s-about .logo.at-bottom {
@@ -1773,7 +1771,7 @@ body.print .slide {
   position: absolute;
   inset: 0;
   transform: translate(34px, 34px);
-  fill: var(--purple);
+  fill: var(--primary);
 }
 
 .hero-mark .photo {
@@ -1789,7 +1787,7 @@ body.print .slide {
   top: -40px;
   width: 190px;
   height: 190px;
-  fill: var(--purple);
+  fill: var(--primary);
 }
 
 .float {
@@ -1812,14 +1810,14 @@ body.print .slide {
   height: 44px;
   padding: 10px;
   border-radius: 50%;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .s-numbers {
   background:
     radial-gradient(800px 560px at 100% 0%, #EBE1FD, transparent 64%),
-    var(--paper);
+    var(--white);
 }
 
 .s-numbers .sub {
@@ -1886,7 +1884,7 @@ body.print .slide {
 }
 
 .tile.t-violet {
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -1895,8 +1893,8 @@ body.print .slide {
 }
 
 .tile.t-verde {
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .tile.t-deep {
@@ -1905,7 +1903,7 @@ body.print .slide {
 }
 
 .tile.t-deep b {
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .tile.t-mist {
@@ -1918,12 +1916,12 @@ body.print .slide {
 }
 
 .tile.t-white {
-  background: var(--surface);
-  color: var(--ink);
+  background: var(--tile);
+  color: var(--foreground);
 }
 
 .tile.t-white b {
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .tile .k {
@@ -1959,11 +1957,11 @@ body.print .slide {
 }
 
 .s-perks .eyebrow {
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .s-perks .title em {
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .s-perks .sub {
@@ -2000,7 +1998,7 @@ body.print .slide {
   height: 120px;
   padding: 0 24px;
   border-radius: 28px;
-  background: var(--surface);
+  background: var(--tile);
 }
 
 .service img {
@@ -2034,8 +2032,8 @@ body.print .slide {
   gap: 24px;
   padding: 0 32px;
   border-radius: 28px;
-  background: var(--surface);
-  color: var(--ink);
+  background: var(--tile);
+  color: var(--foreground);
 }
 
 .proof b {
@@ -2057,7 +2055,7 @@ body.print .slide {
   margin-top: 4px;
   font-size: 15px;
   line-height: 20px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .figures {
@@ -2091,7 +2089,7 @@ body.print .slide {
   line-height: 84px;
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .figures div:nth-child(even) dt {
@@ -2262,7 +2260,7 @@ body.print .slide {
 
 .sf .open .st .icon {
   transform: rotate(180deg);
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .sf p.sec {
@@ -2312,7 +2310,7 @@ body.print .slide {
 }
 
 .sf .chips .on {
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -2327,7 +2325,7 @@ body.print .slide {
   height: 54px;
   margin: auto 0 30px;
   border-radius: 27px;
-  background: var(--purple);
+  background: var(--primary);
   font-size: 17px;
   font-weight: 600;
   color: #fff;
@@ -2360,8 +2358,8 @@ body.print .slide {
   width: 250px;
   padding: 28px;
   border-radius: 32px;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .spec-total b {
@@ -2393,12 +2391,12 @@ body.print .slide {
   padding: 0 20px;
   height: 36px;
   border-radius: 18px;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 18px;
   line-height: 36px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .ticks {
@@ -2415,7 +2413,7 @@ body.print .slide {
   height: 52px;
   padding: 0 22px 0 14px;
   border-radius: 26px;
-  background: var(--tint);
+  background: var(--mist);
   font-size: 21px;
   font-weight: 700;
   white-space: nowrap;
@@ -2445,7 +2443,7 @@ body.print .slide {
   padding: 24px;
   border-radius: 32px;
   background: #fff;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .perk .art {
@@ -2466,8 +2464,8 @@ body.print .slide {
 }
 
 .perk .art.price {
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
   text-align: center;
 }
 
@@ -2501,7 +2499,7 @@ body.print .slide {
 }
 
 .perk .art.play {
-  background: var(--purple);
+  background: var(--primary);
 }
 
 .perk .art.play span {
@@ -2510,7 +2508,7 @@ body.print .slide {
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: var(--verde);
+  background: var(--secondary);
 }
 
 .perk .art.play span::after {
@@ -2518,7 +2516,7 @@ body.print .slide {
   margin-left: 8px;
   border-style: solid;
   border-width: 20px 0 20px 32px;
-  border-color: transparent transparent transparent var(--ink);
+  border-color: transparent transparent transparent var(--foreground);
 }
 
 .perk h3 {
@@ -2548,7 +2546,7 @@ body.print .slide {
   height: 100%;
   padding: 8px 12px;
   border-radius: 12px;
-  border: 2px solid var(--line);
+  border: 2px solid var(--border);
   object-fit: contain;
 }
 
@@ -2567,7 +2565,7 @@ body.print .slide {
   gap: 8px;
   height: 124px;
   border-radius: 24px;
-  background: var(--surface);
+  background: var(--tile);
   font-size: 20px;
   font-weight: 700;
 }
@@ -2594,7 +2592,7 @@ body.print .slide {
   row-gap: 14px;
   padding: 26px 28px 28px;
   border-radius: 28px;
-  background: var(--surface);
+  background: var(--tile);
 }
 
 .facts i {
@@ -2628,7 +2626,7 @@ body.print .slide {
 }
 
 .facts .hl {
-  background: var(--purple);
+  background: var(--primary);
 }
 
 .facts .hl b {
@@ -2643,7 +2641,7 @@ body.print .slide {
   background:
     radial-gradient(800px 560px at 100% 0%, #EBE1FD, transparent 64%),
     radial-gradient(900px 600px at 0% 100%, #F0E9FE, transparent 62%),
-    var(--paper);
+    var(--white);
 }
 
 .gains {
@@ -2671,7 +2669,7 @@ body.print .slide {
   line-height: 34px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .gain h3 {
@@ -2691,8 +2689,8 @@ body.print .slide {
 .gain mark {
   padding: 0 10px;
   border-radius: 10px;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .s-panel .band {
@@ -2721,7 +2719,7 @@ body.print .slide {
   padding: 0 18px 0 12px;
   border-radius: 23px;
   font-size: 19px;
-  background: var(--surface);
+  background: var(--tile);
 }
 
 .s-panel .ticks .icon {
@@ -3324,10 +3322,10 @@ body.print .slide {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 22px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .flow h3 {
@@ -3377,7 +3375,7 @@ body.print .slide {
 .s-intro .contacts .icon {
   width: 30px;
   height: 30px;
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .perk .art.fit img {
@@ -3397,21 +3395,21 @@ body.print .slide {
   height: 92px;
   border: 0;
   border-radius: 46px;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 26px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .banner .icon {
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .perk mark {
   padding: 0 8px;
   border-radius: 8px;
-  background: var(--verde);
+  background: var(--secondary);
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .title,
@@ -3430,7 +3428,7 @@ body.print .slide {
 }
 
 .ticks .icon {
-  color: var(--verde-fundo);
+  color: var(--secondary-strong);
 }
 
 .s-plans .pcards {
@@ -3469,7 +3467,7 @@ body.print .slide {
   height: 48px;
   padding: 0 22px 0 14px;
   border-radius: 24px;
-  background: var(--surface);
+  background: var(--tile);
   font-size: 21px;
   font-weight: 700;
   color: var(--violet-900);
@@ -3480,7 +3478,7 @@ body.print .slide {
   height: 26px;
   padding: 5px;
   border-radius: 50%;
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 .pl-free {
@@ -3495,8 +3493,8 @@ body.print .slide {
   height: 172px;
   padding: 0 36px;
   border-radius: var(--r-card);
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 .pl-free .lbl {
   display: flex;
@@ -3512,7 +3510,7 @@ body.print .slide {
   flex: none;
   width: 44px;
   height: 44px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 .pl-free .it {
   display: flex;
@@ -3579,7 +3577,7 @@ body.print .slide {
   height: 48px;
   padding: 0 20px 0 14px;
   border-radius: 24px;
-  background: var(--tint);
+  background: var(--mist);
   font-size: 20px;
   font-weight: 700;
   color: var(--violet-900);
@@ -3588,14 +3586,14 @@ body.print .slide {
 .ai-tags .icon {
   width: 22px;
   height: 22px;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .s-ai .fine {
   margin-top: auto;
   font-size: 16px;
   line-height: 22px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .s-ai .ai-intro .logo {
@@ -3658,7 +3656,7 @@ body.print .slide {
   grid-row: span 2;
   position: relative;
   padding: 0;
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -3694,7 +3692,7 @@ body.print .slide {
   width: 100%;
   font-size: 13px;
   line-height: 17px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .m-sheet {
@@ -3718,7 +3716,7 @@ body.print .slide {
 .m-head small,
 .m-label {
   font-size: 11px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .m-label {
@@ -3733,7 +3731,7 @@ body.print .slide {
   align-items: center;
   gap: 10px;
   padding: 5px 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 
 .m-row span {
@@ -3751,11 +3749,11 @@ body.print .slide {
 
 .m-row em.ok {
   background: #DDFBE9;
-  color: var(--verde-fundo);
+  color: var(--secondary-strong);
 }
 
 .m-row em.warn {
-  background: var(--tint);
+  background: var(--mist);
   color: var(--violet-600);
 }
 
@@ -3767,7 +3765,7 @@ body.print .slide {
 .m-text mark {
   padding: 0 3px;
   border-radius: 4px;
-  background: var(--tint);
+  background: var(--mist);
   color: var(--violet-700);
   font-weight: 700;
 }
@@ -3787,7 +3785,7 @@ body.print .slide {
   margin-top: 6px;
   font-size: 11px;
   font-weight: 700;
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .m-pop .icon,
@@ -3812,7 +3810,7 @@ body.print .slide {
 .m-me {
   align-self: flex-end;
   border-bottom-right-radius: 4px;
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -3842,7 +3840,7 @@ body.print .slide {
 .m-med small {
   display: block;
   font-size: 11px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .m-slots,
@@ -3862,7 +3860,7 @@ body.print .slide {
 }
 
 .m-slots span.on {
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -3870,7 +3868,7 @@ body.print .slide {
   height: 6px;
   margin-bottom: 6px;
   border-radius: 3px;
-  background: var(--tint);
+  background: var(--mist);
 }
 
 .m-bar i {
@@ -3878,7 +3876,7 @@ body.print .slide {
   width: 60%;
   height: 100%;
   border-radius: 3px;
-  background: var(--purple);
+  background: var(--primary);
 }
 
 .m-step {
@@ -3886,11 +3884,11 @@ body.print .slide {
   align-items: center;
   gap: 8px;
   padding: 3px 0;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .m-step.done {
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .m-step > i {
@@ -3900,13 +3898,13 @@ body.print .slide {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1.5px solid var(--line);
+  border: 1.5px solid var(--border);
 }
 
 .m-step.done > i {
   border: 0;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .m-step .icon {
@@ -3921,11 +3919,11 @@ body.print .slide {
   margin-top: 8px;
   padding: 8px 10px;
   border-radius: 12px;
-  background: var(--surface);
+  background: var(--tile);
 }
 
 .m-med .icon {
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .s-ai {
@@ -3973,7 +3971,7 @@ body.print .slide {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--verde);
+  color: var(--secondary);
 }
 .nr-track li::after {
   content: "";
@@ -3987,11 +3985,11 @@ body.print .slide {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: var(--verde);
+  background: var(--secondary);
   font-family: var(--font-display);
   font-size: 22px;
   letter-spacing: 0;
-  color: var(--ink);
+  color: var(--foreground);
 }
 .nr-track li {
   padding-right: 4px;
@@ -4012,7 +4010,7 @@ body.print .slide {
   padding: 16px 16px 26px;
   border-radius: var(--r-card);
   background: #fff;
-  color: var(--ink);
+  color: var(--foreground);
 }
 .nr-step h3 {
   margin: 22px 12px 0;
@@ -4031,7 +4029,7 @@ body.print .slide {
   height: 244px;
   padding: 18px;
   border-radius: 18px;
-  background: var(--surface);
+  background: var(--tile);
   overflow: hidden;
 }
 .nr-survey .top {
@@ -4057,7 +4055,7 @@ body.print .slide {
 }
 .nr-survey small {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 .nr-survey .q {
   margin-top: 14px;
@@ -4082,7 +4080,7 @@ body.print .slide {
   width: 30%;
   height: 100%;
   border-radius: 4px;
-  background: var(--verde);
+  background: var(--secondary);
 }
 .nr-survey .scale span {
   display: grid;
@@ -4095,7 +4093,7 @@ body.print .slide {
   color: var(--body);
 }
 .nr-survey .scale .on {
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 .nr-heat .hd {
@@ -4109,7 +4107,7 @@ body.print .slide {
   align-items: center;
   gap: 5px;
   font-size: 11px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 .nr-heat .lg i {
   width: 10px;
@@ -4134,13 +4132,13 @@ body.print .slide {
   border-radius: 6px;
 }
 .nr-heat .lo {
-  background: var(--verde);
+  background: var(--secondary);
 }
 .nr-heat .md {
   background: var(--violet-300);
 }
 .nr-heat .hi {
-  background: var(--purple);
+  background: var(--primary);
 }
 .nr-doc {
   display: flex;
@@ -4163,13 +4161,13 @@ body.print .slide {
 .nr-doc .hd .icon {
   width: 20px;
   height: 20px;
-  color: var(--purple);
+  color: var(--primary);
 }
 .nr-doc .hd span {
   margin-left: auto;
   padding: 2px 8px;
   border-radius: 8px;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 11px;
   font-weight: 700;
 }
@@ -4186,14 +4184,14 @@ body.print .slide {
   background: var(--violet-300);
 }
 .nr-doc .bars i:nth-child(2) {
-  background: var(--purple);
+  background: var(--primary);
 }
 .nr-doc .ln {
   display: block;
   height: 8px;
   margin-top: 12px;
   border-radius: 4px;
-  background: var(--surface);
+  background: var(--tile);
 }
 .nr-doc .ln.s {
   width: 64%;
@@ -4205,7 +4203,7 @@ body.print .slide {
   gap: 6px;
   margin-top: 14px;
   padding-top: 10px;
-  border-top: 1px dashed var(--line);
+  border-top: 1px dashed var(--border);
   font-size: 11px;
   font-weight: 700;
   color: var(--body);
@@ -4213,7 +4211,7 @@ body.print .slide {
 .nr-doc .sig .icon {
   width: 14px;
   height: 14px;
-  color: var(--purple);
+  color: var(--primary);
 }
 .nr-plan {
   display: flex;
@@ -4241,12 +4239,12 @@ body.print .slide {
 }
 .nr-plan .done .ck {
   border: 0;
-  background: var(--verde);
+  background: var(--secondary);
 }
 .nr-plan .ck .icon {
   width: 14px;
   height: 14px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 .nr-plan b {
   flex: 1;
@@ -4256,7 +4254,7 @@ body.print .slide {
   text-overflow: ellipsis;
 }
 .nr-plan .done b {
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 .nr-plan em {
   padding: 3px 8px;
@@ -4366,7 +4364,7 @@ body.print .slide {
 .m-wa-card {
   margin-top: 6px;
   padding: 6px 10px;
-  border-left: 3px solid var(--purple);
+  border-left: 3px solid var(--primary);
   border-radius: 6px;
   background: #F5F6F6;
 }

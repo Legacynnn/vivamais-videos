@@ -1,0 +1,1862 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "Rawline"; font-weight: 400; font-display: block; src: url("assets/sncr/rawline-400.woff2") format("woff2"); }
+        @font-face { font-family: "Rawline"; font-weight: 500; font-display: block; src: url("assets/sncr/rawline-500.woff2") format("woff2"); }
+        @font-face { font-family: "Rawline"; font-weight: 600; font-display: block; src: url("assets/sncr/rawline-600.woff2") format("woff2"); }
+        @font-face { font-family: "Rawline"; font-weight: 700; font-display: block; src: url("assets/sncr/rawline-700.woff2") format("woff2"); }
+        #ch12r { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch12r .scr.c12r-gr { background: #F3F4FA; }
+        #ch12r .c12r-ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; flex: none; }
+        #ch12r .c12r-hd { position: absolute; left: 0; right: 0; top: 0; height: 98px; background: #F3F4FA; z-index: 10; }
+        #ch12r .c12r-bk { position: absolute; left: 10px; top: 54px; height: 44px; display: flex; align-items: center; color: #6A24DB; font-size: 17px; }
+        #ch12r .c12r-bk .c12r-ic { width: 26px; height: 26px; stroke-width: 2.2; }
+        #ch12r .c12r-bk span { margin-left: -2px; }
+        #ch12r .c12r-tt { position: absolute; left: 100px; right: 100px; top: 54px; line-height: 44px; text-align: center; font-weight: 500; font-size: 17px; color: #17151E; white-space: nowrap; }
+        #ch12r .c12r-pills { position: absolute; right: 16px; top: 62px; display: flex; gap: 6px; }
+        #ch12r .c12r-pill { display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 14px; background: #fff; color: #55525F; font-weight: 500; font-size: 12.5px; }
+        #ch12r .c12r-pill .c12r-ic { width: 12px; height: 12px; stroke-width: 2.1; }
+        #ch12r .c12r-pill.c12r-br { background: #F5F0FE; color: #5A1DB8; }
+        #ch12r .c12r-pill span { font-variant-numeric: tabular-nums; }
+        #ch12r .c12r-lt { position: absolute; left: 20px; top: 100px; height: 48px; padding-top: 4px; font-weight: 700; font-size: 34px; line-height: 42px; letter-spacing: -0.6px; color: #17151E; }
+        #ch12r .c12r-hc { position: absolute; left: 0; right: 0; top: 160px; }
+        #ch12r .c12r-eg { padding: 0 20px; }
+        #ch12r .c12r-pc { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 20px; background: #fff; }
+        #ch12r .c12r-av { width: 48px; height: 48px; border-radius: 50%; background: #EBE1FD; color: #5A1DB8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+        #ch12r .c12r-pn { font-weight: 700; font-size: 17px; line-height: 22px; color: #17151E; }
+        #ch12r .c12r-pl { margin-top: 1px; font-size: 13.5px; line-height: 18px; color: #55525F; }
+        #ch12r .c12r-ac { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 20px; background: #fff; }
+        #ch12r .c12r-act { width: 40px; height: 40px; flex: none; border-radius: 12px; background: rgba(34, 197, 94, 0.14); color: #166534; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-act .c12r-ic { width: 19px; height: 19px; }
+        #ch12r .c12r-ac b { display: block; font-weight: 700; font-size: 15px; line-height: 20px; color: #17151E; }
+        #ch12r .c12r-ac span { display: block; margin-top: 1px; font-size: 13px; line-height: 18px; color: #55525F; }
+        #ch12r .c12r-grp { position: relative; }
+        #ch12r .c12r-gt { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; line-height: 14px; letter-spacing: 1.8px; text-transform: uppercase; color: #6B6878; }
+        #ch12r .c12r-gc { border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch12r .c12r-ir { position: relative; display: flex; align-items: center; gap: 14px; height: 58px; padding: 0 14px 0 16px; background: #fff; overflow: hidden; }
+        #ch12r .c12r-ir + .c12r-ir::before { content: ""; position: absolute; left: 66px; right: 0; top: 0; height: 1px; background: #E6E4EC; }
+        #ch12r .c12r-ps { position: absolute; inset: 0; background: #F2F1F6; opacity: 0; }
+        #ch12r .c12r-fl { position: absolute; inset: 0; background: rgba(34, 197, 94, 0.16); opacity: 0; }
+        #ch12r .c12r-it { position: relative; width: 36px; height: 36px; flex: none; border-radius: 11px; background: #EBE1FD; color: #6A24DB; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-it .c12r-ic { width: 19px; height: 19px; stroke-width: 1.9; }
+        #ch12r .c12r-bd { position: relative; flex: 1; height: 40px; }
+        #ch12r .c12r-lb { position: absolute; left: 0; top: 9.5px; font-weight: 500; font-size: 16px; line-height: 21px; color: #17151E; white-space: nowrap; }
+        #ch12r .c12r-dt { position: absolute; left: 0; top: 23px; font-size: 13px; line-height: 17px; color: #6B6878; white-space: nowrap; opacity: 0; }
+        #ch12r .c12r-vs { position: absolute; right: 0; top: 10px; display: inline-grid; justify-items: end; }
+        #ch12r .c12r-vs > * { grid-area: 1 / 1; }
+        #ch12r .c12r-v { font-size: 15px; line-height: 20px; color: #6B6878; white-space: nowrap; }
+        #ch12r .c12r-v.c12r-g { color: #166534; }
+        #ch12r .c12r-v.c12r-alt { opacity: 0; }
+        #ch12r .c12r-cv { width: 18px; height: 18px; color: #A29FB0; }
+        #ch12r .c12r-ft { position: absolute; left: 0; right: 0; top: 742px; bottom: 0; background: #F3F4FA; border-top: 1px solid #E6E4EC; z-index: 9; }
+        #ch12r .btn.c12r-sv { left: 20px; right: 20px; top: 764px; z-index: 11; overflow: hidden; }
+        #ch12r .c12r-sv .lbl { position: relative; }
+        #ch12r .c12r-sv .c12r-l2 { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; }
+        #ch12r .c12r-sk { position: absolute; left: 0; right: 0; top: 98px; bottom: 0; background: #F3F4FA; z-index: 8; overflow: hidden; }
+        #ch12r .c12r-sk i { position: absolute; display: block; background: #E6E4EC; border-radius: 20px; }
+        #ch12r .c12r-shine { position: absolute; top: 0; bottom: 0; left: 0; width: 160px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.7), rgba(255,255,255,0)); transform: translateX(-200px); }
+        #ch12r .c12r-sf { position: absolute; left: 20px; width: 362px; height: 48px; border-radius: 16px; background: #fff; border: 1px solid #E6E4EC; }
+        #ch12r .c12r-fb { position: absolute; inset: -1px; border-radius: 16px; border: 1.5px solid #7E3BED; opacity: 0; }
+        #ch12r .c12r-sic { position: absolute; left: 14px; top: 14px; width: 18px; height: 18px; color: #6B6878; }
+        #ch12r .c12r-ph, #ch12r .c12r-tw { position: absolute; left: 42px; top: 0; line-height: 46px; font-size: 16px; white-space: nowrap; }
+        #ch12r .c12r-ph { color: #A29FB0; }
+        #ch12r .c12r-tw { color: #17151E; opacity: 0; }
+        #ch12r .c12r-cr { display: inline-block; width: 2px; height: 20px; margin-left: 1px; vertical-align: -4px; border-radius: 2px; background: #7E3BED; }
+        #ch12r .c12r-dd { position: absolute; left: 20px; width: 362px; border-radius: 16px; background: #fff; border: 1px solid #E6E4EC; box-shadow: 0 12px 28px rgba(53, 14, 111, 0.12); overflow: hidden; opacity: 0; z-index: 6; }
+        #ch12r .c12r-rr { position: relative; min-height: 52px; padding: 12px 14px; display: flex; flex-direction: column; justify-content: center; }
+        #ch12r .c12r-rr + .c12r-rr { border-top: 1px solid #E6E4EC; }
+        #ch12r .c12r-rp { position: absolute; inset: 0; background: #F2F1F6; opacity: 0; }
+        #ch12r .c12r-rt { position: relative; font-weight: 500; font-size: 15px; line-height: 20px; color: #17151E; }
+        #ch12r .c12r-tg { position: relative; font-size: 12.5px; line-height: 16px; color: #6B6878; }
+        #ch12r .c12r-lo { display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px; font-size: 14px; color: #55525F; }
+        #ch12r .c12r-lsp { width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid #EBE1FD; border-top-color: #7E3BED; }
+        #ch12r .c12r-sb { height: 52px; border-top: 1px solid #E6E4EC; padding: 12px 14px; }
+        #ch12r .c12r-sb i { display: block; height: 13px; width: 62%; border-radius: 6px; background: #E6E4EC; }
+        #ch12r .c12r-sb i + i { height: 10px; width: 38%; margin-top: 6px; }
+        #ch12r .c12r-ph pre { margin: 0; font: inherit; white-space: pre-wrap; }
+        #ch12r .c12r-scrim { position: absolute; inset: 0; background: rgba(23, 21, 30, 0.45); opacity: 0; z-index: 20; }
+        #ch12r .c12r-scrim.c12r-s2 { z-index: 22; }
+        #ch12r .c12r-sh { position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border-radius: 28px 28px 0 0; overflow: hidden; box-shadow: 0 -14px 40px rgba(23, 21, 30, 0.2); }
+        #ch12r #c12r-shP { top: 52px; z-index: 21; }
+        #ch12r #c12r-shS { top: 280px; z-index: 23; }
+        #ch12r .c12r-grab { position: absolute; left: 183px; top: 8px; width: 36px; height: 5px; border-radius: 3px; background: #D9D6E2; }
+        #ch12r .c12r-th { position: absolute; left: 20px; right: 20px; top: 22px; height: 44px; display: flex; align-items: center; gap: 12px; }
+        #ch12r .c12r-thi { width: 40px; height: 40px; flex: none; border-radius: 12px; background: #F5F0FE; color: #6A24DB; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-thb b { display: block; font-weight: 700; font-size: 19px; line-height: 22px; color: #17151E; }
+        #ch12r .c12r-cnt { display: inline-grid; vertical-align: top; font-size: 12.5px; line-height: 16px; color: #6B6878; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        #ch12r .c12r-cnt > * { grid-area: 1 / 1; }
+        #ch12r .c12r-cnt > :not(:first-child) { opacity: 0; }
+        #ch12r .c12r-pb { position: absolute; left: 20px; top: 72px; height: 26px; padding: 0 11px 0 4px; border-radius: 13px; background: #F2F1F6; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12.5px; color: #17151E; }
+        #ch12r .c12r-pb i { width: 18px; height: 18px; border-radius: 50%; background: #EBE1FD; color: #5A1DB8; font-style: normal; font-weight: 700; font-size: 8.5px; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-pg { position: absolute; left: 20px; width: 362px; top: 108px; height: 84px; background: #fff; }
+        #ch12r .c12r-pl2 { position: absolute; left: 2px; top: 0; font-weight: 700; font-size: 12px; line-height: 16px; color: #17151E; }
+        #ch12r .c12r-pk { position: absolute; left: 0; right: 0; top: 20px; height: 44px; border-radius: 12px; border: 1px solid #E6E4EC; background: #fff; }
+        #ch12r .c12r-pk .c12r-fb { border-radius: 12px; }
+        #ch12r .c12r-pph, #ch12r .c12r-pv { position: absolute; left: 14px; top: 0; line-height: 42px; font-size: 15px; white-space: nowrap; }
+        #ch12r .c12r-pph { color: #A29FB0; }
+        #ch12r .c12r-pv { color: #17151E; font-weight: 500; opacity: 0; }
+        #ch12r .c12r-pch { position: absolute; right: 12px; top: 11px; width: 20px; height: 20px; color: #6B6878; }
+        #ch12r .c12r-hp { position: absolute; left: 2px; top: 68px; font-size: 12px; line-height: 16px; color: #6B6878; white-space: nowrap; }
+        #ch12r .c12r-pd { position: absolute; left: 20px; width: 362px; top: 176px; border-radius: 14px; background: #fff; border: 1px solid #E6E4EC; box-shadow: 0 12px 28px rgba(53, 14, 111, 0.14); overflow: hidden; opacity: 0; z-index: 7; }
+        #ch12r .c12r-vp { position: absolute; left: 0; right: 0; top: 264px; height: 426px; overflow: hidden; z-index: 1; }
+        #ch12r .c12r-lst { position: absolute; left: 20px; width: 362px; top: 0; }
+        #ch12r .c12r-eh { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-size: 13px; line-height: 18px; color: #A29FB0; }
+        #ch12r .c12r-eh .c12r-eic { width: 52px; height: 52px; margin: 0 auto 12px; border-radius: 16px; background: #F5F0FE; color: #A58BEA; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-eh .c12r-eic .c12r-ic { width: 24px; height: 24px; }
+        #ch12r .c12r-sfo { position: absolute; left: 0; right: 0; top: 690px; bottom: 0; background: #fff; border-top: 1px solid #E6E4EC; z-index: 2; }
+        #ch12r .btn.c12r-sbt { left: 20px; right: 20px; top: 712px; z-index: 3; overflow: hidden; }
+        #ch12r .c12r-sbt .lbl { position: relative; }
+        #ch12r .c12r-sbt .c12r-l2 { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; }
+        #ch12r .c12r-spn { position: absolute; left: 112px; top: 17px; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; opacity: 0; }
+        #ch12r .c12r-sk2 { position: absolute; left: 0; right: 0; top: 100px; bottom: 0; background: #fff; z-index: 8; overflow: hidden; }
+        #ch12r .c12r-sk2 i { position: absolute; display: block; background: #E6E4EC; border-radius: 14px; }
+        #ch12r .c12r-gi { position: relative; overflow: hidden; padding: 0 2px 12px; margin: 0 -2px; }
+        #ch12r .c12r-gh { display: block; width: fit-content; padding-left: 4px; margin-bottom: 8px; font-weight: 700; font-size: 12.5px; line-height: 16px; letter-spacing: 1.3px; text-transform: uppercase; color: #6A24DB; white-space: nowrap; }
+        #ch12r .c12r-cd { position: relative; padding: 12px; border: 1px solid #E6E4EC; border-radius: 14px; background: #fff; box-shadow: 0 1px 3px rgba(23, 21, 30, 0.06); }
+        #ch12r .c12r-ch { display: flex; align-items: flex-start; gap: 10px; }
+        #ch12r .c12r-stp { position: relative; width: 40px; height: 40px; flex: none; border-radius: 9px; border: 1px solid #D9D6E2; background: #F2F1F6; overflow: hidden; display: flex; align-items: center; justify-content: center; color: #8A8798; }
+        #ch12r .c12r-stp .c12r-ic { width: 18px; height: 18px; margin-top: -4px; }
+        #ch12r .c12r-stp i { position: absolute; left: 0; right: 0; bottom: 0; height: 9px; }
+        #ch12r .c12r-cx { flex: 1; min-width: 0; }
+        #ch12r .c12r-cn { font-weight: 700; font-size: 16px; line-height: 20px; color: #17151E; }
+        #ch12r .c12r-cm { margin-top: 2px; font-weight: 500; font-size: 10px; line-height: 13px; letter-spacing: 0.4px; text-transform: uppercase; color: #6B6878; }
+        #ch12r .c12r-cc { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 5px; }
+        #ch12r .c12r-cp { padding: 2px 6px; border-radius: 4px; background: #F2F1F6; font-size: 11.5px; line-height: 15px; color: #55525F; }
+        #ch12r .c12r-ct { display: inline-block; padding: 1px 6px; border-radius: 4px; border: 1px solid #D2CFDB; font-size: 10px; line-height: 14px; text-transform: uppercase; color: #55525F; background: #fff; }
+        #ch12r .c12r-rm { width: 22px; height: 22px; flex: none; border-radius: 50%; background: rgba(239, 68, 68, 0.1); color: #EF4444; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-rm .c12r-ic { width: 12px; height: 12px; stroke-width: 2.4; }
+        #ch12r .c12r-cr2 { display: flex; align-items: flex-start; margin-top: 10px; }
+        #ch12r .c12r-pc2 { flex: 1; min-width: 0; }
+        #ch12r .c12r-ph2 { display: flex; align-items: center; justify-content: space-between; height: 16px; margin-bottom: 6px; }
+        #ch12r .c12r-fl2 { font-weight: 700; font-size: 12px; line-height: 16px; color: #17151E; white-space: nowrap; }
+        #ch12r .c12r-dl { display: flex; gap: 3px; font-weight: 500; font-size: 10.5px; line-height: 16px; color: #6A24DB; padding: 0 2px; }
+        #ch12r .c12r-dx { width: 12px; height: 12px; color: #A29FB0; }
+        #ch12r .c12r-in { position: relative; height: 44px; border-radius: 10px; border: 1px solid #E6E4EC; background: #FAFAFC; }
+        #ch12r .c12r-in .c12r-ph, #ch12r .c12r-in .c12r-tw { left: 10px; top: 0; line-height: 42px; font-size: 13px; }
+        #ch12r .c12r-qc .c12r-ph { font-size: 11px; }
+        #ch12r .c12r-in .c12r-fb { border-radius: 10px; }
+        #ch12r .c12r-chd { position: absolute; right: 8px; top: 12px; width: 18px; height: 18px; color: #A29FB0; }
+        #ch12r .c12r-dc { flex: none; width: 0; opacity: 0; overflow: hidden; }
+        #ch12r .c12r-dci { width: 112px; margin-left: 10px; }
+        #ch12r .c12r-q2 { display: flex; gap: 10px; margin-top: 12px; }
+        #ch12r .c12r-qc { width: 33.333%; flex: none; }
+        #ch12r .c12r-oc { flex: 1; min-width: 0; }
+        #ch12r .c12r-qc .c12r-fl2, #ch12r .c12r-oc .c12r-fl2 { display: block; margin-bottom: 6px; }
+        #ch12r .c12r-un { position: absolute; right: 8px; top: 0; line-height: 42px; font-size: 8.5px; color: #6B6878; }
+        #ch12r .lift { z-index: 40; }
+        #ch12r .c12r-rr.c12r-mr { flex-direction: row; align-items: center; gap: 10px; padding: 10px 12px; min-height: 68px; }
+        #ch12r .c12r-mr .c12r-stp { z-index: 1; }
+        #ch12r .c12r-mx { position: relative; flex: 1; min-width: 0; }
+        #ch12r .c12r-mt { display: flex; align-items: center; gap: 7px; font-weight: 700; font-size: 14.5px; line-height: 19px; color: #17151E; }
+        #ch12r .c12r-tgc { padding: 0 6px; border-radius: 5px; background: #EBE1FD; color: #5A1DB8; font-style: normal; font-weight: 700; font-size: 10.5px; line-height: 16px; text-transform: uppercase; }
+        #ch12r .c12r-tgc.c12r-tgs { background: #F2F1F6; color: #55525F; }
+        #ch12r .c12r-mp { font-size: 12px; line-height: 16px; color: #55525F; }
+        #ch12r .c12r-mm { font-size: 9.5px; line-height: 13px; font-weight: 500; letter-spacing: 0.4px; text-transform: uppercase; color: #6B6878; }
+        #ch12r .c12r-bnw { overflow: hidden; }
+        #ch12r .c12r-bn { margin-bottom: 12px; padding: 12px; border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.3); background: #FEF6E6; }
+        #ch12r .c12r-bn b { display: block; font-weight: 500; font-size: 13px; line-height: 18px; color: #92400E; }
+        #ch12r .c12r-bn p { margin: 3px 0 0; font-size: 12px; line-height: 17px; color: #92400E; }
+        #ch12r .c12r-bb { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 10px; border: 1px solid #D2CFDB; background: #fff; font-weight: 500; font-size: 13px; color: #17151E; white-space: nowrap; }
+        #ch12r .c12r-bnr { margin-top: 10px; }
+        #ch12r .c12r-xb { position: absolute; right: 20px; top: 20px; width: 30px; height: 30px; border-radius: 50%; background: #F2F1F6; color: #17151E; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-xb .c12r-ic { width: 17px; height: 17px; }
+        #ch12r .c12r-st2 { position: absolute; left: 20px; right: 60px; top: 22px; font-weight: 700; font-size: 17px; line-height: 22px; color: #17151E; }
+        #ch12r .c12r-sd { position: absolute; left: 20px; right: 20px; top: 50px; font-size: 12px; line-height: 16px; color: #6B6878; }
+        #ch12r .c12r-sc { position: absolute; left: 20px; right: 20px; padding: 12px; border-radius: 12px; border: 1px solid #E6E4EC; background: #fff; }
+        #ch12r .c12r-ct2 { font-weight: 500; font-size: 14px; line-height: 20px; color: #17151E; }
+        #ch12r .c12r-cs2 { margin: 2px 0 8px; font-size: 12px; line-height: 16px; color: #6B6878; }
+        #ch12r .c12r-nr { position: relative; display: flex; align-items: center; gap: 12px; height: 56px; margin-top: 8px; padding: 0 12px; border-radius: 10px; border: 1px solid #E6E4EC; background: #fff; }
+        #ch12r .c12r-sw { position: relative; width: 44px; height: 26px; flex: none; border-radius: 13px; background: #D2CFDB; }
+        #ch12r .c12r-sw b { position: absolute; inset: 0; border-radius: 13px; background: #7E3BED; }
+        #ch12r .c12r-sw i { position: absolute; top: 3px; left: 21px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(23, 21, 30, 0.3); }
+        #ch12r .c12r-nc { width: 48px; font-weight: 500; font-size: 14px; color: #17151E; }
+        #ch12r .c12r-nin { position: relative; width: 72px; height: 40px; flex: none; border-radius: 10px; border: 1px solid #EBE1FD; background: #fff; font-size: 14px; line-height: 38px; text-align: center; color: #17151E; }
+        #ch12r .c12r-nvs { display: inline-grid; }
+        #ch12r .c12r-nvs > * { grid-area: 1 / 1; }
+        #ch12r .c12r-nvs > :not(:first-child) { opacity: 0; }
+        #ch12r .c12r-nvs mark { background: rgba(126, 59, 237, 0.26); color: inherit; padding: 2px 1px; }
+        #ch12r .c12r-nvs em { display: inline-block; width: 2px; height: 18px; margin-left: 1px; vertical-align: -4px; border-radius: 2px; background: #7E3BED; }
+        #ch12r .c12r-nvs .c12r-nbl { display: inline-block; width: 0; height: 18px; }
+        #ch12r .c12r-nf { margin-left: auto; font-size: 12px; color: #6B6878; white-space: nowrap; }
+        #ch12r .c12r-bl { font-size: 12px; color: #6B6878; white-space: nowrap; }
+        #ch12r .c12r-bf { position: absolute; left: 20px; right: 20px; top: 436px; display: flex; justify-content: flex-end; gap: 8px; }
+        #ch12r .c12r-bs { height: 38px; padding: 0 15px; border-radius: 12px; display: flex; align-items: center; font-weight: 500; font-size: 13.5px; border: 1px solid #D2CFDB; color: #17151E; background: #fff; white-space: nowrap; }
+        #ch12r .c12r-bs.c12r-bp { position: relative; border-color: #7E3BED; background: #7E3BED; color: #fff; }
+        #ch12r .c12r-web { position: absolute; inset: 0; background: #fff; z-index: 26; }
+        #ch12r .c12r-wh { position: absolute; left: 0; right: 0; top: 0; height: 106px; background: #fff; border-bottom: 1px solid #E6E4EC; z-index: 4; }
+        #ch12r .c12r-wt { position: absolute; left: 16px; top: 54px; font-weight: 700; font-size: 16px; line-height: 24px; color: #17151E; }
+        #ch12r .c12r-wu { position: absolute; left: 16px; top: 79px; display: flex; align-items: center; gap: 5px; font-weight: 500; font-size: 12px; line-height: 18px; color: #6B6878; }
+        #ch12r .c12r-wu .c12r-ic { width: 12px; height: 12px; color: #168821; }
+        #ch12r .c12r-wc { position: absolute; right: 10px; top: 54px; height: 40px; display: flex; align-items: center; gap: 4px; padding: 0 8px; font-weight: 500; font-size: 14px; color: #6A24DB; }
+        #ch12r .c12r-wc .c12r-ic { width: 16px; height: 16px; color: #55525F; }
+        #ch12r .c12r-wb { position: absolute; left: 0; top: 103px; height: 3px; width: 402px; background: #1351B4; transform-origin: 0 50%; transform: scaleX(0); z-index: 5; }
+        #ch12r .c12r-wp { position: absolute; left: 0; right: 0; top: 106px; bottom: 0; background: #fff; overflow: hidden; }
+        #ch12r .c12r-wg { position: absolute; inset: 0; background: #fff; opacity: 0; }
+        #ch12r .c12r-pgm { position: absolute; left: 0; top: 0; width: 402px; height: 874px; background: #fff; overflow: hidden; font-family: "Roboto", Arial, sans-serif; font-size: 14px; line-height: 20.3px; font-weight: 400; color: #333; }
+        #ch12r .c12r-pgm > * { position: absolute; margin: 0; }
+        #ch12r .c12r-nh { left: 0; top: 0; width: 402px; height: 80px; background: #fff; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); }
+        #ch12r .c12r-nh > * { position: absolute; }
+        #ch12r .c12r-nlg { left: 8px; top: 28px; width: 24px; height: 24px; }
+        #ch12r .c12r-npill { left: 58px; top: 24px; width: 48px; height: 40px; border-radius: 20px; background: #1351B4; overflow: hidden; }
+        #ch12r .c12r-npill span { position: absolute; left: -80px; top: 9px; white-space: nowrap; color: #fff; font-weight: 600; font-size: 16.8px; line-height: 24.36px; }
+        #ch12r .c12r-nvis { left: 376px; top: 38px; white-space: nowrap; font-weight: 700; }
+        #ch12r .c12r-nav { left: 354px; top: 24px; width: 34px; height: 34px; border-radius: 50%; background: #DCE6F7; color: #1351B4; font-weight: 700; font-size: 13px; line-height: 34px; text-align: center; }
+        #ch12r .c12r-nh1 { left: 0; top: 112px; width: 402px; font-size: 29.036px; line-height: 33.3914px; font-weight: 500; color: #1351B4; }
+        #ch12r .c12r-ncard { left: 8px; top: 199px; width: 386px; height: 488px; background: #fff; box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18); }
+        #ch12r .c12r-ngov { left: 146px; top: 239px; width: 111px; height: 40px; }
+        #ch12r .c12r-nh4 { left: 32px; top: 311px; width: 338px; font-size: 16.8px; line-height: 19.32px; font-weight: 700; }
+        #ch12r .c12r-np { left: 32px; width: 338px; }
+        #ch12r .c12r-nbtn { left: 112px; top: 532px; width: 179px; height: 40px; border-radius: 20px; background: #1351B4; color: #fff; font-weight: 600; font-size: 16.8px; line-height: 24.36px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+        #ch12r .c12r-nbtn b { font-weight: 900; margin-left: 9px; }
+        #ch12r .c12r-ndiv { left: 56px; top: 588px; width: 290px; height: 15px; display: flex; align-items: center; gap: 12px; font-size: 10px; line-height: 14.5px; font-weight: 700; color: #999; white-space: nowrap; }
+        #ch12r .c12r-ndiv i { flex: 1; height: 1px; background: #DDD; margin-top: -2px; }
+        #ch12r .c12r-ncol { left: 111px; top: 618px; width: 179px; text-align: center; font-weight: 700; color: #C0C0C0; white-space: nowrap; letter-spacing: 0.5px; }
+        #ch12r .c12r-nft { left: 0; top: 816px; width: 402px; height: 58px; box-sizing: border-box; background: #071D41; border-top: 1px solid #CCC; }
+        #ch12r .c12r-nft div { position: absolute; left: 16px; top: 8px; width: 370px; text-align: center; color: #fff; font-weight: 500; line-height: 21px; }
+        #ch12r .c12r-nwel { left: 16px; top: 112px; width: 370px; font-weight: 700; font-size: 18px; line-height: 25px; color: #1351B4; }
+        #ch12r .c12r-nok { left: 8px; top: 164px; width: 386px; height: 96px; background: #fff; box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18); }
+        #ch12r .c12r-nok > * { position: absolute; }
+        #ch12r .c12r-nok .c12r-nic { left: 20px; top: 24px; width: 40px; height: 40px; border-radius: 50%; background: #E3F5E1; color: #168821; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-nok .c12r-nic .c12r-ic { width: 22px; height: 22px; stroke-width: 2.8; }
+        #ch12r .c12r-nok .c12r-nt { left: 76px; top: 22px; width: 290px; font-weight: 700; font-size: 16.8px; line-height: 21px; }
+        #ch12r .c12r-nok .c12r-ns { left: 76px; top: 52px; width: 290px; }
+        #ch12r .c12r-nok .c12r-nb { left: 76px; top: 98px; padding: 0 10px; height: 22px; border-radius: 11px; background: #E3F5E1; color: #0F6B1F; font-weight: 600; font-size: 12px; line-height: 22px; }
+        #ch12r .c12r-gh0 { left: 0; top: 0; width: 402px; height: 60px; background: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+        #ch12r .c12r-gh0 > * { position: absolute; }
+        #ch12r .c12r-glg { left: 10px; top: 10px; width: 100px; height: 36px; }
+        #ch12r .c12r-gct { left: 327px; top: 21px; width: 15px; height: 18px; }
+        #ch12r .c12r-gha { left: 366px; top: 21px; width: 17px; height: 18px; }
+        #ch12r .c12r-gcard { left: 31px; top: 86px; width: 340px; height: 679px; background: #fff; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.22); }
+        #ch12r .c12r-gh3 { left: 41px; width: 320px; font-size: 16.38px; line-height: 25px; font-weight: 700; }
+        #ch12r .c12r-gico { left: 41px; width: 24px; }
+        #ch12r .c12r-gopt { left: 79px; font-weight: 500; line-height: 23px; white-space: nowrap; }
+        #ch12r .c12r-gsm { left: 41px; width: 330px; font-size: 12.8px; line-height: 19px; white-space: nowrap; }
+        #ch12r .c12r-gsm b { font-weight: 700; }
+        #ch12r .c12r-glab { left: 41px; font-weight: 600; line-height: 21px; white-space: nowrap; }
+        #ch12r .c12r-gin { left: 41px; top: 254px; width: 320px; height: 40px; box-sizing: border-box; border: 1px solid #888; border-radius: 4px; background: #fff; font-family: "Roboto", Arial, sans-serif; font-size: 14px; }
+        #ch12r .c12r-gin.c12r-gp { top: 214px; }
+        #ch12r .c12r-gin .c12r-fb { position: absolute; inset: -1px; border-radius: 4px; border: 2px solid #1351B4; background: rgba(242, 227, 23, 0.3); opacity: 0; }
+        #ch12r .c12r-gin .c12r-ph, #ch12r .c12r-gin .c12r-tw { position: absolute; left: 20px; top: 0; line-height: 38px; font-size: 14px; white-space: nowrap; z-index: 1; }
+        #ch12r .c12r-gin .c12r-ph { color: #757575; }
+        #ch12r .c12r-gin .c12r-tw { color: #000; opacity: 0; }
+        #ch12r .c12r-gin .c12r-cr { width: 1px; height: 17px; margin-left: 1px; vertical-align: -3px; border-radius: 0; background: #000; }
+        #ch12r .c12r-gin .c12r-eye { position: absolute; right: 12px; top: 10px; width: 18px; height: 18px; color: #555; z-index: 1; }
+        #ch12r .c12r-gbt { left: 41px; width: 320px; height: 40px; border-radius: 24px; background: #1351B4; color: #fff; font-family: "Roboto", Arial, sans-serif; font-weight: 700; font-size: 14px; line-height: 40px; text-align: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); overflow: hidden; }
+        #ch12r .c12r-gbt.c12r-go { background: #fff; color: #1351B4; border: 1px solid #1351B4; box-sizing: border-box; line-height: 38px; box-shadow: none; }
+        #ch12r .c12r-gbt .c12r-gsp { position: absolute; left: 34px; top: 11px; width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.4); border-top-color: #fff; opacity: 0; }
+        #ch12r .c12r-ghr { left: 41px; top: 415px; width: 320px; height: 2px; box-sizing: border-box; border-top: 1px solid #808080; border-bottom: 1px solid #C8C8C8; }
+        #ch12r .c12r-gor { left: 41px; width: 320px; height: 24px; display: flex; align-items: center; gap: 14px; font-weight: 500; line-height: 24px; white-space: nowrap; }
+        #ch12r .c12r-gor img { width: 24px; height: 24px; flex: none; }
+        #ch12r .c12r-gor.c12r-gg { color: #008C32; }
+        #ch12r .c12r-gbd { left: 231px; top: 441px; width: 88px; height: 16px; background: #008C32; color: #fff; font-weight: 500; font-size: 7px; line-height: 16px; text-align: center; white-space: nowrap; }
+        #ch12r .c12r-gq { left: 68px; top: 698px; width: 14px; height: 14px; }
+        #ch12r .c12r-ghl { left: 99px; top: 694px; font-weight: 500; color: #1351B4; white-space: nowrap; }
+        #ch12r .c12r-gtm { left: 41px; top: 734px; width: 320px; text-align: center; font-weight: 500; line-height: 21px; color: #1351B4; white-space: nowrap; }
+        #ch12r .c12r-gck { left: 41px; width: 20px; height: 20px; color: #1351B4; }
+        #ch12r .c12r-gck .c12r-ic { width: 18px; height: 18px; stroke-width: 3; }
+        #ch12r .c12r-glk { left: 41px; font-weight: 500; line-height: 21px; color: #1351B4; white-space: nowrap; }
+        #ch12r .c12r-pgm.c12r-gvp { font-family: "Rawline", sans-serif; }
+        #ch12r .c12r-ld { position: absolute; inset: 0; background: rgba(23, 21, 30, 0.45); z-index: 24; opacity: 0; }
+        #ch12r .c12r-ldc { position: absolute; left: 41px; top: 312px; width: 320px; padding: 24px 20px 22px; border-radius: 26px; background: #fff; text-align: center; box-shadow: 0 24px 60px rgba(23, 21, 30, 0.3); }
+        #ch12r .c12r-ldi { position: relative; width: 48px; height: 48px; margin: 0 auto; }
+        #ch12r .c12r-ldsp { position: absolute; inset: 0; border-radius: 50%; border: 4.5px solid #EBE1FD; border-top-color: #7E3BED; }
+        #ch12r .c12r-ldck { position: absolute; inset: 0; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; color: #fff; opacity: 0; }
+        #ch12r .c12r-ldck .c12r-ic { width: 26px; height: 26px; stroke-width: 3.2; }
+        #ch12r .c12r-ldt { position: relative; height: 22px; margin-top: 16px; font-weight: 500; font-size: 15px; line-height: 22px; color: #17151E; }
+        #ch12r .c12r-ldt span { position: absolute; left: 0; right: 0; white-space: nowrap; }
+        #ch12r .c12r-ldt span + span { opacity: 0; }
+        #ch12r .c12r-ldrs { overflow: hidden; }
+        #ch12r .c12r-ldr { display: flex; align-items: center; gap: 10px; height: 20px; margin-top: 12px; font-size: 12.5px; color: #55525F; }
+        #ch12r .c12r-ldr:first-child { margin-top: 18px; }
+        #ch12r .c12r-ldr b { width: 34px; text-align: left; font-weight: 700; color: #17151E; }
+        #ch12r .c12r-ldr .c12r-lbar { position: relative; flex: 1; height: 8px; border-radius: 4px; background: #F2F1F6; overflow: hidden; }
+        #ch12r .c12r-ldr .c12r-lbar i { position: absolute; inset: 0; border-radius: 4px; background: #7E3BED; transform-origin: 0 50%; transform: scaleX(0); }
+        #ch12r .c12r-ldr em { width: 66px; text-align: right; font-style: normal; font-variant-numeric: tabular-nums; }
+        #ch12r .c12r-toast { position: absolute; left: 36px; right: 36px; top: 62px; height: 48px; padding: 0 18px; border-radius: 24px; background: #17151E; color: #fff; z-index: 27; display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 14px; box-shadow: 0 18px 40px rgba(23, 21, 30, 0.3); opacity: 0; }
+        #ch12r .c12r-toast i { width: 22px; height: 22px; flex: none; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-toast i .c12r-ic { width: 13px; height: 13px; stroke-width: 3.4; }
+        #ch12r .c12r-bdg { padding: 0; border-radius: 22px; background: #fff; }
+        #ch12r .c12r-bdi { display: flex; align-items: center; gap: 12px; height: 100%; padding: 0 14px 0 16px; white-space: nowrap; font-weight: 700; font-size: 14px; color: #17151E; }
+        #ch12r .c12r-bdi .c12r-bic { width: 36px; height: 36px; flex: none; border-radius: 11px; background: #EBE1FD; color: #6A24DB; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-bdi .c12r-bic .c12r-ic { width: 15px; height: 15px; }
+        #ch12r .c12r-bdi em { margin-left: auto; padding: 3px 9px; border-radius: 999px; background: #F5F0FE; color: #5A1DB8; font-style: normal; font-weight: 700; font-size: 11.5px; }
+        #ch12r .c12r-sp2 { position: absolute; left: 50px; top: 224px; width: 980px; border-radius: 12px; background: #fff; border: 2px solid #DCE2EC; box-shadow: 0 40px 90px rgba(19, 81, 180, 0.22); overflow: hidden; opacity: 0; font-family: "Roboto", Arial, sans-serif; color: #333; }
+        #ch12r .c12r-sgw { position: absolute; inset: 0; border-radius: 10px; box-shadow: inset 0 0 0 5px rgba(126, 59, 237, 0.75), inset 0 0 60px rgba(126, 59, 237, 0.25); opacity: 0; pointer-events: none; z-index: 3; }
+        #ch12r .c12r-sh1 { display: flex; align-items: center; gap: 20px; height: 88px; padding: 0 30px; background: #fff; border-bottom: 2px solid #E5E5E5; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); }
+        #ch12r .c12r-sgl { width: 54px; height: 54px; flex: none; display: block; }
+        #ch12r .c12r-sh1 b { display: block; font-size: 34px; line-height: 38px; font-weight: 600; color: #1351B4; }
+        #ch12r .c12r-sh1 em { display: block; font-style: normal; font-size: 19px; line-height: 24px; color: #555; }
+        #ch12r .c12r-scn { margin-left: auto; display: flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 999px; background: #E3F5E1; color: #0F6B1F; font-weight: 700; font-size: 20px; }
+        #ch12r .c12r-scn i { width: 12px; height: 12px; border-radius: 50%; background: #168821; }
+        #ch12r .c12r-sid { position: relative; display: flex; align-items: center; gap: 16px; height: 66px; padding: 0 30px; border-bottom: 2px solid #EDEDED; font-weight: 700; font-size: 27px; color: #333; white-space: nowrap; }
+        #ch12r .c12r-sid svg { width: 34px; height: 34px; flex: none; fill: none; stroke: #1351B4; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        #ch12r .c12r-sau { margin-left: auto; display: flex; align-items: center; gap: 8px; padding: 5px 16px; border-radius: 999px; background: #E8EEF8; color: #1351B4; font-weight: 700; font-size: 19px; opacity: 0; }
+        #ch12r .c12r-sau svg { width: 22px; height: 22px; fill: none; stroke: #1351B4; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+        #ch12r .c12r-pn2 { display: flex; gap: 24px; padding: 20px 30px 22px; }
+        #ch12r .c12r-pl3 { position: relative; flex: 1; padding: 14px 22px 16px; border-radius: 8px; border: 2px solid #E1E6EE; background: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+        #ch12r .c12r-pl3h { display: flex; align-items: center; gap: 12px; height: 32px; }
+        #ch12r .c12r-pl3h b { padding: 2px 14px; border-radius: 6px; font-size: 23px; line-height: 28px; font-weight: 700; }
+        #ch12r .c12r-pl3h b.c12r-bn1 { background: #1351B4; color: #fff; }
+        #ch12r .c12r-pl3h b.c12r-bn2 { background: #E8EEF8; color: #1351B4; }
+        #ch12r .c12r-pl3h span { font-size: 18px; color: #555; }
+        #ch12r .c12r-cnr { display: flex; align-items: flex-end; gap: 12px; height: 84px; margin-top: 4px; }
+        #ch12r .c12r-cb { font-weight: 700; font-size: 74px; line-height: 80px; color: #1351B4; font-variant-numeric: tabular-nums; }
+        #ch12r .c12r-grd { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; margin-top: 6px; }
+        #ch12r .c12r-gcl { position: relative; height: 36px; }
+        #ch12r .c12r-ck { position: absolute; inset: 0; border-radius: 6px; border: 2px solid #C8D3E6; background: #E8EEF8; color: #1351B4; font-size: 17px; font-weight: 500; text-align: center; line-height: 32px; padding-left: 14px; letter-spacing: -0.2px; white-space: nowrap; font-variant-numeric: tabular-nums; opacity: 0; }
+        #ch12r .c12r-rgl { margin-top: 8px; font-size: 17.5px; line-height: 22px; color: #555; white-space: nowrap; opacity: 0; }
+        #ch12r .c12r-fc { position: absolute; height: 36px; border-radius: 6px; border: 2px solid #C8D3E6; background: #E8EEF8; color: #1351B4; font-family: "Roboto", Arial, sans-serif; font-size: 18.5px; font-weight: 500; text-align: center; line-height: 32px; font-variant-numeric: tabular-nums; opacity: 0; z-index: 6; box-shadow: 0 0 0 0 rgba(126, 59, 237, 0); }
+        #ch12r .c12r-fc.c12r-fg { z-index: 5; }
+        #ch12r .c12r-rn { position: absolute; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; border: 6px solid #7E3BED; background: radial-gradient(circle, rgba(126, 59, 237, 0.28) 0%, rgba(126, 59, 237, 0) 70%); opacity: 0; z-index: 7; }
+        #ch12r .c12r-ft2 { position: absolute; left: 0; top: 0; opacity: 0; z-index: 8; }
+        #ch12r .c12r-ftb { padding: 18px 28px; border-radius: 24px; background: var(--vm-violet-600); color: #fff; font-weight: 700; font-size: 30px; line-height: 38px; white-space: nowrap; box-shadow: 0 26px 58px rgba(53, 14, 111, 0.35); }
+        #ch12r .c12r-ftd { position: absolute; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: var(--vm-violet-600); box-shadow: 0 0 0 7px rgba(126, 59, 237, 0.25); opacity: 0; z-index: 8; }
+        #ch12r .c12r-fts { position: absolute; width: 4px; margin-left: -2px; background: var(--vm-violet-600); opacity: 0; z-index: 8; }
+        #ch12r .c12r-sw b { opacity: 0; }
+        #ch12r .c12r-sw i { left: 3px; }
+        #ch12r .c12r-cu { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; padding-bottom: 8px; font-size: 17px; line-height: 20px; color: #5B6577; }
+        #ch12r .c12r-dsp { display: inline-flex; align-items: center; gap: 7px; padding: 3px 13px 3px 10px; border-radius: 999px; background: #E7F6EC; color: #166534; font-weight: 700; font-size: 16px; line-height: 22px; }
+        #ch12r .c12r-dsp i { width: 10px; height: 10px; border-radius: 50%; background: #22C55E; }
+        #ch12r .c12r-ck::before { content: ""; position: absolute; left: 7px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: #22C55E; }
+        #ch12r .c12r-br { position: absolute; inset: 0; z-index: 25; }
+        #ch12r .c12r-br-sh { position: absolute; left: 0; right: 0; top: 52px; bottom: 0; border-radius: 18px 18px 0 0; background: #fff; overflow: hidden; box-shadow: 0 -14px 40px rgba(23, 21, 30, 0.25); }
+        #ch12r .c12r-br-hd { position: absolute; left: 0; right: 0; top: 0; height: 64px; background: #F6F6F8; border-bottom: 1px solid #E1E1E6; z-index: 3; }
+        #ch12r .c12r-br-dn { position: absolute; left: 12px; top: 0; height: 64px; padding: 0 4px; display: flex; align-items: center; font-weight: 500; font-size: 16px; color: #007AFF; }
+        #ch12r .c12r-br-url { position: absolute; left: 104px; top: 12px; width: 196px; height: 40px; border-radius: 12px; background: #E6E6EB; display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: 500; font-size: 14px; color: #17151E; }
+        #ch12r .c12r-br-url .c12r-ic { width: 13px; height: 13px; color: #55525F; }
+        #ch12r .c12r-br-ut { display: inline-grid; justify-items: center; }
+        #ch12r .c12r-br-ut > * { grid-area: 1 / 1; white-space: nowrap; }
+        #ch12r .c12r-br-u2 { opacity: 0; }
+        #ch12r .c12r-br-mo { position: absolute; right: 14px; top: 20px; width: 24px; height: 24px; color: #007AFF; }
+        #ch12r .c12r-br-ld { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: #007AFF; transform-origin: 0 50%; transform: scaleX(0); opacity: 0; }
+        #ch12r .c12r-br-pg { position: absolute; left: 0; right: 0; top: 64px; bottom: 84px; background: #fff; overflow: hidden; }
+        #ch12r .c12r-br-p { position: absolute; inset: 0; background: #fff; opacity: 0; }
+        #ch12r #c12r-bp0 { opacity: 1; }
+        #ch12r .c12r-br-tb { position: absolute; left: 0; right: 0; bottom: 0; height: 84px; background: #F6F6F8; border-top: 1px solid #E1E1E6; z-index: 3; }
+        #ch12r .c12r-br-ti { position: absolute; top: 14px; display: flex; align-items: center; justify-content: center; width: 40px; height: 32px; color: #007AFF; }
+        #ch12r .c12r-br-ti.c12r-br-off { color: #BDBDC4; }
+        #ch12r .c12r-br-ti .c12r-ic { width: 25px; height: 25px; stroke-width: 1.8; }
+        #ch12r .c12r-br-hi { position: absolute; left: 134px; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: #17151E; }
+        #ch12r .c12r-cu { font-size: 15px; }
+        #ch12r .c12r-more { position: absolute; right: 22px; top: 62px; padding: 4px 16px; border-radius: 999px; background: #E8EEF8; color: #1351B4; font-weight: 700; font-size: 20px; line-height: 26px; opacity: 0; }
+        #ch12r .c12r-v2 { position: absolute; inset: 0; background: #fff; }
+        #ch12r .c12r-v2h { position: absolute; left: 0; right: 0; top: 0; height: 118px; background: #F6F6F8; border-bottom: 1px solid #E1E1E6; z-index: 3; }
+        #ch12r .c12r-v2u { position: absolute; left: 55px; right: 55px; top: 62px; height: 40px; border-radius: 12px; background: #E6E6EB; display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: 500; font-size: 14px; color: #17151E; }
+        #ch12r .c12r-v2u .c12r-ic { width: 13px; height: 13px; color: #55525F; }
+        #ch12r .c12r-v2pg { position: absolute; left: 0; right: 0; top: 118px; bottom: 84px; background: #fff; overflow: hidden; }
+        #ch12r #c12r-mH { opacity: 1; }
+        #ch12r .c12r-pgm > .c12r-msc { left: 0; top: 0; width: 402px; height: 820px; }
+        #ch12r .c12r-msc > * { position: absolute; margin: 0; }
+        #ch12r .c12r-mh { left: 0; top: 0; width: 402px; height: 56px; background: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14); z-index: 2; }
+        #ch12r .c12r-mh > * { position: absolute; }
+        #ch12r .c12r-mh img { left: 12px; top: 14px; width: 28px; height: 28px; }
+        #ch12r .c12r-mh i { left: 52px; top: 14px; width: 1px; height: 28px; background: #DDD; }
+        #ch12r .c12r-mh .c12r-msn { left: 64px; top: 18px; font-weight: 500; font-size: 13px; line-height: 20px; color: #1351B4; }
+        #ch12r .c12r-mh .c12r-mhm { left: 108px; top: 18px; width: 20px; height: 20px; color: #1351B4; }
+        #ch12r .c12r-mh .c12r-mav { left: 316px; top: 12px; width: 32px; height: 32px; border-radius: 50%; background: #1351B4; color: #fff; font-weight: 700; font-size: 12px; line-height: 32px; text-align: center; }
+        #ch12r .c12r-mh .c12r-mkb { left: 366px; top: 18px; width: 20px; height: 20px; color: #1351B4; transform: rotate(90deg); }
+        #ch12r .c12r-mg { left: 16px; top: 72px; width: 370px; font-weight: 700; font-size: 20px; line-height: 26px; color: #1351B4; }
+        #ch12r .c12r-mcd { left: 8px; width: 386px; background: #fff; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18); }
+        #ch12r .c12r-mcd > * { position: absolute; }
+        #ch12r .c12r-mcd .c12r-mci { left: 16px; top: 12px; width: 28px; height: 28px; color: #1351B4; stroke-width: 1.8; }
+        #ch12r .c12r-mcd .c12r-mct { left: 56px; top: 10px; font-weight: 600; font-size: 15.5px; line-height: 20px; color: #1351B4; white-space: nowrap; }
+        #ch12r .c12r-mcd .c12r-mcs { left: 56px; top: 31px; font-size: 11.5px; line-height: 15px; color: #1351B4; white-space: nowrap; }
+        #ch12r .c12r-mlk { left: 16px; right: 16px; height: 40px; display: flex; align-items: center; gap: 12px; font-size: 13.5px; color: #1351B4; white-space: nowrap; }
+        #ch12r .c12r-mlk + .c12r-mlk { border-top: 1px solid #E5E5E5; }
+        #ch12r .c12r-mlk > svg, #ch12r .c12r-mlk > span { position: relative; }
+        #ch12r .c12r-mlk .c12r-ic { width: 16px; height: 16px; stroke-width: 2.3; }
+        #ch12r .c12r-mlh { position: absolute; left: -8px; right: -8px; top: 0; bottom: 0; background: #E8EEF8; opacity: 0; }
+        #ch12r .c12r-mt2 { left: 16px; top: 72px; width: 370px; font-size: 20px; line-height: 26px; color: #333; }
+        #ch12r .c12r-mab { left: 16px; top: 136px; width: 370px; height: 40px; border-radius: 20px; background: #1E4DB7; color: #fff; font-weight: 700; font-size: 14px; line-height: 40px; text-align: center; }
+        #ch12r .c12r-msr { left: 16px; top: 192px; font-weight: 700; font-size: 12px; line-height: 16px; }
+        #ch12r .c12r-msi { left: 16px; top: 210px; width: 370px; height: 40px; box-sizing: border-box; border: 1px solid #999; border-radius: 3px; }
+        #ch12r .c12r-msi .c12r-ic { position: absolute; left: 12px; top: 11px; width: 16px; height: 16px; color: #666; }
+        #ch12r .c12r-mxc { left: 16px; top: 270px; font-weight: 700; font-size: 12px; line-height: 16px; white-space: nowrap; }
+        #ch12r .c12r-msw { left: 140px; top: 268px; width: 40px; height: 20px; border-radius: 10px; background: #EEE; box-shadow: inset 0 0 0 1px #DDD; }
+        #ch12r .c12r-msw i { position: absolute; left: 3px; top: 3px; width: 14px; height: 14px; border-radius: 50%; background: #AAA; }
+        #ch12r .c12r-mcl { left: 290px; top: 262px; width: 96px; height: 32px; border-radius: 16px; border: 1px solid #1351B4; box-sizing: border-box; color: #1351B4; font-weight: 700; font-size: 12.5px; line-height: 30px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        #ch12r .c12r-mcl .c12r-ic { width: 14px; height: 14px; stroke-width: 2.6; }
+        #ch12r .c12r-pgm > .c12r-mtw { left: 8px; top: 310px; width: 386px; }
+        #ch12r .c12r-mtv { position: relative; overflow: hidden; width: 386px; }
+        #ch12r .c12r-mtab { position: relative; width: 976px; }
+        #ch12r .c12r-mtr { display: grid; grid-template-columns: 90px 110px 150px 150px 136px 120px 60px 70px 90px; align-items: center; text-align: center; box-sizing: border-box; height: 52px; border-bottom: 1px solid #E6E6E6; font-size: 13px; color: #333; white-space: nowrap; background: #fff; }
+        #ch12r .c12r-mtr.c12r-mth { height: 40px; background: #EFEFEF; border-bottom: 0; font-size: 12px; }
+        #ch12r .c12r-mth span { display: inline-flex; align-items: center; justify-content: center; gap: 3px; white-space: normal; line-height: 14px; font-size: 11.5px; }
+        #ch12r .c12r-mth .c12r-ic { width: 12px; height: 12px; stroke-width: 2.6; color: #444; }
+        #ch12r .c12r-mbg { display: inline-block; padding: 4px 10px; border-radius: 3px; background: #2E8B1F; color: #fff; font-weight: 700; font-size: 11.5px; line-height: 14px; }
+        #ch12r .c12r-mcm { display: flex; gap: 8px; justify-content: center; color: #1E4DB7; }
+        #ch12r .c12r-mcm .c12r-ic { width: 18px; height: 18px; stroke-width: 2.2; }
+        #ch12r #c12r-mnw { overflow: hidden; }
+        #ch12r .c12r-mft { position: relative; display: flex; align-items: center; justify-content: space-between; height: 40px; padding: 0 8px; font-size: 11.5px; color: #333; }
+        #ch12r .c12r-mft span { display: inline-flex; align-items: center; gap: 6px; }
+        #ch12r .c12r-mft .c12r-ic { width: 12px; height: 12px; stroke-width: 2.6; color: #1E4DB7; }
+        #ch12r .c12r-mcnt { display: inline-grid !important; }
+        #ch12r .c12r-mcnt > * { grid-area: 1 / 1; }
+        #ch12r .c12r-mcnt > :last-child { opacity: 0; }
+        #ch12r .c12r-mscr { position: absolute; inset: 0; background: rgba(21, 28, 44, 0.4); opacity: 0; z-index: 4; }
+        #ch12r .c12r-mdim { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.74); opacity: 0; z-index: 5; }
+        #ch12r .c12r-mmod { position: absolute; left: 8px; top: 8px; width: 386px; box-sizing: border-box; border: 2px solid #1A73C8; border-radius: 4px; background: #fff; box-shadow: 0 14px 44px rgba(0, 0, 0, 0.32); z-index: 6; opacity: 0; font-family: "Roboto", Arial, sans-serif; color: #333; }
+        #ch12r .c12r-mmt { height: 44px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 15px; color: #333; }
+        #ch12r .c12r-mmt .c12r-ic { width: 14px; height: 14px; color: #1351B4; stroke-width: 3; }
+        #ch12r .c12r-mmb { padding: 0 14px 14px; }
+        #ch12r .c12r-ml { margin: 12px 0 5px; font-weight: 700; font-size: 11.5px; line-height: 15px; color: #333; }
+        #ch12r .c12r-msel { position: relative; height: 40px; box-sizing: border-box; border: 1px solid #999; border-radius: 3px; display: flex; align-items: center; padding: 0 10px 0 10px; gap: 8px; font-size: 13px; color: #333; background: #fff; }
+        #ch12r .c12r-msel .c12r-ic { width: 15px; height: 15px; flex: none; color: #666; }
+        #ch12r .c12r-msel .c12r-cv2 { width: 14px; height: 14px; color: #1351B4; stroke-width: 3; margin-left: auto; }
+        #ch12r .c12r-msv { position: relative; flex: 1; height: 18px; line-height: 18px; }
+        #ch12r .c12r-msv > span { position: absolute; left: 0; top: 0; white-space: nowrap; }
+        #ch12r .c12r-msv > span.c12r-msh { opacity: 0; }
+        #ch12r .c12r-msv > span.c12r-mgr { color: #888; }
+        #ch12r .c12r-mdd { position: absolute; left: -1px; right: -1px; top: 41px; background: #fff; border: 1px solid #BDBDBD; border-radius: 3px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); z-index: 8; opacity: 0; }
+        #ch12r .c12r-mop { position: relative; height: 44px; padding: 0 12px; display: flex; align-items: center; font-size: 13px; color: #333; }
+        #ch12r .c12r-mop + .c12r-mop { border-top: 1px solid #EEE; }
+        #ch12r .c12r-mpr { position: absolute; inset: 0; background: #E8EEF8; opacity: 0; }
+        #ch12r .c12r-mop > span { position: relative; }
+        #ch12r .c12r-mrads { display: flex; justify-content: center; gap: 40px; margin-top: 12px; font-size: 13px; line-height: 20px; color: #333; }
+        #ch12r .c12r-mrad { display: flex; align-items: center; gap: 8px; }
+        #ch12r .c12r-mrad i { position: relative; width: 20px; height: 20px; box-sizing: border-box; border-radius: 50%; border: 1px solid #C5C5C5; background: #fff; }
+        #ch12r .c12r-mrad i b { position: absolute; inset: 3px; border-radius: 50%; background: #3B6FE0; opacity: 0; }
+        #ch12r .c12r-minp { position: relative; height: 40px; box-sizing: border-box; border: 1px solid #999; border-radius: 3px; background: #fff; }
+        #ch12r .c12r-minp .c12r-fb, #ch12r .c12r-mqty .c12r-fb { position: absolute; inset: -1px; border-radius: 3px; border: 2px solid #1351B4; opacity: 0; }
+        #ch12r .c12r-minp .c12r-ph, #ch12r .c12r-minp .c12r-tw, #ch12r .c12r-mqty .c12r-ph, #ch12r .c12r-mqty .c12r-tw { position: absolute; left: 12px; top: 0; line-height: 38px; font-size: 13px; white-space: nowrap; }
+        #ch12r .c12r-minp .c12r-ph, #ch12r .c12r-mqty .c12r-ph { font-style: italic; color: #666; font-size: 12px; }
+        #ch12r .c12r-minp .c12r-tw, #ch12r .c12r-mqty .c12r-tw { color: #222; opacity: 0; }
+        #ch12r .c12r-minp .c12r-cr, #ch12r .c12r-mqty .c12r-cr { width: 1px; height: 16px; margin-left: 1px; vertical-align: -3px; border-radius: 0; background: #222; }
+        #ch12r .c12r-minp > .c12r-ic { position: absolute; right: 10px; top: 9px; width: 20px; height: 20px; color: #1351B4; }
+        #ch12r .c12r-mrow { overflow: hidden; }
+        #ch12r .c12r-mrowi { position: relative; margin-top: 6px; height: 48px; background: #F0F0F0; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+        #ch12r .c12r-mrowi div { position: absolute; top: 7px; }
+        #ch12r .c12r-mrowi span { display: block; font-weight: 700; font-size: 10.5px; line-height: 14px; }
+        #ch12r .c12r-mrowi em { display: block; font-style: normal; font-size: 13px; line-height: 18px; margin-top: 1px; }
+        #ch12r .c12r-mrowi .c12r-ic { position: absolute; right: 14px; top: 17px; width: 14px; height: 14px; color: #1351B4; stroke-width: 3; }
+        #ch12r .c12r-msub { position: relative; height: 150px; margin: 10px -14px 0; background: #fff; box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1); }
+        #ch12r .c12r-msub > div { position: absolute; inset: 0; }
+        #ch12r #c12r-mvB { opacity: 0; }
+        #ch12r .c12r-msub .c12r-ml { position: absolute; left: 24px; margin: 0; }
+        #ch12r .c12r-msi2 { position: absolute; left: 24px; right: 24px; height: 36px; box-sizing: border-box; border: 1px solid #999; border-radius: 3px; font-style: italic; font-size: 12px; line-height: 34px; padding-left: 12px; color: #666; }
+        #ch12r .c12r-mqty { position: absolute; left: 24px; right: 24px; top: 74px; height: 44px; box-sizing: border-box; border: 1px solid #999; border-radius: 3px; }
+        #ch12r .c12r-mqty .c12r-ph, #ch12r .c12r-mqty .c12r-tw { line-height: 42px; }
+        #ch12r .c12r-mqty .c12r-ph { font-size: 11px; }
+        #ch12r .c12r-mfoot { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
+        #ch12r .c12r-mcan, #ch12r .c12r-mok { height: 36px; box-sizing: border-box; padding: 0 22px; border-radius: 18px; font-weight: 700; font-size: 13px; line-height: 34px; }
+        #ch12r .c12r-mcan { border: 1px solid #1E4DB7; color: #1E4DB7; background: #fff; }
+        #ch12r .c12r-mok { background: #1E4DB7; color: #fff; border: 1px solid #1E4DB7; }
+        #ch12r .c12r-dpw { position: absolute; left: 0; right: 0; top: 232px; display: flex; justify-content: center; z-index: 9; }
+        #ch12r .c12r-dpill { height: 64px; padding: 0 38px; border-radius: 32px; background: var(--vm-violet-600); color: #fff; font-weight: 700; font-size: 32px; line-height: 64px; box-shadow: 0 20px 44px rgba(53, 14, 111, 0.3); opacity: 0; white-space: nowrap; }
+        #ch12r #c12r-minp { z-index: 3; }
+        #ch12r #c12r-msel1, #ch12r #c12r-msel2 { z-index: 5; }
+        #ch12r .c12r-bn { position: relative; }
+        #ch12r .c12r-bn b { padding-right: 26px; }
+        #ch12r .c12r-bni { position: absolute; right: 10px; top: 10px; width: 24px; height: 24px; border-radius: 50%; background: rgba(146, 64, 14, 0.14); color: #92400E; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-bni .c12r-ic { width: 15px; height: 15px; stroke-width: 2.3; }
+        #ch12r .c12r-scrim.c12r-s3 { z-index: 22; }
+        #ch12r #c12r-shI { top: 392px; z-index: 23; }
+        #ch12r .c12r-i3 { position: absolute; left: 20px; right: 20px; height: 74px; display: flex; align-items: center; gap: 12px; padding: 0 12px; border-radius: 12px; border: 1px solid #E6E4EC; background: #fff; }
+        #ch12r .c12r-i3i { width: 40px; height: 40px; flex: none; border-radius: 12px; background: #F5F0FE; color: #6A24DB; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-i3i .c12r-ic { width: 20px; height: 20px; }
+        #ch12r .c12r-i3b b { display: block; font-weight: 500; font-size: 14px; line-height: 19px; color: #17151E; }
+        #ch12r .c12r-i3b span { display: block; margin-top: 2px; font-size: 12px; line-height: 16px; color: #6B6878; }
+        #ch12r .c12r-i3n { position: absolute; left: -8px; top: -8px; width: 22px; height: 22px; border-radius: 50%; background: #7E3BED; color: #fff; font-weight: 700; font-size: 12px; line-height: 22px; text-align: center; border: 2px solid #fff; box-sizing: content-box; margin: -2px 0 0 -2px; }
+        #ch12r .c12r-ibtn { position: absolute; left: 20px; right: 20px; top: 380px; height: 46px; border-radius: 14px; background: #7E3BED; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 15px; }
+        #ch12r .c12r-sn { height: 0; opacity: 0; overflow: hidden; }
+        #ch12r .c12r-sni { margin-top: 10px; height: 30px; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 10px; border-radius: 10px; background: #F7F5FC; }
+        #ch12r .c12r-sni em { font-style: normal; font-size: 11px; color: #6B6878; white-space: nowrap; }
+        #ch12r .c12r-sni b { font-weight: 700; font-size: 12.5px; color: #17151E; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        #ch12r .c12r-sns { margin-left: auto; display: inline-grid; justify-items: end; }
+        #ch12r .c12r-sns > * { grid-area: 1 / 1; }
+        #ch12r .c12r-sna, #ch12r .c12r-snr { display: inline-flex; align-items: center; gap: 5px; height: 20px; padding: 0 9px; border-radius: 999px; font-weight: 700; font-size: 10.5px; white-space: nowrap; }
+        #ch12r .c12r-sna { background: #E7F6EC; color: #166534; }
+        #ch12r .c12r-sna i { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; }
+        #ch12r .c12r-snr { background: #7E3BED; color: #fff; opacity: 0; }
+        #ch12r .c12r-nnx { left: 8px; top: 284px; width: 386px; height: 168px; background: #fff; box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18); opacity: 0; }
+        #ch12r .c12r-nnx > * { position: absolute; }
+        #ch12r .c12r-nnt { left: 20px; top: 16px; font-weight: 700; font-size: 16.8px; line-height: 21px; }
+        #ch12r .c12r-nns { left: 20px; top: 46px; width: 346px; }
+        #ch12r .c12r-nnb { left: 20px; top: 112px; width: 346px; height: 40px; border-radius: 20px; background: #1351B4; color: #fff; font-weight: 700; font-size: 14px; line-height: 40px; text-align: center; }
+        #ch12r .c12r-br-u3 { opacity: 0; }
+        #ch12r .c12r-vzl { left: 12px; top: 10px; width: 40px; height: 40px; border-radius: 8px; background: #1351B4; color: #fff; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-vzl .c12r-ic { width: 22px; height: 22px; }
+        #ch12r .c12r-vzt1 { left: 62px; top: 10px; font-weight: 700; font-size: 15px; line-height: 20px; color: #1351B4; white-space: nowrap; }
+        #ch12r .c12r-vzt2 { left: 62px; top: 30px; font-size: 12px; line-height: 16px; color: #555; white-space: nowrap; }
+        #ch12r .c12r-gin.c12r-vzr { background: #F4F4F4; border-color: #BDBDBD; }
+        #ch12r .c12r-vzv { position: absolute; left: 14px; top: 0; line-height: 38px; font-size: 14px; color: #333; white-space: nowrap; }
+        #ch12r .c12r-vzv.c12r-vzg { color: #757575; }
+        #ch12r .c12r-gin .c12r-vzch { position: absolute; right: 12px; top: 10px; width: 18px; height: 18px; color: #555; }
+        #ch12r .c12r-vzdd { left: 41px; top: 398px; width: 320px; background: #fff; border: 1px solid #888; border-radius: 4px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22); opacity: 0; z-index: 4; overflow: hidden; }
+        #ch12r .c12r-vzo { position: relative; height: 38px; padding: 0 14px; line-height: 38px; font-size: 14px; color: #333; white-space: nowrap; }
+        #ch12r .c12r-vzo + .c12r-vzo { border-top: 1px solid #E0E0E0; }
+        #ch12r .c12r-vzp { position: absolute; inset: 0; background: #DCE6F7; opacity: 0; }
+        #ch12r .c12r-vzo span { position: relative; }
+        #ch12r .c12r-vzrad { left: 41px; height: 24px; display: flex; align-items: center; gap: 9px; font-weight: 500; font-size: 14px; line-height: 24px; color: #333; white-space: nowrap; }
+        #ch12r .c12r-vzrad i { position: relative; width: 20px; height: 20px; box-sizing: border-box; border-radius: 50%; border: 2px solid #555; background: #fff; }
+        #ch12r .c12r-vzrad b { position: absolute; inset: 3px; border-radius: 50%; background: #1351B4; opacity: 0; }
+        #ch12r .c12r-vzck { left: 173px; top: 100px; width: 56px; height: 56px; border-radius: 50%; background: #E3F5E1; color: #168821; display: flex; align-items: center; justify-content: center; opacity: 0; }
+        #ch12r .c12r-vzck .c12r-ic { width: 30px; height: 30px; stroke-width: 2.8; }
+        #ch12r .c12r-vzdt { left: 41px; width: 320px; text-align: center; font-weight: 700; font-size: 18px; line-height: 24px; color: #168821; opacity: 0; }
+        #ch12r .c12r-vzpr { left: 41px; top: 208px; width: 320px; height: 76px; box-sizing: border-box; border: 1px solid #D3D3D3; border-radius: 8px; background: #F8F8F8; text-align: center; opacity: 0; }
+        #ch12r .c12r-vzpr span { display: block; margin-top: 10px; font-size: 12.5px; line-height: 16px; color: #555; }
+        #ch12r .c12r-vzpr b { display: block; margin-top: 4px; font-size: 24px; line-height: 30px; font-weight: 700; color: #1351B4; letter-spacing: 0.5px; }
+        #ch12r .c12r-vzsm { left: 41px; width: 320px; height: 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E0E0E0; font-size: 13.5px; opacity: 0; }
+        #ch12r .c12r-vzsm b { font-weight: 700; }
+        #ch12r .c12r-vznt { left: 41px; width: 320px; font-size: 12.8px; line-height: 19px; color: #555; opacity: 0; }
+        #ch12r .c12r-ntf { position: absolute; left: 10px; right: 10px; top: 60px; height: 78px; padding: 0 14px; border-radius: 22px; background: rgba(255, 255, 255, 0.97); box-shadow: 0 14px 34px rgba(23, 21, 30, 0.28); display: flex; align-items: center; gap: 12px; z-index: 40; opacity: 0; }
+        #ch12r .c12r-ntf .c12r-nti { width: 38px; height: 38px; flex: none; border-radius: 10px; background: #1351B4; color: #fff; display: flex; align-items: center; justify-content: center; }
+        #ch12r .c12r-ntf .c12r-nti .c12r-ic { width: 21px; height: 21px; }
+        #ch12r .c12r-ntf b { display: block; font-weight: 700; font-size: 13px; line-height: 17px; color: #17151E; }
+        #ch12r .c12r-ntf span { display: block; font-size: 12.5px; line-height: 16px; color: #3A3745; }
+        #ch12r .c12r-ntf em { position: absolute; right: 16px; top: 10px; font-style: normal; font-size: 11px; color: #8A8798; }
+      </style>
+
+      <div id="ch12r" data-composition-id="ch12-receita-anvisa" data-start="0" data-duration="151" data-width="1080" data-height="1920">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+          <symbol id="c12r-i-cl" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+          <symbol id="c12r-i-cr" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+          <symbol id="c12r-i-timer" viewBox="0 0 24 24"><path d="M10 2h4M12 14l3-3" /><circle cx="12" cy="14" r="8" /></symbol>
+          <symbol id="c12r-i-video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect x="2" y="6" width="14" height="12" rx="2" /></symbol>
+          <symbol id="c12r-i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+          <symbol id="c12r-i-clip" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01" /></symbol>
+          <symbol id="c12r-i-act" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></symbol>
+          <symbol id="c12r-i-steth" viewBox="0 0 24 24"><path d="M11 2v2M5 2v2" /><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path d="M8 15a6 6 0 0 0 12 0v-3" /><circle cx="20" cy="10" r="2" /></symbol>
+          <symbol id="c12r-i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></symbol>
+          <symbol id="c12r-i-ftext" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" /></symbol>
+          <symbol id="c12r-i-fcheck" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+          <symbol id="c12r-i-hist" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /><path d="M12 7v5l4 2" /></symbol>
+          <symbol id="c12r-i-spark" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /></symbol>
+          <symbol id="c12r-i-se" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></symbol>
+          <symbol id="c12r-i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" /></symbol>
+          <symbol id="c12r-i-chd" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+          <symbol id="c12r-i-lock" viewBox="0 0 24 24"><rect width="14" height="10" x="5" y="11" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></symbol>
+          <symbol id="c12r-i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+          <symbol id="c12r-i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" /></symbol>
+          <symbol id="c12r-i-usercheck" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4" /><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2" /><path d="m16 11 2 2 4-4" /></symbol>
+          <symbol id="c12r-i-hash" viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18" /></symbol>
+          <symbol id="c12r-i-idc" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2" /><circle cx="8" cy="12" r="2" /><path d="M13 10h5M13 14h4" /></symbol>
+          <symbol id="c12r-i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></symbol>
+          <symbol id="c12r-i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4" /><path d="m11 12 9-9M16 7l3 3" /></symbol>
+          <symbol id="c12r-i-share" viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" /></symbol>
+          <symbol id="c12r-i-book" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol>
+          <symbol id="c12r-i-cmp" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="m16.2 7.8-2.1 6.3-6.3 2.1 2.1-6.3z" /></symbol>
+          <symbol id="c12r-i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
+          <symbol id="c12r-i-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.4" /><circle cx="12" cy="12" r="1.4" /><circle cx="19" cy="12" r="1.4" /></symbol>
+          <symbol id="c12r-i-pcirc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 8v8M8 12h8" /></symbol>
+          <symbol id="c12r-i-swap" viewBox="0 0 24 24"><path d="M4 8h14M14 4l4 4-4 4M20 16H6M10 12l-4 4 4 4" /></symbol>
+          <symbol id="c12r-i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="m5.6 5.6 12.8 12.8" /></symbol>
+          <symbol id="c12r-i-uplus" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4" /><path d="M2 21v-1a6 6 0 0 1 6-6h2M18 8v6M15 11h6" /></symbol>
+          <symbol id="c12r-i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></symbol>
+          <symbol id="c12r-i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M8 17v-5M13 17V8M18 17v-9" /></symbol>
+          <symbol id="c12r-i-bld" viewBox="0 0 24 24"><path d="M5 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17M15 9h4a1 1 0 0 1 1 1v11M3 21h18M9 7h2M9 11h2M9 15h2" /></symbol>
+          <symbol id="c12r-i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2" /><rect x="6" y="14" width="12" height="7" /></symbol>
+          <symbol id="c12r-i-clipP" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M12 11v6M9 14h6" /></symbol>
+          <symbol id="c12r-i-filt" viewBox="0 0 24 24"><path d="M3 4h18l-7 9v6l-4 2v-8z" /></symbol>
+          <symbol id="c12r-i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 7.6v.2" /></symbol>
+          <symbol id="c12r-i-sort" viewBox="0 0 24 24"><path d="m8 9 4-4 4 4M8 15l4 4 4-4" /></symbol>
+          <symbol id="c12r-i-fpulse" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 15h2l1.5-3 2 6 1.5-3h1" /></symbol>
+        </svg>
+
+        <div id="c12r-bg" class="clip" data-start="0" data-duration="151" data-track-index="0">
+          <div class="backdrop"></div>
+          <div class="grid"></div>
+          <div class="glow glow-a"></div>
+          <div class="glow glow-b"></div>
+        </div>
+
+        <section id="c12r-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+          <div class="chapter-words">
+            <div class="chapter-line"><span class="w">Receitas</span></div>
+            <div class="chapter-line"><span class="w">controladas</span></div>
+            <div class="chapter-line"><span class="w">e</span><span class="w">a</span><span class="w v">Anvisa</span></div>
+            <span class="chapter-spark"></span>
+          </div>
+        </section>
+
+        <section id="c12r-phone" class="clip" data-start="3" data-duration="148" data-track-index="2">
+          <div class="cam">
+            <div class="dev">
+              <div class="bezel"></div>
+              <div class="screen">
+
+                <div class="scr c12r-gr" id="c12r-sH">
+                  <div class="c12r-hd">
+                    <div class="c12r-bk"><svg class="c12r-ic"><use href="#c12r-i-cl" /></svg><span>Voltar</span></div>
+                    <div class="c12r-pills">
+                      <div class="c12r-pill"><svg class="c12r-ic"><use href="#c12r-i-timer" /></svg><span id="c12r-tm">09:08</span></div>
+                      <div class="c12r-pill c12r-br"><svg class="c12r-ic"><use href="#c12r-i-video" /></svg>Online</div>
+                    </div>
+                  </div>
+                  <div class="c12r-lt">Prontuário</div>
+                  <div class="c12r-hc">
+                    <div class="c12r-eg" style="margin-bottom: 12px;">
+                      <div class="c12r-pc"><div class="c12r-av">AS</div><div><div class="c12r-pn">Ana Souza</div><div class="c12r-pl">34 anos · Feminino</div></div></div>
+                    </div>
+                    <div class="c12r-eg" style="margin-bottom: 16px;">
+                      <div class="c12r-ac"><div class="c12r-act"><svg class="c12r-ic"><use href="#c12r-i-shield" /></svg></div><div><b>Ficha e documentos liberados</b><span>O paciente autorizou o acesso ao histórico de saúde.</span></div></div>
+                    </div>
+                    <div class="c12r-eg" style="margin-bottom: 22px;">
+                      <div class="c12r-grp" id="c12r-grp1">
+                        <div class="c12r-gt">Registro clínico</div>
+                        <div class="c12r-gc">
+                          <div class="c12r-ir" id="c12r-rAn"><div class="c12r-ps"></div><div class="c12r-it"><svg class="c12r-ic"><use href="#c12r-i-clip" /></svg></div><div class="c12r-bd"><div class="c12r-lb">Anamnese</div><div class="c12r-vs"><span class="c12r-v c12r-g">Preenchida</span></div></div><svg class="c12r-ic c12r-cv"><use href="#c12r-i-cr" /></svg></div>
+                          <div class="c12r-ir" id="c12r-rDx"><div class="c12r-ps"></div><div class="c12r-it"><svg class="c12r-ic"><use href="#c12r-i-act" /></svg></div><div class="c12r-bd"><div class="c12r-lb" style="top: 0.5px;">Diagnóstico</div><div class="c12r-dt" style="opacity: 1;">F41.1 - Ansiedade generalizada</div><div class="c12r-vs" style="top: 1px;"><span class="c12r-v c12r-g">Preenchido</span></div></div><svg class="c12r-ic c12r-cv"><use href="#c12r-i-cr" /></svg></div>
+                          <div class="c12r-ir" id="c12r-rEx"><div class="c12r-ps"></div><div class="c12r-it"><svg class="c12r-ic"><use href="#c12r-i-steth" /></svg></div><div class="c12r-bd"><div class="c12r-lb" style="top: 0.5px;">Exames</div><div class="c12r-dt" style="opacity: 1;">Hemograma, TSH +2</div><div class="c12r-vs" style="top: 1px;"><span class="c12r-v c12r-g">4 exames</span></div></div><svg class="c12r-ic c12r-cv"><use href="#c12r-i-cr" /></svg></div>
+                          <div class="c12r-ir" id="c12r-rRc"><div class="c12r-ps"></div><div class="c12r-fl"></div><div class="c12r-it"><svg class="c12r-ic"><use href="#c12r-i-pill" /></svg></div><div class="c12r-bd"><div class="c12r-lb">Receita</div><div class="c12r-dt">Simples, ESPECIAL, B</div><div class="c12r-vs"><span class="c12r-v">Pendente</span><span class="c12r-v c12r-g c12r-alt">3 medicamentos</span></div></div><svg class="c12r-ic c12r-cv"><use href="#c12r-i-cr" /></svg></div>
+                          <div class="c12r-ir" id="c12r-rLa"><div class="c12r-ps"></div><div class="c12r-it"><svg class="c12r-ic"><use href="#c12r-i-ftext" /></svg></div><div class="c12r-bd"><div class="c12r-lb">Laudo</div><div class="c12r-vs"><span class="c12r-v c12r-g">Preenchido</span></div></div><svg class="c12r-ic c12r-cv"><use href="#c12r-i-cr" /></svg></div>
+                          <div class="c12r-ir" id="c12r-rAt"><div class="c12r-ps"></div><div class="c12r-it"><svg class="c12r-ic"><use href="#c12r-i-fcheck" /></svg></div><div class="c12r-bd"><div class="c12r-lb" style="top: 0.5px;">Atestado</div><div class="c12r-dt" style="opacity: 1;">Afastamento</div><div class="c12r-vs" style="top: 1px;"><span class="c12r-v c12r-g">1 dia</span></div></div><svg class="c12r-ic c12r-cv"><use href="#c12r-i-cr" /></svg></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="c12r-eg">
+                      <div class="c12r-grp">
+                        <div class="c12r-gt">Paciente e apoio</div>
+                        <div class="c12r-gc">
+                          <div class="c12r-ir"><div class="c12r-it"><svg class="c12r-ic"><use href="#c12r-i-hist" /></svg></div><div class="c12r-bd"><div class="c12r-lb">Histórico</div></div><svg class="c12r-ic c12r-cv"><use href="#c12r-i-cr" /></svg></div>
+                          <div class="c12r-ir"><div class="c12r-it"><svg class="c12r-ic"><use href="#c12r-i-spark" /></svg></div><div class="c12r-bd"><div class="c12r-lb">Assistente de IA</div></div><svg class="c12r-ic c12r-cv"><use href="#c12r-i-cr" /></svg></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c12r-ft"></div>
+                  <div class="btn c12r-sv" style="top: 764px;"><span class="lbl">Finalizar prontuário</span></div>
+                </div>
+
+                <div class="c12r-scrim" id="c12r-scr1"></div>
+                <div class="c12r-sh" id="c12r-shP">
+                  <div class="c12r-grab"></div>
+                  <div class="c12r-th">
+                    <div class="c12r-thi"><svg class="c12r-ic"><use href="#c12r-i-pill" /></svg></div>
+                    <div class="c12r-thb"><b>Prescrição Médica</b><span class="c12r-cnt" id="c12r-cnt"><span>0 medicamento(s) · 0 receita(s)</span><span>1 medicamento(s) · 1 receita(s)</span><span>2 medicamento(s) · 2 receita(s)</span><span>3 medicamento(s) · 3 receita(s)</span></span></div>
+                  </div>
+                  <div class="c12r-pb"><i>AS</i>Ana Souza</div>
+                  <div class="c12r-pg" id="c12r-pg">
+                    <div class="c12r-pl2">Especialidade</div>
+                    <div class="c12r-pk" id="c12r-pk"><div class="c12r-fb"></div><span class="c12r-pph">Selecione a especialidade</span><span class="c12r-pv">Clínica Geral</span><svg class="c12r-ic c12r-pch"><use href="#c12r-i-chd" /></svg></div>
+                    <div class="c12r-hp">A receita sai em nome da especialidade escolhida.</div>
+                  </div>
+                  <div class="c12r-sf" id="c12r-sf" style="top: 204px;"><div class="c12r-fb"></div><svg class="c12r-ic c12r-sic"><use href="#c12r-i-se" /></svg><span class="c12r-ph">Pesquisar e adicionar medicamento...</span><span class="c12r-tw"><span class="c12r-tv"></span><i class="c12r-cr"></i></span></div>
+                  <div class="c12r-vp" id="c12r-vp">
+                    <div class="c12r-eh" id="c12r-eh"><div class="c12r-eic"><svg class="c12r-ic"><use href="#c12r-i-pill" /></svg></div>Nenhum medicamento adicionado</div>
+                    <div class="c12r-lst" id="c12r-lst">
+                      <div class="c12r-bnw" id="c12r-bnw">
+                        <div class="c12r-bn" id="c12r-bn">
+                          <div class="c12r-bni" id="c12r-bni"><svg class="c12r-ic"><use href="#c12r-i-info" /></svg></div>
+                          <b>Faltam numerações SNCR para estes medicamentos:</b>
+                          <p>• NRB: 0 disponível(is) para 1 necessário(s)</p>
+                          <p>• RCE: 0 disponível(is) para 1 necessário(s)</p>
+                          <div class="c12r-bb c12r-bnr" id="c12r-bbtn">Solicitar numeração</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c12r-dd" id="c12r-dk" style="top: 258px;"><div class="c12r-lo"><div class="c12r-lsp" id="c12r-lsp"></div>Buscando medicamentos</div><div class="c12r-sb"><i></i><i></i></div><div class="c12r-sb"><i></i><i></i></div></div>
+                  <div class="c12r-dd" id="c12r-dr1" style="top: 258px;"></div>
+                  <div class="c12r-dd" id="c12r-dr2" style="top: 258px;"></div>
+                  <div class="c12r-dd" id="c12r-dr3" style="top: 258px;"></div>
+                  <div class="c12r-pd" id="c12r-pd"><div class="c12r-rr" id="c12r-prw"><div class="c12r-rp"></div><span class="c12r-rt">Clínica Geral</span><span class="c12r-tg">CRM-SP 123456</span></div></div>
+                  <div class="c12r-sfo"></div>
+                  <div class="btn c12r-sbt" id="c12r-sbt"><span class="c12r-spn" id="c12r-spn"></span><span class="lbl c12r-l1">Salvar Prescrição</span><span class="lbl c12r-l2">Salvando…</span></div>
+                  <div class="c12r-sk2" id="c12r-sk2">
+                    <i style="left: 22px; width: 90px; top: 12px; height: 12px;"></i>
+                    <i style="left: 20px; right: 20px; top: 32px; height: 44px;"></i>
+                    <i style="left: 20px; right: 20px; top: 104px; height: 48px;"></i>
+                    <i style="left: 20px; right: 20px; top: 176px; height: 150px;"></i>
+                    <i style="left: 20px; right: 20px; top: 340px; height: 150px;"></i>
+                    <div class="c12r-shine" id="c12r-shn"></div>
+                  </div>
+                </div>
+
+                <div class="c12r-scrim c12r-s3" id="c12r-scr3"></div>
+                <div class="c12r-sh" id="c12r-shI">
+                  <div class="c12r-grab"></div>
+                  <div class="c12r-st2">Como funciona a numeração</div>
+                  <div class="c12r-xb" id="c12r-xbI"><svg class="c12r-ic"><use href="#c12r-i-x" /></svg></div>
+                  <div class="c12r-sd">Cada receita controlada precisa de um número da Anvisa.</div>
+                  <div class="c12r-i3" id="c12r-i31" style="top: 84px;"><div class="c12r-i3n">1</div><div class="c12r-i3i"><svg class="c12r-ic"><use href="#c12r-i-bld" /></svg></div><div class="c12r-i3b"><b>NRA e NRB: peça à Vigilância</b><span>A Vigilância Sanitária atribui o lote de números ao seu CRM.</span></div></div>
+                  <div class="c12r-i3" id="c12r-i32" style="top: 168px;"><div class="c12r-i3n">2</div><div class="c12r-i3i"><svg class="c12r-ic"><use href="#c12r-i-hash" /></svg></div><div class="c12r-i3b"><b>RCE: gerada pelo SNCR na hora</b><span>Vale também para receitas sujeitas a retenção.</span></div></div>
+                  <div class="c12r-i3" id="c12r-i33" style="top: 252px;"><div class="c12r-i3n">3</div><div class="c12r-i3i"><svg class="c12r-ic"><use href="#c12r-i-usercheck" /></svg></div><div class="c12r-i3b"><b>A Viva Mais puxa pelo gov.br</b><span>Você entra uma vez e os números vão para cada receita.</span></div></div>
+                  <div class="c12r-ibtn" id="c12r-ibtn">Entendi</div>
+                </div>
+
+                <div class="c12r-scrim c12r-s2" id="c12r-scr2"></div>
+                <div class="c12r-sh" id="c12r-shS">
+                  <div class="c12r-grab"></div>
+                  <div class="c12r-st2">Solicitar numeração SNCR</div>
+                  <div class="c12r-xb" id="c12r-xbS"><svg class="c12r-ic"><use href="#c12r-i-x" /></svg></div>
+                  <div class="c12r-sd">Você pode solicitar novos números no portal do SNCR ou obter (adquirir) numerações já autorizadas para os medicamentos abaixo.</div>
+                  <div class="c12r-sc" id="c12r-c1" style="top: 112px;">
+                    <div class="c12r-ct2">Ainda não tem numeração autorizada?</div>
+                    <div class="c12r-cs2">Solicite no portal do SNCR.</div>
+                    <div class="c12r-bb" id="c12r-bport">Abrir portal do SNCR</div>
+                  </div>
+                  <div class="c12r-sc" id="c12r-c2" style="top: 226px;">
+                    <div class="c12r-ct2">Já tem numeração autorizada?</div>
+                    <div class="c12r-cs2">Autentique no gov.br e baixamos para os medicamentos abaixo.</div>
+                    <div class="c12r-nr" id="c12r-rowN">
+                      <div class="c12r-sw" id="c12r-swN"><b></b><i></i></div>
+                      <div class="c12r-nc">NRB</div>
+                      <div class="c12r-nin" id="c12r-nin"><div class="c12r-fb" style="border-radius: 10px;"></div><span class="c12r-nvs" id="c12r-nvs"><span>10</span><span><mark>10</mark></span><span>1<em></em></span><span><span class="c12r-nbl"></span><em></em></span><span>2<em></em></span><span>20<em></em></span><span>20</span></span></div>
+                      <div class="c12r-nf">faltam 1</div>
+                    </div>
+                    <div class="c12r-nr" id="c12r-rowR">
+                      <div class="c12r-sw" id="c12r-swR"><b></b><i></i></div>
+                      <div class="c12r-nc">RCE</div>
+                      <div class="c12r-bl">1.000 (bloco fixo)</div>
+                      <div class="c12r-nf">faltam 1</div>
+                    </div>
+                  </div>
+                  <div class="c12r-bf">
+                    <div class="c12r-bs" id="c12r-bcan">Cancelar</div>
+                    <div class="c12r-bs c12r-bp" id="c12r-bauth">Autenticar no gov.br</div>
+                  </div>
+                </div>
+
+                <div class="c12r-ld" id="c12r-ld">
+                  <div class="c12r-ldc" id="c12r-ldc">
+                    <div class="c12r-ldi"><div class="c12r-ldsp" id="c12r-ldsp"></div><div class="c12r-ldck" id="c12r-ldck"><svg class="c12r-ic"><use href="#c12r-i-check" /></svg></div></div>
+                    <div class="c12r-ldt"><span>Concluindo autenticação no SNCR...</span><span>Obtendo numeração no SNCR...</span><span>Numeração recebida</span></div>
+                    <div class="c12r-ldrs" id="c12r-ldrs">
+                      <div class="c12r-ldr"><b>NRB</b><div class="c12r-lbar"><i id="c12r-lbN"></i></div><em id="c12r-lvN">0/20</em></div>
+                      <div class="c12r-ldr"><b>RCE</b><div class="c12r-lbar"><i id="c12r-lbR"></i></div><em id="c12r-lvR">0/1.000</em></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="c12r-web" id="c12r-web">
+                  <div class="c12r-wh">
+                    <div class="c12r-wt">Autenticar no gov.br</div>
+                    <div class="c12r-wu"><svg class="c12r-ic"><use href="#c12r-i-lock" /></svg>sso.acesso.gov.br</div>
+                    <div class="c12r-wc">Cancelar<svg class="c12r-ic"><use href="#c12r-i-x" /></svg></div>
+                  </div>
+                  <div class="c12r-wb" id="c12r-wb"></div>
+                  <div class="c12r-wp">
+                    <div class="c12r-wg" id="c12r-wg1"></div>
+                    <div class="c12r-wg" id="c12r-wg2"></div>
+                    <div class="c12r-wg" id="c12r-wg3"></div>
+                  </div>
+                </div>
+
+                <div class="c12r-br" id="c12r-bro">
+                  <div class="c12r-br-sh">
+                    <div class="c12r-br-hd">
+                      <div class="c12r-br-dn" id="c12r-brd">Concluído</div>
+                      <div class="c12r-br-url" id="c12r-bru"><svg class="c12r-ic"><use href="#c12r-i-lock" /></svg><span class="c12r-br-ut"><span class="c12r-br-u1">sncr.anvisa.gov.br</span><span class="c12r-br-u2">sso.acesso.gov.br</span><span class="c12r-br-u3">visa.sp.gov.br</span></span></div>
+                      <svg class="c12r-ic c12r-br-mo"><use href="#c12r-i-dots" /></svg>
+                      <div class="c12r-br-ld" id="c12r-brl"></div>
+                    </div>
+                    <div class="c12r-br-pg">
+                    <div class="c12r-br-p" id="c12r-bp0"></div>
+                    <div class="c12r-br-p" id="c12r-bp1"></div>
+                    <div class="c12r-br-p" id="c12r-bp2"></div>
+                    <div class="c12r-br-p" id="c12r-bp3"></div>
+                    <div class="c12r-br-p" id="c12r-bp4"></div>
+                    <div class="c12r-br-p" id="c12r-bp5"></div>
+                    </div>
+                    <div class="c12r-br-tb"><span class="c12r-br-ti c12r-br-off" style="left: 24px;"><svg class="c12r-ic"><use href="#c12r-i-cl" /></svg></span><span class="c12r-br-ti c12r-br-off" style="left: 96px;"><svg class="c12r-ic"><use href="#c12r-i-cr" /></svg></span><span class="c12r-br-ti" style="left: 181px;"><svg class="c12r-ic"><use href="#c12r-i-share" /></svg></span><span class="c12r-br-ti" style="left: 266px;"><svg class="c12r-ic"><use href="#c12r-i-book" /></svg></span><span class="c12r-br-ti" style="left: 338px;"><svg class="c12r-ic"><use href="#c12r-i-cmp" /></svg></span><div class="c12r-br-hi"></div></div>
+                  </div>
+                </div>
+
+                <div class="c12r-toast" id="c12r-toast"><i><svg class="c12r-ic"><use href="#c12r-i-check" /></svg></i>Numeração SNCR obtida (1020).</div>
+
+                <div class="status"><span>14:16</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                <div class="island"></div>
+              </div>
+              <div class="lift"></div>
+            </div>
+          </div>
+        </section>
+
+        <div id="c12r-srv" class="clip" data-start="131.4" data-duration="5.1" data-track-index="3">
+          <div class="c12r-sp2" id="c12r-sp2">
+            <div class="c12r-sgw" id="c12r-sgw"></div>
+            <div class="c12r-sh1"><img class="c12r-sgl" src="assets/sncr/logo_anvisa_80.jpg" alt=""><div><b>Suas numerações no SNCR</b><em>Sistema Nacional de Controle de Receituários</em></div><div class="c12r-scn"><i></i>Conectado</div></div>
+            <div class="c12r-sid" id="c12r-sid"><svg viewBox="0 0 24 24"><use href="#c12r-i-usercheck" /></svg><span class="c12r-sidt" id="c12r-sidt">CRM-SP 123456 · Dra. Camila Rocha</span><div class="c12r-sau" id="c12r-sau"><svg viewBox="0 0 24 24"><use href="#c12r-i-check" /></svg>Autenticado</div></div>
+            <div class="c12r-pn2">
+              <div class="c12r-pl3" id="c12r-pN">
+                <div class="c12r-pl3h"><b class="c12r-bn1">NRB</b><span>Notificação de Receita B</span></div>
+                <div class="c12r-cnr"><div class="c12r-cb" id="c12r-cbN">20</div><div class="c12r-cu"><span>Atribuída pela Vigilância</span><span class="c12r-dsp"><i></i>Disponível</span></div></div>
+                <div class="c12r-more" id="c12r-mN">+14</div>
+                <div class="c12r-grd" id="c12r-gN"></div>
+                <div class="c12r-rgl" id="c12r-rgN">2610.2-35.0004821 → 0004840</div>
+              </div>
+              <div class="c12r-pl3" id="c12r-pR">
+                <div class="c12r-pl3h"><b class="c12r-bn2">RCE</b><span>Receita de Controle Especial</span></div>
+                <div class="c12r-cnr"><div class="c12r-cb" id="c12r-cbR">0</div><div class="c12r-cu"><span>Gerada agora pelo SNCR</span><span class="c12r-dsp"><i></i>Disponível</span></div></div>
+                <div class="c12r-grd" id="c12r-gR"></div>
+                <div class="c12r-rgl" id="c12r-rgR">Bloco de 1.000 · 2610.6-35.0001001 → 0002000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section id="c12r-phone2" class="clip" data-start="85.4" data-duration="28.6" data-track-index="5">
+          <div class="c12r-dpw"><div class="c12r-dpill" id="c12r-dpill">Celular da Vigilância Sanitária</div></div>
+          <div class="cam" id="c12r-cam2">
+            <div class="dev">
+              <div class="bezel"></div>
+              <div class="screen" id="c12r-s2">
+                <div class="c12r-ntf" id="c12r-ntf"><div class="c12r-nti"><svg class="c12r-ic"><use href="#c12r-i-bld" /></svg></div><div><b>Solicitação de numeração</b><span>Protocolo 2026/004821 · CAMILA ROCHA pede 20 números de Notificação B</span></div><em>agora</em></div>
+                <div class="c12r-v2">
+                  <div class="c12r-v2h"><div class="c12r-v2u"><svg class="c12r-ic"><use href="#c12r-i-lock" /></svg>sncr.anvisa.gov.br</div><div class="c12r-br-ld" id="c12r-v2l"></div></div>
+                  <div class="c12r-v2pg" id="c12r-v2pg">
+                    <div class="c12r-br-p" id="c12r-mH"></div>
+                    <div class="c12r-br-p" id="c12r-mL"></div>
+                    <div class="c12r-mscr" id="c12r-mscr"></div>
+                    <div class="c12r-mdim" id="c12r-mdim"></div>
+                    <div class="c12r-mmod" id="c12r-mmod">
+                      <div class="c12r-mmt">Atribuir Numeração<svg class="c12r-ic"><use href="#c12r-i-x" /></svg></div>
+                      <div class="c12r-mmb">
+                        <div class="c12r-ml" style="margin-top: 4px;">Tipo de Receita</div>
+                        <div class="c12r-msel" id="c12r-msel1"><svg class="c12r-ic"><use href="#c12r-i-se" /></svg><div class="c12r-msv"><span id="c12r-msv1a">Atribuir Numeração NRA | NRT</span><span class="c12r-msh" id="c12r-msv1b">Atribuir Numeração NRB, NRB2 e NRR</span></div><svg class="c12r-ic c12r-cv2"><use href="#c12r-i-chd" /></svg>
+                          <div class="c12r-mdd" id="c12r-mdd1"><div class="c12r-mop"><span>Atribuir Numeração NRA | NRT</span></div><div class="c12r-mop" id="c12r-mop1b"><div class="c12r-mpr"></div><span>Atribuir Numeração NRB, NRB2 e NRR</span></div></div>
+                        </div>
+                        <div class="c12r-mrads"><div class="c12r-mrad" id="c12r-mrP"><i><b id="c12r-mrPb" style="opacity: 1;"></b></i>Prescritor</div><div class="c12r-mrad"><i><b></b></i>Instituição</div></div>
+                        <div class="c12r-ml">Prescritor</div>
+                        <div class="c12r-minp" id="c12r-minp"><div class="c12r-fb"></div><span class="c12r-ph">Nome ou documento do Prescritor</span><span class="c12r-tw"><span class="c12r-tv"></span><i class="c12r-cr"></i></span><svg class="c12r-ic"><use href="#c12r-i-uplus" /></svg>
+                          <div class="c12r-mdd" id="c12r-msug" style="top: 39px;"><div class="c12r-mop" style="height: 48px;"><div class="c12r-mpr" id="c12r-msugp"></div><span><b>CAMILA ROCHA</b>&nbsp;&nbsp;CRM-SP: 123456</span></div></div>
+                        </div>
+                        <div class="c12r-mrow" id="c12r-mrow"><div class="c12r-mrowi"><div style="left: 16px;"><span>Prescritor</span><em>CAMILA ROCHA</em></div><div style="left: 190px;"><span>Documento</span><em>CRM-SP: 123456</em></div><svg class="c12r-ic"><use href="#c12r-i-x" /></svg></div></div>
+                        <div class="c12r-msub" id="c12r-msub">
+                          <div id="c12r-mvA"><div class="c12r-ml" style="top: 12px;">Início da Numeração</div><div class="c12r-msi2" style="top: 30px;">Ex: 2501.1-35.0000001</div><div class="c12r-ml" style="top: 80px;">Fim da Numeração</div><div class="c12r-msi2" style="top: 98px;">Ex: 2501.1-35.9999999</div></div>
+                          <div id="c12r-mvB"><div class="c12r-mrads" style="position: absolute; left: 24px; top: 12px; margin: 0; gap: 40px;"><div class="c12r-mrad" id="c12r-mrF"><i><b id="c12r-mrFb" style="opacity: 1;"></b></i>Física</div><div class="c12r-mrad" id="c12r-mrE"><i><b id="c12r-mrEb"></b></i>Eletrônica</div></div><div class="c12r-ml" style="top: 48px;">Quantidade de números</div><div class="c12r-mqty" id="c12r-mqty"><div class="c12r-fb"></div><span class="c12r-ph">Digite a quantidade de números que serão gerados</span><span class="c12r-tw"><span class="c12r-tv"></span><i class="c12r-cr"></i></span></div></div>
+                        </div>
+                        <div class="c12r-ml">Tipo de Notificação de Receita</div>
+                        <div class="c12r-msel" id="c12r-msel2"><svg class="c12r-ic"><use href="#c12r-i-se" /></svg><div class="c12r-msv"><span id="c12r-msv2a">Notificação de Receita A (NRA)</span><span class="c12r-msh c12r-mgr" id="c12r-msv2b">Selecione</span><span class="c12r-msh" id="c12r-msv2c">Notificação de Receita B (NRB)</span></div><svg class="c12r-ic c12r-cv2"><use href="#c12r-i-chd" /></svg>
+                          <div class="c12r-mdd" id="c12r-mdd2" style="top: auto; bottom: 41px;"><div class="c12r-mop" id="c12r-mop2a"><div class="c12r-mpr"></div><span>Notificação de Receita B (NRB)</span></div><div class="c12r-mop"><span>Notificação de Receita B2 (NRB2)</span></div></div>
+                        </div>
+                        <div class="c12r-mfoot"><div class="c12r-mcan" id="c12r-mcan">Cancelar</div><div class="c12r-mok" id="c12r-mok">Atribuir</div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c12r-br-tb"><span class="c12r-br-ti c12r-br-off" style="left: 24px;"><svg class="c12r-ic"><use href="#c12r-i-cl" /></svg></span><span class="c12r-br-ti c12r-br-off" style="left: 96px;"><svg class="c12r-ic"><use href="#c12r-i-cr" /></svg></span><span class="c12r-br-ti" style="left: 181px;"><svg class="c12r-ic"><use href="#c12r-i-share" /></svg></span><span class="c12r-br-ti" style="left: 266px;"><svg class="c12r-ic"><use href="#c12r-i-book" /></svg></span><span class="c12r-br-ti" style="left: 338px;"><svg class="c12r-ic"><use href="#c12r-i-cmp" /></svg></span><div class="c12r-br-hi"></div></div>
+                </div>
+                <div class="status"><span>14:18</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                <div class="island"></div>
+              </div>
+              <div class="lift"></div>
+            </div>
+          </div>
+        </section>
+
+        <div id="c12r-brand" class="clip" data-start="0" data-duration="151" data-track-index="4">
+          <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch12-receita-anvisa"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const { $, $$, E, tip, tap, showTip, make, posIn, titleCard } = k;
+            const cam = $(".cam");
+            const D = 151;
+            const B = { sert: 9.0, clon: 18.5, para: 25.1, ban: 34.5, ex: 38.3, req: 45.2, br: 49.55, back: 114.8, web: 122.55, hero: 130.9, done: 136.1 };
+
+            const MEDS = [
+              { n: 1, group: "Receita de Controle Especial", name: "Sertralina 50 mg", mfr: "EMS", pres: "com 30 comprimidos revestidos", type: "C1", stripe: "#DC2626" },
+              { n: 2, group: "Notificação de Receita B", name: "Clonazepam 2 mg", mfr: "Cristália", pres: "com 30 comprimidos", type: "B1", stripe: "#17151E" },
+              { n: 3, group: "Receita Simples", name: "Paracetamol 750 mg", mfr: "Neo Química", pres: "com 20 comprimidos", type: "Simples", stripe: "" },
+            ];
+            const RES = [
+              [
+                { name: "Sertralina 50 mg", type: "C1", pres: "com 30 comprimidos revestidos", mfr: "EMS", stripe: "#DC2626" },
+                { name: "Sertralina 100 mg", type: "C1", pres: "com 30 comprimidos revestidos", mfr: "EMS", stripe: "#DC2626" },
+                { name: "Sertralina 50 mg", type: "C1", pres: "com 30 comprimidos revestidos", mfr: "Eurofarma", stripe: "#DC2626" },
+              ],
+              [
+                { name: "Clonazepam 2 mg", type: "B1", pres: "com 30 comprimidos", mfr: "Cristália", stripe: "#17151E" },
+                { name: "Clonazepam 0,5 mg", type: "B1", pres: "com 30 comprimidos", mfr: "Cristália", stripe: "#17151E" },
+                { name: "Clonazepam 2 mg", type: "B1", pres: "com 30 comprimidos", mfr: "Medley", stripe: "#17151E" },
+              ],
+              [
+                { name: "Paracetamol 750 mg", type: "Simples", pres: "com 20 comprimidos", mfr: "Neo Química", stripe: "" },
+                { name: "Paracetamol 500 mg", type: "Simples", pres: "com 20 comprimidos", mfr: "EMS", stripe: "" },
+                { name: "Paracetamol 200 mg/mL", type: "Simples", pres: "gotas, frasco com 15 mL", mfr: "Medley", stripe: "" },
+              ],
+            ];
+            const stripe = (c) => `<div class="c12r-stp"><svg class="c12r-ic"><use href="#c12r-i-pill" /></svg>${c ? `<i style="background:${c}"></i>` : ""}</div>`;
+            const field = (id, ph, extra = "") => `<div class="c12r-in" id="${id}"><div class="c12r-fb"></div><span class="c12r-ph">${ph}</span><span class="c12r-tw"><span class="c12r-tv"></span><i class="c12r-cr"></i></span>${extra}</div>`;
+            const snRow = (n, num) => `<div class="c12r-sn" id="c12r-sn${n}"><div class="c12r-sni" id="c12r-sni${n}"><em>Nº SNCR</em><b>${num}</b><span class="c12r-sns"><span class="c12r-sna"><i></i>Disponível</span><span class="c12r-snr">Reservado</span></span></div></div>`;
+            const cardHTML = (m) => `
+              <div class="c12r-gi" id="c12r-g${m.n}">
+                <div class="c12r-gh" id="c12r-gh${m.n}">${m.group}</div>
+                <div class="c12r-cd" id="c12r-cd${m.n}">
+                  <div class="c12r-ch" id="c12r-nm${m.n}">
+                    ${stripe(m.stripe)}
+                    <div class="c12r-cx"><div class="c12r-cn">${m.name}</div><div class="c12r-cm">${m.mfr}</div><div class="c12r-cc"><span class="c12r-cp">${m.pres}</span><span class="c12r-ct" id="c12r-ty${m.n}">${m.type}</span></div></div>
+                    <div class="c12r-rm"><svg class="c12r-ic"><use href="#c12r-i-x" /></svg></div>
+                  </div>
+                  <div class="c12r-cr2">
+                    <div class="c12r-pc2">
+                      <div class="c12r-ph2"><span class="c12r-fl2">Posologia</span><span class="c12r-dl" id="c12r-dl${m.n}"><b>+</b>Duração</span></div>
+                      ${field("c12r-pf" + m.n, "Ex: 1 comprimido de 8/8h", '<svg class="c12r-ic c12r-chd"><use href="#c12r-i-chd" /></svg>')}
+                    </div>
+                    <div class="c12r-dc" id="c12r-dc${m.n}"><div class="c12r-dci">
+                      <div class="c12r-ph2"><span class="c12r-fl2">Duração</span><svg class="c12r-ic c12r-dx"><use href="#c12r-i-x" /></svg></div>
+                      ${field("c12r-df" + m.n, "Ex: 7 dias")}
+                    </div></div>
+                  </div>
+                  <div class="c12r-q2">
+                    <div class="c12r-qc"><span class="c12r-fl2">Quantidade</span>${field("c12r-qf" + m.n, "Ex: 30", '<span class="c12r-un">comprimidos</span>')}</div>
+                    <div class="c12r-oc"><span class="c12r-fl2">Outras orientações</span><div class="c12r-in"><span class="c12r-ph">se houver</span></div></div>
+                  </div>
+                  ${m.n < 3 ? snRow(m.n, m.n === 1 ? "2610.6-35.0001001" : "2610.2-35.0004821") : ""}
+                </div>
+              </div>`;
+            const mrow = (r, set, i) => `<div class="c12r-rr c12r-mr" id="c12r-mr${set}${i}"><div class="c12r-rp"></div>${stripe(r.stripe)}<div class="c12r-mx"><div class="c12r-mt"><span>${r.name}</span><em class="c12r-tgc${r.type === "Simples" ? " c12r-tgs" : ""}">${r.type}</em></div><div class="c12r-mp">${r.pres}</div><div class="c12r-mm">${r.mfr}</div></div></div>`;
+
+            const lst = $("#c12r-lst");
+            MEDS.forEach((m) => lst.insertAdjacentHTML("beforeend", cardHTML(m)));
+            lst.insertAdjacentHTML("beforeend", '<div style="height: 24px;"></div>');
+            RES.forEach((set, si) => { $("#c12r-dr" + (si + 1)).innerHTML = set.map((r, i) => mrow(r, si + 1, i + 1)).join(""); });
+
+            const numN = (i) => "2610.2-35." + String(4821 + i).padStart(7, "0");
+            const numR = (i) => "2610.6-35." + String(1001 + i).padStart(7, "0");
+            const gridN = $("#c12r-gN");
+            const gridR = $("#c12r-gR");
+            for (let i = 0; i < 6; i++) {
+              gridN.insertAdjacentHTML("beforeend", `<div class="c12r-gcl"><div class="c12r-ck">${numN(i)}</div></div>`);
+              gridR.insertAdjacentHTML("beforeend", `<div class="c12r-gcl"><div class="c12r-ck">${numR(i)}</div></div>`);
+            }
+
+            const gis = [1, 2, 3].map((n) => $("#c12r-g" + n));
+            const bnw = $("#c12r-bnw");
+            const Hb = bnw.offsetHeight;
+            bnw.style.height = "0px";
+            const Hs = gis.map((g) => g.offsetHeight);
+            const tops = gis.map((g) => g.offsetTop);
+            const VH = 426;
+            const S = tops.map((t0, i) => -Math.max(0, t0 + Hs[i] - VH + 6));
+            const ldrsH = $("#c12r-ldrs").offsetHeight;
+            const sns = [$("#c12r-sn1"), $("#c12r-sn2")];
+            sns.forEach((e) => { e.style.height = "40px"; });
+            const HsX = gis.map((g) => g.offsetHeight);
+            const topsX = gis.map((g) => g.offsetTop);
+            const SX = topsX.map((t0, i) => -Math.max(0, t0 + HsX[i] - VH + 6));
+            const PX = {};
+            ["c12r-sni1", "c12r-sni2"].forEach((id) => { PX[id] = posIn($("#" + id)); });
+            sns.forEach((e) => { e.style.height = "0px"; });
+
+            const snHead = (right) => `<div class="c12r-nh"><img class="c12r-nlg" src="assets/sncr/logo_anvisa_80.jpg" alt=""><div class="c12r-npill"><span>Consultar Receituário</span></div>${right}</div>`;
+            const snFoot = '<div class="c12r-nft"><div>Sistema Nacional de Controle de Receituários - 2026 - v2.1.0b</div></div>';
+            const snLogin = `<div class="c12r-pgm" id="c12r-n0">${snHead('<div class="c12r-nvis">Visitante</div>')}<div class="c12r-nh1">Sistema Nacional de Controle de Receituários</div><div class="c12r-ncard"></div><img class="c12r-ngov" src="assets/sncr/logo-govbr-sncr.png" alt=""><div class="c12r-nh4">Autenticação</div><div class="c12r-np" style="top: 350px;">O acesso ao SNCR é feito através do Login Único do Governo Federal. Isso significa que você precisa ter uma conta no GOV.BR</div><div class="c12r-np" style="top: 427px;">Utilize a opção abaixo para fazer Login no sistema ou Solicitar Acesso</div><div class="c12r-nbtn" id="c12r-nb"><span>Entrar com</span><b>gov.br</b></div><div class="c12r-ndiv"><i></i><span>OU ACESSE COMO</span><i></i></div><div class="c12r-ncol">COLABORADOR ANVISA</div>${snFoot}</div>`;
+            const snIn = `<div class="c12r-pgm" id="c12r-n1">${snHead('<div class="c12r-nav">CR</div>')}<div class="c12r-nwel" id="c12r-nwel">Olá CAMILA ROCHA, bem-vindo ao SNCR.</div><div class="c12r-nok" id="c12r-nok"><div class="c12r-nic"><svg class="c12r-ic"><use href="#c12r-i-check" /></svg></div><div class="c12r-nt">Cadastro de prescritor realizado</div><div class="c12r-ns">CRM-SP 123456 · Situação: Ativo</div></div><div class="c12r-nnx" id="c12r-nnx"><div class="c12r-nnt">Próximo passo</div><div class="c12r-nns">Para emitir Notificação B, solicite a numeração à Vigilância Sanitária da sua cidade.</div><div class="c12r-nnb" id="c12r-nvg">Solicitar à Vigilância Sanitária</div></div>${snFoot}</div>`;
+            const vzHead = '<div class="c12r-gh0"><div class="c12r-vzl"><svg class="c12r-ic"><use href="#c12r-i-bld" /></svg></div><div class="c12r-vzt1">Vigilância Sanitária</div><div class="c12r-vzt2">Prefeitura de São Paulo</div></div>';
+            const vzRo = (top, label, val, id) => `<div class="c12r-glab" style="top: ${top}px;">${label}</div><div class="c12r-gin c12r-vzr" style="top: ${top + 22}px;"${id ? ` id="${id}"` : ""}><span class="c12r-vzv">${val}</span></div>`;
+            const vzForm = `<div class="c12r-pgm c12r-gvp">${vzHead}<div class="c12r-gcard" style="top: 76px; height: 538px;"></div><div class="c12r-gh3" style="top: 88px; white-space: normal; line-height: 22px;">Solicitação de numeração de Notificação de Receita</div>${vzRo(138, "Prescritor", "CAMILA ROCHA")}${vzRo(204, "CPF", "***.456.789-**")}${vzRo(270, "Registro profissional", "CRM-SP 123456", "c12r-vzc")}<div class="c12r-glab" style="top: 336px;">Tipo de receita</div><div class="c12r-gin" id="c12r-vzs" style="top: 358px;"><div class="c12r-fb"></div><span class="c12r-vzv c12r-vzg" id="c12r-vzsp">Selecione</span><span class="c12r-vzv" id="c12r-vzsv" style="opacity: 0;">Notificação de Receita B (NRB)</span><svg class="c12r-ic c12r-vzch"><use href="#c12r-i-chd" /></svg></div><div class="c12r-glab" style="top: 402px;">Modalidade</div><div class="c12r-vzrad" id="c12r-vzF" style="top: 426px;"><i><b></b></i>Física</div><div class="c12r-vzrad" id="c12r-vzE" style="top: 426px; left: 160px;"><i><b></b></i>Eletrônica</div><div class="c12r-glab" style="top: 468px;">Quantidade de números</div><div class="c12r-gin" id="c12r-vzq" style="top: 490px;"><div class="c12r-fb"></div><span class="c12r-ph">Ex: 20</span><span class="c12r-tw"><span class="c12r-tv"></span><i class="c12r-cr"></i></span></div><div class="c12r-gbt" id="c12r-vzb" style="top: 556px;"><span class="c12r-gsp" id="c12r-vzsp2" style="left: 62px;"></span>Enviar solicitação</div><div class="c12r-vzdd" id="c12r-vzdd"><div class="c12r-vzo"><span>Notificação de Receita A (NRA)</span></div><div class="c12r-vzo" id="c12r-vzo2"><div class="c12r-vzp"></div><span>Notificação de Receita B (NRB)</span></div><div class="c12r-vzo"><span>Notificação de Receita B2 (NRB2)</span></div></div></div>`;
+            const vzDone = `<div class="c12r-pgm c12r-gvp">${vzHead}<div class="c12r-gcard" style="top: 76px; height: 440px;"></div><div class="c12r-vzck" id="c12r-vzck"><svg class="c12r-ic"><use href="#c12r-i-check" /></svg></div><div class="c12r-vzdt" id="c12r-vzdt" style="top: 168px;">Solicitação enviada</div><div class="c12r-vzpr" id="c12r-vzpr"><span>Protocolo</span><b>2026/004821</b></div><div class="c12r-vzsm" style="top: 376px;"><span>Tipo</span><b>Notificação B (NRB)</b></div><div class="c12r-vzsm" style="top: 406px;"><span>Modalidade</span><b>Eletrônica</b></div><div class="c12r-vzsm" style="top: 436px;"><span>Quantidade</span><b>20</b></div><div class="c12r-vznt" style="top: 478px;">A Vigilância analisa o pedido e atribui os números ao seu CRM.</div></div>`;
+            const gvHead = '<div class="c12r-gh0"><img class="c12r-glg" src="assets/sncr/govbr.png" alt=""><svg class="c12r-gct" viewBox="0 0 15 18"><circle cx="7.5" cy="9" r="6.2" fill="none" stroke="#1351B4" stroke-width="1.8" /><path d="M7.5 2.8a6.2 6.2 0 0 0 0 12.4z" fill="#1351B4" /></svg><svg class="c12r-gha" viewBox="0 0 17 18"><path d="M3.6 6.6a4.7 4.7 0 1 1 8.5 2.8c-1 1.3-2 1.9-2.1 3.3-.1 1.4-1.1 2.4-2.6 2.4" fill="none" stroke="#1351B4" stroke-width="1.7" stroke-linecap="round" /><path d="M6 6.8a2.4 2.4 0 0 1 4.6-.9" fill="none" stroke="#1351B4" stroke-width="1.5" stroke-linecap="round" /><path d="M1.2 15.6 14 2.4" stroke="#1351B4" stroke-width="1.7" stroke-linecap="round" /></svg></div>';
+            const gvFoot = '<img class="c12r-gq" src="assets/sncr/circle-question-solid.svg" alt=""><div class="c12r-ghl">Está com dúvidas e precisa de ajuda?</div><div class="c12r-gtm">Termo de Uso e Aviso de Privacidade</div>';
+            const gvCpf = (p) => `<div class="c12r-pgm c12r-gvp">${gvHead}<div class="c12r-gcard"></div><div class="c12r-gh3" style="top: 96px;">Identifique-se no gov.br com:</div><img class="c12r-gico" src="assets/sncr/id-card-solid.png" style="top: 163px;" alt=""><div class="c12r-gopt" style="top: 159px;">Número do CPF</div><div class="c12r-gsm" style="top: 196px;">Digite seu CPF para <b>criar</b> ou <b>acessar</b> sua conta gov.br</div><div class="c12r-glab" style="top: 228px;">CPF</div><div class="c12r-gin" id="c12r-${p}f1"><div class="c12r-fb"></div><span class="c12r-ph">Digite seu CPF</span><span class="c12r-tw"><span class="c12r-tv"></span><i class="c12r-cr"></i></span></div><div class="c12r-gbt" id="c12r-${p}b1" style="top: 324px;">Continuar</div><div class="c12r-glab" style="top: 389px;">Outras opções de identificação:</div><div class="c12r-ghr"></div><div class="c12r-gor c12r-gg" style="top: 437px;"><img src="assets/sncr/InternetBanking-green.png" alt=""><span>Login com seu banco</span></div><div class="c12r-gbd">SUA CONTA SERÁ PRATA</div><div class="c12r-gor" style="top: 481px;"><img src="assets/sncr/app-identidade-govbr.png" alt=""><span>Seu aplicativo gov.br</span></div><div class="c12r-gor" style="top: 525px;"><img src="assets/sncr/CD.png" alt=""><span>Seu certificado digital</span></div><div class="c12r-gor" style="top: 569px;"><img src="assets/sncr/CD-Nuvem.png" alt=""><span>Seu certificado digital em nuvem</span></div>${gvFoot}</div>`;
+            const gvPass = (p) => `<div class="c12r-pgm c12r-gvp">${gvHead}<div class="c12r-gcard"></div><div class="c12r-gh3" style="top: 96px;">Digite sua senha</div><img class="c12r-gico" src="assets/sncr/id-card-solid.png" style="top: 141px;" alt=""><div class="c12r-gopt" style="top: 137px;">CPF 123.456.789-09</div><div class="c12r-glab" style="top: 188px;">Senha</div><div class="c12r-gin c12r-gp" id="c12r-${p}f2"><div class="c12r-fb"></div><span class="c12r-ph">Digite sua senha</span><span class="c12r-tw"><span class="c12r-tv"></span><i class="c12r-cr"></i></span><svg class="c12r-ic c12r-eye"><use href="#c12r-i-eye" /></svg></div><div class="c12r-glk" style="top: 268px;">Esqueci minha senha</div><div class="c12r-gbt c12r-go" style="top: 314px; width: 154px;">Cancelar</div><div class="c12r-gbt" id="c12r-${p}b2" style="top: 314px; left: 207px; width: 154px;"><span class="c12r-gsp" id="c12r-${p}sp"></span>Entrar</div>${gvFoot}</div>`;
+            const gvAuth = `<div class="c12r-pgm c12r-gvp">${gvHead}<div class="c12r-gcard"></div><div class="c12r-gh3" style="top: 96px;">Autorização de uso de dados pessoais</div><div class="c12r-gsm" style="top: 160px; white-space: normal; font-size: 14px; line-height: 20px;">O serviço <b>SNCR – Anvisa</b> está solicitando acesso às seguintes informações:</div><div class="c12r-gck" style="top: 222px;"><svg class="c12r-ic"><use href="#c12r-i-check" /></svg></div><div class="c12r-gopt" style="top: 220px; left: 70px;">Nome</div><div class="c12r-gck" style="top: 258px;"><svg class="c12r-ic"><use href="#c12r-i-check" /></svg></div><div class="c12r-gopt" style="top: 256px; left: 70px;">CPF</div><div class="c12r-gck" style="top: 294px;"><svg class="c12r-ic"><use href="#c12r-i-check" /></svg></div><div class="c12r-gopt" style="top: 292px; left: 70px;">Registro profissional</div><div class="c12r-gbt" id="c12r-wb3" style="top: 354px;">Autorizar</div><div class="c12r-gbt c12r-go" style="top: 406px;">Negar</div>${gvFoot}</div>`;
+            $("#c12r-bp0").innerHTML = snLogin;
+            $("#c12r-bp1").innerHTML = gvCpf("b");
+            $("#c12r-bp2").innerHTML = gvPass("b");
+            $("#c12r-bp3").innerHTML = snIn;
+            $("#c12r-bp4").innerHTML = vzForm;
+            $("#c12r-bp5").innerHTML = vzDone;
+            $("#c12r-wg1").innerHTML = gvCpf("w");
+            $("#c12r-wg2").innerHTML = gvPass("w");
+            $("#c12r-wg3").innerHTML = gvAuth;
+            const mHead = '<div class="c12r-mh"><img src="assets/sncr/logo_anvisa_80.jpg" alt=""><i></i><span class="c12r-msn">SNCR</span><svg class="c12r-ic c12r-mhm"><use href="#c12r-i-menu" /></svg><span class="c12r-mav">FV</span><svg class="c12r-ic c12r-mkb"><use href="#c12r-i-dots" /></svg></div>';
+            const mCard = (top, h, ic, t, s, links) => `<div class="c12r-mcd" style="top: ${top}px; height: ${h}px;"><svg class="c12r-ic c12r-mci"><use href="#c12r-i-${ic}" /></svg><div class="c12r-mct">${t}</div><div class="c12r-mcs">${s}</div>${links.map((l, i) => `<div class="c12r-mlk"${l[2] ? ` id="${l[2]}"` : ""} style="top: ${58 + i * 40}px;"><div class="c12r-mlh"></div><svg class="c12r-ic"><use href="#c12r-i-${l[0]}" /></svg><span>${l[1]}</span></div>`).join("")}</div>`;
+            const mHome = `<div class="c12r-pgm">${mHead}<div class="c12r-msc" id="c12r-msc"><div class="c12r-mg">Olá FISCAL VISA-SP, bem-vindo ao SNCR.</div>${mCard(140, 140, "clipP", "Receituários (NRA/NRT)", "Amarelo (NRA) e Talidomida (NRT)", [["pcirc", "Gerar Numerações"], ["swap", "Expedir | Receber Numerações"]])}${mCard(292, 140, "se", "Consultas | Cancelamentos", "Consultar e cancelar numerações", [["se", "Consultar Numeração"], ["ban", "Cancelar Numeração"]])}${mCard(444, 140, "uplus", "Atribuição de numeração", "Todos os receituários", [["uplus", "Atribuir Numerações", "c12r-mlA"], ["list", "Consultar | Cancelar atribuição de numeração"]])}${mCard(596, 180, "chart", "Relatórios", "Prescritores, Instituições e Gráficas", [["user", "Prescritores"], ["bld", "Instituições"], ["print", "Gráficas"]])}</div></div>`;
+            const MROWS = [
+              ["10", "", "", "", "", "", "NRA"],
+              ["10", "", "", "", "", "", "NRA"],
+              ["20", "", "", "", "", "", "NRA"],
+              ["15", "", "", "", "", "", "NRA"],
+              ["1000", "", "", "", "", "", "RCE"],
+            ];
+            const MNEW = ["20", "2610.2-35.0004821", "2610.2-35.0004840", "09/10/2026 14:18", "CAMILA ROCHA", "—", "NRB"];
+            const mkMRow = (r, id) => `<div class="c12r-mtr"${id ? ` id="${id}"` : ""}><span>${r[0]}</span><span><b class="c12r-mbg">Eletrônica</b></span><span>${r[1]}</span><span>${r[2]}</span><span>${r[3]}</span><span>${r[4]}</span><span>${r[5]}</span><span>${r[6]}</span><span class="c12r-mcm"><svg class="c12r-ic"><use href="#c12r-i-fpulse" /></svg><svg class="c12r-ic"><use href="#c12r-i-ban" /></svg></span></div>`;
+            const mHeadRow = '<div class="c12r-mtr c12r-mth"><span>Quantidade</span><span>Tipo de Emissão<svg class="c12r-ic"><use href="#c12r-i-filt" /></svg></span><span>Início<svg class="c12r-ic"><use href="#c12r-i-sort" /></svg></span><span>Fim<svg class="c12r-ic"><use href="#c12r-i-sort" /></svg></span><span>Data e hora<svg class="c12r-ic"><use href="#c12r-i-sort" /></svg></span><span>Prescritor</span><span>Instituição</span><span>Tipo de Receita<svg class="c12r-ic"><use href="#c12r-i-filt" /></svg></span><span>Comandos</span></div>';
+            const mList = `<div class="c12r-pgm">${mHead}<div class="c12r-mt2">Atribuições de Numeração (Todos os Receituários)</div><div class="c12r-mab" id="c12r-mAb">Atribuir Numeração</div><div class="c12r-msr">Pesquisar</div><div class="c12r-msi"><svg class="c12r-ic"><use href="#c12r-i-se" /></svg></div><div class="c12r-mxc">Exibir Cancelados</div><div class="c12r-msw"><i></i></div><div class="c12r-mcl">Colunas<svg class="c12r-ic"><use href="#c12r-i-menu" /></svg></div><div class="c12r-mtw"><div class="c12r-mtv"><div class="c12r-mtab" id="c12r-mtab">${mHeadRow}<div id="c12r-mnw">${mkMRow(MNEW, "c12r-mnr")}</div><div id="c12r-mtb">${MROWS.map((r) => mkMRow(r)).join("")}</div></div></div><div class="c12r-mft"><span>Exibir 10<svg class="c12r-ic"><use href="#c12r-i-chd" /></svg>&nbsp;&nbsp;|&nbsp;&nbsp;1–10 de <span class="c12r-mcnt"><span>2621</span><span>2622</span></span> itens</span><span>Página 1<svg class="c12r-ic"><use href="#c12r-i-chd" /></svg></span></div></div></div>`;
+            $("#c12r-mH").innerHTML = mHome;
+            $("#c12r-mL").innerHTML = mList;
+            const PP = {};
+            $$("#c12r-phone .screen [id]").forEach((n) => { PP[n.id] = posIn(n); });
+            const k2 = VMKit.create({ root, tl, screenEl: $("#c12r-s2"), liftEl: $("#c12r-phone2 .lift") });
+            const PP2 = {};
+            $$("#c12r-s2 [id]").forEach((n) => { PP2[n.id] = k2.posIn(n); });
+            const dc2 = $("#c12r-dc2");
+            dc2.style.width = "122px";
+            PP["c12r-df2"] = posIn($("#c12r-df2"));
+            dc2.style.width = "";
+            Object.assign(PP, PX);
+            const C = (id) => { const p = PP[id]; return { x: p.x + p.w / 2, y: p.y + p.h / 2, p }; };
+
+            $$(".screen *").forEach((n) => {
+              n.setAttribute("data-layout-allow-overlap", "");
+              n.setAttribute("data-layout-allow-occlusion", "");
+            });
+
+            const hub = $("#c12r-sH");
+            const shP = $("#c12r-shP");
+            const shS = $("#c12r-shS");
+            const scr1 = $("#c12r-scr1");
+            const scr2 = $("#c12r-scr2");
+            const web = $("#c12r-web");
+            const ld = $("#c12r-ld");
+            const ldc = $("#c12r-ldc");
+            const toast = $("#c12r-toast");
+            const cnt = $$("#c12r-cnt > span");
+
+            const spin = (el, t, d) => tl.fromTo(el, { rotation: 0 }, { rotation: 360 * Math.max(1, Math.round(d / 0.7)), duration: d, ease: "none" }, t);
+            const showDd = (el, t) => tl.fromTo(el, { opacity: 0, y: -6 }, { opacity: 1, y: 0, duration: 0.2, ease: E }, t);
+            const hideDd = (el, t) => tl.to(el, { opacity: 0, duration: 0.15 }, t);
+            const focusF = (f, t) => tl.to(f.querySelector(".c12r-fb"), { opacity: 1, duration: 0.15 }, t);
+            const unfocusF = (f, t) => {
+              tl.to(f.querySelector(".c12r-fb"), { opacity: 0, duration: 0.15 }, t);
+              const c = f.querySelector(".c12r-cr");
+              if (c) tl.set(c, { opacity: 0 }, t);
+            };
+            const typeTo = (f, full, t, dur) => {
+              const v = f.querySelector(".c12r-tv");
+              const st = { n: 0 };
+              tl.set(f.querySelector(".c12r-ph"), { opacity: 0 }, t);
+              tl.set(f.querySelector(".c12r-tw"), { opacity: 1 }, t);
+              tl.fromTo(st, { n: 0 }, { n: full.length, duration: dur, ease: "none", onUpdate() { v.textContent = full.slice(0, Math.round(st.n)); } }, t);
+            };
+            const flash = (row, t) => {
+              const p = $(row).querySelector(".c12r-rp, .c12r-ps");
+              tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.1 }, t);
+              tl.to(p, { opacity: 0, duration: 0.35 }, t + 0.2);
+            };
+            const setCnt = (i, t) => {
+              tl.to(cnt[i - 1], { opacity: 0, y: -8, duration: 0.2 }, t);
+              tl.fromTo(cnt[i], { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, t + 0.05);
+            };
+            const camTo = (t, d, v) => tl.to(cam, { ...v, duration: d, ease: "power2.inOut" }, t);
+            const tapL = (id, t, sc, target) => { const c = C(id); tap(c.x, c.y + sc, t, target || null); };
+
+            const lift = (id, o) => {
+              const el = $("#" + id);
+              const p = PP[id];
+              const pad = o.pad || 0;
+              const dy = o.dy || 0;
+              const c = el.cloneNode(true);
+              c.removeAttribute("id");
+              c.querySelectorAll("[id]").forEach((n) => n.removeAttribute("id"));
+              c.style.cssText = `position:relative;left:0;top:0;right:auto;bottom:auto;margin:0;opacity:1;transform:none;width:${p.w}px;height:${p.h}px;`;
+              if (o.fix) o.fix(c);
+              const node = make("lifted", { left: p.x - pad + "px", top: p.y - pad + dy + "px", width: p.w + 2 * pad + "px", height: p.h + 2 * pad + "px", padding: pad + "px", background: o.bg || "#fff", borderRadius: (o.r === undefined ? 20 : o.r) + "px" });
+              node.appendChild(c);
+              tl.set(el, { opacity: 0 }, o.t);
+              tl.set(node, { opacity: 1 }, o.t);
+              tl.fromTo(node, { scale: 1, x: 0, y: 0 }, { scale: o.sc, x: o.dx || 0, y: -6, duration: 0.6, ease: E }, o.t);
+              tl.to(node, { scale: 1, x: 0, y: 0, duration: 0.45, ease: "power3.inOut" }, o.t + o.hold);
+              tl.set(node, { opacity: 0 }, o.t + o.hold + 0.45);
+              tl.set(el, { opacity: 1 }, o.t + o.hold + 0.45);
+              return node;
+            };
+            const tipAt = (id, o, text, t, hold, side) => {
+              const p = PP[id];
+              const cx = p.x + p.w / 2 + (o.dx || 0);
+              const half = (p.h / 2 + (o.pad || 0)) * o.sc;
+              const cy = p.y + p.h / 2 + (o.dy || 0) - 6;
+              const dn = side !== "up";
+              showTip(tip(text, cx, dn ? cy + half + 8 : cy - half - 8, dn ? "down" : "up"), t, hold);
+            };
+
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out" }, 3);
+            titleCard("#c12r-t1", { at: 0.15, sparkAt: 0.75, out: 2.58 });
+
+            const tm = $("#c12r-tm");
+            const clock = { n: 0 };
+            tl.fromTo(clock, { n: 0 }, {
+              n: D - 3,
+              duration: D - 3,
+              ease: "none",
+              onUpdate() {
+                const s = 548 + Math.floor(clock.n);
+                tm.textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+              },
+            }, 3);
+
+            const rRc = C("c12r-rRc");
+            tap(rRc.x, rRc.y, 4.0, "#c12r-rRc");
+            flash("#c12r-rRc", 4.0);
+            tl.fromTo(shP, { y: 874 }, { y: 0, duration: 0.7, ease: "power3.out" }, 4.15);
+            tl.fromTo(scr1, { opacity: 0 }, { opacity: 1, duration: 0.5 }, 4.15);
+            tl.to(hub, { scale: 0.96, y: 6, transformOrigin: "50% 0%", duration: 0.6, ease: E }, 4.15);
+            tl.fromTo($("#c12r-shn"), { x: -200 }, { x: 560, duration: 0.7, ease: "power1.inOut" }, 4.5);
+            tl.to($("#c12r-sk2"), { opacity: 0, duration: 0.3 }, 5.1);
+            tl.set($("#c12r-sk2"), { display: "none" }, 5.42);
+
+            const pk = $("#c12r-pk");
+            const pkc = C("c12r-pk");
+            tap(pkc.x, pkc.y, 5.65, "#c12r-pk");
+            focusF(pk, 5.65);
+            showDd($("#c12r-pd"), 5.75);
+            const prc = C("c12r-prw");
+            tap(prc.x, prc.y, 6.5, null);
+            flash("#c12r-prw", 6.5);
+            hideDd($("#c12r-pd"), 6.65);
+            tl.to(pk.querySelector(".c12r-pph"), { opacity: 0, duration: 0.1 }, 6.65);
+            tl.fromTo(pk.querySelector(".c12r-pv"), { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, 6.68);
+            unfocusF(pk, 6.75);
+            const pgFix = (c) => {
+              c.querySelector(".c12r-pph").style.opacity = 0;
+              c.querySelector(".c12r-pv").style.opacity = 1;
+            };
+            const pgO = { t: 6.95, hold: 1.95, sc: 1.06, pad: 10, fix: pgFix };
+            lift("c12r-pg", pgO);
+            tipAt("c12r-pg", pgO, "Receita sai em nome da especialidade", 7.2, 1.55);
+
+            camTo(B.sert, 1.0, { scale: 1.05, y: 30 });
+
+            const sf = $("#c12r-sf");
+            const sfc = C("c12r-sf");
+            const dk = $("#c12r-dk");
+            const search = (set, q, t0, typeDur, load, hold) => {
+              tap(sfc.x, sfc.y, t0, null);
+              focusF(sf, t0);
+              typeTo(sf, q, t0 + 0.15, typeDur);
+              const tL = t0 + 0.15 + typeDur + 0.1;
+              showDd(dk, tL);
+              spin($("#c12r-lsp"), tL, load);
+              hideDd(dk, tL + load);
+              const dr = $("#c12r-dr" + set);
+              showDd(dr, tL + load);
+              const tP = tL + load + hold;
+              const rc = C("c12r-mr" + set + "1");
+              tap(rc.x, rc.y, tP, null);
+              flash("#c12r-mr" + set + "1", tP);
+              hideDd(dr, tP + 0.15);
+              tl.set(sf.querySelector(".c12r-tw"), { opacity: 0 }, tP + 0.15);
+              tl.set(sf.querySelector(".c12r-ph"), { opacity: 1 }, tP + 0.15);
+              unfocusF(sf, tP + 0.15);
+              return tP + 0.15;
+            };
+            const addGroup = (i, t) => {
+              tl.fromTo(gis[i], { height: 0, opacity: 0 }, { height: Hs[i], opacity: 1, duration: 0.55, ease: E }, t);
+              tl.fromTo($("#c12r-cd" + (i + 1)), { y: -18 }, { y: 0, duration: 0.55, ease: E }, t);
+              tl.to(lst, { y: S[i], duration: 0.7, ease: "power2.inOut" }, t);
+            };
+            const fillField = (id, text, t, dur, sc) => {
+              const f = $("#" + id);
+              tapL(id, t, sc, "#" + id);
+              focusF(f, t);
+              typeTo(f, text, t + 0.13, dur);
+              unfocusF(f, t + 0.13 + dur + 0.15);
+            };
+
+            const sw1 = search(1, "sertra", B.sert + 0.15, 0.55, 0.95, 0.95);
+            tl.to($("#c12r-eh"), { opacity: 0, duration: 0.25 }, sw1);
+            addGroup(0, sw1 + 0.05);
+            setCnt(1, sw1 + 0.05);
+            fillField("c12r-pf1", "1 comprimido pela manhã", 12.75, 0.8, S[0]);
+            fillField("c12r-qf1", "30", 14.0, 0.25, S[0]);
+            camTo(14.6, 0.6, { scale: 1.09, y: 40 });
+            const tyO = { t: 14.75, hold: 1.7, sc: 1.9, pad: 5, r: 8, dy: S[0] };
+            lift("c12r-ty1", tyO);
+            tipAt("c12r-ty1", tyO, "Tipo definido pela Anvisa", 15.05, 1.25);
+            const ghO = { t: 16.65, hold: 1.5, sc: 1.2, pad: 8, r: 12, dy: S[0] };
+            lift("c12r-gh1", ghO);
+            tipAt("c12r-gh1", ghO, "Cada tipo vira uma receita", 16.95, 1.2);
+            camTo(18.1, 0.6, { scale: 1.05, y: 30 });
+
+            const sw2 = search(2, "clonaz", B.clon + 0.1, 0.4, 0.6, 0.55);
+            addGroup(1, sw2 + 0.05);
+            setCnt(2, sw2 + 0.05);
+            fillField("c12r-pf2", "1/2 comprimido à noite", 21.35, 0.7, S[1]);
+            const dl2 = $("#c12r-dl2");
+            tapL("c12r-dl2", 22.45, S[1], "#c12r-dl2");
+            tl.to(dl2, { opacity: 0, duration: 0.15 }, 22.5);
+            tl.to(dc2, { width: 122, opacity: 1, duration: 0.4, ease: E }, 22.52);
+            const dfc = C("c12r-df2");
+            tap(dfc.x, dfc.y + S[1], 23.05, null);
+            focusF($("#c12r-df2"), 23.05);
+            typeTo($("#c12r-df2"), "30 dias", 23.18, 0.4);
+            unfocusF($("#c12r-df2"), 23.75);
+            showTip(tip("Duração do tratamento", dfc.x - 20, PP["c12r-df2"].y + S[1] - 22, "up"), 23.25, 1.1);
+            fillField("c12r-qf2", "15", 24.25, 0.22, S[1]);
+
+            const sw3 = search(3, "paracet", B.para + 0.1, 0.5, 0.55, 0.5);
+            addGroup(2, sw3 + 0.05);
+            setCnt(3, sw3 + 0.05);
+            tl.to(cnt[3], { color: "#6A24DB", fontWeight: 700, duration: 0.3 }, sw3 + 0.3);
+            fillField("c12r-pf3", "1 comprimido de 6/6h se dor", 27.95, 0.85, S[2]);
+            fillField("c12r-qf3", "10", 29.25, 0.2, S[2]);
+            camTo(29.8, 0.6, { scale: 1.08, y: 36 });
+            const nmO = { t: 30.0, hold: 2.3, sc: 1.1, pad: 8, r: 16, dy: S[2] };
+            lift("c12r-nm3", nmO);
+            tipAt("c12r-nm3", nmO, "Alérgica a dipirona: paracetamol", 30.3, 1.85);
+
+            const cntFix = (c) => {
+              c.querySelectorAll("span").forEach((s, i, a) => { s.style.opacity = i === a.length - 1 ? 1 : 0; s.style.transform = "none"; });
+              c.style.color = "#6A24DB";
+              c.style.fontWeight = 700;
+            };
+            const cntO = { t: 32.5, hold: 1.7, sc: 1.55, pad: 8, r: 14, fix: cntFix };
+            lift("c12r-cnt", cntO);
+            tipAt("c12r-cnt", cntO, "3 remédios, 3 receitas", 32.8, 1.35);
+
+            camTo(34.3, 0.6, { scale: 1.07, y: 20 });
+            const bn = $("#c12r-bn");
+            tl.fromTo(bnw, { height: 0 }, { height: Hb, duration: 0.6, ease: E }, B.ban + 0.2);
+            tl.fromTo(bn, { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: E }, B.ban + 0.2);
+            tl.fromTo(bn, { boxShadow: "0 0 0 0 rgba(245,158,11,0.5)" }, { boxShadow: "0 0 0 14px rgba(245,158,11,0)", duration: 0.9, ease: "power2.out" }, B.ban + 0.7);
+            tl.to(lst, { y: 0, duration: 0.7, ease: "power2.inOut" }, B.ban + 0.2);
+            const bnO = { t: 35.6, hold: 2.3, sc: 1.07, pad: 8, r: 16 };
+            lift("c12r-bn", bnO);
+            tipAt("c12r-bn", bnO, "Controlado precisa de número Anvisa", 35.9, 1.85);
+
+            const I0 = B.ex;
+            const scr3 = $("#c12r-scr3");
+            const shI = $("#c12r-shI");
+            const bnic = C("c12r-bni");
+            tap(bnic.x, bnic.y, I0 + 0.25, "#c12r-bni");
+            tl.fromTo(scr3, { opacity: 0 }, { opacity: 1, duration: 0.35 }, I0 + 0.4);
+            tl.fromTo(shI, { y: 520 }, { y: 0, duration: 0.65, ease: "power3.out" }, I0 + 0.4);
+            [["c12r-i31", "Notificação: a Vigilância atribui"], ["c12r-i32", "Controle especial: SNCR gera na hora"], ["c12r-i33", "Viva Mais puxa via gov.br"]].forEach(([id, txt], i) => {
+              const t = I0 + 1.0 + i * 1.5;
+              tl.fromTo($("#" + id), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, t);
+              const p = PP[id];
+              if (i < 2) showTip(tip(txt, 201, p.y + p.h + 2, "down"), t + 0.4, 1.1);
+            });
+            const ibc = C("c12r-ibtn");
+            tap(ibc.x, ibc.y, I0 + 6.2, "#c12r-ibtn");
+            tl.to(shI, { y: 520, duration: 0.55, ease: "power3.inOut" }, I0 + 6.3);
+            tl.to(scr3, { opacity: 0, duration: 0.4 }, I0 + 6.4);
+
+            const R = B.req;
+            const BR = B.br;
+            const F0 = BR + 23.15;
+            const tAx = F0 + 12.5;
+            const C0 = tAx + 0.4;
+
+            const fpos = (el, top) => {
+              let x = 0, y = 0, n = el;
+              while (n && n !== top) {
+                x += n.offsetLeft;
+                y += n.offsetTop;
+                n = n.offsetParent;
+                if (n && n !== top) { x += n.clientLeft; y += n.clientTop; }
+              }
+              return { x, y, w: el.offsetWidth, h: el.offsetHeight };
+            };
+            const cvs = document.createElement("canvas").getContext("2d");
+            const textW = (txt, font) => { cvs.font = font; return cvs.measureText(txt).width; };
+            const srv = $("#c12r-srv");
+            const ftip = (text, ax, ay, side, t, hold, gapOverride, host) => {
+              const wrap = document.createElement("div");
+              wrap.className = "c12r-ft2";
+              const body = document.createElement("div");
+              body.className = "c12r-ftb";
+              body.textContent = text;
+              wrap.appendChild(body);
+              const dot = document.createElement("div");
+              dot.className = "c12r-ftd";
+              const stem = document.createElement("div");
+              stem.className = "c12r-fts";
+              (host || srv).append(wrap, dot, stem);
+              [wrap, body, dot, stem].forEach((n) => { n.setAttribute("data-layout-allow-overlap", ""); n.setAttribute("data-layout-allow-occlusion", ""); });
+              const bw = textW(text, "700 30px 'DM Sans'") + 56;
+              const bh = 74;
+              const gap = gapOverride || 58;
+              const left = Math.max(30, Math.min(1050 - bw, ax - bw / 2));
+              wrap.style.left = left + "px";
+              dot.style.left = ax + "px";
+              dot.style.top = ay + "px";
+              stem.style.left = ax + "px";
+              stem.style.height = gap + "px";
+              const up = side === "up";
+              wrap.style.top = up ? ay - gap - bh + "px" : ay + gap + "px";
+              stem.style.top = up ? ay - gap + "px" : ay + "px";
+              const dy = up ? 24 : -24;
+              tl.fromTo(dot, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(1.6)" }, t);
+              tl.fromTo(stem, { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.2, ease: E, transformOrigin: up ? "50% 100%" : "50% 0%" }, t + 0.08);
+              tl.fromTo(wrap, { opacity: 0, y: dy, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.5)" }, t + 0.14);
+              tl.to([wrap, stem, dot], { opacity: 0, duration: 0.25, ease: "power2.in" }, t + hold);
+            };
+
+            const bbc = C("c12r-bbtn");
+            tap(bbc.x, bbc.y, R + 1.0, "#c12r-bbtn");
+            tl.fromTo(shS, { y: 700 }, { y: 0, duration: 0.65, ease: "power3.out" }, R + 1.15);
+            tl.fromTo(scr2, { opacity: 0 }, { opacity: 1, duration: 0.5 }, R + 1.15);
+            const c1O = { t: R + 2.1, hold: 1.5, sc: 1.07, pad: 8, r: 16 };
+            lift("c12r-c1", c1O);
+            tipAt("c12r-c1", c1O, "Primeiro, entre no SNCR", R + 2.35, 1.05);
+            const bpc = C("c12r-bport");
+            tap(bpc.x, bpc.y, BR - 0.15, "#c12r-bport");
+
+            const bro = $("#c12r-bro");
+            const brl = $("#c12r-brl");
+            const u1 = $(".c12r-br-u1");
+            const u2 = $(".c12r-br-u2");
+            const bpg = (n) => $("#c12r-bp" + n);
+            const wgp = (n) => $("#c12r-wg" + n);
+            const brBar = (t) => {
+              tl.fromTo(brl, { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.5, ease: "power1.inOut" }, t);
+              tl.to(brl, { opacity: 0, duration: 0.2 }, t + 0.55);
+            };
+            const pageIn = (el, t) => tl.fromTo(el, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.4, ease: E }, t);
+            const pageOut = (el, t) => tl.to(el, { opacity: 0, x: -40, duration: 0.3, ease: "power2.in" }, t);
+            const urlTo = (a, c, t, back) => {
+              tl.to(a, { opacity: 0, duration: 0.15 }, t);
+              if (back) {
+                tl.set(c, { y: 6 }, t);
+                tl.to(c, { opacity: 1, y: 0, duration: 0.25, ease: E }, t + 0.05);
+              } else {
+                tl.fromTo(c, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.25, ease: E }, t + 0.05);
+              }
+            };
+            const press = (id, t) => { const c = C(id); tap(c.x, c.y, t, "#" + id); };
+            const fixIn = (text, focus) => (c) => {
+              c.querySelector(".c12r-ph").style.opacity = 0;
+              const tw = c.querySelector(".c12r-tw");
+              tw.style.opacity = 1;
+              tw.querySelector(".c12r-tv").textContent = text;
+              tw.querySelector(".c12r-cr").remove();
+              if (focus) c.querySelector(".c12r-fb").style.opacity = 1;
+            };
+
+            tl.fromTo(bro, { y: 874 }, { y: 0, duration: 0.65, ease: "power3.out" }, BR);
+            camTo(BR + 0.4, 0.8, { scale: 1.04, y: 20 });
+            brBar(BR + 0.55);
+            const nsc = $("#c12r-n0");
+            tl.to(nsc, { y: -200, duration: 0.9, ease: "power2.inOut" }, BR + 1.7);
+            tl.to(nsc, { y: 0, duration: 0.7, ease: "power2.inOut" }, BR + 3.4);
+            const nbO = { t: BR + 4.2, hold: 1.7, sc: 1.12, pad: 8, r: 28 };
+            lift("c12r-nb", nbO);
+            tipAt("c12r-nb", nbO, "Entre com sua conta gov.br", BR + 4.5, 1.25);
+            press("c12r-nb", BR + 6.5);
+            urlTo(u1, u2, BR + 6.6);
+            brBar(BR + 6.65);
+            pageOut(bpg(0), BR + 6.65);
+            pageIn(bpg(1), BR + 7.05);
+            camTo(BR + 7.1, 0.7, { scale: 1.05, y: 30 });
+
+            const bf1 = $("#c12r-bf1");
+            const bf1c = C("c12r-bf1");
+            tap(bf1c.x, bf1c.y, BR + 8.2, null);
+            focusF(bf1, BR + 8.2);
+            typeTo(bf1, "123.456.789-09", BR + 8.35, 1.1);
+            const cpfO = { t: BR + 9.65, hold: 1.35, sc: 1.1, pad: 8, r: 10, fix: fixIn("123.456.789-09", true) };
+            lift("c12r-bf1", cpfO);
+            tipAt("c12r-bf1", cpfO, "Seu CPF", BR + 9.9, 1.0, "up");
+            unfocusF(bf1, BR + 11.65);
+            press("c12r-bb1", BR + 11.6);
+            brBar(BR + 11.7);
+            pageOut(bpg(1), BR + 11.7);
+            pageIn(bpg(2), BR + 12.1);
+
+            const bf2 = $("#c12r-bf2");
+            const bf2c = C("c12r-bf2");
+            tap(bf2c.x, bf2c.y, BR + 12.7, null);
+            focusF(bf2, BR + 12.7);
+            typeTo(bf2, "••••••••", BR + 12.85, 0.65);
+            const pwO = { t: BR + 13.7, hold: 1.25, sc: 1.1, pad: 8, r: 10, fix: fixIn("••••••••", true) };
+            lift("c12r-bf2", pwO);
+            tipAt("c12r-bf2", pwO, "Senha do gov.br", BR + 13.95, 0.95, "up");
+            unfocusF(bf2, BR + 15.6);
+            press("c12r-bb2", BR + 15.55);
+            tl.set($("#c12r-bsp"), { opacity: 1 }, BR + 15.65);
+            spin($("#c12r-bsp"), BR + 15.65, 0.75);
+            urlTo(u2, u1, BR + 16.5, true);
+            brBar(BR + 16.5);
+            pageOut(bpg(2), BR + 16.55);
+            pageIn(bpg(3), BR + 16.95);
+
+            tl.fromTo($("#c12r-nok"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, BR + 17.5);
+            const nokO = { t: BR + 18.1, hold: 1.7, sc: 1.05, pad: 8, r: 8 };
+            lift("c12r-nok", nokO);
+            tipAt("c12r-nok", nokO, "Primeiro acesso: cadastro automático", BR + 18.35, 1.35);
+            const nnx = $("#c12r-nnx");
+            const nnxp = PP["c12r-nnx"];
+            tl.fromTo(nnx, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, BR + 20.3);
+            showTip(tip("Agora, peça à Vigilância Sanitária", 201, nnxp.y + nnxp.h + 4, "down"), BR + 20.8, 1.5);
+            press("c12r-nvg", BR + 22.6);
+            const u3 = $(".c12r-br-u3");
+            urlTo(u1, u3, BR + 22.7);
+            brBar(BR + 22.75);
+            pageOut(bpg(3), BR + 22.75);
+            pageIn(bpg(4), F0);
+
+            const hlv = (el, t) => {
+              tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.1 }, t);
+              tl.to(el, { opacity: 0, duration: 0.35 }, t + 0.25);
+            };
+            const vzs = $("#c12r-vzs");
+            const vzsc = C("c12r-vzs");
+            tap(vzsc.x, vzsc.y, F0 + 2.7, "#c12r-vzs");
+            focusF(vzs, F0 + 2.7);
+            showDd($("#c12r-vzdd"), F0 + 2.75);
+            const vzoc = C("c12r-vzo2");
+            tap(vzoc.x, vzoc.y, F0 + 3.6, null);
+            hlv($("#c12r-vzo2 .c12r-vzp"), F0 + 3.6);
+            hideDd($("#c12r-vzdd"), F0 + 3.7);
+            tl.to($("#c12r-vzsp"), { opacity: 0, duration: 0.12 }, F0 + 3.7);
+            tl.fromTo($("#c12r-vzsv"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, F0 + 3.75);
+            unfocusF(vzs, F0 + 3.75);
+            const vzec = C("c12r-vzE");
+            tap(vzec.x, vzec.y, F0 + 4.6, null);
+            tl.fromTo($("#c12r-vzE b"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, F0 + 4.63);
+            showTip(tip("Eletrônica: receita digital", vzec.x, vzec.p.y - 2, "up"), F0 + 4.8, 1.2);
+            const vq = $("#c12r-vzq");
+            const vqc = C("c12r-vzq");
+            tap(vqc.x, vqc.y, F0 + 5.9, null);
+            focusF(vq, F0 + 5.9);
+            typeTo(vq, "20", F0 + 6.05, 0.3);
+            unfocusF(vq, F0 + 7.0);
+            showTip(tip("20 números por pedido", vqc.x, vqc.p.y - 2, "up"), F0 + 6.2, 1.15);
+            press("c12r-vzb", F0 + 7.6);
+            tl.set($("#c12r-vzsp2"), { opacity: 1 }, F0 + 7.7);
+            spin($("#c12r-vzsp2"), F0 + 7.7, 0.7);
+            brBar(F0 + 8.4);
+            pageOut(bpg(4), F0 + 8.45);
+            pageIn(bpg(5), F0 + 8.85);
+            tl.fromTo($("#c12r-vzck"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, F0 + 9.2);
+            tl.fromTo($("#c12r-vzdt"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: E }, F0 + 9.35);
+            tl.fromTo($("#c12r-vzpr"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: E }, F0 + 9.55);
+            $$(".c12r-vzsm, .c12r-vznt").forEach((e, i) => tl.fromTo(e, { opacity: 0 }, { opacity: 1, duration: 0.35 }, F0 + 10.1 + i * 0.12));
+            const vzpP = PP["c12r-vzpr"];
+            showTip(tip("Protocolo da solicitação", 201, vzpP.y + vzpP.h + 2, "down"), F0 + 9.9, 1.7);
+            press("c12r-brd", F0 + 11.8);
+            tl.to(bro, { y: 874, duration: 0.55, ease: "power3.inOut" }, F0 + 11.9);
+
+            tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, tAx);
+            tl.set(cam, { opacity: 0 }, tAx + 0.45);
+            tl.set(cam, { scale: 1, y: 0 }, tAx + 0.5);
+
+            const cam2 = $("#c12r-cam2");
+            const NS = 2.0;
+            const cc = (x) => C0 + x + (x >= 1.5 ? NS : 0);
+            const C2 = (id) => { const p = PP2[id]; return { x: p.x + p.w / 2, y: p.y + p.h / 2, p }; };
+            const camTo2 = (t, d, v) => tl.to(cam2, { ...v, duration: d, ease: "power2.inOut" }, t);
+            const camF = (t, ys, s) => camTo2(t, 0.8, { scale: s, y: Math.max(-15, Math.min(90, -s * (ys - 437) * 1.72 * 0.35)) });
+            const tip2 = (text, ax, ay, side, t, hold) => k2.showTip(k2.tip(text, ax, ay, side), t, hold);
+            const hl2 = (el, t) => {
+              tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.1 }, t);
+              tl.to(el, { opacity: 0, duration: 0.35 }, t + 0.25);
+            };
+            const swapSel = (a, b, t) => {
+              tl.to(a, { opacity: 0, duration: 0.12 }, t);
+              tl.fromTo(b, { opacity: 0 }, { opacity: 1, duration: 0.2 }, t + 0.05);
+            };
+            const mscr = $("#c12r-mscr");
+            const mmod = $("#c12r-mmod");
+            const mdim = $("#c12r-mdim");
+            const mrowEl = $("#c12r-mrow");
+            const mnw = $("#c12r-mnw");
+            const mnr = $("#c12r-mnr");
+            const mtab = $("#c12r-mtab");
+            const msc = $("#c12r-msc");
+            const HR = PP2["c12r-mrow"].h;
+            const HN = PP2["c12r-mnw"].h;
+            const dpill = $("#c12r-dpill");
+            const v2l = $("#c12r-v2l");
+            const bar2 = (t) => {
+              tl.fromTo(v2l, { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.5, ease: "power1.inOut" }, t);
+              tl.to(v2l, { opacity: 0, duration: 0.2 }, t + 0.55);
+            };
+
+            tl.fromTo(cam2, { xPercent: 22, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 0.8, ease: "power4.out" }, cc(0));
+            tl.fromTo(dpill, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, cc(0.4));
+            const ntf = $("#c12r-ntf");
+            tl.fromTo(ntf, { opacity: 0, y: -110 }, { opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.4)" }, C0 + 0.9);
+            tip2("A solicitação chega à Vigilância", 201, 140, "down", C0 + 1.5, 1.6);
+            k2.tap(201, 100, C0 + 3.0, "#c12r-ntf");
+            tl.to(ntf, { opacity: 0, y: -110, duration: 0.4, ease: "power2.in" }, C0 + 3.15);
+            camTo2(cc(0.9), 0.8, { scale: 1.04, y: 20 });
+            tl.to(msc, { y: -120, duration: 0.9, ease: "power2.inOut" }, cc(1.6));
+            const lA = C2("c12r-mlA");
+            k2.tap(lA.p.x + 70, lA.y - 120, cc(3.1), null);
+            hl2($("#c12r-mlA .c12r-mlh"), cc(3.1));
+            bar2(cc(3.2));
+            pageOut($("#c12r-mH"), cc(3.3));
+            pageIn($("#c12r-mL"), cc(3.65));
+
+            const ab = C2("c12r-mAb");
+            k2.tap(ab.x, ab.y, cc(5.0), "#c12r-mAb");
+            tl.fromTo(mscr, { opacity: 0 }, { opacity: 1, duration: 0.35 }, cc(5.15));
+            tl.fromTo(mmod, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, cc(5.2));
+            tl.fromTo(mrowEl, { height: 0 }, { height: HR, duration: 0.4, ease: E }, cc(12.4));
+            tl.fromTo(mrowEl.querySelector(".c12r-mrowi"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, cc(12.45));
+            tl.to(dpill, { opacity: 0, y: -12, duration: 0.3 }, cc(5.1));
+            camF(cc(5.5), 214, 1.12);
+            const mp = PP2["c12r-mmod"];
+            tip2("A Vigilância cria seus números", mp.x + mp.w / 2, mp.y + 10, "up", cc(6.0), 1.5);
+
+            const s1 = C2("c12r-msel1");
+            k2.tap(s1.x, s1.y, cc(7.6), "#c12r-msel1");
+            const mdd1 = $("#c12r-mdd1");
+            showDd(mdd1, cc(7.65));
+            const o1 = C2("c12r-mop1b");
+            k2.tap(o1.x, o1.y, cc(8.5), null);
+            hl2($("#c12r-mop1b .c12r-mpr"), cc(8.5));
+            hideDd(mdd1, cc(8.55));
+            swapSel($("#c12r-msv1a"), $("#c12r-msv1b"), cc(8.55));
+            tl.to($("#c12r-mvA"), { opacity: 0, duration: 0.2 }, cc(8.6));
+            tl.to($("#c12r-mvB"), { opacity: 1, duration: 0.25 }, cc(8.65));
+            swapSel($("#c12r-msv2a"), $("#c12r-msv2b"), cc(8.65));
+
+            const rP = C2("c12r-mrP");
+            camF(cc(8.8), rP.y, 1.12);
+            k2.tap(rP.p.x + 10, rP.y, cc(9.6), null);
+            tl.fromTo($("#c12r-mrPb"), { scale: 0.5 }, { scale: 1, duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, cc(9.63));
+
+            const minp = $("#c12r-minp");
+            const iC = C2("c12r-minp");
+            camF(cc(9.9), iC.y, 1.14);
+            k2.tap(iC.x - 60, iC.y, cc(10.7), null);
+            focusF(minp, cc(10.7));
+            typeTo(minp, "Camila", cc(10.85), 0.6);
+            const msug = $("#c12r-msug");
+            showDd(msug, cc(11.5));
+            const gC = C2("c12r-msug");
+            k2.tap(gC.x, gC.y, cc(12.3), null);
+            hl2($("#c12r-msugp"), cc(12.3));
+            hideDd(msug, cc(12.35));
+            tl.set(minp.querySelector(".c12r-tw"), { opacity: 0 }, cc(12.35));
+            tl.set(minp.querySelector(".c12r-ph"), { opacity: 1 }, cc(12.35));
+            unfocusF(minp, cc(12.35));
+
+            const rE = C2("c12r-mrE");
+            camF(cc(12.9), rE.y, 1.14);
+            k2.tap(rE.p.x + 10, rE.y, cc(13.7), null);
+            tl.to($("#c12r-mrFb"), { opacity: 0, duration: 0.15 }, cc(13.7));
+            tl.fromTo($("#c12r-mrEb"), { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, cc(13.73));
+            tip2("Eletrônica: só receita digital", rE.p.x + 40, rE.p.y - 4, "up", cc(13.85), 1.5);
+
+            const mqty = $("#c12r-mqty");
+            const qC = C2("c12r-mqty");
+            camF(cc(14.9), qC.y, 1.14);
+            k2.tap(qC.x, qC.y, cc(15.5), null);
+            focusF(mqty, cc(15.5));
+            typeTo(mqty, "20", cc(15.65), 0.3);
+            unfocusF(mqty, cc(17.1));
+            tip2("20 números no seu CRM", qC.x, qC.p.y + qC.p.h + 6, "down", cc(15.95), 1.4);
+
+            const s2 = C2("c12r-msel2");
+            camF(cc(17.0), s2.y, 1.1);
+            k2.tap(s2.x, s2.y, cc(17.7), "#c12r-msel2");
+            const mdd2 = $("#c12r-mdd2");
+            showDd(mdd2, cc(17.75));
+            const o2 = C2("c12r-mop2a");
+            k2.tap(o2.x, o2.y, cc(18.7), null);
+            hl2($("#c12r-mop2a .c12r-mpr"), cc(18.7));
+            hideDd(mdd2, cc(18.75));
+            swapSel($("#c12r-msv2b"), $("#c12r-msv2c"), cc(18.75));
+
+            const kC = C2("c12r-mok");
+            camF(cc(19.2), kC.y, 1.1);
+            k2.tap(kC.x, kC.y, cc(20.0), "#c12r-mok");
+            tl.to(mmod, { opacity: 0, y: 50, duration: 0.4, ease: "power2.in" }, cc(20.2));
+            tl.to(mscr, { opacity: 0, duration: 0.35 }, cc(20.3));
+            camTo2(cc(20.2), 0.7, { scale: 1.04, y: 20 });
+            bar2(cc(20.3));
+            tl.fromTo(mnw, { height: 0 }, { height: HN, duration: 0.5, ease: E }, cc(20.8));
+            tl.fromTo(mnr, { backgroundColor: "#D8F0D6" }, { backgroundColor: "#FFFFFF", duration: 1.4, ease: "power1.out" }, cc(20.9));
+            const mcn = $$(".c12r-mcnt > span");
+            tl.to(mcn[0], { opacity: 0, duration: 0.15 }, cc(21.0));
+            tl.to(mcn[1], { opacity: 1, duration: 0.2 }, cc(21.0));
+            tl.to(mtab, { x: -500, duration: 0.9, ease: "power2.inOut" }, cc(21.9));
+
+            const rp = PP2["c12r-mnr"];
+            const mlf = k2.make("lifted", { left: rp.x + "px", top: rp.y + "px", width: "386px", height: rp.h + "px", background: "#fff", borderRadius: "0px", overflow: "hidden", boxShadow: "0 14px 34px rgba(30,77,183,0.4)" });
+            const mcl = mnr.cloneNode(true);
+            mcl.removeAttribute("id");
+            mcl.style.cssText = `position:absolute;left:0;top:0;width:${rp.w}px;height:${rp.h}px;border-bottom:0;background:#fff;transform:translateX(-500px);`;
+            mlf.appendChild(mcl);
+            tl.fromTo(mdim, { opacity: 0 }, { opacity: 1, duration: 0.4 }, cc(22.9));
+            tl.set(mlf, { opacity: 1 }, cc(23.0));
+            tl.fromTo(mlf, { scale: 1, y: 0 }, { scale: 1.04, y: -4, duration: 0.5, ease: E, immediateRender: false }, cc(23.0));
+            tip2("Pronto: vinculados a você", 201, rp.y + rp.h + 6, "down", cc(23.35), 2.0);
+            tl.to(mlf, { scale: 1, y: 0, duration: 0.4, ease: "power3.inOut" }, cc(25.2));
+            tl.to(mdim, { opacity: 0, duration: 0.4 }, cc(25.2));
+            tl.set(mlf, { opacity: 0 }, cc(25.65));
+                        tl.to(cam2, { xPercent: -24, duration: 0.42, ease: "power4.in" }, cc(26.0));
+            tl.set(cam2, { opacity: 0 }, cc(26.45));
+
+            tl.set(bro, { y: 874 }, tAx + 0.5);
+
+            tl.set(cam, { opacity: 1 }, B.back - 0.8);
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out", immediateRender: false }, B.back - 0.8);
+
+            const Z = B.back;
+            camTo(Z + 0.1, 0.7, { scale: 1.05, y: 30 });
+            const swOn = (id, t) => {
+              const sw = $("#" + id);
+              tl.fromTo(sw.querySelector("b"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, t);
+              tl.fromTo(sw.querySelector("i"), { x: 0 }, { x: 18, duration: 0.25, ease: E }, t);
+            };
+            press("c12r-swN", Z + 0.6);
+            swOn("c12r-swN", Z + 0.62);
+            const nin = $("#c12r-nin");
+            const nvs = $$("#c12r-nvs > span");
+            const ninc = C("c12r-nin");
+            const NB = Z + 1.6;
+            tap(ninc.x, ninc.y, NB, "#c12r-nin");
+            focusF(nin, NB);
+            const st = [[0, NB], [1, NB + 0.3], [3, NB + 0.65], [4, NB + 0.95], [5, NB + 1.15], [6, NB + 1.5]];
+            st.forEach(([i, t], j) => {
+              if (j === 0) return;
+              tl.set(nvs[st[j - 1][0]], { opacity: 0 }, t);
+              tl.set(nvs[i], { opacity: 1 }, t);
+            });
+            unfocusF(nin, NB + 1.5);
+            const ninFix = (c) => {
+              c.querySelectorAll(".c12r-nvs > span").forEach((s, i, a) => { s.style.opacity = i === a.length - 1 ? 1 : 0; });
+            };
+            const ninO = { t: Z + 3.3, hold: 1.3, sc: 1.55, pad: 6, r: 14, fix: ninFix };
+            lift("c12r-nin", ninO);
+            tipAt("c12r-nin", ninO, "De 10 a 50 por pedido", Z + 3.55, 0.95);
+            press("c12r-swR", Z + 5.2);
+            swOn("c12r-swR", Z + 5.22);
+            const rwFix = (c) => {
+              c.querySelector(".c12r-sw b").style.opacity = 1;
+              c.querySelector(".c12r-sw i").style.transform = "translate(18px, 0px)";
+            };
+            const rwO = { t: Z + 5.7, hold: 1.3, sc: 1.08, pad: 6, r: 14, fix: rwFix };
+            lift("c12r-rowR", rwO);
+            tipAt("c12r-rowR", rwO, "RCE: o SNCR gera na hora", Z + 5.95, 0.95);
+            camTo(Z + 7.0, 0.5, { scale: 1, y: 0 });
+            const bac = C("c12r-bauth");
+            tap(bac.x, bac.y, Z + 7.55, "#c12r-bauth");
+
+            const W = B.web;
+            tl.fromTo(web, { y: 874 }, { y: 0, duration: 0.6, ease: "power3.out" }, W);
+            camTo(W + 0.9, 1.0, { scale: 1.05, y: 30 });
+            const wb = $("#c12r-wb");
+            const bar = (t) => {
+              tl.fromTo(wb, { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.5, ease: "power1.inOut" }, t);
+              tl.to(wb, { opacity: 0, duration: 0.2 }, t + 0.55);
+            };
+            bar(W + 0.55);
+            pageIn(wgp(1), W + 0.95);
+            const wf1 = $("#c12r-wf1");
+            const wf1c = C("c12r-wf1");
+            tap(wf1c.x, wf1c.y, W + 1.6, null);
+            focusF(wf1, W + 1.6);
+            typeTo(wf1, "123.456.789-09", W + 1.73, 0.55);
+            unfocusF(wf1, W + 2.85);
+            press("c12r-wb1", W + 2.8);
+            bar(W + 2.9);
+            pageOut(wgp(1), W + 2.95);
+            pageIn(wgp(2), W + 3.25);
+            const wf2 = $("#c12r-wf2");
+            const wf2c = C("c12r-wf2");
+            tap(wf2c.x, wf2c.y, W + 3.8, null);
+            focusF(wf2, W + 3.8);
+            typeTo(wf2, "••••••••", W + 3.93, 0.45);
+            unfocusF(wf2, W + 4.95);
+            press("c12r-wb2", W + 4.9);
+            tl.set($("#c12r-wsp"), { opacity: 1 }, W + 5.0);
+            spin($("#c12r-wsp"), W + 5.0, 0.6);
+            bar(W + 5.5);
+            pageOut(wgp(2), W + 5.6);
+            pageIn(wgp(3), W + 5.9);
+            const wbO = { t: W + 6.2, hold: 1.2, sc: 1.06, pad: 6, r: 26 };
+            lift("c12r-wb3", wbO);
+            tipAt("c12r-wb3", wbO, "Autorize a Viva Mais", W + 6.45, 0.95);
+            press("c12r-wb3", W + 8.0);
+
+            const H0 = B.hero;
+            const S10 = 0.74;
+            const Y10 = 251;
+            const toFrame = (sx, sy) => ({ x: 173 + 366.5 + S10 * ((12 + sx) * 1.72 - 366.5), y: 318 + 772.5 + Y10 + S10 * ((12 + sy) * 1.72 - 772.5) });
+            tl.to(web, { y: 874, duration: 0.5, ease: "power3.inOut" }, H0);
+            tl.fromTo(ld, { opacity: 0 }, { opacity: 1, duration: 0.3 }, H0 + 0.1);
+            tl.fromTo(ldc, { scale: 0.9 }, { scale: 1, duration: 0.5, ease: "back.out(1.6)" }, H0 + 0.1);
+            spin($("#c12r-ldsp"), H0 + 0.1, 4.7);
+            camTo(H0 + 0.3, 1.0, { scale: S10, y: Y10 });
+            const ldts = Array.from(ldc.querySelectorAll(".c12r-ldt span"));
+            const swapT = (i, t) => {
+              tl.to(ldts[i - 1], { opacity: 0, y: -8, duration: 0.2 }, t);
+              tl.fromTo(ldts[i], { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, t + 0.05);
+            };
+            swapT(1, H0 + 1.9);
+            tl.fromTo($("#c12r-ldrs"), { height: 0, opacity: 0 }, { height: ldrsH, opacity: 1, duration: 0.4, ease: E }, H0 + 1.95);
+
+            const sp2 = $("#c12r-sp2");
+            tl.fromTo(sp2, { y: -520, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, H0 + 0.9);
+            const sidPos = fpos($("#c12r-sid"), srv);
+            ftip("Puxando seus números", 760, sidPos.y + sidPos.h / 2, "up", H0 + 1.9, 2.7, sidPos.y + sidPos.h / 2 - 176);
+
+            const fmt = (n) => (n >= 1000 ? Math.floor(n / 1000) + "." + String(n % 1000).padStart(3, "0") : String(n));
+            const cellsN = $$("#c12r-gN .c12r-gcl");
+            const cellsR = $$("#c12r-gR .c12r-gcl");
+            const sgw = $("#c12r-sgw");
+            tl.fromTo(sgw, { opacity: 0 }, { opacity: 1, duration: 0.4 }, H0 + 2.0);
+            tl.to(sgw, { opacity: 0, duration: 0.6 }, H0 + 4.4);
+            tl.fromTo($("#c12r-sau"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, H0 + 1.5);
+            const cbR = $("#c12r-cbR");
+            const cR = { n: 0 };
+            cellsN.forEach((cell, i) => tl.fromTo(cell.firstChild, { opacity: 0, y: -14, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.25, ease: "back.out(1.8)" }, H0 + 1.7 + i * 0.07));
+            tl.fromTo($("#c12r-rgN"), { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.4, ease: E }, H0 + 2.2);
+            tl.fromTo($("#c12r-mN"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, H0 + 2.2);
+            tl.fromTo(cR, { n: 0 }, { n: 1000, duration: 1.7, ease: "none", onUpdate() { cbR.textContent = fmt(Math.round(cR.n)); } }, H0 + 1.8);
+            cellsR.forEach((cell, i) => tl.fromTo(cell.firstChild, { opacity: 0, y: -14, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.25, ease: "back.out(1.8)" }, H0 + 1.9 + i * 0.1));
+            tl.fromTo($("#c12r-rgR"), { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.4, ease: E }, H0 + 2.4);
+            const tFly = H0 + 2.6;
+            const tgt = toFrame(201, PP["c12r-ldc"].y + PP["c12r-ldc"].h / 2);
+            const order = [];
+            for (let i = 0; i < 6; i++) order.push([cellsN[i], numN(i), "N", i], [cellsR[i], numR(i), "R", i]);
+            const tN = { v: 0 };
+            const tR = { v: 0 };
+            const valsN = [3, 7, 10, 13, 17, 20];
+            const valsR = [167, 333, 500, 667, 833, 1000];
+            const lvN = $("#c12r-lvN");
+            const lvR = $("#c12r-lvR");
+            const lbN = $("#c12r-lbN");
+            const lbR = $("#c12r-lbR");
+            order.forEach(([cell, txt, kind, i], j) => {
+              const fp = fpos(cell, srv);
+              const t0 = tFly + j * 0.11;
+              const mk = (cls) => {
+                const d = document.createElement("div");
+                d.className = cls;
+                d.textContent = cls.includes("c12r-fg") ? "" : txt;
+                d.style.left = fp.x + "px";
+                d.style.top = fp.y + "px";
+                d.style.width = fp.w + "px";
+                d.setAttribute("data-layout-allow-overlap", "");
+                d.setAttribute("data-layout-allow-occlusion", "");
+                srv.appendChild(d);
+                return d;
+              };
+              const fly = (d, at, ghost) => {
+                const ddx = tgt.x - (fp.x + fp.w / 2);
+                const ddy = tgt.y - (fp.y + fp.h / 2);
+                tl.fromTo(d, { x: 0, y: 0, scale: 1, rotation: 0 }, { x: ddx, duration: 0.9, ease: "power3.out" }, at);
+                tl.to(d, { y: ddy, duration: 0.9, ease: "power2.in" }, at);
+                tl.to(d, { scale: 0.32, rotation: kind === "N" ? 14 : -14, duration: 0.9, ease: "power2.in" }, at);
+                if (!ghost) tl.to(d, { backgroundColor: "#7E3BED", borderColor: "#7E3BED", color: "#FFFFFF", boxShadow: "0 0 36px 8px rgba(126,59,237,0.55)", duration: 0.45, ease: "power1.in" }, at + 0.15);
+              };
+              const main = mk("c12r-fc");
+              tl.set(main, { opacity: 1 }, t0);
+              tl.set(cell.firstChild, { opacity: 0 }, t0);
+              fly(main, t0, false);
+              tl.to(main, { opacity: 0, duration: 0.14 }, t0 + 0.78);
+              [1, 2].forEach((g) => {
+                const gh = mk("c12r-fc c12r-fg");
+                gh.style.background = "rgba(126,59,237,0.35)";
+                gh.style.borderColor = "rgba(126,59,237,0.5)";
+                tl.set(gh, { opacity: 0.38 - g * 0.12 }, t0 + g * 0.05);
+                fly(gh, t0 + g * 0.05, true);
+                tl.set(gh, { opacity: 0 }, t0 + g * 0.05 + 0.85);
+              });
+              const ring = document.createElement("div");
+              ring.className = "c12r-rn";
+              ring.style.left = tgt.x + "px";
+              ring.style.top = tgt.y + "px";
+              ring.setAttribute("data-layout-allow-overlap", "");
+              srv.appendChild(ring);
+              const land = t0 + 0.86;
+              tl.fromTo(ring, { scale: 0.3, opacity: 0.9 }, { scale: 1.5, opacity: 0, duration: 0.5, ease: "power2.out", immediateRender: false }, land);
+              tl.fromTo(ldc, { scale: 1 }, { scale: 1.035, duration: 0.07, yoyo: true, repeat: 1, ease: "power1.out", immediateRender: false }, land);
+              if (kind === "N") {
+                const from = i === 0 ? 0 : valsN[i - 1];
+                tl.fromTo(tN, { v: from }, { v: valsN[i], duration: 0.2, ease: "none", immediateRender: false, onUpdate() { const v = Math.round(tN.v); lvN.textContent = v + "/20"; gsap.set(lbN, { scaleX: v / 20 }); } }, land);
+              } else {
+                const from = i === 0 ? 0 : valsR[i - 1];
+                tl.fromTo(tR, { v: from }, { v: valsR[i], duration: 0.2, ease: "none", immediateRender: false, onUpdate() { const v = Math.round(tR.v); lvR.textContent = fmt(v) + "/1.000"; gsap.set(lbR, { scaleX: v / 1000 }); } }, land);
+              }
+            });
+            const tDone = tFly + 11 * 0.11 + 0.95;
+            tl.to($("#c12r-ldsp"), { opacity: 0, scale: 0.6, duration: 0.2 }, tDone);
+            tl.fromTo($("#c12r-ldck"), { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, tDone);
+            swapT(2, tDone);
+
+            const HE = H0 + 5.0;
+            tl.to(sp2, { y: -34, scale: 0.96, opacity: 0, duration: 0.5, ease: "power2.in" }, HE);
+            camTo(HE, 0.85, { scale: 1, y: 0 });
+
+            const DN = B.done;
+            tl.to(ld, { opacity: 0, duration: 0.3 }, DN);
+            tl.to(shS, { y: 700, duration: 0.55, ease: "power3.inOut" }, DN);
+            tl.to(scr2, { opacity: 0, duration: 0.5 }, DN);
+            tl.fromTo(toast, { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, DN + 0.55);
+            tl.to(toast, { y: -80, opacity: 0, duration: 0.35, ease: "power2.in" }, DN + 3.0);
+            showTip(tip("Pronto: números na Viva Mais", 201, 62 + 48 + 8, "down"), DN + 1.15, 1.7);
+            camTo(DN + 0.9, 0.6, { scale: 1.04, y: 20 });
+            tl.to(bnw, { height: 0, duration: 0.6, ease: E }, DN + 1.4);
+            tl.to(bn, { opacity: 0, y: -20, duration: 0.4 }, DN + 1.4);
+            const CH = DN + 2.6;
+            camTo(CH - 0.2, 0.7, { scale: 1.07, y: 25 });
+            [0, 1].forEach((i) => {
+              tl.to(gis[i], { height: HsX[i], duration: 0.5, ease: E }, CH);
+              tl.to(sns[i], { height: 40, opacity: 1, duration: 0.5, ease: E }, CH);
+            });
+            const yCh = SX[1];
+            tl.to(lst, { y: yCh, duration: 0.8, ease: "power2.inOut" }, CH);
+            const sniO = { t: CH + 1.1, hold: 1.7, sc: 1.5, pad: 6, r: 10, dy: yCh };
+            lift("c12r-sni2", sniO);
+            tipAt("c12r-sni2", sniO, "Disponível: veio do SNCR", CH + 1.4, 1.3, "up");
+            const sbc = C("c12r-sbt");
+            const sbt = $("#c12r-sbt");
+            const SVT = DN + 5.9;
+            tap(sbc.x, sbc.y, SVT, sbt);
+            tl.set(sbt.querySelector(".c12r-l1"), { opacity: 0 }, SVT + 0.1);
+            tl.set(sbt.querySelector(".c12r-l2"), { opacity: 1 }, SVT + 0.1);
+            tl.set($("#c12r-spn"), { opacity: 1 }, SVT + 0.1);
+            spin($("#c12r-spn"), SVT + 0.1, 0.8);
+            const FLIP = DN + 7.0;
+            [1, 2].forEach((n) => {
+              const row = $("#c12r-sni" + n);
+              tl.to($("#c12r-sni" + n + " .c12r-sna"), { opacity: 0, scale: 0.8, duration: 0.2 }, FLIP);
+              tl.fromTo($("#c12r-sni" + n + " .c12r-snr"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, FLIP + 0.08);
+              tl.to(row, { backgroundColor: "#EBE1FD", duration: 0.4 }, FLIP);
+              tl.fromTo(row, { boxShadow: "0 0 0 0 rgba(126,59,237,0.45)" }, { boxShadow: "0 0 0 12px rgba(126,59,237,0)", duration: 0.9, ease: "power2.out", immediateRender: false }, FLIP + 0.1);
+            });
+            camTo(FLIP - 0.2, 0.6, { scale: 1.1, y: 40 });
+            const chipTop = PP["c12r-sni2"].y + yCh;
+            const rtip = tip("Reservado para esta receita", 201, chipTop, "up");
+            const rtb = rtip.t.firstChild;
+            rtb.innerHTML = "Reservado para esta receita;<br>vira Utilizado ao assinar";
+            rtip.t.style.top = parseFloat(rtip.t.style.top) - 22 + "px";
+            showTip(rtip, FLIP + 0.3, 2.6);
+            const CL = DN + 10.0;
+            tl.to(shP, { y: 874, duration: 0.6, ease: "power3.inOut" }, CL);
+            tl.to(scr1, { opacity: 0, duration: 0.5 }, CL);
+            tl.to(hub, { scale: 1, y: 0, duration: 0.6, ease: E }, CL);
+            const FL = CL + 0.8;
+            const rcRow = $("#c12r-rRc");
+            tl.fromTo(rcRow.querySelector(".c12r-fl"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, FL);
+            tl.to(rcRow.querySelector(".c12r-fl"), { opacity: 0, duration: 0.7 }, FL + 0.3);
+            tl.to(rcRow.querySelector(".c12r-v:not(.c12r-alt)"), { opacity: 0, duration: 0.2 }, FL);
+            tl.fromTo(rcRow.querySelector(".c12r-alt"), { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, FL + 0.05);
+            tl.to(rcRow.querySelector(".c12r-vs"), { y: -9, duration: 0.3, ease: E }, FL);
+            tl.to(rcRow.querySelector(".c12r-lb"), { y: -9, duration: 0.3, ease: E }, FL);
+            tl.fromTo(rcRow.querySelector(".c12r-dt"), { opacity: 0, y: 4 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, FL + 0.1);
+
+            const rrp = PP["c12r-rRc"];
+            const badge = make("lifted c12r-bdg", { left: rrp.x + "px", top: rrp.y + rrp.h + "px", width: rrp.w + "px", height: rrp.h + "px" }, '<div class="c12r-bdi"><div class="c12r-bic"><svg class="c12r-ic"><use href="#c12r-i-hash" /></svg></div>N.º 2610.2-35.0004821<em>Reservado</em></div>');
+            const BG = FL + 0.7;
+            camTo(BG - 0.1, 0.6, { scale: 1.06, y: 30 });
+            tl.fromTo(badge, { opacity: 0, y: -18, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.7)" }, BG);
+            tl.to(badge, { scale: 1.08, duration: 0.5, ease: E }, BG + 0.6);
+            tl.fromTo(badge, { boxShadow: "0 0 0 0 rgba(126,59,237,0.45)" }, { boxShadow: "0 0 0 16px rgba(126,59,237,0)", duration: 0.9, ease: "power2.out" }, BG + 0.5);
+            const bgy = rrp.y + rrp.h * 2 + 4;
+            showTip(tip("Um número reservado por receita", 201, bgy, "down"), BG + 0.5, 2.3);
+
+            tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, D - 0.5);
+            tl.set(cam, { opacity: 0 }, D - 0.06);
+
+            $$("*").forEach((n) => {
+              n.setAttribute("data-layout-allow-overlap", "");
+              n.setAttribute("data-layout-allow-occlusion", "");
+            });
+
+            tl.to({}, { duration: 0.001 }, D - 0.001);
+            window.__timelines["ch12-receita-anvisa"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>
+

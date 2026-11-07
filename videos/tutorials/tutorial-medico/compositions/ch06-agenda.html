@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch06 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch06 svg { stroke: currentColor; }
+        #ch06 .scr.a6-gr { background: #F3F4FA; }
+        #ch06 .pf-ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+        #ch06 .pf { background: var(--vm-panel); }
+        #ch06 .pf-scroll { position: absolute; left: 0; top: 0; width: 402px; height: 1640px; }
+        #ch06 .pf-title { position: absolute; left: 20px; top: 102px; height: 52px; padding-top: 4px; font-weight: 700; font-size: 34px; line-height: 42px; letter-spacing: -0.6px; color: var(--vm-ink-900); }
+        #ch06 .pf-bar { position: absolute; left: 0; top: 0; width: 402px; height: 98px; background: var(--vm-panel); z-index: 20; opacity: 0; }
+        #ch06 .pf-bar span { position: absolute; left: 0; right: 0; top: 54px; height: 44px; line-height: 44px; text-align: center; font-weight: 500; font-size: 17px; color: var(--vm-ink-900); }
+        #ch06 .pf-bar i { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch06 .pf-acc { position: absolute; left: 0; top: 156px; width: 402px; text-align: center; }
+        #ch06 .pf-avatar { position: relative; width: 92px; height: 92px; margin: 0 auto; }
+        #ch06 .pf-avatar img { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; display: block; }
+        #ch06 .pf-cam-badge { position: absolute; right: -2px; bottom: -2px; width: 30px; height: 30px; border-radius: 50%; background: var(--vm-violet-600); border: 3px solid var(--vm-panel); display: flex; align-items: center; justify-content: center; color: #fff; }
+        #ch06 .pf-cam-badge .pf-ic { width: 14px; height: 14px; stroke-width: 2.4; }
+        #ch06 .pf-nm { margin-top: 12px; padding-left: 20px; display: flex; align-items: center; justify-content: center; gap: 2px; font-weight: 700; font-size: 24px; letter-spacing: -0.4px; color: var(--vm-ink-900); }
+        #ch06 .pf-nm .pf-ic { width: 18px; height: 18px; color: var(--vm-ink-300); stroke-width: 2.2; }
+        #ch06 .pf-em { margin-top: 2px; font-size: 14.5px; color: var(--vm-ink-500); }
+        #ch06 .pf-hero { position: absolute; left: 20px; right: 20px; top: 334px; }
+        #ch06 .pf-hf { position: relative; border-radius: 20px; background: #fff; padding: 16px; overflow: hidden; }
+        #ch06 .pf-eb { font-weight: 500; font-size: 11.5px; letter-spacing: 0.9px; text-transform: uppercase; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch06 .pf-rb { display: flex; align-items: center; justify-content: space-between; height: 18px; }
+        #ch06 .pf-pillbox { position: relative; width: 100px; height: 18px; }
+        #ch06 .pf-pl { position: absolute; right: 0; top: 0; height: 18px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 13px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch06 .pf-pl i { display: block; width: 7px; height: 7px; border-radius: 50%; }
+        #ch06 .pf-pl-a i { background: #F59E0B; }
+        #ch06 .pf-pl-b i { background: #22C55E; }
+        #ch06 .pf-pl-b, #ch06 .pf-bd-b { opacity: 0; }
+        #ch06 .pf-bdbox { position: relative; height: 60px; margin-top: 10px; }
+        #ch06 .pf-bd { position: absolute; left: 0; right: 0; top: 0; font-size: 14.5px; line-height: 20px; color: var(--vm-ink-600); }
+        #ch06 .pf-hrow { display: flex; gap: 12px; margin-top: 12px; }
+        #ch06 .pf-hh { flex: 1; min-height: 132px; display: flex; flex-direction: column; }
+        #ch06 .pf-hh .pf-rb { height: 18px; }
+        #ch06 .pf-hh .pf-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--vm-ink-400); }
+        #ch06 .pf-ht { margin-top: 10px; font-weight: 700; font-size: 19px; line-height: 24px; letter-spacing: -0.3px; color: var(--vm-ink-900); }
+        #ch06 .pf-hs { margin-top: 2px; font-size: 13px; line-height: 17px; color: var(--vm-ink-500); }
+        #ch06 .pf-hfoot { margin-top: auto; padding-top: 10px; display: flex; align-items: center; gap: 2px; font-weight: 500; font-size: 13px; line-height: 17px; color: var(--vm-violet-600); }
+        #ch06 .pf-hfoot .pf-ic { width: 14px; height: 14px; stroke-width: 2.4; }
+        #ch06 .pf-groups { position: absolute; left: 0; right: 0; top: 618px; }
+        #ch06 .pf-grp { margin: 0 20px 24px; }
+        #ch06 .pf-gt { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--vm-ink-600); }
+        #ch06 .pf-gf { margin: 8px 4px 0; font-size: 13px; line-height: 18px; color: var(--vm-ink-600); }
+        #ch06 .pf-gc { border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch06 .pf-ir { position: relative; display: flex; align-items: center; gap: 14px; min-height: 56px; padding: 10px 14px 10px 16px; }
+        #ch06 .pf-ir + .pf-ir::before { content: ""; position: absolute; left: 66px; right: 0; top: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch06 .pf-it { width: 36px; height: 36px; flex: none; border-radius: 11px; background: var(--vm-violet-100); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch06 .pf-it .pf-ic { width: 19px; height: 19px; stroke-width: 1.9; }
+        #ch06 .pf-it.pf-red { background: #FDECEC; color: #DC2626; }
+        #ch06 .pf-ib { flex: 1; font-weight: 500; font-size: 16px; line-height: 21px; color: var(--vm-ink-900); white-space: nowrap; }
+        #ch06 .pf-ib.pf-red { color: #DC2626; }
+        #ch06 .pf-iv { font-size: 15px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch06 .pf-iv.pf-acc-v { color: var(--vm-violet-600); }
+        #ch06 .pf-ir > .pf-ic { width: 18px; height: 18px; flex: none; color: var(--vm-ink-400); }
+        #ch06 .pf-sw { position: relative; width: 46px; height: 28px; flex: none; border-radius: 14px; background: #22C55E; }
+        #ch06 .pf-sw.pf-off { background: var(--vm-ink-200); }
+        #ch06 .pf-sw::after { content: ""; position: absolute; top: 2px; left: 20px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(23, 21, 30, 0.25); }
+        #ch06 .pf-sw.pf-off::after { left: 2px; }
+        #ch06 .pf-ver { margin-top: -8px; text-align: center; font-size: 12px; color: var(--vm-ink-500); }
+        #ch06 .pf-sk { position: absolute; left: 0; top: 156px; width: 402px; height: 718px; background: var(--vm-panel); z-index: 10; }
+        #ch06 .pf-sk i { position: absolute; display: block; background: var(--vm-ink-100); }
+        #ch06 .pf-tabbar { position: absolute; left: 16px; right: 16px; bottom: 34px; height: 72px; z-index: 21; }
+        #ch06 .pf-tb-bar { position: absolute; left: 0; top: 0; width: 302px; height: 72px; border-radius: 999px; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: space-evenly; padding: 0 8px; }
+        #ch06 .pf-tb-item { flex: 1; display: flex; justify-content: center; }
+        #ch06 .pf-tb-ind { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 12px; border-radius: 999px; color: var(--vm-ink-600); }
+        #ch06 .pf-tb-ind.pf-on { background: var(--vm-violet-100); color: var(--vm-violet-600); }
+        #ch06 .pf-tb-ind span { font-weight: 500; font-size: 9px; line-height: 12px; }
+        #ch06 .pf-tb-plus { position: absolute; right: 0; top: 8px; width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: center; color: var(--vm-violet-600); }
+        #ch06 .pf-tb-plus .pf-ic { width: 22px; height: 22px; stroke-width: 2.25; }
+        #ch06 .pf-home { position: absolute; left: 134px; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: var(--vm-ink-900); z-index: 25; }
+        #ch06 .pf-stk { display: inline-grid; justify-items: start; }
+        #ch06 .pf-stk > * { grid-area: 1 / 1; }
+        #ch06 .pf-stk > .pf-alt { opacity: 0; }
+        #ch06 .pf-stk.pf-e { justify-items: end; }
+        #ch06 .pf-stk.pf-blk { display: grid; }
+        #ch06 .pf-hfoot .pf-stk > span { display: flex; align-items: center; gap: 2px; }
+        #ch06 .pf-hfoot .pf-stk > .pf-alt, #ch06 .pf-hfoot.pf-q { color: var(--vm-ink-500); }
+        #ch06 .pf-iv .pf-acc-v, #ch06 .pf-iv.pf-acc-v { color: var(--vm-violet-600); }
+        #ch06 .pf-press { position: absolute; inset: 0; background: rgba(85, 82, 95, 0.12); opacity: 0; pointer-events: none; }
+        #ch06 .pf-ring { position: absolute; inset: 0; border-radius: 20px; border: 3px solid #22C55E; opacity: 0; pointer-events: none; }
+        #ch06 .pf-hh .pf-dot { position: relative; }
+        #ch06 .pf-shine { position: absolute; top: 0; bottom: 0; left: 0; width: 160px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.7), rgba(255,255,255,0)); transform: translateX(-200px); }
+        #ch06 .pf-sk { overflow: hidden; }
+        #ch06 .a6-ct { position: absolute; left: 0; right: 0; top: 118px; }
+        #ch06 .a6-hid { opacity: 0; }
+        #ch06 .a6-stk { display: inline-grid; justify-items: end; }
+        #ch06 .a6-stk.l { justify-items: start; }
+        #ch06 .a6-stk.c { justify-items: center; }
+        #ch06 .a6-stk.g { display: grid; }
+        #ch06 .a6-stk > * { grid-area: 1 / 1; }
+        #ch06 .a6-hd { position: absolute; left: 0; right: 0; top: 0; height: 98px; background: #F3F4FA; z-index: 10; }
+        #ch06 .a6-bk { position: absolute; left: 10px; top: 54px; height: 44px; display: flex; align-items: center; color: #6A24DB; font-size: 17px; }
+        #ch06 .a6-bki { width: 26px; height: 26px; stroke-width: 2.2; }
+        #ch06 .a6-bk span { margin-left: -2px; }
+        #ch06 .a6-tt { position: absolute; left: 90px; right: 90px; top: 54px; line-height: 44px; text-align: center; font-weight: 500; font-size: 17px; color: var(--vm-ink-900); white-space: nowrap; }
+        #ch06 .a6-hd.nav .a6-tt { font-weight: 700; font-size: 16px; }
+        #ch06 .a6-grp { position: relative; margin: 0 20px 24px; }
+        #ch06 .a6-gt { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; line-height: 14px; letter-spacing: 1.8px; text-transform: uppercase; color: #6B6878; }
+        #ch06 .a6-card { position: relative; background: #fff; border-radius: 20px; overflow: hidden; }
+        #ch06 .a6-ft { margin: 8px 4px 0; font-size: 13px; line-height: 18px; color: #6B6878; }
+        #ch06 .a6-hl { height: 1px; background: #E6E4EC; }
+        #ch06 .a6-r { position: relative; display: flex; align-items: center; min-height: 56px; padding: 10px 14px 10px 16px; gap: 14px; background: #fff; }
+        #ch06 .a6-r > :not(.a6-press) { position: relative; }
+        #ch06 .a6-press { position: absolute; inset: 0; background: #F2F1F6; opacity: 0; }
+        #ch06 .a6-tile { width: 36px; height: 36px; flex: none; border-radius: 11px; background: #EBE1FD; display: flex; align-items: center; justify-content: center; }
+        #ch06 .a6-ti { width: 19px; height: 19px; stroke: #6A24DB; stroke-width: 1.9; }
+        #ch06 .a6-bd { flex: 1 0 auto; min-width: 0; }
+        #ch06 .a6-lb { font-weight: 500; font-size: 16px; line-height: 21px; color: #17151E; white-space: nowrap; }
+        #ch06 .a6-dt { margin-top: 1px; font-size: 13px; line-height: 17px; color: #6B6878; white-space: nowrap; }
+        #ch06 .a6-vl { font-size: 15px; line-height: 20px; color: #6B6878; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; min-width: 0; }
+        #ch06 .a6-vl.v { color: #6A24DB; }
+        #ch06 .a6-chev { width: 18px; height: 18px; flex: none; stroke: #A29FB0; stroke-width: 2; }
+        #ch06 .a6-ex { height: 0; overflow: hidden; }
+        #ch06 .a6-in { opacity: 0; }
+        #ch06 .a6-rg { display: flex; align-items: center; gap: 8px; height: 52px; padding: 0 4px 0 16px; background: #fff; }
+        #ch06 .a6-rl { font-size: 16px; color: #A29FB0; }
+        #ch06 .a6-chip { position: relative; height: 36px; min-width: 72px; padding: 0 12px; border-radius: 10px; background: #F2F1F6; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 16.5px; color: #17151E; }
+        #ch06 .a6-chip > :not(.a6-cbg) { position: relative; }
+        #ch06 .a6-cbg { position: absolute; inset: 0; border-radius: 10px; background: #EBE1FD; opacity: 0; }
+        #ch06 .a6-trash { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+        #ch06 .a6-tri { width: 18px; height: 18px; stroke: #EF4444; stroke-width: 2.1; }
+        #ch06 .a6-intro { margin: 0 36px 20px; font-size: 14.5px; line-height: 20px; color: #55525F; }
+        #ch06 .a6-sk { position: absolute; left: 0; right: 0; top: 118px; bottom: 0; z-index: 9; background: #F3F4FA; }
+        #ch06 .a6-skg { margin: 0 20px 24px; }
+        #ch06 .a6-sb { display: block; border-radius: 6px; background: #E6E4EC; }
+        #ch06 .a6-dim { position: absolute; inset: 0; background: rgba(23, 21, 30, 0.2); opacity: 0; z-index: 20; }
+        #ch06 .a6-sheet { position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 21; opacity: 0; }
+        #ch06 .a6-sh1 { position: relative; border-radius: 14px; background: rgba(250, 250, 254, 0.98); overflow: hidden; }
+        #ch06 .a6-sht { padding: 14px 16px 12px; text-align: center; font-size: 13px; line-height: 18px; color: #6B6878; }
+        #ch06 .a6-sht b { display: block; font-weight: 700; }
+        #ch06 .a6-sht span { display: block; }
+        #ch06 .a6-sho { position: relative; height: 57px; line-height: 57px; text-align: center; font-size: 20px; color: #6A24DB; border-top: 1px solid #E6E4EC; background: rgba(250, 250, 254, 0.98); }
+        #ch06 .a6-sh2 { margin-top: 8px; height: 57px; line-height: 57px; text-align: center; font-size: 20px; font-weight: 700; color: #6A24DB; border-radius: 14px; background: #FAFAFE; }
+        #ch06 .a6-pp { position: absolute; width: 150px; height: 132px; border-radius: 16px; background: #fff; box-shadow: 0 18px 40px rgba(53, 14, 111, 0.28); overflow: hidden; opacity: 0; z-index: 15; }
+        #ch06 .a6-band { position: absolute; left: 8px; right: 8px; top: 49px; height: 34px; border-radius: 8px; background: #F2F1F6; }
+        #ch06 .a6-wh { position: absolute; top: 0; width: 56px; height: 132px; overflow: hidden; }
+        #ch06 .a6-wl { position: absolute; left: 0; right: 0; top: 0; }
+        #ch06 .a6-wl i { display: block; height: 34px; line-height: 34px; text-align: center; font-style: normal; font-weight: 500; font-size: 21px; color: #17151E; }
+        #ch06 .a6-fade { position: absolute; left: 0; right: 0; height: 44px; }
+        #ch06 .a6-colon { position: absolute; left: 70px; top: 49px; line-height: 34px; font-weight: 700; font-size: 21px; color: #17151E; }
+        #ch06 .a6-toast { position: absolute; left: 16px; right: 16px; top: 62px; z-index: 40; display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 16px; background: #fff; box-shadow: 0 14px 34px rgba(53, 14, 111, 0.24); font-weight: 500; font-size: 14.5px; line-height: 20px; color: #17151E; opacity: 0; }
+        #ch06 .a6-tok { width: 22px; height: 22px; flex: none; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; }
+        #ch06 .a6-tok svg { width: 13px; height: 13px; stroke: #fff; stroke-width: 3.4; }
+        #ch06 .a6-spn { position: absolute; top: 17px; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; opacity: 0; }
+        #ch06 .btn.a6-sv { position: relative; left: 0; right: 0; margin: 4px 20px 0; }
+        #ch06 .a6-sw { position: relative; width: 51px; height: 31px; flex: none; border-radius: 16px; background: #E6E4EC; }
+        #ch06 .a6-sw .a6-on { position: absolute; inset: 0; border-radius: 16px; background: #7E3BED; }
+        #ch06 .a6-sw i { position: absolute; left: 2px; top: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; box-shadow: 0 2px 4px rgba(23, 21, 30, 0.22); }
+        #ch06 .a6-rt { position: relative; flex: 1; height: 36px; }
+        #ch06 .a6-rt > * { position: absolute; right: 0; top: 0; height: 36px; line-height: 36px; font-size: 16px; white-space: nowrap; }
+        #ch06 .a6-rt .tb { color: #6B6878; }
+        #ch06 .a6-rt .ph { color: #A29FB0; opacity: 0; }
+        #ch06 .a6-rt .ty { color: #17151E; right: 4px; opacity: 0; }
+        #ch06 .a6-rt .cr { top: 7px; width: 2px; height: 22px; border-radius: 2px; background: #7E3BED; opacity: 0; }
+        #ch06 .a6-ch { display: flex; align-items: center; gap: 4px; font-size: 16px; color: #6B6878; }
+        #ch06 .a6-ch svg { width: 16px; height: 16px; stroke: #A29FB0; stroke-width: 2.2; }
+        #ch06 .a6-lg { position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        #ch06 .a6-lg img { width: 640px; height: auto; display: block; }
+      </style>
+
+      <div id="ch06" data-composition-id="ch06-agenda" data-start="0" data-duration="35.05" data-width="1080" data-height="1920">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="c06-i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+        <symbol id="c06-i-cal" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></symbol>
+        <symbol id="c06-i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 17.5v-11" /></symbol>
+        <symbol id="c06-i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
+        <symbol id="c06-i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14" /></symbol>
+        <symbol id="c06-i-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+        <symbol id="c06-i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z" /><circle cx="12" cy="13" r="3" /></symbol>
+        <symbol id="c06-i-dollar" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 18V6" /></symbol>
+        <symbol id="c06-i-calclock" viewBox="0 0 24 24"><path d="M16 14v2.2l1.6 1" /><path d="M16 2v4M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" /><path d="M3 10h5M8 2v4" /><circle cx="16" cy="16" r="6" /></symbol>
+        <symbol id="c06-i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol>
+        <symbol id="c06-i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
+        <symbol id="c06-i-bank" viewBox="0 0 24 24"><path d="M10 18v-7M14 18v-7M18 18v-7M6 18v-7" /><path d="M3 22h18" /><path d="M12 2 3 7h18z" /></symbol>
+        <symbol id="c06-i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+        <symbol id="c06-i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></symbol>
+        <symbol id="c06-i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+        <symbol id="c06-i-key" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" /></symbol>
+        <symbol id="c06-i-out" viewBox="0 0 24 24"><path d="m16 17 5-5-5-5M21 12H9M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></symbol>
+        </svg>
+      <div id="c06-bg" class="clip" data-start="0" data-duration="35.05" data-track-index="0">
+        <div class="backdrop"></div>
+        <div class="grid"></div>
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+      </div>
+
+      <section id="c06-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Defina</span><span class="w">sua</span></div>
+          <div class="chapter-line"><span class="w v">agenda</span><span class="w">e</span><span class="w">seus</span></div>
+          <div class="chapter-line"><span class="w v">preços</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c06-t2" class="clip chapter" data-start="16.85" data-duration="2.7" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Agora,</span><span class="w">seu</span></div>
+          <div class="chapter-line"><span class="w v">preço</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c06-phone" class="clip" data-start="3" data-duration="29.75" data-track-index="2">
+        <div class="cam">
+          <div class="dev">
+            <div class="bezel"></div>
+            <div class="screen">
+              <div class="scr pf" id="c06-sA">
+                <div class="pf-scroll" id="c06-pfScroll" data-layout-allow-occlusion data-layout-allow-overflow data-layout-allow-overlap>
+                  <div class="pf-title">Perfil</div>
+                  <div class="pf-acc" id="c06-pfAcc" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="pf-avatar"><img src="assets/doctors/camila.jpg" alt=""><div class="pf-cam-badge"><svg class="pf-ic"><use href="#c06-i-camera" /></svg></div></div>
+                    <div class="pf-nm">Dra. Camila Rocha<svg class="pf-ic"><use href="#c06-i-chev" /></svg></div>
+                    <div class="pf-em">CRM-SP 123456 · Clínica Geral</div>
+                  </div>
+
+                  <div class="pf-hero" id="c06-pfHero" style="top: 334px;">
+                    <div class="pf-hrow" style="margin-top: 0;">
+                      <div class="pf-hf pf-hh" id="c06-hcIcp">
+                      <div class="pf-press"></div>
+                      <div class="pf-ring"></div>
+                      <div class="pf-rb"><div class="pf-eb">Certificado ICP</div><i class="pf-dot" style="background: #22C55E;"></i></div>
+                      <div class="pf-ht">Ativo na nuvem</div>
+                      <div class="pf-hs">Assinatura digital liberada</div>
+                      <div class="pf-hfoot pf-q">Gerenciar</div>
+                    </div>
+                      <div class="pf-hf pf-hh" id="c06-hcPlan">
+                      <div class="pf-press"></div>
+                      <div class="pf-ring"></div>
+                      <div class="pf-rb"><div class="pf-eb">Seu plano</div><i class="pf-dot" style="background: #22C55E;"></i></div>
+                      <div class="pf-ht">Pro</div>
+                      <div class="pf-hs">Ativo</div>
+                      <div class="pf-hfoot pf-q">Gerenciar</div>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="pf-groups" id="c06-pfGroups" style="top: 490px;" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Atendimento</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir" id="c06-rowPreco"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-dollar" /></svg></div><div class="pf-ib">Preço e duração</div><div class="pf-iv"><span class="pf-stk pf-e"><span>Nenhuma</span><span class="pf-alt" id="c06-prcB">R$ 180 · 30 min</span></span></div><svg class="pf-ic"><use href="#c06-i-chev" /></svg></div>
+                        <div class="pf-ir" id="c06-rowDisp"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-calclock" /></svg></div><div class="pf-ib">Disponibilidade</div><div class="pf-iv"><span class="pf-stk pf-e"><span class="pf-acc-v">Definir</span><span class="pf-alt" id="c06-dispB">Seg–Sex</span></span></div><svg class="pf-ic"><use href="#c06-i-chev" /></svg></div>
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-gift" /></svg></div><div class="pf-ib">Benefícios</div><svg class="pf-ic"><use href="#c06-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Conta</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-user" /></svg></div><div class="pf-ib">Informações pessoais</div><svg class="pf-ic"><use href="#c06-i-chev" /></svg></div>
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-phone" /></svg></div><div class="pf-ib">Contatos</div><div class="pf-iv pf-acc-v">Adicionar</div><svg class="pf-ic"><use href="#c06-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Financeiro</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-bank" /></svg></div><div class="pf-ib">Conta bancária</div><div class="pf-iv pf-acc-v">Adicionar</div><svg class="pf-ic"><use href="#c06-i-chev" /></svg></div>
+                      </div>
+                      <div class="pf-gf">Os saques caem na conta marcada para saques.</div>
+                    </div>
+                    <div class="pf-grp" id="c06-gIcp">
+                      <div class="pf-gt">Assinatura digital</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir" id="c06-rowIcp"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-shield" /></svg></div><div class="pf-ib">Certificado ICP</div><div class="pf-iv">Ativo na nuvem</div><svg class="pf-ic"><use href="#c06-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Preferências</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-bell" /></svg></div><div class="pf-ib">Notificações</div><div class="pf-sw"></div></div>
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-pin" /></svg></div><div class="pf-ib">Localização</div><div class="pf-sw pf-off"></div></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gt">Segurança</div>
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it"><svg class="pf-ic"><use href="#c06-i-key" /></svg></div><div class="pf-ib">Alterar senha</div><svg class="pf-ic"><use href="#c06-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="pf-grp">
+                      <div class="pf-gc">
+                        <div class="pf-ir"><div class="pf-press"></div><div class="pf-it pf-red"><svg class="pf-ic"><use href="#c06-i-out" /></svg></div><div class="pf-ib pf-red">Sair da conta</div></div>
+                      </div>
+                    </div>
+                    <div class="pf-ver">Viva Mais · versão 2.4.0</div>
+                  </div>
+                </div>
+
+                <div class="pf-bar" id="c06-pfBar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow><span>Perfil</span><i></i></div>
+
+                <div class="pf-tabbar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                  <div class="pf-tb-bar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="pf-tb-item"><div class="pf-tb-ind"><svg class="pf-ic"><use href="#c06-i-house" /></svg><span>Dashboard</span></div></div>
+                    <div class="pf-tb-item"><div class="pf-tb-ind"><svg class="pf-ic"><use href="#c06-i-cal" /></svg><span>Consultas</span></div></div>
+                    <div class="pf-tb-item"><div class="pf-tb-ind"><svg class="pf-ic"><use href="#c06-i-receipt" /></svg><span>Faturamento</span></div></div>
+                    <div class="pf-tb-item"><div class="pf-tb-ind pf-on"><svg class="pf-ic"><use href="#c06-i-user" /></svg><span>Perfil</span></div></div>
+                  </div>
+                  <div class="pf-tb-plus"><svg class="pf-ic"><use href="#c06-i-plus" /></svg></div>
+                </div>
+              </div>
+
+              <div class="scr a6-gr" id="c06-sB">
+                <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-ct" id="c06-scrB" style="padding-bottom: 48px;">
+                  <p data-layout-allow-overlap data-layout-allow-occlusion class="a6-intro">Defina quando você atende online. Os pacientes só conseguem marcar consultas nesses horários.</p>
+                  <div class="a6-grp" id="c06-g0">
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Segunda-feira</div>
+                  <div class="a6-card">
+                    <div class="a6-ex" id="c06-rx0" data-h="53"><div class="a6-in"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-rg">
+                      <span class="a6-rl">Das</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip"><div class="a6-cbg"></div><span>08:00</span></div>
+                      <span class="a6-rl">às</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip" id="c06-chipE0"><div class="a6-cbg"></div><div class="a6-stk c"><span>12:00</span><span class="a6-hid">18:00</span></div></div>
+                      <div style="flex:1"></div><div class="a6-trash"><svg class="a6-tri" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></div>
+                    </div><div class="a6-hl" style="margin-left:16px"></div></div></div>
+                    <div class="a6-r" id="c06-add0"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-stk l"><span data-layout-allow-overlap data-layout-allow-occlusion>Atender neste dia</span><span data-layout-allow-overlap data-layout-allow-occlusion class="a6-hid">Adicionar horário</span></div></div></div></div>
+                    <div class="a6-ex" id="c06-cx0" data-h="57"><div class="a6-in"><div class="a6-hl" style="margin-left:16px"></div><div class="a6-r" id="c06-cpr0"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb">Copiar para outros dias</div></div></div></div></div>
+                  </div>
+                </div>
+                  <div class="a6-grp" id="c06-g1">
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Terça-feira</div>
+                  <div class="a6-card">
+                    <div class="a6-ex" id="c06-rx1" data-h="53"><div class="a6-in"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-rg">
+                      <span class="a6-rl">Das</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip"><div class="a6-cbg"></div><span>08:00</span></div>
+                      <span class="a6-rl">às</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip" id="c06-chipE1"><div class="a6-cbg"></div><span>18:00</span></div>
+                      <div style="flex:1"></div><div class="a6-trash"><svg class="a6-tri" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></div>
+                    </div><div class="a6-hl" style="margin-left:16px"></div></div></div>
+                    <div class="a6-r" id="c06-add1"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-stk l"><span data-layout-allow-overlap data-layout-allow-occlusion>Atender neste dia</span><span data-layout-allow-overlap data-layout-allow-occlusion class="a6-hid">Adicionar horário</span></div></div></div></div>
+                    <div class="a6-ex" id="c06-cx1" data-h="57"><div class="a6-in"><div class="a6-hl" style="margin-left:16px"></div><div class="a6-r" id="c06-cpr1"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb">Copiar para outros dias</div></div></div></div></div>
+                  </div>
+                </div>
+                  <div class="a6-grp" id="c06-g2">
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Quarta-feira</div>
+                  <div class="a6-card">
+                    <div class="a6-ex" id="c06-rx2" data-h="53"><div class="a6-in"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-rg">
+                      <span class="a6-rl">Das</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip"><div class="a6-cbg"></div><span>08:00</span></div>
+                      <span class="a6-rl">às</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip" id="c06-chipE2"><div class="a6-cbg"></div><span>18:00</span></div>
+                      <div style="flex:1"></div><div class="a6-trash"><svg class="a6-tri" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></div>
+                    </div><div class="a6-hl" style="margin-left:16px"></div></div></div>
+                    <div class="a6-r" id="c06-add2"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-stk l"><span data-layout-allow-overlap data-layout-allow-occlusion>Atender neste dia</span><span data-layout-allow-overlap data-layout-allow-occlusion class="a6-hid">Adicionar horário</span></div></div></div></div>
+                    <div class="a6-ex" id="c06-cx2" data-h="57"><div class="a6-in"><div class="a6-hl" style="margin-left:16px"></div><div class="a6-r" id="c06-cpr2"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb">Copiar para outros dias</div></div></div></div></div>
+                  </div>
+                </div>
+                  <div class="a6-grp" id="c06-g3">
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Quinta-feira</div>
+                  <div class="a6-card">
+                    <div class="a6-ex" id="c06-rx3" data-h="53"><div class="a6-in"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-rg">
+                      <span class="a6-rl">Das</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip"><div class="a6-cbg"></div><span>08:00</span></div>
+                      <span class="a6-rl">às</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip" id="c06-chipE3"><div class="a6-cbg"></div><span>18:00</span></div>
+                      <div style="flex:1"></div><div class="a6-trash"><svg class="a6-tri" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></div>
+                    </div><div class="a6-hl" style="margin-left:16px"></div></div></div>
+                    <div class="a6-r" id="c06-add3"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-stk l"><span data-layout-allow-overlap data-layout-allow-occlusion>Atender neste dia</span><span data-layout-allow-overlap data-layout-allow-occlusion class="a6-hid">Adicionar horário</span></div></div></div></div>
+                    <div class="a6-ex" id="c06-cx3" data-h="57"><div class="a6-in"><div class="a6-hl" style="margin-left:16px"></div><div class="a6-r" id="c06-cpr3"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb">Copiar para outros dias</div></div></div></div></div>
+                  </div>
+                </div>
+                  <div class="a6-grp" id="c06-g4">
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Sexta-feira</div>
+                  <div class="a6-card">
+                    <div class="a6-ex" id="c06-rx4" data-h="53"><div class="a6-in"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-rg">
+                      <span class="a6-rl">Das</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip"><div class="a6-cbg"></div><span>08:00</span></div>
+                      <span class="a6-rl">às</span><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-chip" id="c06-chipE4"><div class="a6-cbg"></div><span>18:00</span></div>
+                      <div style="flex:1"></div><div class="a6-trash"><svg class="a6-tri" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></div>
+                    </div><div class="a6-hl" style="margin-left:16px"></div></div></div>
+                    <div class="a6-r" id="c06-add4"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-stk l"><span data-layout-allow-overlap data-layout-allow-occlusion>Atender neste dia</span><span data-layout-allow-overlap data-layout-allow-occlusion class="a6-hid">Adicionar horário</span></div></div></div></div>
+                    <div class="a6-ex" id="c06-cx4" data-h="57"><div class="a6-in"><div class="a6-hl" style="margin-left:16px"></div><div class="a6-r" id="c06-cpr4"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb">Copiar para outros dias</div></div></div></div></div>
+                  </div>
+                </div>
+                  <div class="a6-grp" id="c06-g5">
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Sábado</div>
+                  <div class="a6-card">
+                    
+                    <div class="a6-r" id="c06-add5"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-stk l"><span data-layout-allow-overlap data-layout-allow-occlusion>Atender neste dia</span><span data-layout-allow-overlap data-layout-allow-occlusion class="a6-hid">Adicionar horário</span></div></div></div></div>
+                    
+                  </div>
+                </div>
+                  <div class="a6-grp" id="c06-g6">
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Domingo</div>
+                  <div class="a6-card">
+                    
+                    <div class="a6-r" id="c06-add6"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-stk l"><span data-layout-allow-overlap data-layout-allow-occlusion>Atender neste dia</span><span data-layout-allow-overlap data-layout-allow-occlusion class="a6-hid">Adicionar horário</span></div></div></div></div>
+                    
+                  </div>
+                </div>
+                  <div class="btn off a6-sv" id="c06-svB"><div class="on"></div><span class="a6-spn" id="c06-spnB"></span><span class="lbl" id="c06-lblB">Salvar horários</span></div>
+                </div>
+                <div class="a6-sk" id="c06-skB"><div class="a6-skg"><i class="a6-sb" style="width:96px;height:12px;margin:0 0 9px 16px"></i><i class="a6-sb" style="width:100%;height:144px;border-radius:12px"></i></div><div class="a6-skg"><i class="a6-sb" style="width:96px;height:12px;margin:0 0 9px 16px"></i><i class="a6-sb" style="width:100%;height:96px;border-radius:12px"></i></div><div class="a6-skg"><i class="a6-sb" style="width:96px;height:12px;margin:0 0 9px 16px"></i><i class="a6-sb" style="width:100%;height:96px;border-radius:12px"></i></div></div>
+                <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-hd nav" id="c06-hdB">
+                  <div class="a6-bk"><svg class="a6-bki" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 18-6-6 6-6"/></svg></div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-tt">Disponibilidade</div>
+                </div>
+                <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-pp" id="c06-ppB">
+                  <div class="a6-band"></div>
+                  <div class="a6-wh" style="left:18px"><div class="a6-wl" id="c06-wlH"><i data-layout-allow-overlap data-layout-allow-occlusion>09</i><i data-layout-allow-overlap data-layout-allow-occlusion>10</i><i data-layout-allow-overlap data-layout-allow-occlusion>11</i><i data-layout-allow-overlap data-layout-allow-occlusion>12</i><i data-layout-allow-overlap data-layout-allow-occlusion>13</i><i data-layout-allow-overlap data-layout-allow-occlusion>14</i><i data-layout-allow-overlap data-layout-allow-occlusion>15</i><i data-layout-allow-overlap data-layout-allow-occlusion>16</i><i data-layout-allow-overlap data-layout-allow-occlusion>17</i><i data-layout-allow-overlap data-layout-allow-occlusion>18</i><i data-layout-allow-overlap data-layout-allow-occlusion>19</i></div></div>
+                  <div class="a6-colon">:</div>
+                  <div class="a6-wh" style="left:76px"><div class="a6-wl" style="top:15px"><i data-layout-allow-overlap data-layout-allow-occlusion style="color:#A29FB0">45</i><i data-layout-allow-overlap data-layout-allow-occlusion>00</i><i data-layout-allow-overlap data-layout-allow-occlusion style="color:#A29FB0">15</i></div></div>
+                  <div class="a6-fade" style="top:0;background:linear-gradient(#fff 15%, rgba(255,255,255,0))"></div>
+                  <div class="a6-fade" style="bottom:0;background:linear-gradient(rgba(255,255,255,0), #fff 85%)"></div>
+                </div>
+                <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-dim" id="c06-shBd"></div>
+                <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sheet" id="c06-shB">
+                  <div class="a6-sh1">
+                    <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sht"><b>Copiar horários de segunda-feira</b><span data-layout-allow-overlap data-layout-allow-occlusion>Os horários dos dias escolhidos serão substituídos.</span></div>
+                    <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sho" id="c06-shB1">Dias úteis (seg. a sex.)</div><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sho" id="c06-shB2">Todos os dias</div>
+                  </div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sh2">Cancelar</div>
+                </div>
+              </div>
+
+              <div class="scr a6-gr" id="c06-sC">
+                <div class="a6-ct">
+                  <div class="a6-grp">
+                    <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Especialidades</div>
+                    <div class="a6-card">
+                      <div class="a6-r" id="c06-rowSp"><div class="a6-press"></div><div class="a6-tile"><svg class="a6-ti" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb">Clínica Geral</div><div class="a6-dt"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-stk l"><span>Tabela Viva Mais</span><span class="a6-hid" id="c06-dtB">Preço próprio</span></div></div></div><div class="a6-stk"><span class="a6-vl">R$ 150,00 · 1 h</span><span class="a6-vl a6-hid" id="c06-vlB">R$ 180,00 · 30 min</span></div><svg class="a6-chev" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="m9 18 6-6-6-6"/></svg></div>
+                    </div>
+                    <div class="a6-ft">Escolha uma especialidade para definir o valor da consulta e quanto tempo ela dura.</div>
+                  </div>
+                </div>
+                <div class="a6-sk" id="c06-skC"><div class="a6-skg"><i class="a6-sb" style="width:96px;height:12px;margin:0 0 9px 16px"></i><i class="a6-sb" style="width:100%;height:96px;border-radius:12px"></i></div></div>
+                <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-hd" id="c06-hdC">
+                  <div class="a6-bk"><svg class="a6-bki" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 18-6-6 6-6"/></svg><span>Perfil</span></div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-tt">Preço e duração</div>
+                </div>
+              </div>
+
+              <div class="scr a6-gr" id="c06-sD">
+                <div class="a6-ct" id="c06-ctD">
+                  <div class="a6-grp">
+                    <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Duração</div>
+                    <div class="a6-card">
+                      <div class="a6-r" id="c06-rowDur"><div class="a6-press"></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb">Consulta</div></div><div class="a6-ch"><div class="a6-stk"><span>1 hora</span><span class="a6-hid" id="c06-durB">30 minutos</span></div><svg class="" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="m6 9 6 6 6-6"/></svg></div></div>
+                    </div>
+                    <div class="a6-ft">Tempo reservado na sua agenda para cada consulta.</div>
+                  </div>
+                  <div class="a6-grp">
+                    <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-gt">Honorários</div>
+                    <div class="a6-card">
+                      <div class="a6-r" id="c06-rowSw"><div class="a6-press"></div><div class="a6-bd"><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb">Usar tabela Viva Mais</div></div><div class="a6-sw" id="c06-sw"><div class="a6-on" id="c06-swOn"></div><i id="c06-swK"></i></div></div>
+                      <div class="a6-hl" style="margin-left:16px"></div>
+                      <div class="a6-r" id="c06-rowP"><div class="a6-press"></div><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb" style="width:118px">Presencial</div><div class="a6-rt"><span class="tb" id="c06-tbP">R$ 150,00</span><span class="ph" id="c06-phP">0,00</span><span class="ty" id="c06-tyP" data-final="180,00"></span><i class="cr" id="c06-crP"></i></div></div>
+                      <div class="a6-hl" style="margin-left:16px"></div>
+                      <div class="a6-r" id="c06-rowO"><div class="a6-press"></div><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-lb" style="width:118px">Online</div><div class="a6-rt"><span class="tb" id="c06-tbO">R$ 120,00</span><span class="ph" id="c06-phO">0,00</span><span class="ty" id="c06-tyO" data-final="140,00"></span><i class="cr" id="c06-crO"></i></div></div>
+                    </div>
+                    <div class="a6-ft"><div class="a6-stk g l"><span>Você recebe pelos valores da tabela Viva Mais para esta especialidade.</span><span class="a6-hid" id="c06-ftB">Use vírgula para os centavos, como 150,00.</span></div></div>
+                  </div>
+                  <div class="btn off a6-sv" id="c06-svD" style="margin-top:0"><div class="on"></div><span class="a6-spn" id="c06-spnD"></span><span class="lbl" id="c06-lblD">Salvar</span></div>
+                </div>
+                <div class="a6-sk" id="c06-skD"><div class="a6-skg"><i class="a6-sb" style="width:96px;height:12px;margin:0 0 9px 16px"></i><i class="a6-sb" style="width:100%;height:96px;border-radius:12px"></i></div><div class="a6-skg"><i class="a6-sb" style="width:96px;height:12px;margin:0 0 9px 16px"></i><i class="a6-sb" style="width:100%;height:144px;border-radius:12px"></i></div></div>
+                <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-hd nav" id="c06-hdD">
+                  <div class="a6-bk"><svg class="a6-bki" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="m15 18-6-6 6-6"/></svg></div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-tt">Clínica Geral</div>
+                </div>
+                <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-dim" id="c06-shDd"></div>
+                <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sheet" id="c06-shD">
+                  <div class="a6-sh1">
+                    <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sht"><b>Consulta</b></div>
+                    <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sho" id="c06-shD1">1 hora</div><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sho" id="c06-shD2">30 minutos</div><div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sho" id="c06-shD3">10 minutos</div>
+                  </div>
+                  <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-sh2">Cancelar</div>
+                </div>
+              </div>
+
+              <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-toast" id="c06-tsA"><span class="a6-tok"><svg class="" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12l5 5 9-10"/></svg></span>Horários copiados. Salve para aplicar.</div>
+              <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-toast" id="c06-tsB"><span class="a6-tok"><svg class="" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12l5 5 9-10"/></svg></span>Disponibilidade atualizada</div>
+              <div data-layout-allow-overlap data-layout-allow-occlusion class="a6-toast" id="c06-tsC"><span class="a6-tok"><svg class="" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12l5 5 9-10"/></svg></span>Preço e duração salvos</div>
+              <div class="status"><span>9:41</span><span class="status-icons"><i data-layout-allow-overlap data-layout-allow-occlusion></i><i data-layout-allow-overlap data-layout-allow-occlusion></i><i class="b"></i></span></div>
+              <div class="island"></div>
+              <div class="pf-home"></div>
+            </div>
+            <div class="lift"></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="c06-brand" class="clip" data-start="0" data-duration="32.7" data-track-index="3">
+        <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+      </div>
+
+      <section id="c06-out" class="clip" data-start="32.75" data-duration="2.3" data-track-index="4">
+        <div class="a6-lg">
+          <img id="c06-lgi" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+          <span class="chapter-spark" id="c06-lgs"></span>
+        </div>
+      </section>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch06-agenda"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const { $, $$, E, tap, center, push, enable, liftOut, titleCard } = k;
+            const cam = $(".cam");
+            const S = (n) => "c06-" + n;
+
+            k.screens(["sA", "sB", "sC", "sD"].map(S));
+            $$("#c06-sA, #c06-sA *").forEach((n) => ["occlusion", "overlap", "overflow"].forEach((a) => n.setAttribute("data-layout-allow-" + a, "")));
+
+            const press = (el, t) => {
+              const p = $(el).querySelector(".a6-press, .pf-press");
+              tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.1, immediateRender: false }, t);
+              tl.to(p, { opacity: 0, duration: 0.3 }, t + 0.35);
+            };
+            const swap = (hid, t, d = 0.25) => {
+              const h = $(hid);
+              tl.fromTo(h.parentElement.children[0], { opacity: 1 }, { opacity: 0, duration: d, immediateRender: false }, t);
+              tl.fromTo(h, { opacity: 0 }, { opacity: 1, duration: d, immediateRender: false }, t);
+            };
+            const cp = (t, s, y, d = 1) => tl.to(cam, { scale: s, y, duration: d, ease: "power2.inOut" }, t);
+            const pop = (from, to, t) => {
+              from = $("#" + from);
+              to = $("#" + to);
+              tl.set(to, { autoAlpha: 1 }, t);
+              tl.fromTo(to, { x: -120 }, { x: 0, duration: 0.5, ease: E, immediateRender: false }, t);
+              tl.fromTo(from, { x: 0 }, { x: 402, duration: 0.5, ease: E, immediateRender: false }, t);
+              tl.set(from, { autoAlpha: 0 }, t + 0.52);
+            };
+            const toast = (el, t, hold) => {
+              el = $(el);
+              tl.fromTo(el, { opacity: 0, y: -18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.4)" }, t);
+              tl.to(el, { opacity: 0, y: -10, duration: 0.28, ease: "power2.in" }, t + hold);
+            };
+            const sheetIn = (id, t) => {
+              tl.fromTo($(id + "d"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, t);
+              tl.fromTo($(id), { opacity: 1, y: 320 }, { y: 0, duration: 0.45, ease: E }, t);
+            };
+            const sheetOut = (id, t) => {
+              tl.to($(id + "d"), { opacity: 0, duration: 0.3 }, t);
+              tl.to($(id), { y: 320, duration: 0.35, ease: "power3.in" }, t);
+            };
+            const skeleton = (id, t, end) => {
+              const sk = $(id);
+              const n = Math.max(1, Math.round((end - t) / 0.3) - 1);
+              tl.fromTo(sk.querySelectorAll(".a6-sb"), { opacity: 0.5 }, { opacity: 1, duration: 0.3, repeat: n, yoyo: true, ease: "sine.inOut", immediateRender: false }, t);
+              tl.to(sk, { opacity: 0, duration: 0.3 }, end);
+            };
+            const spin = (spn, lbl, btn, t, dur) => {
+              spn = $(spn);
+              spn.style.left = ($(btn).offsetWidth - $(lbl).offsetWidth) / 2 - 28 + "px";
+              tl.set(spn, { opacity: 1 }, t);
+              tl.fromTo(spn, { rotation: 0 }, { rotation: 540, duration: dur, ease: "none", immediateRender: false }, t);
+              tl.set(spn, { opacity: 0 }, t + dur);
+            };
+            const typeField = (r, t, dur) => {
+              const ty = $("#c06-ty" + r), ph = $("#c06-ph" + r), cr = $("#c06-cr" + r);
+              const full = ty.dataset.final;
+              const st = { n: 0 };
+              tl.set(ph, { opacity: 0 }, t);
+              tl.set(ty, { opacity: 1 }, t);
+              tl.set(cr, { opacity: 1 }, t);
+              tl.fromTo(st, { n: 0 }, { n: full.length, duration: dur, ease: "none", onUpdate() { ty.textContent = full.slice(0, Math.round(st.n)); } }, t);
+              tl.set(cr, { opacity: 0 }, t + dur + 0.4);
+            };
+            const exit = (t) => {
+              tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, t);
+              tl.set(cam, { opacity: 0 }, t + 0.42);
+            };
+
+            const addSeg = center("#c06-add0");
+            const rowPreco = center("#c06-rowPreco");
+            const rowDisp = center("#c06-rowDisp");
+            const exs = $$("#c06-scrB .a6-ex");
+            exs.forEach((e) => (e.style.height = e.dataset.h + "px"));
+            const endChip = center("#c06-chipE0");
+            const cpSeg = center("#c06-cpr0");
+            const svB = center("#c06-svB");
+            const scrB = $("#c06-scrB");
+            const SC = 118 + scrB.offsetHeight - 874;
+            exs.forEach((e) => (e.style.height = ""));
+            const optB1 = center("#c06-shB1");
+            const rowSp = center("#c06-rowSp");
+            const rowDur = center("#c06-rowDur");
+            const optD2 = center("#c06-shD2");
+            const swK = center("#c06-sw");
+            const rowP = center("#c06-rowP");
+            const rowO = center("#c06-rowO");
+            const svD = center("#c06-svD");
+
+            titleCard("#c06-t1", { at: 0.15, sparkAt: 0.75, out: 2.58 });
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out" }, 3);
+
+            cp(3.9, 1.06, -20, 0.6);
+            tap(rowDisp.x, rowDisp.y, 4.5, null);
+            press("#c06-rowDisp", 4.5);
+            cp(4.55, 1, 0, 0.5);
+            push(S("sA"), S("sB"), 4.7);
+            skeleton("#c06-skB", 4.75, 5.35);
+
+            const pp = $("#c06-ppB");
+            pp.style.left = endChip.p.x + endChip.p.w - 150 + "px";
+            pp.style.top = endChip.p.y + endChip.p.h + 8 + "px";
+            tl.set($("#c06-wlH"), { y: -53 }, 0);
+
+            cp(5.3, 1.09, 70, 1.2);
+            tap(addSeg.x, addSeg.y, 5.8, null);
+            press("#c06-add0", 5.8);
+            swap("#c06-add0 .a6-hid", 5.85, 0.2);
+            tl.fromTo($("#c06-rx0"), { height: 0 }, { height: 53, duration: 0.45, ease: E, immediateRender: false }, 5.85);
+            tl.fromTo($("#c06-rx0 .a6-in"), { opacity: 0 }, { opacity: 1, duration: 0.35, immediateRender: false }, 5.95);
+            tl.fromTo($("#c06-cx0"), { height: 0 }, { height: 57, duration: 0.45, ease: E, immediateRender: false }, 5.95);
+            tl.fromTo($("#c06-cx0 .a6-in"), { opacity: 0 }, { opacity: 1, duration: 0.35, immediateRender: false }, 6.1);
+            enable($("#c06-svB"), 6.4);
+
+            const cbg = $("#c06-chipE0 .a6-cbg");
+            tap(endChip.x, endChip.y, 6.9, null);
+            tl.fromTo(cbg, { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, 6.9);
+            tl.fromTo(pp, { opacity: 0, scale: 0.94, y: -6, transformOrigin: "85% 0%" }, { opacity: 1, scale: 1, y: 0, duration: 0.28, ease: E, immediateRender: false }, 7.0);
+            tl.to($("#c06-wlH"), { y: -257, duration: 0.9, ease: "power3.inOut" }, 7.25);
+            swap("#c06-chipE0 .a6-hid", 8.3, 0.2);
+            tap(300, 690, 8.65, null);
+            tl.to(pp, { opacity: 0, scale: 0.96, duration: 0.2 }, 8.7);
+            tl.to(cbg, { opacity: 0, duration: 0.2 }, 8.7);
+
+            cp(8.9, 1, 0, 0.45);
+            tap(cpSeg.x, cpSeg.y, 9.35, null);
+            press("#c06-cpr0", 9.35);
+            sheetIn("#c06-shB", 9.5);
+            tap(optB1.x, optB1.y, 10.6, null);
+            press("#c06-shB1", 10.6);
+            sheetOut("#c06-shB", 10.75);
+            [1, 2, 3, 4].forEach((i, j) => {
+              const t = 10.9 + j * 0.15;
+              tl.fromTo($("#c06-rx" + i), { height: 0 }, { height: 53, duration: 0.4, ease: E, immediateRender: false }, t);
+              tl.fromTo($("#c06-rx" + i + " .a6-in"), { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, t + 0.1);
+              tl.fromTo($("#c06-cx" + i), { height: 0 }, { height: 57, duration: 0.4, ease: E, immediateRender: false }, t + 0.05);
+              tl.fromTo($("#c06-cx" + i + " .a6-in"), { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, t + 0.15);
+              swap("#c06-add" + i + " .a6-hid", t, 0.2);
+            });
+            toast("#c06-tsA", 11.0, 1.6);
+            cp(11.6, 1, 0, 0.6);
+            tl.to(scrB, { y: -SC, duration: 1.6, ease: "power2.inOut" }, 12.0);
+            cp(13.4, 1.06, -30, 0.8);
+            const sy = svB.y - SC;
+            tap(svB.x, sy, 14.2, null);
+            tl.fromTo($("#c06-svB"), { scale: 1 }, { scale: 0.97, duration: 0.1, ease: "power2.in", yoyo: true, repeat: 1, immediateRender: false }, 14.2);
+            spin("#c06-spnB", "#c06-lblB", "#c06-svB", 14.3, 0.6);
+            cp(14.85, 1, 0, 0.5);
+            toast("#c06-tsB", 15.0, 1.1);
+            pop(S("sB"), S("sA"), 15.05);
+            swap("#c06-dispB", 15.6, 0.3);
+            press("#c06-rowDisp", 15.6);
+            exit(16.4);
+
+            titleCard("#c06-t2", { at: 16.95, sparkAt: 17.45, out: 18.85, from: { x: 160 }, stagger: 0.07 });
+            tl.set(cam, { opacity: 1 }, 19.3);
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out", immediateRender: false }, 19.3);
+
+            tap(rowPreco.x, rowPreco.y, 20.45, null);
+            press("#c06-rowPreco", 20.45);
+            push(S("sA"), S("sC"), 20.65);
+            skeleton("#c06-skC", 20.7, 21.2);
+            tap(rowSp.x, rowSp.y, 21.7, null);
+            press("#c06-rowSp", 21.7);
+            push(S("sC"), S("sD"), 21.9);
+            skeleton("#c06-skD", 21.95, 22.5);
+
+            tl.set($("#c06-swK"), { x: 20 }, 0);
+            tap(rowDur.x, rowDur.y, 23.0, null);
+            press("#c06-rowDur", 23.0);
+            sheetIn("#c06-shD", 23.15);
+            tap(optD2.x, optD2.y, 24.15, null);
+            press("#c06-shD2", 24.15);
+            sheetOut("#c06-shD", 24.3);
+            swap("#c06-durB", 24.45, 0.25);
+
+            cp(24.6, 1.07, 40, 1.0);
+            tap(swK.x, swK.y, 25.2, null);
+            tl.to($("#c06-sw"), { scale: 0.94, duration: 0.1, yoyo: true, repeat: 1 }, 25.2);
+            tl.to($("#c06-swK"), { x: 0, duration: 0.25, ease: "power2.out" }, 25.25);
+            tl.to($("#c06-swOn"), { opacity: 0, duration: 0.25 }, 25.25);
+            ["P", "O"].forEach((r) => {
+              tl.fromTo($("#c06-tb" + r), { opacity: 1 }, { opacity: 0, duration: 0.2, immediateRender: false }, 25.4);
+              tl.fromTo($("#c06-ph" + r), { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, 25.4);
+            });
+            swap("#c06-ftB", 25.4, 0.25);
+
+            tap(rowP.x + 90, rowP.y, 25.95, null);
+            typeField("P", 26.05, 0.7);
+            tap(rowO.x + 90, rowO.y, 27.0, null);
+            typeField("O", 27.1, 0.7);
+            cp(27.8, 1, 0, 0.6);
+            enable($("#c06-svD"), 27.9);
+            tap(svD.x, svD.y, 28.4, null);
+            tl.fromTo($("#c06-svD"), { scale: 1 }, { scale: 0.97, duration: 0.1, ease: "power2.in", yoyo: true, repeat: 1, immediateRender: false }, 28.4);
+            spin("#c06-spnD", "#c06-lblD", "#c06-svD", 28.5, 0.6);
+            toast("#c06-tsC", 29.2, 1.4);
+            pop(S("sD"), S("sC"), 29.25);
+            swap("#c06-dtB", 29.65, 0.3);
+            swap("#c06-vlB", 29.65, 0.3);
+            cp(29.75, 1.07, 30, 0.8);
+            const lifted = liftOut("#c06-rowSp", 29.95, 1.1, 0, 1.12);
+            lifted.querySelectorAll(".a6-stk").forEach((s) => {
+              s.children[0].style.opacity = 0;
+              s.children[1].classList.remove("a6-hid");
+              s.children[1].style.opacity = 1;
+            });
+            const bkC = center("#c06-hdC .a6-bk");
+            tap(bkC.x, bkC.y, 31.15, null);
+            cp(31.1, 1, 0, 0.5);
+            pop(S("sC"), S("sA"), 31.25);
+            swap("#c06-prcB", 31.45, 0.3);
+            press("#c06-rowPreco", 31.9);
+            exit(32.3);
+
+            tl.fromTo($("#c06-lgi"), { opacity: 0, scale: 0.92, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.7, ease: "power3.out" }, 32.9);
+            tl.fromTo($("#c06-lgs"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, 33.3);
+
+            window.__timelines["ch06-agenda"] = tl;
+          });
+        })();
+
+      </script>
+    </template>
+  </body>
+</html>

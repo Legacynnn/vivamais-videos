@@ -46,6 +46,7 @@
   const check = '<i data-icon="check" data-sw="3"></i>';
   const badge = (s, v) => {
     if (v === true) return `<em class="ok">${check}</em>`;
+    if (v === "ilimitado") return '<em class="inf">∞</em>';
     if (s.tipo === "desc") return `<em>${v.pct}%</em>`;
     if (s.tipo === "dia") return `<em>${v}/dia</em>`;
     return `<em>${v}×</em>`;
@@ -53,6 +54,7 @@
   const cell = (s, v) => {
     if (!v) return '<span class="off">—</span>';
     if (v === true) return `<span class="ok">${check}</span>`;
+    if (v === "ilimitado") return "Ilimitado";
     if (s.tipo === "desc") return `${v.n}× ${v.pct}%`;
     if (s.tipo === "dia") return `${v}/dia`;
     return `${v}×`;
@@ -62,7 +64,7 @@
     .map((p) => {
       const got = P.servicos.filter((s) => p.inclui[s.id]);
       const rows = got
-        .map((s) => `<li><span class="ic"><img src="${s.icone}" alt="" /></span><div><b>${s.curto || s.nome}</b></div>${badge(s, p.inclui[s.id])}</li>`)
+        .map((s) => `<li><span class="ic"><img src="${s.icone}" alt="" /></span><div><b>${s.curto || s.nome}</b>${s.sub ? `<span>${s.sub}</span>` : ""}</div>${badge(s, p.inclui[s.id])}</li>`)
         .join("");
       return `<div class="pcard${p.destaque ? " best" : ""}">
         ${p.destaque ? `<span class="badge">${p.destaque}</span>` : ""}

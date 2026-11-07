@@ -16,7 +16,7 @@ function copy(from, to) {
 
 function targets(only) {
   const videos = readdirSync(join(root, "videos"), { withFileTypes: true })
-    .filter((group) => group.isDirectory() && group.name !== "kit" && group.name !== "capture")
+    .filter((group) => group.isDirectory() && !["kit", "capture", "templates"].includes(group.name))
     .flatMap((group) =>
       readdirSync(join(root, "videos", group.name), { withFileTypes: true })
         .filter((d) => d.isDirectory() && existsSync(join(root, "videos", group.name, d.name, "index.html")))

@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch0102 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        .spin { position: absolute; left: 92px; top: 17px; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; opacity: 0; }
+        .btn .lbl-alt { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; color: #fff; }
+        .mail { position: relative; width: 132px; height: 132px; margin: 0 auto; border-radius: 40px; background: var(--vm-violet-50); display: flex; align-items: center; justify-content: center; }
+        .mail svg { width: 72px; height: 72px; }
+        .otp { display: flex; gap: 6px; justify-content: center; margin-top: 28px; }
+        .cell { position: relative; width: 39px; height: 52px; border-radius: 12px; border: 1px solid var(--vm-ink-200); background: #fff; display: flex; align-items: center; justify-content: center; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 22px; color: var(--vm-ink-900); }
+        .cell .ok { position: absolute; inset: -1px; border-radius: 12px; border: 1.5px solid #22C55E; background: rgba(34, 197, 94, 0.08); opacity: 0; }
+        .cell b { position: relative; display: block; }
+        .resend { margin-top: 22px; text-align: center; font-size: 14px; color: var(--vm-ink-500); }
+        .resend b { color: var(--vm-violet-600); font-weight: 500; }
+        .steps { margin-top: 36px; }
+        .row { display: flex; align-items: center; min-height: 40px; }
+        .dot { position: relative; width: 24px; height: 24px; flex: none; }
+        .dot .idle { position: absolute; left: 8px; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--vm-ink-300); }
+        .dot .done { position: absolute; inset: 0; border-radius: 50%; background: var(--vm-violet-500); display: flex; align-items: center; justify-content: center; }
+        .dot .done svg { width: 14px; height: 14px; }
+        .row span { margin-left: 12px; font-size: 15px; color: var(--vm-ink-900); }
+        .mark { width: 76px; height: 76px; border-radius: 24px; background: var(--vm-violet-500); display: flex; align-items: center; justify-content: center; }
+        .mark img { width: 44px; height: 44px; display: block; }
+        .doc { position: relative; display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: 20px; background: var(--vm-tile); margin-bottom: 12px; overflow: hidden; }
+        .doc-ico { position: relative; width: 48px; height: 48px; flex: none; border-radius: 14px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .doc-ico svg { width: 24px; height: 24px; }
+        .doc-ico .thumb { position: absolute; inset: 0; opacity: 0; }
+        .doc-tx { flex: 1; }
+        .doc-tx b { display: block; font-size: 16px; line-height: 22px; color: var(--vm-ink-900); }
+        .doc-tx span { display: block; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); }
+        .doc-act { position: relative; width: 78px; height: 34px; flex: none; }
+        .pill { position: absolute; inset: 0; border-radius: 999px; background: var(--vm-violet-500); color: #fff; font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; }
+        .sent { position: absolute; inset: 0; border-radius: 999px; background: rgba(34, 197, 94, 0.12); color: var(--vm-green-800); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 4px; opacity: 0; }
+        .sent svg { width: 14px; height: 14px; }
+        .bar { position: absolute; left: 16px; right: 16px; bottom: 0; height: 3px; border-radius: 3px; background: var(--vm-violet-500); transform-origin: 0 50%; }
+        .done-badge { position: relative; width: 112px; height: 112px; margin: 0 auto; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; }
+        .done-badge svg { width: 56px; height: 56px; }
+        .ring { position: absolute; inset: -18px; border-radius: 50%; border: 3px solid rgba(34, 197, 94, 0.35); }
+        .paper { position: absolute; width: 150px; height: 196px; border-radius: 12px; background: #fff; box-shadow: 0 24px 50px rgba(53, 14, 111, 0.28); padding: 16px 14px; }
+        .paper i { display: block; height: 7px; border-radius: 4px; background: var(--vm-ink-200); margin-bottom: 8px; }
+        .paper .ph { width: 52px; height: 62px; border-radius: 8px; background: var(--vm-violet-100); margin-bottom: 12px; }
+        .paper .hd { height: 12px; width: 70%; background: var(--vm-violet-500); }
+      </style>
+
+      <div id="ch0102" data-composition-id="ch01-02-cadastro" data-start="0" data-duration="42" data-width="1080" data-height="1920">
+      <div id="c12-bg" class="clip" data-start="0" data-duration="42" data-track-index="0">
+        <div class="backdrop"></div>
+        <div class="grid"></div>
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+      </div>
+
+      <section id="c12-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Crie</span><span class="w">sua</span><span class="w">conta</span></div>
+          <div class="chapter-line"><span class="w">de</span><span class="w v">médico</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c12-t2" class="clip chapter" data-start="29" data-duration="3.2" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Envie</span><span class="w">seus</span></div>
+          <div class="chapter-line"><span class="w v">documentos</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c12-phone" class="clip" data-start="3" data-duration="39" data-track-index="2">
+        <div class="cam">
+          <div class="dev">
+            <div class="bezel"></div>
+            <div class="screen">
+              <div class="scr" id="c12-sA">
+                <div class="aura"></div>
+                <div class="auth-head">
+                  <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div class="auth-logo"><img src="assets/brand/lockup-cor.svg" alt=""></div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="body" style="top: 138px;">
+                  <h1 class="h1">Quem é você?</h1>
+                  <p class="sub">Escolha como você vai usar o Viva Mais.</p>
+                  <div style="margin-top: 16px;">
+                    <div class="type-card">
+                      <img src="assets/illustrations/account-type-patient.webp" alt="">
+                      <div class="tx"><b>Paciente</b><span>Consultas, receitas e documentos para você e sua família.</span></div>
+                    </div>
+                    <div class="type-card" id="c12-cardDoctor">
+                      <div class="press" id="c12-cardDoctorPress"></div>
+                      <img src="assets/illustrations/account-type-doctor.webp" alt="">
+                      <div class="tx"><b>Colaborador</b><span>Atenda pacientes e gerencie sua agenda como parceiro Viva Mais.</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="scr" id="c12-sB">
+                <div class="aura" style="top: -300px;"></div>
+                <div class="auth-head">
+                  <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div class="auth-logo"><img src="assets/brand/lockup-cor.svg" alt=""></div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="progress"><div class="seg"><i id="c12-pB1"></i></div><div class="seg"><i style="opacity:0"></i></div><div class="seg"><i style="opacity:0"></i></div></div>
+                <div class="body" style="top: 158px;">
+                  <h1 class="h1">Acesso</h1>
+                  <p class="sub">Seus dados de login na plataforma</p>
+                  <div style="margin-top: 28px;">
+                    <div class="field" id="c12-fB1"><div class="box"></div><div class="box-focus"></div><div class="label">Nome completo</div><div class="val" data-final="Camila Rocha"></div><div class="caret"></div></div>
+                    <div class="field" id="c12-fB2"><div class="box"></div><div class="box-focus"></div><div class="label">E-mail</div><div class="val" data-final="camila.rocha@email.com"></div><div class="caret"></div></div>
+                    <div class="field" id="c12-fB3"><div class="box"></div><div class="box-focus"></div><div class="label">Senha</div><div class="val" data-final="••••••••••"></div><div class="caret"></div></div>
+                    <div class="field" id="c12-fB4"><div class="box"></div><div class="box-focus"></div><div class="label">Confirmar senha</div><div class="val" data-final="••••••••••"></div><div class="caret"></div></div>
+                  </div>
+                </div>
+                <div class="btn off" id="c12-btnB" style="top: 764px;"><div class="on"></div><span class="lbl">Continuar</span></div>
+              </div>
+
+              <div class="scr" id="c12-sC">
+                <div class="aura" style="top: -300px;"></div>
+                <div class="auth-head">
+                  <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div class="auth-logo"><img src="assets/brand/lockup-cor.svg" alt=""></div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="progress"><div class="seg"><i></i></div><div class="seg"><i id="c12-pC2"></i></div><div class="seg"><i style="opacity:0"></i></div></div>
+                <div class="body" style="top: 158px;">
+                  <h1 class="h1">Dados profissionais</h1>
+                  <p class="sub">Profissão, registro e documento</p>
+                  <div style="margin-top: 28px;">
+                    <div class="field" id="c12-fC1"><div class="box"></div><div class="box-focus"></div><div class="label">Nome profissional</div><div class="val" data-final="Dra. Camila Rocha"></div><div class="caret"></div></div>
+                    <div class="field" id="c12-fC2"><div class="box"></div><div class="box-focus"></div><div class="label">Profissão</div><div class="val" data-final="Médico · CRM" style="opacity:0">Médico · CRM</div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6" /></svg></div>
+                    <div id="c12-gC">
+                      <div class="field" id="c12-fC3"><div class="box"></div><div class="box-focus"></div><div class="label">CRM</div><div class="val" data-final="184233-SP"></div><div class="caret"></div></div>
+                      <div class="field" id="c12-fC4" style="margin-bottom: 0;"><div class="box"></div><div class="box-focus"></div><div class="label">CPF ou CNPJ</div><div class="val" data-final="390.533.447-05"></div><div class="caret"></div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn off" id="c12-btnC" style="top: 764px;"><div class="on"></div><span class="lbl">Continuar</span></div>
+              </div>
+
+              <div class="scr" id="c12-sD">
+                <div class="aura" style="top: -300px;"></div>
+                <div class="auth-head">
+                  <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div class="auth-logo"><img src="assets/brand/lockup-cor.svg" alt=""></div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="progress"><div class="seg"><i></i></div><div class="seg"><i></i></div><div class="seg"><i id="c12-pD3"></i></div></div>
+                <div class="body" style="top: 158px;">
+                  <h1 class="h1">Contato</h1>
+                  <p class="sub">Telefone e apresentação</p>
+                  <div style="margin-top: 28px;">
+                    <div class="field" id="c12-fD1"><div class="box"></div><div class="box-focus"></div><div class="label">Telefone</div><div class="val" data-final="(11) 97654-3210"></div><div class="caret"></div></div>
+                    <div class="field" id="c12-fD2"><div class="box"></div><div class="box-focus"></div><div class="label">Anos de experiência (opcional)</div><div class="val" data-final="12"></div><div class="caret"></div></div>
+                    <div class="field multi" id="c12-fD3"><div class="box"></div><div class="box-focus"></div><div class="label">Apresentação (opcional)</div><div class="val" data-final="Clínica geral, com foco em adultos e idosos."></div></div>
+                  </div>
+                </div>
+                <div class="btn off" id="c12-btnD" style="top: 764px;"><div class="on"></div><span class="spin" id="c12-spinD"></span><span class="lbl" id="c12-lblD">Criar conta</span><span class="lbl lbl-alt" id="c12-lblD2">Criando conta...</span></div>
+              </div>
+
+              <div class="scr" id="c12-sE">
+                <div class="aura"></div>
+                <div class="auth-head">
+                  <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div class="auth-logo"><img src="assets/brand/lockup-cor.svg" alt=""></div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="body center" style="top: 148px;">
+                  <div class="mail" id="c12-mailE"><svg viewBox="0 0 72 72" fill="none"><rect x="8" y="16" width="56" height="40" rx="9" fill="#7E3BED" /><path d="M10 21l26 19 26-19" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><circle cx="58" cy="18" r="10" fill="#4EEB8C" stroke="#F5F0FE" stroke-width="4" /></svg></div>
+                  <h1 class="h1" style="margin-top: 28px;">Confirme seu e-mail</h1>
+                  <p class="sub">Enviamos um código de 8 dígitos para camila.rocha@email.com</p>
+                  <div class="otp" id="c12-otp">
+                    <div class="cell"><div class="ok"></div><b data-final="4">4</b></div>
+                    <div class="cell"><div class="ok"></div><b data-final="8">8</b></div>
+                    <div class="cell"><div class="ok"></div><b data-final="2">2</b></div>
+                    <div class="cell"><div class="ok"></div><b data-final="7">7</b></div>
+                    <div class="cell"><div class="ok"></div><b data-final="1">1</b></div>
+                    <div class="cell"><div class="ok"></div><b data-final="9">9</b></div>
+                    <div class="cell"><div class="ok"></div><b data-final="3">3</b></div>
+                    <div class="cell"><div class="ok"></div><b data-final="6">6</b></div>
+                  </div>
+                  <p class="resend">Não recebeu? <b>Reenviar em 0:54</b></p>
+                </div>
+              </div>
+
+              <div class="scr" id="c12-sF">
+                <div class="aura"></div>
+                <div class="body" style="top: 196px;">
+                  <div class="mark" id="c12-markF"><img src="assets/brand/mark-white.svg" alt=""></div>
+                  <h1 class="h1" style="margin-top: 32px; font-size: 32px; line-height: 40px;">Tudo pronto</h1>
+                  <p class="sub">Sua conta está ativa.</p>
+                  <div class="steps">
+                    <div class="row"><div class="dot"><div class="idle"></div><div class="done" id="c12-dF1"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10" /></svg></div></div><span>E-mail confirmado</span></div>
+                    <div class="row"><div class="dot"><div class="idle"></div><div class="done" id="c12-dF2"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10" /></svg></div></div><span>Conta de médico criada</span></div>
+                    <div class="row"><div class="dot"><div class="idle"></div><div class="done" id="c12-dF3"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10" /></svg></div></div><span>Entrando na sua conta</span></div>
+                  </div>
+                </div>
+                <div class="btn" style="top: 764px;"><span class="lbl">Começar</span></div>
+              </div>
+
+              <div class="scr" id="c12-sG">
+                <div class="auth-head">
+                  <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></div>
+                  <div style="font-weight: 700; font-size: 17px;">Cadastro</div>
+                  <div class="spacer"></div>
+                </div>
+                <div class="body" style="top: 130px;">
+                  <h1 class="h1">Envie seus documentos</h1>
+                  <p class="sub">A equipe confere seus dados antes de liberar o atendimento.</p>
+                  <div style="margin-top: 24px;">
+                    <div class="doc" id="c12-docG1">
+                      <div class="doc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#7E3BED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3" /><circle cx="9" cy="11" r="2" /><path d="M14 10h4M14 14h4M6 16h6" /></svg><div class="thumb" id="c12-thG1"></div></div>
+                      <div class="doc-tx"><b>Carteira do CRM</b><span>Frente e verso</span></div>
+                      <div class="doc-act"><div class="pill">Enviar</div><div class="sent"><svg viewBox="0 0 24 24" fill="none" stroke="#0D883F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10" /></svg>Enviado</div></div>
+                      <div class="bar" id="c12-barG1"></div>
+                    </div>
+                    <div class="doc" id="c12-docG2">
+                      <div class="doc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#7E3BED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.5" /><path d="M5 20c1.2-3.5 4-5 7-5s5.8 1.5 7 5" /></svg><div class="thumb" id="c12-thG2"></div></div>
+                      <div class="doc-tx"><b>Documento com foto</b><span>RG ou CNH</span></div>
+                      <div class="doc-act"><div class="pill">Enviar</div><div class="sent"><svg viewBox="0 0 24 24" fill="none" stroke="#0D883F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10" /></svg>Enviado</div></div>
+                      <div class="bar" id="c12-barG2"></div>
+                    </div>
+                    <div class="doc" id="c12-docG3">
+                      <div class="doc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#7E3BED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-4 9 4-9 4z" /><path d="M7 11v5c3 2 7 2 10 0v-5" /></svg><div class="thumb" id="c12-thG3"></div></div>
+                      <div class="doc-tx"><b>Diploma de medicina</b><span>PDF ou foto</span></div>
+                      <div class="doc-act"><div class="pill">Enviar</div><div class="sent"><svg viewBox="0 0 24 24" fill="none" stroke="#0D883F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10" /></svg>Enviado</div></div>
+                      <div class="bar" id="c12-barG3"></div>
+                    </div>
+                  </div>
+                  <div class="lock" id="c12-lockG"><svg viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="3" /><path d="M8 11V8a4 4 0 018 0v3" /></svg>Seus documentos ficam protegidos e só a equipe de análise vê.</div>
+                </div>
+                <div class="btn off" id="c12-btnG" style="top: 764px;"><div class="on"></div><span class="lbl">Enviar para análise</span></div>
+              </div>
+
+              <div class="scr" id="c12-sH">
+                <div class="aura"></div>
+                <div class="body center" style="top: 230px;">
+                  <div class="done-badge" id="c12-badgeH"><div class="ring" id="c12-ringH"></div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10" /></svg></div>
+                  <h1 class="h1" style="margin-top: 40px; font-size: 30px;">Documentos enviados</h1>
+                  <p class="sub" id="c12-subH">Agora é com a gente. Avisamos assim que a análise terminar.</p>
+                  <div class="lock" style="justify-content: center; margin-top: 18px;"><svg viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="3" /><path d="M8 11V8a4 4 0 018 0v3" /></svg>Em análise · até 2 dias úteis</div>
+                </div>
+                <div class="btn" style="top: 764px;"><span class="lbl">Ir para o início</span></div>
+              </div>
+
+              <div class="status"><span>9:41</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+              <div class="island"></div>
+            </div>
+            <div class="lift"></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="c12-brand" class="clip" data-start="0" data-duration="42" data-track-index="3">
+        <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+      </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch01-02-cadastro"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const { $, $$, E, tip, tap, center, push, enable, showTip, liftOut, focusField, blurField, typeIn, make, titleCard } = k;
+            const cam = $(".cam");
+
+            k.screens(["sA", "sB", "sC", "sD", "sE", "sF", "sG", "sH"].map((s) => "c12-" + s));
+
+            titleCard("#c12-t1", { at: 0.15, sparkAt: 0.75, out: 2.58 });
+
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out" }, 3);
+
+            const cardD = $("#c12-cardDoctor");
+            const cD = center(cardD);
+            tap(cD.x, cD.y, 4.0, cardD);
+            tl.fromTo($("#c12-cardDoctorPress"), { opacity: 0 }, { opacity: 1, duration: 0.15 }, 4.0);
+            liftOut(cardD, 4.25, 2.0, 18, 1.16);
+            showTip(tip("Toque em Colaborador", cD.x, cD.p.y + cD.p.h + 14, "down"), 4.55, 1.55);
+            push("c12-sA", "c12-sB", 6.85);
+
+            tl.fromTo($("#c12-pB1"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, 7.2);
+            tl.to(cam, { scale: 1.07, y: 70, duration: 1.4, ease: "power2.inOut" }, 7.3);
+            const B = ["#c12-fB1", "#c12-fB2", "#c12-fB3", "#c12-fB4"].map($);
+            const bT = [[7.5, 0.7], [8.45, 1.0], [9.75, 0.5], [10.5, 0.5]];
+            B.forEach((f, i) => {
+              const c = center(f);
+              tap(c.x, c.y, bT[i][0] - 0.05, null);
+              focusField(f, bT[i][0]);
+              typeIn(f, bT[i][0] + 0.12, bT[i][1]);
+              blurField(f, bT[i][0] + bT[i][1] + 0.28);
+            });
+            enable($("#c12-btnB"), 11.35);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.8, ease: "power2.inOut" }, 11.1);
+            tap(201, 790, 11.75, "#c12-btnB");
+            push("c12-sB", "c12-sC", 11.95);
+
+            tl.fromTo($("#c12-pC2"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, 12.3);
+            const C1 = $("#c12-fC1"), C2 = $("#c12-fC2"), C3 = $("#c12-fC3"), C4 = $("#c12-fC4");
+            let c = center(C1);
+            tap(c.x, c.y, 12.5, null);
+            focusField(C1, 12.55);
+            typeIn(C1, 12.65, 0.75);
+            blurField(C1, 13.6);
+            c = center(C2);
+            tap(c.x, c.y, 13.75, C2);
+            focusField(C2, 13.8);
+            tl.fromTo(C2.querySelector(".val"), { opacity: 0, x: 12 }, { opacity: 1, x: 0, duration: 0.3, ease: E }, 14.0);
+            blurField(C2, 14.25);
+            tl.to(cam, { scale: 1.08, y: -40, duration: 1.2, ease: "power2.inOut" }, 13.9);
+            c = center(C3);
+            tap(c.x, c.y, 14.4, null);
+            focusField(C3, 14.45);
+            typeIn(C3, 14.55, 0.6);
+            blurField(C3, 15.3);
+            c = center(C4);
+            tap(c.x, c.y, 15.4, null);
+            focusField(C4, 15.45);
+            typeIn(C4, 15.55, 0.85);
+            blurField(C4, 16.55);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.7, ease: "power2.inOut" }, 16.55);
+            const g = $("#c12-gC");
+            const gc = center(g);
+            liftOut(g, 16.75, 1.85, -16, 1.14);
+            showTip(tip("Seu CRM e o CPF ou CNPJ", gc.x - 16, gc.p.y + gc.p.h + 6, "down"), 17.05, 1.4);
+            enable($("#c12-btnC"), 18.2);
+            tap(201, 790, 18.6, "#c12-btnC");
+            push("c12-sC", "c12-sD", 18.8);
+
+            tl.fromTo($("#c12-pD3"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, 19.15);
+            const D = ["#c12-fD1", "#c12-fD2", "#c12-fD3"].map($);
+            const dT = [[19.35, 0.75], [20.35, 0.2], [20.85, 1.2]];
+            D.forEach((f, i) => {
+              const cc = center(f);
+              tap(cc.x, cc.y, dT[i][0] - 0.05, null);
+              focusField(f, dT[i][0]);
+              typeIn(f, dT[i][0] + 0.1, dT[i][1]);
+              blurField(f, dT[i][0] + dT[i][1] + 0.25);
+            });
+            enable($("#c12-btnD"), 22.3);
+            tap(201, 790, 22.6, "#c12-btnD");
+            tl.set($("#c12-spinD"), { opacity: 1 }, 22.7);
+            tl.set($("#c12-lblD"), { opacity: 0 }, 22.7);
+            tl.set($("#c12-lblD2"), { opacity: 1 }, 22.7);
+            tl.fromTo($("#c12-spinD"), { rotation: 0 }, { rotation: 540, duration: 0.8, ease: "none" }, 22.7);
+            push("c12-sD", "c12-sE", 23.5);
+
+            tl.fromTo($("#c12-mailE"), { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.6)" }, 23.75);
+            const cells = [...$$("#c12-otp .cell")];
+            cells.forEach((cell, i) => {
+              tl.fromTo(cell.querySelector("b"), { opacity: 0, y: 10, scale: 0.6 }, { opacity: 1, y: 0, scale: 1, duration: 0.24, ease: "back.out(1.8)" }, 24.3 + i * 0.12);
+            });
+            tl.fromTo($("#c12-otp .ok"), { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out", stagger: 0.03 }, 25.35);
+            tl.to(cam, { scale: 1.05, y: 40, duration: 0.9, ease: "power2.inOut" }, 25.2);
+            const otp = $("#c12-otp");
+            const oc = center(otp);
+            liftOut(otp, 25.6, 1.3, 0, 1.16);
+            showTip(tip("Código enviado para o seu e-mail", oc.x, oc.p.y + oc.p.h + 8, "down"), 25.85, 1.0);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, 26.9);
+            push("c12-sE", "c12-sF", 27.0);
+
+            tl.fromTo($("#c12-markF"), { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }, 27.25);
+            ["#c12-dF1", "#c12-dF2", "#c12-dF3"].map($).forEach((d, i) => tl.fromTo(d, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 27.55 + i * 0.3));
+            tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, 28.58);
+            tl.set(cam, { opacity: 0 }, 29);
+
+            titleCard("#c12-t2", { at: 29, sparkAt: 29.5, out: 31.78, from: { x: 160 }, stagger: 0.07 });
+
+            tl.set($("#c12-sF"), { autoAlpha: 0 }, 31.9);
+            tl.set($("#c12-sG"), { x: 0, autoAlpha: 1 }, 31.9);
+            tl.set(cam, { opacity: 1 }, 32.2);
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out", immediateRender: false }, 32.2);
+
+            const rows = ["#c12-docG1", "#c12-docG2", "#c12-docG3"].map($);
+            const rT = [33.1, 36.0, 37.55];
+            rows.forEach((row, i) => {
+              const act = row.querySelector(".doc-act");
+              const a = center(act);
+              const ico = center(row.querySelector(".doc-ico"));
+              const t = rT[i];
+              tap(a.x, a.y, t, act);
+              const paper = make("paper", { left: "470px", top: ico.y - 98 + "px" }, '<div class="ph"></div><i class="hd"></i><i></i><i style="width:80%"></i><i></i><i style="width:60%"></i><i></i>');
+              tl.fromTo(paper, { opacity: 0, x: 80, rotation: 12, scale: 1 }, { opacity: 1, x: 0, rotation: 4, duration: 0.45, ease: "power3.out" }, t + 0.1);
+              tl.to(paper, { x: ico.x - 470 - 75, y: 0, rotation: 0, scale: 0.3, duration: 0.55, ease: "power3.inOut" }, t + (i === 0 ? 0.75 : 0.55));
+              tl.to(paper, { opacity: 0, duration: 0.12 }, t + (i === 0 ? 1.22 : 1.02));
+              const th = $("#c12-thG" + (i + 1));
+              th.style.background = "linear-gradient(180deg, #EBE1FD 0 36%, #fff 36% 100%)";
+              tl.fromTo(th, { opacity: 0 }, { opacity: 1, duration: 0.15 }, t + (i === 0 ? 1.2 : 1.0));
+              const p0 = t + (i === 0 ? 1.25 : 1.05);
+              tl.fromTo($("#c12-barG" + (i + 1)), { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: i === 0 ? 0.8 : 0.5, ease: "power1.inOut" }, p0);
+              tl.to($("#c12-barG" + (i + 1)), { opacity: 0, duration: 0.2 }, p0 + (i === 0 ? 0.85 : 0.55));
+              tl.to(row.querySelector(".pill"), { opacity: 0, scale: 0.8, duration: 0.2 }, p0 + (i === 0 ? 0.8 : 0.5));
+              tl.fromTo(row.querySelector(".sent"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, p0 + (i === 0 ? 0.82 : 0.52));
+              if (i === 0) showTip(tip("Foto ou PDF, direto do celular", a.x - 60, a.p.y + a.p.h + 10, "down"), t + 0.35, 2.1);
+            });
+            tl.to(cam, { scale: 1.05, y: 30, duration: 1.2, ease: "power2.inOut" }, 33.0);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.8, ease: "power2.inOut" }, 38.6);
+            enable($("#c12-btnG"), 39.0);
+            tap(201, 790, 39.4, "#c12-btnG");
+            push("c12-sG", "c12-sH", 39.7);
+            tl.fromTo($("#c12-badgeH"), { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)" }, 39.85);
+            tl.fromTo($("#c12-ringH"), { scale: 0.8, opacity: 1 }, { scale: 1.25, opacity: 0, duration: 0.8, ease: "power2.out" }, 40.1);
+            const sh = center($("#c12-subH"));
+            showTip(tip("A análise é feita pela equipe Viva Mais", sh.x, sh.p.y + sh.p.h + 46, "down"), 40.5, 1.4);
+
+            window.__timelines["ch01-02-cadastro"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

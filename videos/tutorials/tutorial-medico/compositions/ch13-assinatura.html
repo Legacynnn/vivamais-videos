@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch13 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch13 .scr.c13-gr { background: #F3F4FA; }
+        #ch13 .c13-ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; flex: none; }
+        #ch13 .c13-hd { position: absolute; left: 0; right: 0; top: 0; height: 98px; background: #F3F4FA; z-index: 10; }
+        #ch13 .c13-bk { position: absolute; left: 10px; top: 54px; height: 44px; display: flex; align-items: center; color: #6A24DB; font-size: 17px; }
+        #ch13 .c13-bk .c13-ic { width: 26px; height: 26px; stroke-width: 2.2; }
+        #ch13 .c13-bk span { margin-left: -2px; }
+        #ch13 .c13-tt { position: absolute; left: 100px; right: 100px; top: 54px; line-height: 44px; text-align: center; font-weight: 500; font-size: 17px; color: #17151E; white-space: nowrap; }
+        #ch13 .c13-pills { position: absolute; right: 16px; top: 62px; display: flex; gap: 6px; }
+        #ch13 .c13-pill { display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 14px; background: #fff; color: #55525F; font-weight: 500; font-size: 12.5px; }
+        #ch13 .c13-pill .c13-ic { width: 12px; height: 12px; stroke-width: 2.1; }
+        #ch13 .c13-pill.c13-br { background: #F5F0FE; color: #5A1DB8; }
+        #ch13 .c13-pill span { font-variant-numeric: tabular-nums; }
+        #ch13 .c13-lt { position: absolute; left: 20px; top: 100px; height: 48px; padding-top: 4px; font-weight: 700; font-size: 34px; line-height: 42px; letter-spacing: -0.6px; color: #17151E; }
+        #ch13 .c13-hc { position: absolute; left: 0; right: 0; top: 160px; }
+        #ch13 .c13-eg { padding: 0 20px; }
+        #ch13 .c13-pc { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 20px; background: #fff; }
+        #ch13 .c13-av { width: 48px; height: 48px; border-radius: 50%; background: #EBE1FD; color: #5A1DB8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+        #ch13 .c13-pn { font-weight: 700; font-size: 17px; line-height: 22px; color: #17151E; }
+        #ch13 .c13-pl { margin-top: 1px; font-size: 13.5px; line-height: 18px; color: #55525F; }
+        #ch13 .c13-ac { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 20px; background: #fff; }
+        #ch13 .c13-act { width: 40px; height: 40px; flex: none; border-radius: 12px; background: rgba(34, 197, 94, 0.14); color: #166534; display: flex; align-items: center; justify-content: center; }
+        #ch13 .c13-act .c13-ic { width: 19px; height: 19px; }
+        #ch13 .c13-ac b { display: block; font-weight: 700; font-size: 15px; line-height: 20px; color: #17151E; }
+        #ch13 .c13-ac span { display: block; margin-top: 1px; font-size: 13px; line-height: 18px; color: #55525F; }
+        #ch13 .c13-grp { position: relative; }
+        #ch13 .c13-gt { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; line-height: 14px; letter-spacing: 1.8px; text-transform: uppercase; color: #6B6878; }
+        #ch13 .c13-gc { border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch13 .c13-ir { position: relative; display: flex; align-items: center; gap: 14px; height: 58px; padding: 0 14px 0 16px; background: #fff; overflow: hidden; }
+        #ch13 .c13-ir + .c13-ir::before { content: ""; position: absolute; left: 66px; right: 0; top: 0; height: 1px; background: #E6E4EC; }
+        #ch13 .c13-ps { position: absolute; inset: 0; background: #F2F1F6; opacity: 0; }
+        #ch13 .c13-fl { position: absolute; inset: 0; background: rgba(34, 197, 94, 0.16); opacity: 0; }
+        #ch13 .c13-it { position: relative; width: 36px; height: 36px; flex: none; border-radius: 11px; background: #EBE1FD; color: #6A24DB; display: flex; align-items: center; justify-content: center; }
+        #ch13 .c13-it .c13-ic { width: 19px; height: 19px; stroke-width: 1.9; }
+        #ch13 .c13-bd { position: relative; flex: 1; height: 40px; }
+        #ch13 .c13-lb { position: absolute; left: 0; top: 9.5px; font-weight: 500; font-size: 16px; line-height: 21px; color: #17151E; white-space: nowrap; }
+        #ch13 .c13-dt { position: absolute; left: 0; top: 23px; font-size: 13px; line-height: 17px; color: #6B6878; white-space: nowrap; opacity: 0; }
+        #ch13 .c13-vs { position: absolute; right: 0; top: 10px; display: inline-grid; justify-items: end; }
+        #ch13 .c13-vs > * { grid-area: 1 / 1; }
+        #ch13 .c13-v { font-size: 15px; line-height: 20px; color: #6B6878; white-space: nowrap; }
+        #ch13 .c13-v.c13-g { color: #166534; }
+        #ch13 .c13-v.c13-alt { opacity: 0; }
+        #ch13 .c13-cv { width: 18px; height: 18px; color: #A29FB0; }
+        #ch13 .c13-ft { position: absolute; left: 0; right: 0; top: 742px; bottom: 0; background: #F3F4FA; border-top: 1px solid #E6E4EC; z-index: 9; }
+        #ch13 .btn.c13-sv { left: 20px; right: 20px; top: 764px; z-index: 11; overflow: hidden; }
+        #ch13 .c13-sv .lbl { position: relative; }
+        #ch13 .c13-sv .c13-l2 { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; }
+        #ch13 .c13-sp { position: absolute; left: 114px; top: 17px; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; opacity: 0; }
+        #ch13 .c13-pt { position: absolute; left: 20px; top: 112px; font-size: 14px; line-height: 20px; color: #55525F; }
+        #ch13 .c13-sl { margin: 0 0 8px; font-weight: 500; font-size: 13px; line-height: 18px; color: #55525F; white-space: nowrap; }
+        #ch13 .c13-dtl .c13-lb { top: 0.5px; }
+        #ch13 .c13-dtl .c13-vs { top: 1px; }
+        #ch13 .c13-dtl .c13-dt { opacity: 1; }
+        #ch13 .c13-sv0 { position: absolute; left: 0; right: 0; top: 142px; bottom: 0; overflow: hidden; }
+        #ch13 .c13-sc { position: absolute; left: 0; right: 0; top: 0; }
+        #ch13 .c13-cd { margin: 0 20px 24px; border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch13 .c13-fr { position: relative; display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 12px 14px 12px 16px; background: #fff; }
+        #ch13 .c13-fr + .c13-fr::before { content: ""; position: absolute; left: 64px; right: 0; top: 0; height: 1px; background: #E6E4EC; }
+        #ch13 .c13-tl { position: relative; width: 36px; height: 36px; flex: none; border-radius: 11px; display: flex; align-items: center; justify-content: center; }
+        #ch13 .c13-tl .c13-ic { width: 17px; height: 17px; stroke-width: 2.1; }
+        #ch13 .c13-fb { position: relative; flex: 1; min-width: 0; }
+        #ch13 .c13-rl { font-weight: 500; font-size: 15px; line-height: 20px; color: #17151E; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        #ch13 .c13-rd { margin-top: 1px; font-size: 13px; line-height: 18px; color: #6B6878; display: grid; }
+        #ch13 .c13-rd > span { grid-area: 1 / 1; }
+        #ch13 .c13-rd.c13-two { display: block; }
+        #ch13 .c13-rd .c13-s1, #ch13 .c13-rd .c13-s2 { opacity: 0; }
+        #ch13 .c13-rt { position: relative; width: 26px; height: 24px; flex: none; }
+        #ch13 .c13-rt .c13-sp2 { position: absolute; left: 4px; top: 3px; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid #EBE1FD; border-top-color: #7E3BED; opacity: 0; }
+        #ch13 .c13-rt .c13-ck { position: absolute; left: 3px; top: 3px; width: 20px; height: 20px; fill: none; stroke: #22C55E; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+        #ch13 .c13-ver { position: relative; display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border-radius: 999px; background: #F2F1F6; color: #34313F; font-weight: 500; font-size: 13.5px; flex: none; }
+        #ch13 .c13-ver .c13-ic { width: 15px; height: 15px; }
+        #ch13 .c13-vp { position: absolute; inset: 0; border-radius: 999px; background: rgba(126, 59, 237, 0.2); opacity: 0; }
+        #ch13 .c13-ps2 { position: absolute; inset: 0; background: #F5F0FE; opacity: 0; }
+        #ch13 .c13-pa { width: 36px; height: 36px; flex: none; border-radius: 50%; background: #EBE1FD; color: #5A1DB8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; overflow: hidden; }
+        #ch13 .c13-pa img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        #ch13 .c13-pnm2 { font-weight: 500; font-size: 15px; line-height: 20px; color: #17151E; }
+        #ch13 .c13-pdt { font-size: 13px; line-height: 18px; color: #6B6878; }
+        #ch13 .c13-pdate { font-size: 13px; color: #6B6878; font-variant-numeric: tabular-nums; }
+        #ch13 .c13-sl3 { margin: 0 24px 8px; font-weight: 500; font-size: 13px; line-height: 18px; color: #55525F; white-space: nowrap; }
+        #ch13 .c13-dgx { padding: 14px 16px; font-size: 15px; line-height: 21px; color: #17151E; }
+        #ch13 .c13-ta { position: relative; margin: 0 20px 24px; min-height: 120px; border-radius: 22px; background: #fff; }
+        #ch13 .c13-ph, #ch13 .c13-tw { position: absolute; left: 16px; right: 16px; top: 14px; font-size: 15px; line-height: 21px; }
+        #ch13 .c13-ph { color: #A29FB0; }
+        #ch13 .c13-tw { color: #17151E; opacity: 0; }
+        #ch13 .c13-cr { display: inline-block; width: 2px; height: 18px; margin-left: 1px; vertical-align: -3px; border-radius: 2px; background: #7E3BED; }
+        #ch13 .c13-tfb { position: absolute; inset: 0; border-radius: 22px; border: 1.5px solid #7E3BED; opacity: 0; }
+        #ch13 .c13-pst { margin: 0 20px 4px; font-weight: 500; font-size: 16px; line-height: 22px; color: #17151E; }
+        #ch13 .c13-intro { margin: 0 20px 16px; font-size: 15px; line-height: 21px; color: #55525F; }
+        #ch13 .c13-cn { display: grid; margin: 0 36px 8px; font-size: 13px; line-height: 18px; font-weight: 500; color: #55525F; font-variant-numeric: tabular-nums; }
+        #ch13 .c13-cn > span { grid-area: 1 / 1; opacity: 0; }
+        #ch13 .c13-cn > span:first-child { opacity: 1; }
+        #ch13 .c13-sv .c13-sp3 { position: absolute; left: 82px; top: 17px; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; opacity: 0; }
+        #ch13 .c13-sv .c13-bic { position: relative; width: 19px; height: 19px; margin-right: 8px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        #ch13 .c13-sv .c13-in { position: relative; display: flex; align-items: center; justify-content: center; }
+        #ch13 .c13-dlg { position: absolute; inset: 0; z-index: 40; opacity: 0; visibility: hidden; }
+        #ch13 .c13-dls { position: absolute; inset: 0; background: rgba(23, 21, 30, 0.5); }
+        #ch13 .c13-dlc { position: absolute; left: 50px; right: 50px; top: 330px; border-radius: 28px; background: #fff; padding: 26px 22px 20px; box-shadow: 0 30px 70px rgba(23, 21, 30, 0.35); }
+        #ch13 .c13-dlc h3 { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 21px; line-height: 27px; color: #17151E; text-align: center; }
+        #ch13 .c13-dlc p { margin: 8px 0 0; font-size: 15px; line-height: 22px; color: #55525F; text-align: center; }
+        #ch13 .c13-dlr { display: flex; gap: 10px; margin-top: 22px; }
+        #ch13 .c13-dlb { position: relative; flex: 1; height: 48px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 16px; background: #F2F1F6; color: #34313F; }
+        #ch13 .c13-dlb.c13-pri { background: #7E3BED; color: #fff; }
+        #ch13 .c13-stg { position: absolute; inset: 0; pointer-events: none; }
+        #ch13 .c13-scrim { position: absolute; inset: 0; background: rgba(23, 21, 30, 0.7); opacity: 0; z-index: 40; }
+        #ch13 .c13-stp { position: absolute; left: 0; top: 0; width: 1080px; height: 460px; opacity: 0; z-index: 5; }
+        #ch13 .c13-nd { position: absolute; top: 300px; width: 216px; margin-left: -108px; text-align: center; }
+        #ch13 .c13-nc { position: relative; width: 56px; height: 56px; margin: 0 auto; border-radius: 50%; background: #fff; border: 3px solid #D3CFE0; display: flex; align-items: center; justify-content: center; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 24px; color: #8A8798; }
+        #ch13 .c13-nc b { position: relative; font-weight: 700; }
+        #ch13 .c13-nf { position: absolute; inset: -3px; border-radius: 50%; background: #7E3BED; opacity: 0; display: flex; align-items: center; justify-content: center; }
+        #ch13 .c13-nf svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+        #ch13 .c13-nr { position: absolute; inset: -3px; border-radius: 50%; border: 3px solid #7E3BED; box-shadow: 0 0 0 7px rgba(126, 59, 237, 0.18); opacity: 0; }
+        #ch13 .c13-nl { margin-top: 12px; font-weight: 700; font-size: 25px; line-height: 30px; color: #8A8798; position: relative; }
+        #ch13 .c13-nl i { position: absolute; left: 0; right: 0; top: 0; font-style: normal; color: #5A1DB8; opacity: 0; }
+        #ch13 .c13-ln { position: absolute; top: 328px; height: 5px; margin-top: -2.5px; border-radius: 5px; background: #D3CFE0; overflow: hidden; }
+        #ch13 .c13-ln i { position: absolute; inset: 0; background: #7E3BED; transform-origin: 0 50%; transform: scaleX(0); }
+        #ch13 .c13-sti { position: absolute; left: 0; top: 0; z-index: 80; opacity: 0; }
+        #ch13 .c13-stb { padding: 14px 26px; border-radius: 22px; background: var(--vm-violet-600); color: #fff; font-weight: 700; font-size: 31px; line-height: 38px; white-space: nowrap; box-shadow: 0 22px 46px rgba(53, 14, 111, 0.4); }
+        #ch13 .c13-std { position: absolute; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; background: var(--vm-violet-600); box-shadow: 0 0 0 7px rgba(126, 59, 237, 0.28); opacity: 0; z-index: 80; }
+        #ch13 .c13-sts { position: absolute; width: 4px; margin-left: -2px; background: var(--vm-violet-600); opacity: 0; z-index: 80; }
+        #ch13 .c13-pdf { position: absolute; left: 0; top: 0; width: 420px; height: 594px; opacity: 0; transform-origin: 50% 50%; font-family: Arial, Helvetica, "Liberation Sans", sans-serif; color: #111; line-height: 1.4; }
+        #ch13 .c13-pdf * { box-sizing: border-box; }
+        #ch13 .c13-pg { position: absolute; inset: 0; background: #fff; overflow: hidden; border-radius: 4px; box-shadow: 0 18px 44px rgba(30, 10, 70, 0.34), 0 2px 8px rgba(30, 10, 70, 0.18); }
+        #ch13 .c13-pp { position: absolute; inset: 0; padding: 26px 28px 0; }
+        #ch13 .c13-qm { display: flex; justify-content: space-between; align-items: flex-start; }
+        #ch13 .c13-qlogo { display: flex; align-items: center; gap: 5px; }
+        #ch13 .c13-qlogo img { display: block; width: 20px; height: 20px; }
+        #ch13 .c13-qlogo span { font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1; color: #111111; letter-spacing: -0.2px; }
+        #ch13 .c13-qlogo i { font-style: normal; font-weight: 400; }
+        #ch13 .c13-qlogo b { font-weight: 700; }
+        #ch13 .c13-qtag { margin-top: 5px; font-size: 5px; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.5px; }
+        #ch13 .c13-qr { text-align: right; }
+        #ch13 .c13-qty { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.9px; line-height: 1.15; }
+        #ch13 .c13-qsb { margin-top: 2px; font-size: 7px; color: #555; }
+        #ch13 .c13-qfs { display: flex; gap: 12px; justify-content: flex-end; margin-top: 6px; }
+        #ch13 .c13-qlab { font-size: 5.4px; font-weight: 700; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.5px; }
+        #ch13 .c13-qfv { margin-top: 1px; font-size: 7px; }
+        #ch13 .c13-qmono { font-family: "Courier New", monospace; }
+        #ch13 .c13-qrule { margin-top: 9px; border-top: 1.2px solid #111; }
+        #ch13 .c13-qpt { display: flex; margin-top: 10px; padding-bottom: 9px; border-bottom: 0.5px solid #C8C8C8; }
+        #ch13 .c13-qpt > div { flex: 1; }
+        #ch13 .c13-qpt > div + div { padding-left: 12px; border-left: 0.5px solid #C8C8C8; }
+        #ch13 .c13-qnm { margin-top: 3px; font-size: 10px; font-weight: 700; }
+        #ch13 .c13-qmt { margin-top: 2px; font-size: 6.6px; line-height: 1.35; }
+        #ch13 .c13-qsec { margin-top: 15px; }
+        #ch13 .c13-qst { margin-bottom: 7px; padding-bottom: 3px; border-bottom: 1px solid #111; font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.7px; }
+        #ch13 .c13-qtb { width: 100%; border-collapse: collapse; font-size: 7.6px; }
+        #ch13 .c13-qtb th { padding: 3.5px 4px; background: #F1F1F1; border-bottom: 0.5px solid #C8C8C8; font-size: 5.6px; font-weight: 700; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.4px; text-align: left; }
+        #ch13 .c13-qtb td { padding: 5px 4px; border-bottom: 0.5px solid #C8C8C8; vertical-align: top; }
+        #ch13 .c13-qtb td.i { color: #8A8A8A; font-size: 7px; }
+        #ch13 .c13-qtb b { display: block; font-size: 8px; }
+        #ch13 .c13-qtb em { display: block; margin-top: 1px; font-style: normal; font-size: 6.6px; color: #555; }
+        #ch13 .c13-qtb .m { font-family: "Courier New", monospace; font-size: 7.4px; }
+        #ch13 .c13-qpro { font-size: 8.6px; line-height: 1.55; }
+        #ch13 .c13-qfill { display: flex; margin-top: 11px; background: #F1F1F1; padding: 7px 9px; }
+        #ch13 .c13-qfill > div { flex: 1; }
+        #ch13 .c13-qrows { display: flex; padding: 4px 0; border-bottom: 0.5px solid #C8C8C8; font-size: 7.6px; }
+        #ch13 .c13-qrows .c13-qlab { width: 32%; padding-top: 1px; }
+        #ch13 .c13-qrows b { font-weight: 700; }
+        #ch13 .c13-qsig { position: absolute; left: 28px; right: 28px; bottom: 24px; opacity: 0; }
+        #ch13 .c13-qss { font-size: 5.8px; line-height: 1.4; color: #8A8A8A; text-align: right; }
+        #ch13 .c13-qstrip { display: flex; align-items: center; gap: 10px; margin-top: 9px; padding-bottom: 8px; border-bottom: 0.5px solid #C8C8C8; }
+        #ch13 .c13-qqr { width: 46px; height: 46px; flex: none; }
+        #ch13 .c13-qqr svg { display: block; width: 100%; height: 100%; }
+        #ch13 .c13-qsn { font-size: 5.8px; line-height: 1.4; color: #555; }
+        #ch13 .c13-qsd { margin-top: 3px; font-size: 6.4px; color: #6A6A6A; }
+        #ch13 .c13-qsd b { color: #111; }
+        #ch13 .c13-sband { position: absolute; left: 0; top: 0; bottom: 0; width: 40px; background: #a9c6d8; }
+        #ch13 .c13-sn { position: absolute; inset: 0; padding: 18px 12px 0 52px; }
+        #ch13 .c13-sn.c13-narrow { padding: 22px 24px 0 24px; }
+        #ch13 .c13-snh { display: flex; gap: 6px; align-items: flex-start; }
+        #ch13 .c13-snt { width: 62%; text-align: center; }
+        #ch13 .c13-snti { font-size: 12.5px; font-weight: 700; line-height: 1.1; }
+        #ch13 .c13-snti.c13-sm { font-size: 10.6px; }
+        #ch13 .c13-sbig { display: inline-block; padding-left: 2px; font-size: 46px; line-height: 0.9; vertical-align: -2px; }
+        #ch13 .c13-snel { margin-top: 3px; font-size: 9px; font-weight: 700; }
+        #ch13 .c13-snb { flex: 1; border: 1px solid #000; padding: 3px 6px 4px; }
+        #ch13 .c13-snl { font-size: 6.4px; }
+        #ch13 .c13-snv { margin-top: 1px; font-size: 8.4px; font-weight: 700; white-space: nowrap; }
+        #ch13 .c13-sbx { display: flex; gap: 8px; margin-top: 14px; }
+        #ch13 .c13-sbx > div { flex: 1; border: 1px solid #000; border-radius: 2px; }
+        #ch13 .c13-sbx h2, #ch13 .c13-spres h2 { margin: 0; padding: 4px 2px; border-bottom: 1px solid #000; font-size: 7.6px; line-height: 1.1; font-weight: 700; text-align: center; }
+        #ch13 .c13-sbd { min-height: 92px; padding: 3px 6px; }
+        #ch13 .c13-sf { padding: 2.5px 0; min-height: 15px; font-size: 6.3px; line-height: 1.3; }
+        #ch13 .c13-spres { margin-top: 12px; border: 1px solid #000; border-radius: 2px; }
+        #ch13 .c13-spb { min-height: 168px; padding: 7px 8px; }
+        #ch13 .c13-spb .c13-sf { min-height: 22px; font-size: 7.2px; }
+        #ch13 .c13-sf b { font-weight: 700; }
+        #ch13 .c13-sft { position: absolute; left: 52px; right: 12px; bottom: 22px; display: flex; align-items: flex-end; gap: 8px; }
+        #ch13 .c13-narrow .c13-sft, #ch13 .c13-sft.c13-nw { left: 24px; right: 24px; }
+        #ch13 .c13-sfl { flex: 1; font-size: 5.1px; line-height: 1.7; font-style: italic; }
+        #ch13 .c13-sfl u { text-decoration: none; font-weight: 700; }
+        #ch13 .c13-sqr { width: 46px; height: 46px; flex: none; }
+        #ch13 .c13-sqr svg { display: block; width: 100%; height: 100%; }
+        #ch13 .c13-chip { position: absolute; right: 14px; top: 62px; display: grid; opacity: 0; }
+        #ch13 .c13-chip > span { grid-area: 1 / 1; display: flex; align-items: center; gap: 5px; padding: 4px 10px 4px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+        #ch13 .c13-chip i { display: block; width: 7px; height: 7px; border-radius: 50%; }
+        #ch13 .c13-chip .c13-ca { background: #FEF3C7; color: #B45309; }
+        #ch13 .c13-chip .c13-ca i { background: #F59E0B; }
+        #ch13 .c13-chip .c13-cb { background: #DCFCE7; color: #166534; opacity: 0; }
+        #ch13 .c13-chip .c13-cb i { background: #22C55E; }
+        #ch13 .c13-stamp { position: absolute; left: 258px; top: 410px; width: 0; height: 0; opacity: 0; }
+        #ch13 .c13-ink { position: absolute; left: -54px; top: -70px; width: 108px; height: 108px; border-radius: 50%; border: 4px solid rgba(34, 197, 94, 0.6); opacity: 0; }
+        #ch13 .c13-seal { position: absolute; left: -54px; top: -70px; width: 108px; height: 108px; border-radius: 50%; background: #22C55E; border: 6px solid #fff; box-shadow: 0 12px 26px rgba(13, 136, 63, 0.45); display: flex; align-items: center; justify-content: center; }
+        #ch13 .c13-seal svg, #ch13 .c13-badge svg { fill: none; stroke: #fff; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+        #ch13 .c13-seal svg { width: 56px; height: 56px; }
+        #ch13 .c13-slab { position: absolute; left: -102px; top: 52px; width: 204px; padding: 6px 0; border-radius: 999px; background: #fff; border: 2.5px solid #22C55E; color: #0D883F; font-size: 14px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; text-align: center; white-space: nowrap; box-shadow: 0 8px 18px rgba(13, 136, 63, 0.25); }
+        #ch13 .c13-badge { position: absolute; left: -16px; top: -16px; width: 56px; height: 56px; border-radius: 50%; background: #22C55E; border: 4px solid #fff; box-shadow: 0 8px 18px rgba(13, 136, 63, 0.4); display: flex; align-items: center; justify-content: center; opacity: 0; }
+        #ch13 .c13-badge svg { width: 28px; height: 28px; }
+        #ch13 .c13-pcam { opacity: 0; }
+        #ch13 .scr.c13-pgr { background: #fff; }
+        #ch13 .c13-ptt { position: absolute; left: 22px; top: 66px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 32px; line-height: 40px; letter-spacing: -0.5px; color: #17151E; }
+        #ch13 .c13-chips { position: absolute; left: 0; right: 0; top: 122px; display: flex; gap: 8px; padding: 0 22px; white-space: nowrap; }
+        #ch13 .c13-chips span { height: 34px; padding: 0 15px; border-radius: 999px; background: #F2F1F6; color: #34313F; font-weight: 500; font-size: 14px; line-height: 34px; }
+        #ch13 .c13-chips span.c13-on { background: #7E3BED; color: #fff; }
+        #ch13 .c13-pem { position: absolute; left: 32px; right: 32px; top: 300px; text-align: center; }
+        #ch13 .c13-pem .c13-pei { width: 96px; height: 96px; margin: 0 auto; border-radius: 30px; background: #F5F0FE; display: flex; align-items: center; justify-content: center; color: #7E3BED; }
+        #ch13 .c13-pem .c13-pei .c13-ic { width: 44px; height: 44px; stroke-width: 1.7; }
+        #ch13 .c13-pem b { display: block; margin-top: 22px; font-family: "Space Grotesk", sans-serif; font-size: 22px; line-height: 28px; color: #17151E; }
+        #ch13 .c13-pem span { display: block; margin-top: 8px; font-size: 15px; line-height: 22px; color: #726F80; }
+        #ch13 .c13-pls { position: absolute; left: 0; right: 0; top: 178px; }
+        #ch13 .c13-psl { margin: 0 22px 4px; font-weight: 500; font-size: 13px; line-height: 18px; letter-spacing: 0.4px; text-transform: uppercase; color: #726F80; }
+        #ch13 .c13-prw { position: relative; height: 64px; display: flex; align-items: center; gap: 14px; padding: 0 22px; opacity: 0; }
+        #ch13 .c13-prw + .c13-prw::before { content: ""; position: absolute; left: 84px; right: 0; top: 0; height: 1px; background: #E6E4EC; }
+        #ch13 .c13-ptl { position: relative; width: 48px; height: 48px; flex: none; border-radius: 14px; background: #F5F0FE; display: flex; align-items: center; justify-content: center; }
+        #ch13 .c13-ptl .c13-ic { width: 25px; height: 25px; }
+        #ch13 .c13-ptx { flex: 1; min-width: 0; }
+        #ch13 .c13-ptx b { display: block; font-weight: 500; font-size: 16px; line-height: 21px; color: #17151E; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        #ch13 .c13-ptx span { display: block; font-size: 14px; line-height: 19px; color: #726F80; }
+        #ch13 .c13-pwh { font-size: 13px; color: #726F80; }
+        #ch13 .c13-ptab { position: absolute; left: 0; right: 0; bottom: 0; height: 92px; background: #fff; border-top: 1px solid #E6E4EC; display: flex; padding: 10px 8px 0; }
+        #ch13 .c13-ptab div { flex: 1; text-align: center; font-size: 11.5px; font-weight: 500; color: #8A8798; }
+        #ch13 .c13-ptab div .c13-ic { width: 25px; height: 25px; margin: 0 auto 4px; }
+        #ch13 .c13-ptab div.c13-on { color: #7E3BED; }
+        #ch13 .c13-push { position: absolute; left: 12px; right: 12px; top: 58px; padding: 13px 14px; border-radius: 24px; background: #fff; box-shadow: 0 18px 44px rgba(23, 21, 30, 0.28); display: flex; gap: 12px; align-items: center; z-index: 28; opacity: 0; }
+        #ch13 .c13-push .c13-pk { width: 40px; height: 40px; flex: none; border-radius: 12px; background: #7E3BED; display: flex; align-items: center; justify-content: center; }
+        #ch13 .c13-push .c13-pk img { width: 24px; height: 24px; display: block; }
+        #ch13 .c13-push b { display: block; font-size: 14.5px; line-height: 19px; color: #17151E; }
+        #ch13 .c13-push span { display: block; font-size: 13.5px; line-height: 18px; color: #55525F; }
+        #ch13 .c13-push em { margin-left: auto; font-style: normal; font-size: 12px; color: #8A8798; align-self: flex-start; }
+        #ch13 .c13-qsig .c13-hl { position: absolute; inset: -8px -9px; border: 2px solid #7E3BED; border-radius: 6px; opacity: 0; }
+      </style>
+
+      <div id="ch13" data-composition-id="ch13-assinatura" data-start="0" data-duration="84.5" data-width="1080" data-height="1920">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+          <symbol id="c13-i-cl" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+          <symbol id="c13-i-cr" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+          <symbol id="c13-i-timer" viewBox="0 0 24 24"><path d="M10 2h4M12 14l3-3" /><circle cx="12" cy="14" r="8" /></symbol>
+          <symbol id="c13-i-video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect x="2" y="6" width="14" height="12" rx="2" /></symbol>
+          <symbol id="c13-i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+          <symbol id="c13-i-clip" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01" /></symbol>
+          <symbol id="c13-i-act" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></symbol>
+          <symbol id="c13-i-steth" viewBox="0 0 24 24"><path d="M11 2v2M5 2v2" /><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path d="M8 15a6 6 0 0 0 12 0v-3" /><circle cx="20" cy="10" r="2" /></symbol>
+          <symbol id="c13-i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></symbol>
+          <symbol id="c13-i-ftext" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" /></symbol>
+          <symbol id="c13-i-fcheck" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+          <symbol id="c13-i-hist" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /><path d="M12 7v5l4 2" /></symbol>
+          <symbol id="c13-i-spark" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /></symbol>
+          <symbol id="c13-i-se" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></symbol>
+          <symbol id="c13-i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" /></symbol>
+          <symbol id="c13-i-flask" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2" /><path d="M8.5 2h7M7 16h10" /></symbol>
+          <symbol id="c13-i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></symbol>
+          <symbol id="c13-i-home" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+          <symbol id="c13-i-cal" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></symbol>
+          <symbol id="c13-i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
+          <symbol id="c13-i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /></symbol>
+          <symbol id="c13-i-chk" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+        </svg>
+
+      <div id="c13-bg" class="clip" data-start="0" data-duration="84.5" data-track-index="0">
+        <div class="backdrop"></div>
+        <div class="grid"></div>
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+      </div>
+
+      <section id="c13-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Gere</span><span class="w">e</span></div>
+          <div class="chapter-line"><span class="w">assine</span><span class="w">os</span></div>
+          <div class="chapter-line"><span class="w v">documentos</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c13-phone" class="clip" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow data-start="3" data-duration="81.5" data-track-index="2">
+        <div class="cam" id="c13-cam">
+          <div class="dev">
+            <div class="bezel"></div>
+            <div class="screen" id="c13-scr">
+
+              <div class="scr c13-gr" id="c13-sH">
+                <div class="c13-hd">
+                  <div class="c13-bk"><svg class="c13-ic"><use href="#c13-i-cl" /></svg><span>Voltar</span></div>
+                  <div class="c13-pills">
+                    <div class="c13-pill"><svg class="c13-ic"><use href="#c13-i-timer" /></svg><span>10:40</span></div>
+                    <div class="c13-pill c13-br"><svg class="c13-ic"><use href="#c13-i-video" /></svg>Online</div>
+                  </div>
+                </div>
+                <div class="c13-lt">Prontuário</div>
+                <div class="c13-hc">
+                  <div class="c13-eg" style="margin-bottom: 12px;">
+                    <div class="c13-pc"><div class="c13-av">AS</div><div><div class="c13-pn">Ana Souza</div><div class="c13-pl">34 anos · Feminino</div></div></div>
+                  </div>
+                  <div class="c13-eg" style="margin-bottom: 16px;">
+                    <div class="c13-ac"><div class="c13-act"><svg class="c13-ic"><use href="#c13-i-shield" /></svg></div><div><b>Ficha e documentos liberados</b><span>O paciente autorizou o acesso ao histórico de saúde.</span></div></div>
+                  </div>
+                  <div class="c13-eg" style="margin-bottom: 22px;">
+                    <div class="c13-grp" id="c13-grp1">
+                      <div class="c13-gt">Registro clínico</div>
+                      <div class="c13-gc" id="c13-gcH">
+                        <div class="c13-ir"><div class="c13-fl"></div><div class="c13-it"><svg class="c13-ic"><use href="#c13-i-clip" /></svg></div><div class="c13-bd"><div class="c13-lb">Anamnese</div><div class="c13-vs"><span class="c13-v c13-g">Preenchida</span></div></div><svg class="c13-ic c13-cv"><use href="#c13-i-cr" /></svg></div>
+                        <div class="c13-ir c13-dtl"><div class="c13-fl"></div><div class="c13-it"><svg class="c13-ic"><use href="#c13-i-act" /></svg></div><div class="c13-bd"><div class="c13-lb">Diagnóstico</div><div class="c13-dt">F41.1 - Ansiedade generalizada</div><div class="c13-vs"><span class="c13-v c13-g">Preenchido</span></div></div><svg class="c13-ic c13-cv"><use href="#c13-i-cr" /></svg></div>
+                        <div class="c13-ir c13-dtl"><div class="c13-fl"></div><div class="c13-it"><svg class="c13-ic"><use href="#c13-i-steth" /></svg></div><div class="c13-bd"><div class="c13-lb">Exames</div><div class="c13-dt">Hemograma, TSH +2</div><div class="c13-vs"><span class="c13-v c13-g">4 exames</span></div></div><svg class="c13-ic c13-cv"><use href="#c13-i-cr" /></svg></div>
+                        <div class="c13-ir c13-dtl"><div class="c13-fl"></div><div class="c13-it"><svg class="c13-ic"><use href="#c13-i-pill" /></svg></div><div class="c13-bd"><div class="c13-lb">Receita</div><div class="c13-dt">Simples, ESPECIAL, B</div><div class="c13-vs"><span class="c13-v c13-g">3 medicamentos</span></div></div><svg class="c13-ic c13-cv"><use href="#c13-i-cr" /></svg></div>
+                        <div class="c13-ir"><div class="c13-fl"></div><div class="c13-it"><svg class="c13-ic"><use href="#c13-i-ftext" /></svg></div><div class="c13-bd"><div class="c13-lb">Laudo</div><div class="c13-vs"><span class="c13-v c13-g">Preenchido</span></div></div><svg class="c13-ic c13-cv"><use href="#c13-i-cr" /></svg></div>
+                        <div class="c13-ir c13-dtl"><div class="c13-fl"></div><div class="c13-it"><svg class="c13-ic"><use href="#c13-i-fcheck" /></svg></div><div class="c13-bd"><div class="c13-lb">Atestado</div><div class="c13-dt">Afastamento</div><div class="c13-vs"><span class="c13-v c13-g">1 dia</span></div></div><svg class="c13-ic c13-cv"><use href="#c13-i-cr" /></svg></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c13-eg">
+                    <div class="c13-grp">
+                      <div class="c13-gt">Paciente e apoio</div>
+                      <div class="c13-gc">
+                        <div class="c13-ir"><div class="c13-it"><svg class="c13-ic"><use href="#c13-i-hist" /></svg></div><div class="c13-bd"><div class="c13-lb">Histórico</div></div><svg class="c13-ic c13-cv"><use href="#c13-i-cr" /></svg></div>
+                        <div class="c13-ir"><div class="c13-it"><svg class="c13-ic"><use href="#c13-i-spark" /></svg></div><div class="c13-bd"><div class="c13-lb">Assistente de IA</div></div><svg class="c13-ic c13-cv"><use href="#c13-i-cr" /></svg></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="c13-ft"></div>
+                <div class="btn c13-sv" id="c13-svH" style="top: 764px;"><span class="lbl">Finalizar prontuário</span></div>
+              </div>
+
+              <div class="scr c13-gr" id="c13-sF">
+                <div class="c13-pt">Etapa 1 de 5</div>
+                <div class="c13-sv0"><div class="c13-sc" id="c13-scF">
+                  <div class="c13-cd" id="c13-cPeople" style="margin-top: 0;">
+                    <div class="c13-fr"><div class="c13-pa"><img src="assets/doctors/camila.jpg" alt=""></div><div class="c13-fb"><div class="c13-pnm2">Dra. Camila Rocha</div><div class="c13-pdt">CRM 123456/SP</div></div><div class="c13-pdate">09/10/2026</div></div>
+                    <div class="c13-fr"><div class="c13-pa">AS</div><div class="c13-fb"><div class="c13-pnm2">Ana Souza</div><div class="c13-pdt">CPF 318.552.740-12 • 34 anos</div></div></div>
+                  </div>
+                  <div class="c13-sl3" id="c13-slDocs">Documentos a gerar (7)</div>
+                  <div class="c13-cd" id="c13-cardF"></div>
+                  <div class="c13-sl3">Diagnóstico principal</div>
+                  <div class="c13-cd"><div class="c13-dgx">F41.1 - Ansiedade generalizada</div></div>
+                  <div class="c13-sl3">Observações finais (opcional)</div>
+                  <div class="c13-ta" id="c13-taF"><span class="c13-ph">Orientações ou notas adicionais</span><span class="c13-tw"><span class="c13-tv"></span><i class="c13-cr"></i></span><div class="c13-tfb"></div></div>
+                </div></div>
+                <div class="c13-ft"></div>
+                <div class="btn c13-sv" id="c13-svF" style="top: 764px;"><span class="lbl">Gerar documentos</span></div>
+                <div class="c13-hd"><div class="c13-bk"><svg class="c13-ic"><use href="#c13-i-cl" /></svg><span>Prontuário</span></div><div class="c13-tt">Finalizar</div></div>
+              </div>
+
+              <div class="scr c13-gr" id="c13-sG">
+                <div class="c13-pt">Etapa 2 de 5</div>
+                <div class="c13-sv0"><div class="c13-sc">
+                  <div class="c13-pst">Gerando documentos</div>
+                  <div class="c13-intro">Cada documento é gerado pelo servidor. Isso leva alguns segundos.</div>
+                  <div class="c13-cn" id="c13-cnG"></div>
+                  <div class="c13-cd" id="c13-cardG"></div>
+                </div></div>
+                <div class="c13-hd"><div class="c13-bk"><svg class="c13-ic"><use href="#c13-i-cl" /></svg><span>Prontuário</span></div><div class="c13-tt">Gerando</div></div>
+              </div>
+
+              <div class="scr c13-gr" id="c13-sR">
+                <div class="c13-pt">Etapa 3 de 5</div>
+                <div class="c13-sv0"><div class="c13-sc">
+                  <div class="c13-intro" id="c13-inR">Revise os documentos antes de assinar. Toque em Ver para abrir o PDF.</div>
+                  <div class="c13-cd" id="c13-cardR"></div>
+                </div></div>
+                <div class="c13-ft"></div>
+                <div class="btn c13-sv" id="c13-svR" style="top: 764px;"><span class="c13-in"><svg class="c13-bic" viewBox="0 0 24 24"><path d="M12 20h9" /><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg><span class="lbl">Assinar documentos</span></span></div>
+                <div class="c13-hd"><div class="c13-bk"><svg class="c13-ic"><use href="#c13-i-cl" /></svg><span>Prontuário</span></div><div class="c13-tt">Revisão</div></div>
+              </div>
+
+              <div class="scr c13-gr" id="c13-sS">
+                <div class="c13-pt">Etapa 4 de 5</div>
+                <div class="c13-sv0"><div class="c13-sc">
+                  <div class="c13-pst">Assinando documentos</div>
+                  <div class="c13-intro">Assinatura digital ICP-Brasil em andamento. Mantenha esta tela aberta.</div>
+                  <div class="c13-cn" id="c13-cnS"></div>
+                  <div class="c13-cd" id="c13-cardS"></div>
+                </div></div>
+                <div class="c13-hd"><div class="c13-bk"><svg class="c13-ic"><use href="#c13-i-cl" /></svg><span>Prontuário</span></div><div class="c13-tt">Assinatura</div></div>
+              </div>
+
+              <div class="scr c13-gr" id="c13-sD">
+                <div class="c13-pt">Etapa 5 de 5</div>
+                <div class="c13-sv0"><div class="c13-sc">
+                  <div class="c13-intro" id="c13-inD">7 documentos assinados com certificado ICP-Brasil. Você pode enviar os documentos ao paciente pelo chat. Finalize o atendimento para concluir.</div>
+                  <div class="c13-cd" id="c13-cardD"></div>
+                </div></div>
+                <div class="c13-ft"></div>
+                <div class="btn c13-sv" id="c13-svD" style="top: 764px;"><span class="c13-sp3" id="c13-spD"></span><span class="lbl c13-l1" id="c13-lD1">Finalizar atendimento</span><span class="lbl c13-l2" id="c13-lD2">Finalizando…</span></div>
+                <div class="c13-hd"><div class="c13-bk"><svg class="c13-ic"><use href="#c13-i-cl" /></svg><span>Prontuário</span></div><div class="c13-tt">Concluído</div></div>
+              </div>
+
+              <div class="c13-dlg" id="c13-dlg">
+                <div class="c13-dls"></div>
+                <div class="c13-dlc" id="c13-dlc">
+                  <h3>Gerar documentos</h3>
+                  <p>Os documentos serão gerados pelo servidor. Deseja continuar?</p>
+                  <div class="c13-dlr"><div class="c13-dlb">Cancelar</div><div class="c13-dlb c13-pri" id="c13-dlgo">Gerar</div></div>
+                </div>
+              </div>
+
+              <div class="status"><span>14:24</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+              <div class="island"></div>
+            </div>
+            <div class="lift" id="c13-lift"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="c13-pat" class="clip" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow data-start="3" data-duration="81.5" data-track-index="3">
+        <div class="cam c13-pcam" id="c13-pcam">
+          <div class="dev">
+            <div class="bezel"></div>
+            <div class="screen" id="c13-pscr">
+              <div class="scr c13-pgr" id="c13-pS">
+                <div class="c13-ptt">Documentos</div>
+                <div class="c13-chips"><span class="c13-on">Todos</span><span>Receitas</span><span>Exames</span><span>Atestados</span></div>
+                <div class="c13-pem" id="c13-pEmpty"><div class="c13-pei"><svg class="c13-ic"><use href="#c13-i-file" /></svg></div><b>Seus documentos ficam aqui</b><span>Receitas, atestados e exames aparecem depois de cada consulta.</span></div>
+                <div class="c13-pls" id="c13-pList"><div class="c13-psl" id="c13-pHoje" style="opacity: 0;">Hoje</div></div>
+                <div class="c13-ptab">
+                  <div><svg class="c13-ic"><use href="#c13-i-home" /></svg>Início</div>
+                  <div><svg class="c13-ic"><use href="#c13-i-cal" /></svg>Consultas</div>
+                  <div class="c13-on"><svg class="c13-ic"><use href="#c13-i-file" /></svg>Documentos</div>
+                  <div><svg class="c13-ic"><use href="#c13-i-user" /></svg>Perfil</div>
+                </div>
+                <div class="c13-push" id="c13-push"><div class="c13-pk"><img src="assets/brand/mark-white.svg" alt=""></div><div><b>Documentos disponíveis</b><span>Dra. Camila Rocha emitiu 7 documentos</span></div><em>agora</em></div>
+              </div>
+              <div class="status"><span>14:24</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+              <div class="island"></div>
+            </div>
+            <div class="lift" id="c13-plift"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="c13-stage" class="clip" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow data-start="3" data-duration="81.5" data-track-index="4">
+        <div class="c13-stg" id="c13-stg">
+          <div class="c13-stp" id="c13-stp"></div>
+          <div class="c13-scrim" id="c13-scrim"></div>
+        </div>
+      </section>
+
+      <div id="c13-brand" class="clip" data-start="0" data-duration="84.5" data-track-index="5">
+        <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+      </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch13-assinatura"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl, screenEl: root.querySelector("#c13-scr"), liftEl: root.querySelector("#c13-lift") });
+            const { $, $$, E, tip, tap, center, push, showTip, liftOut, titleCard, posIn } = k;
+          const rng = (a) => () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+          function qr(seed) {
+            const n = 21, r = rng(seed), g = [];
+            for (let y = 0; y < n; y++) { g.push([]); for (let x = 0; x < n; x++) g[y].push(r() < 0.5 ? 1 : 0); }
+            const fin = (ox, oy) => {
+              for (let y = -1; y <= 7; y++) for (let x = -1; x <= 7; x++) {
+                const gx = ox + x, gy = oy + y;
+                if (gx < 0 || gy < 0 || gx >= n || gy >= n) continue;
+                let v = 0;
+                if (x >= 0 && x <= 6 && y >= 0 && y <= 6) v = (x === 0 || x === 6 || y === 0 || y === 6 || (x >= 2 && x <= 4 && y >= 2 && y <= 4)) ? 1 : 0;
+                g[gy][gx] = v;
+              }
+            };
+            fin(0, 0); fin(n - 7, 0); fin(0, n - 7);
+            let d = "";
+            for (let y = 0; y < n; y++) {
+              let x = 0;
+              while (x < n) {
+                if (g[y][x]) { let l = 0; while (x + l < n && g[y][x + l]) l++; d += `M${x} ${y}h${l}v1h-${l}z`; x += l; } else x++;
+              }
+            }
+            return `<svg viewBox="0 0 21 21" shape-rendering="crispEdges"><rect width="21" height="21" fill="#fff"/><path d="${d}" fill="#111"/></svg>`;
+          }
+
+          const CHK = '<svg viewBox="0 0 24 24"><use href="#c13-i-chk" /></svg>';
+          const mast = (type, sub, id) => `<div class="c13-qm"><div><div class="c13-qlogo"><img src="assets/brand/logo-mono.svg" alt=""><span><i>Viva</i><b>mais</b></span></div><div class="c13-qtag">Plataforma de telemedicina · vivamaisdoc.com.br</div></div><div class="c13-qr"><div class="c13-qty">${type}</div><div class="c13-qsb">${sub}</div><div class="c13-qfs"><div><div class="c13-qlab">Documento</div><div class="c13-qfv c13-qmono">${id}</div></div><div><div class="c13-qlab">Emitido em</div><div class="c13-qfv">09/10/2026</div></div></div></div></div><div class="c13-qrule"></div>`;
+          const PARTIES = '<div class="c13-qpt"><div><div class="c13-qlab">Profissional</div><div class="c13-qnm">Dra. Camila Rocha</div><div class="c13-qmt">CRM 123456 / SP · Clínica Geral</div></div><div><div class="c13-qlab">Paciente</div><div class="c13-qnm">Ana Souza</div><div class="c13-qmt">CPF 318.552.740-12 · Nasc. 22/05/1992 (34 anos) · Feminino</div></div></div>';
+          const sig = (seed) => `<div class="c13-qsig" data-a="sig"><div class="c13-hl"></div><div class="c13-qss">Assinado digitalmente pelo profissional identificado no cabeçalho, com certificado ICP-Brasil vinculado ao registro profissional.</div><div class="c13-qstrip"><div class="c13-qqr" data-a="sigqr">${qr(seed)}</div><div><div class="c13-qsn">Válido somente com assinatura digital ICP-Brasil (MP 2.200-2/2001). Verifique a autenticidade em validar.iti.gov.br.</div><div class="c13-qsd">Código de validação: <b>K7QX2M4P</b></div></div></div></div>`;
+          const std = (type, sub, id, body, seed) => `<div class="c13-pg"><div class="c13-pp">${mast(type, sub, id)}${PARTIES}${body}</div>${sig(seed)}</div>`;
+          const sec = (title, inner) => `<div class="c13-qsec"><div class="c13-qst">${title}</div>${inner}</div>`;
+          const qrow = (a, b) => `<div class="c13-qrows"><div class="c13-qlab">${a}</div><div>${b}</div></div>`;
+          const sf = (a, b) => `<div class="c13-sf">${a}: <b>${b}</b></div>`;
+          function sncr(o) {
+            const emit = sf("NOME DO PRESCRITOR", "Dra. Camila Rocha") + sf("INSCRIÇÃO NO CONSELHO PROFISSIONAL / UF", "CRM 123456 / SP") + sf("ENDEREÇO COMPLETO", "Av. Paulista, 1000 · São Paulo/SP") + sf("TELEFONE", "(11) 97654-3210");
+            const pac = sf("NOME", "Ana Souza") + sf("CPF ou, se estrangeiro, PASSAPORTE", "318.552.740-12") + sf("ENDEREÇO COMPLETO", "Rua das Flores, 120 · São Paulo/SP");
+            const med = sf("NOME DO MEDICAMENTO OU SUBSTÂNCIA", o.med) + sf("CONCENTRAÇÃO", o.conc) + sf("FORMA FARMACÊUTICA", o.form) + sf("QUANTIDADE", o.qty) + sf("POSOLOGIA", o.pos);
+            const title = o.letter ? `${o.title} <span class="c13-sbig">${o.letter}</span>` : o.title;
+            return `<div class="c13-pg">${o.band ? '<div class="c13-sband"></div>' : ""}<div class="c13-sn${o.band ? "" : " c13-narrow"}"><div class="c13-snh"><div class="c13-snt"><div class="c13-snti${o.letter ? "" : " c13-sm"}">${title}</div><div class="c13-snel">ELETRÔNICA</div></div><div class="c13-snb" data-a="num"><div class="c13-snl">N.º</div><div class="c13-snv">${o.num}</div></div></div><div class="c13-sbx"><div><h2>EMITENTE</h2><div class="c13-sbd">${emit}</div></div><div><h2>PACIENTE</h2><div class="c13-sbd">${pac}</div></div></div><div class="c13-spres" data-a="presc"><h2>PRESCRIÇÃO</h2><div class="c13-spb">${med}</div></div></div><div class="c13-sft${o.band ? "" : " c13-nw"}"><div class="c13-sfl">IDENTIFICAÇÃO DA PLATAFORMA: VivaMais<br>REGISTRO DA ASSINATURA DIGITAL E DATA<br>VALIDE ESSA ASSINATURA EM <u>validar.iti.gov.br</u><br>ESTA PRESCRIÇÃO PODE SER VERIFICADA EM:<br>VERIFIQUE A NUMERAÇÃO E REGISTRE A UTILIZAÇÃO DESTA PRESCRIÇÃO EM <u>sncr.anvisa.gov.br</u></div><div class="c13-sqr" data-a="qr">${qr(o.seed)}</div></div></div>`;
+          }
+          const medTable = (rows) => `<table class="c13-qtb"><tr><th style="width:14px">#</th><th>Medicamento</th><th>Posologia</th><th>Duração</th><th>Quantidade</th></tr>${rows.map((r, i) => `<tr><td class="i">${i + 1}</td><td><b>${r[0]}</b><em>${r[1]}</em></td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("")}</table>`;
+          const LAUDO = "Paciente com quadro de ansiedade e insônia há 3 meses. Exame físico sem alterações. Iniciado tratamento e solicitados exames. Retorno em 30 dias.";
+          const trunc = (s, n) => (s.length <= n ? s : s.slice(0, n).trim() + "…");
+
+          const PDF = {
+            rec: () => std("Prontuário médico", "Registro do atendimento", "B52C7D10",
+              sec("Anamnese", qrow("Motivo", "Ansiedade e dificuldade para dormir há 3 meses") + qrow("Dor", "Cabeça · 6/10") + qrow("Em uso", "Anticoncepcional oral") + qrow("Alergias", "Dipirona")) +
+              sec("Hipótese diagnóstica", qrow("Principal", "<b>F41.1 - Ansiedade generalizada</b>") + qrow("Secundário", "<b>G47.0 - Distúrbios do início e da manutenção do sono</b>")) +
+              sec("Prescrições", medTable([["Sertralina 50 mg", "Comprimido revestido", "1 comprimido pela manhã", "—", "30"], ["Clonazepam 2 mg", "Comprimido", "1/2 comprimido à noite", "30 dias", "15"]])), 11),
+            rce: () => sncr({ band: false, title: "RECEITA DE CONTROLE ESPECIAL", letter: "", num: "2610.6-35.0001001", med: "Sertralina", conc: "50 mg", form: "Comprimido revestido", qty: "30 (trinta) comprimidos", pos: "1 comprimido pela manhã", seed: 22 }),
+            nrb: () => sncr({ band: true, title: "NOTIFICAÇÃO DE RECEITA", letter: "B", num: "2610.2-35.0004821", med: "Clonazepam", conc: "2 mg", form: "Comprimido", qty: "15 (quinze) comprimidos", pos: "1/2 comprimido à noite", seed: 33 }),
+            rs: () => std("Receita médica", "Receita simples", "7F3A91C0", sec("Medicamentos prescritos", medTable([["Paracetamol 750 mg", "Comprimido", "1 comprimido de 6/6h se dor", "—", "10 comprimidos"]])), 44),
+            ex: () => std("Solicitação de exames", "Pedido de exames", "D80B64E2",
+              sec("Exames solicitados", `<table class="c13-qtb"><tr><th style="width:14px">#</th><th>Exame</th><th data-a="tuss" style="width:96px">Código TUSS</th></tr>${[["Hemograma completo", "40304361"], ["TSH", "40316521"], ["T4 livre", "40316491"], ["Glicemia de jejum", "40302040"]].map((r, i) => `<tr><td class="i">${i + 1}</td><td><b>${r[0]}</b></td><td class="m">${r[1]}</td></tr>`).join("")}</table>`) +
+              sec("Orientações", '<div class="c13-qpro">Jejum de 8 horas</div>'), 55),
+            at: () => std("Atestado médico", "Afastamento", "2A6F19BD",
+              sec("Atestado", '<p class="c13-qpro">Atesto, para os devidos fins, que <b>Ana Souza</b>, CPF 318.552.740-12, esteve sob meus cuidados profissionais em 09/10/2026 e necessita de afastamento de suas atividades por <b>1 (um) dia</b>, no período de <b>09/10/2026</b> a <b>09/10/2026</b>.</p><div class="c13-qfill" data-a="fill"><div><div class="c13-qlab">Dias</div><div class="c13-qfv">1</div></div><div><div class="c13-qlab">Início</div><div class="c13-qfv">09/10/2026</div></div><div><div class="c13-qlab">Término</div><div class="c13-qfv">09/10/2026</div></div></div>') +
+              sec("Observações", '<div class="c13-qpro">Repouso no dia da consulta</div>'), 66),
+            la: () => std("Laudo médico", "Parecer clínico", "E3470C95", sec("Laudo", `<p class="c13-qpro">${LAUDO}</p>`), 77),
+          };
+
+          const DOCS = [
+            { k: "rec", kind: "record", label: "Prontuário médico", detail: "Diagnóstico, Prescrição, Exames, Laudos, Atestados" },
+            { k: "rce", kind: "prescription", label: "Receita de Controle Especial", detail: "Sertralina" },
+            { k: "nrb", kind: "prescription", label: "Notificação de Receita B", detail: "Clonazepam" },
+            { k: "rs", kind: "prescription", label: "Receita Simples", detail: "Paracetamol" },
+            { k: "ex", kind: "exam", label: "Solicitação de exames", detail: "Hemograma completo, TSH +2 • Jejum de 8 horas" },
+            { k: "at", kind: "certificate", label: "Atestado médico", detail: "1 dia(s) • Repouso no dia da consulta" },
+            { k: "la", kind: "report", label: "Laudo médico", detail: trunc(LAUDO, 72) },
+          ];
+          const KIND = { prescription: ["pill", "#7E3BED"], exam: ["flask", "#3B82F6"], certificate: ["fcheck", "#22C55E"], report: ["ftext", "#F59E0B"], record: ["clip", "#5A1DB8"] };
+          const tile = (kind) => `<div class="c13-tl" style="background:${KIND[kind][1]}1A;color:${KIND[kind][1]}"><svg class="c13-ic"><use href="#c13-i-${KIND[kind][0]}" /></svg></div>`;
+          const VER = '<div class="c13-ver"><div class="c13-vp"></div><svg class="c13-ic"><use href="#c13-i-eye" /></svg>Ver</div>';
+          const SPIN_CK = '<div class="c13-rt"><i class="c13-sp2"></i><svg class="c13-ck" viewBox="0 0 24 24"><use href="#c13-i-chk" /></svg></div>';
+          const rowsF = DOCS.map((d, i) => `<div class="c13-fr" id="c13-F${i}">${tile(d.kind)}<div class="c13-fb"><div class="c13-rl">${d.label}</div><div class="c13-rd c13-two">${d.detail}</div></div></div>`).join("");
+          const rowsStatus = (p, a, b, c) => DOCS.map((d, i) => `<div class="c13-fr" id="c13-${p}${i}"><div class="c13-ps2"></div>${tile(d.kind)}<div class="c13-fb"><div class="c13-rl">${d.label}</div><div class="c13-rd"><span>${a}</span><span class="c13-s1">${b}</span><span class="c13-s2">${c}</span></div></div>${SPIN_CK}</div>`).join("");
+          const rowsVer = (p, text) => DOCS.map((d, i) => `<div class="c13-fr" id="c13-${p}${i}">${tile(d.kind)}<div class="c13-fb"><div class="c13-rl">${d.label}</div><div class="c13-rd">${text}</div></div>${VER}</div>`).join("");
+          const counter = (word) => [0, 1, 2, 3, 4, 5, 6, 7].map((n) => `<span>${n} de 7 ${word}</span>`).join("");
+          const FT = (el, from, to, t) => tl.fromTo(el, from, { ...to, immediateRender: false }, t);
+          const SET = (el, v, t) => tl.set(el, v, t);
+          const cam = $("#c13-cam");
+          const pcam = $("#c13-pcam");
+          const stg = $("#c13-stg");
+
+          $("#c13-cardF").innerHTML = rowsF;
+          $("#c13-cardG").innerHTML = rowsStatus("G", "Aguardando", "Gerando…", "Gerado");
+          $("#c13-cardR").innerHTML = rowsVer("R", "Pronto para assinar");
+          $("#c13-cardS").innerHTML = rowsStatus("S", "Aguardando", "Assinando…", "Assinado");
+          $("#c13-cardD").innerHTML = rowsVer("D", "Assinado digitalmente");
+          $("#c13-cnG").innerHTML = counter("gerados");
+          $("#c13-cnS").innerHTML = counter("assinados");
+          $("#c13-pList").insertAdjacentHTML("beforeend", DOCS.map((d, i) => `<div class="c13-prw" id="c13-P${i}"><div class="c13-ptl" style="color:${KIND[d.kind][1]}"><svg class="c13-ic"><use href="#c13-i-${KIND[d.kind][0]}" /></svg></div><div class="c13-ptx"><b>${d.label}</b><span>Dra. Camila Rocha · 09/10</span></div><div class="c13-pwh">14:31</div></div>`).join(""));
+
+          const STAMP = `<div class="c13-stamp"><div class="c13-ink"></div><div class="c13-ink"></div><div class="c13-seal">${CHK}</div><div class="c13-slab">Assinado · ICP-Brasil</div></div><div class="c13-badge">${CHK}</div>`;
+          const CHIP = '<div class="c13-chip" data-a="chip"><span class="c13-ca"><i></i>Reservado</span><span class="c13-cb"><i></i>Utilizado</span></div>';
+          DOCS.forEach((d, i) => {
+            const el = document.createElement("div");
+            el.className = "c13-pdf";
+            el.id = "c13-d" + i;
+            el.innerHTML = PDF[d.k]() + (d.k === "nrb" ? CHIP : "") + STAMP;
+            stg.appendChild(el);
+            d.el = el;
+          });
+
+          const lp = (el, top) => { let x = 0, y = 0, n = el; while (n && n !== top) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; } return { x, y, w: el.offsetWidth, h: el.offsetHeight }; };
+          const A = (i, a) => { const p = lp(DOCS[i].el.querySelector("[data-a=\"" + a + "\"]"), DOCS[i].el); return { x: p.x + p.w / 2, y: p.y + p.h / 2, p }; };
+          const aNum = A(2, "num"), aPres = A(2, "presc"), aQr = A(2, "qr"), aChip = A(2, "chip");
+          const aRceNum = A(1, "num"), aTuss = A(4, "tuss"), aFill = A(5, "fill"), aSig = A(3, "sig"), aSigQr = A(3, "sigqr");
+
+          const SMALL = { scale: 0.69, x: -264, y: -40 };
+          const PSMALL = { scale: 0.69, x: 262, y: -40 };
+          const toRoot = (p, sx, sy) => ({ x: 539.5 + p.x + p.scale * (1.72 * (12 + sx) - 366.5), y: 1090.5 + p.y + p.scale * (1.72 * (12 + sy) - 772.5) });
+          const rootC = (p, el) => { const c = k.center(el); return toRoot(p, c.x, c.y); };
+
+          let camS = { scale: 1, x: 0, y: 0 };
+          const camMove = (t, dur, to, ease) => { FT(cam, { ...camS }, { ...to, duration: dur, ease: ease || "power3.inOut" }, t); camS = { ...camS, ...to }; };
+
+          const pose = (cx, cy, s, r) => ({ x: cx - 210, y: cy - 297, scale: s, rotation: r || 0 });
+          const FAN = { px: 808, py: 1340, R: 300, s: 0.55 };
+          const fanPose = (j, n) => {
+            const step = n > 1 ? Math.min(8, 40 / (n - 1)) : 0;
+            const a = (j - (n - 1) / 2) * step, r = (a * Math.PI) / 180;
+            return pose(FAN.px + FAN.R * Math.sin(r), FAN.py - FAN.R * Math.cos(r), FAN.s, a);
+          };
+          const BIG = pose(540, 940, 2, 0);
+          const focusPose = (lx, ly, s, tx, ty) => pose(tx - s * (lx - 210), ty - s * (ly - 297), s, 0);
+          const rootOf = (p, lx, ly) => ({ x: p.x + 210 + p.scale * (lx - 210), y: p.y + 297 + p.scale * (ly - 297) });
+          const cur = DOCS.map(() => null);
+          const place = (i, p, t) => { SET(DOCS[i].el, { x: p.x, y: p.y, scale: p.scale, rotation: p.rotation }, t); cur[i] = { ...p }; };
+          const moveDoc = (i, t, dur, p, o) => {
+            o = o || {};
+            const a = cur[i], e = o.ease || "power3.inOut", el = DOCS[i].el;
+            FT(el, { x: a.x, scale: a.scale, rotation: a.rotation }, { x: p.x, scale: p.scale, rotation: p.rotation, duration: dur, ease: e }, t);
+            FT(el, { y: a.y }, { y: p.y, duration: dur, ease: o.easeY || e }, t);
+            cur[i] = { ...p };
+          };
+          const zed = (i, z, t) => SET(DOCS[i].el, { zIndex: z }, t);
+          DOCS.forEach((d, i) => { place(i, pose(540, 960, 0.2, 0), 0); zed(i, 10 + i, 0); });
+
+          const stip = (text, rx, ry, side) => {
+            const wrap = document.createElement("div");
+            wrap.className = "c13-sti";
+            wrap.setAttribute("data-layout-allow-overlap", "");
+            const body = document.createElement("div");
+            body.className = "c13-stb";
+            body.textContent = text;
+            body.setAttribute("data-layout-allow-overlap", "");
+            wrap.appendChild(body);
+            const dot = document.createElement("div");
+            dot.className = "c13-std";
+            const stem = document.createElement("div");
+            stem.className = "c13-sts";
+            stg.append(wrap, dot, stem);
+            const bw = body.offsetWidth, bh = body.offsetHeight, up = side === "up";
+            wrap.style.left = Math.max(24, Math.min(1056 - bw, rx - bw / 2)) + "px";
+            wrap.style.top = (up ? ry - 60 - bh : ry + 60) + "px";
+            dot.style.left = rx + "px";
+            dot.style.top = ry + "px";
+            stem.style.left = rx + "px";
+            stem.style.top = (up ? ry - 60 : ry + 8) + "px";
+            stem.style.height = "52px";
+            return { t: wrap, dot, stem, dy: up ? 18 : -18, up };
+          };
+          const showStip = (tp, t, hold) => {
+            FT(tp.dot, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(1.6)" }, t);
+            FT(tp.stem, { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.2, ease: E, transformOrigin: tp.up ? "50% 100%" : "50% 0%" }, t + 0.08);
+            FT(tp.t, { opacity: 0, y: tp.dy, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.5)" }, t + 0.14);
+            tl.to([tp.t, tp.stem, tp.dot], { opacity: 0, duration: 0.25, ease: "power2.in" }, t + hold);
+          };
+
+          const spin = (el, t, d) => FT(el, { rotation: 0 }, { rotation: 360 * Math.max(1, Math.round(d / 0.7)), duration: d, ease: "none" }, t);
+          const rise = (els, t, gap) => { SET(els, { opacity: 0 }, 0); FT(els, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: E, stagger: gap }, t); };
+          const typeTo = (box, full, t, dur) => {
+            const v = box.querySelector(".c13-tv"), st = { n: 0 };
+            SET(box.querySelector(".c13-ph"), { opacity: 0 }, t);
+            SET(box.querySelector(".c13-tw"), { opacity: 1 }, t);
+            tl.fromTo(st, { n: 0 }, { n: full.length, duration: dur, ease: "none", immediateRender: false, onUpdate() { v.textContent = full.slice(0, Math.round(st.n)); } }, t);
+          };
+
+          const stp = $("#c13-stp");
+          const LBL = ["Resumo", "Gerar", "Revisar", "Assinar", "Concluir"];
+          stp.innerHTML = LBL.map((l, i) => `<div class="c13-nd" style="left:${108 + i * 216}px"><div class="c13-nc"><b>${i + 1}</b><div class="c13-nf">${CHK}</div><div class="c13-nr"></div></div><div class="c13-nl">${l}<i>${l}</i></div></div>`).join("") + [0, 1, 2, 3].map((i) => `<div class="c13-ln" style="left:${108 + i * 216 + 40}px;width:136px"><i></i></div>`).join("");
+          const ND = $$(".c13-nd");
+          const LN = $$(".c13-ln i");
+          SET(ND[0].querySelector(".c13-nf"), { opacity: 1 }, 0);
+          SET(ND[0].querySelector("b"), { opacity: 0 }, 0);
+          SET(ND[0].querySelector(".c13-nl i"), { opacity: 1 }, 0);
+          SET(LN[0], { scaleX: 1 }, 0);
+          SET(ND[1].querySelector(".c13-nr"), { opacity: 1 }, 0);
+          SET(ND[1].querySelector(".c13-nl i"), { opacity: 1 }, 0);
+          const nodeDone = (i, t) => {
+            FT(ND[i].querySelector(".c13-nf"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(2)" }, t);
+            FT(ND[i].querySelector("b"), { opacity: 1 }, { opacity: 0, duration: 0.15 }, t);
+            FT(ND[i].querySelector(".c13-nr"), { opacity: 1 }, { opacity: 0, duration: 0.2 }, t);
+            if (LN[i]) FT(LN[i], { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, t + 0.1);
+          };
+          const nodeAct = (i, t) => {
+            FT(ND[i].querySelector(".c13-nr"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, t + 0.3);
+            FT(ND[i].querySelector(".c13-nl i"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, t + 0.3);
+          };
+
+          const TIT = 3.0;
+          const H0 = 4.1;
+          const TAP_FIN = 7.0, PUSH_F = TAP_FIN + 0.2;
+          const L0 = 8.4;
+          const SC0 = 11.1, SCD = 1.7;
+          const TA0 = 13.2, TYPE0 = TA0 + 0.2, TYPED = 1.7;
+          const TAP_GEN = 16.0, TAP_OK = TAP_GEN + 2.3, PUSH_G = TAP_OK + 0.25;
+          const G0 = 20.0, GP = 1.05;
+          const PUSH_R = G0 + 6 * GP + 0.85 + 1.7 + 0.8;
+          const TAP_VER = PUSH_R + 1.7;
+
+          k.screens(["c13-sH", "c13-sF", "c13-sG", "c13-sR", "c13-sS", "c13-sD"]);
+          titleCard("#c13-t1", { at: 0.15, sparkAt: 0.75, out: 2.58 });
+          FT(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out" }, TIT);
+
+          const gcH = $("#c13-gcH");
+          const gh = center(gcH);
+          const hubLift = liftOut(gcH, H0, 2.5, 0, 1.05);
+          showTip(tip("Tudo preenchido", gh.x, gh.p.y - 4, "up"), H0 + 0.3, 2.0);
+          hubLift.querySelectorAll(".c13-fl").forEach((f, i) => {
+            FT(f, { opacity: 0 }, { opacity: 1, duration: 0.2 }, H0 + 0.5 + i * 0.15);
+            FT(f, { opacity: 1 }, { opacity: 0, duration: 0.6 }, H0 + 0.75 + i * 0.15);
+          });
+          camMove(H0 - 0.1, 0.9, { scale: 1.04, y: 24 }, "power2.inOut");
+          camMove(H0 + 2.4, 0.7, { scale: 1, y: 0 }, "power2.inOut");
+
+          const cardF = $("#c13-cardF");
+          const cf = center(cardF);
+          const cfLift = liftOut(cardF, L0, 2.5, 0, 1.04);
+          showTip(tip("Um documento para cada coisa", cf.x, cf.p.y - 4, "up"), L0 + 0.3, 2.0);
+          cfLift.querySelectorAll(".c13-tl").forEach((tl2, i) => {
+            FT(tl2, { scale: 1 }, { scale: 1.25, duration: 0.18, ease: "power2.out" }, L0 + 0.6 + i * 0.16);
+            FT(tl2, { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, L0 + 0.78 + i * 0.16);
+          });
+
+          rise($$("#c13-scF > *"), PUSH_F + 0.3, 0.1);
+          rise($$("#c13-sG .c13-sc > *"), PUSH_G + 0.3, 0.1);
+
+          tap(201, 790, TAP_FIN, "#c13-svH");
+          push("c13-sH", "c13-sF", PUSH_F);
+
+          const scF = $("#c13-scF");
+          const dy = Math.max(0, scF.offsetHeight - 24 - 590);
+          FT(scF, { y: 0 }, { y: -dy, duration: SCD, ease: "power1.inOut" }, SC0);
+
+          const taF = $("#c13-taF");
+          const pta = posIn(taF);
+          camMove(TA0 - 0.5, 0.9, { scale: 1.06, y: -40 }, "power2.inOut");
+          tap(pta.x + pta.w / 2, pta.y - dy + 44, TA0, null);
+          FT(taF.querySelector(".c13-tfb"), { opacity: 0 }, { opacity: 1, duration: 0.15 }, TA0);
+          typeTo(taF, "Retorno em 30 dias com exames", TYPE0, TYPED);
+          FT(taF.querySelector(".c13-tfb"), { opacity: 1 }, { opacity: 0, duration: 0.15 }, TYPE0 + TYPED + 0.25);
+          SET(taF.querySelector(".c13-cr"), { opacity: 0 }, TYPE0 + TYPED + 0.25);
+          camMove(TYPE0 + TYPED + 0.2, 0.7, { scale: 1, y: 0 }, "power2.inOut");
+
+          tap(201, 790, TAP_GEN, "#c13-svF");
+          const dlg = $("#c13-dlg");
+          SET(dlg, { autoAlpha: 0 }, 0);
+          FT(dlg, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25, ease: "power2.out" }, TAP_GEN + 0.15);
+          FT($("#c13-dlc"), { y: 26, scale: 0.9 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, TAP_GEN + 0.15);
+          const dgo = center("#c13-dlgo");
+          tap(dgo.x, dgo.y, TAP_OK, "#c13-dlgo");
+          FT(dlg, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.25, ease: "power2.in" }, TAP_OK + 0.2);
+          push("c13-sF", "c13-sG", PUSH_G);
+
+          camMove(TAP_OK + 0.2, 1.1, SMALL, "power3.inOut");
+          FT(stp, { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.6, ease: E }, TAP_OK + 0.7);
+
+          const cnG = $$("#c13-cnG > span");
+          const genTiles = [];
+          let arrive = 0;
+          DOCS.forEach((d, i) => {
+            const ts = G0 + i * GP;
+            const row = $("#c13-G" + i);
+            const sp = row.querySelectorAll(".c13-rd span");
+            const sk = row.querySelector(".c13-sp2"), ck = row.querySelector(".c13-ck"), hi = row.querySelector(".c13-ps2");
+            SET(sp[0], { opacity: 0 }, ts);
+            SET(sp[1], { opacity: 1 }, ts);
+            SET(sk, { opacity: 1 }, ts);
+            spin(sk, ts, 0.85);
+            FT(hi, { opacity: 0 }, { opacity: 1, duration: 0.2 }, ts);
+            const td = ts + 0.85;
+            SET(sp[1], { opacity: 0 }, td);
+            SET(sp[2], { opacity: 1 }, td);
+            SET(sk, { opacity: 0 }, td);
+            FT(hi, { opacity: 1 }, { opacity: 0, duration: 0.3 }, td);
+            FT(ck, { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(2.4)" }, td);
+            SET(cnG[i], { opacity: 0 }, td);
+            SET(cnG[i + 1], { opacity: 1 }, td);
+            const o = rootC(SMALL, row.querySelector(".c13-tl"));
+            SET(DOCS[i].el, { opacity: 1 }, td);
+            place(i, pose(o.x, o.y, 0.02, -16), td);
+            FT(DOCS[i].el, { scale: 0.02 }, { scale: 0.2, duration: 0.28, ease: "back.out(2.4)" }, td);
+            cur[i].scale = 0.2;
+            const fp = fanPose(i, i + 1);
+            moveDoc(i, td + 0.3, 0.85, fp, { ease: "power2.inOut", easeY: "power3.inOut" });
+            for (let j = 0; j < i; j++) moveDoc(j, td + 0.45, 0.65, fanPose(j, i + 1), { ease: "power3.out" });
+            arrive = td + 1.15;
+          });
+          showStip(stip("Gerados em segundos", 808, 820, "up"), G0 + 2 * GP + 1.0, 2.6);
+
+          push("c13-sG", "c13-sR", PUSH_R);
+          nodeDone(1, PUSH_R);
+          nodeAct(2, PUSH_R);
+          rise($$("#c13-sR .c13-sc > *"), PUSH_R + 0.3, 0.12);
+          DOCS.forEach((d, i) => {
+            SET($("#c13-R" + i), { opacity: 0 }, 0);
+            FT($("#c13-R" + i), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: E }, PUSH_R + 0.55 + i * 0.09);
+          });
+
+          const scrim = $("#c13-scrim");
+          const verN = $("#c13-R2 .c13-ver");
+          const cv = center(verN);
+          tap(cv.x, cv.y, TAP_VER, verN);
+          FT(verN.querySelector(".c13-vp"), { opacity: 0 }, { opacity: 1, duration: 0.12 }, TAP_VER);
+          FT(verN.querySelector(".c13-vp"), { opacity: 1 }, { opacity: 0, duration: 0.5 }, TAP_VER + 0.2);
+
+          const TL0 = TAP_VER + 0.15;
+          zed(2, 60, TL0);
+          FT(scrim, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, TL0);
+          moveDoc(2, TL0, 0.95, BIG, { ease: "power3.out" });
+
+          const T_NUM = TL0 + 1.9;
+          const pNum = focusPose(aNum.x, aNum.y, 3.3, 620, 600);
+          moveDoc(2, T_NUM, 0.9, pNum, { ease: "power3.inOut" });
+          const rNum = rootOf(pNum, aNum.x, aNum.p.y + aNum.p.h);
+          showStip(stip("Número da Anvisa já impresso", rNum.x, rNum.y + 6, "down"), T_NUM + 0.95, 2.5);
+
+          const T_PR = T_NUM + 3.5;
+          const pPr = focusPose(aPres.x, aPres.y - 20, 2.7, 540, 940);
+          moveDoc(2, T_PR, 0.9, pPr, { ease: "power3.inOut" });
+
+          const T_QR = T_PR + 1.6;
+          const pQr = focusPose(aQr.x, aQr.y, 3.2, 700, 1090);
+          moveDoc(2, T_QR, 0.9, pQr, { ease: "power3.inOut" });
+          const rQr = rootOf(pQr, aQr.x, aQr.p.y);
+          showStip(stip("Farmácia confere no SNCR", rQr.x, rQr.y - 6, "up"), T_QR + 0.95, 2.5);
+
+          const T_BK = T_QR + 3.6;
+          moveDoc(2, T_BK, 0.6, BIG, { ease: "power3.inOut" });
+
+          const OFFL = pose(-640, 940, 2, -7);
+          const OFFR = pose(1700, 940, 2, 6);
+          const seq = [
+            { i: 1, a: aRceNum, p: focusPose(aRceNum.x, aRceNum.y, 2.5, 580, 800), tipTxt: "Numeração própria do SNCR", side: "down", ay: (a) => a.p.y + a.p.h },
+            { i: 4, a: aTuss, p: focusPose(aTuss.x, aTuss.y + 40, 2.4, 540, 880), tipTxt: "Códigos TUSS no pedido", side: "up", ay: (a) => a.p.y },
+            { i: 5, a: { x: 400, y: aFill.y, p: aFill.p }, p: focusPose(210, aFill.y - 30, 2.2, 540, 900), tipTxt: "Atestado pronto, sem digitar", side: "down", ay: (a) => a.p.y + a.p.h },
+          ];
+          let prev = 2;
+          let tc = T_BK + 0.9;
+          const CAR = 3.0;
+          seq.forEach((s) => {
+            moveDoc(prev, tc, 0.65, OFFL, { ease: "power3.in" });
+            zed(s.i, 60, tc);
+            moveDoc(s.i, tc + 0.05, 0.9, BIG, { ease: "power3.out" });
+            moveDoc(s.i, tc + 1.0, 0.8, s.p, { ease: "power3.inOut" });
+            const r = rootOf(s.p, s.a.x, s.ay(s.a));
+            showStip(stip(s.tipTxt, r.x, r.y + (s.side === "up" ? -6 : 6), s.side), tc + 1.4, 1.4);
+            prev = s.i;
+            tc += CAR;
+          });
+
+          const T_RET = tc + 0.1;
+          FT(scrim, { opacity: 1 }, { opacity: 0, duration: 0.6, ease: "power2.in" }, T_RET + 0.2);
+          [5, 4, 1, 2].forEach((i, n) => {
+            moveDoc(i, T_RET + n * 0.12, 0.95, fanPose(i, 7), { ease: "power3.inOut" });
+            zed(i, 10 + i, T_RET + n * 0.12 + 0.5);
+          });
+
+          const TAP_SIGN = T_RET + 1.5;
+          const svR = center("#c13-svR");
+          tap(svR.x, svR.y, TAP_SIGN, "#c13-svR");
+          const PUSH_S = TAP_SIGN + 0.2;
+          push("c13-sR", "c13-sS", PUSH_S);
+          nodeDone(2, PUSH_S);
+          nodeAct(3, PUSH_S);
+          rise($$("#c13-sS .c13-sc > *"), PUSH_S + 0.3, 0.1);
+
+          const cnS = $$("#c13-cnS > span");
+          const cs = k.center("#c13-cnS");
+          const rcs = toRoot(SMALL, cs.p.x + 40, cs.y);
+          const SG0 = PUSH_S + 1.0, SP = 1.1;
+          showStip(stip("Seu certificado ICP-Brasil", rcs.x, rcs.y - 4, "up"), SG0 + 0.1, 2.4);
+
+          const STN = pose(808, 960, 0.95, 0);
+          const STN_N = pose(808, 960, 1.08, 0);
+          const rChip = rootOf(STN_N, aChip.x, aChip.p.y + aChip.p.h);
+          let ts = SG0;
+          DOCS.forEach((d, i) => {
+            const nrb = i === 2;
+            const row = $("#c13-S" + i);
+            const sp = row.querySelectorAll(".c13-rd span");
+            const sk = row.querySelector(".c13-sp2"), ck = row.querySelector(".c13-ck"), hi = row.querySelector(".c13-ps2");
+            const el = d.el;
+            const stamp = el.querySelector(".c13-stamp"), inks = el.querySelectorAll(".c13-ink"), badge = el.querySelector(".c13-badge"), sg = el.querySelector(".c13-qsig");
+            const slam = ts + (nrb ? 1.75 : 0.5);
+            const flip = slam + 0.1;
+            const ret = ts + (nrb ? 3.5 : 1.0);
+            SET(sp[0], { opacity: 0 }, ts);
+            SET(sp[1], { opacity: 1 }, ts);
+            SET(sk, { opacity: 1 }, ts);
+            spin(sk, ts, flip - ts);
+            FT(hi, { opacity: 0 }, { opacity: 1, duration: 0.2 }, ts);
+            SET(sp[1], { opacity: 0 }, flip);
+            SET(sp[2], { opacity: 1 }, flip);
+            SET(sk, { opacity: 0 }, flip);
+            FT(hi, { opacity: 1 }, { opacity: 0, duration: 0.3 }, flip);
+            FT(ck, { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(2.4)" }, flip);
+            SET(cnS[i], { opacity: 0 }, flip);
+            SET(cnS[i + 1], { opacity: 1 }, flip);
+
+            zed(i, 60, ts);
+            moveDoc(i, ts, nrb ? 0.55 : 0.42, nrb ? STN_N : STN, { ease: "power3.out" });
+            FT(stamp, { opacity: 0, scale: 2.6, rotation: -24 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.22, ease: "power3.in" }, slam);
+            FT(stamp, { scale: 1 }, { scale: 1.12, duration: 0.09, ease: "power2.out" }, slam + 0.22);
+            FT(stamp, { scale: 1.12 }, { scale: 1, duration: 0.2, ease: "power2.in" }, slam + 0.31);
+            FT(inks[0], { scale: 0.7, opacity: 0.8 }, { scale: 2.8, opacity: 0, duration: 0.75, ease: "power2.out" }, slam + 0.2);
+            FT(inks[1], { scale: 0.7, opacity: 0.6 }, { scale: 2.8, opacity: 0, duration: 0.75, ease: "power2.out" }, slam + 0.34);
+            if (sg && !(d.k === "rce" || d.k === "nrb")) FT(sg, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4, ease: E }, slam + 0.1);
+            FT(stamp, { opacity: 1 }, { opacity: 0, scale: 0.7, duration: 0.25, ease: "power2.in" }, ret + 0.02);
+            FT(badge, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2.4)" }, ret + 0.12);
+            moveDoc(i, ret, 0.5, fanPose(i, 7), { ease: "power3.inOut" });
+            zed(i, 10 + i, ret + 0.2);
+
+            if (nrb) {
+              const chip = el.querySelector(".c13-chip"), ca = el.querySelector(".c13-ca"), cb = el.querySelector(".c13-cb");
+              FT(chip, { opacity: 0, scale: 0.5, y: 8 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(2.2)" }, ts + 0.7);
+              FT(ca, { opacity: 1 }, { opacity: 0, duration: 0.22 }, slam + 0.45);
+              FT(cb, { opacity: 0 }, { opacity: 1, duration: 0.3 }, slam + 0.45);
+              FT(chip, { scale: 1 }, { scale: 1.3, duration: 0.14, ease: "power2.out" }, slam + 0.45);
+              FT(chip, { scale: 1.3 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, slam + 0.59);
+              showStip(stip("Número usado ao assinar", rChip.x, rChip.y + 6, "down"), slam + 0.7, 1.0);
+              ts += 3.6;
+            } else ts += SP;
+          });
+          const SG_END = ts + 0.5;
+
+          const PUSH_D = SG_END + 0.3;
+          push("c13-sS", "c13-sD", PUSH_D);
+          nodeDone(3, PUSH_D);
+          nodeAct(4, PUSH_D);
+          rise($$("#c13-sD .c13-sc > *"), PUSH_D + 0.3, 0.12);
+          DOCS.forEach((d, i) => {
+            SET($("#c13-D" + i), { opacity: 0 }, 0);
+            FT($("#c13-D" + i), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: E }, PUSH_D + 0.55 + i * 0.09);
+          });
+
+          const T_SL = PUSH_D + 1.9;
+          zed(3, 60, T_SL);
+          FT(scrim, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, T_SL);
+          moveDoc(3, T_SL, 0.95, BIG, { ease: "power3.out" });
+          const T_SZ = T_SL + 1.1;
+          const pSig = focusPose(aSig.x, aSig.y, 2.6, 540, 940);
+          moveDoc(3, T_SZ, 0.9, pSig, { ease: "power3.inOut" });
+          const hl = DOCS[3].el.querySelector(".c13-hl");
+          FT(hl, { opacity: 0 }, { opacity: 1, duration: 0.4 }, T_SZ + 0.6);
+          FT(hl, { opacity: 1 }, { opacity: 0, duration: 0.4 }, T_SZ + 3.2);
+          const rSq = rootOf(pSig, aSigQr.x, aSigQr.p.y);
+          showStip(stip("Validade jurídica, com QR", rSq.x, rSq.y - 8, "up"), T_SZ + 1.0, 2.5);
+          const T_SB = T_SZ + 3.8;
+          moveDoc(3, T_SB, 0.95, fanPose(3, 7), { ease: "power3.inOut" });
+          zed(3, 13, T_SB + 0.5);
+          FT(scrim, { opacity: 1 }, { opacity: 0, duration: 0.6, ease: "power2.in" }, T_SB + 0.1);
+
+          const TAP_FIN2 = T_SB + 1.5;
+          const sd = center("#c13-svD");
+          tap(sd.x, sd.y, TAP_FIN2, "#c13-svD");
+          SET($("#c13-lD1"), { opacity: 0 }, TAP_FIN2 + 0.1);
+          SET($("#c13-lD2"), { opacity: 1 }, TAP_FIN2 + 0.1);
+          SET($("#c13-spD"), { opacity: 1 }, TAP_FIN2 + 0.1);
+          spin($("#c13-spD"), TAP_FIN2 + 0.1, 1.4);
+          nodeDone(4, TAP_FIN2 + 0.2);
+
+          const P_IN = TAP_FIN2 + 1.0;
+          SET(pcam, { x: PSMALL.x + 760, y: PSMALL.y, scale: PSMALL.scale, opacity: 0 }, 0);
+          FT(pcam, { x: PSMALL.x + 760, opacity: 0 }, { x: PSMALL.x, opacity: 1, duration: 0.9, ease: "power4.out" }, P_IN);
+          FT(cam, { opacity: 1 }, { opacity: 0.5, duration: 0.6 }, P_IN);
+          const pu = $("#c13-push");
+          const B0 = P_IN + 0.9;
+          FT(pu, { opacity: 0, y: -90 }, { opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.4)" }, B0);
+          FT(pu, { opacity: 1, y: 0 }, { opacity: 0, y: -70, duration: 0.4, ease: "power2.in" }, B0 + 1.9);
+
+          const kp = VMKit.create({ root, tl, screenEl: $("#c13-pscr"), liftEl: $("#c13-plift") });
+          const F0 = B0 + 1.1;
+          DOCS.forEach((d, i) => {
+            const row = $("#c13-P" + i);
+            const tilePos = kp.center($("#c13-P" + i + " .c13-ptl"));
+            const tr = toRoot(PSMALL, tilePos.x, tilePos.y);
+            const tf = F0 + i * 0.4;
+            moveDoc(i, tf, 0.85, pose(tr.x, tr.y, 0.12, 0), { ease: "power3.inOut" });
+            SET(d.el, { opacity: 0 }, tf + 0.85);
+            FT(row, { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, tf + 0.7);
+            FT(row.querySelector(".c13-ptl"), { scale: 1 }, { scale: 1.22, duration: 0.15, ease: "power2.out" }, tf + 0.85);
+            FT(row.querySelector(".c13-ptl"), { scale: 1.22 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, tf + 1.0);
+          });
+          FT($("#c13-pEmpty"), { opacity: 1 }, { opacity: 0, duration: 0.3 }, F0 + 0.5);
+          FT($("#c13-pHoje"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, F0 + 0.6);
+          const F_END = F0 + 6 * 0.4 + 1.3;
+          const rpl = toRoot(PSMALL, 200, 34);
+          showStip(stip("Ana recebe tudo no app", rpl.x, rpl.y - 4, "up"), F_END, 2.7);
+
+          const X0 = F_END + 3.0;
+          FT(cam, { x: SMALL.x, opacity: 0.5 }, { x: SMALL.x - 170, opacity: 0, duration: 0.45, ease: "power4.in" }, X0);
+          FT(pcam, { x: PSMALL.x, opacity: 1 }, { x: PSMALL.x - 170, opacity: 0, duration: 0.45, ease: "power4.in" }, X0);
+          FT(stp, { opacity: 1 }, { opacity: 0, duration: 0.4, ease: "power2.in" }, X0);
+          const TOTAL = Math.round((X0 + 0.7) * 100) / 100;
+
+          root.querySelectorAll("#c13-phone *, #c13-pat *, #c13-stage *").forEach((n) => { n.setAttribute("data-layout-allow-overlap", ""); n.setAttribute("data-layout-allow-occlusion", ""); n.setAttribute("data-layout-allow-overflow", ""); });
+          window.__timelines["ch13-assinatura"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

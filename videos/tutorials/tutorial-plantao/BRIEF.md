@@ -18,7 +18,7 @@ Tutorial of the client app flow: home → benefícios → Plantão 24h → canal
 
 ## Assets
 
-- ../../../vivamaisa-app — source of truth; screens captured as rendered DOM from the Expo web build against a mock API
+- ../../../../../vivamaisa-app — source of truth; screens captured as rendered DOM from the Expo web build against a mock API
 - assets/video/doutora.mp4 — HeyGen avatar video (look "Doctor2nd version", voice "Sofia Brazil - Friendly"), muted
 - assets/doctors/camila.jpg — portrait of the same avatar
 

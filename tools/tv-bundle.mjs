@@ -4,16 +4,17 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
-const projectsDir = join(root, "projects");
-const templateDir = join(root, "templates", "tv");
+const videosDir = join(root, "videos");
+const templateDir = join(root, "tools", "tv");
 const distDir = join(root, "dist-tv");
 const outDir = join(distDir, "vivamais-tv");
 const zipPath = join(distDir, "vivamais-tv.zip");
 const args = process.argv.slice(2);
 
 const newestRender = (slug) => {
-  const dir = join(projectsDir, slug, "renders");
-  if (!existsSync(dir)) return null;
+  const group = readdirSync(videosDir).find((g) => existsSync(join(videosDir, g, slug, "renders")));
+  if (!group) return null;
+  const dir = join(videosDir, group, slug, "renders");
   return readdirSync(dir)
     .filter((file) => file.endsWith(".mp4"))
     .map((file) => join(dir, file))
@@ -30,7 +31,7 @@ const sources = entries
       return path;
     }
     const path = newestRender(entry);
-    if (!path) throw new Error(`No renders in projects/${entry}`);
+    if (!path) throw new Error(`No renders for ${entry} in videos/*/${entry}/renders`);
     return path;
   });
 

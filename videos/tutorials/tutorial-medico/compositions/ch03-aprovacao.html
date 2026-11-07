@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch03 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch03 .ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+        #ch03 .tm { position: relative; width: 44px; height: 20px; }
+        #ch03 .tm b { position: absolute; left: 0; top: 0; font-weight: 700; }
+        #ch03 .tm .t2 { opacity: 0; }
+        #ch03 .pf { background: var(--vm-panel); }
+        #ch03 .pf-scroll { position: absolute; left: 0; top: 0; width: 402px; height: 1640px; }
+        #ch03 .pf-title { position: absolute; left: 20px; top: 102px; height: 52px; padding-top: 4px; font-weight: 700; font-size: 34px; line-height: 42px; letter-spacing: -0.6px; color: var(--vm-ink-900); }
+        #ch03 .pf-bar { position: absolute; left: 0; top: 0; width: 402px; height: 98px; background: var(--vm-panel); z-index: 20; opacity: 0; }
+        #ch03 .pf-bar span { position: absolute; left: 0; right: 0; top: 54px; height: 44px; line-height: 44px; text-align: center; font-weight: 500; font-size: 17px; color: var(--vm-ink-900); }
+        #ch03 .pf-bar i { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch03 .acc { position: absolute; left: 0; top: 156px; width: 402px; text-align: center; }
+        #ch03 .avatar { position: relative; width: 92px; height: 92px; margin: 0 auto; }
+        #ch03 .avatar img { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; display: block; }
+        #ch03 .cam-badge { position: absolute; right: -2px; bottom: -2px; width: 30px; height: 30px; border-radius: 50%; background: var(--vm-violet-600); border: 3px solid var(--vm-panel); display: flex; align-items: center; justify-content: center; color: #fff; }
+        #ch03 .cam-badge .ic { width: 14px; height: 14px; stroke-width: 2.4; }
+        #ch03 .nm { margin-top: 12px; padding-left: 20px; display: flex; align-items: center; justify-content: center; gap: 2px; font-weight: 700; font-size: 24px; letter-spacing: -0.4px; color: var(--vm-ink-900); }
+        #ch03 .nm .ic { width: 18px; height: 18px; color: var(--vm-ink-300); stroke-width: 2.2; }
+        #ch03 .em { margin-top: 2px; font-size: 14.5px; color: var(--vm-ink-500); }
+        #ch03 .hero { position: absolute; left: 20px; right: 20px; top: 334px; }
+        #ch03 .hf { position: relative; border-radius: 20px; background: #fff; padding: 16px; overflow: hidden; }
+        #ch03 .eb { font-weight: 500; font-size: 11.5px; letter-spacing: 0.9px; text-transform: uppercase; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch03 .rb { display: flex; align-items: center; justify-content: space-between; height: 18px; }
+        #ch03 .pillbox { position: relative; width: 100px; height: 18px; }
+        #ch03 .pl { position: absolute; right: 0; top: 0; height: 18px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 13px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch03 .pl i { display: block; width: 7px; height: 7px; border-radius: 50%; }
+        #ch03 .pl-a i { background: #F59E0B; }
+        #ch03 .pl-b i { background: #22C55E; }
+        #ch03 .pl-b, #ch03 .bd-b { opacity: 0; }
+        #ch03 .bdbox { position: relative; height: 60px; margin-top: 10px; }
+        #ch03 .bd { position: absolute; left: 0; right: 0; top: 0; font-size: 14.5px; line-height: 20px; color: var(--vm-ink-600); }
+        #ch03 .hrow { display: flex; gap: 12px; margin-top: 12px; }
+        #ch03 .hh { flex: 1; min-height: 132px; display: flex; flex-direction: column; }
+        #ch03 .hh .rb { height: 18px; }
+        #ch03 .hh .hdot { width: 7px; height: 7px; border-radius: 50%; background: var(--vm-ink-400); }
+        #ch03 .ht { margin-top: 10px; font-weight: 700; font-size: 19px; line-height: 24px; letter-spacing: -0.3px; color: var(--vm-ink-900); }
+        #ch03 .hs { margin-top: 2px; font-size: 13px; line-height: 17px; color: var(--vm-ink-500); }
+        #ch03 .hfoot { margin-top: auto; padding-top: 10px; display: flex; align-items: center; gap: 2px; font-weight: 500; font-size: 13px; line-height: 17px; color: var(--vm-violet-600); }
+        #ch03 .hfoot .ic { width: 14px; height: 14px; stroke-width: 2.4; }
+        #ch03 .groups { position: absolute; left: 0; right: 0; top: 618px; }
+        #ch03 .grp { margin: 0 20px 24px; }
+        #ch03 .gt { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--vm-ink-600); }
+        #ch03 .gf { margin: 8px 4px 0; font-size: 13px; line-height: 18px; color: var(--vm-ink-600); }
+        #ch03 .gc { border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch03 .ir { position: relative; display: flex; align-items: center; gap: 14px; min-height: 56px; padding: 10px 14px 10px 16px; }
+        #ch03 .ir + .ir::before { content: ""; position: absolute; left: 66px; right: 0; top: 0; height: 1px; background: var(--vm-ink-200); }
+        #ch03 .it { width: 36px; height: 36px; flex: none; border-radius: 11px; background: var(--vm-violet-100); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch03 .it .ic { width: 19px; height: 19px; stroke-width: 1.9; }
+        #ch03 .it.red { background: #FDECEC; color: #DC2626; }
+        #ch03 .ib { flex: 1; font-weight: 500; font-size: 16px; line-height: 21px; color: var(--vm-ink-900); white-space: nowrap; }
+        #ch03 .ib.red { color: #DC2626; }
+        #ch03 .iv { font-size: 15px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch03 .iv.acc-v { color: var(--vm-violet-600); }
+        #ch03 .ir > .ic { width: 18px; height: 18px; flex: none; color: var(--vm-ink-400); }
+        #ch03 .sw { position: relative; width: 46px; height: 28px; flex: none; border-radius: 14px; background: #22C55E; }
+        #ch03 .sw.off { background: var(--vm-ink-200); }
+        #ch03 .sw::after { content: ""; position: absolute; top: 2px; left: 20px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(23, 21, 30, 0.25); }
+        #ch03 .sw.off::after { left: 2px; }
+        #ch03 .ver { margin-top: -8px; text-align: center; font-size: 12px; color: var(--vm-ink-500); }
+        #ch03 .sk { position: absolute; left: 0; top: 156px; width: 402px; height: 718px; background: var(--vm-panel); z-index: 10; }
+        #ch03 .sk i { position: absolute; display: block; background: var(--vm-ink-100); }
+        #ch03 .tabbar { position: absolute; left: 16px; right: 16px; bottom: 34px; height: 72px; z-index: 21; }
+        #ch03 .tb-bar { position: absolute; left: 0; top: 0; width: 302px; height: 72px; border-radius: 999px; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: space-evenly; padding: 0 8px; }
+        #ch03 .tb-item { flex: 1; display: flex; justify-content: center; }
+        #ch03 .tb-ind { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 12px; border-radius: 999px; color: var(--vm-ink-600); }
+        #ch03 .tb-ind.on { background: var(--vm-violet-100); color: var(--vm-violet-600); }
+        #ch03 .tb-ind span { font-weight: 500; font-size: 9px; line-height: 12px; }
+        #ch03 .tb-plus { position: absolute; right: 0; top: 8px; width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: center; color: var(--vm-violet-600); }
+        #ch03 .tb-plus .ic { width: 22px; height: 22px; stroke-width: 2.25; }
+        #ch03 .home { position: absolute; left: 134px; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: var(--vm-ink-900); z-index: 25; }
+        #ch03 .notif { position: absolute; left: 8px; top: 52px; width: 386px; z-index: 40; opacity: 0; }
+        #ch03 .nc { display: flex; gap: 12px; padding: 13px 14px; border-radius: 26px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 14px 34px rgba(23, 21, 30, 0.22); }
+        #ch03 .nc img { width: 38px; height: 38px; border-radius: 9px; flex: none; display: block; }
+        #ch03 .nc .tx { flex: 1; }
+        #ch03 .nc .l1 { display: flex; justify-content: space-between; font-size: 12.5px; line-height: 16px; color: var(--vm-ink-600); }
+        #ch03 .nc .l1 b { font-weight: 500; color: var(--vm-ink-900); }
+        #ch03 .nc .l2 { margin-top: 2px; font-weight: 700; font-size: 15px; line-height: 19px; color: var(--vm-ink-900); }
+        #ch03 .nc .l3 { font-size: 14px; line-height: 19px; color: var(--vm-ink-600); }
+        #ch03 .sbadge { position: relative; width: 128px; height: 128px; margin: 0 auto; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; }
+        #ch03 .sbadge svg { width: 68px; height: 68px; fill: none; stroke: #fff; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+        #ch03 .sbadge path { stroke-dasharray: 22; }
+        #ch03 .sring { position: absolute; inset: -18px; border-radius: 50%; border: 3px solid rgba(34, 197, 94, 0.35); }
+        #ch03 .welcome { display: inline-block; margin-top: 22px; padding: 8px 16px; border-radius: 999px; background: var(--vm-violet-50); color: var(--vm-violet-600); font-weight: 500; font-size: 14px; }
+        #ch03 .cf { position: absolute; border-radius: 2px; opacity: 0; }
+      </style>
+
+      <div id="ch03" data-composition-id="ch03-aprovacao" data-start="0" data-duration="28" data-width="1080" data-height="1920">
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="c03-i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+        <symbol id="c03-i-cal" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></symbol>
+        <symbol id="c03-i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 17.5v-11" /></symbol>
+        <symbol id="c03-i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
+        <symbol id="c03-i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14" /></symbol>
+        <symbol id="c03-i-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+        <symbol id="c03-i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z" /><circle cx="12" cy="13" r="3" /></symbol>
+        <symbol id="c03-i-dollar" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 18V6" /></symbol>
+        <symbol id="c03-i-calclock" viewBox="0 0 24 24"><path d="M16 14v2.2l1.6 1" /><path d="M16 2v4M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" /><path d="M3 10h5M8 2v4" /><circle cx="16" cy="16" r="6" /></symbol>
+        <symbol id="c03-i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol>
+        <symbol id="c03-i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></symbol>
+        <symbol id="c03-i-bank" viewBox="0 0 24 24"><path d="M10 18v-7M14 18v-7M18 18v-7M6 18v-7" /><path d="M3 22h18" /><path d="M12 2 3 7h18z" /></symbol>
+        <symbol id="c03-i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+        <symbol id="c03-i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></symbol>
+        <symbol id="c03-i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+        <symbol id="c03-i-key" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" /></symbol>
+        <symbol id="c03-i-out" viewBox="0 0 24 24"><path d="m16 17 5-5-5-5M21 12H9M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></symbol>
+      </svg>
+
+      <div id="c03-bg" class="clip" data-start="0" data-duration="28" data-track-index="0">
+        <div class="backdrop"></div>
+        <div class="grid"></div>
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+      </div>
+
+      <section id="c03-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Aguarde</span><span class="w">a</span></div>
+          <div class="chapter-line"><span class="w v">aprovação</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c03-t2" class="clip chapter" data-start="10.9" data-duration="2.15" data-track-index="1">
+        <div class="chapter-words">
+          <div class="chapter-line"><span class="w">Pouco</span><span class="w">tempo</span></div>
+          <div class="chapter-line"><span class="w v">depois</span></div>
+          <span class="chapter-spark"></span>
+        </div>
+      </section>
+
+      <section id="c03-phone" class="clip" data-start="3" data-duration="25" data-track-index="2">
+        <div class="cam">
+          <div class="dev">
+            <div class="bezel" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow></div>
+            <div class="screen">
+              <div class="scr pf" id="c03-sP">
+                <div class="pf-scroll" id="c03-scroll" data-layout-allow-occlusion data-layout-allow-overflow data-layout-allow-overlap>
+                  <div class="acc" id="c03-acc" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="avatar"><img src="assets/doctors/camila.jpg" alt=""><div class="cam-badge"><svg class="ic"><use href="#c03-i-camera" /></svg></div></div>
+                    <div class="nm">Dra. Camila Rocha<svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                    <div class="em">CRM-SP 123456 · Clínica Geral</div>
+                  </div>
+
+                  <div class="hero" id="c03-hero">
+                    <div class="hf" id="c03-appr">
+                      <div class="rb">
+                        <div class="eb">Cadastro</div>
+                        <div class="pillbox">
+                          <div class="pl pl-a"><i></i>Em análise</div>
+                          <div class="pl pl-b"><i></i>Aprovado</div>
+                        </div>
+                      </div>
+                      <div class="bdbox">
+                        <div class="bd bd-a">Seu cadastro está em análise pela equipe Viva Mais. Avisamos assim que a aprovação sair.</div>
+                        <div class="bd bd-b">Seu cadastro está aprovado e liberado para atender.</div>
+                      </div>
+                    </div>
+                    <div class="hrow">
+                      <div class="hf hh">
+                        <div class="rb"><div class="eb">Certificado ICP</div><i class="hdot"></i></div>
+                        <div class="ht">Não enviado</div>
+                        <div class="hs">Envie seu A1 para assinar documentos</div>
+                        <div class="hfoot">Configurar<svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                      </div>
+                      <div class="hf hh">
+                        <div class="rb"><div class="eb">Seu plano</div></div>
+                        <div class="ht">Sem plano</div>
+                        <div class="hs">Mais destaque e recursos para atender.</div>
+                        <div class="hfoot">Ver planos<svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="groups" id="c03-groups" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="grp">
+                      <div class="gt">Atendimento</div>
+                      <div class="gc">
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-dollar" /></svg></div><div class="ib">Preço e duração</div><div class="iv">Nenhuma</div><svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-calclock" /></svg></div><div class="ib">Disponibilidade</div><div class="iv acc-v">Definir</div><svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-gift" /></svg></div><div class="ib">Benefícios</div><svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="grp">
+                      <div class="gt">Conta</div>
+                      <div class="gc">
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-user" /></svg></div><div class="ib">Informações pessoais</div><svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-phone" /></svg></div><div class="ib">Contatos</div><div class="iv acc-v">Adicionar</div><svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="grp">
+                      <div class="gt">Financeiro</div>
+                      <div class="gc">
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-bank" /></svg></div><div class="ib">Conta bancária</div><div class="iv acc-v">Adicionar</div><svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                      </div>
+                      <div class="gf">Os saques caem na conta marcada para saques.</div>
+                    </div>
+                    <div class="grp" id="c03-gIcp">
+                      <div class="gt">Assinatura digital</div>
+                      <div class="gc">
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-shield" /></svg></div><div class="ib">Certificado ICP</div><div class="iv">Não enviado</div><svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="grp">
+                      <div class="gt">Preferências</div>
+                      <div class="gc">
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-bell" /></svg></div><div class="ib">Notificações</div><div class="sw"></div></div>
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-pin" /></svg></div><div class="ib">Localização</div><div class="sw off"></div></div>
+                      </div>
+                    </div>
+                    <div class="grp">
+                      <div class="gt">Segurança</div>
+                      <div class="gc">
+                        <div class="ir"><div class="it"><svg class="ic"><use href="#c03-i-key" /></svg></div><div class="ib">Alterar senha</div><svg class="ic"><use href="#c03-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="grp">
+                      <div class="gc">
+                        <div class="ir"><div class="it red"><svg class="ic"><use href="#c03-i-out" /></svg></div><div class="ib red">Sair da conta</div></div>
+                      </div>
+                    </div>
+                    <div class="ver">Viva Mais · versão 2.4.0</div>
+                  </div>
+                </div>
+
+                <div class="pf-title" id="c03-ptitle" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>Perfil</div>
+
+                <div class="sk" id="c03-sk">
+                  <i style="left: 155px; top: 0; width: 92px; height: 92px; border-radius: 50%;"></i>
+                  <i style="left: 111px; top: 106px; width: 180px; height: 22px; border-radius: 8px;"></i>
+                  <i style="left: 131px; top: 136px; width: 140px; height: 14px; border-radius: 6px;"></i>
+                  <i style="left: 20px; top: 178px; width: 175px; height: 132px; border-radius: 20px;"></i>
+                  <i style="left: 207px; top: 178px; width: 175px; height: 132px; border-radius: 20px;"></i>
+                  <i style="left: 20px; top: 334px; width: 362px; height: 144px; border-radius: 22px;"></i>
+                  <i style="left: 20px; top: 502px; width: 362px; height: 144px; border-radius: 22px;"></i>
+                </div>
+
+                <div class="pf-bar" id="c03-bar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow><span>Perfil</span><i></i></div>
+
+                <div class="tabbar" id="c03-tabbar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                  <div class="tb-bar" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+                    <div class="tb-item"><div class="tb-ind"><svg class="ic"><use href="#c03-i-house" /></svg><span>Dashboard</span></div></div>
+                    <div class="tb-item"><div class="tb-ind"><svg class="ic"><use href="#c03-i-cal" /></svg><span>Consultas</span></div></div>
+                    <div class="tb-item"><div class="tb-ind"><svg class="ic"><use href="#c03-i-receipt" /></svg><span>Faturamento</span></div></div>
+                    <div class="tb-item"><div class="tb-ind on"><svg class="ic"><use href="#c03-i-user" /></svg><span>Perfil</span></div></div>
+                  </div>
+                  <div class="tb-plus"><svg class="ic"><use href="#c03-i-plus" /></svg></div>
+                </div>
+              </div>
+
+              <div class="scr" id="c03-sS">
+                <div class="aura"></div>
+                <div class="body center" style="top: 196px;">
+                  <div class="sbadge" id="c03-sbadge"><div class="sring" id="c03-sring"></div><svg viewBox="0 0 24 24"><path id="c03-scheck" d="M5 12l5 5 9-10" /></svg></div>
+                  <h1 class="h1" id="c03-sh" style="margin-top: 40px; font-size: 30px; line-height: 38px;">Cadastro aprovado!</h1>
+                  <p class="sub" id="c03-ssub">Seu cadastro está aprovado e liberado para atender.</p>
+                  <div class="welcome" id="c03-welcome">Bem-vinda, Dra. Camila</div>
+                </div>
+                <div class="btn" id="c03-btnS" style="top: 764px;"><span class="lbl">Começar</span></div>
+              </div>
+
+              <div class="notif" id="c03-notif">
+                <div class="nc" id="c03-nc">
+                  <img src="assets/brand/icone-app.png" alt="">
+                  <div class="tx">
+                    <div class="l1"><b>Viva Mais</b><span>agora</span></div>
+                    <div class="l2">Cadastro aprovado</div>
+                    <div class="l3">Você já pode atender pacientes.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="status"><span class="tm"><b class="t1">9:41</b><b class="t2">16:20</b></span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+              <div class="island"></div>
+              <div class="home"></div>
+            </div>
+            <div class="lift"></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="c03-brand" class="clip" data-start="0" data-duration="28" data-track-index="3">
+        <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+      </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch03-aprovacao"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const { $, $$, E, tip, tap, center, showTip, liftOut, make, titleCard } = k;
+            const cam = $(".cam");
+
+            k.screens(["c03-sP", "c03-sS"]);
+            $$("#c03-scroll *").forEach((n) => n.setAttribute("data-layout-allow-occlusion", ""));
+            $$("#c03-scroll *").forEach((n) => n.setAttribute("data-layout-allow-overlap", ""));
+
+            titleCard("#c03-t1", { at: 0.15, sparkAt: 0.75, out: 2.58 });
+
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out" }, 3);
+
+            const blocks = ["#c03-acc", "#c03-hero", "#c03-groups"].map($);
+            tl.set(blocks, { opacity: 0 }, 0);
+            tl.to($("#c03-sk"), { opacity: 0, duration: 0.3, ease: "power2.out" }, 4.0);
+            blocks.forEach((b, i) => tl.fromTo(b, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, 3.95 + i * 0.12));
+
+            tl.to(cam, { scale: 1.06, y: 40, duration: 1.0, ease: "power2.inOut" }, 4.9);
+            const appr = $("#c03-appr");
+            const ac = center(appr);
+            liftOut(appr, 5.4, 2.5, 0, 1.08);
+            showTip(tip("A equipe confere seus dados", ac.x, ac.p.y + ac.p.h + 10, "down"), 5.7, 2.1);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, 7.95);
+
+            tl.to($("#c03-scroll"), { y: -190, duration: 0.9, ease: "power2.inOut" }, 8.4);
+            tl.to($("#c03-bar"), { opacity: 1, duration: 0.2 }, 8.8);
+            tl.to($("#c03-ptitle"), { opacity: 0, duration: 0.2 }, 8.7);
+            tl.to($("#c03-scroll"), { y: 0, duration: 0.8, ease: "power2.inOut" }, 9.6);
+            tl.to($("#c03-bar"), { opacity: 0, duration: 0.2 }, 9.9);
+            tl.to($("#c03-ptitle"), { opacity: 1, duration: 0.2 }, 10.0);
+
+            tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, 10.5);
+            tl.set(cam, { opacity: 0 }, 10.92);
+            titleCard("#c03-t2", { at: 11.0, sparkAt: 11.5, out: 12.6, from: { x: 160 }, stagger: 0.07 });
+            tl.set($(".tm .t1"), { opacity: 0 }, 11.0);
+            tl.set($(".tm .t2"), { opacity: 1 }, 11.0);
+
+            tl.set(cam, { opacity: 1 }, 13.1);
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out", immediateRender: false }, 13.1);
+
+            const nc = $("#c03-nc");
+            const ncc = center(nc);
+            tl.to(cam, { scale: 1.06, y: 70, duration: 0.9, ease: "power2.inOut" }, 14.1);
+            const nodeN = liftOut(nc, 15.0, 1.75, 0, 1.06);
+            nodeN.style.borderRadius = "26px";
+            showTip(tip("Você recebe um aviso", ncc.x, ncc.p.y + ncc.p.h + 8, "down"), 15.3, 1.45);
+            tl.fromTo($("#c03-notif"), { opacity: 0, y: -140 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 14.3);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, 16.55);
+
+            tap(ncc.x, ncc.y, 17.15, nc);
+            tl.to($("#c03-notif"), { y: -140, opacity: 0, duration: 0.35, ease: "power3.in" }, 17.3);
+            const sP = $("#c03-sP"), sS = $("#c03-sS");
+            tl.set(sS, { autoAlpha: 1 }, 17.3);
+            tl.set(sP, { autoAlpha: 0 }, 17.85);
+            tl.fromTo(sS, { x: 402 }, { x: 0, duration: 0.5, ease: "power3.out" }, 17.3);
+            tl.fromTo(sP, { x: 0 }, { x: -120, duration: 0.5, ease: "power3.out" }, 17.3);
+
+            tl.set($$(".pl-a, .bd-a"), { opacity: 0 }, 17.9);
+            tl.set($$(".pl-b, .bd-b"), { opacity: 1 }, 17.9);
+
+            tl.fromTo($("#c03-sbadge"), { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)" }, 17.6);
+            tl.fromTo($("#c03-scheck"), { strokeDashoffset: 22 }, { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" }, 17.95);
+            tl.fromTo($("#c03-sring"), { scale: 0.8, opacity: 1 }, { scale: 1.3, opacity: 0, duration: 0.8, ease: "power2.out" }, 18.1);
+            [["#c03-sh", 18.0], ["#c03-ssub", 18.12], ["#c03-welcome", 18.24]].forEach(([s, t]) => tl.fromTo($(s), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: E }, t));
+            tl.to(cam, { scale: 1.05, y: 20, duration: 1.2, ease: "power2.inOut" }, 17.7);
+
+            const bc = center($("#c03-sbadge"));
+            let seed = 20261013;
+            const rnd = () => {
+              seed = (seed + 0x6d2b79f5) | 0;
+              let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+              t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+              return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+            };
+            const palette = ["#7E3BED", "#4EEB8C", "#9681EB", "#45CFDD", "#B79BF5", "#22C55E"];
+            for (let i = 0; i < 64; i++) {
+              const ang = -Math.PI / 2 + (rnd() - 0.5) * 2.5;
+              const speed = 90 + rnd() * 190;
+              const w = 7 + rnd() * 8, h = 5 + rnd() * 7;
+              const p = make("cf", { left: bc.x - w / 2 + "px", top: bc.y - h / 2 + "px", width: w + "px", height: h + "px", background: palette[i % palette.length], borderRadius: i % 3 === 0 ? "50%" : "2px" });
+              const t0 = 18.0 + rnd() * 0.12;
+              const dx = Math.cos(ang) * speed * 1.25;
+              const rise = Math.sin(ang) * speed * 0.9;
+              const fall = 300 + rnd() * 220;
+              tl.set(p, { opacity: 1 }, t0);
+              tl.fromTo(p, { x: 0 }, { x: dx * 1.5, duration: 2.1, ease: "power1.out" }, t0);
+              tl.fromTo(p, { y: 0 }, { y: rise, duration: 0.55, ease: "power2.out" }, t0);
+              tl.to(p, { y: rise + fall, duration: 1.55, ease: "power1.in" }, t0 + 0.55);
+              tl.fromTo(p, { rotation: 0 }, { rotation: (rnd() - 0.5) * 900, duration: 2.1, ease: "none" }, t0);
+              tl.to(p, { opacity: 0, duration: 0.4 }, t0 + 1.75);
+            }
+
+            tl.to(cam, { scale: 1, y: 0, duration: 0.7, ease: "power2.inOut" }, 19.6);
+            tap(201, 790, 20.4, "#c03-btnS");
+            tl.to(sS, { x: 402, duration: 0.5, ease: "power3.out" }, 20.55);
+            tl.set(sP, { autoAlpha: 1 }, 20.55);
+            tl.fromTo(sP, { x: -120 }, { x: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, 20.55);
+            tl.set(sS, { autoAlpha: 0 }, 21.1);
+
+            tl.to(cam, { scale: 1.06, y: 40, duration: 0.9, ease: "power2.inOut" }, 21.2);
+            const lifted = liftOut(appr, 21.6, 2.0, 0, 1.08);
+            lifted.querySelector(".pl-a").style.opacity = 0;
+            lifted.querySelector(".pl-b").style.opacity = 1;
+            lifted.querySelector(".bd-a").style.opacity = 0;
+            lifted.querySelector(".bd-b").style.opacity = 1;
+            tl.to(cam, { scale: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, 23.7);
+
+            tl.to($("#c03-scroll"), { y: -640, duration: 1.4, ease: "power2.inOut" }, 24.1);
+            tl.to($("#c03-bar"), { opacity: 1, duration: 0.2 }, 24.5);
+            tl.to($("#c03-ptitle"), { opacity: 0, duration: 0.2 }, 24.4);
+
+            tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, 27.3);
+            tl.set(cam, { opacity: 0 }, 27.72);
+
+            window.__timelines["ch03-aprovacao"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

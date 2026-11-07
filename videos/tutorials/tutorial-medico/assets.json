@@ -1,0 +1,11 @@
+{
+  "assets/illustrations/account-type-doctor.webp": "app/illustrations/account-type-doctor.webp",
+  "assets/illustrations/account-type-patient.webp": "app/illustrations/account-type-patient.webp",
+  "assets/doctors/camila.jpg": "people/doctors/camila.jpg",
+  "assets/people/ana.jpg": "people/ana.jpg",
+  "assets/video/paciente.mp4": "footage/paciente.mp4",
+  "assets/video/paciente-a.jpg": "footage/paciente-a.jpg",
+  "assets/video/paciente-b.jpg": "footage/paciente-b.jpg",
+  "assets/video/doutora.mp4": "footage/doutora.mp4",
+  "assets/video/doutora-end.jpg": "footage/doutora-end.jpg"
+}

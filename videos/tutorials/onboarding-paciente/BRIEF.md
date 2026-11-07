@@ -25,7 +25,7 @@ Single overview video for a new patient: what Viva Mais is, first access (create
 
 ## Assets
 
-- ../../../vivamaisa-app (main) — screens captured as rendered DOM from the Expo web build against `capture/mock-api.mjs`
+- ../../../../../vivamaisa-app (main) — screens captured as rendered DOM from the Expo web build against `capture/mock-api.mjs`
 - IA doctor booking (cards inline, expanded profile, availability) does not exist in the app UI; built as custom screens in the app's own components/tokens. Backend has `search_availability` / `get_availability_slots` tools.
 
 ## Notes

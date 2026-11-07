@@ -8,8 +8,18 @@ const tokens = JSON.parse(readFileSync(brand("tokens.json"), "utf8"));
 const faces = tokens.fontFiles
   .map(([family, weight, file]) => `@font-face {\n  font-family: "${family}";\n  src: url("fonts/${file}") format("truetype");\n  font-style: normal;\n  font-weight: ${weight};\n  font-display: block;\n}`)
   .join("\n\n");
-const groups = ["color", "gradient", "font", "radius", "ease"].map((group) =>
-  vars(group === "color" ? "vm" : `vm-${group === "gradient" ? "grad" : group}`, Object.entries(tokens[group]))
+const flat = (entries) =>
+  entries.flatMap(([name, value]) =>
+    typeof value === "string" ? [[name, value]] : Object.entries(value).map(([step, hex]) => [`${name}-${step}`, hex])
+  );
+const colors = flat(Object.entries(tokens.color)).map(([name, value]) => [
+  name,
+  value.replace(/^\{(\w+)\.(\w+)\}$/, (_, family, step) => `var(--vm-${family}-${step})`),
+]);
+const groups = [vars("vm", colors)].concat(
+  ["gradient", "font", "radius", "ease"].map((group) =>
+    vars(`vm-${group === "gradient" ? "grad" : group}`, Object.entries(tokens[group]))
+  )
 );
 writeFileSync(brand("tokens.css"), `${faces}\n\n:root {\n${groups.join("\n")}\n}\n`);
 console.log("brand/tokens.css");
@@ -20,10 +30,7 @@ if (!existsSync(app)) {
   process.exit(0);
 }
 const appTokens = JSON.parse(readFileSync(app, "utf8"));
-const colors = Object.entries(appTokens.color).flatMap(([name, value]) =>
-  typeof value === "string" ? [[name, value]] : Object.entries(value).map(([scale, hex]) => [`${name}-${scale}`, hex])
-);
 const radius = Object.entries(appTokens.radius).map(([name, value]) => [`radius-${name}`, `${value}px`]);
 const space = Object.entries(appTokens.space).map(([name, value]) => [`space-${name}`, `${value}px`]);
-writeFileSync(brand("app-ui.css"), `:root {\n${vars("viva", [...colors, ...radius, ...space])}\n}\n`);
+writeFileSync(brand("app-ui.css"), `:root {\n${vars("viva", [...flat(Object.entries(appTokens.color)), ...radius, ...space])}\n}\n`);
 console.log("brand/app-ui.css");

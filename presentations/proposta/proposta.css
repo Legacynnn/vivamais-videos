@@ -16,7 +16,7 @@
   top: 96px;
   width: 104px;
   height: 104px;
-  fill: var(--verde);
+  fill: var(--secondary);
 }
 
 .p-cover .eyebrow {
@@ -25,10 +25,10 @@
   padding: 0 21px;
   height: 47px;
   border-radius: 24px;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 21px;
   line-height: 47px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .p-cover h1 {
@@ -59,7 +59,7 @@
 
 .p-plans,
 .p-compare {
-  background: var(--paper);
+  background: var(--white);
 }
 
 .p-plans .title,
@@ -78,7 +78,7 @@
   margin-top: 18px;
   padding: 0 0 20px;
   border-top: 0;
-  border-bottom: 2px solid var(--line);
+  border-bottom: 2px solid var(--border);
 }
 
 .p-plans .pcard.best .price {
@@ -97,7 +97,7 @@
 
 .p-plans .sub b {
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .p-compare .meta {
@@ -110,7 +110,7 @@
 }
 
 .p-compare .meta b {
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .ctable {
@@ -150,12 +150,12 @@
   line-height: 16px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .ctable th.b {
   border-radius: 22px 22px 0 0;
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -171,7 +171,7 @@
   padding: 0 14px;
   height: 30px;
   border-radius: 15px;
-  background: var(--verde);
+  background: var(--secondary);
   font-family: var(--font-text);
   font-size: 13px;
   line-height: 30px;
@@ -179,17 +179,17 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .ctable td {
   height: 50px;
   padding: 0 12px;
-  border-top: 2px solid var(--line);
+  border-top: 2px solid var(--border);
   text-align: center;
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .ctable td.b {
@@ -218,7 +218,7 @@
   margin-right: 14px;
   padding: 6px;
   border-radius: 9px;
-  background: var(--tint);
+  background: var(--mist);
   vertical-align: middle;
 }
 
@@ -226,7 +226,7 @@
   margin-left: 10px;
   font-size: 17px;
   font-weight: 500;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .ctable .off {
@@ -244,14 +244,14 @@
   padding: 0 10px;
   height: 24px;
   border-radius: 12px;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 12px;
   line-height: 24px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   vertical-align: middle;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .ctable tr.free td:not(.lbl) .icon {
@@ -259,8 +259,8 @@
   height: 26px;
   padding: 5px;
   border-radius: 50%;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .ctable tr.vida td {
@@ -268,7 +268,7 @@
   border-top: 2px solid var(--violet-300);
   font-size: 34px;
   letter-spacing: -0.02em;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .ctable tr.mrr td {
@@ -282,7 +282,7 @@
   font-family: var(--font-text);
   font-size: 20px;
   letter-spacing: 0;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .ctable tr.mrr td.lbl {
@@ -295,7 +295,7 @@
 }
 
 .ctable tr.vida td.b {
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .terms {
@@ -319,7 +319,7 @@
   height: 46px;
   padding: 11px;
   border-radius: 14px;
-  background: var(--tint);
+  background: var(--mist);
   color: var(--violet-600);
 }
 
@@ -331,7 +331,7 @@
 }
 
 .terms b {
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .p-next .ring {
@@ -367,16 +367,16 @@
   height: 56px;
   padding: 0 26px 0 16px;
   border-radius: 28px;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 22px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .speed .icon {
   width: 28px;
   height: 28px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .steps {
@@ -407,11 +407,11 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--verde);
+  background: var(--secondary);
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .steps h3 {
@@ -437,7 +437,7 @@
   gap: 18px;
   padding: 20px 26px;
   border-radius: 22px;
-  border: 2px solid var(--verde);
+  border: 2px solid var(--secondary);
   background: rgba(78, 235, 140, 0.12);
   font-size: 18px;
   line-height: 25px;
@@ -452,7 +452,7 @@
   flex: none;
   width: 28px;
   height: 28px;
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .shots {
@@ -486,15 +486,15 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--verde);
+  background: var(--secondary);
   font-size: 12px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .shot figcaption .icon {
   width: 22px;
   height: 22px;
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .shot .phone {
@@ -537,7 +537,7 @@
   position: relative;
   padding: 0 22px;
   background: #F7F5FC;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .biz .sb {
@@ -553,7 +553,7 @@
   width: 64px;
   height: 12px;
   border-radius: 6px;
-  background: var(--ink);
+  background: var(--foreground);
   opacity: 0.8;
 }
 
@@ -590,7 +590,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .biz h4 {
@@ -613,7 +613,7 @@
   list-style: none;
   border-radius: 20px;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
 }
 
 .biz .people li {
@@ -625,7 +625,7 @@
 }
 
 .biz .people li + li {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 
 .biz .people div {
@@ -640,7 +640,7 @@
 
 .biz .people small {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .biz .people .av {
@@ -650,13 +650,13 @@
 }
 
 .biz .av.a1 {
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .biz .av.a2 {
   background: var(--violet-300);
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .biz .av.a3 {
@@ -694,7 +694,7 @@
 .legal .icon {
   width: 16px;
   height: 16px;
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .p-bye .side-photo {
@@ -722,7 +722,7 @@
 
 .p-bye .float {
   position: absolute;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .p-bye .float.f1 {
@@ -778,7 +778,7 @@
 .p-bye .contacts .icon {
   width: 28px;
   height: 28px;
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .ctable td .ok .icon {
@@ -786,8 +786,8 @@
   height: 26px;
   padding: 5px;
   border-radius: 50%;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .ctable td {
@@ -822,14 +822,14 @@
   padding: 14px 16px;
   border-radius: 18px;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
 }
 
 .biz .kpis small {
   display: block;
   font-size: 12px;
   font-weight: 500;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .biz .kpis b {
@@ -843,7 +843,7 @@
 
 .biz .kpis .hl {
   border: 0;
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -852,7 +852,7 @@
 }
 
 .biz .kpis .hl b {
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .biz .cta {
@@ -866,7 +866,7 @@
   gap: 10px;
   height: 56px;
   border-radius: 18px;
-  background: var(--purple);
+  background: var(--primary);
   font-size: 16px;
   font-weight: 700;
   color: #fff;
@@ -889,7 +889,7 @@
   width: 22px;
   height: 22px;
   transform: rotate(180deg);
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .biz .file {
@@ -927,7 +927,7 @@
 
 .biz .file small {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .biz .file .icon {
@@ -935,8 +935,8 @@
   height: 26px;
   padding: 5px;
   border-radius: 50%;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .biz .people em {
@@ -957,7 +957,7 @@
 
 .biz .people em.g2 {
   background: #D9F9E6;
-  color: var(--verde-fundo);
+  color: var(--secondary-strong);
 }
 
 .biz .people em.g3 {
@@ -967,7 +967,7 @@
 
 .biz .av.a4 {
   background: var(--violet-300);
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .biz .ok-banner {
@@ -985,7 +985,7 @@
   height: 24px;
   padding: 5px;
   border-radius: 50%;
-  background: var(--verde-fundo);
+  background: var(--secondary-strong);
   color: #fff;
 }
 
@@ -1000,7 +1000,7 @@
   padding: 14px 16px;
   border-radius: 20px;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
 }
 
 .biz .chart p {
@@ -1010,7 +1010,7 @@
 }
 
 .biz .chart p span {
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .biz .live em.on {
@@ -1018,7 +1018,7 @@
   align-items: center;
   gap: 6px;
   background: #D9F9E6;
-  color: var(--verde-fundo);
+  color: var(--secondary-strong);
 }
 
 .biz .live em.on::before {
@@ -1026,12 +1026,12 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--verde-fundo);
+  background: var(--secondary-strong);
   box-shadow: 0 0 0 3px rgba(15, 158, 98, 0.2);
 }
 
 .biz .live em.next {
-  background: var(--tint);
+  background: var(--mist);
   color: var(--violet-700);
 }
 
@@ -1041,19 +1041,19 @@
   height: 44px;
   font-size: 13px;
   font-weight: 700;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .biz .live em.done {
   background: #F1EFF6;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .biz .pdash {
   margin-top: 14px;
   padding: 18px 18px 16px;
   border-radius: 24px;
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
   box-shadow: 0 16px 30px rgba(53, 14, 111, 0.28);
 }
@@ -1075,16 +1075,16 @@
   padding: 0 10px;
   height: 24px;
   border-radius: 12px;
-  background: var(--verde);
+  background: var(--secondary);
   font-style: normal;
   font-size: 11px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .biz .pdash em .icon {
   width: 11px;
   height: 11px;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .biz .pdash .big {
@@ -1124,7 +1124,7 @@
 }
 
 .biz .m2 {
-  background: var(--verde);
+  background: var(--secondary);
 }
 
 .biz .m3 {
@@ -1147,7 +1147,7 @@
   padding: 0 14px 0 10px;
   border-radius: 18px;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
 }
 
 .biz .groups .pi {
@@ -1190,7 +1190,7 @@
 
 .biz .groups small {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .biz .groups p {
@@ -1199,7 +1199,7 @@
 
 .biz .groups p b {
   font-family: var(--font-display);
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .biz .stepper {
@@ -1209,7 +1209,7 @@
   gap: 8px;
   padding: 14px 16px;
   border-radius: 18px;
-  background: var(--tint);
+  background: var(--mist);
 }
 
 .biz .stepper span {
@@ -1218,7 +1218,7 @@
   gap: 6px;
   font-size: 12px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .biz .stepper .icon,
@@ -1233,12 +1233,12 @@
 
 .biz .stepper .icon {
   padding: 5px;
-  background: var(--verde);
-  color: var(--ink);
+  background: var(--secondary);
+  color: var(--foreground);
 }
 
 .biz .stepper em {
-  background: var(--purple);
+  background: var(--primary);
   font-style: normal;
   font-size: 11px;
   color: #fff;
@@ -1249,11 +1249,11 @@
   flex: 1;
   height: 3px;
   border-radius: 2px;
-  background: var(--verde);
+  background: var(--secondary);
 }
 
 .biz .stepper b.half {
-  background: var(--purple);
+  background: var(--primary);
 }
 
 .biz .uh {
@@ -1270,7 +1270,7 @@
   height: 30px;
   border-radius: 15px;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   font-size: 12px;
   font-weight: 700;
 }
@@ -1288,7 +1288,7 @@
   gap: 16px;
   padding: 16px 18px;
   border-radius: 22px;
-  background: var(--purple);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -1314,12 +1314,12 @@
   padding: 0 8px;
   height: 22px;
   border-radius: 11px;
-  background: var(--verde);
+  background: var(--secondary);
   font-style: normal;
   font-size: 11px;
   line-height: 22px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--foreground);
 }
 
 .biz .bars {
@@ -1344,7 +1344,7 @@
 }
 
 .biz .usage .bars i.now {
-  background: var(--verde);
+  background: var(--secondary);
 }
 
 .biz .mini {
@@ -1358,7 +1358,7 @@
   padding: 10px 12px;
   border-radius: 14px;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
 }
 
 .biz .mini b {
@@ -1367,12 +1367,12 @@
   font-size: 19px;
   line-height: 22px;
   letter-spacing: -0.02em;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .biz .mini small {
   font-size: 11px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .biz .uh + .usage + .mini + .lh,
@@ -1401,18 +1401,18 @@
 .biz .spec i {
   height: 10px;
   border-radius: 5px;
-  background: var(--tint);
+  background: var(--mist);
 }
 
 .biz .spec s {
   display: block;
   height: 100%;
   border-radius: 5px;
-  background: var(--purple);
+  background: var(--primary);
 }
 
 .biz .spec li:nth-child(2) s {
-  background: var(--verde-fundo);
+  background: var(--secondary-strong);
 }
 
 .biz .spec li:nth-child(3) s {
@@ -1433,7 +1433,7 @@
   list-style: none;
   border-radius: 16px;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
 }
 
 .biz .emp li {
@@ -1446,7 +1446,7 @@
 }
 
 .biz .emp li + li {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 
 .biz .emp li.th {
@@ -1455,7 +1455,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .biz .emp li.th span:last-child,
@@ -1477,7 +1477,7 @@
 .biz .emp b {
   font-family: var(--font-display);
   font-size: 15px;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .biz .emp .av,
@@ -1503,7 +1503,7 @@
   padding: 10px;
   border-radius: 14px;
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
 }
 
 .biz .docs .av {
@@ -1521,7 +1521,7 @@
 
 .biz .docs small {
   font-size: 10px;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .s-intro.p-cover,
@@ -1534,15 +1534,15 @@
 .p-bye h1 em,
 .p-next em.grad {
   background-image: none;
-  color: var(--verde);
+  color: var(--secondary);
 }
 
 .p-plans em.grad,
 .p-compare em.grad {
   background-image: none;
-  color: var(--purple);
+  color: var(--primary);
 }
 
 .p-cover .client .sep {
-  background: var(--verde);
+  background: var(--secondary);
 }

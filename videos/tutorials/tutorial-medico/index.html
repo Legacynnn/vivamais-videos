@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand/tokens.css">
+    <link rel="stylesheet" href="shared/app.css">
+    <script src="shared/kit.js"></script>
+    <style>
+      html, body, #root { width: 100%; height: 100%; }
+      html, body { margin: 0; overflow: hidden; background: var(--vm-canvas); }
+      #root { position: relative; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="tutorial-medico" data-start="0" data-duration="667.6" data-width="1080" data-height="1920">
+      <div id="el-ch01-02-cadastro" class="clip" data-composition-id="ch01-02-cadastro" data-composition-src="compositions/ch01-02-cadastro.html" data-start="0" data-duration="42" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-ch03-aprovacao" class="clip" data-composition-id="ch03-aprovacao" data-composition-src="compositions/ch03-aprovacao.html" data-start="42" data-duration="28" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-ch04-certificado" class="clip" data-composition-id="ch04-certificado" data-composition-src="compositions/ch04-certificado.html" data-start="70" data-duration="42.2" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-ch05-plano" class="clip" data-composition-id="ch05-plano" data-composition-src="compositions/ch05-plano.html" data-start="112.2" data-duration="44.15" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-ch06-agenda" class="clip" data-composition-id="ch06-agenda" data-composition-src="compositions/ch06-agenda.html" data-start="156.35" data-duration="35.05" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-ch07-paciente-agenda" class="clip" data-composition-id="ch07-paciente-agenda" data-composition-src="compositions/ch07-paciente-agenda.html" data-start="191.4" data-duration="47" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-ch08-voce-agenda" class="clip" data-composition-id="ch08-voce-agenda" data-composition-src="compositions/ch08-voce-agenda.html" data-start="238.4" data-duration="54" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-ch09-pre-consulta" class="clip" data-composition-id="ch09-pre-consulta" data-composition-src="compositions/ch09-pre-consulta.html" data-start="292.4" data-duration="32" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-ch10-consulta" class="clip" data-composition-id="ch10-consulta" data-composition-src="compositions/ch10-consulta.html" data-start="324.4" data-duration="20.5" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-ch11-prontuario" class="clip" data-composition-id="ch11-prontuario" data-composition-src="compositions/ch11-prontuario.html" data-start="344.9" data-duration="58.4" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-ch12-receita-anvisa" class="clip" data-composition-id="ch12-receita-anvisa" data-composition-src="compositions/ch12-receita-anvisa.html" data-start="403.3" data-duration="151" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-ch13-assinatura" class="clip" data-composition-id="ch13-assinatura" data-composition-src="compositions/ch13-assinatura.html" data-start="554.3" data-duration="84.5" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-ch14-reconsulta" class="clip" data-composition-id="ch14-reconsulta" data-composition-src="compositions/ch14-reconsulta.html" data-start="638.8" data-duration="28.8" data-track-index="0" data-width="1080" data-height="1920"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["tutorial-medico"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

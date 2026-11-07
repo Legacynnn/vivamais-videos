@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch08 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch08 .c08-ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+        #ch08 .c08-sw { position: absolute; inset: 0; }
+        #ch08 .c08-tag { position: absolute; left: 173px; top: 232px; width: 733px; text-align: center; }
+        #ch08 .c08-tag span { display: inline-block; padding: 12px 30px; border-radius: 999px; background: var(--vm-violet-100); color: var(--vm-violet-600); font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.01em; }
+        #ch08 .status { color: #fff; }
+        #ch08 .status-icons i { background: currentColor; }
+        #ch08 .c08-home { position: absolute; left: 134px; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: var(--vm-ink-900); z-index: 25; }
+        #ch08 .c08-sk { position: absolute; left: 0; top: 0; width: 402px; height: 874px; z-index: 12; opacity: 0; overflow: hidden; pointer-events: none; }
+        #ch08 .c08-sk i { position: absolute; display: block; background: #E9E7F0; }
+        #ch08 .c08-nav { position: absolute; left: 0; right: 0; top: 62px; height: 44px; display: flex; align-items: center; z-index: 8; }
+        #ch08 .c08-nav .c08-bk { width: 44px; height: 44px; margin-left: 10px; display: flex; align-items: center; justify-content: center; color: var(--vm-ink-900); }
+        #ch08 .c08-nav .c08-bk .c08-ic { width: 24px; height: 24px; }
+        #ch08 .c08-nav .c08-nt { position: absolute; left: 90px; right: 90px; text-align: center; font-weight: 700; font-size: 17px; color: var(--vm-ink-900); }
+        #ch08 .btn .c08-lb2 { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; color: #fff; }
+        #ch08 .c08-spin { position: absolute; top: 17px; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; opacity: 0; }
+        #ch08 .c08-panel { background: var(--vm-panel); }
+        #ch08 .c08-tot { position: absolute; left: 20px; right: 20px; top: 118px; height: 232px; border-radius: 24px; background: var(--vm-violet-950); padding: 20px; color: #fff; }
+        #ch08 .c08-tot small { display: block; font-size: 12.5px; color: var(--vm-violet-200); }
+        #ch08 .c08-tot .c08-am { margin-top: 4px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 42px; line-height: 48px; letter-spacing: -0.02em; }
+        #ch08 .c08-tot .c08-dv { margin: 16px 0; height: 1px; background: rgba(255, 255, 255, 0.14); }
+        #ch08 .c08-tot .c08-who { display: flex; align-items: center; gap: 12px; }
+        #ch08 .c08-tot .c08-who img { width: 46px; height: 46px; border-radius: 15px; object-fit: cover; }
+        #ch08 .c08-tot .c08-who b { display: block; font-size: 16px; line-height: 21px; }
+        #ch08 .c08-tot .c08-who span { display: block; font-size: 13px; line-height: 18px; color: var(--vm-violet-200); }
+        #ch08 .c08-tot .c08-when { margin-top: 12px; font-size: 13.5px; color: var(--vm-violet-100); }
+        #ch08 .c08-ptl { position: absolute; left: 24px; top: 502px; margin: 0; font-weight: 700; font-size: 17px; color: var(--vm-ink-900); }
+        #ch08 .c08-pm { position: absolute; left: 20px; right: 20px; height: 66px; border-radius: 20px; background: #fff; display: flex; align-items: center; gap: 14px; padding: 0 16px; overflow: hidden; }
+        #ch08 .c08-pm i { display: flex; width: 40px; height: 40px; border-radius: 13px; background: var(--vm-violet-50); color: var(--vm-violet-600); align-items: center; justify-content: center; font-style: normal; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 13px; flex: none; }
+        #ch08 .c08-pm b { display: block; font-size: 15.5px; line-height: 20px; color: var(--vm-ink-900); }
+        #ch08 .c08-pm span { display: block; font-size: 12.5px; line-height: 17px; color: var(--vm-ink-500); }
+        #ch08 .c08-pm .c08-tx { flex: 1; }
+        #ch08 .c08-pm .c08-ic { width: 18px; height: 18px; color: var(--vm-ink-400); }
+        #ch08 .c08-pm .c08-press { position: absolute; inset: 0; background: rgba(126, 59, 237, 0.1); opacity: 0; }
+        #ch08 .c08-paid { position: absolute; left: 0; top: 0; width: 402px; height: 874px; background: #fff; z-index: 14; opacity: 0; }
+        #ch08 .c08-badge { position: relative; width: 112px; height: 112px; margin: 0 auto; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-badge svg { width: 56px; height: 56px; }
+        #ch08 .c08-badge .c08-rg { position: absolute; inset: -18px; border-radius: 50%; border: 3px solid rgba(34, 197, 94, 0.35); }
+        #ch08 .c08-dbg { position: absolute; left: 0; right: 0; top: 0; height: 520px; background: linear-gradient(180deg, #5719B6 0%, #7E3BED 100%); }
+        #ch08 .c08-dav { position: absolute; left: 24px; top: 60px; width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255, 255, 255, 0.55); }
+        #ch08 .c08-dbl { position: absolute; right: 24px; top: 60px; width: 42px; height: 42px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); color: #fff; display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-ddt { position: absolute; left: 24px; top: 116px; font-size: 14px; line-height: 18px; color: rgba(255, 255, 255, 0.78); }
+        #ch08 .c08-dgr { position: absolute; left: 24px; top: 136px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 30px; line-height: 36px; letter-spacing: -0.02em; color: #fff; }
+        #ch08 .c08-dsb { position: absolute; left: 24px; top: 176px; height: 20px; width: 360px; }
+        #ch08 .c08-dsb span { position: absolute; left: 0; top: 0; font-size: 14.5px; line-height: 20px; color: rgba(255, 255, 255, 0.82); white-space: nowrap; }
+        #ch08 .c08-nc { position: absolute; left: 20px; right: 20px; top: 216px; height: 168px; border-radius: 26px; background: var(--vm-violet-950); box-shadow: 0 16px 34px rgba(34, 8, 74, 0.35); }
+        #ch08 .c08-nca, #ch08 .c08-ncb { position: absolute; inset: 0; }
+        #ch08 .c08-eyd { position: absolute; left: 20px; top: 18px; font-weight: 700; font-size: 11px; letter-spacing: 1.7px; text-transform: uppercase; color: var(--vm-violet-300); }
+        #ch08 .c08-hl { position: absolute; left: 20px; top: 38px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 36px; line-height: 44px; letter-spacing: -0.02em; color: #fff; white-space: nowrap; }
+        #ch08 .c08-ncs { position: absolute; left: 20px; top: 86px; font-size: 14px; line-height: 20px; color: var(--vm-violet-200); white-space: nowrap; }
+        #ch08 .c08-ncf { position: absolute; left: 20px; right: 16px; top: 118px; height: 36px; display: flex; align-items: center; gap: 10px; }
+        #ch08 .c08-ncf::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 1px; background: rgba(255, 255, 255, 0.12); }
+        #ch08 .c08-ncf img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
+        #ch08 .c08-ncf b { font-size: 15px; color: #fff; white-space: nowrap; }
+        #ch08 .c08-pill { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 12px; border-radius: 13px; background: rgba(255, 255, 255, 0.12); font-weight: 500; font-size: 12.5px; color: #fff; white-space: nowrap; }
+        #ch08 .c08-pill i { display: block; width: 7px; height: 7px; border-radius: 50%; background: #F59E0B; }
+        #ch08 .c08-arw { position: absolute; right: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; background: #fff; color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-arw .c08-ic { width: 17px; height: 17px; }
+        #ch08 .c08-live { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--vm-violet-200); }
+        #ch08 .c08-live i { display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--vm-green-400); }
+        #ch08 .c08-dsh { position: absolute; left: 0; top: 404px; width: 402px; height: 470px; border-radius: 30px 30px 0 0; background: #fff; }
+        #ch08 .c08-qa { position: absolute; left: 0; top: 428px; width: 402px; display: flex; gap: 6px; padding: 0 12px; }
+        #ch08 .c08-qa div { width: 76px; text-align: center; font-size: 11.5px; line-height: 14px; color: var(--vm-ink-700); }
+        #ch08 .c08-qa i { display: flex; width: 46px; height: 46px; margin: 0 auto 6px; border-radius: 50%; background: var(--vm-violet-50); color: var(--vm-violet-600); align-items: center; justify-content: center; }
+        #ch08 .c08-qa .c08-ic { width: 20px; height: 20px; }
+        #ch08 .c08-hj { position: absolute; left: 20px; right: 20px; top: 534px; display: flex; justify-content: space-between; align-items: center; }
+        #ch08 .c08-hj h3 { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 20px; color: var(--vm-ink-900); }
+        #ch08 .c08-hj span { display: flex; align-items: center; font-weight: 500; font-size: 14px; color: var(--vm-violet-600); }
+        #ch08 .c08-hj .c08-ic { width: 16px; height: 16px; }
+        #ch08 .c08-ws { position: absolute; left: 12px; right: 12px; top: 574px; display: flex; justify-content: space-between; }
+        #ch08 .c08-ws div { width: 51px; text-align: center; font-size: 11px; color: var(--vm-ink-500); }
+        #ch08 .c08-ws i { display: flex; width: 34px; height: 34px; margin: 4px auto 2px; border-radius: 50%; align-items: center; justify-content: center; font-style: normal; font-weight: 500; font-size: 14.5px; color: var(--vm-ink-900); }
+        #ch08 .c08-ws .c08-td i { background: var(--vm-violet-500); color: #fff; }
+        #ch08 .c08-ws u { display: block; width: 5px; height: 5px; margin: 0 auto; border-radius: 50%; background: var(--vm-violet-400); opacity: 0; }
+        #ch08 .c08-sch { position: absolute; left: 20px; right: 20px; top: 652px; height: 84px; }
+        #ch08 .c08-emp { position: absolute; left: 0; right: 0; top: 0; height: 66px; border-radius: 20px; background: var(--vm-tile); display: flex; align-items: center; gap: 12px; padding: 0 16px; font-size: 14.5px; color: var(--vm-ink-500); }
+        #ch08 .c08-emp i { display: flex; width: 38px; height: 38px; border-radius: 12px; background: #fff; color: var(--vm-ink-400); align-items: center; justify-content: center; }
+        #ch08 .c08-rw { position: absolute; left: 0; right: 0; top: 0; height: 72px; opacity: 0; }
+        #ch08 .c08-rw .c08-gt { position: absolute; left: 0; top: 4px; width: 56px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 17px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch08 .c08-rw .c08-gt span { display: block; font-family: "DM Sans", sans-serif; font-weight: 400; font-size: 12px; line-height: 16px; color: var(--vm-ink-500); }
+        #ch08 .c08-rc { position: absolute; left: 60px; right: 0; top: 0; height: 72px; border-radius: 20px; background: var(--vm-tile); }
+        #ch08 .c08-rc img { position: absolute; left: 12px; top: 15px; width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+        #ch08 .c08-rc .c08-r1 { position: absolute; left: 64px; top: 13px; display: flex; align-items: center; gap: 8px; }
+        #ch08 .c08-rc .c08-r1 b { font-size: 15.5px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch08 .c08-rc .c08-pill { height: 22px; padding: 0 9px; font-size: 11.5px; background: #FEF3C7; color: #92400E; gap: 5px; }
+        #ch08 .c08-rc .c08-pill i { width: 6px; height: 6px; }
+        #ch08 .c08-rc .c08-r2 { position: absolute; left: 64px; top: 38px; display: flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch08 .c08-rc .c08-r2 .c08-ic { width: 14px; height: 14px; }
+        #ch08 .c08-rc > .c08-ic { position: absolute; right: 12px; top: 26px; width: 20px; height: 20px; color: var(--vm-ink-400); }
+        #ch08 .c08-tabbar { position: absolute; left: 16px; right: 16px; bottom: 34px; height: 72px; z-index: 21; }
+        #ch08 .c08-tb-bar { position: absolute; left: 0; top: 0; width: 302px; height: 72px; border-radius: 999px; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: space-evenly; padding: 0 8px; }
+        #ch08 .c08-tb-item { flex: 1; display: flex; justify-content: center; }
+        #ch08 .c08-tb-ind { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 12px; border-radius: 999px; color: var(--vm-ink-600); }
+        #ch08 .c08-tb-ind .c08-tbon { position: absolute; inset: 0; border-radius: 999px; background: var(--vm-violet-100); opacity: 0; }
+        #ch08 .c08-tb-ind .c08-tbc { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        #ch08 .c08-tb-ind span { font-weight: 500; font-size: 9px; line-height: 12px; }
+        #ch08 .c08-tb-plus { position: absolute; right: 0; top: 8px; width: 56px; height: 56px; border-radius: 50%; background: #fff; border: 1px solid var(--vm-ink-200); display: flex; align-items: center; justify-content: center; color: var(--vm-violet-600); }
+        #ch08 .c08-tb-plus .c08-ic { width: 22px; height: 22px; stroke-width: 2.25; }
+        #ch08 .c08-pushw { position: absolute; left: 14px; right: 14px; top: 58px; height: 84px; z-index: 35; }
+        #ch08 .c08-push { position: absolute; inset: 0; border-radius: 24px; background: #FBFAFE; box-shadow: 0 18px 40px rgba(34, 8, 74, 0.3); display: flex; align-items: center; gap: 12px; padding: 0 16px; }
+        #ch08 .c08-push img { width: 44px; height: 44px; border-radius: 11px; display: block; flex: none; }
+        #ch08 .c08-ptx { flex: 1; min-width: 0; }
+        #ch08 .c08-prow { display: flex; justify-content: space-between; font-size: 12px; line-height: 16px; color: var(--vm-ink-500); text-transform: uppercase; letter-spacing: 0.6px; }
+        #ch08 .c08-prow span { text-transform: none; letter-spacing: 0; font-size: 12.5px; }
+        #ch08 .c08-pt { font-weight: 700; font-size: 15.5px; line-height: 20px; color: var(--vm-ink-900); }
+        #ch08 .c08-pb { font-size: 14.5px; line-height: 20px; color: var(--vm-ink-700); }
+
+        #ch08 .c08-chv { position: absolute; right: 20px; top: 76px; display: flex; gap: 8px; }
+        #ch08 .c08-chv div { width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); color: #fff; display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-chv .c08-ic { width: 17px; height: 17px; }
+        #ch08 .c08-cl { position: absolute; left: 24px; top: 62px; font-weight: 500; font-size: 14px; color: rgba(255, 255, 255, 0.78); }
+        #ch08 .c08-cm { position: absolute; left: 24px; top: 82px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 28px; line-height: 34px; letter-spacing: -0.02em; color: #fff; }
+        #ch08 .c08-cal { position: absolute; left: 16px; right: 16px; top: 134px; height: 256px; border-radius: 26px; background: #fff; box-shadow: 0 14px 30px rgba(34, 8, 74, 0.22); padding: 12px 8px 0; }
+        #ch08 .c08-cg { display: grid; grid-template-columns: repeat(7, 1fr); }
+        #ch08 .c08-cg .c08-wd { height: 24px; text-align: center; font-weight: 700; font-size: 11px; line-height: 24px; letter-spacing: 1px; color: var(--vm-ink-500); }
+        #ch08 .c08-cg .c08-cc { position: relative; height: 41px; display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-cg .c08-cc i { position: relative; display: flex; width: 34px; height: 34px; border-radius: 50%; align-items: center; justify-content: center; font-style: normal; font-weight: 500; font-size: 14.5px; color: var(--vm-ink-900); }
+        #ch08 .c08-cg .c08-cc.c08-pa i { color: var(--vm-ink-400); }
+        #ch08 .c08-cg .c08-cc.c08-ot i { color: var(--vm-ink-300); }
+        #ch08 .c08-cg .c08-cc .c08-ring { position: absolute; width: 34px; height: 34px; border-radius: 50%; background: var(--vm-violet-500); opacity: 0; }
+        #ch08 .c08-cg .c08-cc.c08-n9 i { color: #fff; }
+        #ch08 .c08-cg .c08-cc .c08-ct { position: absolute; right: 3px; top: 0; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; background: #22C55E; color: #fff; font-weight: 700; font-size: 10px; line-height: 16px; text-align: center; opacity: 0; }
+        #ch08 .c08-csh { position: absolute; left: 0; top: 408px; width: 402px; height: 466px; border-radius: 30px 30px 0 0; background: #fff; overflow: hidden; }
+        #ch08 .c08-chd { position: absolute; left: 0; right: 0; top: 0; height: 76px; padding: 20px 20px 0; background: #fff; z-index: 3; display: flex; justify-content: space-between; align-items: flex-start; }
+        #ch08 .c08-chd h3 { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 22px; line-height: 26px; color: var(--vm-ink-900); }
+        #ch08 .c08-chd small { display: block; font-size: 12.5px; color: var(--vm-ink-500); }
+        #ch08 .c08-chd em { font-style: normal; font-weight: 700; font-size: 12.5px; padding: 6px 12px; border-radius: 999px; background: var(--vm-violet-50); color: var(--vm-violet-600); }
+        #ch08 .c08-rail { position: absolute; left: 0; top: 76px; width: 402px; height: 420px; }
+        #ch08 .c08-hr { position: absolute; left: 20px; right: 20px; height: 1px; background: var(--vm-ink-200); }
+        #ch08 .c08-hr span { position: absolute; left: 0; top: -8px; width: 50px; font-size: 12px; line-height: 16px; color: var(--vm-ink-400); background: #fff; }
+        #ch08 .c08-ev2 { position: absolute; left: 76px; right: 20px; top: 98px; height: 76px; border-radius: 18px; background: var(--vm-violet-50); border-left: 4px solid var(--vm-violet-500); opacity: 0; }
+        #ch08 .c08-ev2 img { position: absolute; left: 14px; top: 17px; width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+        #ch08 .c08-ev2 b { position: absolute; left: 68px; top: 12px; font-size: 15.5px; line-height: 22px; color: var(--vm-ink-900); }
+        #ch08 .c08-ev2 .c08-r2 { position: absolute; left: 68px; top: 36px; display: flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--vm-ink-600); white-space: nowrap; }
+        #ch08 .c08-ev2 .c08-r2 .c08-ic { width: 14px; height: 14px; }
+        #ch08 .c08-ev2 .c08-r3 { position: absolute; left: 68px; top: 54px; font-weight: 500; font-size: 12px; color: var(--vm-violet-600); }
+        #ch08 .c08-ev2 .c08-ring2 { position: absolute; inset: -3px; border-radius: 20px; border: 2.5px solid #22C55E; opacity: 0; }
+        #ch08 .c08-press { position: absolute; inset: 0; border-radius: inherit; background: rgba(34, 8, 74, 0.14); opacity: 0; }
+        #ch08 .c08-hv .val { opacity: 0; }
+        #ch08 .c08-dim { position: absolute; inset: 0; background: #0E0520; opacity: 0; z-index: 22; }
+        #ch08 .c08-central { position: absolute; left: 0; top: 48px; width: 402px; height: 826px; border-radius: 30px 30px 0 0; background: var(--vm-panel); z-index: 23; overflow: hidden; }
+        #ch08 .c08-grab { position: absolute; left: 171px; top: 8px; width: 60px; height: 5px; border-radius: 3px; background: var(--vm-ink-300); }
+        #ch08 .c08-ctt { position: absolute; left: 24px; top: 30px; margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 30px; line-height: 36px; letter-spacing: -0.02em; color: var(--vm-ink-900); }
+        #ch08 .c08-cts { position: absolute; left: 24px; top: 70px; font-size: 15px; line-height: 20px; color: var(--vm-ink-500); }
+        #ch08 .c08-cx { position: absolute; right: 20px; top: 30px; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--vm-ink-700); display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-cr { position: absolute; left: 20px; right: 20px; top: 112px; height: 128px; display: flex; gap: 12px; }
+        #ch08 .c08-ctc { position: relative; flex: 1; height: 128px; border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch08 .c08-ctc.c08-pri { background: var(--vm-violet-500); }
+        #ch08 .c08-ctci { position: absolute; left: 16px; top: 16px; width: 40px; height: 40px; border-radius: 12px; background: var(--vm-violet-100); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-pri .c08-ctci { background: var(--vm-violet-600); color: #fff; }
+        #ch08 .c08-ctc b { position: absolute; left: 16px; top: 72px; font-size: 16px; line-height: 20px; color: var(--vm-ink-900); white-space: nowrap; }
+        #ch08 .c08-ctc .c08-cs { position: absolute; left: 16px; top: 94px; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch08 .c08-pri b { color: #fff; }
+        #ch08 .c08-pri .c08-cs { color: var(--vm-violet-100); }
+        #ch08 .c08-cgt { position: absolute; left: 24px; font-weight: 700; font-size: 11px; line-height: 14px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--vm-ink-500); }
+        #ch08 .c08-docs { position: absolute; left: 20px; right: 20px; top: 286px; height: 94px; border-radius: 22px; background: #fff; display: flex; padding: 14px 6px; }
+        #ch08 .c08-doc { flex: 1; text-align: center; font-weight: 500; font-size: 12px; line-height: 16px; color: var(--vm-ink-700); }
+        #ch08 .c08-doc i { display: flex; width: 46px; height: 46px; margin: 0 auto 8px; border-radius: 50%; background: var(--vm-violet-100); color: var(--vm-violet-600); align-items: center; justify-content: center; }
+        #ch08 .c08-ig { position: absolute; left: 20px; right: 20px; border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch08 .c08-ir { position: relative; height: 54px; display: flex; align-items: center; gap: 14px; padding: 0 16px; font-weight: 500; font-size: 15.5px; color: var(--vm-ink-900); }
+        #ch08 .c08-ir + .c08-ir::before { content: ""; position: absolute; left: 52px; right: 0; top: 0; height: 1px; background: var(--vm-ink-100); }
+        #ch08 .c08-ir .c08-ic { width: 22px; height: 22px; color: var(--vm-violet-600); flex: none; }
+        #ch08 .c08-ir .c08-ic.c08-chv { margin-left: auto; width: 18px; height: 18px; color: var(--vm-ink-300); }
+
+        #ch08 .c08-sb { position: relative; height: 52px; }
+        #ch08 .c08-sb .box { border-radius: 16px; background: var(--vm-ink-100); border: 0; }
+        #ch08 .c08-sb .box-focus { border-radius: 16px; background: #fff; }
+        #ch08 .c08-sb .c08-sg { position: absolute; left: 16px; top: 16px; color: var(--vm-ink-500); }
+        #ch08 .c08-sb .c08-sph { position: absolute; left: 44px; top: 16px; font-size: 16px; line-height: 20px; color: var(--vm-ink-500); white-space: nowrap; }
+        #ch08 .c08-sb .val { left: 44px; }
+        #ch08 .c08-sb .caret { left: 0; margin-left: 27px; }
+        #ch08 .c08-sbs { position: absolute; right: 16px; top: 15px; width: 20px; height: 20px; border-radius: 50%; border: 2.5px solid rgba(126, 59, 237, 0.25); border-top-color: var(--vm-violet-500); opacity: 0; }
+        #ch08 .c08-hint { position: absolute; left: 24px; right: 24px; top: 300px; text-align: center; font-size: 15px; color: var(--vm-ink-400); }
+        #ch08 .c08-hint .c08-ic { width: 32px; height: 32px; margin: 0 auto 10px; color: var(--vm-ink-300); }
+        #ch08 .c08-empty { position: absolute; left: 24px; right: 24px; top: 290px; text-align: center; opacity: 0; }
+        #ch08 .c08-ei { width: 76px; height: 76px; margin: 0 auto; border-radius: 24px; background: var(--vm-violet-50); color: var(--vm-violet-600); display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-ei .c08-ic { width: 34px; height: 34px; }
+        #ch08 .c08-empty h2 { margin: 20px 0 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 21px; line-height: 26px; color: var(--vm-ink-900); }
+        #ch08 .c08-empty p { margin: 6px 0 0; font-size: 15px; line-height: 22px; color: var(--vm-ink-500); }
+        #ch08 .c08-nb { position: absolute; left: 24px; right: 24px; top: 478px; height: 52px; border-radius: 16px; background: var(--vm-violet-500); color: #fff; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 500; font-size: 16px; opacity: 0; overflow: hidden; }
+        #ch08 .c08-gl { margin: 0 0 8px; font-weight: 700; font-size: 13px; line-height: 16px; color: var(--vm-ink-600); }
+        #ch08 .c08-gr { display: flex; gap: 8px; }
+        #ch08 .c08-gc { position: relative; flex: 1; height: 48px; border-radius: 14px; background: var(--vm-tile); display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 15px; color: var(--vm-ink-700); }
+        #ch08 .c08-gc .c08-on { position: absolute; inset: 0; border-radius: 14px; background: var(--vm-violet-50); box-shadow: inset 0 0 0 1.5px var(--vm-violet-500); opacity: 0; }
+        #ch08 .c08-gc span { position: relative; }
+        #ch08 .c08-sc { position: absolute; left: 24px; right: 24px; border-radius: 18px; background: var(--vm-tile); padding: 16px 18px; opacity: 0; }
+        #ch08 .c08-sh { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-weight: 700; font-size: 13px; line-height: 20px; letter-spacing: 0.3px; color: var(--vm-violet-600); }
+        #ch08 .c08-sh .c08-ic { width: 16px; height: 16px; color: var(--vm-ink-500); }
+        #ch08 .c08-sr { display: flex; justify-content: space-between; align-items: center; height: 30px; font-size: 14px; color: var(--vm-ink-500); }
+        #ch08 .c08-sr b { font-weight: 700; color: var(--vm-ink-900); white-space: nowrap; }
+
+        #ch08 .c08-srow { display: flex; gap: 10px; margin-top: 22px; }
+        #ch08 .c08-srow .c08-sb { flex: 1; }
+        #ch08 .c08-addp { width: 52px; height: 52px; border-radius: 16px; background: var(--vm-violet-500); color: #fff; display: flex; align-items: center; justify-content: center; flex: none; }
+        #ch08 .c08-pl { margin-top: 18px; }
+        #ch08 .c08-pr { position: relative; height: 72px; border-radius: 20px; background: var(--vm-tile); display: flex; align-items: center; gap: 14px; padding: 0 16px; margin-bottom: 10px; opacity: 0; overflow: hidden; }
+        #ch08 .c08-pr img, #ch08 .c08-pi { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; display: block; }
+        #ch08 .c08-pi { display: flex; align-items: center; justify-content: center; background: var(--vm-violet-100); color: var(--vm-violet-600); font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 15px; }
+        #ch08 .c08-pr b { display: block; font-size: 15.5px; line-height: 20px; color: var(--vm-ink-900); }
+        #ch08 .c08-pr .c08-ps { display: block; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); }
+        #ch08 .c08-pr .c08-ic { margin-left: auto; width: 18px; height: 18px; color: var(--vm-ink-300); }
+        #ch08 .c08-pc { position: absolute; left: 24px; right: 24px; top: 146px; height: 60px; border-radius: 18px; background: var(--vm-tile); display: flex; align-items: center; gap: 12px; padding: 0 16px; }
+        #ch08 .c08-pc .c08-pi { width: 40px; height: 40px; font-size: 14px; background: #fff; }
+        #ch08 .c08-pc b { display: block; font-size: 15.5px; line-height: 20px; color: var(--vm-ink-900); }
+        #ch08 .c08-pc .c08-ps { display: block; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); }
+        #ch08 .c08-pc em { margin-left: auto; font-style: normal; font-weight: 500; font-size: 13.5px; color: var(--vm-violet-600); }
+        #ch08 .c08-ml { position: absolute; left: 26px; top: 222px; font-weight: 700; font-size: 13px; line-height: 16px; color: var(--vm-ink-600); }
+        #ch08 .c08-mr { position: absolute; left: 24px; top: 244px; display: flex; gap: 8px; }
+        #ch08 .c08-mc { height: 40px; padding: 0 16px; border-radius: 20px; background: var(--vm-tile); font-weight: 500; font-size: 14px; line-height: 40px; color: var(--vm-ink-700); }
+        #ch08 .c08-mc.c08-sel { background: var(--vm-violet-50); color: var(--vm-violet-600); box-shadow: inset 0 0 0 1.5px var(--vm-violet-500); }
+        #ch08 .c08-two { position: absolute; left: 24px; right: 24px; display: flex; gap: 12px; }
+        #ch08 .c08-two .field { flex: 1; margin-bottom: 0; }
+        #ch08 .c08-one { position: absolute; left: 24px; right: 24px; }
+        #ch08 .c08-tg { position: absolute; left: 24px; right: 24px; top: 442px; height: 72px; }
+        #ch08 .c08-tgl { position: absolute; left: 2px; top: 0; font-weight: 700; font-size: 13px; line-height: 16px; color: var(--vm-ink-600); }
+        #ch08 .c08-seg { position: absolute; left: 0; right: 0; top: 24px; height: 48px; border-radius: 16px; background: var(--vm-tile); overflow: hidden; }
+        #ch08 .c08-thumb { position: absolute; left: 50%; top: 4px; width: calc(50% - 4px); height: 40px; border-radius: 12px; background: var(--vm-violet-500); }
+        #ch08 .c08-so { position: absolute; top: 0; height: 48px; width: 50%; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 500; font-size: 15px; }
+        #ch08 .c08-so .c08-ic { width: 18px; height: 18px; }
+        #ch08 .c08-so.c08-a { left: 0; color: var(--vm-ink-600); }
+        #ch08 .c08-so.c08-b { left: 50%; color: #fff; }
+        #ch08 .c08-pop { position: absolute; border-radius: 22px; background: #fff; box-shadow: 0 22px 50px rgba(53, 14, 111, 0.28), 0 0 0 1px var(--vm-ink-100); z-index: 12; opacity: 0; }
+        #ch08 .c08-dp { left: 24px; top: 372px; width: 354px; padding: 14px 12px 8px; }
+        #ch08 .c08-dph { display: flex; justify-content: space-between; align-items: center; padding: 0 6px; margin-bottom: 6px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color: var(--vm-ink-900); }
+        #ch08 .c08-dph span { display: flex; gap: 14px; color: var(--vm-ink-500); }
+        #ch08 .c08-dph .c08-ic { width: 18px; height: 18px; }
+        #ch08 .c08-dpg { display: grid; grid-template-columns: repeat(7, 1fr); }
+        #ch08 .c08-dw { height: 24px; text-align: center; font-weight: 700; font-size: 11px; line-height: 24px; letter-spacing: 1px; color: var(--vm-ink-500); }
+        #ch08 .c08-dd { position: relative; height: 34px; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 14px; color: var(--vm-ink-900); }
+        #ch08 .c08-dd.c08-gy { color: var(--vm-ink-300); }
+        #ch08 .c08-dd.c08-td { color: var(--vm-violet-600); font-weight: 700; }
+        #ch08 .c08-dd .c08-dsel { position: absolute; width: 32px; height: 32px; border-radius: 50%; background: var(--vm-violet-500); opacity: 0; }
+        #ch08 .c08-dd span { position: relative; }
+        #ch08 .c08-tp { left: 209px; top: 372px; width: 169px; padding: 8px; }
+        #ch08 .c08-tr { position: relative; height: 40px; border-radius: 12px; display: flex; align-items: center; padding: 0 14px; font-weight: 500; font-size: 15px; color: var(--vm-ink-900); }
+        #ch08 .c08-tr .c08-tro { position: absolute; inset: 0; border-radius: 12px; background: var(--vm-violet-50); opacity: 0; }
+        #ch08 .c08-tr span { position: relative; }
+        #ch08 .c08-toast { position: absolute; left: 24px; right: 24px; top: 62px; height: 52px; border-radius: 18px; background: #17151E; color: #fff; display: flex; align-items: center; gap: 12px; padding: 0 16px; font-weight: 500; font-size: 15px; z-index: 28; opacity: 0; box-shadow: 0 16px 34px rgba(34, 8, 74, 0.35); }
+        #ch08 .c08-toast i { display: flex; width: 24px; height: 24px; border-radius: 50%; background: #22C55E; align-items: center; justify-content: center; flex: none; }
+        #ch08 .c08-toast i .c08-ic { width: 14px; height: 14px; stroke-width: 3.2; color: #fff; }
+        #ch08 .c08-dgdim { position: absolute; inset: 0; background: rgba(14, 5, 32, 0.55); z-index: 26; opacity: 0; }
+        #ch08 .c08-dlg { position: absolute; left: 36px; right: 36px; top: 300px; border-radius: 26px; background: #fff; padding: 24px 22px 22px; z-index: 27; opacity: 0; box-shadow: 0 30px 70px rgba(14, 5, 32, 0.4); }
+        #ch08 .c08-dlg h3 { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 22px; line-height: 28px; color: var(--vm-ink-900); }
+        #ch08 .c08-dlg p { margin: 8px 0 0; font-size: 15px; line-height: 22px; color: var(--vm-ink-600); }
+        #ch08 .c08-dbt { display: flex; gap: 10px; margin-top: 22px; }
+        #ch08 .c08-dbt div { position: relative; flex: 1; height: 48px; border-radius: 14px; background: var(--vm-tile); display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 15.5px; color: var(--vm-ink-700); overflow: hidden; }
+        #ch08 .c08-dbt div + div { background: var(--vm-violet-500); color: #fff; }
+
+        #ch08 .c08-dsc { position: absolute; left: 0; top: 0; width: 402px; height: 1100px; }
+        #ch08 .c08-hh { position: absolute; left: 0; top: 0; width: 402px; height: 300px; background: var(--vm-violet-600); }
+        #ch08 .c08-dnav { position: absolute; left: 0; top: 0; width: 402px; height: 106px; background: var(--vm-violet-600); z-index: 6; }
+        #ch08 .c08-dnav .c08-hbk { position: absolute; left: 20px; top: 62px; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); color: #fff; display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-dnav .c08-nt { position: absolute; left: 70px; right: 70px; top: 72px; text-align: center; font-weight: 700; font-size: 17px; line-height: 22px; color: #fff; }
+        #ch08 .c08-hav { position: absolute; left: 24px; top: 122px; width: 52px; height: 52px; border-radius: 50%; background: #fff; color: var(--vm-violet-600); font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+        #ch08 .c08-hnm { position: absolute; left: 92px; top: 120px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 28px; line-height: 34px; letter-spacing: -0.02em; color: #fff; white-space: nowrap; }
+        #ch08 .c08-hsb { position: absolute; left: 92px; top: 156px; font-size: 14px; line-height: 18px; color: var(--vm-violet-100); }
+        #ch08 .c08-hf { position: absolute; left: 24px; top: 198px; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 15px; line-height: 20px; color: #fff; white-space: nowrap; }
+        #ch08 .c08-hf .c08-ic { width: 18px; height: 18px; }
+        #ch08 .c08-dsheet { position: absolute; left: 0; top: 236px; width: 402px; height: 764px; border-radius: 30px 30px 0 0; background: #fff; }
+        #ch08 .c08-pay { position: absolute; left: 20px; right: 20px; top: 262px; height: 84px; border-radius: 20px; background: var(--vm-tile); }
+        #ch08 .c08-pay small { position: absolute; left: 18px; top: 15px; font-size: 13px; line-height: 16px; color: var(--vm-ink-500); }
+        #ch08 .c08-pay .c08-pa { position: absolute; left: 18px; top: 36px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 28px; line-height: 36px; letter-spacing: -0.02em; color: var(--vm-ink-900); }
+        #ch08 .c08-chp, #ch08 .c08-chg { position: absolute; right: 16px; top: 27px; height: 30px; padding: 0 13px; border-radius: 15px; display: flex; align-items: center; gap: 7px; font-weight: 700; font-size: 13px; }
+        #ch08 .c08-chp i, #ch08 .c08-chg i { display: block; width: 7px; height: 7px; border-radius: 50%; }
+        #ch08 .c08-chp { background: #FEF3C7; color: #92400E; }
+        #ch08 .c08-chp i { background: #F59E0B; }
+        #ch08 .c08-chg { background: #DCFCE7; color: #166534; opacity: 0; }
+        #ch08 .c08-chg i { background: #22C55E; }
+        #ch08 .c08-ispaid .c08-chp { opacity: 0; }
+        #ch08 .c08-ispaid .c08-chg { opacity: 1; }
+        #ch08 .c08-h3 { position: absolute; left: 24px; margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 20px; line-height: 26px; color: var(--vm-ink-900); }
+        #ch08 .c08-ac { position: absolute; left: 20px; right: 20px; top: 402px; height: 72px; border-radius: 20px; background: var(--vm-tile); display: flex; align-items: center; gap: 14px; padding: 0 16px; }
+        #ch08 .c08-ac i { display: flex; width: 42px; height: 42px; border-radius: 13px; background: #fff; color: var(--vm-violet-600); align-items: center; justify-content: center; flex: none; }
+        #ch08 .c08-ac b { display: block; font-size: 15.5px; line-height: 20px; color: var(--vm-ink-900); }
+        #ch08 .c08-ac span { display: block; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); }
+        #ch08 .c08-ab { position: absolute; right: 24px; top: 502px; font-weight: 500; font-size: 14px; line-height: 22px; color: var(--vm-violet-600); }
+        #ch08 .c08-aic { position: absolute; left: 20px; right: 20px; top: 540px; display: flex; flex-wrap: wrap; gap: 8px; }
+        #ch08 .c08-aic span { height: 32px; padding: 0 13px; border-radius: 16px; background: var(--vm-violet-50); color: var(--vm-violet-600); font-weight: 500; font-size: 13px; line-height: 32px; white-space: nowrap; }
+        #ch08 .c08-ar { position: absolute; left: 20px; right: 20px; height: 64px; border-radius: 20px; background: var(--vm-tile); display: flex; align-items: center; gap: 14px; padding: 0 16px; overflow: hidden; }
+        #ch08 .c08-ar i { display: flex; width: 40px; height: 40px; border-radius: 13px; background: #fff; color: var(--vm-violet-600); align-items: center; justify-content: center; flex: none; }
+        #ch08 .c08-ar b { display: block; font-size: 15.5px; line-height: 20px; color: var(--vm-ink-900); }
+        #ch08 .c08-ar span { display: block; font-size: 12.5px; line-height: 17px; color: var(--vm-ink-500); }
+        #ch08 .c08-ar .c08-tx { flex: 1; }
+        #ch08 .c08-ar > .c08-ic { width: 18px; height: 18px; color: var(--vm-ink-400); }
+        #ch08 .c08-cancel { position: absolute; left: 0; right: 0; top: 950px; text-align: center; font-weight: 500; font-size: 15px; color: #DC2626; }
+        #ch08 .c08-fbar { position: absolute; left: 0; top: 748px; width: 402px; height: 126px; background: #fff; border-top: 1px solid var(--vm-ink-100); z-index: 7; }
+        #ch08 .c08-fs .btn { z-index: 8; }
+
+        #ch08 .c08-note { position: absolute; left: 20px; right: 20px; top: 118px; border-radius: 20px; background: var(--vm-violet-50); padding: 14px 16px; display: flex; gap: 12px; }
+        #ch08 .c08-note .c08-ic { width: 22px; height: 22px; flex: none; color: var(--vm-violet-600); margin-top: 1px; }
+        #ch08 .c08-note p { margin: 0; font-size: 13.5px; line-height: 19px; color: var(--vm-ink-700); }
+        #ch08 .c08-pm.c08-sel { box-shadow: inset 0 0 0 1.5px var(--vm-violet-500); }
+        #ch08 .c08-rad { position: relative; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--vm-ink-300); flex: none; }
+        #ch08 .c08-sel .c08-rad { border-color: var(--vm-violet-500); }
+        #ch08 .c08-sel .c08-rad::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: var(--vm-violet-500); }
+        #ch08 .c08-ini2 { display: flex; align-items: center; justify-content: center; background: var(--vm-violet-100); color: var(--vm-violet-600); font-family: "Space Grotesk", sans-serif; font-weight: 700; }
+        #ch08 .c08-ev2 .c08-evi { position: absolute; left: 14px; top: 17px; width: 42px; height: 42px; border-radius: 50%; font-size: 15px; }
+        #ch08 .c08-ctc2 { position: absolute; left: 0; top: 0; }
+        #ch08 .c08-hd { position: absolute; left: 20px; top: 20px; }
+        #ch08 .c08-hd h3 { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 22px; line-height: 26px; color: var(--vm-ink-900); }
+        #ch08 .c08-hd small { display: block; font-size: 12.5px; color: var(--vm-ink-500); }
+        #ch08 .c08-hd12 { opacity: 0; }
+        #ch08 .c08-csh .c08-chd { display: block; }
+        #ch08 .c08-rail12 { opacity: 0; }
+        #ch08 .c08-chd em { position: absolute; right: 20px; top: 20px; }
+        #ch08 .c08-fs { z-index: 24; }
+        #ch08 .lift { z-index: 100; }
+      </style>
+
+      <div id="ch08" data-composition-id="ch08-voce-agenda" data-start="0" data-duration="54.0" data-width="1080" data-height="1920">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+          <symbol id="c08-i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" /></symbol>
+          <symbol id="c08-i-userplus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M19 8v6M22 11h-6" /></symbol>
+          <symbol id="c08-i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+          <symbol id="c08-i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></symbol>
+          <symbol id="c08-i-pencil" viewBox="0 0 24 24"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /></symbol>
+          <symbol id="c08-i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+          <symbol id="c08-i-cal" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></symbol>
+          <symbol id="c08-i-calplus" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18M12 13v5M9.5 15.5h5" /></symbol>
+          <symbol id="c08-i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 17.5v-11" /></symbol>
+          <symbol id="c08-i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></symbol>
+          <symbol id="c08-i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14" /></symbol>
+          <symbol id="c08-i-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+          <symbol id="c08-i-chevl" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+          <symbol id="c08-i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></symbol>
+          <symbol id="c08-i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></symbol>
+          <symbol id="c08-i-video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect x="2" y="6" width="14" height="12" rx="2" /></symbol>
+          <symbol id="c08-i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol>
+          <symbol id="c08-i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></symbol>
+          <symbol id="c08-i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></symbol>
+          <symbol id="c08-i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z" /></symbol>
+          <symbol id="c08-i-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></symbol>
+          <symbol id="c08-i-spark" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /></symbol>
+          <symbol id="c08-i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol>
+          <symbol id="c08-i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" /><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" /></symbol>
+          <symbol id="c08-i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></symbol>
+          <symbol id="c08-i-flask" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2" /><path d="M8.5 2h7" /></symbol>
+          <symbol id="c08-i-clip" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /></symbol>
+          <symbol id="c08-i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" /></symbol>
+          <symbol id="c08-i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol>
+          <symbol id="c08-i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></symbol>
+          <symbol id="c08-i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></symbol>
+          <symbol id="c08-i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+        </svg>
+
+        <div id="c08-bg" class="clip" data-start="0" data-duration="54.0" data-track-index="0">
+          <div class="backdrop"></div>
+          <div class="grid"></div>
+          <div class="glow glow-a"></div>
+          <div class="glow glow-b"></div>
+        </div>
+
+        <section id="c08-t1" class="clip chapter" data-start="0" data-duration="2.9" data-track-index="1">
+          <div class="chapter-words">
+            <div class="chapter-line"><span class="w">Você</span><span class="w">também</span></div>
+            <div class="chapter-line"><span class="w">pode</span><span class="w v">agendar</span></div>
+            <span class="chapter-spark"></span>
+          </div>
+        </section>
+
+        <section id="c08-pphone" class="clip" data-start="2.5" data-duration="51.5" data-track-index="2">
+          <div class="c08-sw" id="c08-psw">
+            <div class="c08-tag"><span>App do paciente</span></div>
+            <div class="cam" id="c08-pcam">
+              <div class="dev">
+                <div class="bezel"></div>
+                <div class="screen" id="c08-pscreen">
+                  <div class="scr c08-panel" id="c08-pP">
+                    <div class="c08-nav"><div class="c08-bk"><svg class="c08-ic"><use href="#c08-i-chevl" /></svg></div><div class="c08-nt">Pagamento</div></div>
+                    <div class="c08-note" id="c08-note"><svg class="c08-ic"><use href="#c08-i-info" /></svg><p>Consulta agendada pelo seu médico. O horário fica garantido assim que o pagamento for confirmado.</p></div>
+                    <div class="c08-tot" id="c08-ptot" style="top: 238px;">
+                      <small>Total a pagar</small>
+                      <div class="c08-am">R$ 180,00</div>
+                      <div class="c08-dv"></div>
+                      <div class="c08-who"><img src="assets/doctors/camila.jpg" alt=""><div><b>Dra. Camila Rocha</b><span>Clínica Geral</span></div></div>
+                      <div class="c08-when">seg., 12/10 · 09:00 – 09:30 · Presencial</div>
+                    </div>
+                    <h4 class="c08-ptl" style="top: 498px;">Como você quer pagar?</h4>
+                    <div class="c08-pm c08-sel" id="c08-payPix" style="top: 534px;"><i>Pix</i><div class="c08-tx"><b>Pix</b><span>Aprovação em segundos</span></div><div class="c08-rad"></div></div>
+                    <div class="c08-pm" style="top: 610px;"><i><svg class="c08-ic"><use href="#c08-i-receipt" /></svg></i><div class="c08-tx"><b>Cartão de crédito</b><span>Aprovação imediata</span></div><div class="c08-rad"></div></div>
+                    <div class="btn" id="c08-btnP" style="top: 764px; z-index: 10;"><span class="c08-spin" id="c08-spnP"></span><span class="lbl" id="c08-lblP">Confirmar pagamento</span><span class="lbl c08-lb2" id="c08-lblP2">Confirmando...</span></div>
+                    <div class="c08-paid" id="c08-paid">
+                      <div style="position:absolute; left:0; right:0; top:250px; text-align:center;">
+                        <div class="c08-badge" id="c08-pbadge"><div class="c08-rg" id="c08-prg"></div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10" /></svg></div>
+                        <h1 class="h1" style="margin-top: 36px; font-size: 28px;">Pagamento confirmado</h1>
+                        <p class="sub">R$ 180,00 · Pix</p>
+                      </div>
+                    </div>
+                    <div class="c08-sk" id="c08-skP" style="background: var(--vm-panel);"></div>
+                  </div>
+
+                  <div class="status" id="c08-pstatus"><span>13:40</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                  <div class="island"></div>
+                  <div class="c08-home"></div>
+                </div>
+                <div class="lift" id="c08-plift"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="c08-dphone" class="clip" data-start="2.5" data-duration="51.5" data-track-index="3">
+          <div class="c08-sw" id="c08-dsw">
+            <div class="c08-tag"><span>Seu app · Dra. Camila</span></div>
+            <div class="cam" id="c08-dcam">
+              <div class="dev">
+                <div class="bezel"></div>
+                <div class="screen" id="c08-dscreen">
+                  <div class="scr" id="c08-dA">
+                    <div class="c08-dbg"></div>
+                    <img class="c08-dav" src="assets/doctors/camila.jpg" alt="">
+                    <div class="c08-dbl"><svg class="c08-ic"><use href="#c08-i-bell" /></svg></div>
+                    <div class="c08-ddt">sexta-feira, 9/10</div>
+                    <div class="c08-dgr">Boa tarde, Camila.</div>
+                    <div class="c08-dsb"><span>1 consulta hoje · próxima em 20 min</span></div>
+                    <div class="c08-dsh"></div>
+                    <div class="c08-nc" id="c08-nc">
+                      <div class="c08-ncb">
+                        <div class="c08-eyd">Próxima consulta</div>
+                        <div class="c08-hl">Em 20 min</div>
+                        <div class="c08-ncs">14:00 · Videochamada · Clínica Geral</div>
+                        <div class="c08-ncf"><img src="assets/people/ana.jpg" alt=""><b>Ana Souza</b><div class="c08-arw"><svg class="c08-ic"><use href="#c08-i-arrow" /></svg></div></div>
+                      </div>
+                    </div>
+                    <div class="c08-qa">
+                      <div><i><svg class="c08-ic"><use href="#c08-i-calplus" /></svg></i>Consulta</div>
+                      <div><i><svg class="c08-ic"><use href="#c08-i-pill" /></svg></i>Receita</div>
+                      <div><i><svg class="c08-ic"><use href="#c08-i-flask" /></svg></i>Pedido de exame</div>
+                      <div><i><svg class="c08-ic"><use href="#c08-i-file" /></svg></i>Atestado</div>
+                      <div><i><svg class="c08-ic"><use href="#c08-i-file" /></svg></i>Laudo</div>
+                    </div>
+                    <div class="c08-hj"><h3>Hoje</h3><span>Ver agenda<svg class="c08-ic"><use href="#c08-i-chev" /></svg></span></div>
+                    <div class="c08-ws">
+                      <div>S<i>5</i><u></u></div><div>T<i>6</i><u></u></div><div>Q<i>7</i><u></u></div><div>Q<i>8</i><u></u></div><div class="c08-td">S<i>9</i><u style="opacity:1"></u></div><div>S<i>10</i><u></u></div><div>D<i>11</i><u></u></div>
+                    </div>
+                    <div class="c08-sch">
+                      <div class="c08-rw" style="opacity:1">
+                        <div class="c08-gt">14:00<span>30 min</span></div>
+                        <div class="c08-rc"><img src="assets/people/ana.jpg" alt=""><div class="c08-r1"><b>Ana Souza</b></div><div class="c08-r2"><svg class="c08-ic"><use href="#c08-i-video" /></svg>Clínica Geral · Online</div><svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="scr" id="c08-dB">
+                    <div class="c08-dbg" style="height: 360px;"></div>
+                    <div class="c08-cl">Consultas</div>
+                    <div class="c08-cm">outubro de 2026</div>
+                    <div class="c08-chv"><div><svg class="c08-ic"><use href="#c08-i-chevl" /></svg></div><div><svg class="c08-ic"><use href="#c08-i-chev" /></svg></div></div>
+                    <div class="c08-cal"><div class="c08-cg" id="c08-cg"></div></div>
+                    <div class="c08-csh">
+                      <div class="c08-chd">
+                        <div class="c08-hd" id="c08-hd9"><h3>Hoje</h3><small>sexta-feira, 9 de outubro</small></div>
+                        <div class="c08-hd c08-hd12" id="c08-hd12"><h3>Segunda-feira</h3><small>12 de outubro</small></div>
+                        <em>1 consulta</em>
+                      </div>
+                      <div class="c08-rail" id="c08-rail9">
+                        <div class="c08-hr" style="top: 0;"><span>13:00</span></div>
+                        <div class="c08-hr" style="top: 96px;"><span>14:00</span></div>
+                        <div class="c08-hr" style="top: 192px;"><span>15:00</span></div>
+                        <div class="c08-hr" style="top: 288px;"><span>16:00</span></div>
+                        <div class="c08-ev2" style="opacity:1"><img src="assets/people/ana.jpg" alt=""><b>Ana Souza</b><div class="c08-r2"><svg class="c08-ic"><use href="#c08-i-video" /></svg>Clínica Geral · Online</div><div class="c08-r3">14:00 – 14:30</div></div>
+                      </div>
+                      <div class="c08-rail c08-rail12" id="c08-rail12">
+                        <div class="c08-hr" style="top: 0;"><span>08:00</span></div>
+                        <div class="c08-hr" style="top: 96px;"><span>09:00</span></div>
+                        <div class="c08-hr" style="top: 192px;"><span>10:00</span></div>
+                        <div class="c08-hr" style="top: 288px;"><span>11:00</span></div>
+                        <div class="c08-ev2" id="c08-ev12"><div class="c08-press"></div><div class="c08-ini2 c08-evi">CM</div><b>Carlos Mendes</b><div class="c08-r2"><svg class="c08-ic"><use href="#c08-i-pin" /></svg>Clínica Geral · Presencial</div><div class="c08-r3">09:00 – 09:30</div></div>
+                      </div>
+                    </div>
+                    <div class="c08-sk" id="c08-skE"></div>
+                  </div>
+
+                  <div class="c08-tabbar" id="c08-tabbar">
+                    <div class="c08-tb-bar">
+                      <div class="c08-tb-item"><div class="c08-tb-ind" id="c08-tbD"><div class="c08-tbon" id="c08-tbonD" style="opacity:1"></div><div class="c08-tbc"><svg class="c08-ic"><use href="#c08-i-house" /></svg><span>Dashboard</span></div></div></div>
+                      <div class="c08-tb-item"><div class="c08-tb-ind" id="c08-tbC"><div class="c08-tbon" id="c08-tbonC"></div><div class="c08-tbc"><svg class="c08-ic"><use href="#c08-i-cal" /></svg><span>Consultas</span></div></div></div>
+                      <div class="c08-tb-item"><div class="c08-tb-ind"><div class="c08-tbon"></div><div class="c08-tbc"><svg class="c08-ic"><use href="#c08-i-receipt" /></svg><span>Faturamento</span></div></div></div>
+                      <div class="c08-tb-item"><div class="c08-tb-ind"><div class="c08-tbon"></div><div class="c08-tbc"><svg class="c08-ic"><use href="#c08-i-user" /></svg><span>Perfil</span></div></div></div>
+                    </div>
+                    <div class="c08-tb-plus" id="c08-plus"><svg class="c08-ic"><use href="#c08-i-plus" /></svg></div>
+                  </div>
+
+                  <div class="c08-dim" id="c08-dim"></div>
+                  <div class="c08-central" id="c08-central">
+                    <div class="c08-grab"></div>
+                    <h1 class="c08-ctt">Central</h1>
+                    <div class="c08-cts">Seu consultório em um só lugar</div>
+                    <div class="c08-cx"><svg class="c08-ic"><use href="#c08-i-x" /></svg></div>
+                    <div class="c08-cr" id="c08-cr">
+                      <div class="c08-ctc c08-pri" id="c08-ctcNC"><div class="c08-ctci"><svg class="c08-ic"><use href="#c08-i-calplus" /></svg></div><b>Nova consulta</b><span class="c08-cs">Agende para um paciente</span><div class="c08-press"></div></div>
+                      <div class="c08-ctc" id="c08-ctcNP"><div class="c08-ctci"><svg class="c08-ic"><use href="#c08-i-userplus" /></svg></div><b>Novo paciente</b><span class="c08-cs">Cadastre na sua base</span><div class="c08-press"></div></div>
+                    </div>
+                    <div class="c08-cgt" style="top: 262px;">Documento avulso</div>
+                    <div class="c08-docs">
+                      <div class="c08-doc"><i><svg class="c08-ic"><use href="#c08-i-clip" /></svg></i>Prontuário</div>
+                      <div class="c08-doc"><i><svg class="c08-ic"><use href="#c08-i-pill" /></svg></i>Receita</div>
+                      <div class="c08-doc"><i><svg class="c08-ic"><use href="#c08-i-flask" /></svg></i>Exame</div>
+                      <div class="c08-doc"><i><svg class="c08-ic"><use href="#c08-i-file" /></svg></i>Atestado</div>
+                      <div class="c08-doc"><i><svg class="c08-ic"><use href="#c08-i-file" /></svg></i>Laudo</div>
+                    </div>
+                    <div class="c08-cgt" style="top: 404px;">Atendimento</div>
+                    <div class="c08-ig" style="top: 428px;">
+                      <div class="c08-ir"><svg class="c08-ic"><use href="#c08-i-zap" /></svg>Plantão<svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                      <div class="c08-ir"><svg class="c08-ic"><use href="#c08-i-cal" /></svg>Agenda<svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                      <div class="c08-ir"><svg class="c08-ic"><use href="#c08-i-search" /></svg>Buscar consultas<svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                      <div class="c08-ir"><svg class="c08-ic"><use href="#c08-i-users" /></svg>Pacientes<svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                      <div class="c08-ir"><svg class="c08-ic"><use href="#c08-i-file" /></svg>Documentos emitidos<svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                    </div>
+                    <div class="c08-cgt" style="top: 722px;">Financeiro</div>
+                    <div class="c08-ig" style="top: 746px;">
+                      <div class="c08-ir"><svg class="c08-ic"><use href="#c08-i-receipt" /></svg>Faturamento<svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                      <div class="c08-ir"><svg class="c08-ic"><use href="#c08-i-sliders" /></svg>Meu plano<svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                    </div>
+                  </div>
+
+                  <div class="scr c08-fs" id="c08-dN0">
+                    <div class="c08-nav"><div class="c08-bk"><svg class="c08-ic"><use href="#c08-i-chevl" /></svg></div><div class="c08-nt">Novo Paciente</div></div>
+                    <div class="body" style="top: 130px;">
+                      <h1 class="h1">Cadastrar Paciente</h1>
+                      <p class="sub">Busque no sistema antes de cadastrar.</p>
+                      <div style="margin-top: 22px;">
+                        <div class="field c08-sb" id="c08-sbar"><div class="box"></div><div class="box-focus"></div><div class="c08-sg"><svg class="c08-ic"><use href="#c08-i-search" /></svg></div><div class="c08-sph c08-gone" id="c08-sph">Buscar por nome ou email...</div><div class="val" data-final="Carlos"></div><div class="caret"></div><div class="c08-sbs c08-gone" id="c08-sbs"></div></div>
+                      </div>
+                    </div>
+                    <div class="c08-hint" id="c08-hint"><svg class="c08-ic"><use href="#c08-i-search" /></svg>Digite para buscar um paciente</div>
+                    <div class="c08-empty" id="c08-empty"><div class="c08-ei"><svg class="c08-ic"><use href="#c08-i-userplus" /></svg></div><h2>Nenhum paciente encontrado</h2><p>Não achamos ninguém com esse nome ou email.</p></div>
+                    <div class="c08-nb" id="c08-nb"><svg class="c08-ic"><use href="#c08-i-userplus" /></svg>Cadastrar novo paciente<div class="c08-press"></div></div>
+                  </div>
+
+                  <div class="scr c08-fs" id="c08-dN1">
+                    <div class="c08-nav"><div class="c08-bk"><svg class="c08-ic"><use href="#c08-i-chevl" /></svg></div><div class="c08-nt">Novo Paciente</div></div>
+                    <div class="progress"><div class="seg"><i id="c08-pN1"></i></div><div class="seg"><i style="opacity:0"></i></div><div class="seg"><i style="opacity:0"></i></div></div>
+                    <div class="body" style="top: 158px;">
+                      <h1 class="h1">Dados pessoais</h1>
+                      <p class="sub">Informações básicas do paciente.</p>
+                      <div style="margin-top: 28px;">
+                        <div class="field" id="c08-fN1"><div class="box"></div><div class="box-focus"></div><div class="label">Nome completo</div><div class="val" data-final="Carlos Mendes"></div><div class="caret"></div></div>
+                        <div class="field" id="c08-fN2"><div class="box"></div><div class="box-focus"></div><div class="label">CPF</div><div class="val" data-final="204.871.336-50"></div><div class="caret"></div></div>
+                        <div class="field" id="c08-fN3"><div class="box"></div><div class="box-focus"></div><div class="label">Data de nascimento</div><div class="val" data-final="14/03/1974"></div><div class="caret"></div></div>
+                        <div class="c08-gl">Gênero</div>
+                        <div class="c08-gr" id="c08-gr"><div class="c08-gc" id="c08-gcM"><div class="c08-on"></div><span>Masculino</span></div><div class="c08-gc"><span>Feminino</span></div><div class="c08-gc"><span>Outro</span></div></div>
+                      </div>
+                    </div>
+                    <div class="btn off" id="c08-btnN1" style="top: 764px;"><div class="on"></div><span class="lbl">Próximo</span></div>
+                  </div>
+
+                  <div class="scr c08-fs" id="c08-dN2">
+                    <div class="c08-nav"><div class="c08-bk"><svg class="c08-ic"><use href="#c08-i-chevl" /></svg></div><div class="c08-nt">Novo Paciente</div></div>
+                    <div class="progress"><div class="seg"><i></i></div><div class="seg"><i id="c08-pN2"></i></div><div class="seg"><i style="opacity:0"></i></div></div>
+                    <div class="body" style="top: 158px;">
+                      <h1 class="h1">Contato</h1>
+                      <p class="sub">Como falar com o paciente.</p>
+                      <div style="margin-top: 28px;">
+                        <div class="field" id="c08-fN4"><div class="box"></div><div class="box-focus"></div><div class="label">Email</div><div class="val" data-final="carlos.mendes@email.com"></div><div class="caret"></div></div>
+                        <div class="field" id="c08-fN5"><div class="box"></div><div class="box-focus"></div><div class="label">Telefone</div><div class="val" data-final="(11) 98765-4321"></div><div class="caret"></div></div>
+                      </div>
+                    </div>
+                    <div class="btn off" id="c08-btnN2" style="top: 764px;"><div class="on"></div><span class="lbl">Próximo</span></div>
+                  </div>
+
+                  <div class="scr c08-fs" id="c08-dN3">
+                    <div class="c08-nav"><div class="c08-bk"><svg class="c08-ic"><use href="#c08-i-chevl" /></svg></div><div class="c08-nt">Novo Paciente</div></div>
+                    <div class="progress"><div class="seg"><i></i></div><div class="seg"><i></i></div><div class="seg"><i id="c08-pN3"></i></div></div>
+                    <div class="body" style="top: 158px;">
+                      <h1 class="h1" style="font-size: 24px; line-height: 30px;">Confirmação</h1>
+                      <p class="sub">Revise os dados antes de cadastrar</p>
+                    </div>
+                    <div class="c08-sc" id="c08-sc1" style="top: 250px;">
+                      <div class="c08-sh">DADOS PESSOAIS<svg class="c08-ic"><use href="#c08-i-pencil" /></svg></div>
+                      <div class="c08-sr">Nome<b>Carlos Mendes</b></div>
+                      <div class="c08-sr">CPF<b>204.871.336-50</b></div>
+                      <div class="c08-sr">Nascimento<b>14/03/1974</b></div>
+                      <div class="c08-sr">Gênero<b>Masculino</b></div>
+                    </div>
+                    <div class="c08-sc" id="c08-sc2" style="top: 446px;">
+                      <div class="c08-sh">CONTATO<svg class="c08-ic"><use href="#c08-i-pencil" /></svg></div>
+                      <div class="c08-sr">Email<b>carlos.mendes@email.com</b></div>
+                      <div class="c08-sr">Telefone<b>(11) 98765-4321</b></div>
+                    </div>
+                    <div class="btn" id="c08-btnN3" style="top: 764px;"><span class="c08-spin" id="c08-spnN"></span><span class="lbl" id="c08-lblN">Cadastrar Paciente</span><span class="lbl c08-lb2" id="c08-lblN2">Cadastrando...</span></div>
+                  </div>
+
+                  <div class="scr c08-fs" id="c08-dK1">
+                    <div class="c08-nav"><div class="c08-bk"><svg class="c08-ic"><use href="#c08-i-chevl" /></svg></div><div class="c08-nt">Criar consulta</div></div>
+                    <div class="progress"><div class="seg"><i id="c08-pK1"></i></div><div class="seg"><i style="opacity:0"></i></div></div>
+                    <div class="body" style="top: 158px;">
+                      <h1 class="h1">Selecione o paciente</h1>
+                      <p class="sub">Busque e selecione o paciente para a consulta.</p>
+                      <div class="c08-srow"><div class="field c08-sb"><div class="box"></div><div class="c08-sg"><svg class="c08-ic"><use href="#c08-i-search" /></svg></div><div class="c08-sph">Buscar paciente...</div></div><div class="c08-addp"><svg class="c08-ic"><use href="#c08-i-plus" /></svg></div></div>
+                      <div class="c08-pl" id="c08-pl">
+                        <div class="c08-pr"><img src="assets/people/ana.jpg" alt=""><div><b>Ana Souza</b><span class="c08-ps">ana.souza@email.com</span></div><svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                        <div class="c08-pr" id="c08-prC"><div class="c08-press"></div><div class="c08-pi">CM</div><div><b>Carlos Mendes</b><span class="c08-ps">carlos.mendes@email.com</span></div><svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                        <div class="c08-pr"><div class="c08-pi">MT</div><div><b>Marcos Tavares</b><span class="c08-ps">marcos.tavares@email.com</span></div><svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                        <div class="c08-pr"><div class="c08-pi">PN</div><div><b>Paula Nogueira</b><span class="c08-ps">paula.nogueira@email.com</span></div><svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                      </div>
+                    </div>
+                    <div class="c08-sk" id="c08-skK" style="top: 400px; height: 474px; background: #fff;"></div>
+                  </div>
+
+                  <div class="scr c08-fs" id="c08-dK2">
+                    <div class="c08-nav"><div class="c08-bk"><svg class="c08-ic"><use href="#c08-i-chevl" /></svg></div><div class="c08-nt">Criar consulta</div></div>
+                    <div class="progress"><div class="seg"><i></i></div><div class="seg"><i id="c08-pK2"></i></div></div>
+                    <div class="c08-pc"><div class="c08-pi">CM</div><div><b>Carlos Mendes</b><span class="c08-ps">52 anos · Masculino</span></div><em>Trocar</em></div>
+                    <div class="c08-ml">Modalidade do registro</div>
+                    <div class="c08-mr"><div class="c08-mc c08-sel">Agendar consulta</div><div class="c08-mc">Consulta histórica</div></div>
+                    <div class="c08-two" style="top: 306px;">
+                      <div class="field c08-hv" id="c08-fK1"><div class="box"></div><div class="box-focus"></div><div class="label">Data de início</div><div class="val" data-final="seg., 12/10/2026">seg., 12/10/2026</div></div>
+                      <div class="field c08-hv" id="c08-fK2"><div class="box"></div><div class="box-focus"></div><div class="label">Horário de início</div><div class="val" data-final="09:00">09:00</div></div>
+                    </div>
+                    <div class="c08-two" style="top: 374px;">
+                      <div class="field c08-hv" id="c08-fK3"><div class="box"></div><div class="box-focus"></div><div class="label">Data de término</div><div class="val" data-final="seg., 12/10/2026">seg., 12/10/2026</div></div>
+                      <div class="field c08-hv" id="c08-fK4"><div class="box"></div><div class="box-focus"></div><div class="label">Horário de término</div><div class="val" data-final="09:30">09:30</div></div>
+                    </div>
+                    <div class="c08-tg" id="c08-tg">
+                      <div class="c08-tgl">Tipo de Consulta</div>
+                      <div class="c08-seg"><div class="c08-thumb" id="c08-thumb"></div><div class="c08-so c08-a" id="c08-soA"><svg class="c08-ic"><use href="#c08-i-video" /></svg>Online</div><div class="c08-so c08-b" id="c08-soB"><svg class="c08-ic"><use href="#c08-i-pin" /></svg>Presencial</div></div>
+                    </div>
+                    <div class="c08-one" style="top: 534px;">
+                      <div class="field c08-hv" id="c08-fK5"><div class="box"></div><div class="box-focus"></div><div class="label">Especialidade</div><div class="val" data-final="Clínica Geral">Clínica Geral</div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6" /></svg></div>
+                    </div>
+                    <div class="c08-one" style="top: 606px;">
+                      <div class="field multi" id="c08-fK6" style="margin-bottom: 0;"><div class="box"></div><div class="box-focus"></div><div class="label">Notas da consulta</div><div class="val" data-final="Primeira consulta, check-up"></div><div class="caret"></div></div>
+                    </div>
+                    <div class="btn" id="c08-btnK" style="top: 764px;"><span class="c08-spin" id="c08-spnK"></span><span class="lbl" id="c08-lblK">Agendar consulta</span><span class="lbl c08-lb2" id="c08-lblK2">Agendando...</span></div>
+                    <div class="c08-pop c08-dp" id="c08-dp">
+                      <div class="c08-dph">outubro de 2026<span><svg class="c08-ic"><use href="#c08-i-chevl" /></svg><svg class="c08-ic"><use href="#c08-i-chev" /></svg></span></div>
+                      <div class="c08-dpg" id="c08-dpg"></div>
+                    </div>
+                    <div class="c08-pop c08-tp" id="c08-tp">
+                      <div class="c08-tr"><div class="c08-tro"></div><span>08:00</span></div>
+                      <div class="c08-tr"><div class="c08-tro"></div><span>08:30</span></div>
+                      <div class="c08-tr" id="c08-tr900"><div class="c08-tro"></div><span>09:00</span></div>
+                      <div class="c08-tr"><div class="c08-tro"></div><span>09:30</span></div>
+                      <div class="c08-tr"><div class="c08-tro"></div><span>10:00</span></div>
+                    </div>
+                  </div>
+
+                  <div class="scr c08-fs" id="c08-dD">
+                    <div class="c08-dsc" id="c08-dsc">
+                      <div class="c08-hh"></div>
+                      <div class="c08-hav">CM</div>
+                      <div class="c08-hnm">Carlos Mendes</div>
+                      <div class="c08-hsb">52 anos · Masculino</div>
+                      <div class="c08-hf"><svg class="c08-ic"><use href="#c08-i-cal" /></svg>Seg., 12 out, 09:00 · Presencial · 30 min</div>
+                      <div class="c08-dsheet"></div>
+                      <div class="c08-pay" id="c08-pay"><small>Valor da consulta</small><div class="c08-pa">R$ 180,00</div><div class="c08-chp"><i></i>Pendente</div><div class="c08-chg"><i></i>Pago</div></div>
+                      <h3 class="c08-h3" style="top: 368px;">Anamnese</h3>
+                      <div class="c08-ac"><i><svg class="c08-ic"><use href="#c08-i-clip" /></svg></i><div><b>Ainda não preenchida</b><span>O paciente não respondeu</span></div></div>
+                      <h3 class="c08-h3" style="top: 498px;">Prepare-se com a IA</h3>
+                      <div class="c08-ab">Abrir</div>
+                      <div class="c08-aic"><span>Resumir o caso</span><span>Hipóteses diagnósticas</span><span>Perguntas ao paciente</span></div>
+                      <h3 class="c08-h3" style="top: 656px;">Paciente</h3>
+                      <div class="c08-ar" style="top: 694px;"><i><svg class="c08-ic"><use href="#c08-i-bell" /></svg></i><div class="c08-tx"><b>Lembrar consulta</b><span>Envia uma notificação ao paciente</span></div><svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                      <div class="c08-ar" id="c08-arC" style="top: 768px;"><div class="c08-press"></div><i><svg class="c08-ic"><use href="#c08-i-receipt" /></svg></i><div class="c08-tx"><b>Enviar cobrança</b><span>Reenvia o link de pagamento</span></div><svg class="c08-ic"><use href="#c08-i-chev" /></svg></div>
+                      <div class="c08-cancel">Cancelar consulta</div>
+                    </div>
+                    <div class="c08-dnav"><div class="c08-hbk"><svg class="c08-ic"><use href="#c08-i-chevl" /></svg></div><div class="c08-nt">Detalhes do agendamento</div></div>
+                    <div class="c08-fbar"></div>
+                    <div class="btn off" style="top: 764px;"><span class="lbl">Iniciar atendimento</span></div>
+                  </div>
+
+                  <div class="c08-dgdim" id="c08-dgdim"></div>
+                  <div class="c08-dlg" id="c08-dlg">
+                    <h3>Enviar cobrança</h3>
+                    <p>O link de pagamento será reenviado ao paciente para que ele possa efetuar o pagamento da consulta.</p>
+                    <div class="c08-dbt"><div>Cancelar</div><div id="c08-dEnv">Enviar<span class="c08-press"></span></div></div>
+                  </div>
+
+                  <div class="c08-toast" id="c08-tN"><i><svg class="c08-ic"><use href="#c08-i-check" /></svg></i>Paciente cadastrado com sucesso!</div>
+                  <div class="c08-toast" id="c08-tK"><i><svg class="c08-ic"><use href="#c08-i-check" /></svg></i>Consulta criada com sucesso.</div>
+                  <div class="c08-toast" id="c08-tC"><i><svg class="c08-ic"><use href="#c08-i-check" /></svg></i>Cobrança enviada ao paciente.</div>
+
+                  <div class="status" id="c08-dstatus"><span>13:40</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                  <div class="island"></div>
+                  <div class="c08-home" style="background: #fff; z-index: 40; opacity: 0.9;"></div>
+                </div>
+                <div class="lift" id="c08-dlift"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="c08-brand" class="clip" data-start="0" data-duration="54.0" data-track-index="4">
+          <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+        </div>
+      </div>
+
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch08-voce-agenda"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const kp = VMKit.create({ root, tl, screenEl: root.querySelector("#c08-pscreen"), liftEl: root.querySelector("#c08-plift") });
+            const kd = VMKit.create({ root, tl, screenEl: root.querySelector("#c08-dscreen"), liftEl: root.querySelector("#c08-dlift") });
+            const { $, $$, E } = kd;
+            const pcam = $("#c08-pcam"), dcam = $("#c08-dcam"), psw = $("#c08-psw"), dsw = $("#c08-dsw");
+            const pst = $("#c08-pstatus"), dst = $("#c08-dstatus");
+            const scr = (id) => $("#c08-" + id);
+
+            const days = [28, 29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 1];
+            let cg = ["S", "T", "Q", "Q", "S", "S", "D"].map((d) => `<div class="c08-wd">${d}</div>`).join("");
+            let dpg = ["S", "T", "Q", "Q", "S", "S", "D"].map((d) => `<div class="c08-dw">${d}</div>`).join("");
+            days.forEach((d, i) => {
+              let cls = "c08-cc";
+              if (i < 3 || i === 34) cls += " c08-ot";
+              else if (d < 9) cls += " c08-pa";
+              if (d === 9 && i === 11) cg += `<div class="c08-cc c08-n9"><div class="c08-ring" id="c08-ring9" style="opacity:1"></div><i id="c08-i9">9</i><div class="c08-ct" id="c08-ct9" style="opacity:1">1</div></div>`;
+              else if (d === 12 && i === 14) cg += `<div class="c08-cc c08-n12" id="c08-n12"><div class="c08-ring" id="c08-ring12"></div><i id="c08-i12">12</i><div class="c08-ct" id="c08-ct12">1</div></div>`;
+              else cg += `<div class="${cls}"><i>${d}</i></div>`;
+              let dc = "c08-dd";
+              if (i < 3 || i === 34 || d < 9) dc += " c08-gy";
+              else if (d === 9) dc += " c08-td";
+              dpg += d === 12 && i === 14 ? `<div class="c08-dd" id="c08-dp12"><div class="c08-dsel" id="c08-dsel"></div><span id="c08-dpt">12</span></div>` : `<div class="${dc}"><span>${d}</span></div>`;
+            });
+            $("#c08-cg").innerHTML = cg;
+            $("#c08-dpg").innerHTML = dpg;
+
+            const mkSk = (host, blocks) => {
+              host = $(host);
+              host.innerHTML = blocks.map(([x, y, w, h, r, c]) => `<i style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;border-radius:${r}px;${c ? "background:" + c : ""}"></i>`).join("");
+            };
+            const plp = kd.posIn($("#c08-pl"));
+            const skK = $("#c08-skK");
+            skK.style.top = plp.y + "px";
+            skK.style.height = 874 - plp.y + "px";
+            mkSk("#c08-skK", [[24, 0, 354, 72, 20], [24, 82, 354, 72, 20], [24, 164, 354, 72, 20], [24, 246, 354, 72, 20]]);
+            mkSk("#c08-skE", [[16, 134, 370, 256, 26, "rgba(255,255,255,0.9)"], [0, 408, 402, 466, 30, "#fff"], [20, 432, 120, 26, 8], [20, 480, 362, 14, 6], [20, 560, 362, 76, 18], [20, 656, 362, 14, 6]]);
+            mkSk("#c08-skP", [[20, 118, 362, 104, 20], [20, 238, 362, 232, 24], [24, 498, 200, 18, 8], [20, 534, 362, 66, 20], [20, 610, 362, 66, 20]]);
+
+            const skeleton = (id, t, end) => {
+              const sk = $(id);
+              const n = Math.max(1, Math.round((end - t) / 0.3) - 1);
+              tl.fromTo(sk, { opacity: 0 }, { opacity: 1, duration: 0.12, immediateRender: false }, t);
+              tl.fromTo(sk.querySelectorAll("i"), { opacity: 0.55 }, { opacity: 1, duration: 0.3, repeat: n, yoyo: true, ease: "sine.inOut", immediateRender: false }, t);
+              tl.to(sk, { opacity: 0, duration: 0.3 }, end);
+            };
+            const stc = (el, t, c) => tl.to(el, { color: c, duration: 0.2 }, t);
+            const press = (el, t) => {
+              const p = $(el).querySelector(".c08-press");
+              tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.1, immediateRender: false }, t);
+              tl.to(p, { opacity: 0, duration: 0.3 }, t + 0.35);
+            };
+            const lift = (kit, el, t, hold, dx, sc, o = {}) => {
+              el = kit.$(el);
+              const { node } = kit.finalClone(el);
+              node.querySelectorAll(".c08-gone").forEach((n) => n.remove());
+              Object.assign(node.firstElementChild.style, { position: "relative", left: "0px", top: "0px", right: "auto", opacity: "" });
+              if (o.bg) node.style.background = o.bg;
+              if (o.r) node.style.borderRadius = o.r;
+              tl.set(el, { opacity: 0 }, t);
+              tl.set(node, { opacity: 1 }, t);
+              tl.fromTo(node, { scale: 1, x: 0, y: 0 }, { scale: sc, x: dx, y: -6, duration: 0.6, ease: E, immediateRender: false }, t);
+              tl.to(node, { scale: 1, x: 0, y: 0, duration: 0.45, ease: "power3.inOut" }, t + hold);
+              tl.set(node, { opacity: 0 }, t + hold + 0.45);
+              tl.set(el, { opacity: 1 }, t + hold + 0.45);
+              return node;
+            };
+            const punch = (cam, t, s, y, d = 1) => tl.to(cam, { scale: s, y, duration: d, ease: "power2.inOut" }, t);
+            const outL = (w, t) => tl.to(w, { x: -420, scale: 0.82, opacity: 0, duration: 0.55, ease: "power3.in" }, t);
+            const outR = (w, t) => tl.to(w, { x: 420, scale: 0.82, opacity: 0, duration: 0.55, ease: "power3.in" }, t);
+            const inL = (w, t) => tl.fromTo(w, { x: -420, scale: 0.82, opacity: 0 }, { x: 0, scale: 1, opacity: 1, duration: 0.7, ease: "power4.out", immediateRender: false }, t);
+            const inR = (w, t) => tl.fromTo(w, { x: 420, scale: 0.82, opacity: 0 }, { x: 0, scale: 1, opacity: 1, duration: 0.7, ease: "power4.out", immediateRender: false }, t);
+            const pop = (el, t, d = 0.5) => tl.fromTo(el, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: d, ease: "back.out(1.7)", immediateRender: false }, t);
+            const rise = (els, t, st = 0.08) => tl.fromTo(els, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: E, stagger: st, immediateRender: false }, t);
+            const slideIn = (id, t) => {
+              const e = scr(id);
+              tl.set(e, { autoAlpha: 1 }, t);
+              tl.fromTo(e, { x: 402 }, { x: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, t);
+            };
+            const slideOut = (id, t) => {
+              const e = scr(id);
+              tl.to(e, { x: 402, duration: 0.5, ease: "power3.in" }, t);
+              tl.set(e, { autoAlpha: 0 }, t + 0.5);
+            };
+            const toast = (id, t, hold) => {
+              const e = $(id);
+              tl.fromTo(e, { opacity: 0, y: -26 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", immediateRender: false }, t);
+              tl.to(e, { opacity: 0, y: -16, duration: 0.3, ease: "power2.in" }, t + hold);
+            };
+            const typeField = (f, t, dur) => {
+              f = $(f);
+              const c = kd.center(f);
+              kd.tap(c.x, c.y, t, null);
+              kd.focusField(f, t + 0.05);
+              kd.typeIn(f, t + 0.15, dur);
+              kd.blurField(f, t + 0.15 + dur + 0.1);
+            };
+            const reveal = (f, t) => tl.fromTo($(f).querySelector(".val"), { opacity: 0, x: 12 }, { opacity: 1, x: 0, duration: 0.3, ease: E, immediateRender: false }, t);
+            const autoFill = (f, t) => {
+              f = $(f);
+              tl.fromTo(f.querySelector(".label"), { y: 0, scale: 1, color: "#A29FB0" }, { y: -26, scale: 0.75, color: "#726F80", duration: 0.2, ease: "power4.out", immediateRender: false }, t);
+              reveal(f, t + 0.08);
+            };
+            const spinBtn = (btn, spn, lbl, lbl2, t, dur) => {
+              const b = $(btn), sp = $(spn), lg = $(lbl);
+              sp.style.left = (b.offsetWidth - lg.offsetWidth) / 2 - 28 + "px";
+              tl.set(lg, { opacity: 0 }, t);
+              tl.set($(lbl2), { opacity: 1 }, t);
+              tl.set(sp, { opacity: 1 }, t);
+              tl.fromTo(sp, { rotation: 0 }, { rotation: dur * 900, duration: dur, ease: "none", immediateRender: false }, t);
+            };
+
+            const central = $("#c08-central"), dim = $("#c08-dim");
+            tl.set(["dN0", "dN1", "dN2", "dN3", "dK1", "dK2", "dD"].map(scr), { x: 402, autoAlpha: 0 }, 0);
+            tl.set(scr("dB"), { autoAlpha: 0 }, 0);
+            tl.set(central, { y: 840 }, 0);
+            tl.set(pst, { color: "#17151E" }, 0);
+            tl.set(psw, { x: 420, scale: 0.82, opacity: 0 }, 0);
+            tl.set(dsw, { x: 165, opacity: 0 }, 0);
+
+            kd.titleCard("#c08-t1", { at: 0.15, sparkAt: 0.75, out: 2.45 });
+
+            tl.set(dsw, { opacity: 1 }, 2.6);
+            tl.fromTo(dsw, { x: 165 }, { x: 0, duration: 0.8, ease: "power4.out", immediateRender: false }, 2.6);
+
+            punch(dcam, 3.2, 1.06, -70, 0.8);
+            const pl = kd.center("#c08-plus");
+            kd.tap(pl.x, pl.y, 3.7, "#c08-plus");
+            tl.to(dim, { opacity: 0.5, duration: 0.5 }, 3.8);
+            tl.fromTo(central, { y: 840 }, { y: 0, duration: 0.65, ease: "power3.out", immediateRender: false }, 3.8);
+            punch(dcam, 4.4, 1.05, 30, 0.6);
+            const crp = kd.posIn($("#c08-cr"));
+            lift(kd, "#c08-cr", 4.55, 1.45, 0, 1.1, { bg: "transparent", r: "24px" });
+            kd.showTip(kd.tip("Atalhos do consultório", crp.x + crp.w / 2, crp.y + crp.h + 14, "down"), 4.8, 1.2);
+
+            punch(dcam, 6.0, 1, 0, 0.5);
+            const np = kd.center("#c08-ctcNP");
+            kd.tap(np.x, np.y, 6.55, "#c08-ctcNP");
+            press("#c08-ctcNP", 6.55);
+            slideIn("dN0", 6.7);
+            stc(dst, 6.95, "#17151E");
+
+            const sbar = $("#c08-sbar");
+            const sbc = kd.center(sbar);
+            kd.tap(sbc.x, sbc.y, 7.3, null);
+            tl.fromTo(sbar.querySelector(".box-focus"), { opacity: 0 }, { opacity: 1, duration: 0.16, immediateRender: false }, 7.35);
+            tl.set($("#c08-sph"), { opacity: 0 }, 7.5);
+            tl.to($("#c08-hint"), { opacity: 0, duration: 0.2 }, 7.5);
+            kd.typeIn(sbar, 7.45, 0.45);
+            tl.to(sbar.querySelector(".box-focus"), { opacity: 0, duration: 0.16 }, 8.0);
+            tl.set(sbar.querySelector(".caret"), { opacity: 0 }, 8.0);
+            const sbs = $("#c08-sbs");
+            tl.set(sbs, { opacity: 1 }, 8.0);
+            tl.fromTo(sbs, { rotation: 0 }, { rotation: 720, duration: 0.65, ease: "none", immediateRender: false }, 8.0);
+            tl.set(sbs, { opacity: 0 }, 8.65);
+            tl.fromTo($("#c08-empty"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: E, immediateRender: false }, 8.65);
+            tl.fromTo($("#c08-nb"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: E, immediateRender: false }, 8.8);
+            const sbp = kd.posIn(sbar);
+            lift(kd, sbar, 8.7, 1.6, 0, 1.08, { bg: "#fff", r: "16px" });
+            kd.showTip(kd.tip("Busque antes: pode já ter conta", sbp.x + sbp.w / 2, sbp.y - 10, "up"), 8.95, 1.25);
+            const nb = kd.center("#c08-nb");
+            kd.tap(nb.x, nb.y, 10.8, "#c08-nb");
+            press("#c08-nb", 10.8);
+            kd.push("c08-dN0", "c08-dN1", 10.95);
+
+            tl.fromTo($("#c08-pN1"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, 11.45);
+            punch(dcam, 11.3, 1.06, 40, 0.9);
+            typeField("#c08-fN1", 11.5, 0.5);
+            typeField("#c08-fN2", 12.3, 0.55);
+            typeField("#c08-fN3", 13.1, 0.5);
+            const gm = kd.center("#c08-gcM");
+            kd.tap(gm.x, gm.y, 13.95, "#c08-gcM");
+            tl.fromTo($("#c08-gcM .c08-on"), { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, 13.95);
+            tl.fromTo($("#c08-gcM span"), { color: "#403D4A" }, { color: "#6A24DB", duration: 0.2, immediateRender: false }, 13.95);
+            kd.enable($("#c08-btnN1"), 14.2);
+            punch(dcam, 14.1, 1, 0, 0.5);
+            kd.tap(201, 790, 14.5, "#c08-btnN1");
+            kd.push("c08-dN1", "c08-dN2", 14.65);
+
+            tl.fromTo($("#c08-pN2"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, 15.15);
+            punch(dcam, 15.0, 1.06, 40, 0.9);
+            typeField("#c08-fN4", 15.2, 0.65);
+            typeField("#c08-fN5", 16.1, 0.5);
+            kd.enable($("#c08-btnN2"), 17.0);
+            punch(dcam, 16.9, 1, 0, 0.5);
+            kd.tap(201, 790, 17.3, "#c08-btnN2");
+            kd.push("c08-dN2", "c08-dN3", 17.45);
+
+            tl.fromTo($("#c08-pN3"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, 17.95);
+            rise($("#c08-sc1"), 18.0);
+            rise($("#c08-sc2"), 18.2);
+            punch(dcam, 18.2, 1.05, 10, 0.8);
+            punch(dcam, 18.85, 1, 0, 0.5);
+            kd.tap(201, 790, 19.2, "#c08-btnN3");
+            spinBtn("#c08-btnN3", "#c08-spnN", "#c08-lblN", "#c08-lblN2", 19.25, 0.5);
+            toast("#c08-tN", 19.85, 1.25);
+            slideOut("dN3", 20.7);
+            stc(dst, 20.9, "#FFFFFF");
+
+            const nc = kd.center("#c08-ctcNC");
+            kd.tap(nc.x, nc.y, 21.7, "#c08-ctcNC");
+            press("#c08-ctcNC", 21.7);
+            slideIn("dK1", 21.85);
+            stc(dst, 22.1, "#17151E");
+            skeleton("#c08-skK", 21.9, 22.4);
+            tl.fromTo($("#c08-pK1"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, 22.35);
+            tl.to($$("#c08-pl .c08-pr"), { opacity: 1, duration: 0.01, stagger: 0.1 }, 22.4);
+            tl.fromTo($$("#c08-pl .c08-pr"), { y: 14 }, { y: 0, duration: 0.45, ease: E, stagger: 0.1, immediateRender: false }, 22.4);
+            const prc = kd.center("#c08-prC");
+            kd.tap(prc.x, prc.y, 23.1, null);
+            press("#c08-prC", 23.1);
+            kd.push("c08-dK1", "c08-dK2", 23.25);
+
+            tl.fromTo($("#c08-pK2"), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: E }, 23.75);
+            punch(dcam, 23.8, 1.05, 20, 0.8);
+            const dp = $("#c08-dp"), tp = $("#c08-tp");
+            const fK1 = $("#c08-fK1"), fK2 = $("#c08-fK2");
+            let c = kd.center(fK1);
+            kd.tap(c.x, c.y, 24.0, fK1);
+            kd.focusField(fK1, 24.05);
+            tl.fromTo(dp, { opacity: 0, y: -10, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: E, immediateRender: false }, 24.15);
+            const d12 = kd.center("#c08-dp12");
+            kd.tap(d12.x, d12.y, 25.0, null);
+            tl.fromTo($("#c08-dsel"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(1.8)", immediateRender: false }, 25.0);
+            tl.fromTo($("#c08-dpt"), { color: "#17151E" }, { color: "#FFFFFF", duration: 0.2, immediateRender: false }, 25.0);
+            tl.to(dp, { opacity: 0, y: -10, duration: 0.25, ease: "power2.in" }, 25.25);
+            reveal(fK1, 25.3);
+            kd.blurField(fK1, 25.6);
+            c = kd.center(fK2);
+            kd.tap(c.x, c.y, 25.7, fK2);
+            kd.focusField(fK2, 25.75);
+            tl.fromTo(tp, { opacity: 0, y: -10, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: E, immediateRender: false }, 25.85);
+            const t9 = kd.center("#c08-tr900");
+            kd.tap(t9.x, t9.y, 26.55, null);
+            tl.fromTo($("#c08-tr900 .c08-tro"), { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, 26.55);
+            tl.to(tp, { opacity: 0, y: -10, duration: 0.25, ease: "power2.in" }, 26.8);
+            reveal(fK2, 26.85);
+            kd.blurField(fK2, 27.15);
+            autoFill("#c08-fK3", 27.05);
+            autoFill("#c08-fK4", 27.2);
+
+            const tg = $("#c08-tg");
+            const tgp = kd.posIn(tg);
+            lift(kd, tg, 27.95, 1.5, 0, 1.1, { bg: "#fff", r: "18px" });
+            const sb = kd.center("#c08-soB");
+            kd.tap(sb.x, sb.y, 27.65, "#c08-soB");
+            tl.set($("#c08-thumb"), { xPercent: -100 }, 0);
+            tl.set($("#c08-soA"), { color: "#FFFFFF" }, 0);
+            tl.set($("#c08-soB"), { color: "#403D4A" }, 0);
+            tl.to($("#c08-thumb"), { xPercent: 0, duration: 0.35, ease: "power3.out" }, 27.65);
+            tl.to($("#c08-soA"), { color: "#403D4A", duration: 0.25 }, 27.65);
+            tl.to($("#c08-soB"), { color: "#FFFFFF", duration: 0.25 }, 27.65);
+            kd.showTip(kd.tip("Online ou presencial", tgp.x + tgp.w / 2, tgp.y + tgp.h + 10, "down"), 28.2, 1.15);
+
+            const fK5 = $("#c08-fK5");
+            c = kd.center(fK5);
+            kd.tap(c.x, c.y, 29.85, fK5);
+            kd.focusField(fK5, 29.9);
+            reveal(fK5, 30.05);
+            kd.blurField(fK5, 30.35);
+            typeField("#c08-fK6", 30.4, 1.0);
+            kd.tap(201, 790, 31.9, "#c08-btnK");
+            spinBtn("#c08-btnK", "#c08-spnK", "#c08-lblK", "#c08-lblK2", 31.95, 0.5);
+            toast("#c08-tK", 32.55, 1.1);
+            slideOut("dK2", 33.6);
+            tl.to(central, { y: 840, duration: 0.55, ease: "power3.in" }, 33.6);
+            tl.to(dim, { opacity: 0, duration: 0.5 }, 33.6);
+            stc(dst, 33.8, "#FFFFFF");
+
+            const tbC = kd.center("#c08-tbC");
+            kd.tap(tbC.x, tbC.y, 34.5, "#c08-tbC");
+            tl.to($("#c08-tbonD"), { opacity: 0, duration: 0.25 }, 34.55);
+            tl.fromTo($("#c08-tbonC"), { opacity: 0 }, { opacity: 1, duration: 0.25, immediateRender: false }, 34.55);
+            tl.to(scr("dA"), { autoAlpha: 0, duration: 0.12 }, 34.7);
+            tl.fromTo(scr("dB"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, immediateRender: false }, 34.7);
+            skeleton("#c08-skE", 34.65, 35.3);
+            tl.fromTo($("#c08-ct12"), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2.2)", immediateRender: false }, 35.4);
+
+            const n12 = kd.center("#c08-n12");
+            kd.tap(n12.x, n12.y, 36.0, "#c08-n12");
+            tl.to($("#c08-ring9"), { opacity: 0, scale: 0.6, duration: 0.25 }, 36.0);
+            tl.to($("#c08-i9"), { color: "#17151E", duration: 0.2 }, 36.0);
+            tl.fromTo($("#c08-ring12"), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, 36.0);
+            tl.to($("#c08-i12"), { color: "#FFFFFF", duration: 0.2 }, 36.0);
+            tl.to($("#c08-hd9"), { opacity: 0, duration: 0.2 }, 36.05);
+            tl.to($("#c08-hd12"), { opacity: 1, duration: 0.3 }, 36.1);
+            tl.to($("#c08-rail9"), { opacity: 0, duration: 0.2 }, 36.05);
+            tl.to($("#c08-rail12"), { opacity: 1, duration: 0.25 }, 36.15);
+            tl.fromTo($("#c08-ev12"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: E, immediateRender: false }, 36.35);
+            punch(dcam, 36.4, 1.06, -90, 0.9);
+
+            const e12 = kd.center("#c08-ev12");
+            kd.tap(e12.x, e12.y, 37.45, null);
+            press("#c08-ev12", 37.45);
+            punch(dcam, 37.4, 1, 0, 0.5);
+            slideIn("dD", 37.6);
+
+            const payEl = $("#c08-pay");
+            const payp = kd.posIn(payEl);
+            const chp = payEl.querySelector(".c08-chp"), chg = payEl.querySelector(".c08-chg");
+            lift(kd, payEl, 38.35, 1.6, 0, 1.1, { bg: "#fff", r: "22px" });
+            kd.showTip(kd.tip("Consulta sem pagamento ainda", payp.x + payp.w / 2, payp.y + payp.h + 14, "down"), 38.6, 1.3);
+
+            const dsc = $("#c08-dsc");
+            const SC = 270;
+            tl.fromTo(dsc, { y: 0 }, { y: -SC, duration: 1.3, ease: "power1.inOut", immediateRender: false }, 40.5);
+            const ac = kd.center("#c08-arC");
+            kd.tap(ac.x, ac.y - SC, 42.2, null);
+            press("#c08-arC", 42.2);
+            tl.to($("#c08-dgdim"), { opacity: 1, duration: 0.3 }, 42.35);
+            tl.fromTo($("#c08-dlg"), { opacity: 0, scale: 0.92, y: 12 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: E, immediateRender: false }, 42.4);
+            const de = kd.center("#c08-dEnv");
+            kd.tap(de.x, de.y, 43.6, "#c08-dEnv");
+            press("#c08-dEnv", 43.6);
+            tl.to($("#c08-dlg"), { opacity: 0, scale: 0.96, duration: 0.25, ease: "power2.in" }, 43.75);
+            tl.to($("#c08-dgdim"), { opacity: 0, duration: 0.25 }, 43.75);
+            toast("#c08-tC", 43.9, 1.3);
+            const arp = kd.posIn($("#c08-arC"));
+            kd.showTip(kd.tip("Ele paga pelo app", arp.x + arp.w / 2, arp.y - SC + arp.h + 14, "down"), 44.0, 1.1);
+
+            outL(dsw, 45.3);
+            tl.set(dsc, { y: 0 }, 45.95);
+            inR(psw, 45.45);
+
+            skeleton("#c08-skP", 45.8, 46.4);
+            const noteEl = $("#c08-note");
+            const notep = kp.posIn(noteEl);
+            lift(kp, noteEl, 46.7, 1.5, 0, 1.08, { bg: "transparent", r: "20px" });
+            kp.showTip(kp.tip("Horário só garantido após pagar", notep.x + notep.w / 2, notep.y - 6, "up"), 46.95, 1.15);
+            kp.tap(201, 790, 48.65, "#c08-btnP");
+            spinBtn("#c08-btnP", "#c08-spnP", "#c08-lblP", "#c08-lblP2", 48.7, 0.5);
+            tl.to($("#c08-paid"), { opacity: 1, duration: 0.25 }, 49.3);
+            pop($("#c08-pbadge"), 49.35, 0.5);
+            tl.fromTo($("#c08-prg"), { scale: 0.8, opacity: 0.9 }, { scale: 1.25, opacity: 0, duration: 0.6, ease: "power2.out", immediateRender: false }, 49.65);
+            tl.fromTo($$("#c08-paid h1, #c08-paid p"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.1, ease: E, immediateRender: false }, 49.6);
+
+            outR(psw, 50.55);
+            inL(dsw, 50.7);
+
+            tl.to(chp, { opacity: 0, scale: 0.8, duration: 0.2 }, 51.45);
+            tl.fromTo(chg, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2.2)", immediateRender: false }, 51.55);
+            punch(dcam, 51.4, 1.05, 40, 0.8);
+            payEl.classList.add("c08-ispaid");
+            lift(kd, payEl, 51.9, 1.1, 0, 1.1, { bg: "#fff", r: "22px" });
+            payEl.classList.remove("c08-ispaid");
+            kd.showTip(kd.tip("Pago: horário garantido", payp.x + payp.w / 2, payp.y + payp.h + 14, "down"), 52.15, 0.85);
+            punch(dcam, 53.1, 1, 0, 0.5);
+
+            tl.to(dsw, { x: -176, duration: 0.42, ease: "power4.in" }, 53.5);
+            tl.set(dsw, { opacity: 0 }, 53.92);
+
+            $$("#c08-pscreen, #c08-pscreen *, #c08-plift, #c08-plift *, #c08-dscreen, #c08-dscreen *, #c08-dlift, #c08-dlift *").forEach((n) => ["overlap", "occlusion", "overflow"].forEach((a) => n.setAttribute("data-layout-allow-" + a, "")));
+
+            window.__timelines["ch08-voce-agenda"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Viva Mais · Flyer A5</title>
+<link rel="stylesheet" href="assets/brand/tokens.css">
+<script>if (new URLSearchParams(location.search).has("bleed")) document.documentElement.classList.add("bleed");</script>
+<style>
+  @page { margin: 0; }
+
+  :root { --bleed: 0mm; }
+  .bleed { --bleed: 3mm; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: calc(148mm + 2 * var(--bleed));
+    height: calc(210mm + 2 * var(--bleed));
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: var(--vm-font-text);
+    color: var(--vm-foreground);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    position: relative;
+    width: calc(148mm + 2 * var(--bleed));
+    height: calc(210mm + 2 * var(--bleed));
+    overflow: hidden;
+    padding: calc(28px + var(--bleed)) calc(30px + var(--bleed)) calc(24px + var(--bleed));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--vm-white);
+    background:
+      radial-gradient(55% 38% at 100% 0%, rgba(178, 120, 255, 0.85) 0%, transparent 70%),
+      radial-gradient(60% 40% at 0% 46%, rgba(122, 103, 248, 0.55) 0%, transparent 70%),
+      radial-gradient(70% 34% at 100% 100%, rgba(149, 49, 255, 0.6) 0%, transparent 70%),
+      linear-gradient(172deg, #7E3BED 0%, #6A24DB 34%, #5719B6 62%, #350E6F 100%);
+  }
+
+  .logo {
+    display: block;
+    height: 22px;
+  }
+
+  .headline {
+    margin-top: 16px;
+    font-family: var(--vm-font-display);
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .headline em {
+    font-style: normal;
+    color: var(--vm-secondary);
+  }
+
+  .lede {
+    margin-top: 8px;
+    max-width: 420px;
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.84);
+  }
+
+  .devices {
+    position: relative;
+    height: 266px;
+    margin: 0 calc(-30px - var(--bleed)) 0 0;
+  }
+
+  .laptop {
+    position: absolute;
+    top: 0;
+    left: 150px;
+    width: 412px;
+  }
+
+  .laptop .lid {
+    position: relative;
+    padding: 6px 6px 7px;
+    border-radius: 14px 14px 0 0;
+    background: #0D0C12;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), 0 18px 34px rgba(34, 8, 74, 0.42);
+  }
+
+  .laptop .lid::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    width: 3px;
+    height: 3px;
+    margin-left: -1.5px;
+    border-radius: 50%;
+    background: #2A2833;
+  }
+
+  .laptop .screen {
+    width: 400px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 3px;
+  }
+
+  .laptop .base {
+    position: relative;
+    height: 9px;
+    margin: 0 -30px;
+    border-radius: 0 0 14px 14px / 0 0 9px 9px;
+    background: linear-gradient(180deg, #E9E7EF 0%, #C9C6D3 45%, #8F8B9C 100%);
+  }
+
+  .laptop .base::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 64px;
+    height: 4px;
+    margin-left: -32px;
+    border-radius: 0 0 6px 6px;
+    background: linear-gradient(180deg, #A9A5B6 0%, #D4D1DC 100%);
+  }
+
+  .phone {
+    position: absolute;
+    left: 58px;
+    bottom: 0;
+    z-index: 2;
+    width: 120px;
+    height: 254px;
+    padding: 4px;
+    border-radius: 22px;
+    background: #0D0C12;
+    box-shadow: 0 20px 34px rgba(34, 8, 74, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.22), 0 0 0 1.5px #3A3746;
+  }
+
+  .phone img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .phone::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    width: 32px;
+    height: 9px;
+    margin-left: -16px;
+    border-radius: 999px;
+    background: #0D0C12;
+    z-index: 1;
+  }
+
+  .web {
+    --fg: #17151E;
+    --mf: #726F80;
+    --tile: #F6F5F9;
+    --muted: #F2F1F6;
+    --bd: #E6E4EC;
+    --pri: #7E3BED;
+    --pri-soft: #F5F0FE;
+    width: 1280px;
+    height: 800px;
+    zoom: 0.3125;
+    display: flex;
+    flex-direction: column;
+    background: #F3F4FA;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--fg);
+  }
+
+  .web .icon { width: 18px; height: 18px; }
+
+  .web .top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 56px;
+    padding: 0 16px 0 20px;
+  }
+
+  .web .top > img { height: 26px; }
+
+  .web .crumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 18px;
+    color: var(--mf);
+  }
+
+  .web .crumb b { font-weight: 500; color: var(--fg); }
+
+  .web .live {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(23, 21, 30, 0.06);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .web .live i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22C55E;
+  }
+
+  .web .av {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .web .panel {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    min-height: 0;
+    margin: 0 8px 8px;
+    padding: 8px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(23, 21, 30, 0.06), 0 8px 24px -12px rgba(23, 21, 30, 0.08);
+  }
+
+  .web .stage {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #22084A;
+  }
+
+  .web .stage > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+  }
+
+  .web .tag {
+    position: absolute;
+    right: 214px;
+    top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px 8px 8px;
+    border-radius: 14px;
+    background: rgba(23, 21, 30, 0.62);
+    color: #fff;
+  }
+
+  .web .tag .badge {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .web .tag b { display: block; font-weight: 600; }
+  .web .tag small { display: block; font-size: 12px; line-height: 16px; opacity: 0.75; }
+
+  .web .self {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    width: 180px;
+    height: 124px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85), 0 10px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .web .self img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+
+  .web .controls {
+    position: absolute;
+    left: 58%;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 18px;
+    background: rgba(23, 21, 30, 0.62);
+    transform: translateX(-50%);
+  }
+
+  .web .controls span {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+  }
+
+  .web .controls .end {
+    width: auto;
+    padding: 0 18px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    background: #E5484D;
+    font-weight: 600;
+  }
+
+  .web .side {
+    flex: none;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 14px;
+    background: var(--tile);
+  }
+
+  .web .side .tabs {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .web .side .tabs span {
+    height: 30px;
+    padding: 0 12px;
+    border-radius: 8px;
+    line-height: 30px;
+    color: var(--mf);
+  }
+
+  .web .side .tabs span.on { background: #fff; font-weight: 500; color: var(--fg); }
+
+  .web .chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .web .msg {
+    max-width: 82%;
+    padding: 9px 12px;
+    border-radius: 14px 14px 14px 4px;
+    background: var(--muted);
+  }
+
+  .web .msg.me {
+    align-self: flex-end;
+    border-radius: 14px 14px 4px 14px;
+    background: var(--pri);
+    color: #fff;
+  }
+
+  .web .file {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px var(--bd);
+  }
+
+  .web .file .badge {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--pri-soft);
+    color: var(--pri);
+  }
+
+  .web .file b { display: block; font-weight: 500; }
+  .web .file small { display: block; font-size: 12px; line-height: 16px; color: var(--mf); }
+
+  .web .input {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 6px 0 14px;
+    border-radius: 12px;
+    background: var(--muted);
+    color: var(--mf);
+  }
+
+  .web .input span {
+    display: grid;
+    place-items: center;
+    margin-left: auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: var(--pri);
+    color: #fff;
+  }
+
+  .stats,
+  .cards {
+    position: relative;
+    z-index: 3;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px;
+    border-radius: 20px;
+    background: var(--vm-tile);
+    color: var(--vm-foreground);
+  }
+
+  .box > header {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 6px 8px 3px;
+  }
+
+  .box > header .icon {
+    flex: none;
+    width: 13px;
+    height: 13px;
+    margin-top: 1px;
+    color: var(--vm-muted-foreground);
+  }
+
+  .box > header h2 {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .box > header p {
+    margin-top: 2px;
+    font-size: 8.5px;
+    line-height: 1.3;
+    color: var(--vm-muted-foreground);
+  }
+
+  .well {
+    border-radius: 12px;
+    background: var(--vm-white);
+  }
+
+  .stat .well {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2px 10px 10px;
+    background: none;
+  }
+
+  .stat .big {
+    flex: none;
+    font-family: var(--vm-font-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--vm-primary);
+  }
+
+  .stat .well p {
+    font-size: 8.5px;
+    line-height: 1.3;
+    color: var(--vm-ink-600);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .rows { padding: 1px 10px; }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    padding: 4px 0;
+  }
+
+  .row + .row { border-top: 1px solid var(--vm-ink-100); }
+
+  .row .art {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+
+  .row .icon {
+    flex: none;
+    width: 14px;
+    height: 14px;
+    margin: 0 4px;
+    color: var(--vm-muted-foreground);
+  }
+
+  .row .txt { min-width: 0; flex: 1; }
+
+  .row b {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .row small {
+    display: block;
+    font-size: 7.5px;
+    line-height: 1.25;
+    color: var(--vm-muted-foreground);
+  }
+
+  .chip {
+    flex: none;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 7.5px;
+    font-weight: 500;
+    line-height: 1.3;
+    white-space: nowrap;
+    color: var(--vm-ink-600);
+    box-shadow: inset 0 0 0 1px var(--vm-ink-200);
+  }
+
+  .chip.on {
+    font-weight: 700;
+    color: var(--vm-secondary-strong);
+    background: var(--vm-green-100);
+    box-shadow: none;
+  }
+
+  .hours {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6px 8px 7px;
+  }
+
+  .hours h3 {
+    font-size: 6.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vm-muted-foreground);
+  }
+
+  .days {
+    margin-top: 4px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+  }
+
+  .day { text-align: center; }
+
+  .day b {
+    display: block;
+    font-size: 6.5px;
+    font-weight: 700;
+    color: var(--vm-primary);
+  }
+
+  .day span {
+    display: block;
+    font-size: 6px;
+    line-height: 1.45;
+    color: var(--vm-ink-600);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .foot {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .wa {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 12px 6px 6px;
+    border-radius: 14px;
+    background: var(--vm-white);
+    color: var(--vm-foreground);
+  }
+
+  .wa .qr { width: 38px; height: 38px; padding: 2px; }
+  .wa .qr img { display: block; width: 100%; height: 100%; }
+
+  .wa .label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 7.5px;
+    font-weight: 700;
+    color: var(--vm-secondary-strong);
+  }
+
+  .wa .label svg { width: 10px; height: 10px; }
+
+
+
+  .wa strong {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--vm-font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .wa small {
+    display: block;
+    margin-top: 1px;
+    font-size: 7px;
+    color: var(--vm-muted-foreground);
+  }
+
+  .stores {
+    margin-left: auto;
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .qr-site {
+    display: block;
+    width: 56px;
+    height: 56px;
+    padding: 5px;
+    border-radius: 12px;
+    background: var(--vm-white);
+  }
+
+
+  .stores .row2 { display: flex; flex-direction: column; gap: 4px; }
+
+  .store {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px 4px 6px;
+    border-radius: 8px;
+    background: var(--vm-ink-950);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  }
+
+  .store svg { width: 12px; height: 12px; }
+
+  .store small {
+    display: block;
+    font-size: 5.5px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .store b {
+    display: block;
+    font-size: 9px;
+    line-height: 1.1;
+    font-weight: 700;
+  }
+
+
+  .icon { display: inline-block; }
+  .icon svg { display: block; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<main class="page">
+  <section>
+    <img class="logo" src="assets/brand/lockup-branco.svg" alt="Viva Mais">
+    <h1 class="headline">Saúde para o seu time,<br><em>onde ele estiver.</em></h1>
+    <p class="lede">Consultas por vídeo pelo celular ou pelo computador e atendimento presencial em Sapiranga. Agende tudo pelo app ou pelo site, sem fila e sem burocracia.</p>
+  </section>
+
+  <section class="devices">
+    <div class="laptop">
+      <div class="lid">
+        <div class="screen">
+          <div class="web">
+            <header class="top">
+              <img src="assets/brand/logo-color.png" alt="">
+              <div class="crumb"><i data-icon="calendar-days"></i>Consultas<i data-icon="chevron-right"></i><b>Clínico geral</b></div>
+              <div class="live"><i></i>Em consulta · 12:48</div>
+              <img class="av" src="assets/people/ana.jpg" alt="">
+            </header>
+            <div class="panel">
+              <div class="stage">
+                <img src="assets/hero-medica.png" alt="">
+                <div class="tag"><span class="badge"><i data-icon="stethoscope"></i></span><div><b>Dra. Camila Rocha</b><small>Clínica geral · por vídeo</small></div></div>
+                <div class="self"><img src="assets/people/ana.jpg" alt=""></div>
+                <div class="controls">
+                  <span><i data-icon="mic"></i></span>
+                  <span><i data-icon="video"></i></span>
+                  <span><i data-icon="message-square"></i></span>
+                  <span><i data-icon="paperclip"></i></span>
+                  <span class="end"><i data-icon="phone"></i>Encerrar</span>
+                </div>
+              </div>
+              <aside class="side">
+                <div class="tabs"><span class="on">Chat</span><span>Arquivos</span><span>Anotações</span></div>
+                <div class="chat">
+                  <p class="msg">Oi, Ana! Como você está se sentindo hoje?</p>
+                  <p class="msg me">Com dor de garganta desde ontem.</p>
+                  <p class="msg">Entendi. Já vou te enviar a receita digital por aqui.</p>
+                  <div class="file"><span class="badge"><i data-icon="file-text"></i></span><div><b>Receita digital</b><small>PDF · assinada</small></div></div>
+                  <div class="input">Escreva uma mensagem<span><i data-icon="arrow-up-right"></i></span></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="base"></div>
+    </div>
+    <div class="phone"><img src="assets/app/screen-home.png" alt=""></div>
+  </section>
+
+  <section class="stats">
+    <article class="box stat">
+      <header><i data-icon="stethoscope"></i><div><h2>Clínico geral</h2></div></header>
+      <div class="well">
+        <div class="big">Ilimitado</div>
+        <p>Quantas vezes precisar, por vídeo ou na clínica.</p>
+      </div>
+    </article>
+    <article class="box stat">
+      <header><i data-icon="wallet"></i><div><h2>Crédito mensal</h2></div></header>
+      <div class="well">
+        <div class="big">R$ 100</div>
+        <p>Todo mês para outras consultas e especialidades.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="cards">
+    <article class="box">
+      <header><i data-icon="video"></i><div><h2>Telemedicina</h2><p>Por vídeo, agendada pelo app ou site</p></div></header>
+      <div class="well rows">
+        <div class="row">
+          <img class="art" src="assets/icons/medico.png" alt="">
+          <div class="txt"><b>Clínico geral</b><small>Sempre que precisar</small></div>
+          <span class="chip on">Ilimitado</span>
+        </div>
+        <div class="row">
+          <img class="art" src="assets/icons/psicologia.png" alt="">
+          <div class="txt"><b>Psicologia</b><small>Sessões de 30 min</small></div>
+          <span class="chip">2 consultas</span>
+        </div>
+        <div class="row">
+          <img class="art" src="assets/icons/nutrologista.png" alt="">
+          <div class="txt"><b>Nutrição</b><small>Com nutricionista</small></div>
+          <span class="chip">1 consulta</span>
+        </div>
+        <div class="row">
+          <img class="art" src="assets/icons/estetoscopio.png" alt="">
+          <div class="txt"><b>Especialista</b><small>Qualquer especialidade</small></div>
+          <span class="chip">1 consulta</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="box">
+      <header><i data-icon="building-2"></i><div><h2>Presencial</h2><p>Clínica parceira em Sapiranga</p></div></header>
+      <div class="well rows">
+        <div class="row">
+          <img class="art" src="assets/icons/medico.png" alt="">
+          <div class="txt"><b>Médico clínico</b><small>Quantas vezes precisar</small></div>
+          <span class="chip on">Ilimitado</span>
+        </div>
+        <div class="row">
+          <i data-icon="map-pin"></i>
+          <div class="txt"><b>Clínica QualiService</b><small>João Corrêa, 222 · Centro · Sapiranga</small></div>
+        </div>
+      </div>
+      <div class="well hours">
+        <h3>Horários de atendimento</h3>
+        <div class="days">
+          <div class="day"><b>Seg</b><span>08–09h</span><span>16:30–18:30</span></div>
+          <div class="day"><b>Ter</b><span>08–09h</span><span>16–18h</span></div>
+          <div class="day"><b>Qua</b><span>08–09h</span><span>13–16h</span></div>
+          <div class="day"><b>Qui</b><span>08–09h</span><span>16–18h</span></div>
+          <div class="day"><b>Sex</b><span>08–09h</span><span>10–12h</span></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <footer class="foot">
+    <div class="wa">
+      <div class="qr"><img src="assets/icons/qr-whatsapp.svg" alt=""></div>
+      <div>
+        <span class="label"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</span>
+        <strong>+55 51 99831-6333</strong>
+        <small>Dúvidas e suporte</small>
+      </div>
+    </div>
+    <div class="stores">
+      <img class="qr-site" src="assets/icons/qr-site.svg" alt="vivamais.ai">
+      <div class="row2">
+        <div class="store"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><div><small>Disponível na</small><b>App Store</b></div></div>
+        <div class="store"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><div><small>Disponível no</small><b>Google Play</b></div></div>
+      </div>
+    </div>
+  </footer>
+</main>
+<script src="shared/icons.js"></script>
+<script>
+  document.querySelectorAll("[data-icon]").forEach((el) => {
+    el.classList.add("icon");
+    el.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${el.dataset.sw || 2}" stroke-linecap="round" stroke-linejoin="round">${window.VM_ICONS[el.dataset.icon] || ""}</svg>`;
+  });
+</script>
+</body>
+</html>

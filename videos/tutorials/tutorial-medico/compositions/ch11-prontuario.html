@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch11 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch11 .scr.c11-gr { background: #F3F4FA; }
+        #ch11 .c11-ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; flex: none; }
+        #ch11 .c11-hd { position: absolute; left: 0; right: 0; top: 0; height: 98px; background: #F3F4FA; z-index: 10; }
+        #ch11 .c11-bk { position: absolute; left: 10px; top: 54px; height: 44px; display: flex; align-items: center; color: #6A24DB; font-size: 17px; }
+        #ch11 .c11-bk .c11-ic { width: 26px; height: 26px; stroke-width: 2.2; }
+        #ch11 .c11-bk span { margin-left: -2px; }
+        #ch11 .c11-tt { position: absolute; left: 100px; right: 100px; top: 54px; line-height: 44px; text-align: center; font-weight: 500; font-size: 17px; color: #17151E; white-space: nowrap; }
+        #ch11 .c11-pills { position: absolute; right: 16px; top: 62px; display: flex; gap: 6px; }
+        #ch11 .c11-pill { display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 14px; background: #fff; color: #55525F; font-weight: 500; font-size: 12.5px; }
+        #ch11 .c11-pill .c11-ic { width: 12px; height: 12px; stroke-width: 2.1; }
+        #ch11 .c11-pill.c11-br { background: #F5F0FE; color: #5A1DB8; }
+        #ch11 .c11-pill span { font-variant-numeric: tabular-nums; }
+        #ch11 .c11-lt { position: absolute; left: 20px; top: 100px; height: 48px; padding-top: 4px; font-weight: 700; font-size: 34px; line-height: 42px; letter-spacing: -0.6px; color: #17151E; }
+        #ch11 .c11-hc { position: absolute; left: 0; right: 0; top: 160px; }
+        #ch11 .c11-eg { padding: 0 20px; }
+        #ch11 .c11-pc { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 20px; background: #fff; }
+        #ch11 .c11-av { width: 48px; height: 48px; border-radius: 50%; background: #EBE1FD; color: #5A1DB8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+        #ch11 .c11-pn { font-weight: 700; font-size: 17px; line-height: 22px; color: #17151E; }
+        #ch11 .c11-pl { margin-top: 1px; font-size: 13.5px; line-height: 18px; color: #55525F; }
+        #ch11 .c11-ac { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 20px; background: #fff; }
+        #ch11 .c11-act { width: 40px; height: 40px; flex: none; border-radius: 12px; background: rgba(34, 197, 94, 0.14); color: #166534; display: flex; align-items: center; justify-content: center; }
+        #ch11 .c11-act .c11-ic { width: 19px; height: 19px; }
+        #ch11 .c11-ac b { display: block; font-weight: 700; font-size: 15px; line-height: 20px; color: #17151E; }
+        #ch11 .c11-ac span { display: block; margin-top: 1px; font-size: 13px; line-height: 18px; color: #55525F; }
+        #ch11 .c11-grp { position: relative; }
+        #ch11 .c11-gt { margin: 0 0 10px 4px; font-weight: 700; font-size: 11px; line-height: 14px; letter-spacing: 1.8px; text-transform: uppercase; color: #6B6878; }
+        #ch11 .c11-gc { border-radius: 22px; background: #fff; overflow: hidden; }
+        #ch11 .c11-ir { position: relative; display: flex; align-items: center; gap: 14px; height: 58px; padding: 0 14px 0 16px; background: #fff; overflow: hidden; }
+        #ch11 .c11-ir + .c11-ir::before { content: ""; position: absolute; left: 66px; right: 0; top: 0; height: 1px; background: #E6E4EC; }
+        #ch11 .c11-ps { position: absolute; inset: 0; background: #F2F1F6; opacity: 0; }
+        #ch11 .c11-fl { position: absolute; inset: 0; background: rgba(34, 197, 94, 0.16); opacity: 0; }
+        #ch11 .c11-it { position: relative; width: 36px; height: 36px; flex: none; border-radius: 11px; background: #EBE1FD; color: #6A24DB; display: flex; align-items: center; justify-content: center; }
+        #ch11 .c11-it .c11-ic { width: 19px; height: 19px; stroke-width: 1.9; }
+        #ch11 .c11-bd { position: relative; flex: 1; height: 40px; }
+        #ch11 .c11-lb { position: absolute; left: 0; top: 9.5px; font-weight: 500; font-size: 16px; line-height: 21px; color: #17151E; white-space: nowrap; }
+        #ch11 .c11-dt { position: absolute; left: 0; top: 23px; font-size: 13px; line-height: 17px; color: #6B6878; white-space: nowrap; opacity: 0; }
+        #ch11 .c11-vs { position: absolute; right: 0; top: 10px; display: inline-grid; justify-items: end; }
+        #ch11 .c11-vs > * { grid-area: 1 / 1; }
+        #ch11 .c11-v { font-size: 15px; line-height: 20px; color: #6B6878; white-space: nowrap; }
+        #ch11 .c11-v.c11-g { color: #166534; }
+        #ch11 .c11-v.c11-alt { opacity: 0; }
+        #ch11 .c11-cv { width: 18px; height: 18px; color: #A29FB0; }
+        #ch11 .c11-ft { position: absolute; left: 0; right: 0; top: 742px; bottom: 0; background: #F3F4FA; border-top: 1px solid #E6E4EC; z-index: 9; }
+        #ch11 .btn.c11-sv { left: 20px; right: 20px; top: 764px; z-index: 11; overflow: hidden; }
+        #ch11 .c11-sv .lbl { position: relative; }
+        #ch11 .c11-sv .c11-l2 { position: absolute; left: 0; right: 0; text-align: center; opacity: 0; }
+        #ch11 .c11-sp { position: absolute; left: 114px; top: 17px; width: 18px; height: 18px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; opacity: 0; }
+        #ch11 .c11-sk { position: absolute; left: 0; right: 0; top: 98px; bottom: 0; background: #F3F4FA; z-index: 8; overflow: hidden; }
+        #ch11 .c11-sk i { position: absolute; display: block; background: #E6E4EC; border-radius: 20px; }
+        #ch11 .c11-shine { position: absolute; top: 0; bottom: 0; left: 0; width: 160px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.7), rgba(255,255,255,0)); transform: translateX(-200px); }
+        #ch11 .c11-pt { position: absolute; left: 20px; top: 112px; font-size: 14px; line-height: 20px; color: #55525F; }
+        #ch11 .c11-fx { position: absolute; left: 0; right: 0; top: 142px; }
+        #ch11 .c11-sec { margin: 0 20px 24px; }
+        #ch11 .c11-sl { margin: 0 0 8px; font-weight: 500; font-size: 13px; line-height: 18px; color: #55525F; white-space: nowrap; }
+        #ch11 .c11-cd { background: #fff; border-radius: 20px; overflow: hidden; }
+        #ch11 .c11-ln { padding: 13px 16px; font-size: 15px; line-height: 22px; color: #3C3948; }
+        #ch11 .c11-ln.c11-rd { color: #DC2626; }
+        #ch11 .c11-pain { padding: 14px 16px; }
+        #ch11 .c11-ph0 { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+        #ch11 .c11-ph0 b { font-weight: 500; font-size: 15px; color: #17151E; }
+        #ch11 .c11-ph0 span { font-weight: 700; font-size: 13px; color: #B45309; }
+        #ch11 .c11-trk { height: 8px; border-radius: 4px; background: #F2F1F6; overflow: hidden; }
+        #ch11 .c11-fill { width: 60%; height: 100%; border-radius: 4px; background: #F59E0B; transform-origin: 0 50%; }
+        #ch11 .c11-abs { position: absolute; left: 20px; width: 362px; }
+        #ch11 .c11-sf { position: absolute; left: 20px; width: 362px; height: 48px; border-radius: 16px; background: #fff; border: 1px solid #E6E4EC; }
+        #ch11 .c11-fb { position: absolute; inset: -1px; border-radius: 16px; border: 1.5px solid #7E3BED; opacity: 0; }
+        #ch11 .c11-sic { position: absolute; left: 14px; top: 14px; width: 18px; height: 18px; color: #6B6878; }
+        #ch11 .c11-ph, #ch11 .c11-tw { position: absolute; left: 42px; top: 0; line-height: 46px; font-size: 16px; white-space: nowrap; }
+        #ch11 .c11-ph { color: #A29FB0; }
+        #ch11 .c11-tw { color: #17151E; opacity: 0; }
+        #ch11 .c11-cr { display: inline-block; width: 2px; height: 20px; margin-left: 1px; vertical-align: -4px; border-radius: 2px; background: #7E3BED; }
+        #ch11 .c11-dd { position: absolute; left: 20px; width: 362px; border-radius: 16px; background: #fff; border: 1px solid #E6E4EC; box-shadow: 0 12px 28px rgba(53, 14, 111, 0.12); overflow: hidden; opacity: 0; z-index: 6; }
+        #ch11 .c11-rr { position: relative; min-height: 52px; padding: 12px 14px; display: flex; flex-direction: column; justify-content: center; }
+        #ch11 .c11-rr + .c11-rr { border-top: 1px solid #E6E4EC; }
+        #ch11 .c11-rp { position: absolute; inset: 0; background: #F2F1F6; opacity: 0; }
+        #ch11 .c11-rt { position: relative; font-weight: 500; font-size: 15px; line-height: 20px; color: #17151E; }
+        #ch11 .c11-tg { position: relative; font-size: 12.5px; line-height: 16px; color: #6B6878; }
+        #ch11 .c11-lo { display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px; font-size: 14px; color: #55525F; }
+        #ch11 .c11-lsp { width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid #EBE1FD; border-top-color: #7E3BED; }
+        #ch11 .c11-sb { height: 52px; border-top: 1px solid #E6E4EC; padding: 12px 14px; }
+        #ch11 .c11-sb i { display: block; height: 13px; width: 62%; border-radius: 6px; background: #E6E4EC; }
+        #ch11 .c11-sb i + i { height: 10px; width: 38%; margin-top: 6px; }
+        #ch11 .c11-sg { position: absolute; left: 20px; width: 362px; border-radius: 20px; background: #fff; overflow: hidden; opacity: 0; }
+        #ch11 .c11-sr { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 6px 10px 16px; background: #fff; }
+        #ch11 .c11-sr + .c11-sr { border-top: 1px solid #E6E4EC; }
+        #ch11 .c11-sx { flex: 1; }
+        #ch11 .c11-st { font-weight: 500; font-size: 15px; line-height: 20px; color: #17151E; }
+        #ch11 .c11-sx .c11-tg { display: block; margin-top: 1px; }
+        #ch11 .c11-xi { width: 32px; height: 32px; padding: 7px; color: #6B6878; }
+        #ch11 .c11-hint { position: absolute; left: 20px; width: 340px; font-size: 13px; line-height: 18px; color: #6B6878; }
+        #ch11 .c11-lc { position: absolute; left: 20px; top: 266px; width: 362px; border-radius: 20px; background: #fff; overflow: hidden; }
+        #ch11 .c11-cnt { display: inline-grid; vertical-align: top; }
+        #ch11 .c11-cnt > * { grid-area: 1 / 1; }
+        #ch11 .c11-cnt > :not(:first-child) { opacity: 0; }
+        #ch11 .c11-ta { position: absolute; left: 20px; width: 362px; border-radius: 20px; background: #fff; overflow: hidden; }
+        #ch11 .c11-ta .c11-ph, #ch11 .c11-ta .c11-tw { left: 16px; top: 13px; right: 16px; line-height: 22px; font-size: 15px; white-space: normal; }
+        #ch11 .c11-ta .c11-cr { height: 18px; vertical-align: -3px; }
+        #ch11 .c11-ph pre { margin: 0; font: inherit; white-space: pre-wrap; }
+        #ch11 .c11-gtl { position: absolute; left: 24px; font-weight: 700; font-size: 11px; line-height: 14px; letter-spacing: 1.8px; text-transform: uppercase; color: #6B6878; }
+        #ch11 .c11-if { position: absolute; left: 20px; width: 362px; height: 56px; border-radius: 20px; background: #fff; overflow: hidden; }
+        #ch11 .c11-if .c11-ifl { position: absolute; left: 16px; top: 0; line-height: 56px; font-size: 16px; font-weight: 500; color: #17151E; }
+        #ch11 .c11-if .c11-ph, #ch11 .c11-if .c11-tw { left: 186px; line-height: 56px; }
+        #ch11 .c11-cb { position: absolute; left: 20px; width: 362px; text-align: right; font-size: 13px; color: #6B6878; font-variant-numeric: tabular-nums; }
+        #ch11 .c11-ft2 { position: absolute; left: 24px; font-size: 13px; line-height: 18px; color: #6B6878; }
+      </style>
+
+      <div id="ch11" data-composition-id="ch11-prontuario" data-start="0" data-duration="58.4" data-width="1080" data-height="1920">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+          <symbol id="c11-i-cl" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+          <symbol id="c11-i-cr" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+          <symbol id="c11-i-timer" viewBox="0 0 24 24"><path d="M10 2h4M12 14l3-3" /><circle cx="12" cy="14" r="8" /></symbol>
+          <symbol id="c11-i-video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect x="2" y="6" width="14" height="12" rx="2" /></symbol>
+          <symbol id="c11-i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+          <symbol id="c11-i-clip" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01" /></symbol>
+          <symbol id="c11-i-act" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></symbol>
+          <symbol id="c11-i-steth" viewBox="0 0 24 24"><path d="M11 2v2M5 2v2" /><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path d="M8 15a6 6 0 0 0 12 0v-3" /><circle cx="20" cy="10" r="2" /></symbol>
+          <symbol id="c11-i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></symbol>
+          <symbol id="c11-i-ftext" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" /></symbol>
+          <symbol id="c11-i-fcheck" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></symbol>
+          <symbol id="c11-i-hist" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /><path d="M12 7v5l4 2" /></symbol>
+          <symbol id="c11-i-spark" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /></symbol>
+          <symbol id="c11-i-se" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></symbol>
+          <symbol id="c11-i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" /></symbol>
+        </svg>
+
+        <div id="c11-bg" class="clip" data-start="0" data-duration="58.4" data-track-index="0">
+          <div class="backdrop"></div>
+          <div class="grid"></div>
+          <div class="glow glow-a"></div>
+          <div class="glow glow-b"></div>
+        </div>
+
+        <section id="c11-t1" class="clip chapter" data-start="0" data-duration="3" data-track-index="1">
+          <div class="chapter-words">
+            <div class="chapter-line"><span class="w">Preencha</span></div>
+            <div class="chapter-line"><span class="w">o</span><span class="w v">prontuário</span></div>
+            <span class="chapter-spark"></span>
+          </div>
+        </section>
+
+        <section id="c11-phone" class="clip" data-start="3" data-duration="55.4" data-track-index="2">
+          <div class="cam">
+            <div class="dev">
+              <div class="bezel"></div>
+              <div class="screen">
+
+                <div class="scr c11-gr" id="c11-sH">
+                  <div class="c11-hd">
+                    <div class="c11-bk"><svg class="c11-ic"><use href="#c11-i-cl" /></svg><span>Voltar</span></div>
+                    <div class="c11-pills">
+                      <div class="c11-pill"><svg class="c11-ic"><use href="#c11-i-timer" /></svg><span id="c11-tm">08:12</span></div>
+                      <div class="c11-pill c11-br"><svg class="c11-ic"><use href="#c11-i-video" /></svg>Online</div>
+                    </div>
+                  </div>
+                  <div class="c11-lt">Prontuário</div>
+                  <div class="c11-hc">
+                    <div class="c11-eg c11-e" style="margin-bottom: 12px;">
+                      <div class="c11-pc"><div class="c11-av">AS</div><div><div class="c11-pn">Ana Souza</div><div class="c11-pl">34 anos · Feminino</div></div></div>
+                    </div>
+                    <div class="c11-eg c11-e" style="margin-bottom: 16px;">
+                      <div class="c11-ac"><div class="c11-act"><svg class="c11-ic"><use href="#c11-i-shield" /></svg></div><div><b>Ficha e documentos liberados</b><span>O paciente autorizou o acesso ao histórico de saúde.</span></div></div>
+                    </div>
+                    <div class="c11-eg c11-e" style="margin-bottom: 22px;">
+                      <div class="c11-grp" id="c11-grp1">
+                        <div class="c11-gt">Registro clínico</div>
+                        <div class="c11-gc">
+                          <div class="c11-ir" id="c11-rAn"><div class="c11-ps"></div><div class="c11-it"><svg class="c11-ic"><use href="#c11-i-clip" /></svg></div><div class="c11-bd"><div class="c11-lb">Anamnese</div><div class="c11-vs"><span class="c11-v c11-g">Preenchida</span></div></div><svg class="c11-ic c11-cv"><use href="#c11-i-cr" /></svg></div>
+                          <div class="c11-ir" id="c11-rDx"><div class="c11-ps"></div><div class="c11-fl"></div><div class="c11-it"><svg class="c11-ic"><use href="#c11-i-act" /></svg></div><div class="c11-bd"><div class="c11-lb">Diagnóstico</div><div class="c11-dt">F41.1 - Ansiedade generalizada</div><div class="c11-vs"><span class="c11-v">Pendente</span><span class="c11-v c11-g c11-alt">Preenchido</span></div></div><svg class="c11-ic c11-cv"><use href="#c11-i-cr" /></svg></div>
+                          <div class="c11-ir" id="c11-rEx"><div class="c11-ps"></div><div class="c11-fl"></div><div class="c11-it"><svg class="c11-ic"><use href="#c11-i-steth" /></svg></div><div class="c11-bd"><div class="c11-lb">Exames</div><div class="c11-dt">Hemograma, TSH +2</div><div class="c11-vs"><span class="c11-v">Pendente</span><span class="c11-v c11-g c11-alt">4 exames</span></div></div><svg class="c11-ic c11-cv"><use href="#c11-i-cr" /></svg></div>
+                          <div class="c11-ir" id="c11-rRc"><div class="c11-ps"></div><div class="c11-it"><svg class="c11-ic"><use href="#c11-i-pill" /></svg></div><div class="c11-bd"><div class="c11-lb">Receita</div><div class="c11-vs"><span class="c11-v">Pendente</span></div></div><svg class="c11-ic c11-cv"><use href="#c11-i-cr" /></svg></div>
+                          <div class="c11-ir" id="c11-rLa"><div class="c11-ps"></div><div class="c11-fl"></div><div class="c11-it"><svg class="c11-ic"><use href="#c11-i-ftext" /></svg></div><div class="c11-bd"><div class="c11-lb">Laudo</div><div class="c11-vs"><span class="c11-v">Pendente</span><span class="c11-v c11-g c11-alt">Preenchido</span></div></div><svg class="c11-ic c11-cv"><use href="#c11-i-cr" /></svg></div>
+                          <div class="c11-ir" id="c11-rAt"><div class="c11-ps"></div><div class="c11-fl"></div><div class="c11-it"><svg class="c11-ic"><use href="#c11-i-fcheck" /></svg></div><div class="c11-bd"><div class="c11-lb">Atestado</div><div class="c11-dt">Afastamento</div><div class="c11-vs"><span class="c11-v">Pendente</span><span class="c11-v c11-g c11-alt">1 dia</span></div></div><svg class="c11-ic c11-cv"><use href="#c11-i-cr" /></svg></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="c11-eg c11-e">
+                      <div class="c11-grp">
+                        <div class="c11-gt">Paciente e apoio</div>
+                        <div class="c11-gc">
+                          <div class="c11-ir"><div class="c11-it"><svg class="c11-ic"><use href="#c11-i-hist" /></svg></div><div class="c11-bd"><div class="c11-lb">Histórico</div></div><svg class="c11-ic c11-cv"><use href="#c11-i-cr" /></svg></div>
+                          <div class="c11-ir"><div class="c11-it"><svg class="c11-ic"><use href="#c11-i-spark" /></svg></div><div class="c11-bd"><div class="c11-lb">Assistente de IA</div></div><svg class="c11-ic c11-cv"><use href="#c11-i-cr" /></svg></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c11-ft"></div>
+                  <div class="btn c11-sv" style="top: 764px;"><span class="lbl">Finalizar prontuário</span></div>
+                  <div class="c11-sk" id="c11-skH" style="top: 150px;">
+                    <i style="left: 20px; right: 20px; top: 10px; height: 76px;"></i>
+                    <i style="left: 20px; right: 20px; top: 102px; height: 76px;"></i>
+                    <i style="left: 36px; width: 35%; top: 198px; height: 12px; border-radius: 6px;"></i>
+                    <i style="left: 20px; right: 20px; top: 222px; height: 300px;"></i>
+                    <i style="left: 20px; right: 20px; top: 538px; height: 104px;"></i>
+                    <div class="c11-shine" id="c11-shH"></div>
+                  </div>
+                </div>
+
+                <div class="scr c11-gr" id="c11-sA">
+                  <div class="c11-pt">Ana Souza</div>
+                  <div class="c11-fx" id="c11-fxA">
+                    <div class="c11-sec c11-e2"><div class="c11-sl">Motivo da consulta</div><div class="c11-cd"><div class="c11-ln">Ansiedade e dificuldade para dormir há 3 meses</div></div></div>
+                    <div class="c11-sec c11-e2"><div class="c11-sl">Avaliação da dor</div><div class="c11-cd"><div class="c11-pain"><div class="c11-ph0"><b>Cabeça</b><span>Moderada · 6/10</span></div><div class="c11-trk"><div class="c11-fill" id="c11-flA"></div></div></div></div></div>
+                    <div class="c11-sec c11-e2"><div class="c11-sl">Medicamentos em uso</div><div class="c11-cd"><div class="c11-ln">Anticoncepcional oral</div></div></div>
+                    <div class="c11-sec" id="c11-alg"><div class="c11-sl">Alergias</div><div class="c11-cd"><div class="c11-ln c11-rd">Dipirona</div></div></div>
+                  </div>
+                  <div class="c11-sk" id="c11-skA">
+                    <i style="left: 20px; width: 40%; top: 58px; height: 14px; border-radius: 7px;"></i>
+                    <i style="left: 20px; right: 20px; top: 88px; height: 120px;"></i>
+                    <i style="left: 20px; width: 30%; top: 232px; height: 14px; border-radius: 7px;"></i>
+                    <i style="left: 20px; right: 20px; top: 262px; height: 180px;"></i>
+                    <div class="c11-shine" id="c11-shA"></div>
+                  </div>
+                  <div class="c11-hd"><div class="c11-bk" id="c11-bkA"><svg class="c11-ic"><use href="#c11-i-cl" /></svg><span>Prontuário</span></div><div class="c11-tt">Anamnese</div></div>
+                </div>
+
+                <div class="scr c11-gr" id="c11-sD">
+                  <div class="c11-pt">Ana Souza</div>
+                  <div class="c11-abs c11-sl" style="top: 142px;">Diagnóstico principal (CID-10)</div>
+                  <div class="c11-sf" id="c11-sfD1" style="top: 166px;"><div class="c11-fb"></div><svg class="c11-ic c11-sic"><use href="#c11-i-se" /></svg><span class="c11-ph">Buscar diagnóstico principal</span><span class="c11-tw"><span class="c11-tv"></span><i class="c11-cr"></i></span></div>
+                  <div class="c11-sg" id="c11-sgD1" style="top: 166px;"><div class="c11-sr"><div class="c11-sx"><div class="c11-st">Ansiedade generalizada</div><div class="c11-tg">F41.1</div></div><svg class="c11-ic c11-xi"><use href="#c11-i-x" /></svg></div></div>
+                  <div class="c11-hint" id="c11-hnD1" style="top: 226px;">Selecione a categoria principal do diagnóstico.</div>
+                  <div class="c11-abs c11-sl" style="top: 282px;">Diagnósticos secundários (CID-10)</div>
+                  <div class="c11-sf" id="c11-sfD2" style="top: 306px;"><div class="c11-fb"></div><svg class="c11-ic c11-sic"><use href="#c11-i-se" /></svg><span class="c11-ph">Buscar diagnósticos secundários</span><span class="c11-tw"><span class="c11-tv"></span><i class="c11-cr"></i></span></div>
+                  <div class="c11-hint" id="c11-hnD2" style="top: 366px;">Adicione subcategorias relacionadas ao diagnóstico principal.</div>
+                  <div class="c11-sg" id="c11-sgD2" style="top: 366px;"><div class="c11-sr"><div class="c11-sx"><div class="c11-st">Distúrbios do início e da manutenção do sono</div><div class="c11-tg">G47.0</div></div><svg class="c11-ic c11-xi"><use href="#c11-i-x" /></svg></div></div>
+
+                  <div class="c11-dd" id="c11-dkD1" style="top: 222px;"><div class="c11-lo"><div class="c11-lsp" id="c11-lsD1"></div>Buscando diagnósticos</div><div class="c11-sb"><i></i><i></i></div><div class="c11-sb"><i></i><i></i></div></div>
+                  <div class="c11-dd" id="c11-drD1" style="top: 222px;">
+                    <div class="c11-rr" id="c11-rwD1"><div class="c11-rp"></div><span class="c11-rt">F41.1 - Ansiedade generalizada</span></div>
+                    <div class="c11-rr"><span class="c11-rt">F41.0 - Transtorno de pânico</span></div>
+                    <div class="c11-rr"><span class="c11-rt">F41.2 - Transtorno misto ansioso e depressivo</span></div>
+                  </div>
+                  <div class="c11-dd" id="c11-dkD2" style="top: 362px;"><div class="c11-lo"><div class="c11-lsp" id="c11-lsD2"></div>Buscando diagnósticos</div><div class="c11-sb"><i></i><i></i></div><div class="c11-sb"><i></i><i></i></div></div>
+                  <div class="c11-dd" id="c11-drD2" style="top: 362px;">
+                    <div class="c11-rr" id="c11-rwD2"><div class="c11-rp"></div><span class="c11-rt">G47.0 - Distúrbios do início e da manutenção do sono</span></div>
+                    <div class="c11-rr"><span class="c11-rt">G47.1 - Hipersonia</span></div>
+                    <div class="c11-rr"><span class="c11-rt">F51.0 - Insônia não-orgânica</span></div>
+                  </div>
+
+                  <div class="c11-ft"></div>
+                  <div class="btn c11-sv" id="c11-svD"><span class="c11-sp"></span><span class="lbl c11-l1">Salvar diagnóstico</span><span class="lbl c11-l2">Salvando…</span></div>
+                  <div class="c11-hd"><div class="c11-bk" id="c11-bkD"><svg class="c11-ic"><use href="#c11-i-cl" /></svg><span>Prontuário</span></div><div class="c11-tt">Diagnóstico</div></div>
+                </div>
+
+                <div class="scr c11-gr" id="c11-sE">
+                  <div class="c11-pt">Ana Souza</div>
+                  <div class="c11-abs c11-sl" style="top: 142px;">Adicionar exames</div>
+                  <div class="c11-sf" id="c11-sfE" style="top: 166px;"><div class="c11-fb"></div><svg class="c11-ic c11-sic"><use href="#c11-i-se" /></svg><span class="c11-ph">Buscar procedimento</span><span class="c11-tw"><span class="c11-tv"></span><i class="c11-cr"></i></span></div>
+                  <div class="c11-abs c11-sl" style="top: 242px;">Exames selecionados <span class="c11-cnt" id="c11-cnE"><span>(0)</span><span>(1)</span><span>(2)</span><span>(3)</span><span>(4)</span></span></div>
+                  <div class="c11-hint" id="c11-hnE" style="top: 266px;">Nenhum exame selecionado ainda.</div>
+                  <div class="c11-lc" id="c11-lcE">
+                    <div class="c11-sr" id="c11-lr1"><div class="c11-sx"><div class="c11-st">Hemograma completo</div><div class="c11-tg">TUSS 40304361</div></div><svg class="c11-ic c11-xi"><use href="#c11-i-x" /></svg></div>
+                    <div class="c11-sr" id="c11-lr2"><div class="c11-sx"><div class="c11-st">TSH</div><div class="c11-tg">TUSS 40316521</div></div><svg class="c11-ic c11-xi"><use href="#c11-i-x" /></svg></div>
+                    <div class="c11-sr" id="c11-lr3"><div class="c11-sx"><div class="c11-st">T4 livre</div><div class="c11-tg">TUSS 40316491</div></div><svg class="c11-ic c11-xi"><use href="#c11-i-x" /></svg></div>
+                    <div class="c11-sr" id="c11-lr4"><div class="c11-sx"><div class="c11-st">Glicemia de jejum</div><div class="c11-tg">TUSS 40302040</div></div><svg class="c11-ic c11-xi"><use href="#c11-i-x" /></svg></div>
+                  </div>
+                  <div class="c11-abs c11-sl" style="top: 515px;">Orientações para o paciente (opcional)</div>
+                  <div class="c11-ta" id="c11-taE" style="top: 539px; height: 110px;"><span class="c11-ph">Ex.: jejum de 8 horas</span><span class="c11-tw"><span class="c11-tv"></span><i class="c11-cr"></i></span><div class="c11-fb" style="border-radius: 20px;"></div></div>
+
+                  <div class="c11-dd" id="c11-dkE" style="top: 222px;"><div class="c11-lo"><div class="c11-lsp" id="c11-lsE"></div>Buscando procedimentos</div><div class="c11-sb"><i></i><i></i></div><div class="c11-sb"><i></i><i></i></div></div>
+                  <div class="c11-dd" id="c11-dr1" style="top: 222px;">
+                    <div class="c11-rr" id="c11-rw1"><div class="c11-rp"></div><span class="c11-rt">Hemograma completo</span><span class="c11-tg">TUSS 40304361</span></div>
+                    <div class="c11-rr"><span class="c11-rt">Hemoglobina glicada (HbA1c)</span><span class="c11-tg">TUSS 40302733</span></div>
+                    <div class="c11-rr"><span class="c11-rt">Hemossedimentação (VHS)</span><span class="c11-tg">TUSS 40304370</span></div>
+                  </div>
+                  <div class="c11-dd" id="c11-dr2" style="top: 222px;">
+                    <div class="c11-rr" id="c11-rw2"><div class="c11-rp"></div><span class="c11-rt">TSH</span><span class="c11-tg">TUSS 40316521</span></div>
+                    <div class="c11-rr"><span class="c11-rt">TSH ultrassensível</span><span class="c11-tg">TUSS 40316530</span></div>
+                    <div class="c11-rr"><span class="c11-rt">Anticorpos anti-TPO</span><span class="c11-tg">TUSS 40306640</span></div>
+                  </div>
+                  <div class="c11-dd" id="c11-dr3" style="top: 222px;">
+                    <div class="c11-rr" id="c11-rw3"><div class="c11-rp"></div><span class="c11-rt">T4 livre</span><span class="c11-tg">TUSS 40316491</span></div>
+                    <div class="c11-rr"><span class="c11-rt">T4 total</span><span class="c11-tg">TUSS 40316483</span></div>
+                    <div class="c11-rr"><span class="c11-rt">T3 livre</span><span class="c11-tg">TUSS 40316467</span></div>
+                  </div>
+                  <div class="c11-dd" id="c11-dr4" style="top: 222px;">
+                    <div class="c11-rr" id="c11-rw4"><div class="c11-rp"></div><span class="c11-rt">Glicemia de jejum</span><span class="c11-tg">TUSS 40302040</span></div>
+                    <div class="c11-rr"><span class="c11-rt">Glicemia pós-prandial</span><span class="c11-tg">TUSS 40302059</span></div>
+                    <div class="c11-rr"><span class="c11-rt">Curva glicêmica</span><span class="c11-tg">TUSS 40302016</span></div>
+                  </div>
+
+                  <div class="c11-ft"></div>
+                  <div class="btn c11-sv" id="c11-svE"><span class="c11-sp"></span><span class="lbl c11-l1">Salvar pedido</span><span class="lbl c11-l2">Salvando…</span></div>
+                  <div class="c11-hd"><div class="c11-bk" id="c11-bkE"><svg class="c11-ic"><use href="#c11-i-cl" /></svg><span>Prontuário</span></div><div class="c11-tt">Pedido de exames</div></div>
+                </div>
+
+                <div class="scr c11-gr" id="c11-sC">
+                  <div class="c11-pt">Ana Souza</div>
+                  <div class="c11-gtl" style="top: 142px;">Afastamento</div>
+                  <div class="c11-if" id="c11-ifC" style="top: 164px;"><div class="c11-ifl">Dias de afastamento</div><span class="c11-ph">0</span><span class="c11-tw"><span class="c11-tv"></span><i class="c11-cr"></i></span><div class="c11-fb" style="border-radius: 20px;"></div></div>
+                  <div class="c11-gtl" style="top: 244px;">Observações</div>
+                  <div class="c11-ta" id="c11-taC" style="top: 266px; height: 120px;"><span class="c11-ph">Observações sobre o atestado</span><span class="c11-tw"><span class="c11-tv"></span><i class="c11-cr"></i></span><div class="c11-fb" style="border-radius: 20px;"></div></div>
+                  <div class="c11-ft2" style="top: 394px;">Opcional.</div>
+                  <div class="c11-ft"></div>
+                  <div class="btn c11-sv" id="c11-svC"><span class="c11-sp"></span><span class="lbl c11-l1">Salvar atestado</span><span class="lbl c11-l2">Salvando…</span></div>
+                  <div class="c11-hd"><div class="c11-bk" id="c11-bkC"><svg class="c11-ic"><use href="#c11-i-cl" /></svg><span>Prontuário</span></div><div class="c11-tt">Atestado</div></div>
+                </div>
+
+                <div class="scr c11-gr" id="c11-sL">
+                  <div class="c11-pt">Ana Souza</div>
+                  <div class="c11-abs c11-sl" style="top: 142px;">Conteúdo do laudo</div>
+                  <div class="c11-ta" id="c11-taL" style="top: 166px; height: 280px;"><span class="c11-ph"><pre>Digite o conteúdo do laudo médico.
+
+Inclua:
+• Histórico clínico relevante
+• Achados do exame físico
+• Hipóteses diagnósticas
+• Conclusões e recomendações</pre></span><span class="c11-tw"><span class="c11-tv"></span><i class="c11-cr"></i></span><div class="c11-fb" style="border-radius: 20px;"></div></div>
+                  <div class="c11-cb" id="c11-cbL" style="top: 454px;">0 palavras</div>
+                  <div class="c11-ft"></div>
+                  <div class="btn c11-sv" id="c11-svL"><span class="c11-sp"></span><span class="lbl c11-l1">Salvar laudo</span><span class="lbl c11-l2">Salvando…</span></div>
+                  <div class="c11-hd"><div class="c11-bk" id="c11-bkL"><svg class="c11-ic"><use href="#c11-i-cl" /></svg><span>Prontuário</span></div><div class="c11-tt">Laudo médico</div></div>
+                </div>
+
+                <div class="status"><span>14:10</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                <div class="island"></div>
+              </div>
+              <div class="lift"></div>
+            </div>
+          </div>
+        </section>
+
+        <div id="c11-brand" class="clip" data-start="0" data-duration="58.4" data-track-index="3">
+          <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch11-prontuario"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const { $, $$, E, tip, tap, center, push, showTip, liftOut, titleCard } = k;
+            const cam = $(".cam");
+            const hub = $("#c11-sH");
+            $$(".screen *").forEach((n) => {
+              n.setAttribute("data-layout-allow-overlap", "");
+              n.setAttribute("data-layout-allow-occlusion", "");
+            });
+            const GROUND = "#F3F4FA";
+
+            const padLift = (node, p, n) => {
+              node.style.left = p.x - n + "px";
+              node.style.top = p.y - n + "px";
+              node.style.width = p.w + 2 * n + "px";
+              node.style.height = p.h + 2 * n + "px";
+              node.style.padding = n + "px";
+              node.style.background = GROUND;
+            };
+
+            const grp1 = $("#c11-grp1");
+            const g1 = center(grp1);
+            const lg = liftOut(grp1, 4.9, 2.3, 0, 1.04);
+            padLift(lg, g1.p, 8);
+            showTip(tip("Tudo da consulta num lugar", g1.x, g1.p.y + g1.p.h + 18, "down"), 5.2, 1.85);
+
+            const alg = $("#c11-alg");
+            const a1 = center(alg);
+            const la = liftOut(alg, 9.6, 2.3, 0, 1.08);
+            padLift(la, a1.p, 10);
+            showTip(tip("Alergia a dipirona: atenção", a1.x, a1.p.y + a1.p.h + 20, "down"), 9.9, 1.85);
+
+            const lcE = $("#c11-lcE");
+            const l1 = center(lcE);
+            const ll = liftOut(lcE, 34.6, 2.0, 0, 1.06);
+            ll.style.overflow = "hidden";
+            Object.assign(ll.firstChild.style, { position: "relative", left: "0px", top: "0px" });
+            showTip(tip("Códigos TUSS automáticos", l1.x, l1.p.y + l1.p.h + 14, "down"), 34.9, 1.55);
+
+            const rRc = $("#c11-rRc");
+            const r1 = center(rRc);
+            const lr = liftOut(rRc, 54.9, 2.8, 0, 1.06);
+            lr.style.overflow = "hidden";
+            showTip(tip("Agora, a receita", r1.x, r1.p.y + r1.p.h + 12, "down"), 55.2, 2.35);
+
+            const P = {};
+            [["An", "rAn"], ["Dx", "rDx"], ["Ex", "rEx"], ["La", "rLa"], ["At", "rAt"]].forEach(([n, id]) => { P[n] = center($("#c11-" + id)); });
+            const BK = {};
+            ["A", "D", "E", "C", "L"].forEach((s) => { BK[s] = center($("#c11-bk" + s)); });
+            const SV = {};
+            ["D", "E", "C", "L"].forEach((s) => { SV[s] = center($("#c11-sv" + s)); });
+            const RW = {};
+            ["D1", "D2", "1", "2", "3", "4"].forEach((s) => { RW[s] = center($("#c11-rw" + s)); });
+            const SF = {};
+            ["D1", "D2", "E"].forEach((s) => { SF[s] = center($("#c11-sf" + s)); });
+            const TA = {};
+            ["E", "C", "L"].forEach((s) => { TA[s] = center($("#c11-ta" + s)); });
+            const IFC = center($("#c11-ifC"));
+
+            k.screens(["c11-sH", "c11-sA", "c11-sD", "c11-sE", "c11-sC", "c11-sL"]);
+
+            titleCard("#c11-t1", { at: 0.15, sparkAt: 0.75, out: 2.58 });
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out" }, 3);
+
+            const tm = $("#c11-tm");
+            const clock = { n: 0 };
+            tl.fromTo(clock, { n: 0 }, {
+              n: 55.4,
+              duration: 55.4,
+              ease: "none",
+              onUpdate() {
+                const s = 492 + Math.floor(clock.n);
+                tm.textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+              },
+            }, 3);
+
+            const shine = (el, t, d) => tl.fromTo(el, { x: -200 }, { x: 560, duration: d, ease: "power1.inOut" }, t);
+            shine($("#c11-shH"), 3.0, 0.7);
+            tl.to($("#c11-skH"), { opacity: 0, duration: 0.3 }, 3.7);
+            tl.set($("#c11-skH"), { display: "none" }, 4.02);
+            $$(".c11-e").forEach((el, i) => {
+              tl.fromTo(el, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, 3.75 + i * 0.1);
+            });
+
+            const press = (row, t) => {
+              const p = $(row).querySelector(".c11-ps");
+              tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.1 }, t);
+              tl.to(p, { opacity: 0, duration: 0.35 }, t + 0.2);
+            };
+            const openRow = (c, id, to, tTap) => {
+              tap(c.x, c.y, tTap, id);
+              press(id, tTap);
+              push("c11-sH", to, tTap + 0.2);
+            };
+            const back = (from, c, tTap) => {
+              if (c) tap(c.x, c.y, tTap, null);
+              tl.set(hub, { autoAlpha: 1 }, tTap + 0.2);
+              tl.fromTo(hub, { x: -120 }, { x: 0, duration: 0.5, ease: E, immediateRender: false }, tTap + 0.2);
+              tl.fromTo($("#" + from), { x: 0 }, { x: 402, duration: 0.5, ease: E, immediateRender: false }, tTap + 0.2);
+              tl.set($("#" + from), { autoAlpha: 0 }, tTap + 0.72);
+            };
+            const flip = (id, t, hasDetail) => {
+              const r = $(id);
+              tl.fromTo(r.querySelector(".c11-fl"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, t);
+              tl.to(r.querySelector(".c11-fl"), { opacity: 0, duration: 0.7 }, t + 0.3);
+              tl.to(r.querySelector(".c11-v:not(.c11-alt)"), { opacity: 0, duration: 0.2 }, t);
+              tl.fromTo(r.querySelector(".c11-alt"), { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, t + 0.05);
+              if (hasDetail) {
+                tl.to(r.querySelector(".c11-vs"), { y: -9, duration: 0.3, ease: E }, t);
+                tl.to(r.querySelector(".c11-lb"), { y: -9, duration: 0.3, ease: E }, t);
+                tl.fromTo(r.querySelector(".c11-dt"), { opacity: 0, y: 4 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, t + 0.1);
+              }
+            };
+            const saveBtn = (s, t) => {
+              const b = $("#c11-sv" + s);
+              tap(SV[s].x, SV[s].y, t, b);
+              tl.set(b.querySelector(".c11-l1"), { opacity: 0 }, t + 0.1);
+              tl.set(b.querySelector(".c11-l2"), { opacity: 1 }, t + 0.1);
+              tl.set(b.querySelector(".c11-sp"), { opacity: 1 }, t + 0.1);
+              tl.fromTo(b.querySelector(".c11-sp"), { rotation: 0 }, { rotation: 540, duration: 0.8, ease: "none" }, t + 0.1);
+            };
+            const typeTo = (f, full, t, dur, o) => {
+              o = o || {};
+              const v = f.querySelector(".c11-tv");
+              const st = { n: 0 };
+              const cutP = o.cut ? o.cut[0] : 0;
+              const cutN = o.cut ? o.cut[1] : 0;
+              const ease = o.cut
+                ? (p) => (p < cutP ? (p / cutP) * cutN : cutN + ((p - cutP) / (1 - cutP)) * (1 - cutN))
+                : "none";
+              tl.set(f.querySelector(".c11-ph"), { opacity: 0 }, t);
+              tl.set(f.querySelector(".c11-tw"), { opacity: 1 }, t);
+              tl.fromTo(st, { n: 0 }, {
+                n: full.length,
+                duration: dur,
+                ease,
+                onUpdate() {
+                  const n = Math.round(st.n);
+                  v.textContent = full.slice(0, n);
+                  if (o.count) o.count.textContent = full.slice(0, n).split(/\s+/).filter(Boolean).length === 1 ? "1 palavra" : full.slice(0, n).split(/\s+/).filter(Boolean).length + " palavras";
+                },
+              }, t);
+            };
+            const focus = (f, t) => tl.to(f.querySelector(".c11-fb"), { opacity: 1, duration: 0.15 }, t);
+            const unfocus = (f, t) => {
+              tl.to(f.querySelector(".c11-fb"), { opacity: 0, duration: 0.15 }, t);
+              tl.set(f.querySelector(".c11-cr"), { opacity: 0 }, t);
+            };
+            const spin = (el, t, d) => tl.fromTo(el, { rotation: 0 }, { rotation: 360 * Math.max(1, Math.round(d / 0.7)), duration: d, ease: "none" }, t);
+            const showDd = (el, t) => tl.fromTo(el, { opacity: 0, y: -6 }, { opacity: 1, y: 0, duration: 0.2, ease: E }, t);
+            const hideDd = (el, t) => tl.to(el, { opacity: 0, duration: 0.15 }, t);
+
+            const pick = (rowId, c, t) => {
+              tap(c.x, c.y, t, null);
+              const rp = $(rowId).querySelector(".c11-rp");
+              tl.fromTo(rp, { opacity: 0 }, { opacity: 1, duration: 0.1 }, t);
+            };
+
+            openRow(P.An, "#c11-rAn", "c11-sA", 7.7);
+            shine($("#c11-shA"), 8.1, 0.7);
+            tl.to($("#c11-skA"), { opacity: 0, duration: 0.3 }, 8.8);
+            tl.set($("#c11-skA"), { display: "none" }, 9.12);
+            $$(".c11-e2").forEach((el, i) => {
+              tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: E }, 8.85 + i * 0.1);
+            });
+            tl.fromTo($("#c11-flA"), { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: E }, 9.15);
+            tl.to(cam, { scale: 1.05, y: 40, duration: 1.0, ease: "power2.inOut" }, 9.3);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, 12.0);
+            back("c11-sA", BK.A, 12.55);
+
+            openRow(P.Dx, "#c11-rDx", "c11-sD", 13.6);
+            tl.to(cam, { scale: 1.06, y: 60, duration: 1.0, ease: "power2.inOut" }, 14.2);
+
+            const f1 = $("#c11-sfD1");
+            tap(SF.D1.x, SF.D1.y, 14.6, null);
+            focus(f1, 14.6);
+            typeTo(f1, "ansie", 14.75, 0.6);
+            showDd($("#c11-dkD1"), 15.45);
+            spin($("#c11-lsD1"), 15.45, 0.95);
+            hideDd($("#c11-dkD1"), 16.4);
+            showDd($("#c11-drD1"), 16.4);
+            const rD1 = $("#c11-drD1");
+            showTip(tip("Busca por CID-10", SF.D1.x, SF.D1.p.y - 4, "up"), 16.55, 1.5);
+            pick("#c11-rwD1", RW.D1, 17.75);
+            hideDd(rD1, 17.9);
+            tl.set(f1.querySelector(".c11-tw"), { opacity: 0 }, 17.9);
+            unfocus(f1, 17.9);
+            tl.set(f1, { opacity: 0 }, 17.95);
+            tl.fromTo($("#c11-sgD1"), { opacity: 0, y: -6, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: E }, 17.95);
+            tl.to($("#c11-hnD1"), { opacity: 0, duration: 0.2 }, 17.9);
+
+            const f2 = $("#c11-sfD2");
+            tap(SF.D2.x, SF.D2.y, 18.7, null);
+            focus(f2, 18.7);
+            typeTo(f2, "insôn", 18.85, 0.6);
+            showDd($("#c11-dkD2"), 19.5);
+            spin($("#c11-lsD2"), 19.5, 0.7);
+            hideDd($("#c11-dkD2"), 20.2);
+            showDd($("#c11-drD2"), 20.2);
+            pick("#c11-rwD2", RW.D2, 21.1);
+            hideDd($("#c11-drD2"), 21.25);
+            tl.set(f2.querySelector(".c11-tw"), { opacity: 0 }, 21.25);
+            tl.set(f2.querySelector(".c11-ph"), { opacity: 1 }, 21.25);
+            unfocus(f2, 21.25);
+            tl.to($("#c11-hnD2"), { opacity: 0, duration: 0.2 }, 21.25);
+            tl.fromTo($("#c11-sgD2"), { opacity: 0, y: -6, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: E }, 21.3);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.7, ease: "power2.inOut" }, 22.0);
+
+            saveBtn("D", 22.4);
+            back("c11-sD", null, 23.2);
+            flip("#c11-rDx", 24.0, true);
+
+            openRow(P.Ex, "#c11-rEx", "c11-sE", 25.0);
+            tl.to(cam, { scale: 1.06, y: 60, duration: 1.0, ease: "power2.inOut" }, 25.6);
+
+            const fE = $("#c11-sfE");
+            const seq = [
+              { tap: 25.9, type: 26.05, dur: 0.55, sk: 26.7, res: 27.55, pick: 28.2, long: true },
+              { tap: 28.9, type: 29.0, dur: 0.3, sk: 29.35, res: 29.65, pick: 30.1 },
+              { tap: 30.7, type: 30.8, dur: 0.4, sk: 31.25, res: 31.55, pick: 32.0 },
+              { tap: 32.6, type: 32.7, dur: 0.5, sk: 33.25, res: 33.55, pick: 34.0 },
+            ];
+            const qs = ["hemog", "tsh", "t4 liv", "glicemia"];
+            const rows = ["#c11-lr1", "#c11-lr2", "#c11-lr3", "#c11-lr4"].map($);
+            const dkE = $("#c11-dkE");
+            const heights = [0, 56, 113, 170, 227];
+            tl.set(lcE, { height: 0 }, 0);
+            seq.forEach((s, i) => {
+              tap(SF.E.x, SF.E.y, s.tap, null);
+              focus(fE, s.tap);
+              typeTo(fE, qs[i], s.type, s.dur);
+              showDd(dkE, s.sk);
+              spin($("#c11-lsE"), s.sk, s.res - s.sk);
+              hideDd(dkE, s.res);
+              showDd($("#c11-dr" + (i + 1)), s.res);
+              pick("#c11-rw" + (i + 1), RW[String(i + 1)], s.pick);
+              hideDd($("#c11-dr" + (i + 1)), s.pick + 0.15);
+              tl.set(fE.querySelector(".c11-tw"), { opacity: 0 }, s.pick + 0.15);
+              tl.set(fE.querySelector(".c11-ph"), { opacity: 1 }, s.pick + 0.15);
+              unfocus(fE, s.pick + 0.15);
+              tl.to(lcE, { height: heights[i + 1], duration: 0.3, ease: E }, s.pick + 0.15);
+              tl.fromTo(rows[i], { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, s.pick + 0.2);
+              const cn = $$("#c11-cnE > span");
+              tl.set(cn[i], { opacity: 0 }, s.pick + 0.15);
+              tl.set(cn[i + 1], { opacity: 1 }, s.pick + 0.15);
+            });
+            tl.to($("#c11-hnE"), { opacity: 0, duration: 0.2 }, seq[0].pick + 0.15);
+
+            tl.to(cam, { scale: 1.06, y: -40, duration: 0.9, ease: "power2.inOut" }, 36.9);
+            const taE = $("#c11-taE");
+            tap(TA.E.x, TA.E.y, 37.2, null);
+            focus(taE, 37.2);
+            typeTo(taE, "Jejum de 8 horas", 37.35, 0.85);
+            unfocus(taE, 38.4);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.7, ease: "power2.inOut" }, 38.5);
+
+            saveBtn("E", 38.9);
+            back("c11-sE", null, 39.7);
+            flip("#c11-rEx", 40.5, true);
+
+            openRow(P.At, "#c11-rAt", "c11-sC", 41.6);
+            tl.to(cam, { scale: 1.06, y: 40, duration: 1.0, ease: "power2.inOut" }, 42.2);
+            const ifC = $("#c11-ifC");
+            tap(IFC.x, IFC.y, 42.4, null);
+            focus(ifC, 42.4);
+            typeTo(ifC, "1", 42.55, 0.15);
+            unfocus(ifC, 43.0);
+            const taC = $("#c11-taC");
+            tap(TA.C.x, TA.C.y, 43.3, null);
+            focus(taC, 43.3);
+            typeTo(taC, "Repouso no dia da consulta", 43.45, 1.0);
+            unfocus(taC, 44.7);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.7, ease: "power2.inOut" }, 44.8);
+
+            saveBtn("C", 45.2);
+            back("c11-sC", null, 46.0);
+            flip("#c11-rAt", 46.8, true);
+
+            openRow(P.La, "#c11-rLa", "c11-sL", 47.8);
+            tl.to(cam, { scale: 1.05, y: 50, duration: 1.0, ease: "power2.inOut" }, 48.4);
+            const taL = $("#c11-taL");
+            const lauText = "Paciente com quadro de ansiedade e insônia há 3 meses. Exame físico sem alterações. Iniciado tratamento e solicitados exames. Retorno em 30 dias.";
+            tap(TA.L.x, TA.L.y - 60, 48.6, null);
+            focus(taL, 48.6);
+            typeTo(taL, lauText, 48.75, 3.2, { cut: [0.42, 0.37], count: $("#c11-cbL") });
+            unfocus(taL, 52.1);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.7, ease: "power2.inOut" }, 52.0);
+
+            saveBtn("L", 52.4);
+            back("c11-sL", null, 53.2);
+            flip("#c11-rLa", 54.0, false);
+
+            window.__timelines["ch11-prontuario"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

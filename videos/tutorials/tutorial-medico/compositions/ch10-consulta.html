@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #ch10 { position: absolute; inset: 0; overflow: hidden; color: var(--vm-foreground); font-family: "DM Sans", sans-serif; }
+        #ch10 .status { color: #fff; }
+        #ch10 .status-icons i { background: #fff; }
+        #ch10 .c10-call { background: #17151E; }
+        #ch10 .c10-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+        #ch10 .c10-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13, 12, 18, 0.62) 0%, rgba(13, 12, 18, 0) 22%, rgba(13, 12, 18, 0) 62%, rgba(13, 12, 18, 0.7) 100%); }
+        #ch10 .c10-badge { position: absolute; left: 20px; top: 64px; padding: 8px 10px; border-radius: 8px; background: rgba(13, 12, 18, 0.5); color: #fff; font-weight: 700; font-size: 15px; line-height: 20px; }
+        #ch10 .c10-name { position: absolute; left: 20px; top: 108px; display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 12px; border-radius: 999px; background: rgba(13, 12, 18, 0.5); color: #fff; font-size: 14px; }
+        #ch10 .c10-name b { font-weight: 700; }
+        #ch10 .c10-name i { width: 4px; height: 4px; border-radius: 50%; background: rgba(255, 255, 255, 0.6); }
+        #ch10 .c10-name em { font-style: normal; font-weight: 500; font-variant-numeric: tabular-nums; }
+        #ch10 .c10-pr { position: absolute; right: 16px; top: 64px; display: flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 12px; background: var(--vm-violet-500); color: #fff; font-weight: 700; font-size: 16px; line-height: 20px; box-shadow: 0 6px 14px rgba(23, 21, 30, 0.3); }
+        #ch10 .c10-pr svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        #ch10 .c10-pip { position: absolute; left: 274px; top: 566px; width: 112px; height: 152px; border-radius: 18px; overflow: hidden; background: #2a2733; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.85); }
+        #ch10 .c10-pip video { object-position: 50% 20%; }
+        #ch10 .c10-pip span { position: absolute; left: 8px; bottom: 8px; padding: 3px 8px; border-radius: 8px; background: rgba(13, 12, 18, 0.55); color: #fff; font-weight: 500; font-size: 11px; }
+        #ch10 .c10-bar { position: absolute; left: 20px; right: 20px; bottom: 48px; height: 84px; border-radius: 28px; background: rgba(23, 21, 30, 0.72); display: flex; align-items: center; justify-content: center; gap: 26px; }
+        #ch10 .c10-ctl { position: relative; width: 52px; height: 52px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); display: flex; align-items: center; justify-content: center; }
+        #ch10 .c10-ctl svg { position: relative; width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        #ch10 .c10-ctl .c10-off { position: absolute; inset: 0; border-radius: 50%; background: #EF4444; opacity: 0; }
+        #ch10 .c10-ctl .c10-slash { position: absolute; left: 14px; top: 25px; width: 28px; height: 3px; border-radius: 2px; background: #fff; transform: rotate(-45deg); opacity: 0; }
+        #ch10 .c10-end { background: #EF4444; width: 60px; height: 60px; }
+        #ch10 .c10-end svg { fill: #fff; stroke: none; transform: rotate(135deg); }
+        #ch10 .c10-hub { background: #F3F4FA; }
+        #ch10 .c10-ttl { position: absolute; left: 20px; top: 102px; height: 52px; padding-top: 4px; font-weight: 700; font-size: 34px; line-height: 42px; letter-spacing: -0.6px; color: var(--vm-ink-900); }
+        #ch10 .c10-sk { position: absolute; background: #E3E5F0; border-radius: 8px; }
+        #ch10 .c10-card { position: absolute; left: 16px; right: 16px; background: #fff; border-radius: 20px; }
+        #ch10 .c10-sv { position: absolute; left: 0; top: -40px; width: 110px; height: 960px; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0) 100%); transform: rotate(14deg); opacity: 0; z-index: 5; }
+        #ch10 .c10-ft { position: absolute; left: 16px; right: 16px; top: 764px; height: 52px; border-radius: 16px; background: #D8C8F8; }
+      </style>
+
+      <div id="ch10" data-composition-id="ch10-consulta" data-start="0" data-duration="20.5" data-width="1080" data-height="1920">
+        <div id="c10-bg" class="clip" data-start="0" data-duration="20.5" data-track-index="0">
+          <div class="backdrop"></div>
+          <div class="grid"></div>
+          <div class="glow glow-a"></div>
+          <div class="glow glow-b"></div>
+        </div>
+
+        <section id="c10-t1" class="clip chapter" data-start="0" data-duration="3.2" data-track-index="1">
+          <div class="chapter-words">
+            <div class="chapter-line"><span class="w">A</span><span class="w v">consulta</span></div>
+            <span class="chapter-spark"></span>
+          </div>
+        </section>
+
+        <section id="c10-phone" class="clip">
+          <div class="cam">
+            <div class="dev">
+              <div class="bezel"></div>
+              <div class="screen">
+                <div class="scr c10-call" id="c10-sCall">
+                  <video id="c10-vpa" class="c10-vid" src="assets/video/paciente.mp4" muted playsinline data-start="3" data-duration="7.4" data-media-start="0" data-track-index="0"></video>
+                  <video id="c10-vpb" class="c10-vid" src="assets/video/paciente.mp4" muted playsinline data-start="10.4" data-duration="5.4" data-media-start="6.65" data-playback-rate="0.1" data-track-index="0"></video>
+                  <div class="c10-shade"></div>
+                  <div class="c10-badge">Em chamada</div>
+                  <div class="c10-name"><b>Ana Souza</b><i></i><em id="c10-timer">00:01</em></div>
+                  <div class="c10-pr" id="c10-btnPr">
+                    <svg viewBox="0 0 24 24"><path d="M21 9V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h4" /><rect width="10" height="7" x="12" y="13" rx="2" /></svg>
+                    Prontuário
+                  </div>
+                  <div class="c10-pip" id="c10-pip">
+                    <video id="c10-vd" class="c10-vid" src="assets/video/doutora.mp4" muted playsinline data-start="3" data-duration="12.8" data-media-start="0" data-track-index="1"></video>
+                    <span>Você</span>
+                  </div>
+                  <div class="c10-bar" id="c10-ctls">
+                    <div class="c10-ctl" id="c10-mic">
+                      <div class="c10-off"></div>
+                      <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg>
+                      <div class="c10-slash"></div>
+                    </div>
+                    <div class="c10-ctl c10-end" id="c10-end"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></div>
+                    <div class="c10-ctl" id="c10-cam"><svg viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8Z" /><rect width="14" height="12" x="2" y="6" rx="2" /></svg></div>
+                  </div>
+                </div>
+
+                <div class="scr c10-hub" id="c10-sHub">
+                  <div class="c10-ttl">Prontuário</div>
+                  <div class="c10-sk c10-s" style="left: 270px; top: 112px; width: 116px; height: 32px; border-radius: 16px;"></div>
+                  <div class="c10-card c10-s" style="top: 170px; height: 88px;">
+                    <div class="c10-sk" style="left: 16px; top: 20px; width: 48px; height: 48px; border-radius: 24px;"></div>
+                    <div class="c10-sk" style="left: 80px; top: 26px; width: 140px; height: 14px;"></div>
+                    <div class="c10-sk" style="left: 80px; top: 50px; width: 96px; height: 12px;"></div>
+                  </div>
+                  <div class="c10-card c10-s" style="top: 270px; height: 76px;">
+                    <div class="c10-sk" style="left: 16px; top: 22px; width: 32px; height: 32px; border-radius: 10px;"></div>
+                    <div class="c10-sk" style="left: 64px; top: 22px; width: 170px; height: 13px;"></div>
+                    <div class="c10-sk" style="left: 64px; top: 44px; width: 220px; height: 11px;"></div>
+                  </div>
+                  <div class="c10-sk c10-s" style="left: 32px; top: 372px; width: 110px; height: 12px;"></div>
+                  <div class="c10-card c10-s" id="c10-list" style="top: 396px; height: 300px;">
+                    <div class="c10-sk" style="left: 16px; top: 13px; width: 24px; height: 24px; border-radius: 7px;"></div><div class="c10-sk" style="left: 54px; top: 18px; width: 112px; height: 13px;"></div><div class="c10-sk" style="right: 18px; top: 18px; width: 64px; height: 13px;"></div>
+                    <div class="c10-sk" style="left: 16px; top: 63px; width: 24px; height: 24px; border-radius: 7px;"></div><div class="c10-sk" style="left: 54px; top: 68px; width: 96px; height: 13px;"></div><div class="c10-sk" style="right: 18px; top: 68px; width: 72px; height: 13px;"></div>
+                    <div class="c10-sk" style="left: 16px; top: 113px; width: 24px; height: 24px; border-radius: 7px;"></div><div class="c10-sk" style="left: 54px; top: 118px; width: 70px; height: 13px;"></div><div class="c10-sk" style="right: 18px; top: 118px; width: 58px; height: 13px;"></div>
+                    <div class="c10-sk" style="left: 16px; top: 163px; width: 24px; height: 24px; border-radius: 7px;"></div><div class="c10-sk" style="left: 54px; top: 168px; width: 84px; height: 13px;"></div><div class="c10-sk" style="right: 18px; top: 168px; width: 80px; height: 13px;"></div>
+                    <div class="c10-sk" style="left: 16px; top: 213px; width: 24px; height: 24px; border-radius: 7px;"></div><div class="c10-sk" style="left: 54px; top: 218px; width: 76px; height: 13px;"></div><div class="c10-sk" style="right: 18px; top: 218px; width: 66px; height: 13px;"></div>
+                    <div class="c10-sk" style="left: 16px; top: 263px; width: 24px; height: 24px; border-radius: 7px;"></div><div class="c10-sk" style="left: 54px; top: 268px; width: 90px; height: 13px;"></div><div class="c10-sk" style="right: 18px; top: 268px; width: 60px; height: 13px;"></div>
+                  </div>
+                  <div class="c10-ft c10-s"></div>
+                  <div class="c10-sv" id="c10-sweep"></div>
+                </div>
+
+                <div class="status"><span>14:01</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                <div class="island"></div>
+              </div>
+              <div class="lift"></div>
+            </div>
+          </div>
+        </section>
+
+        <div id="c10-brand" class="clip" data-start="0" data-duration="20.5" data-track-index="3">
+          <img class="logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ch10-consulta"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const { $, $$, E, tip, tap, center, push, showTip, titleCard } = k;
+            const cam = $(".cam");
+            const pad = (n) => (n < 10 ? "0" + n : "" + n);
+
+            k.screens(["c10-sCall", "c10-sHub"]);
+            tl.set(cam, { opacity: 0 }, 0);
+            tl.set(cam, { opacity: 1 }, 3);
+
+            titleCard("#c10-t1", { at: 0.15, sparkAt: 0.75, out: 2.78 });
+
+            tl.fromTo(cam, { xPercent: 22 }, { xPercent: 0, duration: 0.8, ease: "power4.out" }, 3);
+
+            const timer = $("#c10-timer");
+            const tick = { n: 1 };
+            tl.fromTo(tick, { n: 1 }, {
+              n: 14,
+              duration: 13,
+              ease: "none",
+              onUpdate() {
+                timer.textContent = "00:" + pad(Math.floor(tick.n));
+              },
+            }, 3);
+
+            tl.to(cam, { scale: 1.12, x: -40, y: 93, duration: 1.0, ease: "power2.inOut" }, 3.8);
+            showTip(tip("Vídeo direto no app", 150, 470, "down"), 4.3, 2.2);
+
+            tl.to(cam, { scale: 1.15, x: -60, y: -30, duration: 1.0, ease: "power2.inOut" }, 6.9);
+            const pip = center("#c10-pip");
+            showTip(tip("Você aparece aqui", pip.x, pip.p.y - 4, "up"), 7.6, 1.8);
+
+            tl.to(cam, { scale: 1, x: 0, y: 0, duration: 0.8, ease: "power2.inOut" }, 9.7);
+
+            const bar = center("#c10-ctls");
+            showTip(tip("Mic e câmera à mão", 130, bar.p.y - 4, "up"), 10.2, 2.6);
+            const mic = center("#c10-mic");
+            const micEl = $("#c10-mic");
+            tap(mic.x, mic.y, 10.8, micEl);
+            tl.to(micEl.querySelector(".c10-off"), { opacity: 1, duration: 0.15 }, 10.8);
+            tl.to(micEl.querySelector(".c10-slash"), { opacity: 1, duration: 0.15 }, 10.8);
+            tap(mic.x, mic.y, 12.0, micEl);
+            tl.to([micEl.querySelector(".c10-off"), micEl.querySelector(".c10-slash")], { opacity: 0, duration: 0.15 }, 12.0);
+
+            tl.to(cam, { scale: 1.12, x: -90, y: 200, duration: 0.9, ease: "power2.inOut" }, 12.6);
+            const pr = center("#c10-btnPr");
+            const prEl = $("#c10-btnPr");
+            tl.fromTo(prEl, { scale: 1 }, { scale: 1.08, duration: 0.35, ease: "back.out(2)", transformOrigin: "100% 50%" }, 13.2);
+            showTip(tip("Prontuário a um toque", pr.x, pr.p.y + pr.p.h + 6, "down"), 13.3, 1.8);
+            tl.to(prEl, { scale: 1, duration: 0.25, ease: "power2.out" }, 14.7);
+
+            tap(pr.x, pr.y, 15.0, prEl);
+            tl.to(cam, { scale: 1, x: 0, y: 0, duration: 0.7, ease: "power2.inOut" }, 15.1);
+            push("c10-sCall", "c10-sHub", 15.2);
+            tl.to($(".status"), { color: "#17151E", duration: 0.3 }, 15.3);
+            tl.to($$(".status-icons i"), { backgroundColor: "#17151E", duration: 0.3 }, 15.3);
+
+            const sk = $$(".c10-s");
+            tl.fromTo(sk, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: E, stagger: 0.08 }, 15.55);
+            tl.fromTo($("#c10-sweep"), { x: -140, opacity: 1 }, { x: 560, duration: 0.9, ease: "power1.inOut" }, 16.5);
+            tl.set($("#c10-sweep"), { opacity: 0 }, 17.45);
+            tl.fromTo($("#c10-sweep"), { x: -140, opacity: 1 }, { x: 560, duration: 0.9, ease: "power1.inOut", immediateRender: false }, 17.7);
+            tl.set($("#c10-sweep"), { opacity: 0 }, 18.65);
+            tl.to(cam, { scale: 1.05, y: 20, duration: 1.8, ease: "power2.inOut" }, 16.0);
+            tl.to(cam, { scale: 1, y: 0, duration: 0.5, ease: "power2.inOut" }, 18.6);
+
+            tl.to(cam, { xPercent: -24, duration: 0.42, ease: "power4.in" }, 19.7);
+            tl.set(cam, { opacity: 0 }, 20.12);
+
+            window.__timelines["ch10-consulta"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

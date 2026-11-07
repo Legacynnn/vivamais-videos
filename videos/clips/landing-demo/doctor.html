@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, height=800">
+    <title>Landing demo · lado da médica</title>
+    <script src="../../../node_modules/gsap/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand/tokens.css">
+    <script src="tools/icons.js"></script>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1280px; height: 800px; overflow: hidden; background: #F9FAFB; }
+      body { font-family: "DM Sans", sans-serif; color: #111827; -webkit-font-smoothing: antialiased; }
+      .ic { display: inline-flex; width: var(--s, 18px); height: var(--s, 18px); flex: none; }
+      .ic svg { width: 100%; height: 100%; stroke-width: var(--w, 2); }
+      #page { position: relative; width: 1280px; height: 800px; overflow: hidden; }
+      .top { position: absolute; left: 0; right: 0; top: 0; height: 56px; background: #fff; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; padding: 0 24px; gap: 14px; }
+      .top img { height: 26px; }
+      .top .sep { width: 1px; height: 22px; background: #E5E7EB; }
+      .top .who { font-size: 14px; color: #4B5563; }
+      .top .live { margin-left: auto; display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #F0FDF4; color: #15803D; font-weight: 500; font-size: 13px; opacity: 0; }
+      .top .live i { width: 7px; height: 7px; border-radius: 50%; background: #22C55E; }
+      .video { position: absolute; left: 24px; top: 80px; width: 620px; height: 696px; border-radius: 16px; overflow: hidden; background: #1F1B2E; }
+      .wait { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: #fff; background: linear-gradient(180deg, #22084A, #350E6F); }
+      .wait .av { width: 96px; height: 96px; border-radius: 50%; background: rgba(255, 255, 255, 0.12); display: flex; align-items: center; justify-content: center; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 34px; }
+      .wait span { font-size: 15px; color: rgba(255, 255, 255, 0.75); }
+      .feed { position: absolute; inset: 0; opacity: 0; background: linear-gradient(170deg, #EFE9F7 0%, #D9CDEB 60%, #C7B8E0 100%); overflow: hidden; }
+      .feed img { position: absolute; left: -40px; top: 10px; width: 700px; height: 700px; object-fit: cover; transform-origin: 50% 30%; }
+      .name { position: absolute; left: 16px; bottom: 16px; display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; background: rgba(13, 12, 18, 0.55); color: #fff; font-weight: 500; font-size: 13px; }
+      .name i { width: 7px; height: 7px; border-radius: 50%; background: #22C55E; }
+      .self { position: absolute; right: 16px; top: 16px; width: 150px; height: 100px; border-radius: 12px; overflow: hidden; border: 2px solid rgba(255, 255, 255, 0.8); }
+      .self img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+      .bar { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 10px; padding: 8px; border-radius: 14px; background: rgba(13, 12, 18, 0.55); }
+      .bar b { width: 40px; height: 40px; border-radius: 10px; background: rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: #fff; }
+      .bar b.end { background: #EF4444; }
+      .ended { position: absolute; inset: 0; background: rgba(13, 12, 18, 0.7); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; opacity: 0; }
+      .ended b { font-family: "Space Grotesk", sans-serif; font-size: 22px; }
+      .ended span { margin-top: 6px; font-size: 14px; color: rgba(255, 255, 255, 0.75); }
+      .rec { position: absolute; left: 668px; top: 80px; width: 588px; height: 696px; }
+      .rec-h { display: flex; justify-content: space-between; align-items: center; height: 40px; }
+      .rec-h h1 { font-size: 24px; font-weight: 700; }
+      .ai { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 8px; border: 1px solid #DDD6FE; background: #F5F3FF; color: #6D28D9; font-weight: 500; font-size: 14px; }
+      .info { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; padding: 14px 16px; border-radius: 8px; border: 1px solid #E5E7EB; background: #fff; }
+      .info small { display: block; font-size: 12px; color: #6B7280; }
+      .info b { display: block; margin-top: 1px; font-weight: 500; font-size: 14px; }
+      .acc { margin-top: 10px; border-radius: 8px; border: 1px solid #E5E7EB; background: #fff; overflow: hidden; }
+      .acc.saved { border-color: #86EFAC; background: #F0FDF4; }
+      .acc-h { display: flex; align-items: center; gap: 10px; padding: 12px 16px; }
+      .acc-h .ic { color: #7E3AEE; }
+      .acc-h div { flex: 1; min-width: 0; }
+      .acc-h h3 { font-size: 17px; font-weight: 600; }
+      .acc-h h4 { font-size: 13px; font-weight: 400; color: #6B7280; }
+      .acc-h p { margin-top: 3px; font-weight: 500; font-size: 12px; color: #9531FF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .acc-h .chev { color: #6B7280; }
+      .acc-b { padding: 0 16px; height: 0; overflow: hidden; }
+      .fld { height: 40px; border-radius: 8px; border: 1px solid #D1D5DB; display: flex; align-items: center; gap: 8px; padding: 0 12px; font-size: 14px; color: #111827; }
+      .fld .ph { color: #9CA3AF; }
+      .caret { width: 1.5px; height: 18px; background: #7E3AEE; }
+      .lbl { margin: 10px 0 6px; font-weight: 500; font-size: 13px; color: #374151; }
+      .cid { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; background: #F5F3FF; color: #5B21B6; font-weight: 500; font-size: 14px; }
+      .med { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; border: 1px solid #E5E7EB; margin-bottom: 8px; }
+      .med .pill { width: 40px; height: 40px; border-radius: 8px; background: #F3F4F6; display: flex; align-items: center; justify-content: center; color: #6B7280; }
+      .med b { display: block; font-size: 14px; }
+      .med span { display: block; font-size: 12px; color: #6B7280; }
+      .med em { margin-left: auto; font-style: normal; padding: 2px 8px; border-radius: 6px; background: #F3F4F6; font-size: 11px; font-weight: 500; color: #4B5563; }
+      .fin { position: absolute; left: 0; right: 0; bottom: 0; height: 48px; border-radius: 8px; background: #7E3AEE; color: #fff; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; font-size: 15px; overflow: hidden; }
+      .fin .l1 { position: relative; display: flex; align-items: center; gap: 10px; }
+      .fin .l2, .fin .l3 { position: absolute; display: flex; align-items: center; gap: 10px; opacity: 0; }
+      .fin .done { position: absolute; inset: 0; background: #16A34A; opacity: 0; }
+      .spin { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.35); border-top-color: #fff; }
+      .toast { position: absolute; right: 24px; bottom: 92px; width: 380px; display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; background: #fff; border: 1px solid #E5E7EB; box-shadow: 0 16px 40px rgba(17, 24, 39, 0.14); opacity: 0; }
+      .toast > b { width: 36px; height: 36px; border-radius: 10px; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; }
+      .toast strong { display: block; font-size: 14px; }
+      .toast span { display: block; font-size: 13px; color: #6B7280; }
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <div class="top">
+        <img src="assets/brand/lockup-cor.svg" alt="">
+        <i class="sep"></i>
+        <span class="who">Consulta · Ana Souza · Clínico geral · 15:30</span>
+        <span class="live" id="live"><i></i><span id="clock">Em chamada · 00:00</span></span>
+      </div>
+
+      <div class="video">
+        <div class="wait"><div class="av">AS</div><span>Aguardando Ana Souza entrar…</span></div>
+        <div class="feed" id="feed"><img src="assets/web/portrait-selfie.webp" alt="" id="feed-img"><div class="name"><i></i>Ana Souza</div></div>
+        <div class="self"><img src="assets/web/doctor-julia.webp" alt=""></div>
+        <div class="bar"><b><i data-i="mic" class="ic"></i></b><b><i data-i="video" class="ic"></i></b><b><i data-i="message-circle" class="ic"></i></b><b class="end"><i data-i="phone-off" class="ic"></i></b></div>
+        <div class="ended" id="ended"><b>Consulta encerrada</b><span>Documentos enviados ao paciente</span></div>
+      </div>
+
+      <div class="rec">
+        <div class="rec-h"><h1>Prontuário Médico</h1><span class="ai"><i data-i="sparkles" class="ic" style="--s:16px"></i>Resumir com IA</span></div>
+        <div class="info">
+          <div><small>Motivo da Consulta</small><b>Dor de garganta há 3 dias, febre baixa</b></div>
+          <div><small>Data e Hora</small><b>08/10/2026 · 15:30</b></div>
+          <div><small>Médico</small><b>Dra. Júlia Andrade</b></div>
+          <div><small>Especialidade</small><b>Clínico geral</b></div>
+        </div>
+        <div class="acc saved">
+          <div class="acc-h"><i data-i="clipboard-list" class="ic"></i><div><h3>Anamnese</h3><h4>Editar anamnese do paciente</h4><p>Dor de garganta há 3 dias · febre baixa · sem alergias</p></div><i data-i="chevron-down" class="ic chev"></i></div>
+        </div>
+        <div class="acc" id="acc-dx">
+          <div class="acc-h"><i data-i="brain" class="ic"></i><div><h3>Diagnóstico</h3><h4>Adicionar diagnóstico (CID-10)</h4><p id="dx-sum" style="opacity:0">J02.9 · Faringite aguda</p></div><i data-i="chevron-down" class="ic chev"></i></div>
+          <div class="acc-b" id="dx-b">
+            <div class="fld"><i data-i="search" class="ic" style="--s:16px;color:#9CA3AF"></i><span id="dx-typed"></span><i class="caret" id="dx-caret"></i></div>
+            <div class="lbl">Diagnóstico Principal:</div>
+            <span class="cid" id="dx-chip" style="opacity:0">J02.9 - Faringite aguda, não especificada</span>
+          </div>
+        </div>
+        <div class="acc" id="acc-rx">
+          <div class="acc-h"><i data-i="pill" class="ic"></i><div><h3>Prescrição de Medicamentos</h3><h4>Adicionar Prescrição de Medicamentos</h4><p id="rx-sum" style="opacity:0">Paracetamol 750 mg · Ibuprofeno 400 mg</p></div><i data-i="chevron-down" class="ic chev"></i></div>
+          <div class="acc-b" id="rx-b">
+            <div class="lbl">Medicamentos selecionados (2)</div>
+            <div class="med" id="m1"><span class="pill"><i data-i="pill" class="ic"></i></span><div><b>Paracetamol 750 mg</b><span>1 comprimido de 6/6h se febre ou dor · 3 dias</span></div><em>Sem Tarja</em></div>
+            <div class="med" id="m2"><span class="pill"><i data-i="pill" class="ic"></i></span><div><b>Ibuprofeno 400 mg</b><span>1 comprimido de 8/8h após as refeições · 3 dias</span></div><em>Sem Tarja</em></div>
+          </div>
+        </div>
+        <div class="fin" id="fin">
+          <i class="done" id="fin-done"></i>
+          <span class="l1" id="l1"><i data-i="file-check" class="ic"></i>Finalizar Prontuário (1 documento)</span>
+          <span class="l2" id="l2"><i class="spin" id="spin"></i>Assinando documentos…</span>
+          <span class="l3" id="l3"><i data-i="badge-check" class="ic"></i>Prontuário Finalizado · Receita assinada (ICP-Brasil)</span>
+        </div>
+      </div>
+
+      <div class="toast" id="toast"><b><i data-i="send" class="ic"></i></b><div><strong>Receita enviada a Ana Souza</strong><span>Chegou no app da paciente</span></div></div>
+    </div>
+    <script>
+      (function () {
+        const $ = (s) => document.querySelector(s);
+        document.querySelectorAll("[data-i]").forEach((el) => {
+          el.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">${ICONS[el.dataset.i]}</svg>`;
+        });
+        const DUR = 5.6;
+        const tl = gsap.timeline({ paused: true });
+        const fmt = (s) => `Em chamada · ${String(Math.floor(s / 60)).padStart(2, "0")}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+
+        tl.to("#live", { opacity: 1, duration: 0.3, ease: "power2.out" }, 1.0);
+        tl.to("#feed", { opacity: 1, duration: 0.45, ease: "power2.out" }, 1.0);
+        tl.fromTo("#feed-img", { scale: 1 }, { scale: 1.04, duration: 3.3, ease: "sine.inOut", immediateRender: false }, 1.0);
+        const clock = { s: 1 };
+        tl.fromTo(clock, { s: 1 }, { s: 768, duration: 3.2, ease: "power2.in", immediateRender: false, onUpdate: () => ($("#clock").textContent = fmt(clock.s)) }, 1.0);
+
+        tl.to("#dx-b", { height: 96, duration: 0.4, ease: "power3.out" }, 1.75);
+        const dx = "J02.9";
+        const typed = { n: 0 };
+        tl.fromTo(typed, { n: 0 }, { n: dx.length, duration: 0.35, ease: "none", immediateRender: false, onUpdate: () => ($("#dx-typed").textContent = dx.slice(0, Math.round(typed.n))) }, 1.95);
+        tl.to("#dx-chip", { opacity: 1, duration: 0.25, ease: "power2.out" }, 2.35);
+        tl.to("#dx-sum", { opacity: 1, duration: 0.25, ease: "power2.out" }, 2.35);
+        tl.to("#acc-dx", { borderColor: "#FCD34D", backgroundColor: "#FFFBEB", duration: 0.25, ease: "power2.out" }, 2.35);
+        tl.set("#dx-caret", { opacity: 0 }, 2.35);
+        tl.to("#dx-b", { height: 0, duration: 0.35, ease: "power3.inOut" }, 2.55);
+
+        tl.to("#rx-b", { height: 150, duration: 0.4, ease: "power3.out" }, 2.6);
+        tl.fromTo("#m1", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 2.75);
+        tl.fromTo("#m2", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 2.85);
+        tl.to("#rx-sum", { opacity: 1, duration: 0.25, ease: "power2.out" }, 2.9);
+        tl.to("#acc-rx", { borderColor: "#FCD34D", backgroundColor: "#FFFBEB", duration: 0.25, ease: "power2.out" }, 2.9);
+
+        tl.to("#fin", { scale: 0.98, duration: 0.1, ease: "power2.out" }, 3.0);
+        tl.to("#fin", { scale: 1, duration: 0.2, ease: "power2.out" }, 3.12);
+        tl.to("#l1", { opacity: 0, duration: 0.15 }, 3.02);
+        tl.to("#l2", { opacity: 1, duration: 0.15 }, 3.05);
+        tl.fromTo("#spin", { rotation: 0 }, { rotation: 360, duration: 0.6, ease: "none", repeat: 1, immediateRender: false }, 3.05);
+        tl.to("#l2", { opacity: 0, duration: 0.15 }, 3.2);
+        tl.to("#fin-done", { opacity: 1, duration: 0.25, ease: "power2.out" }, 3.2);
+        tl.to("#l3", { opacity: 1, duration: 0.25, ease: "power2.out" }, 3.22);
+        tl.to(["#acc-dx", "#acc-rx"], { borderColor: "#86EFAC", backgroundColor: "#F0FDF4", duration: 0.3, ease: "power2.out" }, 3.2);
+        tl.to("#rx-b", { height: 0, duration: 0.4, ease: "power3.inOut" }, 3.6);
+
+        tl.to("#ended", { opacity: 1, duration: 0.3, ease: "power2.out" }, 4.25);
+        tl.to("#live", { opacity: 0, duration: 0.3, ease: "power2.out" }, 4.25);
+        tl.fromTo("#toast", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, 4.85);
+        tl.set({}, {}, DUR);
+
+        const ready = Promise.all([document.fonts.ready, ...[...document.images].map((i) => i.decode().catch(() => {}))]).then(() => { tl.seek(0, false); });
+        window.LD = { ready, seek: (t) => { tl.seek(t, false); }, duration: DUR };
+      })();
+    </script>
+  </body>
+</html>

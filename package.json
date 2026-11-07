@@ -10,7 +10,8 @@
     "stock": "node tools/stock.mjs",
     "tv": "node tools/tv-bundle.mjs",
     "deck:export": "node presentations/tools/export.mjs",
-    "deck:pptx": "node presentations/tools/export-pptx.mjs"
+    "deck:pptx": "node presentations/tools/export-pptx.mjs",
+    "flyer:export": "node presentations/tools/flyer.mjs"
   },
   "devDependencies": {
     "gsap": "^3.14.2",

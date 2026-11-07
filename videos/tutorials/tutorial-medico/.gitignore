@@ -1,0 +1,18 @@
+node_modules/
+snapshots/
+renders/
+.hyperframes/
+.thumbnails/
+
+# sync:start
+/assets/brand/
+/assets/doctors/camila.jpg
+/assets/illustrations/account-type-doctor.webp
+/assets/illustrations/account-type-patient.webp
+/assets/people/ana.jpg
+/assets/video/doutora-end.jpg
+/assets/video/doutora.mp4
+/assets/video/paciente-a.jpg
+/assets/video/paciente-b.jpg
+/assets/video/paciente.mp4
+# sync:end
