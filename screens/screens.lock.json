@@ -1,0 +1,146 @@
+{
+  "account-type": {
+    "hash": "f5de0e04ec8db46aa4a9d5cbb04689c1b45941c1",
+    "commit": "d96788ae26d495728485695b86889c66ca70dec3"
+  },
+  "client-home": {
+    "hash": "9b051dca4d7e5f6e1c54b5b11a2510bbcb7cfc57",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "signin": {
+    "hash": "bb6ef52fb8a0b1625ae7b031b818492e77baf096",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "plantao-anamnese": {
+    "hash": "47a5f56009629ad7943e14b3968ff3b85be7972d",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "plantao-hub": {
+    "hash": "24be50233b330f2595a656f7b058042e10f3577c",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "plantao-queue": {
+    "hash": "eaaf1fa326e762885049f7c1a0f82dca118c7fda",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "post-consultation": {
+    "hash": "beb3ccebcd80a1931a89a0621b32b8c22d425268",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "plantao-called": {
+    "hash": "eaaf1fa326e762885049f7c1a0f82dca118c7fda",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "ai-chat": {
+    "hash": "8ea8825fce31a689726ecf7ab33f8a6fb4528b11",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "plantao-checkout": {
+    "hash": "11fb6b841aab2260f980b40e2f423ab788f63a74",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "plantao-pay": {
+    "hash": "26e78c403910ff89c674ef2042e492afa30cc83c",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "plantao-success": {
+    "hash": "5c71208f5a015ff47f58e3dce46b0bff6d24f4af",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "client-home-company": {
+    "hash": "9b051dca4d7e5f6e1c54b5b11a2510bbcb7cfc57",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "my-plan": {
+    "hash": "b35d0defc131963740bf2f11c0e6f0d691446e25",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "health-profile": {
+    "hash": "9460099987ef26bc2f095efe9877e6feb9fb8b76",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "ai-chat-duvida": {
+    "hash": "8ea8825fce31a689726ecf7ab33f8a6fb4528b11",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "plantao-queue-countdown": {
+    "hash": "eaaf1fa326e762885049f7c1a0f82dca118c7fda",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "plantao-anamnese-steps": {
+    "hash": "47a5f56009629ad7943e14b3968ff3b85be7972d",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "consult-chat": {
+    "hash": "631461b0cf176ff4d7eddd9cddef39380b669cbd",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "call-chat": {
+    "hash": "1fc63ee1e13b25c82408e39289b49be674fe35a6",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "consultation-record": {
+    "hash": "39737959fc51b5682f95b4f2a6f9cd82f564fe74",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "kit-fields": {
+    "hash": "1824aafdbd58d9c7305ee9da64eff88c3776418e",
+    "commit": "d96788ae26d495728485695b86889c66ca70dec3"
+  },
+  "kit-headers": {
+    "hash": "d53f33c9fcbb31cd5664125b3df228d001e88aeb",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "kit-buttons": {
+    "hash": "60a3dd7585f20cf2bd756bd41053a52f98ddd697",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "kit-feedback": {
+    "hash": "f1730947f5611d324c3bd0b82ad518d35566be94",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "kit-identity": {
+    "hash": "291d4272b8d37b598327467c11a94d3692ce8d42",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "kit-selection": {
+    "hash": "c8dfc200a9de5c212a2d18d2f25a74d69d771046",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "search-results": {
+    "hash": "c0413dbfce29feba63f90d2405b6f128ed19b9f5",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "search-filters": {
+    "hash": "c0413dbfce29feba63f90d2405b6f128ed19b9f5",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "specialty-picker": {
+    "hash": "c0413dbfce29feba63f90d2405b6f128ed19b9f5",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "doctor-profile": {
+    "hash": "27e14a17cdee917840e40b0ad0d918c070dd45c6",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "anamnese-fill": {
+    "hash": "09015b686099d1b3d3ec350ca5bf364243c860f3",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "video-call": {
+    "hash": "f46c5b8b585c45b357523bfdda8a7c03f7d77655",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "search-benefit": {
+    "hash": "c0413dbfce29feba63f90d2405b6f128ed19b9f5",
+    "commit": "75c216dab3af3063418f817db70e366dbcd31d73"
+  },
+  "doctor-calendar": {
+    "hash": "f154b26f2b37a11e4e2caffd5f79625d79e34860",
+    "commit": "d96788ae26d495728485695b86889c66ca70dec3"
+  },
+  "client-home-specialties": {
+    "hash": "61bfe6274d917c4536ddb2cdf3189a1218b655e9",
+    "commit": "d96788ae26d495728485695b86889c66ca70dec3"
+  }
+}

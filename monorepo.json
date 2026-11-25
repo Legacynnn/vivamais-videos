@@ -1,0 +1,27 @@
+{
+  "url": "https://gitlab.com/vivamais-ai/vivamais-monorepo.git",
+  "ref": "main",
+  "paths": [
+    "/packages/theme/",
+    "/packages/web-ui/",
+    "/packages/tours/",
+    "/packages/ai-client/",
+    "/packages/app-screens/",
+    "/packages/brand/",
+    "/packages/tsconfig/",
+    "/packages/sdk/src/",
+    "/apps/mobile/src/",
+    "/apps/mobile/assets/",
+    "/apps/mobile/tailwind.config.js",
+    "/apps/mobile/global.css",
+    "/apps/mobile/package.json",
+    "/apps/mobile/DESIGN.md",
+    "/apps/mobile/PRODUCT.md",
+    "/apps/web/app/",
+    "/apps/web/components/",
+    "/apps/web/public/",
+    "/apps/web/package.json",
+    "/apps/site/src/",
+    "/CONTEXT.md"
+  ]
+}

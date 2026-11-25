@@ -1,0 +1,1 @@
+module.exports = { hairlineWidth: () => "0.5px", platformSelect: (options) => options.ios ?? options.native ?? options.default, pixelRatio: () => 3, fontScale: () => 1, roundToNearestPixel: (n) => n };
