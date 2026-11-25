@@ -26,7 +26,7 @@ console.log("brand/tokens.css");
 
 const app = fileURLToPath(new URL("../.monorepo/packages/theme/tokens.json", import.meta.url));
 if (!existsSync(app)) {
-  console.log("skip brand/app-ui.css: run `npm run sync:monorepo`");
+  console.log("skip brand/app-ui.css: run `pnpm run sync:monorepo`");
   process.exit(0);
 }
 const appTokens = JSON.parse(readFileSync(app, "utf8"));

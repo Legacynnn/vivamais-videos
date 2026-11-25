@@ -9,6 +9,6 @@ export function pkg(name, file = "") {
   for (let dir = process.cwd(); ; dir = dirname(dir)) {
     const hit = join(dir, "node_modules", name);
     if (existsSync(hit)) return pathToFileURL(join(hit, file));
-    if (dir === dirname(dir)) throw new Error(`${name} not installed; run npm install at the repo root`);
+    if (dir === dirname(dir)) throw new Error(`${name} not installed; run pnpm install at the repo root`);
   }
 }

@@ -4,7 +4,7 @@ App screens rendered from the real app source, for videos, decks and static ads.
 
 ## How it works
 
-`npm run screens` bundles every `mobile/*.screen.tsx` with esbuild, mounts it in headless Chrome at 402×874 and writes to `dist/` (gitignored):
+`pnpm run screens` bundles every `mobile/*.screen.tsx` with esbuild, mounts it in headless Chrome at 402×874 and writes to `dist/` (gitignored):
 
 - `assets/screens/html/<id>--<state>.html`: static markup, one file per state.
 - `assets/screens/screens.css`: Tailwind compiled with the app's own `tailwind.config.js`, scoped under `.vms`, no transitions.
@@ -28,7 +28,7 @@ export default SignInScreen;
 
 A state is a fixture (`fixture.ts`):
 
-- `queries`: `[{ key, data }]`, served to `useQuery` by key prefix. `npm run screens -- <id> --keys` lists every key the screen asks for and whether it was fed. Unfed keys render the empty state; `loading: true` renders loading.
+- `queries`: `[{ key, data }]`, served to `useQuery` by key prefix. `pnpm run screens <id> --keys` lists every key the screen asks for and whether it was fed. Unfed keys render the empty state; `loading: true` renders loading.
 - `form`: react-hook-form default values.
 - `params`, `pathname`: expo-router.
 - `user`, `role`: auth session.
@@ -44,7 +44,7 @@ Shared data lives in `fixtures/`. When a hook cannot be fed through queries, put
 
 ## Using a screen
 
-In a composition or deck, leave a marker; `npm run sync` fills it and copies the CSS, fonts and images into `assets/screens/`:
+In a composition or deck, leave a marker; `pnpm run sync` fills it and copies the CSS, fonts and images into `assets/screens/`:
 
 ```html
 <link rel="stylesheet" href="assets/screens/screens.css">
@@ -55,7 +55,7 @@ The parent needs `position: relative` and a 402×874 box. Target elements by `ar
 
 ## Staying current
 
-`npm run sync:monorepo` moves `.monorepo` to the latest `main`, regenerates brand colours and rebuilds screens. `screens.lock.json` records the hash of every app file each screen bundles; when the app changed under a screen the build says so. Compare the new shot, re-check videos that use the screen, then `npm run screens -- --stamp <id>`.
+`pnpm run sync:monorepo` moves `.monorepo` to the latest `main`, regenerates brand colours and rebuilds screens. `screens.lock.json` records the hash of every app file each screen bundles; when the app changed under a screen the build says so. Compare the new shot, re-check videos that use the screen, then `pnpm run screens --stamp <id>`.
 
 ## Limits
 

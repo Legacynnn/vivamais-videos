@@ -41,7 +41,7 @@ if (!key) {
 }
 const brief = positionals.join(" ").trim();
 if (!brief) {
-  console.error('usage: npm run imagine -- "brief" [-m nb,gpt,flux] [-r ref.jpg] [-a 3:4|9:16|1:1|4:5] [--n 2] [--screen] [--raw]');
+  console.error('usage: pnpm run imagine "brief" [-m nb,gpt,flux] [-r ref.jpg] [-a 3:4|9:16|1:1|4:5] [--n 2] [--screen] [--raw]');
   process.exit(1);
 }
 

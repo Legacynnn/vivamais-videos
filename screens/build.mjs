@@ -139,7 +139,7 @@ for (const file of files) {
     const changed = Boolean(known) && known.hash !== screen.hash && known.commit !== commit;
     if (stamp || !changed) lock[screen.id] = { hash: screen.hash, commit };
     manifest[screen.id] = { ...meta, states, sources: screen.sources.length, changed: changed && !stamp };
-    console.log(`${screen.id}: ${states.join(", ")} (${screen.sources.length} app files)${changed && !stamp ? ` — app source changed since ${known.commit.slice(0, 9)}; review the shots, then \`npm run screens -- --stamp ${screen.id}\`` : ""}`);
+    console.log(`${screen.id}: ${states.join(", ")} (${screen.sources.length} app files)${changed && !stamp ? ` — app source changed since ${known.commit.slice(0, 9)}; review the shots, then \`pnpm run screens --stamp ${screen.id}\`` : ""}`);
   } catch (error) {
     failed.push(name);
     console.error(`${name}: ${String(error.message ?? error).split("\n").slice(0, 8).join("\n")}`);

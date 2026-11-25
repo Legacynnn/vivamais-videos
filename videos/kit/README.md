@@ -1,6 +1,6 @@
 # Kit
 
-New videos load two runtime libraries, synced into `assets/kit/` through `assets.json` entries that start with `@kit/`. Edit them here, never the copies; `npm run sync` pushes changes to every video that maps them.
+New videos load two runtime libraries, synced into `assets/kit/` through `assets.json` entries that start with `@kit/`. Edit them here, never the copies; `pnpm run sync` pushes changes to every video that maps them.
 
 ## `motion/` — brand motion (`VMMotion`)
 

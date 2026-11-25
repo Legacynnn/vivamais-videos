@@ -13,7 +13,7 @@ export const git = (...args) => execFileSync("git", ["-C", checkout, ...args], {
 export const readLock = () => (existsSync(lockFile) ? JSON.parse(readFileSync(lockFile, "utf8")) : null);
 
 export function requireCheckout() {
-  if (!existsSync(join(checkout, ".git"))) throw new Error("monorepo not fetched: run `npm run sync:monorepo`");
+  if (!existsSync(join(checkout, ".git"))) throw new Error("monorepo not fetched: run `pnpm run sync:monorepo`");
   return checkout;
 }
 

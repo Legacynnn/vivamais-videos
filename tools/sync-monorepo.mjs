@@ -16,11 +16,11 @@ if (status) {
   const head = remoteHead();
   if (!lock) console.log(`no lock; ${config.ref} is at ${head.slice(0, 9)}`);
   else if (lock.sha === head) console.log(`up to date with ${config.ref} (${lock.sha.slice(0, 9)}, ${lock.date})`);
-  else console.log(`behind ${config.ref}: locked ${lock.sha.slice(0, 9)} (${lock.date}), remote ${head.slice(0, 9)}. Run \`npm run sync:monorepo\`.`);
+  else console.log(`behind ${config.ref}: locked ${lock.sha.slice(0, 9)} (${lock.date}), remote ${head.slice(0, 9)}. Run \`pnpm run sync:monorepo\`.`);
   process.exit(0);
 }
 
-if (locked && !lock) throw new Error("--locked needs monorepo.lock; run `npm run sync:monorepo` once");
+if (locked && !lock) throw new Error("--locked needs monorepo.lock; run `pnpm run sync:monorepo` once");
 
 if (!existsSync(join(checkout, ".git"))) {
   execFileSync("git", ["clone", "--filter=blob:none", "--no-checkout", "--depth", "1", "--branch", config.ref, config.url, checkout], { stdio: "inherit" });
@@ -49,4 +49,4 @@ const roles = Object.fromEntries(
 const next = { ...brand, color: { ...theme.color, ...roles, ...brand.colorLocal } };
 const before = JSON.stringify(brand.color);
 writeFileSync(brandFile, `${JSON.stringify(next, null, 2)}\n`);
-console.log(before === JSON.stringify(next.color) ? "brand/tokens.json colours unchanged" : "brand/tokens.json colours updated from @vivamais/theme; run `npm run sync:brand`");
+console.log(before === JSON.stringify(next.color) ? "brand/tokens.json colours unchanged" : "brand/tokens.json colours updated from @vivamais/theme; run `pnpm run sync:brand`");

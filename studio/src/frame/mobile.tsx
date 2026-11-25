@@ -80,7 +80,7 @@ export function MobileFrame() {
   if (!items.length) {
     return (
       <main style={{ padding: 56, color: "#55525F", fontSize: 16 }}>
-        Nenhuma tela gerada. Rode <code>npm run screens</code> na raiz do repo.
+        Nenhuma tela gerada. Rode <code>pnpm run screens</code> na raiz do repo.
       </main>
     );
   }

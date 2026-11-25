@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "studio": "npm --prefix studio run dev",
-    "studio:build": "npm --prefix studio run build",
+    "studio": "pnpm --dir studio dev",
+    "studio:build": "pnpm --dir studio build",
     "sync": "node tools/sync.mjs",
     "sync:brand": "node tools/sync-brand.mjs && node tools/sync.mjs",
     "sync:monorepo": "node tools/sync-monorepo.mjs && node tools/sync-brand.mjs && node screens/build.mjs && node tools/sync.mjs",
@@ -21,8 +21,8 @@
     "render": "node tools/render.mjs",
     "imagine": "node tools/imagine.mjs",
     "ref": "node tools/ref.mjs",
-    "remotion": "npm --prefix remotion run dev",
-    "remotion:render": "npm --prefix remotion run render --"
+    "remotion": "pnpm --dir remotion dev",
+    "remotion:render": "pnpm --dir remotion render"
   },
   "devDependencies": {
     "@hookform/resolvers": "^7.0.5",
@@ -48,5 +48,6 @@
   },
   "config": {
     "hyperframes": "0.8.142"
-  }
+  },
+  "packageManager": "pnpm@11.23.0"
 }

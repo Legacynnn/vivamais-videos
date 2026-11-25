@@ -6,7 +6,7 @@ const link = `${monorepo}/packages/web-ui/node_modules`;
 const target = fileURLToPath(new URL("../node_modules", import.meta.url));
 
 if (!existsSync(`${monorepo}/packages/web-ui`)) {
-  console.error("Missing .monorepo/packages/web-ui. Run `npm run sync:monorepo` at the repo root.");
+  console.error("Missing .monorepo/packages/web-ui. Run `pnpm run sync:monorepo` at the repo root.");
   process.exit(1);
 }
 

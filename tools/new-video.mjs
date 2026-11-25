@@ -9,7 +9,7 @@ const MODELS = { ad: "ads", tutorial: "tutorials" };
 const [model, slug, format = "portrait"] = process.argv.slice(2);
 const presets = JSON.parse(readFileSync(join(root, "brand/formats.json"), "utf8"));
 
-if (!MODELS[model]) throw new Error("Use: npm run new -- <ad|tutorial> <slug> [portrait|square|landscape]");
+if (!MODELS[model]) throw new Error("Use: pnpm run new <ad|tutorial> <slug> [portrait|square|landscape]");
 if (!slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`Use a kebab-case slug, got: ${slug}`);
 if (!presets[format]) throw new Error(`Unknown format: ${format}. Use portrait, square, or landscape.`);
 

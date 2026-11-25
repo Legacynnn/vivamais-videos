@@ -20,18 +20,18 @@ tools/           repo scripts
 ## Setup
 
 ```bash
-npm install      # shared deps for kit, capture, deck export
-npm run sync     # copy brand + library files into every video and deck
+pnpm install     # root + studio/ + remotion/ (pnpm workspace): kit, capture, deck export, Studio, Remotion
+pnpm run sync    # copy brand + library files into every video and deck
 ```
 
-Videos with their own `package-lock.json` (the finished ones) also need `npm ci` inside their folder.
+Needs Node 24 and pnpm 11 (`npm install -g pnpm`). Each video folder is a standalone HyperFrames project outside the workspace: its own scripts run with `npm run` / `npx` inside that folder, and videos with their own `package-lock.json` (the finished ones) need `npm ci` there.
 
 ## Brand
 
 `brand/tokens.json` is the source. After editing it:
 
 ```bash
-npm run sync:brand   # regenerate tokens.css (+ app-ui.css from ../vivamaisa-app) and sync everywhere
+pnpm run sync:brand   # regenerate tokens.css (+ app-ui.css from ../vivamaisa-app) and sync everywhere
 ```
 
 ## Videos
@@ -41,17 +41,17 @@ With an agent (Claude Code): ask for the video, the `/video` skill plans it (`vi
 By hand:
 
 ```bash
-npm run new -- ad consulta-em-minutos portrait
-npm run new -- tutorial agendar-consulta landscape
+pnpm run new ad consulta-em-minutos portrait
+pnpm run new tutorial agendar-consulta landscape
 ```
 
 Creates `videos/<ads|tutorials>/<slug>` from `videos/templates/<model>/`: `BRIEF.md`, `index.html`, working starter scenes in `compositions/` (motion kit for ads, recreated-screen kit for tutorials), `ledger.json`, `assets.json`, synced brand + kit. Fill `BRIEF.md`, build, then:
 
 ```bash
-npm run list                  # catalog: model, size, length, status, renders
-npm run check                 # every video
-npm run check -- <slug>       # one video
-npm run render -- <slug>      # sync + check + render + strip vertical rotation flag
+pnpm run list                  # catalog: model, size, length, status, renders
+pnpm run check                # every video
+pnpm run check <slug>         # one video
+pnpm run render <slug>        # sync + check + render + strip vertical rotation flag
 ```
 
 HyperFrames skills are per machine: `npx hyperframes skills update` once after cloning.
@@ -69,21 +69,21 @@ HyperFrames skills are per machine: `npx hyperframes skills update` once after c
 
 ## Shared assets
 
-Put a file used by more than one video in `assets/`, map it in each video's `assets.json` (`"local/path": "library/path"`), run `npm run sync`. Synced copies are gitignored.
+Put a file used by more than one video in `assets/`, map it in each video's `assets.json` (`"local/path": "library/path"`), run `pnpm run sync`. Synced copies are gitignored.
 
 ## TV playlist
 
 ```bash
-npm run tv
-npm run tv -- tutorial-painel-empresarial videos/clips/onboard/renders/onboard-medicos-master.mp4
+pnpm run tv
+pnpm run tv tutorial-painel-empresarial videos/clips/onboard/renders/onboard-medicos-master.mp4
 ```
 
 Builds `dist-tv/vivamais-tv.zip`: fullscreen looping player for the office TV Mac. No args = newest render of each slug in `tools/tv/playlist.json`. Unzip on the TV Mac and double-click `Play TV.command` (no Node needed). Keys: ←/→ previous/next, space pause.
 
 ## Presentations
 
-See `presentations/README.md`. Export with `npm run deck:export` / `npm run deck:pptx`.
+See `presentations/README.md`. Export with `pnpm run deck:export` / `pnpm run deck:pptx`.
 
 ## Stock
 
-`npm run stock -- video "<tag>"` searches keyless Mixkit/Openverse stock and appends credits next to the download.
+`pnpm run stock video "<tag>"` searches keyless Mixkit/Openverse stock and appends credits next to the download.

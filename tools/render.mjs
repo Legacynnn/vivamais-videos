@@ -4,7 +4,7 @@ import { basename, join } from "node:path";
 import { videos } from "./videos.mjs";
 
 const [slug, name] = process.argv.slice(2);
-if (!slug) throw new Error("Use: npm run render -- <slug> [output-name]");
+if (!slug) throw new Error("Use: pnpm run render <slug> [output-name]");
 const [dir] = videos([slug]);
 if (!dir) throw new Error(`No video named ${slug}`);
 

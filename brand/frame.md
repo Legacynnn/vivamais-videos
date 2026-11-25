@@ -55,7 +55,7 @@ Warm, human healthcare. Energetic and calm at once; never cold, bureaucratic, fi
 
 ## Color
 
-Colours are generated from the product (`packages/theme/tokens.json` in the monorepo, via `npm run sync:monorepo`): scales `violet`, `spark`, `ink`, `iris`, `azure`, each 50–950 (`--vm-violet-500`). Roles point at scale steps (`--vm-foreground` = `ink-900`).
+Colours are generated from the product (`packages/theme/tokens.json` in the monorepo, via `pnpm run sync:monorepo`): scales `violet`, `spark`, `ink`, `iris`, `azure`, each 50–950 (`--vm-violet-500`). Roles point at scale steps (`--vm-foreground` = `ink-900`).
 
 - Violet dominates (`primary` = violet-500 #7E3BED). Spark is the secondary accent (`secondary` = spark-400 #12FFD7; `secondary-strong` spark-700 for spark text or fills on light): tags, checks, highlighted words on dark. Iris #9681EB and azure #5A9AF0 are supporting tones for illustration, charts, and a third value when needed; never large fills.
 - Backgrounds are violet or white/`canvas`, never spark/azure. Dark frames use `--vm-grad-escuro` (purple only). Cards on light frames use `tile` #F6F5F9 with no border, product style; white wells inside a tile when content needs a second level.
@@ -85,4 +85,4 @@ A video may change subject, format, scene count, narration, footage, UI density,
 
 ## Source
 
-`brand/tokens.json` is the source. `npm run sync:brand` regenerates `brand/tokens.css` (and `brand/app-ui.css` from the app's tokens, used only when mimicking app UI). `npm run sync` copies brand files into every video and presentation.
+`brand/tokens.json` is the source. `pnpm run sync:brand` regenerates `brand/tokens.css` (and `brand/app-ui.css` from the app's tokens, used only when mimicking app UI). `pnpm run sync` copies brand files into every video and presentation.

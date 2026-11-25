@@ -10,7 +10,7 @@ const input = args.filter((a) => a !== "--json").join(" ") || (process.stdin.isT
 const refs = [...input.matchAll(REF)];
 
 if (!refs.length) {
-  console.error("usage: npm run ref -- vm:<doc>/<frame>[/<layer>] [--json]");
+  console.error("usage: pnpm run ref vm:<doc>/<frame>[/<layer>] [--json]");
   process.exit(1);
 }
 

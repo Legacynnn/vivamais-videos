@@ -57,7 +57,7 @@ function syncScreens(dir) {
     used = true;
     const next = html.replace(MARKER, (_, open, id, state = "default", close) => {
       const fragment = join(screens, "html", `${id}--${state}.html`);
-      if (!existsSync(fragment)) throw new Error(`${relative(root, page)}: no screen ${id} ${state}; run \`npm run screens\``);
+      if (!existsSync(fragment)) throw new Error(`${relative(root, page)}: no screen ${id} ${state}; run \`pnpm run screens\``);
       const body = readFileSync(fragment, "utf8").trim();
       for (const [, file] of body.matchAll(/assets\/screens\/(img\/[^"')\s]+)/g)) copy(join(screens, file), join(dir, "assets/screens", file));
       return `${open}${body}${close}`;

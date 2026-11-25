@@ -4,10 +4,10 @@ Static HTML decks, 1920×1080, one `<section class="slide">` per slide. Not Hype
 
 - `index.html` — Apresentação Viva Mais (14 slides). Deployed to Vercel (project `apresentacao-viva-mais`).
 - `proposta.html` — proposta comercial template (5 slides). Never deployed: it carries client pricing.
-- `flyer.html` — A5 printed flyer (148×210mm, one page): plan usage, QualiService hours, WhatsApp QR. `npm run flyer:export` → `export/flyer/`: exact A5 PDF, A5 + 3mm bleed PDF (`?bleed`, TrimBox on A5) for the print shop, 4× PNG. Chrome rounds page sizes, so `tools/pdf-boxes.py` (pypdf) sets exact boxes. Avoid CSS `filter` on mockups: Chrome flattens the subtree to a 300-dpi bitmap. Needs `npm run sync` first (patient photo comes from `assets.json`).
+- `flyer.html` — A5 printed flyer (148×210mm, one page): plan usage, QualiService hours, WhatsApp QR. `pnpm run flyer:export` → `export/flyer/`: exact A5 PDF, A5 + 3mm bleed PDF (`?bleed`, TrimBox on A5) for the print shop, 4× PNG. Chrome rounds page sizes, so `tools/pdf-boxes.py` (pypdf) sets exact boxes. Avoid CSS `filter` on mockups: Chrome flattens the subtree to a 300-dpi bitmap. Needs `pnpm run sync` first (patient photo comes from `assets.json`).
 - `shared/` — `deck.css` (brand token mapping in `:root`, shared components, per-slide layout `.s-*`), `deck.js` (icons via `<i data-icon>`, page numbers, cover shapes, viewer scaling), `icons.js` (Lucide paths; add an icon by pasting its inner SVG under a new key).
 - `proposta/` — `proposta.css` (proposta-only layouts), `proposta.js` (MRR and table rendering), `proposta-dados.js` (per-client values).
-- `assets/` — deck images: `app/` (real app captures, perk photos), `icons/`, `farmacias/` (Wikimedia Commons), hero and cover photos. `assets/brand/` is a synced copy of `brand/` (fonts, logos, tokens): run `npm run sync` from the repo root.
+- `assets/` — deck images: `app/` (real app captures, perk photos), `icons/`, `farmacias/` (Wikimedia Commons), hero and cover photos. `assets/brand/` is a synced copy of `brand/` (fonts, logos, tokens): run `pnpm run sync` from the repo root.
 - `reference/` — original Figma PNG exports, numbered by slide.
 - `tools/` — `export.mjs` (PNG + PDF), `export-pptx.mjs` (Google Slides), `pdf-links.py`, `denuncia.mjs` (captures the real `/canal-denuncias` page from `vivamais-web` against a mock API).
 - `IMAGE-BRIEFS.md` — briefs for the photos the user generates.
@@ -34,20 +34,20 @@ Tokens come from `brand/tokens.json` (`@import` of `assets/brand/tokens.css` at 
 From the repo root:
 
 ```bash
-npm run deck:export               # presentations/export/NN.png + apresentacao-viva-mais.pdf
-npm run deck:export -- 3 7        # only those slides, PNG
-npm run deck:export -- proposta   # presentations/export/proposta/
-npm run deck:pptx -- proposta     # presentations/export/proposta/proposta-viva-mais.pptx
-npm run deck:pptx -- index        # presentations/export/apresentacao-viva-mais.pptx
+pnpm run deck:export               # presentations/export/NN.png + apresentacao-viva-mais.pdf
+pnpm run deck:export 3 7        # only those slides, PNG
+pnpm run deck:export proposta   # presentations/export/proposta/
+pnpm run deck:pptx proposta     # presentations/export/proposta/proposta-viva-mais.pptx
+pnpm run deck:pptx index        # presentations/export/apresentacao-viva-mais.pptx
 ```
 
-Needs Chrome (`CHROME=/path/to/chrome` if not found) and `npm install` at the repo root. The PDF is assembled from the PNGs (Chrome's vector PDF renders `background-clip: text` as solid blocks in Preview). Headless quirk: the viewport is shorter than `--window-size`, so export shoots 1300px tall with a 110px offset and center-crops.
+Needs Chrome (`CHROME=/path/to/chrome` if not found) and `pnpm install` at the repo root. The PDF is assembled from the PNGs (Chrome's vector PDF renders `background-clip: text` as solid blocks in Preview). Headless quirk: the viewport is shorter than `--window-size`, so export shoots 1300px tall with a 110px offset and center-crops.
 
 pptx: each slide is a pixel-exact image of the HTML; only the elements listed in `EDIT` (in the script) are native editable text and shapes on top. Proposta: cover client line, plan prices, and the `[000] vidas · R$ [0.000]/mês` placeholders (rendered by `proposta.js` only with `?modelo` while `vidas` is null). `--native` rebuilds every slide as native shapes instead. Upload to Drive and open with Google Slides.
 
 ## Deploy
 
-`.vercelignore` is an allowlist: only `index.html`, `shared/` and `assets/` (minus `assets/proposta-*`) upload. Run `npm run sync` first so `assets/brand/` exists. The brand manual (`../vivamais-brand`) keeps its own copy of the exported PDF and slide JPGs; refresh it by hand after an export.
+`.vercelignore` is an allowlist: only `index.html`, `shared/` and `assets/` (minus `assets/proposta-*`) upload. Run `pnpm run sync` first so `assets/brand/` exists. The brand manual (`../vivamais-brand`) keeps its own copy of the exported PDF and slide JPGs; refresh it by hand after an export.
 
 ## Figma
 

@@ -4,7 +4,7 @@ Every video is its own HyperFrames project at `videos/<group>/<slug>/`. Run comm
 
 ## Editor workflow
 
-Every request to make, change, re-cut or render a video goes through the `/video` skill (`.claude/skills/video/SKILL.md`): `video-director` plans, `scene-builder` agents build one composition file each in parallel, `video-reviewer` checks, `npm run render -- <slug>` renders. House taste lives in `STYLE.md`; read it before planning or building.
+Every request to make, change, re-cut or render a video goes through the `/video` skill (`.claude/skills/video/SKILL.md`): `video-director` plans, `scene-builder` agents build one composition file each in parallel, `video-reviewer` checks, `pnpm run render <slug>` renders. House taste lives in `STYLE.md`; read it before planning or building.
 
 ## Models
 
@@ -14,15 +14,15 @@ Assign the model first; it decides the folder, template and reference.
 - **tutorial** (`tutorials/`): long chapters joined by full-screen chapter text, on-screen tooltips, usually silent. Starter chapter on `kit/screens`. Reference `tutorials/tutorial-medico`.
 - `clips/`: in-app clips (`onboard`, frozen) and landing demos (`landing-demo`, own exporter).
 
-`npm run new -- <ad|tutorial> <slug> [portrait|square|landscape]` scaffolds from `templates/<model>/` (BRIEF, `index.html`, starter `compositions/`, `ledger.json`, `assets.json`) and syncs. `npm run list` shows every video.
+`pnpm run new <ad|tutorial> <slug> [portrait|square|landscape]` scaffolds from `templates/<model>/` (BRIEF, `index.html`, starter `compositions/`, `ledger.json`, `assets.json`) and syncs. `pnpm run list` shows every video.
 
-App screens come from the screen library (`screens/`, see `screens/README.md`): a `<!-- screen:id state --><!-- /screen -->` marker inside `.scr` is filled by `npm run sync` with the real app screen. Add a missing screen or state to the library instead of redrawing it in the composition; hand-built HTML is only for screens the library cannot render. The DOM-capture pipeline (`capture/webcap`, legacy kit) only serves the finished videos that already use it.
+App screens come from the screen library (`screens/`, see `screens/README.md`): a `<!-- screen:id state --><!-- /screen -->` marker inside `.scr` is filled by `pnpm run sync` with the real app screen. Add a missing screen or state to the library instead of redrawing it in the composition; hand-built HTML is only for screens the library cannot render. The DOM-capture pipeline (`capture/webcap`, legacy kit) only serves the finished videos that already use it.
 
 ## Shared pieces
 
 - `kit/motion` and `kit/screens`: runtime libraries for new videos, mapped in `assets.json` as `@kit/...` and synced into `assets/kit/`. API in `kit/README.md`. A kit change reaches every video on the next sync, so re-check those videos (`npm run check`).
 - `kit/` root files: legacy DOM-capture kit (`onboarding-paciente`) and its tools.
-- Brand files land in each video as `assets/brand/`, library files per `assets.json`; both are gitignored copies made by `npm run sync`. Edit `brand/`, `assets/` or `kit/` at the source, never the copies.
+- Brand files land in each video as `assets/brand/`, library files per `assets.json`; both are gitignored copies made by `pnpm run sync`. Edit `brand/`, `assets/` or `kit/` at the source, never the copies.
 - `intro-vivamais`, `tutorial-plantao` and `tutorial-painel-empresarial` are finished and keep their own `build/kit.js`; edit only when that video needs a change.
 - Sub-composition `<style>` is scoped by HyperFrames: `html[data-resolution]` selectors inside a scene never match. Per-format layout uses the vars in `kit/motion/motion.css`.
 
@@ -64,7 +64,7 @@ npx hyperframes preview --background  # agent-safe persistent Studio preview
 npx hyperframes preview --status      # verify the persistent preview is listening
 npx hyperframes preview --stop        # stop it when review is finished
 npm run check        # lint + runtime + layout + motion + contrast (one command)
-npm run render       # render to MP4 (from the repo root prefer `npm run render -- <slug>`: sync + check + render + rotation fix)
+npm run render       # render to MP4 (from the repo root prefer `pnpm run render <slug>`: sync + check + render + rotation fix)
 npm run publish      # publish and get a shareable link
 npx hyperframes lint --verbose  # include info-level findings
 npx hyperframes lint --json     # machine-readable output for CI
@@ -103,7 +103,7 @@ https://hyperframes.heygen.com/llms.txt
 - `frame.md` — design spec copied from `brand/frame.md` at creation
 - `assets.json` — library files this video pulls from the repo-root `assets/`
 - `capture/` — mock API, capture scripts and captured DOM states (real-UI videos)
-- `renders/` — MP4 output (gitignored; `npm run tv` picks the newest per slug)
+- `renders/` — MP4 output (gitignored; `pnpm run tv` picks the newest per slug)
 
 ## Linting — ALWAYS RUN AFTER CHANGES
 

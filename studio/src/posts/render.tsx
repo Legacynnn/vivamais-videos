@@ -183,7 +183,7 @@ function Phone({ layer }: { layer: PhoneLayer }) {
             <img src={src} alt="" draggable={false} className="size-full object-cover object-top" />
           ) : (
             <div className="flex size-full items-center justify-center p-10 text-center text-[22px]" style={{ color: BODY, fontFamily: TEXT }}>
-              Tela {layer.screen} não encontrada. Rode npm run screens.
+              Tela {layer.screen} não encontrada. Rode pnpm run screens.
             </div>
           )}
         </div>

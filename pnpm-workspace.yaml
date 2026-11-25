@@ -1,2 +1,7 @@
+packages:
+  - studio
+  - remotion
+
 allowBuilds:
-  esbuild: set this to true or false
+  esbuild: true
+  "@astryxdesign/core": false
