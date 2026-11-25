@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Easing, Img, interpolate, spring, staticFile } from 'remotion';
 import { CARD_W, Region, clamp, glide, ramp } from '../agendamento/kit';
-import { Receita } from '../agendamento/docs';
+import { ReceitaDoc, RxNote } from './receita';
 import { type Block, ICON, Ico, Rich, Thread, Words, blockY, ink, muted, panel, u, violet, violetSoft, violetStrong } from './ui';
 
 export const SHOT = 'ai-chat--empty';
@@ -18,20 +18,25 @@ export const C = {
   chips: 432,
   chip: 470,
   ai2: 488,
-  receita: 628,
-  plus: 700,
-  doc: 722,
-  ready: 730,
-  type2: 734,
-  send2: 766,
-  ai3: 776,
-  exam3: 846,
-  type3: 960,
-  send3: 1020,
-  ai4: 1030,
-  slots: 1046,
-  slot: 1168,
-  booked: 1176,
+  achado: 572,
+  receita: 650,
+  plus: 790,
+  search: 818,
+  query: 822,
+  doc: 852,
+  attach: 868,
+  ready: 878,
+  type2: 882,
+  send2: 914,
+  ai3: 924,
+  hemo: 1008,
+  exam3: 1074,
+  type3: 1168,
+  send3: 1228,
+  ai4: 1238,
+  slots: 1254,
+  slot: 1376,
+  booked: 1384,
 };
 
 export const Q1 = 'Posso tomar dipirona com paracetamol?';
@@ -89,8 +94,8 @@ function FileRow({ light }: { light?: boolean }) {
     <div style={{ display: 'flex', alignItems: 'center', gap: u(8), padding: `${u(8)}px ${u(10)}px`, borderRadius: u(14), background: light ? 'rgba(255,255,255,.16)' : panel }}>
       <Ico d={ICON.file} size={u(20)} color={light ? '#fff' : violet} />
       <div style={{ minWidth: 0 }}>
-        <div style={{ fontFamily: 'var(--vm-font-text)', fontWeight: 500, fontSize: u(14), color: light ? '#fff' : ink, whiteSpace: 'nowrap' }}>Hemograma - Helena Souza.pdf</div>
-        <div style={{ fontFamily: 'var(--vm-font-text)', fontSize: u(12), color: light ? 'rgba(255,255,255,.7)' : muted }}>212 KB</div>
+        <div style={{ fontFamily: 'var(--vm-font-text)', fontWeight: 500, fontSize: u(14), color: light ? '#fff' : ink, whiteSpace: 'nowrap' }}>Hemograma completo.pdf</div>
+        <div style={{ fontFamily: 'var(--vm-font-text)', fontSize: u(12), color: light ? 'rgba(255,255,255,.7)' : muted }}>Laboratório Vida · 10/11</div>
       </div>
     </div>
   );
@@ -114,7 +119,9 @@ const SUMMARY = [
 
 function Summary({ local, frame }: { local: number; frame: number }) {
   const ring = ramp(frame, C.receita, 8);
-  const hl = ramp(frame, C.receita + 40, 12);
+  const hl = ramp(frame, C.receita + 90, 12);
+  const open = ramp(frame, C.achado + 2, 16);
+  const tapFlash = interpolate(frame, [C.achado - 2, C.achado, C.achado + 14], [0, 1, 0], clamp);
   return (
     <div style={{ background: panel, borderRadius: u(24), padding: u(8) }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: u(12), padding: `${u(6)}px ${u(8)}px ${u(12)}px` }}>
@@ -127,11 +134,21 @@ function Summary({ local, frame }: { local: number; frame: number }) {
       <div style={{ background: '#fff', borderRadius: u(20), padding: `${u(4)}px ${u(14)}px` }}>
         {SUMMARY.map((row, i) => {
           const t = ramp(local, 4 + i * 5, 12);
-          const on = row.k === 'Exame' ? hl : 0;
+          const on = row.k === 'Exame' ? hl : row.k === 'Achado' ? 0.7 * tapFlash : 0;
+          const term = row.k === 'Achado';
           return (
             <div key={row.k} style={{ display: 'flex', gap: u(10), padding: `${u(11)}px ${u(6)}px`, margin: `0 ${-u(6)}px`, borderRadius: u(10), background: `rgba(243,237,254,${on})`, borderTop: i ? '1px solid #EFEDF4' : 'none', opacity: t, transform: `translateY(${(1 - t) * u(6)}px)` }}>
               <div style={{ ...text, width: u(70), flexShrink: 0, fontSize: u(12.5), color: muted, paddingTop: u(1.5) }}>{row.k}</div>
-              <div style={{ ...text, fontSize: u(15), lineHeight: 1.35, fontWeight: 500 }}>{row.v}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ ...text, fontSize: u(15), lineHeight: 1.35, fontWeight: 500, textDecoration: term ? `underline dotted ${violet}` : undefined, textUnderlineOffset: u(4), color: term && open > 0.5 ? violetStrong : ink }}>{row.v}</div>
+                {term ? (
+                  <div style={{ height: u(ACH_GROW) * open, overflow: 'hidden' }}>
+                    <div style={{ ...text, fontSize: u(14), lineHeight: 1.45, color: '#4A4756', paddingTop: u(6), opacity: ramp(frame, C.achado + 8, 12) }}>
+                      Dor de cabeça causada por <b style={{ fontWeight: 500, color: ink }}>tensão nos músculos</b> do pescoço e dos ombros. É comum e tem tratamento.
+                    </div>
+                  </div>
+                ) : null}
+              </div>
             </div>
           );
         })}
@@ -155,7 +172,49 @@ const EXAM = [
   { n: 'Plaquetas', v: '250 mil', unit: '/mm³', val: 250, lo: 150, hi: 400 },
 ];
 
-function Exam({ local }: { local: number }) {
+export const ACH_GROW = 64;
+export const HEMO_GROW = 150;
+const TREND = [
+  { m: 'mar', v: 12.4 },
+  { m: 'jul', v: 11.8 },
+  { m: 'nov', v: 11.2 },
+];
+
+function Trend({ frame }: { frame: number }) {
+  const W2 = 300;
+  const H2 = 74;
+  const lo = 10.6;
+  const hi = 13;
+  const y = (v: number) => H2 - ((v - lo) / (hi - lo)) * H2;
+  const x = (i: number) => 24 + i * ((W2 - 48) / 2);
+  const draw = ramp(frame, C.hemo + 14, 26);
+  const band = y(12);
+  return (
+    <div style={{ paddingTop: u(8) }}>
+      <div style={{ ...text, fontSize: u(13.5), lineHeight: 1.4, color: '#4A4756', opacity: ramp(frame, C.hemo + 6, 10) }}>Proteína que leva oxigênio pelo corpo. Veja seus últimos exames:</div>
+      <svg width={u(W2)} height={u(H2 + 26)} viewBox={`0 0 ${W2} ${H2 + 26}`} style={{ marginTop: u(8), overflow: 'visible' }}>
+        <rect x={0} y={0} width={W2} height={band} rx={6} fill="#F3EDFE" />
+        <text x={W2 - 4} y={11} textAnchor="end" fontSize={9.5} fill={muted} fontFamily="var(--vm-font-text)">faixa de referência</text>
+        <path d={`M${x(0)} ${y(TREND[0].v)} L${x(1)} ${y(TREND[1].v)} L${x(2)} ${y(TREND[2].v)}`} fill="none" stroke={violet} strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - draw} />
+        {TREND.map((p, i) => {
+          const t = ramp(frame, C.hemo + 14 + i * 9, 10);
+          const last = i === 2;
+          return (
+            <g key={p.m} opacity={t}>
+              <circle cx={x(i)} cy={y(p.v)} r={last ? 5.5 : 4} fill={last ? violetStrong : '#fff'} stroke={violetStrong} strokeWidth={2} />
+              <text x={x(i)} y={y(p.v) - 10} textAnchor="middle" fontSize={11} fontWeight={500} fill={last ? violetStrong : ink} fontFamily="var(--vm-font-text)">{p.v.toFixed(1).replace('.', ',')}</text>
+              <text x={x(i)} y={H2 + 20} textAnchor="middle" fontSize={10.5} fill={muted} fontFamily="var(--vm-font-text)">{p.m}</text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+}
+
+function Exam({ local, frame }: { local: number; frame: number }) {
+  const open = ramp(frame, C.hemo + 2, 16);
+  const tapFlash = interpolate(frame, [C.hemo - 2, C.hemo, C.hemo + 14], [0, 1, 0], clamp);
   return (
     <div style={{ background: panel, borderRadius: u(24), padding: u(8) }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: u(10), padding: `${u(6)}px ${u(8)}px ${u(12)}px` }}>
@@ -178,7 +237,7 @@ function Exam({ local }: { local: number }) {
           const flag = row.low ? ramp(local, 40, 10) : 0;
           const tone = row.low && flag > 0 ? violetStrong : ink;
           return (
-            <div key={row.n} style={{ padding: `${u(11)}px 0 ${u(12)}px`, borderTop: i ? '1px solid #EFEDF4' : 'none', opacity: t, transform: `translateY(${(1 - t) * u(6)}px)` }}>
+            <div key={row.n} style={{ padding: `${u(11)}px ${u(6)}px ${u(12)}px`, margin: `0 ${-u(6)}px`, borderRadius: u(10), background: row.low ? `rgba(243,237,254,${0.8 * tapFlash})` : 'transparent', borderTop: i ? '1px solid #EFEDF4' : 'none', opacity: t, transform: `translateY(${(1 - t) * u(6)}px)` }}>
               <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: u(6) }}>
                   <span style={{ ...text, fontSize: u(14.5), fontWeight: 500 }}>{row.n}</span>
@@ -192,6 +251,11 @@ function Exam({ local }: { local: number }) {
                 <div style={{ position: 'absolute', left: `${pos(row.lo) * 100}%`, width: `${(pos(row.hi) - pos(row.lo)) * 100}%`, top: 0, bottom: 0, borderRadius: 99, background: '#D6C3FB' }} />
                 <div style={{ position: 'absolute', left: `${mark * 100}%`, top: '50%', width: u(11), height: u(11), borderRadius: 99, background: row.low ? violetStrong : ink, border: `${u(2)}px solid #fff`, transform: 'translate(-50%, -50%)' }} />
               </div>
+              {row.low ? (
+                <div style={{ height: u(HEMO_GROW) * open, overflow: 'hidden' }}>
+                  <Trend frame={frame} />
+                </div>
+              ) : null}
             </div>
           );
         })}
@@ -208,8 +272,8 @@ function Specialty({ local }: { local: number }) {
         <Words local={local} text="Pelo que você contou, o melhor é um **ortopedista**." />
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: u(14), marginTop: u(12), background: panel, borderRadius: u(24), padding: u(14), opacity: t, transform: `translateY(${(1 - t) * u(10)}px)` }}>
-        <span style={{ width: u(44), height: u(44), borderRadius: u(14), background: '#fff', display: 'grid', placeItems: 'center' }}>
-          <Ico d={ICON.bone} size={u(24)} color={violet} sw={1.8} />
+        <span style={{ width: u(52), height: u(52), borderRadius: u(16), background: '#fff', display: 'grid', placeItems: 'center' }}>
+          <Img src={staticFile('icons/ortopedia.png')} style={{ width: u(38), height: u(38) }} />
         </span>
         <div>
           <div style={{ fontFamily: 'var(--vm-font-display)', fontWeight: 500, fontSize: u(20), color: ink, letterSpacing: '-0.01em' }}>Ortopedia</div>
@@ -307,7 +371,7 @@ export function chatBlocks(frame: number): Block[] {
     },
     { id: 'chips', at: C.chips, h: 52, render: () => <Chips frame={frame} /> },
     { id: 'q2', at: C.chip + 6, h: 82, render: (l) => <UserBubble local={l}>Analise minha última consulta</UserBubble> },
-    { id: 'a2', at: C.ai2, h: 372, render: (l) => <AI local={l}>{(k) => <Summary local={k} frame={frame} />}</AI> },
+    { id: 'a2', at: C.ai2, h: 372 + ACH_GROW * ramp(frame, C.achado + 2, 16), render: (l) => <AI local={l}>{(k) => <Summary local={k} frame={frame} />}</AI> },
     {
       id: 'q3',
       at: C.send2,
@@ -319,7 +383,7 @@ export function chatBlocks(frame: number): Block[] {
         </UserBubble>
       ),
     },
-    { id: 'a3', at: C.ai3, h: 352, render: (l) => <AI local={l}>{(k) => <Exam local={k} />}</AI> },
+    { id: 'a3', at: C.ai3, h: 352 + HEMO_GROW * ramp(frame, C.hemo + 2, 16), render: (l) => <AI local={l}>{(k) => <Exam local={k} frame={frame} />}</AI> },
     {
       id: 'a3b',
       at: C.exam3,
@@ -381,43 +445,134 @@ function Composer({ frame }: { frame: number }) {
   );
 }
 
+export const SHEET_TOP = 92;
+const SEARCH_Y = SHEET_TOP + 180;
+const LIST_Y = SHEET_TOP + 276;
+const ROW = 58;
+const GROUP = 28;
+export const SEARCH_AT = { x: 201, y: SEARCH_Y + 22 };
+export const DOC_ROW = { x: 190, y: LIST_Y + GROUP + ROW + GROUP + ROW / 2 };
+export const ATTACH_BTN = { x: 201, y: 625 - 18 - 26 };
+const QUERY = 'hemograma';
+const FLASK = 'M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3M7.5 15h9';
+const SEARCH = 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3';
+
+function DocRow({ d, title, meta, match, h, selected, picked }: { d: string; title: string; meta: string; match?: boolean; h: number; selected?: boolean; picked?: number }) {
+  return (
+    <div style={{ height: u(h), overflow: 'hidden', opacity: Math.min(1, h / ROW) }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: u(12), height: u(ROW), padding: `0 ${u(10)}px`, margin: `0 ${-u(10)}px`, borderRadius: u(14), background: selected ? `rgba(243,237,254,${picked})` : 'transparent' }}>
+        <span style={{ width: u(38), height: u(38), borderRadius: u(12), background: d === FLASK ? '#EEF0FD' : violetSoft, display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+          <Ico d={d} size={u(19)} color={d === FLASK ? '#4F5BD5' : violet} />
+        </span>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ ...text, fontWeight: 500, fontSize: u(15), whiteSpace: 'nowrap' }}>
+            {match ? <span style={{ background: '#EDE3FE', borderRadius: u(4), padding: `0 ${u(2)}px` }}>Hemograma</span> : null}
+            {match ? title.replace('Hemograma', '') : title}
+          </div>
+          <div style={{ ...text, fontSize: u(12.5), color: muted, marginTop: u(2), whiteSpace: 'nowrap' }}>{meta}</div>
+        </div>
+        <span style={{ width: u(22), height: u(22), borderRadius: 99, border: `${u(1.5)}px solid ${selected && picked ? violet : '#D5D2DE'}`, background: selected ? `rgba(126,59,237,${picked})` : 'transparent', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+          {selected && picked ? <Ico d={ICON.check} size={u(13)} color="#fff" sw={3} style={{ opacity: picked }} /> : null}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function AttachSheet({ frame }: { frame: number }) {
-  const t = ramp(frame, C.plus + 2, 18, Easing.bezier(0.32, 0.72, 0, 1)) * (1 - ramp(frame, C.doc + 4, 14, glide));
+  const t = ramp(frame, C.plus + 2, 20, Easing.bezier(0.32, 0.72, 0, 1)) * (1 - ramp(frame, C.attach + 2, 14, glide));
   if (t <= 0) return null;
-  const rows = [
+  const n = Math.max(0, Math.min(QUERY.length, Math.floor((frame - C.query) / 1.5)));
+  const q = QUERY.slice(0, n);
+  const f = ramp(frame, C.query + 10, 12, glide);
+  const focus = ramp(frame, C.search, 6);
+  const picked = ramp(frame, C.doc, 6);
+  const btn = interpolate(frame, [C.attach - 3, C.attach, C.attach + 6], [1, 0.95, 1], clamp);
+  const caret = Math.floor(frame / 8) % 2 === 0;
+  const tiles = [
     { d: ICON.camera, l: 'Câmera' },
     { d: ICON.image, l: 'Galeria' },
-    { d: ICON.file, l: 'Documento' },
+    { d: ICON.file, l: 'Arquivos' },
   ];
-  const press = ramp(frame, C.doc, 6);
+  const group = (label: string, photo?: string) => (
+    <div style={{ height: u(GROUP), display: 'flex', alignItems: 'center', gap: u(8) }}>
+      {photo ? <Img src={staticFile(photo)} style={{ width: u(20), height: u(20), borderRadius: u(6), objectFit: 'cover' }} /> : null}
+      <span style={{ ...text, fontWeight: 500, fontSize: u(12.5), color: muted }}>{label}</span>
+    </div>
+  );
   return (
     <>
-      <div style={{ position: 'absolute', inset: 0, background: 'rgba(23,21,30,.35)', opacity: t }} />
-      <div style={{ position: 'absolute', left: 0, right: 0, top: u(SHEET_TOP), height: u(400), background: '#fff', borderRadius: `${u(28)}px ${u(28)}px 0 0`, transform: `translateY(${(1 - t) * u(300)}px)`, padding: `${u(10)}px ${u(20)}px` }}>
-        <div style={{ width: u(36), height: u(5), borderRadius: 99, background: '#D9D6E2', margin: `0 auto ${u(14)}px` }} />
-        <div style={{ fontFamily: 'var(--vm-font-display)', fontWeight: 500, fontSize: u(18), color: ink, marginBottom: u(8) }}>Anexar</div>
-        {rows.map((r, i) => (
-          <div key={r.l} style={{ display: 'flex', alignItems: 'center', gap: u(14), height: u(54), borderTop: i ? '1px solid #EFEDF4' : 'none', background: i === 2 ? `rgba(243,237,254,${press})` : 'transparent', margin: `0 ${-u(10)}px`, padding: `0 ${u(10)}px`, borderRadius: u(12) }}>
-            <span style={{ width: u(36), height: u(36), borderRadius: u(12), background: panel, display: 'grid', placeItems: 'center' }}>
-              <Ico d={r.d} size={u(19)} color={violet} />
+      <div style={{ position: 'absolute', inset: 0, background: 'rgba(23,21,30,.4)', opacity: t }} />
+      <div style={{ position: 'absolute', left: 0, right: 0, top: u(SHEET_TOP), bottom: 0, background: '#fff', borderRadius: `${u(28)}px ${u(28)}px 0 0`, transform: `translateY(${(1 - t) * u(520)}px)`, boxShadow: '0 -20px 60px rgba(20,4,48,.18)' }}>
+        <div style={{ position: 'absolute', left: u(20), right: u(20), top: 0 }}>
+          <div style={{ width: u(36), height: u(5), borderRadius: 99, background: '#D9D6E2', margin: `${u(10)}px auto 0` }} />
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: u(14) }}>
+            <span style={{ fontFamily: 'var(--vm-font-display)', fontWeight: 500, fontSize: u(20), color: ink, letterSpacing: '-0.01em' }}>Anexar</span>
+            <span style={{ width: u(30), height: u(30), borderRadius: 99, background: '#F2F1F6', display: 'grid', placeItems: 'center' }}>
+              <Ico d={ICON.x} size={u(15)} color={muted} sw={2.4} />
             </span>
-            <span style={{ ...text, fontWeight: 500, fontSize: u(16) }}>{r.l}</span>
           </div>
-        ))}
+          <div style={{ display: 'flex', gap: u(10), marginTop: u(16) }}>
+            {tiles.map((tile) => (
+              <div key={tile.l} style={{ flex: 1, height: u(62), borderRadius: u(18), background: panel, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: u(7) }}>
+                <Ico d={tile.d} size={u(22)} color={violet} />
+                <span style={{ ...text, fontWeight: 500, fontSize: u(13) }}>{tile.l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ position: 'absolute', left: u(20), right: u(20), top: u(SEARCH_Y - SHEET_TOP - 32) }}>
+          <div style={{ ...text, fontWeight: 500, fontSize: u(14) }}>Seus documentos Viva Mais</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: u(10), height: u(44), marginTop: u(10), padding: `0 ${u(14)}px`, borderRadius: u(14), background: panel, boxShadow: `inset 0 0 0 ${u(1.5) * focus}px ${violet}` }}>
+            <Ico d={SEARCH} size={u(18)} color={focus > 0.5 ? violet : muted} />
+            <span style={{ ...text, fontSize: u(15), color: q ? ink : '#A3A0AE' }}>
+              {q || 'Buscar por consulta ou documento'}
+              {focus > 0.5 && n < QUERY.length ? <span style={{ display: 'inline-block', width: u(1.5), height: u(17), background: violet, marginLeft: u(1), verticalAlign: 'middle', opacity: caret ? 1 : 0 }} /> : null}
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: u(6), marginTop: u(10) }}>
+            {['Todos', 'Receitas', 'Exames', 'Atestados'].map((c) => {
+              const on = c === 'Todos' ? 1 - f : c === 'Exames' ? f : 0;
+              return (
+                <span key={c} style={{ height: u(30), display: 'inline-flex', alignItems: 'center', padding: `0 ${u(12)}px`, borderRadius: 999, background: on > 0.5 ? ink : '#F2F1F6', ...text, color: on > 0.5 ? '#fff' : ink, fontWeight: 500, fontSize: u(13) }}>
+                  {c}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+        <div style={{ position: 'absolute', left: u(20), right: u(20), top: u(LIST_Y - SHEET_TOP) }}>
+          {group('Consulta com Dra. Camila · 06/11', 'people/camila-rocha.jpg')}
+          <DocRow d={ICON.file} title="Receita simples" meta="Dipirona 500 mg" h={ROW * (1 - f)} />
+          <DocRow d={ICON.file} title="Pedido de exame" meta="Hemograma completo" h={ROW} />
+          <DocRow d={ICON.file} title="Atestado" meta="1 dia de repouso" h={ROW * (1 - f)} />
+          {group('Resultados de exame')}
+          <DocRow d={FLASK} title="Hemograma completo" meta="Laboratório Vida · 10/11 · PDF" match={f > 0.5} h={ROW} selected picked={picked} />
+        </div>
+        <div style={{ position: 'absolute', left: u(20), right: u(20), bottom: u(18), height: u(52), borderRadius: 999, background: picked > 0 ? `rgba(126,59,237,${0.35 + 0.65 * picked})` : '#E9E7EF', display: 'grid', placeItems: 'center', ...text, color: picked > 0.5 ? '#fff' : '#A3A0AE', fontWeight: 500, fontSize: u(16), transform: `scale(${btn})` }}>
+          {picked > 0.5 ? 'Anexar 1 documento' : 'Selecione um documento'}
+        </div>
       </div>
     </>
   );
 }
 
-export const SHEET_TOP = 350;
-export const DOC_ROW = { x: 120, y: SHEET_TOP + 10 + 5 + 14 + 30 + 54 * 2 + 27 };
+export const POP_HOLD = 104;
 
 export function ReceitaPop({ frame }: { frame: number }) {
-  const t = Math.min(spring({ frame: frame - C.receita - 4, fps: 30, config: { damping: 17, stiffness: 120 } }), 1 - spring({ frame: frame - C.receita - 44, fps: 30, config: { damping: 22 } }));
+  const t = Math.min(spring({ frame: frame - C.receita - 4, fps: 30, config: { damping: 18, stiffness: 120 } }), 1 - spring({ frame: frame - C.receita - POP_HOLD, fps: 30, config: { damping: 22 } }));
   if (t <= 0.01) return null;
+  const local = frame - C.receita - 4;
   return (
-    <div style={{ position: 'absolute', left: 540, top: 470, transform: `translate(-50%, ${(1 - t) * 700}px) scale(${0.6 + 0.32 * t})`, transformOrigin: 'top center', opacity: Math.min(1, t * 2), filter: `drop-shadow(0 40px 80px rgba(20,4,48,${0.5 * t}))`, zIndex: 40 }}>
-      <Receita frame={192 + (frame - C.receita) * 1.4} />
+    <div style={{ position: 'absolute', left: 540, top: 372, transform: `translate(-50%, ${(1 - t) * 800}px) scale(${0.72 + 0.28 * t})`, transformOrigin: 'top center', opacity: Math.min(1, t * 2), zIndex: 40 }}>
+      <div style={{ filter: `drop-shadow(0 40px 80px rgba(20,4,48,${0.55 * t}))` }}>
+        <ReceitaDoc local={local * 1.3} glow={local - 30} />
+      </div>
+      {local > 52 ? (
+        <div style={{ marginTop: -60, position: 'relative' }}>
+          <RxNote local={local - 52} />
+        </div>
+      ) : null}
     </div>
   );
 }
