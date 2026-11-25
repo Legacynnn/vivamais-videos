@@ -1,0 +1,130 @@
+{
+  "id": "post-k5-video-ou-chat",
+  "name": "K5 · Vídeo ou chat",
+  "kind": "post",
+  "format": "feed",
+  "style": "Gráfico",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "ktyd40h",
+      "name": "K5 · Vídeo ou chat",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "k28ka0o",
+          "type": "rect",
+          "name": "Glow",
+          "x": 540,
+          "y": 860,
+          "w": 1100,
+          "h": 1100,
+          "anchor": "center",
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED80 0%, #7E3BED22 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "kwt0biq",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "text": "Vídeo ou chat.\nVocê escolhe.",
+          "font": "display",
+          "size": 84,
+          "color": "{white}",
+          "leading": 84,
+          "tracking": -0.045,
+          "w": 900,
+          "slot": "Título"
+        },
+        {
+          "id": "kjodjl5",
+          "type": "text",
+          "name": "Subtítulo",
+          "x": 80,
+          "y": 290,
+          "anchor": "top",
+          "text": "Sem câmera? Fale com o médico por mensagem.",
+          "font": "body",
+          "size": 28,
+          "color": "{white}/70",
+          "leading": 38,
+          "tracking": 0,
+          "w": 760,
+          "slot": "Subtítulo"
+        },
+        {
+          "id": "k15yf2u",
+          "type": "phone",
+          "name": "Celular",
+          "slot": "Tela",
+          "screen": "plantao-hub--video",
+          "x": 110,
+          "y": 520,
+          "w": 400,
+          "anchor": "center",
+          "rotate": -5
+        },
+        {
+          "id": "ks9p371",
+          "type": "phone",
+          "name": "Celular",
+          "slot": "Tela",
+          "screen": "plantao-hub--chat",
+          "x": 560,
+          "y": 560,
+          "w": 400,
+          "anchor": "center",
+          "rotate": 5
+        },
+        {
+          "id": "kzbp2nw",
+          "type": "chip",
+          "name": "Vídeo",
+          "x": 160,
+          "y": 1180,
+          "rotate": -6,
+          "anchor": "center",
+          "variant": "pill",
+          "title": "Vídeo",
+          "tone": "light",
+          "scale": 1.8
+        },
+        {
+          "id": "kdgyh79",
+          "type": "chip",
+          "name": "Chat",
+          "x": 760,
+          "y": 1180,
+          "rotate": 5,
+          "anchor": "center",
+          "variant": "pill",
+          "title": "Chat",
+          "tone": "violet",
+          "scale": 1.8
+        },
+        {
+          "id": "knpk2vg",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 960,
+          "y": 96,
+          "anchor": "top",
+          "h": 48
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:36:24.446Z"
+}

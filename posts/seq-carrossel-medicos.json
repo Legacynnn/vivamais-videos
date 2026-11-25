@@ -1,0 +1,563 @@
+{
+  "id": "seq-carrossel-medicos",
+  "name": "Carrossel · Médicos de verdade",
+  "kind": "sequence",
+  "format": "carousel",
+  "style": "Foto com UI",
+  "topics": [
+    "Médicos"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "c0adskl",
+      "name": "Capa",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "c3ca7kf",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/retrato-medico-jovem.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "caupqoc",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #F5F0FEE6 0%, #F5F0FE99 50%, #F5F0FE00 100%)"
+          }
+        },
+        {
+          "id": "cncxcs7",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "cauddt7",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Do outro lado,\num médico\nde verdade.",
+              "font": "display",
+              "size": 80,
+              "color": "{ink.900}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "cx3o3fn",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Conheça quem atende você.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "cuyne5b",
+          "x": 860,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Seta",
+          "w": 135,
+          "h": 30,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "14px"
+          },
+          "children": [
+            {
+              "id": "cmrpza9",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Arraste",
+              "font": "body",
+              "size": 24,
+              "color": "{ink.600}",
+              "leading": 30,
+              "tracking": 0
+            },
+            {
+              "id": "cpldeqj",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "Vetor",
+              "markup": "<svg width=\"40\" height=\"20\" viewBox=\"0 0 40 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 10h34M28 3l8 7-8 7\" fill=\"none\" stroke=\"#17151E\" stroke-width=\"2.4\" stroke-linecap=\"round\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 40,
+              "h": 20
+            }
+          ]
+        },
+        {
+          "id": "cxxkrtm",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupViolet",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "cnsgdku",
+      "name": "CRM",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "cait98t",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/medica-consultorio.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "cxkskcp",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-called--calling",
+          "photo": "cait98t"
+        },
+        {
+          "id": "c8x7bad",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #F5F0FEE6 0%, #F5F0FE99 50%, #F5F0FE00 100%)"
+          }
+        },
+        {
+          "id": "cvjueev",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "cu95560",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "CRM e RQE\nno perfil.",
+              "font": "display",
+              "size": 80,
+              "color": "{ink.900}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "c3mfpkc",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Você vê quem vai te atender antes da chamada.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "c2kdt2y",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupViolet",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "cppr93i",
+      "name": "Anamnese",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "cla30ui",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/medico-corredor.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "cpczreh",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "consult-chat--full",
+          "photo": "cla30ui"
+        },
+        {
+          "id": "cwb4s6z",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #F5F0FEE6 0%, #F5F0FE99 50%, #F5F0FE00 100%)"
+          }
+        },
+        {
+          "id": "cgqgwpl",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "cac4uci",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Ele já sabe\no que você sente.",
+              "font": "display",
+              "size": 80,
+              "color": "{ink.900}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "c4ub0b5",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Sua pré-consulta chega antes de você.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "clyo6sw",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupViolet",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "ccr0v6a",
+      "name": "Receita",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "cfeyov6",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/mao-pos-consulta.jpg",
+          "fit": "cover",
+          "position": "50% 0%"
+        },
+        {
+          "id": "c6zgjrs",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "post-consultation--ready",
+          "photo": "cfeyov6"
+        },
+        {
+          "id": "cmrz7g4",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #F5F0FEE6 0%, #F5F0FE99 50%, #F5F0FE00 100%)"
+          }
+        },
+        {
+          "id": "cslgfbg",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "c1em9bf",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Receita digital\nassinada.",
+              "font": "display",
+              "size": 80,
+              "color": "{ink.900}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "cvnht8w",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Salva no app.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "ch2ccrg",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupViolet",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "c7f49wm",
+      "name": "CTA",
+      "background": "linear-gradient(135deg, #F5F0FE 0%, #EBE1FD 55%, #DCEBFF 100%)",
+      "layers": [
+        {
+          "id": "c375jns",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "c8bh6h6",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Consulte com\nquem entende.",
+              "font": "display",
+              "size": 88,
+              "color": "{ink.900}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "c3a1wh4",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Plantão 24h e especialistas no app.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "cqwogcv",
+          "x": 80,
+          "y": 420,
+          "anchor": "top",
+          "type": "group",
+          "name": "CTA pill",
+          "w": 293,
+          "h": 88,
+          "style": {
+            "backgroundColor": "#6A24DB",
+            "borderRadius": "999px",
+            "paddingBlock": "26px",
+            "paddingInline": "44px"
+          },
+          "children": [
+            {
+              "id": "c24x67w",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Baixe o app",
+              "text": "Baixe o app",
+              "font": "body",
+              "size": 30,
+              "weight": 600,
+              "color": "{white}",
+              "leading": 36,
+              "tracking": 0,
+              "slot": "Botão",
+              "style": {
+                "whiteSpace": "nowrap"
+              }
+            }
+          ]
+        },
+        {
+          "id": "cnxvz8t",
+          "x": 380,
+          "y": 520,
+          "anchor": "bottom",
+          "type": "svg",
+          "name": "Marca gigante (corte)",
+          "markup": "<svg viewBox=\"35 36 92 90\" width=\"92\" height=\"90\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:920px;height:900px\"><path fill-rule=\"evenodd\" d=\"M80.4 125.28C70.72 125.28 62.85 117.41 62.85 107.73V99.86C62.85 99.07 62.2 98.42 61.41 98.42H53.54C43.86 98.42 35.99 90.55 35.99 80.87C35.99 71.19 43.86 63.32 53.54 63.32H61.41C62.2 63.32 62.85 62.67 62.85 61.88V54.01C62.85 44.33 70.72 36.46 80.4 36.46C90.08 36.46 97.95 44.33 97.95 54.01V61.88C97.95 62.67 98.6 63.32 99.39 63.32H107.26C116.94 63.32 124.81 71.19 124.81 80.87C124.81 90.55 116.94 98.42 107.26 98.42H99.39C98.6 98.42 97.95 99.07 97.95 99.86V107.73C97.95 117.41 90.08 125.28 80.4 125.28Z M53.55 71.57C48.42 71.57 44.24 75.75 44.24 80.88C44.24 86.01 48.42 90.19 53.55 90.19H61.42C66.76 90.19 71.1 94.53 71.1 99.87V107.74C71.1 112.87 75.28 117.05 80.41 117.05C85.54 117.05 89.72 112.87 89.72 107.74V99.87C89.72 94.53 94.06 90.19 99.4 90.19H107.27C112.4 90.19 116.58 86.01 116.58 80.88C116.58 75.75 112.4 71.57 107.27 71.57H99.4C94.06 71.57 89.72 67.23 89.72 61.89V54.02C89.72 48.89 85.54 44.71 80.41 44.71C75.28 44.71 71.1 48.89 71.1 54.02V61.89C71.1 67.23 66.76 71.57 61.42 71.57H53.55Z\" fill=\"#7E3BED\"></path><path d=\"M125.76 47.15C125.76 47.46 125.51 47.71 125.2 47.71H122.46C119.12 47.71 116.4 50.43 116.4 53.77V56.51C116.4 56.82 116.15 57.07 115.84 57.07C115.53 57.07 115.28 56.82 115.28 56.51V53.77C115.28 50.43 112.56 47.71 109.22 47.71H106.48C106.17 47.71 105.92 47.46 105.92 47.15C105.92 46.84 106.17 46.59 106.48 46.59H109.22C112.56 46.59 115.28 43.87 115.28 40.53V37.79C115.28 37.48 115.53 37.23 115.84 37.23C116.15 37.23 116.4 37.48 116.4 37.79V40.53C116.4 43.87 119.12 46.59 122.46 46.59H125.2C125.51 46.59 125.76 46.84 125.76 47.15Z\" fill=\"#12FFD7\"></path></svg>",
+          "w": 920,
+          "h": 900
+        },
+        {
+          "id": "crf8qh6",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupViolet",
+          "h": 40
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:16:52.674Z"
+}

@@ -1,0 +1,1067 @@
+{
+  "id": "seq-carrossel-quem-atende",
+  "name": "Carrossel · Quem te atende",
+  "kind": "sequence",
+  "format": "carousel",
+  "style": "Gráfico",
+  "topics": [
+    "Médicos"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "source": "Referência: Conexa · Maratona (cartão de médico) + Olá Doutor",
+  "frames": [
+    {
+      "id": "f277",
+      "name": "Capa",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "qa270",
+          "type": "svg",
+          "name": "Arcos",
+          "markup": "<svg viewBox=\"0 0 1080 1350\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#BC9CF7\" stroke-width=\"2\"><circle cx=\"1080\" cy=\"160\" r=\"260\"/><circle cx=\"0\" cy=\"1300\" r=\"340\"/><circle cx=\"980\" cy=\"1250\" r=\"120\"/></svg>",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "qa271",
+          "type": "image",
+          "name": "Foto",
+          "src": "assets/posts/photos/medica-retrato.jpg",
+          "x": 440,
+          "y": 300,
+          "w": 560,
+          "h": 860,
+          "fit": "cover",
+          "position": "50% 20%",
+          "slot": "Foto",
+          "style": {
+            "borderRadius": "280px"
+          }
+        },
+        {
+          "id": "qa272",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 900,
+          "text": "Do outro lado da tela, médico de verdade.",
+          "font": "display",
+          "size": 92,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 94,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Do outro lado da tela, "
+            },
+            {
+              "text": "médico de verdade.",
+              "style": {
+                "color": "{violet.600}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "qa273",
+          "type": "chip",
+          "name": "CRM",
+          "variant": "pill",
+          "title": "CRM verificado",
+          "x": 80,
+          "y": 760,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "qa274",
+          "type": "chip",
+          "name": "RQE",
+          "variant": "pill",
+          "title": "RQE no perfil",
+          "x": 80,
+          "y": 860,
+          "tone": "violet",
+          "anchor": "top"
+        },
+        {
+          "id": "qa275",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Médicos de verdade, com CRM no perfil.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "qa276",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolViolet",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f298",
+      "name": "Perfil",
+      "background": "radial-gradient(60% 75% at 92% 8%, #9531FF 0%, transparent 65%), radial-gradient(70% 80% at 0% 100%, #7A67F8 0%, transparent 62%), linear-gradient(160deg, #2B0B5C 0%, #451391 100%)",
+      "layers": [
+        {
+          "id": "qa294",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.06
+        },
+        {
+          "id": "qa295",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 900,
+          "text": "Você vê quem é antes de entrar.",
+          "font": "display",
+          "size": 76,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 80,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "qa278",
+          "type": "rect",
+          "name": "Cartão",
+          "x": 140,
+          "y": 360,
+          "w": 800,
+          "h": 720,
+          "background": "{white}",
+          "radius": 44,
+          "style": {
+            "boxShadow": "0 50px 100px -40px #22084A99",
+            "borderRadius": "44px"
+          }
+        },
+        {
+          "id": "qa279",
+          "type": "image",
+          "name": "Avatar",
+          "src": "assets/people/doctors/julia.jpg",
+          "x": 200,
+          "y": 420,
+          "w": 160,
+          "h": 160,
+          "fit": "cover",
+          "position": "50% 25%",
+          "slot": "Foto",
+          "style": {
+            "borderRadius": "80px"
+          }
+        },
+        {
+          "id": "qa280",
+          "type": "text",
+          "name": "Nome",
+          "x": 400,
+          "y": 446,
+          "w": 480,
+          "text": "Dra. Júlia",
+          "font": "display",
+          "size": 56,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 60,
+          "tracking": -0.045
+        },
+        {
+          "id": "qa281",
+          "type": "text",
+          "name": "Especialidade",
+          "x": 400,
+          "y": 512,
+          "w": 480,
+          "text": "Clínica geral",
+          "font": "body",
+          "size": 30,
+          "color": "{ink.600}",
+          "anchor": "top",
+          "leading": 40,
+          "tracking": 0
+        },
+        {
+          "id": "qa282",
+          "type": "rect",
+          "name": "Linha",
+          "x": 200,
+          "y": 630,
+          "w": 680,
+          "h": 2,
+          "background": "{violet.100}"
+        },
+        {
+          "id": "qa283",
+          "type": "svg",
+          "name": "Ícone shield",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"52\" height=\"52\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#6A24DB\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M24 6l15 6v10c0 10-7 17-15 20-8-3-15-10-15-20V12z\"/><path d=\"M17 24l5 5 10-10\"/></svg>",
+          "x": 200,
+          "y": 664,
+          "w": 52,
+          "h": 52
+        },
+        {
+          "id": "qa284",
+          "type": "text",
+          "name": "CRM verificado",
+          "x": 280,
+          "y": 658,
+          "w": 560,
+          "text": "CRM verificado",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 40,
+          "tracking": 0,
+          "weight": 600
+        },
+        {
+          "id": "qa285",
+          "type": "text",
+          "name": "CRM verificado sub",
+          "x": 280,
+          "y": 700,
+          "w": 560,
+          "text": "Registro ativo no conselho",
+          "font": "body",
+          "size": 24,
+          "color": "{ink.500}",
+          "anchor": "top",
+          "leading": 30,
+          "tracking": 0
+        },
+        {
+          "id": "qa286",
+          "type": "rect",
+          "name": "Linha",
+          "x": 200,
+          "y": 760,
+          "w": 680,
+          "h": 2,
+          "background": "{violet.100}"
+        },
+        {
+          "id": "qa287",
+          "type": "svg",
+          "name": "Ícone doc",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"52\" height=\"52\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#6A24DB\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 6h14l8 8v28H14z\"/><path d=\"M28 6v8h8M19 24h12M19 31h12\"/></svg>",
+          "x": 200,
+          "y": 794,
+          "w": 52,
+          "h": 52
+        },
+        {
+          "id": "qa288",
+          "type": "text",
+          "name": "RQE informado",
+          "x": 280,
+          "y": 788,
+          "w": 560,
+          "text": "RQE informado",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 40,
+          "tracking": 0,
+          "weight": 600
+        },
+        {
+          "id": "qa289",
+          "type": "text",
+          "name": "RQE informado sub",
+          "x": 280,
+          "y": 830,
+          "w": 560,
+          "text": "Quando tem especialidade",
+          "font": "body",
+          "size": 24,
+          "color": "{ink.500}",
+          "anchor": "top",
+          "leading": 30,
+          "tracking": 0
+        },
+        {
+          "id": "qa290",
+          "type": "rect",
+          "name": "Linha",
+          "x": 200,
+          "y": 890,
+          "w": 680,
+          "h": 2,
+          "background": "{violet.100}"
+        },
+        {
+          "id": "qa291",
+          "type": "svg",
+          "name": "Ícone video",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"52\" height=\"52\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#6A24DB\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"6\" y=\"14\" width=\"26\" height=\"20\" rx=\"4\"/><path d=\"M32 22l10-6v16l-10-6\"/></svg>",
+          "x": 200,
+          "y": 924,
+          "w": 52,
+          "h": 52
+        },
+        {
+          "id": "qa292",
+          "type": "text",
+          "name": "Vídeo ou chat",
+          "x": 280,
+          "y": 918,
+          "w": 560,
+          "text": "Vídeo ou chat",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 40,
+          "tracking": 0,
+          "weight": 600
+        },
+        {
+          "id": "qa293",
+          "type": "text",
+          "name": "Vídeo ou chat sub",
+          "x": 280,
+          "y": 960,
+          "w": 560,
+          "text": "Você escolhe como falar",
+          "font": "body",
+          "size": 24,
+          "color": "{ink.500}",
+          "anchor": "top",
+          "leading": 30,
+          "tracking": 0
+        },
+        {
+          "id": "qa296",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Médicos de verdade, com CRM no perfil.",
+          "font": "body",
+          "size": 22,
+          "color": "{white}/70",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "qa297",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f311",
+      "name": "Siglas",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "qa299",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 96,
+          "w": 900,
+          "text": "Três siglas, sem mistério.",
+          "font": "display",
+          "size": 72,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 76,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "qa300",
+          "type": "rect",
+          "name": "Faixa CRM",
+          "x": 0,
+          "y": 300,
+          "w": 1000,
+          "h": 280,
+          "background": "{violet.100}",
+          "style": {
+            "borderRadius": "0 40px 40px 0"
+          }
+        },
+        {
+          "id": "qa301",
+          "type": "text",
+          "name": "CRM",
+          "x": 80,
+          "y": 350,
+          "w": 600,
+          "text": "CRM",
+          "font": "display",
+          "size": 88,
+          "color": "{violet.900}",
+          "anchor": "top",
+          "leading": 90,
+          "tracking": -0.045
+        },
+        {
+          "id": "qa302",
+          "type": "text",
+          "name": "CRM sub",
+          "x": 80,
+          "y": 460,
+          "w": 760,
+          "text": "Registro do médico no Conselho Regional de Medicina. Sem ele, não é médico.",
+          "font": "body",
+          "size": 28,
+          "color": "{violet.900}",
+          "anchor": "top",
+          "leading": 38,
+          "tracking": 0
+        },
+        {
+          "id": "qa303",
+          "type": "rect",
+          "name": "Faixa RQE",
+          "x": 0,
+          "y": 600,
+          "w": 940,
+          "h": 280,
+          "background": "{violet.200}",
+          "style": {
+            "borderRadius": "0 40px 40px 0"
+          }
+        },
+        {
+          "id": "qa304",
+          "type": "text",
+          "name": "RQE",
+          "x": 80,
+          "y": 650,
+          "w": 600,
+          "text": "RQE",
+          "font": "display",
+          "size": 88,
+          "color": "{violet.900}",
+          "anchor": "top",
+          "leading": 90,
+          "tracking": -0.045
+        },
+        {
+          "id": "qa305",
+          "type": "text",
+          "name": "RQE sub",
+          "x": 80,
+          "y": 760,
+          "w": 700,
+          "text": "Registro de especialista. Mostra que a especialização foi reconhecida.",
+          "font": "body",
+          "size": 28,
+          "color": "{violet.900}",
+          "anchor": "top",
+          "leading": 38,
+          "tracking": 0
+        },
+        {
+          "id": "qa306",
+          "type": "rect",
+          "name": "Faixa Anamnese",
+          "x": 0,
+          "y": 900,
+          "w": 880,
+          "h": 280,
+          "background": "{violet.300}",
+          "style": {
+            "borderRadius": "0 40px 40px 0"
+          }
+        },
+        {
+          "id": "qa307",
+          "type": "text",
+          "name": "Anamnese",
+          "x": 80,
+          "y": 950,
+          "w": 600,
+          "text": "Anamnese",
+          "font": "display",
+          "size": 88,
+          "color": "{violet.900}",
+          "anchor": "top",
+          "leading": 90,
+          "tracking": -0.045
+        },
+        {
+          "id": "qa308",
+          "type": "text",
+          "name": "Anamnese sub",
+          "x": 80,
+          "y": 1060,
+          "w": 640,
+          "text": "A conversa sobre o que você sente. No app, a Viva adianta isso na fila.",
+          "font": "body",
+          "size": 28,
+          "color": "{violet.900}",
+          "anchor": "top",
+          "leading": 38,
+          "tracking": 0
+        },
+        {
+          "id": "qa309",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Médicos de verdade, com CRM no perfil.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "qa310",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolViolet",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f321",
+      "name": "Anamnese",
+      "background": "{violet.950}",
+      "layers": [
+        {
+          "id": "qa312",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.05
+        },
+        {
+          "id": "qa313",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 560,
+          "text": "Ele já sabe o que você sente.",
+          "font": "display",
+          "size": 84,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 88,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Ele já sabe "
+            },
+            {
+              "text": "o que você sente.",
+              "style": {
+                "color": "{violet.300}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "qa314",
+          "type": "text",
+          "name": "Sub",
+          "x": 80,
+          "y": 440,
+          "w": 500,
+          "text": "A Viva organiza seus sintomas na fila. O médico lê antes de chamar.",
+          "font": "body",
+          "size": 30,
+          "color": "{white}/70",
+          "anchor": "top",
+          "leading": 42,
+          "tracking": 0
+        },
+        {
+          "id": "qa315",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "plantao-called--reading",
+          "x": 620,
+          "y": 160,
+          "w": 400,
+          "rotate": 3
+        },
+        {
+          "id": "qa316",
+          "type": "chip",
+          "name": "Sintoma 1",
+          "variant": "pill",
+          "title": "Dor de cabeça há 2 dias",
+          "x": 80,
+          "y": 760,
+          "tone": "light",
+          "anchor": "top",
+          "rotate": -3
+        },
+        {
+          "id": "qa317",
+          "type": "chip",
+          "name": "Sintoma 2",
+          "variant": "pill",
+          "title": "Dor 6 de 10, com náusea",
+          "x": 160,
+          "y": 870,
+          "tone": "violet",
+          "anchor": "top",
+          "rotate": 2
+        },
+        {
+          "id": "qa318",
+          "type": "chip",
+          "name": "Sintoma 3",
+          "variant": "pill",
+          "title": "Já tomou dipirona",
+          "x": 100,
+          "y": 980,
+          "tone": "light",
+          "anchor": "top",
+          "rotate": -1
+        },
+        {
+          "id": "qa319",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Médicos de verdade, com CRM no perfil.",
+          "font": "body",
+          "size": 22,
+          "color": "{white}/70",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "qa320",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f334",
+      "name": "Vídeo ou chat",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "qa322",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 900,
+          "text": "Vídeo ou chat. Você escolhe.",
+          "font": "display",
+          "size": 84,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 88,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Vídeo ou chat. "
+            },
+            {
+              "text": "Você escolhe.",
+              "style": {
+                "color": "{violet.600}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "qa323",
+          "type": "svg",
+          "name": "Alternador",
+          "markup": "<svg viewBox=\"0 0 200 96\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"200\" height=\"96\" rx=\"48\" fill=\"#7E3BED\"/><circle cx=\"152\" cy=\"48\" r=\"36\" fill=\"#fff\"/></svg>",
+          "x": 80,
+          "y": 360,
+          "w": 200,
+          "h": 96
+        },
+        {
+          "id": "qa324",
+          "type": "rect",
+          "name": "Vídeo",
+          "x": 80,
+          "y": 560,
+          "w": 440,
+          "h": 440,
+          "radius": 36,
+          "style": {
+            "background": "#FFFFFF",
+            "boxShadow": "inset 0 0 0 3px #7E3BED",
+            "borderRadius": "36px"
+          }
+        },
+        {
+          "id": "qa325",
+          "type": "svg",
+          "name": "Ícone video",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"72\" height=\"72\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#6A24DB\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"6\" y=\"14\" width=\"26\" height=\"20\" rx=\"4\"/><path d=\"M32 22l10-6v16l-10-6\"/></svg>",
+          "x": 128,
+          "y": 608,
+          "w": 72,
+          "h": 72
+        },
+        {
+          "id": "qa326",
+          "type": "text",
+          "name": "Vídeo título",
+          "x": 128,
+          "y": 760,
+          "w": 360,
+          "text": "Vídeo",
+          "font": "display",
+          "size": 52,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 56,
+          "tracking": -0.045
+        },
+        {
+          "id": "qa327",
+          "type": "text",
+          "name": "Vídeo sub",
+          "x": 128,
+          "y": 840,
+          "w": 340,
+          "text": "O médico vê e ouve você. Bom pra garganta, pele e criança.",
+          "font": "body",
+          "size": 28,
+          "color": "{ink.600}",
+          "anchor": "top",
+          "leading": 38,
+          "tracking": 0
+        },
+        {
+          "id": "qa328",
+          "type": "rect",
+          "name": "Chat",
+          "x": 560,
+          "y": 560,
+          "w": 440,
+          "h": 440,
+          "radius": 36,
+          "style": {
+            "background": "#FFFFFF",
+            "boxShadow": "inset 0 0 0 2px #D6C3FB",
+            "borderRadius": "36px"
+          }
+        },
+        {
+          "id": "qa329",
+          "type": "svg",
+          "name": "Ícone chat",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"72\" height=\"72\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#6A24DB\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 12h32v20H20l-8 7v-7H8z\"/></svg>",
+          "x": 608,
+          "y": 608,
+          "w": 72,
+          "h": 72
+        },
+        {
+          "id": "qa330",
+          "type": "text",
+          "name": "Chat título",
+          "x": 608,
+          "y": 760,
+          "w": 360,
+          "text": "Chat",
+          "font": "display",
+          "size": 52,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 56,
+          "tracking": -0.045
+        },
+        {
+          "id": "qa331",
+          "type": "text",
+          "name": "Chat sub",
+          "x": 608,
+          "y": 840,
+          "w": 340,
+          "text": "Escreva e mande foto. Bom quando não dá pra falar.",
+          "font": "body",
+          "size": 28,
+          "color": "{ink.600}",
+          "anchor": "top",
+          "leading": 38,
+          "tracking": 0
+        },
+        {
+          "id": "qa332",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Médicos de verdade, com CRM no perfil.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "qa333",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolViolet",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f346",
+      "name": "CTA",
+      "background": "radial-gradient(60% 75% at 92% 8%, #9531FF 0%, transparent 65%), radial-gradient(70% 80% at 0% 100%, #7A67F8 0%, transparent 62%), linear-gradient(160deg, #2B0B5C 0%, #451391 100%)",
+      "layers": [
+        {
+          "id": "qa335",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.06
+        },
+        {
+          "id": "qa336",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 880,
+          "text": "Consulte com quem entende.",
+          "font": "display",
+          "size": 92,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 94,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Consulte com "
+            },
+            {
+              "text": "quem entende.",
+              "style": {
+                "color": "{violet.300}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "qa337",
+          "type": "text",
+          "name": "Sub",
+          "x": 80,
+          "y": 340,
+          "w": 600,
+          "text": "Médicos com CRM no perfil, 24h, no app.",
+          "font": "body",
+          "size": 32,
+          "color": "{white}/70",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0
+        },
+        {
+          "id": "qa338",
+          "type": "image",
+          "name": "Médico 1",
+          "src": "assets/people/doctors/d0.png",
+          "x": 80,
+          "y": 460,
+          "w": 150,
+          "h": 150,
+          "fit": "cover",
+          "position": "50% 25%",
+          "slot": "Foto",
+          "style": {
+            "borderRadius": "75px",
+            "boxShadow": "0 0 0 6px #451391"
+          }
+        },
+        {
+          "id": "qa339",
+          "type": "image",
+          "name": "Médico 2",
+          "src": "assets/people/doctors/d1.jpeg",
+          "x": 190,
+          "y": 460,
+          "w": 150,
+          "h": 150,
+          "fit": "cover",
+          "position": "50% 25%",
+          "slot": "Foto",
+          "style": {
+            "borderRadius": "75px",
+            "boxShadow": "0 0 0 6px #451391"
+          }
+        },
+        {
+          "id": "qa340",
+          "type": "image",
+          "name": "Médico 3",
+          "src": "assets/people/doctors/d2.png",
+          "x": 300,
+          "y": 460,
+          "w": 150,
+          "h": 150,
+          "fit": "cover",
+          "position": "50% 25%",
+          "slot": "Foto",
+          "style": {
+            "borderRadius": "75px",
+            "boxShadow": "0 0 0 6px #451391"
+          }
+        },
+        {
+          "id": "qa341",
+          "type": "image",
+          "name": "Médico 4",
+          "src": "assets/people/doctors/camila.jpg",
+          "x": 410,
+          "y": 460,
+          "w": 150,
+          "h": 150,
+          "fit": "cover",
+          "position": "50% 25%",
+          "slot": "Foto",
+          "style": {
+            "borderRadius": "75px",
+            "boxShadow": "0 0 0 6px #451391"
+          }
+        },
+        {
+          "id": "qa342",
+          "type": "image",
+          "name": "Médico 5",
+          "src": "assets/people/doctors/d4.jpeg",
+          "x": 520,
+          "y": 460,
+          "w": 150,
+          "h": 150,
+          "fit": "cover",
+          "position": "50% 25%",
+          "slot": "Foto",
+          "style": {
+            "borderRadius": "75px",
+            "boxShadow": "0 0 0 6px #451391"
+          }
+        },
+        {
+          "id": "qa343",
+          "type": "chip",
+          "name": "CTA",
+          "variant": "cta",
+          "title": "Baixe a Viva Mais",
+          "x": 80,
+          "y": 700,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "qa344",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "plantao-hub--video",
+          "x": 600,
+          "y": 700,
+          "w": 400,
+          "rotate": -5
+        },
+        {
+          "id": "qa345",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "x": 80,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23T15:42:06.797552+00:00"
+}

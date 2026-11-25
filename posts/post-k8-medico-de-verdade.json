@@ -1,0 +1,101 @@
+{
+  "id": "post-k8-medico-de-verdade",
+  "name": "K8 · Médico de verdade",
+  "kind": "post",
+  "format": "feed",
+  "style": "Gráfico",
+  "topics": [
+    "Médicos"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "k6p3wgr",
+      "name": "K8 · Médico de verdade",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "kl99l91",
+          "type": "rect",
+          "name": "Glow",
+          "x": 540,
+          "y": 560,
+          "w": 800,
+          "h": 800,
+          "anchor": "center",
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #9D6BF280 0%, #9D6BF222 45%, #9D6BF200 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "k9amjtj",
+          "type": "image",
+          "name": "Foto na cruz",
+          "slot": "Foto",
+          "src": "assets/posts/photos/retrato-medico-jovem.jpg",
+          "fit": "cover",
+          "position": "50% 18%",
+          "x": 190,
+          "y": 150,
+          "w": 700,
+          "h": 700,
+          "anchor": "center",
+          "style": {
+            "maskImage": "url(assets/posts/patterns/plus-solid.svg)",
+            "WebkitMaskImage": "url(assets/posts/patterns/plus-solid.svg)",
+            "maskSize": "contain",
+            "WebkitMaskSize": "contain",
+            "maskRepeat": "no-repeat",
+            "WebkitMaskRepeat": "no-repeat",
+            "maskPosition": "center",
+            "WebkitMaskPosition": "center"
+          }
+        },
+        {
+          "id": "kyyhfqo",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 1000,
+          "anchor": "top",
+          "text": "Do outro lado,\num médico de verdade.",
+          "font": "display",
+          "size": 64,
+          "color": "{ink.900}",
+          "leading": 64,
+          "tracking": -0.045,
+          "w": 920,
+          "slot": "Título"
+        },
+        {
+          "id": "kuu5bkg",
+          "type": "chip",
+          "name": "CRM e RQE no perfil",
+          "x": 600,
+          "y": 720,
+          "rotate": 5,
+          "anchor": "center",
+          "variant": "pill",
+          "title": "CRM e RQE no perfil",
+          "tone": "light",
+          "scale": 1.6
+        },
+        {
+          "id": "kj6a3iu",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupColor",
+          "x": 80,
+          "y": 1254,
+          "anchor": "bottom",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:36:24.446Z"
+}

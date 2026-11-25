@@ -1,0 +1,166 @@
+{
+  "id": "cover-banner-linkedin",
+  "name": "Banner LinkedIn",
+  "kind": "cover",
+  "format": "linkedin",
+  "style": "Marca",
+  "topics": [
+    "Institucional"
+  ],
+  "base": {
+    "width": 1584,
+    "height": 396
+  },
+  "frames": [
+    {
+      "id": "p8kyt",
+      "name": "B1 · Banner · LinkedIn 1584×396",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "p0fq7",
+          "x": 340,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 560,
+          "h": 154,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "18px"
+          },
+          "children": [
+            {
+              "id": "p1v29",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Saúde que cabe\nno seu dia.",
+              "font": "display",
+              "size": 52,
+              "color": "{ink.900}",
+              "leading": 54,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "p2yob",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Subtítulo",
+              "text": "Plantão 24h, especialistas e a Viva, no app.",
+              "font": "body",
+              "size": 20,
+              "color": "{ink.600}",
+              "leading": 28,
+              "tracking": 0,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p3iwv",
+          "x": 940,
+          "y": 32,
+          "anchor": "top",
+          "type": "group",
+          "name": "Fotos",
+          "w": 616,
+          "h": 332,
+          "style": {
+            "display": "flex",
+            "gap": "14px"
+          },
+          "children": [
+            {
+              "id": "p41j1",
+              "x": 0,
+              "y": 0,
+              "type": "image",
+              "name": "Foto 1",
+              "src": "assets/posts/photos/jovem-viva.jpg",
+              "fit": "cover",
+              "position": "50% 30%",
+              "style": {
+                "borderRadius": "24px",
+                "flexShrink": 0,
+                "height": "332px",
+                "width": "196px"
+              },
+              "slot": "Foto 1",
+              "choices": [
+                "assets/posts/photos/",
+                "assets/posts/photos/retrato-",
+                "assets/posts/photos/maos-"
+              ],
+              "radius": 24,
+              "screen": "ai-chat--answer"
+            },
+            {
+              "id": "p5d6c",
+              "x": 0,
+              "y": 0,
+              "type": "image",
+              "name": "Foto 2",
+              "src": "assets/posts/paper/1A24P4QVQNM1QT5AD40FKATE17.jpg",
+              "fit": "cover",
+              "position": "50% 40%",
+              "style": {
+                "borderRadius": "24px",
+                "flexShrink": 0,
+                "height": "332px",
+                "width": "196px"
+              },
+              "slot": "Foto 2",
+              "choices": [
+                "assets/posts/photos/",
+                "assets/posts/photos/retrato-",
+                "assets/posts/photos/maos-"
+              ],
+              "radius": 24
+            },
+            {
+              "id": "p6hs2",
+              "x": 0,
+              "y": 0,
+              "type": "image",
+              "name": "Foto 3",
+              "src": "assets/posts/photos/retrato-02.jpg",
+              "fit": "cover",
+              "position": "50% 35%",
+              "style": {
+                "borderRadius": "24px",
+                "flexShrink": 0,
+                "height": "332px",
+                "width": "196px"
+              },
+              "slot": "Foto 3",
+              "choices": [
+                "assets/posts/photos/",
+                "assets/posts/photos/retrato-",
+                "assets/posts/photos/maos-"
+              ],
+              "radius": 24
+            }
+          ]
+        },
+        {
+          "id": "p7nj5",
+          "x": 340,
+          "y": 300,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupColor",
+          "h": 32
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AYO-0",
+  "updatedAt": "2026-11-22T18:56:34.645Z"
+}

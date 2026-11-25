@@ -1,0 +1,857 @@
+{
+  "id": "seq-carrossel-busca-google",
+  "name": "Carrossel · Pesquisou no Google?",
+  "kind": "sequence",
+  "format": "carousel",
+  "style": "Gráfico",
+  "topics": [
+    "Plantão",
+    "Pergunte à Viva"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "source": "Referência: Conexa · Terapia com ChatGPT (carrossel)",
+  "frames": [
+    {
+      "id": "f10",
+      "name": "Capa",
+      "background": "{violet.950}",
+      "layers": [
+        {
+          "id": "gg001",
+          "type": "image",
+          "name": "Foto",
+          "src": "assets/posts/photos/noite-busca.jpg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fit": "cover",
+          "position": "50% 30%",
+          "slot": "Foto",
+          "fill": true
+        },
+        {
+          "id": "gg002",
+          "type": "rect",
+          "name": "Véu",
+          "x": 0,
+          "y": 560,
+          "w": 1080,
+          "h": 790,
+          "style": {
+            "backgroundImage": "linear-gradient(180deg, #22084A00 0%, #22084AE6 55%, #22084A 100%)"
+          }
+        },
+        {
+          "id": "gg003",
+          "type": "group",
+          "name": "Arraste",
+          "x": 860,
+          "y": 96,
+          "w": 140,
+          "h": 30,
+          "anchor": "top",
+          "style": {
+            "display": "flex",
+            "alignItems": "center",
+            "gap": "14px"
+          },
+          "children": [
+            {
+              "id": "gg004",
+              "type": "text",
+              "name": "Texto",
+              "x": 0,
+              "y": 0,
+              "text": "Arraste",
+              "font": "body",
+              "size": 24,
+              "color": "{white}/70",
+              "leading": 30,
+              "tracking": 0
+            },
+            {
+              "id": "gg005",
+              "type": "svg",
+              "name": "Vetor",
+              "x": 0,
+              "y": 0,
+              "w": 40,
+              "h": 20,
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "markup": "<svg width=\"40\" height=\"20\" viewBox=\"0 0 40 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 10h34M28 3l8 7-8 7\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" stroke-linecap=\"round\"/></svg>"
+            }
+          ]
+        },
+        {
+          "id": "gg006",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 760,
+          "w": 860,
+          "text": "Você já pesquisou isso às 2h da manhã?",
+          "font": "display",
+          "size": 96,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 96,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Você já pesquisou isso "
+            },
+            {
+              "text": "às 2h da manhã?",
+              "style": {
+                "color": "{violet.300}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "gg007",
+          "type": "rect",
+          "name": "Barra",
+          "x": 80,
+          "y": 1146,
+          "w": 920,
+          "h": 104,
+          "radius": 28,
+          "style": {
+            "background": "#FFFFFF1F",
+            "boxShadow": "inset 0 0 0 1.5px #FFFFFF40",
+            "borderRadius": "28px"
+          },
+          "backdropBlur": 24
+        },
+        {
+          "id": "gg008",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 116,
+          "y": 1172,
+          "h": 52,
+          "anchor": "top"
+        },
+        {
+          "id": "gg009",
+          "type": "text",
+          "name": "Barra texto",
+          "x": 196,
+          "y": 1180,
+          "w": 760,
+          "text": "Sintoma no Google não é consulta.",
+          "font": "body",
+          "size": 28,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 36,
+          "tracking": 0,
+          "runs": [
+            {
+              "text": "Sintoma no Google "
+            },
+            {
+              "text": "não é consulta.",
+              "style": {
+                "fontWeight": 600
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f20",
+      "name": "Buscas",
+      "background": "{violet.950}",
+      "layers": [
+        {
+          "id": "gg011",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.05
+        },
+        {
+          "id": "gg012",
+          "type": "text",
+          "name": "Hora",
+          "x": 80,
+          "y": 140,
+          "w": 900,
+          "text": "2h13. Busca recente:",
+          "font": "body",
+          "size": 30,
+          "color": "{white}/60",
+          "anchor": "top",
+          "leading": 40,
+          "tracking": 0
+        },
+        {
+          "id": "gg013",
+          "type": "svg",
+          "name": "Barra de busca",
+          "markup": "<svg viewBox=\"0 0 920 120\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"920\" height=\"120\" rx=\"60\" fill=\"#FFFFFF\"/><circle cx=\"74\" cy=\"58\" r=\"17\" fill=\"none\" stroke=\"#726F80\" stroke-width=\"4\"/><path d=\"M87 71l13 13\" stroke=\"#726F80\" stroke-width=\"4\" stroke-linecap=\"round\"/><rect x=\"134\" y=\"38\" width=\"3\" height=\"44\" fill=\"#7E3BED\"/><circle cx=\"846\" cy=\"60\" r=\"30\" fill=\"#7E3BED\"/><path d=\"M846 46v28M834 58l12-12 12 12\" stroke=\"#fff\" stroke-width=\"4\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+          "x": 80,
+          "y": 210,
+          "w": 920,
+          "h": 120
+        },
+        {
+          "id": "gg014",
+          "type": "text",
+          "name": "Placeholder",
+          "x": 236,
+          "y": 252,
+          "w": 500,
+          "text": "Pesquisar sintoma",
+          "font": "body",
+          "size": 34,
+          "color": "{ink.400}",
+          "anchor": "top",
+          "leading": 40,
+          "tracking": 0
+        },
+        {
+          "id": "gg015",
+          "type": "chip",
+          "name": "Busca 1",
+          "variant": "bubble",
+          "title": "dor de cabeça forte do lado\nesquerdo é grave?",
+          "x": 360,
+          "y": 440,
+          "tone": "light",
+          "anchor": "top",
+          "scale": 1.45
+        },
+        {
+          "id": "gg016",
+          "type": "chip",
+          "name": "Busca 2",
+          "variant": "bubble",
+          "title": "febre 38,5 adulto quando\nir pro hospital",
+          "x": 80,
+          "y": 660,
+          "tone": "light",
+          "anchor": "top",
+          "scale": 1.45
+        },
+        {
+          "id": "gg017",
+          "type": "chip",
+          "name": "Busca 3",
+          "variant": "bubble",
+          "title": "garganta inflamada precisa\nde antibiótico?",
+          "x": 320,
+          "y": 880,
+          "tone": "violet",
+          "anchor": "top",
+          "scale": 1.45
+        },
+        {
+          "id": "gg018",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Sintoma no Google não é consulta.",
+          "font": "body",
+          "size": 22,
+          "color": "{white}/70",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "gg019",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f26",
+      "name": "Virada",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "gg021",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 150,
+          "w": 920,
+          "text": "A internet responde tudo. Menos sobre você.",
+          "font": "display",
+          "size": 120,
+          "color": "{violet.300}",
+          "anchor": "top",
+          "leading": 118,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "A internet responde tudo. "
+            },
+            {
+              "text": "Menos sobre você.",
+              "style": {
+                "color": "{violet.700}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "gg022",
+          "type": "rect",
+          "name": "Selo",
+          "x": 560,
+          "y": 840,
+          "w": 440,
+          "h": 190,
+          "radius": 28,
+          "style": {
+            "background": "#7E3BED",
+            "boxShadow": "0 30px 60px -20px #45139166",
+            "borderRadius": "28px"
+          },
+          "rotate": -5
+        },
+        {
+          "id": "gg023",
+          "type": "text",
+          "name": "Selo texto",
+          "x": 600,
+          "y": 874,
+          "w": 370,
+          "text": "Ela não sabe sua idade, seu histórico nem o que você já tomou.",
+          "font": "body",
+          "size": 28,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 36,
+          "tracking": 0,
+          "weight": 500,
+          "rotate": -5
+        },
+        {
+          "id": "gg024",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Sintoma no Google não é consulta.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "gg025",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolViolet",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f35",
+      "name": "Médico",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "gg027",
+          "type": "rect",
+          "name": "Base",
+          "x": 0,
+          "y": 640,
+          "w": 1080,
+          "h": 710,
+          "background": "{violet.100}"
+        },
+        {
+          "id": "gg028",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 900,
+          "text": "No Plantão 24h, quem responde é médico.",
+          "font": "display",
+          "size": 84,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 88,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "No Plantão 24h, quem responde "
+            },
+            {
+              "text": "é médico.",
+              "style": {
+                "color": "{violet.600}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "gg029",
+          "type": "text",
+          "name": "Sub",
+          "x": 80,
+          "y": 330,
+          "w": 700,
+          "text": "Vídeo ou chat, com CRM e RQE no perfil.",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.600}",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0
+        },
+        {
+          "id": "gg030",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "plantao-queue--position-3",
+          "x": 520,
+          "y": 470,
+          "w": 440,
+          "rotate": 4
+        },
+        {
+          "id": "gg031",
+          "type": "chip",
+          "name": "Médica",
+          "variant": "person",
+          "title": "Dra. Júlia",
+          "x": 80,
+          "y": 760,
+          "tone": "light",
+          "anchor": "top",
+          "badge": "assets/people/doctors/julia.jpg",
+          "subtitle": "Clínica geral · CRM verificado",
+          "scale": 1.3
+        },
+        {
+          "id": "gg032",
+          "type": "chip",
+          "name": "Fila",
+          "variant": "pill",
+          "title": "Você é o 3º da fila",
+          "x": 120,
+          "y": 900,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "gg033",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Sintoma no Google não é consulta.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "gg034",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolViolet",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f55",
+      "name": "Comparação",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "gg036",
+          "type": "rect",
+          "name": "Faixa Na busca",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 560,
+          "background": "{ink.100}"
+        },
+        {
+          "id": "gg037",
+          "type": "text",
+          "name": "Na busca título",
+          "x": 80,
+          "y": 64,
+          "w": 900,
+          "text": "Na busca",
+          "font": "display",
+          "size": 60,
+          "color": "{ink.600}",
+          "anchor": "top",
+          "leading": 64,
+          "tracking": -0.045
+        },
+        {
+          "id": "gg038",
+          "type": "svg",
+          "name": "Ícone x",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"48\" height=\"48\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#A29FB0\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 15l18 18M33 15L15 33\"/></svg>",
+          "x": 80,
+          "y": 180,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "id": "gg039",
+          "type": "text",
+          "name": "Na busca item 1",
+          "x": 156,
+          "y": 184,
+          "w": 800,
+          "text": "Resposta genérica, pra qualquer pessoa",
+          "font": "body",
+          "size": 34,
+          "color": "{ink.600}",
+          "anchor": "top",
+          "leading": 42,
+          "tracking": 0
+        },
+        {
+          "id": "gg040",
+          "type": "svg",
+          "name": "Ícone x",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"48\" height=\"48\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#A29FB0\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 15l18 18M33 15L15 33\"/></svg>",
+          "x": 80,
+          "y": 284,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "id": "gg041",
+          "type": "text",
+          "name": "Na busca item 2",
+          "x": 156,
+          "y": 288,
+          "w": 800,
+          "text": "Ninguém pergunta o que você sente",
+          "font": "body",
+          "size": 34,
+          "color": "{ink.600}",
+          "anchor": "top",
+          "leading": 42,
+          "tracking": 0
+        },
+        {
+          "id": "gg042",
+          "type": "svg",
+          "name": "Ícone x",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"48\" height=\"48\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#A29FB0\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 15l18 18M33 15L15 33\"/></svg>",
+          "x": 80,
+          "y": 388,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "id": "gg043",
+          "type": "text",
+          "name": "Na busca item 3",
+          "x": 156,
+          "y": 392,
+          "w": 800,
+          "text": "Termina com mais dúvida",
+          "font": "body",
+          "size": 34,
+          "color": "{ink.600}",
+          "anchor": "top",
+          "leading": 42,
+          "tracking": 0
+        },
+        {
+          "id": "gg044",
+          "type": "rect",
+          "name": "Faixa No Plantão 24h",
+          "x": 0,
+          "y": 560,
+          "w": 1080,
+          "h": 560,
+          "background": "{violet.700}"
+        },
+        {
+          "id": "gg045",
+          "type": "text",
+          "name": "No Plantão 24h título",
+          "x": 80,
+          "y": 624,
+          "w": 900,
+          "text": "No Plantão 24h",
+          "font": "display",
+          "size": 60,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 64,
+          "tracking": -0.045
+        },
+        {
+          "id": "gg046",
+          "type": "svg",
+          "name": "Ícone check",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"48\" height=\"48\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#12FFD7\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 25l8 8 16-17\"/></svg>",
+          "x": 80,
+          "y": 740,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "id": "gg047",
+          "type": "text",
+          "name": "No Plantão 24h item 1",
+          "x": 156,
+          "y": 744,
+          "w": 800,
+          "text": "A Viva organiza seus sintomas na fila",
+          "font": "body",
+          "size": 34,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 42,
+          "tracking": 0
+        },
+        {
+          "id": "gg048",
+          "type": "svg",
+          "name": "Ícone check",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"48\" height=\"48\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#12FFD7\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 25l8 8 16-17\"/></svg>",
+          "x": 80,
+          "y": 844,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "id": "gg049",
+          "type": "text",
+          "name": "No Plantão 24h item 2",
+          "x": 156,
+          "y": 848,
+          "w": 800,
+          "text": "Médico por vídeo ou chat",
+          "font": "body",
+          "size": 34,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 42,
+          "tracking": 0
+        },
+        {
+          "id": "gg050",
+          "type": "svg",
+          "name": "Ícone check",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"48\" height=\"48\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#12FFD7\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 25l8 8 16-17\"/></svg>",
+          "x": 80,
+          "y": 948,
+          "w": 48,
+          "h": 48
+        },
+        {
+          "id": "gg051",
+          "type": "text",
+          "name": "No Plantão 24h item 3",
+          "x": 156,
+          "y": 952,
+          "w": 800,
+          "text": "Receita digital assinada, se precisar",
+          "font": "body",
+          "size": 34,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 42,
+          "tracking": 0
+        },
+        {
+          "id": "gg052",
+          "type": "rect",
+          "name": "Base",
+          "x": 0,
+          "y": 1120,
+          "w": 1080,
+          "h": 230,
+          "background": "{violet.700}"
+        },
+        {
+          "id": "gg053",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Sintoma no Google não é consulta.",
+          "font": "body",
+          "size": 22,
+          "color": "{white}/70",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "gg054",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f63",
+      "name": "CTA",
+      "background": "radial-gradient(60% 75% at 92% 8%, #9531FF 0%, transparent 65%), radial-gradient(70% 80% at 0% 100%, #7A67F8 0%, transparent 62%), linear-gradient(160deg, #2B0B5C 0%, #451391 100%)",
+      "layers": [
+        {
+          "id": "gg056",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.06
+        },
+        {
+          "id": "gg057",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 820,
+          "text": "Da próxima vez, pergunte pra quem examina.",
+          "font": "display",
+          "size": 92,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 94,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Da próxima vez, pergunte "
+            },
+            {
+              "text": "pra quem examina.",
+              "style": {
+                "color": "{violet.300}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "gg058",
+          "type": "text",
+          "name": "Sub",
+          "x": 80,
+          "y": 442,
+          "w": 560,
+          "text": "Plantão 24h no app, por vídeo ou chat.",
+          "font": "body",
+          "size": 32,
+          "color": "{white}/70",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0
+        },
+        {
+          "id": "gg059",
+          "type": "chip",
+          "name": "CTA",
+          "variant": "cta",
+          "title": "Baixe a Viva Mais",
+          "x": 80,
+          "y": 620,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "gg060",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "plantao-hub--video",
+          "x": 560,
+          "y": 560,
+          "w": 420,
+          "rotate": -6
+        },
+        {
+          "id": "gg062",
+          "type": "text",
+          "name": "Aviso",
+          "x": 80,
+          "y": 1080,
+          "w": 420,
+          "text": "Dor no peito, falta de ar forte ou desmaio: ligue 192.",
+          "font": "body",
+          "size": 22,
+          "color": "{white}/60",
+          "anchor": "top",
+          "leading": 30,
+          "tracking": 0
+        },
+        {
+          "id": "gg061",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "x": 80,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23T15:42:06.797184+00:00"
+}

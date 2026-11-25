@@ -1,0 +1,374 @@
+{
+  "id": "post-p2-pergunte-viva",
+  "name": "P2 · Pergunte à Viva",
+  "kind": "post",
+  "format": "feed",
+  "style": "Gráfico",
+  "topics": [
+    "Pergunte à Viva"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pkqy4",
+      "name": "Feed",
+      "background": "radial-gradient(ellipse 90% 70% at 70% 30% in oklab, #7E3BED 0%, #451391 45%, #22084A 100%)",
+      "layers": [
+        {
+          "id": "p0mt8",
+          "x": 520,
+          "y": -180,
+          "opacity": 0.1,
+          "anchor": "top",
+          "type": "svg",
+          "name": "Marca vazada (corte)",
+          "markup": "<svg viewBox=\"35 36 92 90\" width=\"92\" height=\"90\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:900px;height:880px\"><path fill-rule=\"evenodd\" d=\"M80.4 125.28C70.72 125.28 62.85 117.41 62.85 107.73V99.86C62.85 99.07 62.2 98.42 61.41 98.42H53.54C43.86 98.42 35.99 90.55 35.99 80.87C35.99 71.19 43.86 63.32 53.54 63.32H61.41C62.2 63.32 62.85 62.67 62.850 61.88V54.01C62.85 44.33 70.72 36.46 80.4 36.46C90.08 36.46 97.95 44.33 97.95 54.01V61.88C97.95 62.67 98.6 63.32 99.39 63.32H107.26C116.94 63.32 124.81 71.19 124.81 80.87C124.81 90.55 116.94 98.42 107.26 98.42H99.39C98.6 98.42 97.95 99.07 97.95 99.86V107.73C97.95 117.410 90.08 125.28 80.4 125.28Z M53.55 71.57C48.42 71.57 44.24 75.75 44.24 80.88C44.24 86.01 48.42 90.19 53.55 90.19H61.42C66.76 90.19 71.1 94.53 71.1 99.87V107.74C71.1 112.87 75.28 117.05 80.41 117.05C85.54 117.05 89.72 112.87 89.72 107.74V99.87C89.72 94.53 94.06 90.19 99.4 90.19H107.27C112.4 90.19 116.58 86.01 116.58 80.88C116.58 75.75 112.4 71.57 107.27 71.57H99.4C94.06 71.57 89.72 67.23 89.72 61.89V54.02C89.72 48.89 85.54 44.71 80.41 44.71C75.28 44.71 71.1 48.89 71.1 54.02V61.89C71.1 67.23 66.76 71.57 61.42 71.57H53.55Z\" fill=\"#FFFFFF\"></path></svg>",
+          "w": 900,
+          "h": 880
+        },
+        {
+          "id": "p1nkp",
+          "x": 48,
+          "y": 135,
+          "anchor": "top",
+          "w": 965,
+          "type": "text",
+          "name": "Palavra atrás",
+          "text": "Pergunte.",
+          "font": "display",
+          "size": 232,
+          "color": "{white}",
+          "leading": 220,
+          "tracking": -0.06,
+          "slot": "Palavra",
+          "weight": 400,
+          "runs": [
+            {
+              "text": "Pergunte.",
+              "style": {
+                "fontFamily": "\"Space Grotesk\", sans-serif",
+                "fontWeight": 400
+              }
+            }
+          ]
+        },
+        {
+          "id": "p2fxo",
+          "x": 0,
+          "y": 360,
+          "anchor": "bottom",
+          "type": "image",
+          "name": "Recorte · paciente",
+          "src": "assets/people/hero-pessoa.png",
+          "fit": "contain",
+          "position": "50% 100%",
+          "w": 1080,
+          "h": 1080,
+          "slot": "Foto",
+          "choices": [
+            "assets/posts/paper/1AA405ESPXBJHJ5T8RHZFFAX7V.webp",
+            "assets/people/hero-pessoa.png",
+            "assets/people/patients/"
+          ]
+        },
+        {
+          "id": "p3u3e",
+          "x": 64,
+          "y": 72,
+          "anchor": "top",
+          "type": "group",
+          "name": "Topo",
+          "w": 952,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "justifyContent": "space-between"
+          },
+          "children": [
+            {
+              "id": "logo160ite",
+              "type": "logo",
+              "name": "Logo",
+              "x": 0,
+              "y": 0,
+              "variant": "lockupWhite",
+              "w": 160,
+              "h": 34,
+              "style": {
+                "flexShrink": 0
+              }
+            },
+            {
+              "id": "p5j96",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Assistente de saúde",
+              "text": "Assistente de saúde",
+              "font": "body",
+              "size": 24,
+              "color": "{white}/80",
+              "leading": 30,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p6nqd",
+          "x": 604,
+          "y": 501,
+          "anchor": "center",
+          "type": "group",
+          "name": "Bolha · paciente",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderBottomLeftRadius": "32px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "32px",
+            "borderTopRightRadius": "32px",
+            "boxShadow": "#0D0C1280 0px 30px 60px -20px",
+            "maxWidth": "420px",
+            "paddingBlock": "22px",
+            "paddingInline": "28px"
+          },
+          "children": [
+            {
+              "id": "p7g6c",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Posso tomar ibuprofe…",
+              "text": "Posso tomar ibuprofeno junto com losartana?",
+              "font": "body",
+              "size": 26,
+              "color": "{ink.900}",
+              "leading": 34,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Pergunta"
+            }
+          ]
+        },
+        {
+          "id": "p891w",
+          "x": 64,
+          "y": 1000,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Resposta · Viva",
+          "w": 540,
+          "style": {
+            "backgroundColor": "#FFFFFFF5",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "32px",
+            "borderTopLeftRadius": "32px",
+            "borderTopRightRadius": "32px",
+            "boxShadow": "#0D0C128C 0px 30px 60px -20px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "14px",
+            "paddingBlock": "26px",
+            "paddingInline": "28px"
+          },
+          "children": [
+            {
+              "id": "p9438",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "12px"
+              },
+              "children": [
+                {
+                  "id": "pam24",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "AI Orb",
+                  "style": {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "position": "relative",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "pbcrb",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundImage": "radial-gradient(circle farthest-corner at 50% 50% in oklab, #9D6BF2 0%, #9D6BF200 65%)",
+                        "borderRadius": "999px",
+                        "filter": "blur(4.3px)",
+                        "height": "57.6px",
+                        "left": "-10.8px",
+                        "opacity": "0.35",
+                        "position": "absolute",
+                        "top": "-10.8px",
+                        "width": "57.6px"
+                      }
+                    },
+                    {
+                      "id": "pcmm6",
+                      "x": 0,
+                      "y": 0,
+                      "type": "group",
+                      "name": "Grupo",
+                      "style": {
+                        "backgroundColor": "#F5F0FE",
+                        "borderRadius": "999px",
+                        "boxShadow": "#7E3BED59 0px 4px 12px -3px",
+                        "height": "36px",
+                        "left": "0px",
+                        "overflow": "clip",
+                        "position": "absolute",
+                        "top": "0px",
+                        "width": "36px"
+                      },
+                      "children": [
+                        {
+                          "id": "pdisi",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundColor": "#12FFD7",
+                            "borderRadius": "999px",
+                            "filter": "blur(4.7px)",
+                            "height": "20.9px",
+                            "left": "1.8px",
+                            "opacity": "0.7",
+                            "position": "absolute",
+                            "top": "11.9px",
+                            "width": "20.9px"
+                          }
+                        },
+                        {
+                          "id": "pe42m",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundColor": "#9531FF",
+                            "borderRadius": "999px",
+                            "filter": "blur(4.7px)",
+                            "height": "20.9px",
+                            "left": "13.3px",
+                            "opacity": "0.85",
+                            "position": "absolute",
+                            "top": "7.6px",
+                            "width": "20.9px"
+                          }
+                        },
+                        {
+                          "id": "pf6yw",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundColor": "#9D6BF2",
+                            "borderRadius": "999px",
+                            "filter": "blur(4.7px)",
+                            "height": "20.9px",
+                            "left": "7.6px",
+                            "opacity": "0.9",
+                            "position": "absolute",
+                            "top": "1.4px",
+                            "width": "20.9px"
+                          }
+                        },
+                        {
+                          "id": "pg1mh",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundImage": "radial-gradient(circle farthest-corner at 32% 22% in oklab, #FFFFFFE6 0%, #FFFFFF00 38%), radial-gradient(circle farthest-corner at 50% 52% in oklab, #FFFFFF00 26%, #FFFFFF80 62%, #FFFFFFD9 100%)",
+                            "borderRadius": "999px",
+                            "boxShadow": "#FFFFFFB3 0px 0px 0px 1.3px inset, #7E3BED1F 0px -3px 8px inset",
+                            "height": "36px",
+                            "left": "0px",
+                            "position": "absolute",
+                            "top": "0px",
+                            "width": "36px"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "phmw2",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg viewBox=\"69.92 1.23 19.84 19.84\" width=\"19.84\" height=\"19.84\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:16.6px;height:16.6px;filter:drop-shadow(#7E3BED73 0px 0px 2px)\"><path d=\"M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z\" fill=\"rgb(255 255 255 / 95%)\"></path></svg>",
+                      "style": {
+                        "width": "16.6px",
+                        "height": "16.6px",
+                        "display": "inline-block",
+                        "position": "relative",
+                        "flexShrink": 0,
+                        "filter": "drop-shadow(#7E3BED73 0px 0px 2px)"
+                      },
+                      "w": 19.84,
+                      "h": 19.84
+                    }
+                  ]
+                },
+                {
+                  "id": "pismy",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Viva",
+                  "text": "Viva",
+                  "font": "body",
+                  "size": 22,
+                  "weight": 500,
+                  "color": "{ink.900}",
+                  "leading": 28,
+                  "tracking": 0
+                }
+              ]
+            },
+            {
+              "id": "pjd5n",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Juntos, podem subir …",
+              "text": "Juntos, podem subir a pressão. Prefira paracetamol e fale com um médico do plantão se a dor continuar.",
+              "font": "body",
+              "size": 25,
+              "color": "{ink.700}",
+              "leading": 34,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Resposta"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AH9-0",
+  "updatedAt": "2026-11-22T19:10:17.346Z"
+}

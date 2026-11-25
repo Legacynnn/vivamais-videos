@@ -1,0 +1,169 @@
+@import "tailwindcss";
+@source ".";
+@import "tw-animate-css";
+@import "./ui/styles.css";
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 400;
+  font-display: swap;
+  src: url("@brand/fonts/DMSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 500 600;
+  font-display: swap;
+  src: url("@brand/fonts/DMSans-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 700;
+  font-display: swap;
+  src: url("@brand/fonts/DMSans-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 500;
+  font-display: swap;
+  src: url("@brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 600 700;
+  font-display: swap;
+  src: url("@brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
+}
+
+@theme {
+  --spacing-field-control: 0.3125rem;
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 0.875rem;
+  --text-xs-plus: 0.8125rem;
+  --text-xs-plus--line-height: 1.125rem;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "DM Sans", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-link: var(--link);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant focus-visible (&:is([data-focus-visible-mode="keyboard"] *):focus-visible);
+
+:root {
+  --background: #0d0c12;
+  --foreground: #f9f8fb;
+  --card: #17151e;
+  --card-foreground: #f9f8fb;
+  --popover: #17151e;
+  --popover-foreground: #f9f8fb;
+  --link: #bc9cf7;
+  --primary: #7e3bed;
+  --primary-foreground: #ffffff;
+  --bg-foreground: var(--foreground);
+  --secondary: var(--foreground);
+  --secondary-foreground: #f9f8fb;
+  --muted: #282632;
+  --muted-foreground: #a29fb0;
+  --accent: #9d6bf2;
+  --accent-foreground: #ffffff;
+  --inspect: #12ffd7;
+  --attention: #f59e0b;
+  --attention-foreground: #17151e;
+  --destructive: #ef4444;
+  --destructive-foreground: var(--foreground);
+  --border: var(--foreground);
+  --input: var(--foreground);
+  --ring: #9d6bf2;
+  --chart-1: #bc9cf7;
+  --chart-2: #9d6bf2;
+  --chart-3: #7e3bed;
+  --chart-4: #12ffd7;
+  --chart-5: #5a9af0;
+  --radius: 0.375rem;
+  --button-radius-xs: 0.125rem;
+  --button-radius-sm: 0.25rem;
+  --button-radius-md: 0.375rem;
+  --button-radius-lg: 0.5rem;
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: color-mix(in oklab, var(--border) 10%, transparent);
+    box-sizing: border-box;
+    outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+#root {
+  overflow: clip;
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--foreground) 10%, transparent) transparent;
+}
+
+[data-panning="ready"],
+[data-panning="ready"] * {
+  cursor: grab !important;
+}
+
+[data-panning="active"],
+[data-panning="active"] * {
+  cursor: grabbing !important;
+}
+
+[data-panning="ready"] iframe,
+[data-panning="active"] iframe {
+  pointer-events: none;
+}

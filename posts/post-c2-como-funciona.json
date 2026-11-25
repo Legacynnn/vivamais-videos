@@ -1,0 +1,366 @@
+{
+  "id": "post-c2-como-funciona",
+  "name": "C2 · Como funciona o plantão",
+  "kind": "post",
+  "format": "feed",
+  "style": "Conteúdo",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "ksq7vki",
+      "name": "C2 · Como funciona o plantão",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "kffts6g",
+          "type": "rect",
+          "name": "Faixa",
+          "x": 600,
+          "y": 0,
+          "w": 480,
+          "h": 1350,
+          "anchor": "center",
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #F5F0FE 0%, #EBE1FD 100%)"
+          }
+        },
+        {
+          "id": "khx9bda",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "text": "Como funciona\no plantão.",
+          "font": "display",
+          "size": 76,
+          "color": "{ink.900}",
+          "leading": 76,
+          "tracking": -0.045,
+          "w": 560,
+          "slot": "Título"
+        },
+        {
+          "id": "ksgqaqa",
+          "type": "text",
+          "name": "Subtítulo",
+          "x": 80,
+          "y": 274,
+          "anchor": "top",
+          "text": "Do sintoma à receita, em 4 passos.",
+          "font": "body",
+          "size": 28,
+          "color": "{ink.600}",
+          "leading": 38,
+          "tracking": 0,
+          "w": 560,
+          "slot": "Subtítulo"
+        },
+        {
+          "id": "kczmc79",
+          "x": 72,
+          "y": 430,
+          "anchor": "top",
+          "type": "group",
+          "name": "Lista",
+          "w": 500,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "id": "kseaxo0",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "knaeoun",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "kktf16u",
+                      "type": "text",
+                      "name": "1",
+                      "x": 0,
+                      "y": 0,
+                      "text": "1",
+                      "font": "display",
+                      "size": 20,
+                      "color": "{violet.600}",
+                      "leading": 20,
+                      "tracking": 0
+                    }
+                  ]
+                },
+                {
+                  "id": "k3gjedc",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Conte o que sente",
+                  "font": "body",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 35,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Item 1"
+                }
+              ]
+            },
+            {
+              "id": "kd5v076",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "kjgv3ey",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "k3pthow",
+                      "type": "text",
+                      "name": "2",
+                      "x": 0,
+                      "y": 0,
+                      "text": "2",
+                      "font": "display",
+                      "size": 20,
+                      "color": "{violet.600}",
+                      "leading": 20,
+                      "tracking": 0
+                    }
+                  ]
+                },
+                {
+                  "id": "k3snsgb",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Entre na fila e acompanhe",
+                  "font": "body",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 35,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Item 2"
+                }
+              ]
+            },
+            {
+              "id": "kazfhlb",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "kc0j29e",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "kn8dhnf",
+                      "type": "text",
+                      "name": "3",
+                      "x": 0,
+                      "y": 0,
+                      "text": "3",
+                      "font": "display",
+                      "size": 20,
+                      "color": "{violet.600}",
+                      "leading": 20,
+                      "tracking": 0
+                    }
+                  ]
+                },
+                {
+                  "id": "ku4ood9",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Fale com o médico por vídeo ou chat",
+                  "font": "body",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 35,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Item 3"
+                }
+              ]
+            },
+            {
+              "id": "kapx628",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "k4h3ucg",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "k0qxfs1",
+                      "type": "text",
+                      "name": "4",
+                      "x": 0,
+                      "y": 0,
+                      "text": "4",
+                      "font": "display",
+                      "size": 20,
+                      "color": "{violet.600}",
+                      "leading": 20,
+                      "tracking": 0
+                    }
+                  ]
+                },
+                {
+                  "id": "k37pd1h",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Receita e atestado no app",
+                  "font": "body",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 35,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Item 4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "k7dk7t9",
+          "type": "phone",
+          "name": "Celular",
+          "slot": "Tela",
+          "screen": "plantao-queue--position-3",
+          "x": 640,
+          "y": 330,
+          "w": 400,
+          "anchor": "center",
+          "rotate": 5
+        },
+        {
+          "id": "knfndjj",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupColor",
+          "x": 80,
+          "y": 1254,
+          "anchor": "bottom",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:36:24.447Z"
+}

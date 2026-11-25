@@ -1,0 +1,103 @@
+{
+  "id": "post-k1-plantao-24h",
+  "name": "K1 · Plantão 24h",
+  "kind": "post",
+  "format": "feed",
+  "style": "Gráfico",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "kww5o5n",
+      "name": "K1 · Plantão 24h",
+      "background": "linear-gradient(135deg, #5A1CC2 0%, #7230E2 55%, #8B45F3 100%)",
+      "layers": [
+        {
+          "id": "kp7v6dj",
+          "type": "rect",
+          "name": "Glow",
+          "x": 780,
+          "y": 820,
+          "w": 900,
+          "h": 900,
+          "anchor": "center",
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED80 0%, #7E3BED22 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "kblv2fd",
+          "type": "text",
+          "name": "Título",
+          "x": 72,
+          "y": 80,
+          "anchor": "top",
+          "text": "Plantão\n24h.",
+          "font": "display",
+          "size": 220,
+          "color": "{white}",
+          "leading": 220,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "ky3d229",
+          "type": "text",
+          "name": "Subtítulo",
+          "x": 80,
+          "y": 600,
+          "anchor": "top",
+          "text": "Médico por vídeo ou chat,\na qualquer hora.",
+          "font": "body",
+          "size": 32,
+          "color": "{white}/70",
+          "leading": 43,
+          "tracking": 0,
+          "slot": "Subtítulo"
+        },
+        {
+          "id": "km33hdo",
+          "type": "phone",
+          "name": "Celular",
+          "slot": "Tela",
+          "screen": "plantao-hub--video",
+          "x": 560,
+          "y": 560,
+          "w": 440,
+          "anchor": "center",
+          "rotate": 6
+        },
+        {
+          "id": "km3xl8x",
+          "type": "chip",
+          "name": "Plantão 24h · ao viv",
+          "x": 90,
+          "y": 900,
+          "rotate": -5,
+          "anchor": "center",
+          "variant": "pill",
+          "title": "Plantão 24h · ao vivo",
+          "tone": "light",
+          "scale": 1.9
+        },
+        {
+          "id": "khvfzke",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "x": 80,
+          "y": 1254,
+          "anchor": "bottom",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:36:24.446Z"
+}

@@ -1,0 +1,115 @@
+{
+  "id": "post-g1-noite-sofa",
+  "name": "G1 · Noite no sofá",
+  "kind": "post",
+  "format": "feed",
+  "style": "Foto com UI",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "gmp4zp",
+      "name": "G1 · Noite no sofá",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "gc5hlh",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/sofa-noite.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "gjifpy",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-queue--position-3",
+          "photo": "gc5hlh"
+        },
+        {
+          "id": "g6mphy",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 500,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #0D0C12E0 0%, #0D0C1280 55%, #0D0C1200 100%)"
+          }
+        },
+        {
+          "id": "gbrnkk",
+          "x": 64,
+          "y": 84,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 900,
+          "h": 220,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "18px"
+          },
+          "children": [
+            {
+              "id": "g0ijkc",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Dor de cabeça\nàs 23h?",
+              "font": "display",
+              "size": 76,
+              "color": "{white}",
+              "leading": 78,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "gcu5xo",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Subtítulo",
+              "text": "Plantão 24h no app. Você entra na fila\nsem sair do sofá.",
+              "font": "body",
+              "size": 26,
+              "color": "{white}/78",
+              "leading": 34,
+              "tracking": 0,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "ggsvqy",
+          "x": 64,
+          "y": 1270,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 34
+        }
+      ]
+    }
+  ],
+  "source": "ai:google/nano-banana-pro",
+  "updatedAt": "2026-11-22T19:51:14.548Z"
+}

@@ -1,0 +1,93 @@
+{
+  "id": "post-k3-sem-sala-espera",
+  "name": "K3 · Sem sala de espera",
+  "kind": "post",
+  "format": "feed",
+  "style": "Gráfico",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "ko4wbng",
+      "name": "K3 · Sem sala de espera",
+      "background": "linear-gradient(135deg, #F5F0FE 0%, #EBE1FD 55%, #DCEBFF 100%)",
+      "layers": [
+        {
+          "id": "kdq4xp5",
+          "type": "text",
+          "name": "Título",
+          "x": 72,
+          "y": 80,
+          "anchor": "top",
+          "text": "Sem\nsala de\nespera.",
+          "font": "display",
+          "size": 170,
+          "color": "{ink.900}",
+          "leading": 170,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "kv3n2ce",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "src": "assets/posts/photos/casal-idoso-sofa.jpg",
+          "fit": "cover",
+          "position": "50%",
+          "x": 520,
+          "y": 560,
+          "w": 500,
+          "h": 700,
+          "anchor": "center",
+          "style": {
+            "borderRadius": "40px",
+            "boxShadow": "#22084A59 0px 40px 80px -30px"
+          },
+          "rotate": -3
+        },
+        {
+          "id": "ktqg73z",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "ai-chat--answer",
+          "photo": "kv3n2ce"
+        },
+        {
+          "id": "k6nsoiv",
+          "type": "text",
+          "name": "Subtítulo",
+          "x": 80,
+          "y": 1080,
+          "anchor": "top",
+          "text": "O médico chama você\nonde você estiver.",
+          "font": "body",
+          "size": 30,
+          "color": "{ink.600}",
+          "leading": 40,
+          "tracking": 0,
+          "slot": "Subtítulo"
+        },
+        {
+          "id": "k3ji38r",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupViolet",
+          "x": 80,
+          "y": 1254,
+          "anchor": "bottom",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:36:24.446Z"
+}

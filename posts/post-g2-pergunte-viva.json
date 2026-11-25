@@ -1,0 +1,133 @@
+{
+  "id": "post-g2-pergunte-viva",
+  "name": "G2 · Pergunte à Viva",
+  "kind": "post",
+  "format": "feed",
+  "style": "Foto com UI",
+  "topics": [
+    "Pergunte à Viva"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "gzylgl",
+      "name": "G2 · Pergunte à Viva",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "g95e38",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/maos-inicio.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "glxvle",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "account-type--default",
+          "photo": "g95e38"
+        },
+        {
+          "id": "g1ooc4",
+          "x": 0,
+          "y": 850,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 500,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 0deg, #0D0C12E0 0%, #0D0C1280 55%, #0D0C1200 100%)"
+          }
+        },
+        {
+          "id": "gowvp6",
+          "x": 64,
+          "y": 1030,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 900,
+          "h": 220,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "18px"
+          },
+          "children": [
+            {
+              "id": "gdapow",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Pergunte à Viva\nantes de se preocupar.",
+              "font": "display",
+              "size": 76,
+              "color": "{white}",
+              "leading": 78,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "gh6jt5",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Subtítulo",
+              "text": "Dúvidas de saúde a qualquer hora, no app.",
+              "font": "body",
+              "size": 26,
+              "color": "{white}/78",
+              "leading": 34,
+              "tracking": 0,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "gdyvtg",
+          "x": 64,
+          "y": 84,
+          "anchor": "top",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 34
+        }
+      ]
+    }
+  ],
+  "source": "ai:openai/gpt-image-2",
+  "updatedAt": "2026-11-22T23:31:29.993Z",
+  "overrides": {
+    "story": {
+      "gowvp6": {
+        "x": 64,
+        "y": 1281,
+        "w": 900,
+        "h": 220
+      }
+    },
+    "square": {
+      "gowvp6": {
+        "x": 55,
+        "y": 848,
+        "w": 900,
+        "h": 220
+      }
+    }
+  }
+}

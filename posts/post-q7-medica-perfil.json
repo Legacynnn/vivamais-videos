@@ -1,0 +1,230 @@
+{
+  "id": "post-q7-medica-perfil",
+  "name": "Q7 · Médica + Perfil",
+  "kind": "post",
+  "format": "feed",
+  "style": "Foto com UI",
+  "topics": [
+    "Médicos"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pcu8j",
+      "name": "Q7 · Médica + Perfil",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "p03jy",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/maos-05.jpg",
+          "fit": "cover",
+          "position": "50%",
+          "choices": [
+            "assets/posts/photos/maos-01.jpg",
+            "assets/posts/photos/maos-02.jpg",
+            "assets/posts/photos/maos-03.jpg",
+            "assets/posts/photos/maos-04.jpg",
+            "assets/posts/photos/maos-05.jpg",
+            "assets/posts/photos/maos-06.jpg",
+            "assets/posts/photos/maos-07.jpg",
+            "assets/posts/photos/maos-08.jpg"
+          ]
+        },
+        {
+          "id": "slwn7vq",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-called--calling",
+          "photo": "p03jy"
+        },
+        {
+          "id": "p13kq",
+          "x": 0,
+          "y": 0,
+          "anchor": "center",
+          "type": "rect",
+          "name": "Véu esquerda",
+          "w": 560,
+          "h": 1350,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 90deg, #FFFFFFD9 0%, #FFFFFF80 60%, #FFFFFF00 100%)"
+          }
+        },
+        {
+          "id": "p26km",
+          "x": 56,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 340,
+          "h": 258,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "20px"
+          },
+          "children": [
+            {
+              "id": "p3dro",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Gente de verdade do …",
+              "text": "Gente de verdade do outro lado.",
+              "font": "display",
+              "size": 60,
+              "color": "{ink.900}",
+              "leading": 60,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "p4ry1",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "CRM e RQE no perfil …",
+              "text": "CRM e RQE no perfil de cada médico.",
+              "font": "body",
+              "size": 21,
+              "color": "{ink.700}",
+              "leading": 29,
+              "tracking": 0,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p540b",
+          "x": 650,
+          "y": 780,
+          "rotate": 4,
+          "anchor": "center",
+          "type": "group",
+          "name": "Saindo · CRM",
+          "w": 271,
+          "h": 64,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "999px",
+            "boxShadow": "#22084A66 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "12px",
+            "paddingBlock": "16px",
+            "paddingLeft": "16px",
+            "paddingRight": "24px"
+          },
+          "children": [
+            {
+              "id": "p65ev",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "SVG",
+              "markup": "<svg width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2.5l2.4 1.8 3-.2.9 2.9 2.5 1.7-1 2.8 1 2.8-2.5 1.7-.9 2.9-3-.2L12 21.5l-2.4-1.8-3 .2-.9-2.9-2.5-1.7 1-2.8-1-2.8 2.5-1.7.9-2.9 3 .2z\" fill=\"#7E3BED\"></path><path d=\"M8.5 12.2l2.3 2.3 4.7-4.8\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 32,
+              "h": 32
+            },
+            {
+              "id": "p75no",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "CRM verificado",
+              "text": "CRM verificado",
+              "font": "body",
+              "size": 22,
+              "weight": 500,
+              "color": "{ink.900}",
+              "leading": 28,
+              "tracking": 0,
+              "slot": "Chip 1"
+            }
+          ]
+        },
+        {
+          "id": "p80gc",
+          "x": 660,
+          "y": 900,
+          "rotate": -3,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Saindo · avaliação",
+          "w": 376,
+          "h": 54,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#17151E",
+            "borderRadius": "999px",
+            "boxShadow": "#00000073 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "10px",
+            "paddingBlock": "14px",
+            "paddingInline": "22px"
+          },
+          "children": [
+            {
+              "id": "p9uh0",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "SVG",
+              "markup": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21l1.4-7L2 9.3l7-.8z\" fill=\"#FBBF24\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 22,
+              "h": 22
+            },
+            {
+              "id": "pacvp",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Clínica geral · víde…",
+              "text": "Clínica geral · vídeo ou chat",
+              "font": "body",
+              "size": 21,
+              "weight": 500,
+              "color": "{white}",
+              "leading": 26,
+              "tracking": 0,
+              "slot": "Chip 2"
+            }
+          ]
+        },
+        {
+          "id": "pbjfl",
+          "x": 56,
+          "y": 1250,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupColor",
+          "h": 32
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AUK-0",
+  "updatedAt": "2026-11-22T18:58:44.117Z"
+}

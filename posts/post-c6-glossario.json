@@ -1,0 +1,434 @@
+{
+  "id": "post-c6-glossario",
+  "name": "C6 · CRM, RQE e anamnese",
+  "kind": "post",
+  "format": "feed",
+  "style": "Conteúdo",
+  "topics": [
+    "Médicos"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "ktj86sg",
+      "name": "C6 · CRM, RQE e anamnese",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "k05wbwx",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "text": "CRM, RQE,\nanamnese?",
+          "font": "display",
+          "size": 76,
+          "color": "{ink.900}",
+          "leading": 76,
+          "tracking": -0.045,
+          "w": 900,
+          "slot": "Título"
+        },
+        {
+          "id": "k5gb6dy",
+          "type": "text",
+          "name": "Subtítulo",
+          "x": 80,
+          "y": 274,
+          "anchor": "top",
+          "text": "Três palavras que você vai ver no app.",
+          "font": "body",
+          "size": 28,
+          "color": "{ink.600}",
+          "leading": 38,
+          "tracking": 0,
+          "w": 760,
+          "slot": "Subtítulo"
+        },
+        {
+          "id": "k0ktc4i",
+          "x": 60,
+          "y": 420,
+          "anchor": "top",
+          "type": "group",
+          "name": "Faz",
+          "w": 590,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "36px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "6px",
+            "paddingBlock": "34px",
+            "paddingInline": "32px"
+          },
+          "children": [
+            {
+              "id": "kkv8xxn",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "12px",
+                "paddingBottom": "16px"
+              },
+              "children": [
+                {
+                  "id": "kl9tkeu",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#C6FFF4",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": 0,
+                    "height": "40px",
+                    "justifyContent": "center",
+                    "width": "40px"
+                  },
+                  "children": [
+                    {
+                      "id": "kls05hk",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#008F78\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 20,
+                      "h": 20
+                    }
+                  ]
+                },
+                {
+                  "id": "kkpya0r",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "CRM",
+                  "font": "display",
+                  "size": 34,
+                  "color": "{ink.900}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz · título"
+                }
+              ]
+            },
+            {
+              "id": "kpglpme",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "kuro2e0",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Registro do médico no conselho. Todo médico tem.",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kwskz3l",
+          "x": 60,
+          "y": 650,
+          "anchor": "top",
+          "type": "group",
+          "name": "Faz",
+          "w": 590,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "36px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "6px",
+            "paddingBlock": "34px",
+            "paddingInline": "32px"
+          },
+          "children": [
+            {
+              "id": "krq6una",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "12px",
+                "paddingBottom": "16px"
+              },
+              "children": [
+                {
+                  "id": "k06bu2p",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#C6FFF4",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": 0,
+                    "height": "40px",
+                    "justifyContent": "center",
+                    "width": "40px"
+                  },
+                  "children": [
+                    {
+                      "id": "k115v9i",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#008F78\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 20,
+                      "h": 20
+                    }
+                  ]
+                },
+                {
+                  "id": "kuvo7q0",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "RQE",
+                  "font": "display",
+                  "size": 34,
+                  "color": "{ink.900}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz · título"
+                }
+              ]
+            },
+            {
+              "id": "ko6rvno",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "kuc4jh3",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Registro de especialista. Mostra a especialidade.",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kse8vhz",
+          "x": 60,
+          "y": 880,
+          "anchor": "top",
+          "type": "group",
+          "name": "Não faz",
+          "w": 590,
+          "style": {
+            "backgroundColor": "#282632",
+            "borderRadius": "36px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "6px",
+            "paddingBlock": "34px",
+            "paddingInline": "32px"
+          },
+          "children": [
+            {
+              "id": "kdgjh2c",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "12px",
+                "paddingBottom": "16px"
+              },
+              "children": [
+                {
+                  "id": "kyabpus",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#403D4A",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": 0,
+                    "height": "40px",
+                    "justifyContent": "center",
+                    "width": "40px"
+                  },
+                  "children": [
+                    {
+                      "id": "kgz5zgn",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6 6l12 12M18 6L6 18\" fill=\"none\" stroke=\"#D2CFDB\" stroke-width=\"3\" stroke-linecap=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "krgvfsw",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Anamnese",
+                  "font": "display",
+                  "size": 34,
+                  "color": "{white}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz · título"
+                }
+              ]
+            },
+            {
+              "id": "kguz23q",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "kfnheuz",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "O que você conta antes: sintomas, tempo, remédios.",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kcrd8z9",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "src": "assets/posts/photos/medico-corredor.jpg",
+          "fit": "cover",
+          "position": "50%",
+          "x": 700,
+          "y": 520,
+          "w": 330,
+          "h": 500,
+          "anchor": "center",
+          "style": {
+            "borderRadius": "40px",
+            "boxShadow": "#22084A59 0px 40px 80px -30px"
+          },
+          "rotate": 5
+        },
+        {
+          "id": "k79xdoi",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "consult-chat--full",
+          "photo": "kcrd8z9"
+        },
+        {
+          "id": "kjdh4ii",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupColor",
+          "x": 80,
+          "y": 1254,
+          "anchor": "bottom",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:36:24.448Z"
+}

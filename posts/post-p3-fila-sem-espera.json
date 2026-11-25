@@ -1,0 +1,245 @@
+{
+  "id": "post-p3-fila-sem-espera",
+  "name": "P3 · Fila sem sala de espera",
+  "kind": "post",
+  "format": "story",
+  "style": "Mockup de celular",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1920
+  },
+  "frames": [
+    {
+      "id": "pcwz6",
+      "name": "Story",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "p09jr",
+          "x": 0,
+          "y": 620,
+          "anchor": "bottom",
+          "type": "image",
+          "name": "Foto",
+          "src": "assets/posts/photos/story-fila.webp",
+          "fit": "cover",
+          "position": "40% 30%",
+          "w": 1080,
+          "h": 1300,
+          "slot": "Foto",
+          "choices": [
+            "assets/posts/photos/story-fila.webp",
+            "assets/posts/photos/sofa-plantao.webp",
+            "assets/posts/photos/",
+            "assets/posts/photos/retrato-"
+          ]
+        },
+        {
+          "id": "p1fzh",
+          "x": 0,
+          "y": 620,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 1300,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #F5F0FE 0%, #F5F0FE00 26%, #22084A00 70%, #22084A73 100%)"
+          }
+        },
+        {
+          "id": "p29or",
+          "x": 80,
+          "y": 250,
+          "anchor": "top",
+          "type": "group",
+          "name": "Topo",
+          "w": 920,
+          "h": 262,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "28px"
+          },
+          "children": [
+            {
+              "id": "p3np4",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "A fila anda.\nVocê fi…",
+              "text": "A fila anda.\nVocê fica no sofá.",
+              "font": "display",
+              "size": 96,
+              "color": "{ink.900}",
+              "leading": 96,
+              "tracking": -0.045,
+              "weight": 400,
+              "slot": "Título",
+              "runs": [
+                {
+                  "text": "A fila anda.\nVocê fica no sofá.",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p42ty",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Acompanhe sua vez no…",
+              "text": "Acompanhe sua vez no app do plantão 24h.",
+              "font": "body",
+              "size": 32,
+              "color": "{ink.600}",
+              "leading": 42,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p5i96",
+          "x": 540,
+          "y": 1040,
+          "rotate": 5,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular (escala 1.18, 5°)",
+          "slot": "Tela",
+          "screen": "plantao-queue--position-3",
+          "image": "assets/posts/paper/2GRZV1VZ43EBWQHKZYRQJCQEK1.jpg",
+          "w": 489
+        },
+        {
+          "id": "p6hm0",
+          "x": 80,
+          "y": 1300,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Chip · sua vez",
+          "w": 358,
+          "h": 100,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFFF2",
+            "borderRadius": "999px",
+            "boxShadow": "#22084A73 0px 24px 48px -16px",
+            "display": "flex",
+            "gap": "18px",
+            "paddingBlock": "20px",
+            "paddingLeft": "20px",
+            "paddingRight": "30px"
+          },
+          "children": [
+            {
+              "id": "p7bap",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#7E3BED",
+                "borderRadius": "999px",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "56px",
+                "justifyContent": "center",
+                "width": "56px"
+              },
+              "children": [
+                {
+                  "id": "p8z0d",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "3º",
+                  "text": "3º",
+                  "font": "display",
+                  "size": 28,
+                  "color": "{white}",
+                  "leading": 34,
+                  "tracking": 0,
+                  "weight": 400,
+                  "runs": [
+                    {
+                      "text": "3º",
+                      "style": {
+                        "fontFamily": "\"Space Grotesk\", sans-serif",
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "p9u9u",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "id": "pay0b",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Você é o 3º da fila",
+                  "text": "Você é o 3º da fila",
+                  "font": "body",
+                  "size": 26,
+                  "weight": 500,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "slot": "Chip 1"
+                },
+                {
+                  "id": "pbxyz",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Espera estimada ~5 m…",
+                  "text": "Espera estimada ~5 min",
+                  "font": "body",
+                  "size": 21,
+                  "color": "{ink.600}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AHW-0",
+  "updatedAt": "2026-11-22T19:27:06.422Z",
+  "overrides": {
+    "feed": {
+      "p29or": {
+        "x": 81,
+        "y": 43,
+        "w": 920,
+        "h": 262
+      }
+    }
+  }
+}

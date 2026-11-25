@@ -1,0 +1,553 @@
+{
+  "id": "post-f1-fluxo-fila",
+  "name": "F1 · Fluxo fila",
+  "kind": "post",
+  "format": "feed",
+  "style": "Mockup de celular",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pup02",
+      "name": "Feed",
+      "background": "radial-gradient(ellipse 70% 55.00000000000001% at 50% 62% in oklab, #D6C3FB 0%, #EBE1FD 45%, #F5F0FE 100%)",
+      "layers": [
+        {
+          "id": "p00uu",
+          "x": 0,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 1080,
+          "h": 224,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "20px"
+          },
+          "children": [
+            {
+              "id": "p1vgz",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sua vez, sem\nsala de…",
+              "text": "Sua vez, sem\nsala de espera.",
+              "font": "display",
+              "size": 84,
+              "color": "{ink.900}",
+              "leading": 84,
+              "tracking": -0.045,
+              "align": "center",
+              "weight": 400,
+              "slot": "Título",
+              "runs": [
+                {
+                  "text": "Sua vez, sem\nsala de espera.",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p2dft",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Stories, Viva e Mito…",
+              "text": "Stories, Viva e Mito ou verdade enquanto o médico chega.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 36,
+              "tracking": 0,
+              "align": "center",
+              "weight": 400,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p3lc5",
+          "x": 281,
+          "y": 400,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular (escala 1.25)",
+          "slot": "Tela",
+          "screen": "plantao-queue--position-3",
+          "image": "assets/posts/paper/2GRZV1VZ43EBWQHKZYRQJCQEK1.jpg",
+          "w": 518
+        },
+        {
+          "id": "p4bfh",
+          "x": 48,
+          "y": 770,
+          "rotate": -3,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Saindo · posição",
+          "w": 424,
+          "h": 190,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "32px",
+            "boxShadow": "#22084A66 0px 40px 80px -24px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "10px",
+            "paddingBlock": "28px",
+            "paddingInline": "34px"
+          },
+          "children": [
+            {
+              "id": "p52jm",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "p6l6n",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Rectangle",
+                  "style": {
+                    "backgroundColor": "#00B597",
+                    "borderRadius": "999px",
+                    "flexShrink": 0,
+                    "height": "14px",
+                    "width": "14px"
+                  }
+                },
+                {
+                  "id": "p7m4c",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Plantão 24h · ao viv…",
+                  "text": "Plantão 24h · ao vivo",
+                  "font": "body",
+                  "size": 22,
+                  "color": "{ink.600}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "id": "p8lkp",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Você é o 3º",
+              "text": "Você é o 3º",
+              "font": "display",
+              "size": 72,
+              "weight": 500,
+              "color": "{ink.900}",
+              "leading": 72,
+              "tracking": -0.04,
+              "slot": "Chip 1",
+              "runs": [
+                {
+                  "text": "Você é o 3º",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 500
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p9t94",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "gap": "8px",
+                "paddingTop": "6px"
+              },
+              "children": [
+                {
+                  "id": "pa7ix",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Rectangle",
+                  "style": {
+                    "backgroundColor": "#E6E4EC",
+                    "borderRadius": "9px",
+                    "flexShrink": 0,
+                    "height": "8px",
+                    "width": "44px"
+                  }
+                },
+                {
+                  "id": "pbt4x",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Rectangle",
+                  "style": {
+                    "backgroundColor": "#E6E4EC",
+                    "borderRadius": "9px",
+                    "flexShrink": 0,
+                    "height": "8px",
+                    "width": "44px"
+                  }
+                },
+                {
+                  "id": "pc28m",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Rectangle",
+                  "style": {
+                    "backgroundColor": "#726F80",
+                    "borderRadius": "9px",
+                    "flexShrink": 0,
+                    "height": "8px",
+                    "width": "44px"
+                  }
+                },
+                {
+                  "id": "pdk45",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Rectangle",
+                  "style": {
+                    "backgroundColor": "#7E3BED",
+                    "borderRadius": "9px",
+                    "flexShrink": 0,
+                    "height": "8px",
+                    "width": "44px"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "peoto",
+          "x": 560,
+          "y": 1020,
+          "rotate": 4,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Saindo · testar câmera",
+          "w": 452,
+          "h": 88,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#7E3BED",
+            "borderRadius": "999px",
+            "boxShadow": "#7E3BEDB3 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "14px",
+            "paddingBlock": "24px",
+            "paddingInline": "36px"
+          },
+          "children": [
+            {
+              "id": "pfoml",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": "10px",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "40px",
+                "justifyContent": "center",
+                "width": "40px"
+              },
+              "children": [
+                {
+                  "id": "pgdzm",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "?",
+                  "text": "?",
+                  "font": "display",
+                  "size": 26,
+                  "weight": 600,
+                  "color": "{violet.500}",
+                  "leading": 30,
+                  "tracking": 0,
+                  "runs": [
+                    {
+                      "text": "?",
+                      "style": {
+                        "fontFamily": "\"Space Grotesk\", sans-serif",
+                        "fontWeight": 600
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "phflu",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Jogar Mito ou verdad…",
+              "text": "Jogar Mito ou verdade",
+              "font": "body",
+              "size": 30,
+              "weight": 600,
+              "color": "{white}",
+              "leading": 36,
+              "tracking": 0,
+              "slot": "Chip 2"
+            }
+          ]
+        },
+        {
+          "id": "picei",
+          "x": 100,
+          "y": 1170,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Saindo · Viva",
+          "w": 880,
+          "h": 100,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "999px",
+            "boxShadow": "#D6C3FB 0px 0px 0px 3px, #22084A73 0px 40px 80px -24px",
+            "display": "flex",
+            "gap": "20px",
+            "padding": "16px"
+          },
+          "children": [
+            {
+              "id": "pj8ux",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "AI Orb",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "68px",
+                "justifyContent": "center",
+                "position": "relative",
+                "width": "68px"
+              },
+              "children": [
+                {
+                  "id": "pka5f",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Rectangle",
+                  "style": {
+                    "backgroundImage": "radial-gradient(circle farthest-corner at 50% 50% in oklab, #9D6BF2 0%, #9D6BF200 65%)",
+                    "borderRadius": "999px",
+                    "filter": "blur(8.2px)",
+                    "height": "108.8px",
+                    "left": "-20.4px",
+                    "opacity": "0.35",
+                    "position": "absolute",
+                    "top": "-20.4px",
+                    "width": "108.8px"
+                  }
+                },
+                {
+                  "id": "plrep",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "999px",
+                    "boxShadow": "#7E3BED59 0px 5.4px 16.3px -4.1px",
+                    "height": "68px",
+                    "left": "0px",
+                    "overflow": "clip",
+                    "position": "absolute",
+                    "top": "0px",
+                    "width": "68px"
+                  },
+                  "children": [
+                    {
+                      "id": "pmw5f",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "backgroundColor": "#12FFD7",
+                        "borderRadius": "999px",
+                        "filter": "blur(8.8px)",
+                        "height": "39.4px",
+                        "left": "3.4px",
+                        "opacity": "0.7",
+                        "position": "absolute",
+                        "top": "22.4px",
+                        "width": "39.4px"
+                      }
+                    },
+                    {
+                      "id": "pnczt",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "backgroundColor": "#9531FF",
+                        "borderRadius": "999px",
+                        "filter": "blur(8.8px)",
+                        "height": "39.4px",
+                        "left": "25.2px",
+                        "opacity": "0.85",
+                        "position": "absolute",
+                        "top": "14.3px",
+                        "width": "39.4px"
+                      }
+                    },
+                    {
+                      "id": "poypo",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "backgroundColor": "#9D6BF2",
+                        "borderRadius": "999px",
+                        "filter": "blur(8.8px)",
+                        "height": "39.4px",
+                        "left": "14.3px",
+                        "opacity": "0.9",
+                        "position": "absolute",
+                        "top": "2.7px",
+                        "width": "39.4px"
+                      }
+                    },
+                    {
+                      "id": "ppd7u",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "backgroundImage": "radial-gradient(circle farthest-corner at 32% 21.999999999999996% in oklab, #FFFFFFE6 0%, #FFFFFF00 38%), radial-gradient(circle farthest-corner at 50% 52% in oklab, #FFFFFF00 26%, #FFFFFF80 62%, #FFFFFFD9 100%)",
+                        "borderRadius": "999px",
+                        "boxShadow": "#FFFFFFB3 0px 0px 0px 1.7px inset, #7E3BED1F 0px -4.1px 10.9px inset",
+                        "height": "68px",
+                        "left": "0px",
+                        "position": "absolute",
+                        "top": "0px",
+                        "width": "68px"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "pqngn",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg viewBox=\"69.92 1.23 19.84 19.84\" width=\"19.84\" height=\"19.84\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:31.3px;height:31.3px;filter:drop-shadow(#7E3BED73 0px 0px 2.7px)\"><path d=\"M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z\" fill=\"rgb(255 255 255 / 95%)\"></path></svg>",
+                  "style": {
+                    "width": "31.3px",
+                    "height": "31.3px",
+                    "display": "inline-block",
+                    "position": "relative",
+                    "flexShrink": 0,
+                    "filter": "drop-shadow(#7E3BED73 0px 0px 2.7px)"
+                  },
+                  "w": 19.84,
+                  "h": 19.84
+                }
+              ]
+            },
+            {
+              "id": "pr2dw",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Converse com a Viva …",
+              "text": "Converse com a Viva enquanto espera",
+              "font": "body",
+              "size": 30,
+              "color": "{ink.500}",
+              "leading": 36,
+              "tracking": 0,
+              "style": {
+                "flexBasis": "0%",
+                "flexGrow": "1"
+              },
+              "weight": 400,
+              "slot": "Chip 3"
+            },
+            {
+              "id": "psfjr",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#F2F1F6",
+                "borderRadius": "999px",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "68px",
+                "justifyContent": "center",
+                "width": "68px"
+              },
+              "children": [
+                {
+                  "id": "ptdp9",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 19V5M5 12l7-7 7 7\" fill=\"none\" stroke=\"#17151E\" stroke-width=\"2.2\" stroke-linecap=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 28,
+                  "h": 28
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1ALV-0",
+  "updatedAt": "2026-11-22T19:08:54.165Z"
+}

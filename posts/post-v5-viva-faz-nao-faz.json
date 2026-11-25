@@ -1,0 +1,742 @@
+{
+  "id": "post-v5-viva-faz-nao-faz",
+  "name": "V5 · O que a Viva faz e não faz",
+  "kind": "post",
+  "format": "feed",
+  "style": "Conteúdo",
+  "topics": [
+    "Pergunte à Viva"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "p175uw",
+      "name": "Feed",
+      "background": "{ink.900}",
+      "layers": [
+        {
+          "id": "p0dm4",
+          "x": 600,
+          "y": -300,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Aura",
+          "w": 800,
+          "h": 800,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 40% 40% at 40% 50% in oklab, #12FFD738 0%, #12FFD700 70%), radial-gradient(ellipse 50% 50% at 60% 55.00000000000001% in oklab, #7E3BED80 0%, #7E3BED00 75%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "p1mnb",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 900,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "20px"
+          },
+          "children": [
+            {
+              "id": "p28ju",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "A Viva, sem\nexagero.",
+              "font": "display",
+              "size": 84,
+              "color": "{white}",
+              "leading": 84,
+              "tracking": -0.045,
+              "weight": 400,
+              "slot": "Título",
+              "runs": [
+                {
+                  "text": "A Viva, sem\nexagero.",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p3kob",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Subtítulo",
+              "text": "O que a inteligência do app faz, e o que fica com o médico.",
+              "font": "body",
+              "size": 26,
+              "color": "{white}/70",
+              "leading": 34,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p4war",
+          "x": 60,
+          "y": 480,
+          "anchor": "center",
+          "type": "group",
+          "name": "Faz",
+          "w": 470,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "36px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "6px",
+            "paddingBlock": "34px",
+            "paddingInline": "32px"
+          },
+          "children": [
+            {
+              "id": "p5l63",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "12px",
+                "paddingBottom": "16px"
+              },
+              "children": [
+                {
+                  "id": "p68oj",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#C6FFF4",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": 0,
+                    "height": "40px",
+                    "justifyContent": "center",
+                    "width": "40px"
+                  },
+                  "children": [
+                    {
+                      "id": "p7ias",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#008F78\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 20,
+                      "h": 20
+                    }
+                  ]
+                },
+                {
+                  "id": "p8b2w",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Faz",
+                  "font": "display",
+                  "size": 34,
+                  "color": "{ink.900}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz · título",
+                  "runs": [
+                    {
+                      "text": "Faz",
+                      "style": {
+                        "fontFamily": "\"Space Grotesk\", sans-serif",
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "p990l",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "pama6",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Organiza o que você sente antes da consulta",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 1"
+                }
+              ]
+            },
+            {
+              "id": "pb705",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "pc46j",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Explica o resumo e os documentos da consulta",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 2"
+                }
+              ]
+            },
+            {
+              "id": "pdqmq",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "pevxb",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Tira dúvidas sobre remédios e exames",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 3"
+                }
+              ]
+            },
+            {
+              "id": "pfuce",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "pg0u1",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Conversa com você em privado",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "phl8b",
+          "x": 550,
+          "y": 480,
+          "anchor": "center",
+          "type": "group",
+          "name": "Não faz",
+          "w": 470,
+          "style": {
+            "backgroundColor": "#282632",
+            "borderRadius": "36px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "6px",
+            "paddingBlock": "34px",
+            "paddingInline": "32px"
+          },
+          "children": [
+            {
+              "id": "pisw8",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "12px",
+                "paddingBottom": "16px"
+              },
+              "children": [
+                {
+                  "id": "pjg4m",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#403D4A",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": 0,
+                    "height": "40px",
+                    "justifyContent": "center",
+                    "width": "40px"
+                  },
+                  "children": [
+                    {
+                      "id": "pke6s",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6 6l12 12M18 6L6 18\" fill=\"none\" stroke=\"#D2CFDB\" stroke-width=\"3\" stroke-linecap=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "plwob",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Não faz",
+                  "font": "display",
+                  "size": 34,
+                  "color": "{white}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz · título",
+                  "runs": [
+                    {
+                      "text": "Não faz",
+                      "style": {
+                        "fontFamily": "\"Space Grotesk\", sans-serif",
+                        "fontWeight": 400
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "pm5sk",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "pnxe8",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Diagnóstico",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 1"
+                }
+              ]
+            },
+            {
+              "id": "pozin",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "pp6uv",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Receita de remédio",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 2"
+                }
+              ]
+            },
+            {
+              "id": "pq43h",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "prowm",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Atestado",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 3"
+                }
+              ]
+            },
+            {
+              "id": "pszdv",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "ptsnl",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Substituir o seu médico",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pua4d",
+          "x": 80,
+          "y": 1230,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Rodapé",
+          "w": 920,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "justifyContent": "space-between"
+          },
+          "children": [
+            {
+              "id": "pvpbc",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Escrito assim mesmo,…",
+              "text": "Escrito assim mesmo, dentro do app.",
+              "font": "body",
+              "size": 22,
+              "color": "{white}/70",
+              "leading": 28,
+              "tracking": 0,
+              "weight": 400
+            },
+            {
+              "id": "logoite150",
+              "type": "logo",
+              "name": "Logo",
+              "x": 0,
+              "y": 0,
+              "variant": "lockupWhite",
+              "w": 150,
+              "h": 32,
+              "style": {
+                "flexShrink": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "pxwpc",
+          "x": 80,
+          "y": 1030,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Frase do app",
+          "w": 920,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF0F",
+            "borderRadius": "999px",
+            "boxShadow": "#FFFFFF1F 0px 0px 0px 1px",
+            "display": "flex",
+            "gap": "20px",
+            "paddingBlock": "24px",
+            "paddingInline": "28px"
+          },
+          "children": [
+            {
+              "id": "pytr6",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "AI Orb",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "52px",
+                "justifyContent": "center",
+                "position": "relative",
+                "width": "52px"
+              },
+              "children": [
+                {
+                  "id": "pz2rp",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Forma",
+                  "style": {
+                    "backgroundImage": "radial-gradient(circle farthest-corner at 50% 50% in oklab, #9D6BF2 0%, #9D6BF200 65%)",
+                    "borderRadius": "999px",
+                    "filter": "blur(6.2px)",
+                    "height": "83.2px",
+                    "left": "-15.6px",
+                    "opacity": "0.35",
+                    "position": "absolute",
+                    "top": "-15.6px",
+                    "width": "83.2px"
+                  }
+                },
+                {
+                  "id": "p1081d",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "999px",
+                    "boxShadow": "#7E3BED59 0px 4px 12px -3px",
+                    "height": "52px",
+                    "left": "0px",
+                    "overflow": "clip",
+                    "position": "absolute",
+                    "top": "0px",
+                    "width": "52px"
+                  },
+                  "children": [
+                    {
+                      "id": "p11pux",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#12FFD7",
+                        "borderRadius": "999px",
+                        "filter": "blur(6.8px)",
+                        "height": "30.2px",
+                        "left": "2.6px",
+                        "opacity": "0.7",
+                        "position": "absolute",
+                        "top": "17.2px",
+                        "width": "30.2px"
+                      }
+                    },
+                    {
+                      "id": "p12lo8",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#9531FF",
+                        "borderRadius": "999px",
+                        "filter": "blur(6.8px)",
+                        "height": "30.2px",
+                        "left": "19.2px",
+                        "opacity": "0.85",
+                        "position": "absolute",
+                        "top": "10.9px",
+                        "width": "30.2px"
+                      }
+                    },
+                    {
+                      "id": "p13uc9",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#9D6BF2",
+                        "borderRadius": "999px",
+                        "filter": "blur(6.8px)",
+                        "height": "30.2px",
+                        "left": "10.9px",
+                        "opacity": "0.9",
+                        "position": "absolute",
+                        "top": "2.1px",
+                        "width": "30.2px"
+                      }
+                    },
+                    {
+                      "id": "p142xz",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundImage": "radial-gradient(circle farthest-corner at 32% 22% in oklab, #FFFFFFE6 0%, #FFFFFF00 38%), radial-gradient(circle farthest-corner at 50% 52% in oklab, #FFFFFF00 26%, #FFFFFF80 62%, #FFFFFFD9 100%)",
+                        "borderRadius": "999px",
+                        "boxShadow": "#FFFFFFB3 0px 0px 0px 1.3px inset, #7E3BED1F 0px -3px 8px inset",
+                        "height": "52px",
+                        "left": "0px",
+                        "position": "absolute",
+                        "top": "0px",
+                        "width": "52px"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "p15y0m",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "Vetor",
+                  "markup": "<svg viewBox=\"69.92 1.23 19.84 19.84\" width=\"19.84\" height=\"19.84\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:23.9px;height:23.9px;filter:drop-shadow(#7E3BED73 0px 0px 2px)\"><path d=\"M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z\" fill=\"rgb(255 255 255 / 95%)\"></path></svg>",
+                  "style": {
+                    "width": "23.9px",
+                    "height": "23.9px",
+                    "display": "inline-block",
+                    "position": "relative",
+                    "flexShrink": 0,
+                    "filter": "drop-shadow(#7E3BED73 0px 0px 2px)"
+                  },
+                  "w": 19.84,
+                  "h": 19.84
+                }
+              ]
+            },
+            {
+              "id": "p16tca",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "“A Viva orienta, não…",
+              "text": "“A Viva orienta, não diagnostica. Quem decide é o médico.”",
+              "font": "body",
+              "size": 25,
+              "color": "{white}",
+              "leading": 32,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Frase"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1B5O-0",
+  "updatedAt": "2026-11-22T19:02:49.334Z"
+}

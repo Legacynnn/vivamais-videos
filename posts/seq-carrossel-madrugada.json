@@ -1,0 +1,619 @@
+{
+  "id": "seq-carrossel-madrugada",
+  "name": "Carrossel · 3 da manhã",
+  "kind": "sequence",
+  "format": "carousel",
+  "style": "Foto com UI",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "c8tciyt",
+      "name": "Capa",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "c6u117c",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.07,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "cebyosv",
+          "x": 180,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Glow",
+          "w": 1100,
+          "h": 1100,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED99 0%, #7E3BED2E 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "ch2whsy",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "cjylpvu",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "O que acontece\nàs 3h da manhã.",
+              "font": "display",
+              "size": 88,
+              "color": "{white}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "cmqppor",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Uma noite com o Plantão 24h.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "ct5faco",
+          "x": 520,
+          "y": 470,
+          "rotate": 4,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular (escala 1.15, 4°)",
+          "slot": "Tela",
+          "screen": "plantao-queue--position-3",
+          "w": 476
+        },
+        {
+          "id": "cwtub3o",
+          "type": "chip",
+          "name": "3h02 · febre de 39°",
+          "x": 90,
+          "y": 1010,
+          "rotate": -5,
+          "anchor": "center",
+          "variant": "pill",
+          "title": "3h02 · febre de 39°",
+          "tone": "light",
+          "scale": 2
+        },
+        {
+          "id": "cfnaen3",
+          "x": 860,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Seta",
+          "w": 135,
+          "h": 30,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "14px"
+          },
+          "children": [
+            {
+              "id": "ct4lm68",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Arraste",
+              "font": "body",
+              "size": 24,
+              "color": "{white}/70",
+              "leading": 30,
+              "tracking": 0
+            },
+            {
+              "id": "ckz10u4",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "Vetor",
+              "markup": "<svg width=\"40\" height=\"20\" viewBox=\"0 0 40 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 10h34M28 3l8 7-8 7\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" stroke-linecap=\"round\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 40,
+              "h": 20
+            }
+          ]
+        },
+        {
+          "id": "c310ah5",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "caco2k7",
+      "name": "3h02",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "cvnegam",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/sofa-noite.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "ca1g4zq",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-hub--video",
+          "photo": "cvnegam"
+        },
+        {
+          "id": "cju4v20",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #0D0C12E6 0%, #0D0C1299 50%, #0D0C1200 100%)"
+          }
+        },
+        {
+          "id": "cuttxnz",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "cbt8wcz",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "3h02.\nA febre não baixa.",
+              "font": "display",
+              "size": 80,
+              "color": "{white}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "czy8kk0",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Ela abre o app e entra no plantão.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "cuwkpop",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "ckafdn0",
+      "name": "3h04",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "c4he7x7",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/noite-fila.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "cvigb1p",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-anamnese--symptom",
+          "photo": "c4he7x7"
+        },
+        {
+          "id": "cwepql4",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #0D0C12E6 0%, #0D0C1299 50%, #0D0C1200 100%)"
+          }
+        },
+        {
+          "id": "cnd3c29",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "cna6xpj",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "3h04.\nA Viva organiza\nos sintomas.",
+              "font": "display",
+              "size": 80,
+              "color": "{white}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "c6lscb3",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Enquanto espera, sem repetir nada depois.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "cag09wf",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "c3jtkbc",
+      "name": "3h09",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "c1f4y03",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/mae-noite.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "ch2nkxc",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-called--calling",
+          "photo": "c1f4y03"
+        },
+        {
+          "id": "cu4kkeu",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #0D0C12E6 0%, #0D0C1299 50%, #0D0C1200 100%)"
+          }
+        },
+        {
+          "id": "cn6jdg4",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "cuodttj",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "3h09.\nO médico chamou.",
+              "font": "display",
+              "size": 80,
+              "color": "{white}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "cnscyau",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Consulta por vídeo, do quarto.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "clqrg0c",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "c2gmt52",
+      "name": "CTA",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "c9xup8q",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.07,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "cv88u4s",
+          "x": 180,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Glow",
+          "w": 1100,
+          "h": 1100,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED99 0%, #7E3BED2E 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "cwfec0m",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "ci82r2b",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Às 3h ou às 15h.\nTem médico.",
+              "font": "display",
+              "size": 88,
+              "color": "{white}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "cwratgm",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Plantão 24h no app Viva Mais.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "c4sfmnp",
+          "x": 80,
+          "y": 420,
+          "anchor": "top",
+          "type": "group",
+          "name": "CTA pill",
+          "w": 293,
+          "h": 88,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "999px",
+            "paddingBlock": "26px",
+            "paddingInline": "44px"
+          },
+          "children": [
+            {
+              "id": "c0r9k2h",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Baixe o app",
+              "text": "Baixe o app",
+              "font": "body",
+              "size": 30,
+              "weight": 600,
+              "color": "{ink.900}",
+              "leading": 36,
+              "tracking": 0,
+              "slot": "Botão",
+              "style": {
+                "whiteSpace": "nowrap"
+              }
+            }
+          ]
+        },
+        {
+          "id": "c51twne",
+          "x": 380,
+          "y": 520,
+          "anchor": "bottom",
+          "type": "svg",
+          "name": "Marca gigante (corte)",
+          "markup": "<svg viewBox=\"35 36 92 90\" width=\"92\" height=\"90\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:920px;height:900px\"><path fill-rule=\"evenodd\" d=\"M80.4 125.28C70.72 125.28 62.85 117.41 62.85 107.73V99.86C62.85 99.07 62.2 98.42 61.41 98.42H53.54C43.86 98.42 35.99 90.55 35.99 80.87C35.99 71.19 43.86 63.32 53.54 63.32H61.41C62.2 63.32 62.85 62.67 62.85 61.88V54.01C62.85 44.33 70.72 36.46 80.4 36.46C90.08 36.46 97.95 44.33 97.95 54.01V61.88C97.95 62.67 98.6 63.32 99.39 63.32H107.26C116.94 63.32 124.81 71.19 124.81 80.87C124.81 90.55 116.94 98.42 107.26 98.42H99.39C98.6 98.42 97.95 99.07 97.95 99.86V107.73C97.95 117.41 90.08 125.28 80.4 125.28Z M53.55 71.57C48.42 71.57 44.24 75.75 44.24 80.88C44.24 86.01 48.42 90.19 53.55 90.19H61.42C66.76 90.19 71.1 94.53 71.1 99.87V107.74C71.1 112.87 75.28 117.05 80.41 117.05C85.54 117.05 89.72 112.87 89.72 107.74V99.87C89.72 94.53 94.06 90.19 99.4 90.19H107.27C112.4 90.19 116.58 86.01 116.58 80.88C116.58 75.75 112.4 71.57 107.27 71.57H99.4C94.06 71.57 89.72 67.23 89.72 61.89V54.02C89.72 48.89 85.54 44.71 80.41 44.71C75.28 44.71 71.1 48.89 71.1 54.02V61.89C71.1 67.23 66.76 71.57 61.42 71.57H53.55Z\" fill=\"#7E3BED\"></path><path d=\"M125.76 47.15C125.76 47.46 125.51 47.71 125.2 47.71H122.46C119.12 47.71 116.4 50.43 116.4 53.77V56.51C116.4 56.82 116.15 57.07 115.84 57.07C115.53 57.07 115.28 56.82 115.28 56.51V53.77C115.28 50.43 112.56 47.71 109.22 47.71H106.48C106.17 47.71 105.92 47.46 105.92 47.15C105.92 46.84 106.17 46.59 106.48 46.59H109.22C112.56 46.59 115.28 43.87 115.28 40.53V37.79C115.28 37.48 115.53 37.23 115.84 37.23C116.15 37.23 116.4 37.48 116.4 37.79V40.53C116.4 43.87 119.12 46.59 122.46 46.59H125.2C125.51 46.59 125.76 46.84 125.76 47.15Z\" fill=\"#12FFD7\"></path></svg>",
+          "w": 920,
+          "h": 900
+        },
+        {
+          "id": "cx1b8dl",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 40
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:16:52.674Z"
+}

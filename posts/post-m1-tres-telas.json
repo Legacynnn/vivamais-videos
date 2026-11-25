@@ -1,0 +1,122 @@
+{
+  "id": "post-m1-tres-telas",
+  "name": "M1 · Três telas em leque",
+  "kind": "post",
+  "format": "feed",
+  "style": "Mockup de celular",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "p6mpp",
+      "name": "Feed",
+      "background": "radial-gradient(ellipse 80% 60% at 50% 75% in oklab, #6A24DB 0%, #350E6F 50%, #22084A 100%)",
+      "layers": [
+        {
+          "id": "p009j",
+          "x": 0,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 1080,
+          "h": 224,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "20px"
+          },
+          "children": [
+            {
+              "id": "p1skc",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Três toques até\no mé…",
+              "text": "Três toques até\no médico.",
+              "font": "display",
+              "size": 84,
+              "color": "{white}",
+              "leading": 84,
+              "tracking": -0.045,
+              "align": "center",
+              "weight": 400,
+              "slot": "Título",
+              "runs": [
+                {
+                  "text": "Três toques até\no médico.",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p2lb2",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Conte o que sente, e…",
+              "text": "Conte o que sente, espere na fila, fale com o médico.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/72",
+              "leading": 36,
+              "tracking": 0,
+              "align": "center",
+              "weight": 400,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p32y3",
+          "x": 10,
+          "y": 500,
+          "rotate": -9,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular esquerdo · Hub (-9°)",
+          "slot": "Tela",
+          "screen": "plantao-anamnese--symptom",
+          "image": "assets/posts/paper/6KHVCZS1V25NR8PSHHYJZZM1E8.png",
+          "w": 414
+        },
+        {
+          "id": "p4i92",
+          "x": 656,
+          "y": 500,
+          "rotate": 9,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular direito · Sucesso (9°)",
+          "slot": "Tela 2",
+          "screen": "plantao-called--calling",
+          "image": "assets/posts/paper/1R2P37770SSB3N0KBYXDA138KZ.png",
+          "w": 414
+        },
+        {
+          "id": "p585q",
+          "x": 333,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular centro · Fila",
+          "slot": "Tela 3",
+          "screen": "plantao-queue--position-3",
+          "image": "assets/posts/paper/2GRZV1VZ43EBWQHKZYRQJCQEK1.jpg",
+          "w": 414
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AMW-0",
+  "updatedAt": "2026-11-22T18:58:37.824Z"
+}

@@ -1,0 +1,1058 @@
+{
+  "id": "seq-panoramico-noite-febre",
+  "name": "Uma noite com febre",
+  "kind": "sequence",
+  "format": "panorama",
+  "style": "Mockup de celular",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 5400,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "p1ws06",
+      "name": "Panorama",
+      "background": "linear-gradient(in oklab 90deg, #0D0C12 0%, #22084A 30%, #451391 50%, #9D6BF2 72%, #EBE1FD 88%, #F5F0FE 100%)",
+      "layers": [
+        {
+          "id": "p07yo",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.05,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 5400,
+          "h": 1350
+        },
+        {
+          "id": "p1d1i",
+          "x": 300,
+          "y": 0,
+          "anchor": "center",
+          "type": "image",
+          "name": "S1 · Foto G1",
+          "src": "assets/posts/photos/retrato-01.jpg",
+          "fit": "cover",
+          "position": "45%",
+          "w": 900,
+          "h": 1350,
+          "slot": "Foto",
+          "choices": [
+            "assets/posts/photos/retrato-01.jpg",
+            "assets/posts/photos/retrato-02.jpg",
+            "assets/posts/photos/retrato-03.jpg",
+            "assets/posts/photos/retrato-04.jpg",
+            "assets/posts/photos/sofa-plantao.webp",
+            "assets/posts/photos/jovem-viva.jpg",
+            "assets/posts/photos/medica-perfil.jpg",
+            "assets/posts/photos/rua-analise.jpg",
+            "assets/posts/photos/noite-fila.jpg"
+          ]
+        },
+        {
+          "id": "p2nhb",
+          "x": 300,
+          "y": 0,
+          "anchor": "center",
+          "type": "rect",
+          "name": "S1 · Véu",
+          "w": 900,
+          "h": 1350,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 90deg, #0D0C12 0%, #0D0C1233 40%, #0D0C1200 60%, #22084AE6 100%)"
+          }
+        },
+        {
+          "id": "p3phf",
+          "x": 80,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S1 · Texto",
+          "w": 560,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "28px"
+          },
+          "children": [
+            {
+              "id": "p4c07",
+              "type": "logo",
+              "name": "Logo",
+              "x": 0,
+              "y": 0,
+              "h": 36,
+              "variant": "lockupWhite"
+            },
+            {
+              "id": "p5kcy",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "23h47. 38,5°.",
+              "text": "23h47.\n38,5°.",
+              "font": "display",
+              "size": 104,
+              "color": "{white}",
+              "leading": 100,
+              "tracking": -0.05,
+              "slot": "Título S1"
+            },
+            {
+              "id": "p66q9",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Uma noite com febre, contada pelo app.",
+              "text": "Uma noite com febre, contada pelo app.",
+              "font": "body",
+              "size": 30,
+              "color": "{white}/75",
+              "leading": 40,
+              "tracking": 0,
+              "slot": "Subtítulo S1"
+            }
+          ]
+        },
+        {
+          "id": "p78rj",
+          "x": 80,
+          "y": 1190,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "S1 · Seta",
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "14px"
+          },
+          "children": [
+            {
+              "id": "p85s2",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Arraste",
+              "font": "body",
+              "size": 24,
+              "color": "{white}/70",
+              "leading": 30,
+              "tracking": 0
+            },
+            {
+              "id": "p9z0h",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "Vetor",
+              "markup": "<svg width=\"40\" height=\"20\" viewBox=\"0 0 40 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 10h34M28 3l8 7-8 7\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" stroke-linecap=\"round\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 40,
+              "h": 20
+            }
+          ]
+        },
+        {
+          "id": "pa0qe",
+          "x": 0,
+          "y": 0,
+          "anchor": "center",
+          "type": "svg",
+          "name": "Linha contínua",
+          "markup": "<svg viewBox=\"0 0 5400 1350\" width=\"5400\" height=\"1350\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:5400px;height:1350px\"><path d=\"M760 1260 C 1100 1260, 1200 1120, 1500 1120 S 2100 1240, 2600 1200 S 3300 1080, 3700 1120 S 4300 1260, 4700 1180\" fill=\"none\" stroke=\"#BC9CF7\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-dasharray=\"1 14\"></path><circle cx=\"1500\" cy=\"1120\" r=\"10\" fill=\"#12FFD7\"></circle><circle cx=\"2600\" cy=\"1200\" r=\"10\" fill=\"#12FFD7\"></circle><circle cx=\"3700\" cy=\"1120\" r=\"10\" fill=\"#12FFD7\"></circle></svg>",
+          "w": 5400,
+          "h": 1350
+        },
+        {
+          "id": "pbfp3",
+          "x": 1240,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S2 · Texto",
+          "w": 820,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "pcjhx",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Plantão aberto. Sem sair da cama.",
+              "text": "Plantão aberto.\nSem sair da cama.",
+              "font": "display",
+              "size": 84,
+              "color": "{white}",
+              "leading": 84,
+              "tracking": -0.045,
+              "slot": "Título S2"
+            },
+            {
+              "id": "pdlse",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Anamnese rápida, fila no app.",
+              "text": "Anamnese rápida, fila no app.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/72",
+              "leading": 38,
+              "tracking": 0,
+              "slot": "Subtítulo S2"
+            }
+          ]
+        },
+        {
+          "id": "pe0e8",
+          "x": 960,
+          "y": 430,
+          "rotate": -7,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular A · cruza S1→S2 (-7°)",
+          "slot": "Tela 1",
+          "screen": "plantao-queue--position-3",
+          "image": "assets/posts/paper/2GRZV1VZ43EBWQHKZYRQJCQEK1.jpg",
+          "w": 414
+        },
+        {
+          "id": "pfumh",
+          "x": 1960,
+          "y": 860,
+          "rotate": 3,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "S2 · Saindo · posição",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "30px",
+            "boxShadow": "#00000099 0px 40px 80px -24px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "8px",
+            "paddingBlock": "24px",
+            "paddingInline": "30px"
+          },
+          "children": [
+            {
+              "id": "pg4k1",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "phxqz",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Forma",
+                  "style": {
+                    "backgroundColor": "#00B597",
+                    "borderRadius": "99px",
+                    "flexShrink": 0,
+                    "height": "12px",
+                    "width": "12px"
+                  }
+                },
+                {
+                  "id": "piqdw",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Plantão 24h · ao vivo",
+                  "font": "body",
+                  "size": 21,
+                  "color": "{ink.600}",
+                  "leading": 26,
+                  "tracking": 0,
+                  "slot": "Chip 1",
+                  "style": {
+                    "whiteSpace": "nowrap"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "pjy5a",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Você é o 3º",
+              "font": "display",
+              "size": 60,
+              "weight": 500,
+              "color": "{ink.900}",
+              "leading": 60,
+              "tracking": -0.04,
+              "slot": "Chip 2",
+              "style": {
+                "whiteSpace": "nowrap"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pkyjv",
+          "x": 2320,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S3 · Texto",
+          "w": 820,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "pl9ey",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "00h02. Médica na tela.",
+              "text": "00h02.\nMédica na tela.",
+              "font": "display",
+              "size": 84,
+              "color": "{white}",
+              "leading": 84,
+              "tracking": -0.045,
+              "slot": "Título S3"
+            },
+            {
+              "id": "pmfyu",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Vídeo ou chat, do jeito que der.",
+              "text": "Vídeo ou chat, do jeito que der.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/75",
+              "leading": 38,
+              "tracking": 0,
+              "slot": "Subtítulo S3"
+            }
+          ]
+        },
+        {
+          "id": "pnotp",
+          "x": 2480,
+          "y": 470,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "S3 · Chamada (celular)",
+          "w": 414,
+          "h": 868,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 160deg, #3A3747 0%, #141219 38%, #0D0C12 100%)",
+            "borderRadius": "66px",
+            "boxShadow": "#55525F 0px 0px 0px 2px inset, #00000099 0px 60px 120px -30px",
+            "display": "flex",
+            "padding": "12px"
+          },
+          "children": [
+            {
+              "id": "poijj",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "backgroundImage": "url(assets/posts/photos/avatar-julia.webp)",
+                "backgroundPosition": "50% 30%",
+                "backgroundSize": "cover",
+                "borderRadius": "54px",
+                "flexShrink": 0,
+                "height": "844px",
+                "minWidth": "0px",
+                "overflow": "clip",
+                "position": "relative",
+                "width": "390px"
+              },
+              "children": [
+                {
+                  "id": "pptxf",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Forma",
+                  "style": {
+                    "backgroundImage": "linear-gradient(in oklab 180deg, #00000059 0%, #00000000 25%, #00000000 70%, #0000008C 100%)",
+                    "height": "844px",
+                    "left": "0px",
+                    "position": "absolute",
+                    "top": "0px",
+                    "width": "390px"
+                  }
+                },
+                {
+                  "id": "pq0y9",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "gap": "2px",
+                    "left": "24px",
+                    "position": "absolute",
+                    "top": "64px"
+                  },
+                  "children": [
+                    {
+                      "id": "pr8y1",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Dra. Júlia",
+                      "font": "body",
+                      "size": 20,
+                      "weight": 600,
+                      "color": "{white}",
+                      "leading": 24,
+                      "tracking": 0
+                    },
+                    {
+                      "id": "ps84t",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Clínica geral · 04:12",
+                      "font": "body",
+                      "size": 15,
+                      "color": "{white}/80",
+                      "leading": 20,
+                      "tracking": 0
+                    }
+                  ]
+                },
+                {
+                  "id": "ptpno",
+                  "x": 0,
+                  "y": 0,
+                  "type": "image",
+                  "name": "Imagem",
+                  "src": "assets/posts/photos/retrato-01.jpg",
+                  "fit": "cover",
+                  "position": "55% 35%",
+                  "style": {
+                    "borderRadius": "18px",
+                    "boxShadow": "#FFFFFFCC 0px 0px 0px 2px",
+                    "height": "150px",
+                    "left": "258px",
+                    "position": "absolute",
+                    "top": "470px",
+                    "width": "108px"
+                  }
+                },
+                {
+                  "id": "pug5j",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "display": "flex",
+                    "gap": "18px",
+                    "justifyContent": "center",
+                    "left": "0px",
+                    "position": "absolute",
+                    "top": "700px",
+                    "width": "390px"
+                  },
+                  "children": [
+                    {
+                      "id": "pvb9g",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#FFFFFF38",
+                        "borderRadius": "99px",
+                        "flexShrink": 0,
+                        "height": "60px",
+                        "width": "60px"
+                      }
+                    },
+                    {
+                      "id": "pwjfm",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#FFFFFF38",
+                        "borderRadius": "99px",
+                        "flexShrink": 0,
+                        "height": "60px",
+                        "width": "60px"
+                      }
+                    },
+                    {
+                      "id": "pxolv",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#EF4444",
+                        "borderRadius": "99px",
+                        "flexShrink": 0,
+                        "height": "60px",
+                        "width": "60px"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "py0qd",
+              "x": 0,
+              "y": 0,
+              "type": "rect",
+              "name": "Forma",
+              "style": {
+                "backgroundColor": "#0D0C12",
+                "borderRadius": "20px",
+                "height": "34px",
+                "left": "150px",
+                "position": "absolute",
+                "top": "24px",
+                "width": "114px"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pzapz",
+          "x": 3560,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S4 · Texto",
+          "w": 700,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "p10g38",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Receita no app. Assinada.",
+              "text": "Receita no app.\nAssinada.",
+              "font": "display",
+              "size": 84,
+              "color": "{white}",
+              "leading": 84,
+              "tracking": -0.045,
+              "slot": "Título S4"
+            },
+            {
+              "id": "p11px0",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Válida em qualquer farmácia do Brasil.",
+              "text": "Válida em qualquer farmácia do Brasil.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/80",
+              "leading": 38,
+              "tracking": 0,
+              "slot": "Subtítulo S4"
+            }
+          ]
+        },
+        {
+          "id": "p12oeh",
+          "x": 3100,
+          "y": 500,
+          "rotate": 6,
+          "anchor": "center",
+          "type": "group",
+          "name": "S4 · Receita (cruza S3→S4)",
+          "w": 500,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "12px",
+            "boxShadow": "#0000008C 0px 60px 100px -30px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "22px",
+            "paddingBottom": "32px",
+            "paddingInline": "40px",
+            "paddingTop": "40px"
+          },
+          "children": [
+            {
+              "id": "p13lu0",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "baseline",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "justifyContent": "space-between",
+                "paddingBottom": "14px"
+              },
+              "children": [
+                {
+                  "id": "p14ppq",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Receituário",
+                  "font": "body",
+                  "size": 26,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0
+                },
+                {
+                  "id": "p15k9n",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Telemedicina · vivamaisdoc.com.br",
+                  "font": "body",
+                  "size": 13,
+                  "color": "{ink.500}",
+                  "leading": 18,
+                  "tracking": 0
+                }
+              ]
+            },
+            {
+              "id": "p16umw",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "display": "flex",
+                "gap": "24px"
+              },
+              "children": [
+                {
+                  "id": "p17zuw",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "display": "flex",
+                    "flexBasis": "0%",
+                    "flexDirection": "column",
+                    "flexGrow": "1",
+                    "gap": "2px"
+                  },
+                  "children": [
+                    {
+                      "id": "p18oi7",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Profissional",
+                      "font": "body",
+                      "size": 12,
+                      "color": "{ink.500}",
+                      "leading": 16,
+                      "tracking": 0
+                    },
+                    {
+                      "id": "p198lc",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Dra. Júlia · Clínica geral",
+                      "font": "body",
+                      "size": 16,
+                      "color": "{ink.900}",
+                      "leading": 22,
+                      "tracking": 0
+                    }
+                  ]
+                },
+                {
+                  "id": "p1aty5",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "display": "flex",
+                    "flexBasis": "0%",
+                    "flexDirection": "column",
+                    "flexGrow": "1",
+                    "gap": "2px"
+                  },
+                  "children": [
+                    {
+                      "id": "p1bufi",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Paciente",
+                      "font": "body",
+                      "size": 12,
+                      "color": "{ink.500}",
+                      "leading": 16,
+                      "tracking": 0
+                    },
+                    {
+                      "id": "p1cchc",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Rafael S.",
+                      "font": "body",
+                      "size": 16,
+                      "color": "{ink.900}",
+                      "leading": 22,
+                      "tracking": 0
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "p1dkoa",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "backgroundColor": "#F9F8FB",
+                "borderRadius": "8px",
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "6px",
+                "paddingBlock": "16px",
+                "paddingInline": "18px"
+              },
+              "children": [
+                {
+                  "id": "p1euv6",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "1. Dipirona 500 mg",
+                  "font": "body",
+                  "size": 18,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 24,
+                  "tracking": 0,
+                  "slot": "Receita item"
+                },
+                {
+                  "id": "p1f0kh",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "1 comprimido de 6 em 6 horas, se febre.",
+                  "font": "body",
+                  "size": 15,
+                  "color": "{ink.600}",
+                  "leading": 22,
+                  "tracking": 0,
+                  "slot": "Receita posologia"
+                }
+              ]
+            },
+            {
+              "id": "p1gsp1",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "borderTopColor": "#D2CFDB",
+                "borderTopStyle": "dashed",
+                "borderTopWidth": "1px",
+                "display": "flex",
+                "gap": "14px",
+                "paddingTop": "6px"
+              },
+              "children": [
+                {
+                  "id": "p1h11q",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Forma",
+                  "style": {
+                    "background": "repeating-linear-gradient(90deg, rgb(23, 21, 30) 0px, rgb(23, 21, 30) 4px, rgb(255, 255, 255) 4px, rgb(255, 255, 255) 7px) 0% 0%, none 0% 0% rgb(23, 21, 30)",
+                    "borderRadius": "6px",
+                    "flexShrink": 0,
+                    "height": "56px",
+                    "opacity": "0.85",
+                    "width": "56px"
+                  }
+                },
+                {
+                  "id": "p1i31h",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "display": "flex",
+                    "flexDirection": "column"
+                  },
+                  "children": [
+                    {
+                      "id": "p1jg6a",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Assinado digitalmente · ICP-Brasil",
+                      "font": "body",
+                      "size": 13,
+                      "color": "{ink.900}",
+                      "leading": 18,
+                      "tracking": 0
+                    },
+                    {
+                      "id": "p1k0h5",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Verifique pelo QR code",
+                      "font": "body",
+                      "size": 12,
+                      "color": "{ink.500}",
+                      "leading": 16,
+                      "tracking": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p1llk2",
+          "x": 4080,
+          "y": 1000,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "S4 · Chip",
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#17151E",
+            "borderRadius": "999px",
+            "boxShadow": "#00000080 0px 30px 60px -20px",
+            "display": "flex",
+            "gap": "12px",
+            "paddingBlock": "16px",
+            "paddingLeft": "18px",
+            "paddingRight": "26px"
+          },
+          "children": [
+            {
+              "id": "p1mms7",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#12FFD7",
+                "borderRadius": "99px",
+                "display": "flex",
+                "flexShrink": 0,
+                "height": "30px",
+                "justifyContent": "center",
+                "width": "30px"
+              },
+              "children": [
+                {
+                  "id": "p1n5ke",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "Vetor",
+                  "markup": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#17151E\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 16,
+                  "h": 16
+                }
+              ]
+            },
+            {
+              "id": "p1ocza",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Receita enviada para o app",
+              "font": "body",
+              "size": 24,
+              "weight": 500,
+              "color": "{white}",
+              "leading": 30,
+              "tracking": 0
+            }
+          ]
+        },
+        {
+          "id": "p1p8z2",
+          "x": 4720,
+          "y": 520,
+          "anchor": "bottom",
+          "type": "svg",
+          "name": "S5 · Marca gigante (corte)",
+          "markup": "<svg viewBox=\"35 36 92 90\" width=\"92\" height=\"90\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:900px;height:880px\"><path fill-rule=\"evenodd\" d=\"M80.4 125.28C70.72 125.28 62.85 117.41 62.85 107.73V99.86C62.85 99.07 62.2 98.42 61.41 98.42H53.54C43.86 98.42 35.99 90.55 35.99 80.87C35.99 71.19 43.86 63.32 53.54 63.32H61.41C62.2 63.32 62.85 62.67 62.85 61.88V54.01C62.85 44.33 70.72 36.46 80.4 36.46C90.08 36.46 97.95 44.33 97.95 54.01V61.88C97.95 62.67 98.6 63.32 99.39 63.32H107.26C116.94 63.32 124.81 71.19 124.81 80.87C124.81 90.55 116.94 98.42 107.26 98.42H99.39C98.6 98.42 97.95 99.07 97.95 99.86V107.73C97.95 117.41 90.08 125.28 80.4 125.28Z M53.55 71.57C48.42 71.57 44.24 75.75 44.24 80.88C44.24 86.01 48.42 90.19 53.55 90.19H61.42C66.76 90.19 71.1 94.53 71.1 99.87V107.74C71.1 112.87 75.28 117.05 80.41 117.05C85.54 117.05 89.72 112.87 89.72 107.74V99.87C89.72 94.53 94.06 90.19 99.4 90.19H107.27C112.4 90.19 116.58 86.01 116.58 80.88C116.58 75.75 112.4 71.57 107.27 71.57H99.4C94.06 71.57 89.72 67.23 89.72 61.89V54.02C89.72 48.89 85.54 44.71 80.41 44.71C75.28 44.71 71.1 48.89 71.1 54.02V61.89C71.1 67.23 66.76 71.57 61.42 71.57H53.55Z\" fill=\"#7E3BED\"></path><path d=\"M125.76 47.15C125.76 47.46 125.51 47.71 125.2 47.71H122.46C119.12 47.71 116.4 50.43 116.4 53.77V56.51C116.4 56.82 116.15 57.07 115.84 57.07C115.53 57.07 115.28 56.82 115.28 56.51V53.77C115.28 50.43 112.56 47.71 109.22 47.71H106.48C106.17 47.71 105.92 47.46 105.92 47.15C105.92 46.84 106.17 46.59 106.48 46.59H109.22C112.56 46.59 115.28 43.87 115.28 40.53V37.79C115.28 37.48 115.53 37.23 115.84 37.23C116.15 37.23 116.4 37.48 116.4 37.79V40.53C116.4 43.87 119.12 46.59 122.46 46.59H125.2C125.51 46.59 125.76 46.84 125.76 47.15Z\" fill=\"#12FFD7\"></path></svg>",
+          "w": 900,
+          "h": 880
+        },
+        {
+          "id": "p1qmio",
+          "x": 4400,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S5 · CTA",
+          "w": 900,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "32px"
+          },
+          "children": [
+            {
+              "id": "p1rbur",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "7h10.\nBom dia.",
+              "font": "display",
+              "size": 104,
+              "color": "{ink.900}",
+              "leading": 100,
+              "tracking": -0.05,
+              "slot": "Título S5"
+            },
+            {
+              "id": "p1s6kb",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Plantão 24h no app Viva Mais. Na próxima febre, você já sabe.",
+              "font": "body",
+              "size": 30,
+              "color": "{ink.600}",
+              "leading": 40,
+              "tracking": 0,
+              "style": {
+                "width": "560px"
+              },
+              "slot": "Subtítulo S5"
+            },
+            {
+              "id": "p1tj4j",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "display": "flex"
+              },
+              "children": [
+                {
+                  "id": "p1umjz",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "backgroundColor": "#7E3BED",
+                    "borderRadius": "999px",
+                    "paddingBlock": "24px",
+                    "paddingInline": "40px"
+                  },
+                  "children": [
+                    {
+                      "id": "p1vxd9",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Baixe o app",
+                      "font": "body",
+                      "size": 28,
+                      "weight": 600,
+                      "color": "{white}",
+                      "leading": 34,
+                      "tracking": 0,
+                      "slot": "Botão"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AP3-0",
+  "updatedAt": "2026-11-22T19:02:43.458Z"
+}

@@ -1,0 +1,758 @@
+{
+  "assets/posts/photos/maos-01.jpg": {
+    "size": [
+      896,
+      1200
+    ],
+    "quad": [
+      [
+        348.7,
+        330.1
+      ],
+      [
+        563.4,
+        329.6
+      ],
+      [
+        560.9,
+        792.0
+      ],
+      [
+        351.1,
+        792.0
+      ]
+    ],
+    "radius": 37.3,
+    "mask": "assets/posts/screens/maos-01.png",
+    "v": 1795375181
+  },
+  "assets/posts/photos/maos-02.jpg": {
+    "size": [
+      896,
+      1200
+    ],
+    "quad": [
+      [
+        308.3,
+        254.0
+      ],
+      [
+        583.0,
+        254.0
+      ],
+      [
+        583.0,
+        862.8
+      ],
+      [
+        311.2,
+        863.0
+      ]
+    ],
+    "radius": 40.9,
+    "mask": "assets/posts/screens/maos-02.png",
+    "v": 1795375182
+  },
+  "assets/posts/photos/maos-03.jpg": {
+    "size": [
+      896,
+      1200
+    ],
+    "quad": [
+      [
+        305.3,
+        279.0
+      ],
+      [
+        529.5,
+        257.5
+      ],
+      [
+        589.2,
+        734.1
+      ],
+      [
+        368.1,
+        764.3
+      ]
+    ],
+    "radius": 53.3,
+    "mask": "assets/posts/screens/maos-03.png",
+    "v": 1795375182
+  },
+  "assets/posts/photos/maos-04.jpg": {
+    "size": [
+      896,
+      1200
+    ],
+    "quad": [
+      [
+        393.0,
+        651.0
+      ],
+      [
+        504.0,
+        651.0
+      ],
+      [
+        504.0,
+        881.0
+      ],
+      [
+        393.0,
+        881.0
+      ]
+    ],
+    "radius": 25.1,
+    "mask": "assets/posts/screens/maos-04.png",
+    "v": 1795375182
+  },
+  "assets/posts/photos/maos-05.jpg": {
+    "size": [
+      896,
+      1200
+    ],
+    "quad": [
+      [
+        385.0,
+        633.0
+      ],
+      [
+        525.4,
+        633.0
+      ],
+      [
+        522.9,
+        921.0
+      ],
+      [
+        385.0,
+        921.0
+      ]
+    ],
+    "radius": 29.4,
+    "mask": "assets/posts/screens/maos-05.png",
+    "v": 1795375182
+  },
+  "assets/posts/photos/maos-06.jpg": {
+    "size": [
+      896,
+      1200
+    ],
+    "quad": [
+      [
+        282.5,
+        440.8
+      ],
+      [
+        449.1,
+        442.2
+      ],
+      [
+        449.0,
+        798.0
+      ],
+      [
+        281.0,
+        798.0
+      ]
+    ],
+    "radius": 32.5,
+    "mask": "assets/posts/screens/maos-06.png",
+    "v": 1795375182
+  },
+  "assets/posts/photos/maos-07.jpg": {
+    "size": [
+      896,
+      1200
+    ],
+    "quad": [
+      [
+        350.0,
+        397.2
+      ],
+      [
+        551.0,
+        395.8
+      ],
+      [
+        553.4,
+        831.0
+      ],
+      [
+        350.0,
+        831.0
+      ]
+    ],
+    "radius": 37.0,
+    "mask": "assets/posts/screens/maos-07.png",
+    "v": 1795375182
+  },
+  "assets/posts/photos/maos-08.jpg": {
+    "size": [
+      768,
+      1376
+    ],
+    "quad": [
+      [
+        204.3,
+        598.3
+      ],
+      [
+        334.7,
+        599.3
+      ],
+      [
+        331.3,
+        869.8
+      ],
+      [
+        200.8,
+        867.7
+      ]
+    ],
+    "radius": 29.7,
+    "mask": "assets/posts/screens/maos-08.png",
+    "v": 1795375182
+  },
+  "assets/posts/photos/sofa-noite.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        1386.3,
+        954.4
+      ],
+      [
+        1539.0,
+        951.9
+      ],
+      [
+        1517.8,
+        1360.5
+      ],
+      [
+        1367.5,
+        1339.8
+      ]
+    ],
+    "radius": 38.5,
+    "mask": "assets/posts/screens/sofa-noite.png",
+    "v": 1795377048
+  },
+  "assets/posts/photos/sofa-dia.jpg": {
+    "size": [
+      1024,
+      1536
+    ],
+    "quad": [
+      [
+        359.2,
+        665.7
+      ],
+      [
+        479.8,
+        678.6
+      ],
+      [
+        462.9,
+        936.0
+      ],
+      [
+        345.8,
+        923.5
+      ]
+    ],
+    "radius": 28.9,
+    "mask": "assets/posts/screens/sofa-dia.png",
+    "v": 1795377048
+  },
+  "assets/posts/photos/sofa-mostra.jpg": {
+    "size": [
+      1024,
+      1536
+    ],
+    "quad": [
+      [
+        241.3,
+        500.3
+      ],
+      [
+        362.5,
+        497.6
+      ],
+      [
+        361.0,
+        769.3
+      ],
+      [
+        238.2,
+        766.7
+      ]
+    ],
+    "radius": 28.0,
+    "mask": "assets/posts/screens/sofa-mostra.png",
+    "v": 1795377049
+  },
+  "assets/posts/photos/jovem-viva.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        790.8,
+        1305.7
+      ],
+      [
+        1004.4,
+        1307.3
+      ],
+      [
+        1001.1,
+        1758.0
+      ],
+      [
+        788.7,
+        1758.0
+      ]
+    ],
+    "radius": 37.4,
+    "mask": "assets/posts/screens/jovem-viva.png",
+    "v": 1795377500
+  },
+  "assets/posts/photos/mao-pos-consulta.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        634.6,
+        515.2
+      ],
+      [
+        1152.5,
+        512.7
+      ],
+      [
+        1160.5,
+        1720.5
+      ],
+      [
+        627.8,
+        1716.5
+      ]
+    ],
+    "radius": 64.8,
+    "mask": "assets/posts/screens/mao-pos-consulta.png",
+    "v": 1795377501
+  },
+  "assets/posts/photos/maos-idosas-receita.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        620.8,
+        561.4
+      ],
+      [
+        1048.1,
+        519.1
+      ],
+      [
+        1164.2,
+        1469.5
+      ],
+      [
+        743.5,
+        1525.8
+      ]
+    ],
+    "radius": 83.8,
+    "mask": "assets/posts/screens/maos-idosas-receita.png",
+    "v": 1795377502
+  },
+  "assets/posts/photos/maos-inicio.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        702.7,
+        661.2
+      ],
+      [
+        1122.5,
+        660.9
+      ],
+      [
+        1117.7,
+        1583.9
+      ],
+      [
+        706.2,
+        1584.7
+      ]
+    ],
+    "radius": 62.3,
+    "mask": "assets/posts/screens/maos-inicio.png",
+    "v": 1795377502
+  },
+  "assets/posts/photos/medica-perfil.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        773.8,
+        1271.0
+      ],
+      [
+        1046.4,
+        1271.0
+      ],
+      [
+        1043.9,
+        1841.9
+      ],
+      [
+        776.2,
+        1840.6
+      ]
+    ],
+    "radius": 47.5,
+    "mask": "assets/posts/screens/medica-perfil.png",
+    "v": 1795377503
+  },
+  "assets/posts/photos/noite-fila.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        572.1,
+        886.9
+      ],
+      [
+        894.7,
+        890.4
+      ],
+      [
+        890.8,
+        1587.8
+      ],
+      [
+        570.4,
+        1593.8
+      ]
+    ],
+    "radius": 48.5,
+    "mask": "assets/posts/screens/noite-fila.png",
+    "v": 1795377504
+  },
+  "assets/posts/photos/rua-analise.jpg": {
+    "size": [
+      1536,
+      2752
+    ],
+    "quad": [
+      [
+        415.9,
+        1198.2
+      ],
+      [
+        665.6,
+        1202.7
+      ],
+      [
+        656.7,
+        1735.7
+      ],
+      [
+        407.5,
+        1732.1
+      ]
+    ],
+    "radius": 44.9,
+    "mask": "assets/posts/screens/rua-analise.png",
+    "v": 1795377504
+  },
+  "assets/posts/photos/casal-idoso-sofa.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        406.0,
+        1200.7
+      ],
+      [
+        671.0,
+        1194.3
+      ],
+      [
+        671.0,
+        1807.7
+      ],
+      [
+        411.4,
+        1831.6
+      ]
+    ],
+    "radius": 38.6,
+    "mask": "assets/posts/screens/casal-idoso-sofa.png",
+    "v": 1795381847
+  },
+  "assets/posts/photos/cozinha-manha.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        1276.3,
+        860.3
+      ],
+      [
+        1460.5,
+        851.5
+      ],
+      [
+        1471.7,
+        1244.3
+      ],
+      [
+        1287.9,
+        1249.5
+      ]
+    ],
+    "radius": 34.3,
+    "mask": "assets/posts/screens/cozinha-manha.png",
+    "v": 1795381848
+  },
+  "assets/posts/photos/farmacia-balcao.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        493.6,
+        987.4
+      ],
+      [
+        793.5,
+        983.3
+      ],
+      [
+        800.8,
+        1627.3
+      ],
+      [
+        500.0,
+        1636.2
+      ]
+    ],
+    "radius": 44.8,
+    "mask": "assets/posts/screens/farmacia-balcao.png",
+    "v": 1795381849
+  },
+  "assets/posts/photos/home-office.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        1118.6,
+        684.2
+      ],
+      [
+        1468.1,
+        666.4
+      ],
+      [
+        1470.5,
+        1401.0
+      ],
+      [
+        1129.4,
+        1401.0
+      ]
+    ],
+    "radius": 49.3,
+    "mask": "assets/posts/screens/home-office.png",
+    "v": 1795381849
+  },
+  "assets/posts/photos/idoso-varanda.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        318.1,
+        740.1
+      ],
+      [
+        629.0,
+        642.6
+      ],
+      [
+        862.3,
+        1321.6
+      ],
+      [
+        561.7,
+        1434.5
+      ]
+    ],
+    "radius": 49.1,
+    "mask": "assets/posts/screens/idoso-varanda.png",
+    "v": 1795381850
+  },
+  "assets/posts/photos/medica-consultorio.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        490.6,
+        1090.6
+      ],
+      [
+        743.6,
+        1093.0
+      ],
+      [
+        739.8,
+        1645.0
+      ],
+      [
+        486.1,
+        1645.0
+      ]
+    ],
+    "radius": 36.5,
+    "mask": "assets/posts/screens/medica-consultorio.png",
+    "v": 1795381852
+  },
+  "assets/posts/photos/medico-corredor.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        1143.8,
+        742.5
+      ],
+      [
+        1502.3,
+        734.2
+      ],
+      [
+        1490.3,
+        1483.0
+      ],
+      [
+        1148.9,
+        1483.0
+      ]
+    ],
+    "radius": 50.7,
+    "mask": "assets/posts/screens/medico-corredor.png",
+    "v": 1795381853
+  },
+  "assets/posts/photos/pai-filho-febre.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        1151.4,
+        813.7
+      ],
+      [
+        1332.2,
+        810.3
+      ],
+      [
+        1333.2,
+        1190.6
+      ],
+      [
+        1155.1,
+        1192.7
+      ]
+    ],
+    "radius": 33.2,
+    "mask": "assets/posts/screens/pai-filho-febre.png",
+    "v": 1795381854
+  },
+  "assets/posts/photos/mae-noite.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        406.4,
+        913.6
+      ],
+      [
+        554.0,
+        915.5
+      ],
+      [
+        551.9,
+        1213.0
+      ],
+      [
+        409.0,
+        1213.0
+      ]
+    ],
+    "radius": 29.5,
+    "mask": "assets/posts/screens/mae-noite.png",
+    "v": 1795381856
+  },
+  "assets/posts/photos/uniforme-intervalo.jpg": {
+    "size": [
+      1792,
+      2400
+    ],
+    "quad": [
+      [
+        577.5,
+        926.7
+      ],
+      [
+        729.2,
+        920.7
+      ],
+      [
+        742.2,
+        1243.0
+      ],
+      [
+        591.6,
+        1249.1
+      ]
+    ],
+    "radius": 31.0,
+    "mask": "assets/posts/screens/uniforme-intervalo.png",
+    "v": 1795381876
+  }
+}

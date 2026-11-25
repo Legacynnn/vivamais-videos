@@ -1,0 +1,499 @@
+{
+  "id": "post-r1-plantao-resolve",
+  "name": "R1 · O que dá pra resolver no plantão",
+  "kind": "post",
+  "format": "feed",
+  "style": "Conteúdo",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "ptuz4",
+      "name": "Feed",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "p0qng",
+          "x": 600,
+          "y": 0,
+          "anchor": "center",
+          "type": "rect",
+          "name": "Faixa violeta",
+          "w": 480,
+          "h": 1350,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #F5F0FE 0%, #EBE1FD 100%)"
+          }
+        },
+        {
+          "id": "p1mjs",
+          "x": 72,
+          "y": 88,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 560,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "20px"
+          },
+          "children": [
+            {
+              "id": "p2by9",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Dá pra resolver no p…",
+              "text": "Dá pra resolver no plantão?",
+              "font": "display",
+              "size": 76,
+              "color": "{ink.900}",
+              "leading": 76,
+              "tracking": -0.045,
+              "weight": 400,
+              "slot": "Título",
+              "runs": [
+                {
+                  "text": "Dá pra resolver no plantão?",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p3x3d",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Muita coisa, sim. Se…",
+              "text": "Muita coisa, sim. Sem sair de casa.",
+              "font": "body",
+              "size": 26,
+              "color": "{ink.600}",
+              "leading": 36,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p4ivv",
+          "x": 72,
+          "y": 420,
+          "anchor": "center",
+          "type": "group",
+          "name": "Lista",
+          "w": 500,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "id": "p5fgk",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "p655c",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "p7lgc",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "p8bwa",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Febre e gripe",
+                  "font": "body",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 34,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 1"
+                }
+              ]
+            },
+            {
+              "id": "p9tah",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "par3z",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "pb0tq",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "pc99j",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Dor de garganta e to…",
+                  "text": "Dor de garganta e tosse",
+                  "font": "body",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 34,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 2"
+                }
+              ]
+            },
+            {
+              "id": "pdiw3",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "pexet",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "pfgr7",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "pg74g",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Dor de cabeça e enjo…",
+                  "text": "Dor de cabeça e enjoo",
+                  "font": "body",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 34,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 3"
+                }
+              ]
+            },
+            {
+              "id": "ph62m",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "pisxj",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "pj2cc",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "pk2z6",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Alergias e irritaçõe…",
+                  "text": "Alergias e irritações",
+                  "font": "body",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 34,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 4"
+                }
+              ]
+            },
+            {
+              "id": "pllgb",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "pm6by",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "pn0vj",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "poupk",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Receita e atestado",
+                  "text": "Receita e atestado",
+                  "font": "body",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 34,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ppblp",
+          "x": 72,
+          "y": 1110,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Aviso PS",
+          "w": 500,
+          "style": {
+            "backgroundColor": "#FEF3C7",
+            "borderRadius": "24px",
+            "display": "flex",
+            "gap": "16px",
+            "paddingBlock": "22px",
+            "paddingInline": "24px"
+          },
+          "children": [
+            {
+              "id": "pqybt",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "SVG",
+              "markup": "<svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 9v4M12 17h.01\" fill=\"none\" stroke=\"#B45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z\" fill=\"none\" stroke=\"#B45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+              "style": {
+                "flexShrink": "0",
+                "display": "inline-block"
+              },
+              "w": 28,
+              "h": 28
+            },
+            {
+              "id": "prqk8",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Dor no peito, falta …",
+              "text": "Dor no peito, falta de ar forte ou desmaio: vá ao pronto-socorro ou ligue 192.",
+              "font": "body",
+              "size": 21,
+              "color": "#7C2D12",
+              "leading": 29,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Aviso"
+            }
+          ]
+        },
+        {
+          "id": "psqfy",
+          "x": 640,
+          "y": 330,
+          "rotate": 5,
+          "anchor": "center",
+          "type": "phone",
+          "name": "Celular · anamnese",
+          "slot": "Tela",
+          "screen": "plantao-anamnese--symptom",
+          "image": "assets/posts/paper/6KHVCZS1V25NR8PSHHYJZZM1E8.png",
+          "w": 414
+        }
+      ]
+    }
+  ],
+  "source": "paper:1ARC-0",
+  "updatedAt": "2026-11-22T22:09:43.361Z"
+}

@@ -1,0 +1,455 @@
+{
+  "id": "post-c3-antes-da-consulta",
+  "name": "C3 · Antes da consulta",
+  "kind": "post",
+  "format": "feed",
+  "style": "Conteúdo",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "kqy94yk",
+      "name": "C3 · Antes da consulta",
+      "background": "linear-gradient(135deg, #F5F0FE 0%, #EBE1FD 55%, #DCEBFF 100%)",
+      "layers": [
+        {
+          "id": "k30qr8y",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "text": "Antes da\nconsulta, anote.",
+          "font": "display",
+          "size": 76,
+          "color": "{ink.900}",
+          "leading": 76,
+          "tracking": -0.045,
+          "w": 900,
+          "slot": "Título"
+        },
+        {
+          "id": "k1xwwep",
+          "type": "text",
+          "name": "Subtítulo",
+          "x": 80,
+          "y": 274,
+          "anchor": "top",
+          "text": "O médico agradece, e a consulta rende mais.",
+          "font": "body",
+          "size": 28,
+          "color": "{ink.600}",
+          "leading": 38,
+          "tracking": 0,
+          "w": 760,
+          "slot": "Subtítulo"
+        },
+        {
+          "id": "ktqir3h",
+          "x": 72,
+          "y": 430,
+          "anchor": "top",
+          "type": "group",
+          "name": "Lista",
+          "w": 500,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column"
+          },
+          "children": [
+            {
+              "id": "kpce7ns",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "kpzd1ip",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "kwir3zb",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "ktr9ak4",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Desde quando sente",
+                  "font": "body",
+                  "size": 32,
+                  "color": "{ink.900}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Item 1"
+                }
+              ]
+            },
+            {
+              "id": "khteldr",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "kmumr1k",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "k8w9uju",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "kgt3e6n",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Remédios que já tomou",
+                  "font": "body",
+                  "size": 32,
+                  "color": "{ink.900}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Item 2"
+                }
+              ]
+            },
+            {
+              "id": "k2motza",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "k5bv25d",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "k70tqfj",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "kk24l2e",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Febre? Quanto?",
+                  "font": "body",
+                  "size": 32,
+                  "color": "{ink.900}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Item 3"
+                }
+              ]
+            },
+            {
+              "id": "kgdqxic",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "kck4onz",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "kov4e2x",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "k6fr23a",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Alergias e doenças crônicas",
+                  "font": "body",
+                  "size": 32,
+                  "color": "{ink.900}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Item 4"
+                }
+              ]
+            },
+            {
+              "id": "kjc0nyn",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "borderBottomColor": "#E6E4EC",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": "1px",
+                "display": "flex",
+                "gap": "18px",
+                "paddingBlock": "20px"
+              },
+              "children": [
+                {
+                  "id": "kdrvr18",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "36px",
+                    "justifyContent": "center",
+                    "width": "36px"
+                  },
+                  "children": [
+                    {
+                      "id": "kk2dn9v",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "SVG",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "kkvf5dt",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Febre e gripe",
+                  "text": "Exames recentes",
+                  "font": "body",
+                  "size": 32,
+                  "color": "{ink.900}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Item 5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kv57u8j",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "src": "assets/posts/photos/idoso-varanda.jpg",
+          "fit": "cover",
+          "position": "50%",
+          "x": 600,
+          "y": 410,
+          "w": 420,
+          "h": 620,
+          "anchor": "center",
+          "style": {
+            "borderRadius": "40px",
+            "boxShadow": "#22084A59 0px 40px 80px -30px"
+          },
+          "rotate": 4
+        },
+        {
+          "id": "kqgfjmy",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-anamnese--since",
+          "photo": "kv57u8j"
+        },
+        {
+          "id": "ks5wqr5",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1080,
+          "anchor": "top",
+          "text": "A Viva organiza isso com você\nenquanto espera na fila.",
+          "font": "display",
+          "size": 34,
+          "color": "{violet.600}",
+          "leading": 34,
+          "tracking": 0,
+          "slot": "Rodapé"
+        },
+        {
+          "id": "kkfkuqr",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupViolet",
+          "x": 80,
+          "y": 1254,
+          "anchor": "bottom",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:36:24.447Z"
+}

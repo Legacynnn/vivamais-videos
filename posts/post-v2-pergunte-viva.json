@@ -1,0 +1,633 @@
+{
+  "id": "post-v2-pergunte-viva",
+  "name": "V2 · Pergunte sobre sua saúde",
+  "kind": "post",
+  "format": "feed",
+  "style": "Conteúdo",
+  "topics": [
+    "Pergunte à Viva"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pyar2",
+      "name": "Feed",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "p083o",
+          "x": 520,
+          "y": -260,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Aura",
+          "w": 820,
+          "h": 820,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 40% 40% at 40% 50% in oklab, #12FFD759 0%, #12FFD700 70%), radial-gradient(ellipse 50% 50% at 60% 55.00000000000001% in oklab, #9D6BF273 0%, #9D6BF200 75%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "p1bu4",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Topo",
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "16px"
+          },
+          "children": [
+            {
+              "id": "p2hov",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "AI Orb",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "64px",
+                "justifyContent": "center",
+                "position": "relative",
+                "width": "64px"
+              },
+              "children": [
+                {
+                  "id": "p3d1g",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Rectangle",
+                  "style": {
+                    "backgroundImage": "radial-gradient(circle farthest-corner at 50% 50% in oklab, #9D6BF2 0%, #9D6BF200 65%)",
+                    "borderRadius": "999px",
+                    "filter": "blur(7.7px)",
+                    "height": "102.4px",
+                    "left": "-19.2px",
+                    "opacity": "0.35",
+                    "position": "absolute",
+                    "top": "-19.2px",
+                    "width": "102.4px"
+                  }
+                },
+                {
+                  "id": "p4x0m",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "999px",
+                    "boxShadow": "#7E3BED59 0px 5.1px 15.4px -3.8px",
+                    "height": "64px",
+                    "left": "0px",
+                    "overflow": "clip",
+                    "position": "absolute",
+                    "top": "0px",
+                    "width": "64px"
+                  },
+                  "children": [
+                    {
+                      "id": "p5pzu",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "backgroundColor": "#12FFD7",
+                        "borderRadius": "999px",
+                        "filter": "blur(8.3px)",
+                        "height": "37.1px",
+                        "left": "3.2px",
+                        "opacity": "0.7",
+                        "position": "absolute",
+                        "top": "21.1px",
+                        "width": "37.1px"
+                      }
+                    },
+                    {
+                      "id": "p68o6",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "backgroundColor": "#9531FF",
+                        "borderRadius": "999px",
+                        "filter": "blur(8.3px)",
+                        "height": "37.1px",
+                        "left": "23.7px",
+                        "opacity": "0.85",
+                        "position": "absolute",
+                        "top": "13.4px",
+                        "width": "37.1px"
+                      }
+                    },
+                    {
+                      "id": "p7sav",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "backgroundColor": "#9D6BF2",
+                        "borderRadius": "999px",
+                        "filter": "blur(8.3px)",
+                        "height": "37.1px",
+                        "left": "13.4px",
+                        "opacity": "0.9",
+                        "position": "absolute",
+                        "top": "2.6px",
+                        "width": "37.1px"
+                      }
+                    },
+                    {
+                      "id": "p881c",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "backgroundImage": "radial-gradient(circle farthest-corner at 32% 21.999999999999996% in oklab, #FFFFFFE6 0%, #FFFFFF00 38%), radial-gradient(circle farthest-corner at 50% 52% in oklab, #FFFFFF00 26%, #FFFFFF80 62%, #FFFFFFD9 100%)",
+                        "borderRadius": "999px",
+                        "boxShadow": "#FFFFFFB3 0px 0px 0px 1.6px inset, #7E3BED1F 0px -3.8px 10.2px inset",
+                        "height": "64px",
+                        "left": "0px",
+                        "position": "absolute",
+                        "top": "0px",
+                        "width": "64px"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "p95h0",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg viewBox=\"69.92 1.23 19.84 19.84\" width=\"19.84\" height=\"19.84\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:29.4px;height:29.4px;filter:drop-shadow(#7E3BED73 0px 0px 2.6px)\"><path d=\"M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z\" fill=\"rgb(255 255 255 / 95%)\"></path></svg>",
+                  "style": {
+                    "width": "29.4px",
+                    "height": "29.4px",
+                    "display": "inline-block",
+                    "position": "relative",
+                    "flexShrink": 0,
+                    "filter": "drop-shadow(#7E3BED73 0px 0px 2.6px)"
+                  },
+                  "w": 19.84,
+                  "h": 19.84
+                }
+              ]
+            },
+            {
+              "id": "papg2",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Viva",
+              "text": "Viva",
+              "font": "display",
+              "size": 34,
+              "color": "{ink.900}",
+              "leading": 40,
+              "tracking": 0,
+              "weight": 400,
+              "runs": [
+                {
+                  "text": "Viva",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pbbp6",
+          "x": 80,
+          "y": 300,
+          "anchor": "top",
+          "type": "group",
+          "name": "Perguntas anteriores",
+          "w": 920,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "30px"
+          },
+          "children": [
+            {
+              "id": "pcsuq",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Posso tomar algo pra…",
+              "text": "Posso tomar algo pra dor de cabeça?",
+              "font": "display",
+              "size": 46,
+              "color": "{ink.900}",
+              "leading": 52,
+              "tracking": -0.03,
+              "style": {
+                "opacity": "0.18"
+              },
+              "weight": 400,
+              "slot": "Pergunta 1",
+              "runs": [
+                {
+                  "text": "Posso tomar algo pra dor de cabeça?",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "pdtos",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "O que eu conto pra m…",
+              "text": "O que eu conto pra médica sobre essa dor?",
+              "font": "display",
+              "size": 46,
+              "color": "{ink.900}",
+              "leading": 52,
+              "tracking": -0.03,
+              "style": {
+                "opacity": "0.35"
+              },
+              "weight": 400,
+              "slot": "Pergunta 2",
+              "runs": [
+                {
+                  "text": "O que eu conto pra médica sobre essa dor?",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "peg39",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "O que significa o re…",
+              "text": "O que significa o resultado do meu hemograma?",
+              "font": "display",
+              "size": 46,
+              "color": "{ink.900}",
+              "leading": 52,
+              "tracking": -0.03,
+              "style": {
+                "opacity": "0.6"
+              },
+              "weight": 400,
+              "slot": "Pergunta 3",
+              "runs": [
+                {
+                  "text": "O que significa o resultado do meu hemograma?",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "pfqrt",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Me ajuda a organizar…",
+              "text": "Me ajuda a organizar o que sinto pro médico?",
+              "font": "display",
+              "size": 64,
+              "color": "{ink.900}",
+              "leading": 68,
+              "tracking": -0.04,
+              "weight": 400,
+              "slot": "Título",
+              "runs": [
+                {
+                  "text": "Me ajuda a organizar o que sinto pro médico?",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400,
+                    "letterSpacing": "-0.05em"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pg3pz",
+          "x": 60,
+          "y": 830,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Barra de pergunta",
+          "w": 960,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "999px",
+            "boxShadow": "#D6C3FB 0px 0px 0px 2px, #6A24DB73 0px 40px 80px -30px",
+            "display": "flex",
+            "gap": "18px",
+            "paddingBlock": "18px",
+            "paddingLeft": "36px",
+            "paddingRight": "18px"
+          },
+          "children": [
+            {
+              "id": "phvi3",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Pergunte sobre sua s…",
+              "text": "Pergunte sobre sua saúde…",
+              "font": "body",
+              "size": 32,
+              "color": "{ink.400}",
+              "leading": 40,
+              "tracking": 0,
+              "style": {
+                "flexBasis": "0%",
+                "flexGrow": "1"
+              },
+              "weight": 400,
+              "slot": "Barra"
+            },
+            {
+              "id": "pi9fc",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "SVG",
+              "markup": "<svg width=\"34\" height=\"34\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"9\" y=\"3\" width=\"6\" height=\"11\" rx=\"3\" fill=\"none\" stroke=\"#55525F\" stroke-width=\"2\" stroke-linecap=\"round\"></rect><path d=\"M5 11a7 7 0 0 0 14 0M12 18v3\" fill=\"none\" stroke=\"#55525F\" stroke-width=\"2\" stroke-linecap=\"round\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 34,
+              "h": 34
+            },
+            {
+              "id": "pjvjl",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundImage": "linear-gradient(in oklab 135deg, #9D6BF2 0%, #6A24DB 100%)",
+                "borderRadius": "99px",
+                "display": "flex",
+                "flexShrink": 0,
+                "height": "76px",
+                "justifyContent": "center",
+                "width": "76px"
+              },
+              "children": [
+                {
+                  "id": "pkf7l",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 19V5M5 12l7-7 7 7\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" stroke-linecap=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 30,
+                  "h": 30
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "plhuy",
+          "x": 60,
+          "y": 970,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Atalhos",
+          "w": 960,
+          "style": {
+            "display": "flex",
+            "flexWrap": "wrap",
+            "gap": "14px"
+          },
+          "children": [
+            {
+              "id": "pmncu",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#F5F0FE",
+                "borderRadius": "999px",
+                "display": "flex",
+                "gap": "10px",
+                "paddingBlock": "16px",
+                "paddingInline": "24px"
+              },
+              "children": [
+                {
+                  "id": "pnfjv",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M4 6h16M4 12h16M4 18h10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"2\" stroke-linecap=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 22,
+                  "h": 22
+                },
+                {
+                  "id": "po9es",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Organizar o que sint…",
+                  "text": "Organizar o que sinto",
+                  "font": "body",
+                  "size": 23,
+                  "color": "{violet.800}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 1"
+                }
+              ]
+            },
+            {
+              "id": "pp5bs",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#F5F0FE",
+                "borderRadius": "999px",
+                "display": "flex",
+                "gap": "10px",
+                "paddingBlock": "16px",
+                "paddingInline": "24px"
+              },
+              "children": [
+                {
+                  "id": "pqp9l",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"m8.5 8.5 7 7\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 22,
+                  "h": 22
+                },
+                {
+                  "id": "prsw5",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Posso tomar algo?",
+                  "text": "Posso tomar algo?",
+                  "font": "body",
+                  "size": 23,
+                  "color": "{violet.800}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 2"
+                }
+              ]
+            },
+            {
+              "id": "pszjr",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#F5F0FE",
+                "borderRadius": "999px",
+                "display": "flex",
+                "gap": "10px",
+                "paddingBlock": "16px",
+                "paddingInline": "24px"
+              },
+              "children": [
+                {
+                  "id": "pt9ny",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></rect><path d=\"M16 2v4M8 2v4M3 10h18\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 22,
+                  "h": 22
+                },
+                {
+                  "id": "pu10z",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Preparar a próxima c…",
+                  "text": "Preparar a próxima consulta",
+                  "font": "body",
+                  "size": 23,
+                  "color": "{violet.800}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pvhve",
+          "x": 80,
+          "y": 1250,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Rodapé",
+          "w": 920,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "justifyContent": "space-between"
+          },
+          "children": [
+            {
+              "id": "pw0qc",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "A Viva orienta, não …",
+              "text": "A Viva orienta, não diagnostica. Quem decide é o médico.",
+              "font": "body",
+              "size": 20,
+              "color": "{ink.500}",
+              "leading": 26,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Aviso"
+            },
+            {
+              "id": "logo2",
+              "type": "logo",
+              "name": "Logo",
+              "x": 0,
+              "y": 0,
+              "variant": "lockupColor",
+              "w": 140,
+              "h": 30,
+              "style": {
+                "flexShrink": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1B24-0",
+  "updatedAt": "2026-11-22T19:01:08.126Z"
+}

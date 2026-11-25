@@ -1,0 +1,1017 @@
+{
+  "id": "seq-carrossel-consciencia-negra",
+  "name": "Carrossel · Consciência Negra e saúde",
+  "kind": "sequence",
+  "format": "carousel",
+  "style": "Foto editorial",
+  "topics": [
+    "Datas",
+    "Saúde"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "source": "Referência: Conexa · Dia da Consciência Negra (carrossel)",
+  "frames": [
+    {
+      "id": "f1",
+      "name": "Capa",
+      "background": "{violet.950}",
+      "layers": [
+        {
+          "id": "cn001",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/familia-jantar-quintal.jpg",
+          "fit": "cover",
+          "position": "50% 0%"
+        },
+        {
+          "id": "cn002",
+          "type": "rect",
+          "name": "Véu no vidro",
+          "x": 84,
+          "y": 640,
+          "w": 912,
+          "h": 692,
+          "style": {
+            "backgroundImage": "linear-gradient(180deg, #22084A00 0%, #22084A99 70%, #22084ACC 100%)",
+            "borderRadius": "0 0 28px 28px"
+          }
+        },
+        {
+          "id": "cn003",
+          "type": "rect",
+          "name": "Vidro",
+          "x": 84,
+          "y": 106,
+          "w": 912,
+          "h": 1226,
+          "radius": 28,
+          "style": {
+            "boxShadow": "inset 0 0 0 2px rgb(255 255 255 / 0.5)"
+          },
+          "backdropBlur": 30,
+          "blurOutside": true
+        },
+        {
+          "id": "cn004",
+          "type": "logo",
+          "name": "Símbolo",
+          "variant": "symbolWhite",
+          "x": 168,
+          "y": 740,
+          "h": 52,
+          "anchor": "top"
+        },
+        {
+          "id": "cn005",
+          "type": "text",
+          "name": "Título",
+          "x": 168,
+          "y": 816,
+          "text": "Hoje é Dia da Consciência Negra. E isso também é assunto de saúde.",
+          "font": "display",
+          "size": 80,
+          "color": "{white}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "w": 720,
+          "leading": 84,
+          "slot": "Título"
+        },
+        {
+          "id": "cn006",
+          "type": "chip",
+          "name": "Chip",
+          "variant": "pill",
+          "title": "Arraste para o lado",
+          "x": 168,
+          "y": 1206,
+          "tone": "light",
+          "anchor": "top"
+        }
+      ]
+    },
+    {
+      "id": "f2",
+      "name": "Contexto",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "cn007",
+          "type": "text",
+          "name": "Título",
+          "x": 66,
+          "y": 53,
+          "text": "Algumas condições aparecem mais na população negra",
+          "font": "display",
+          "size": 84,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "w": 860,
+          "leading": 88,
+          "slot": "Título"
+        },
+        {
+          "id": "cn008",
+          "type": "text",
+          "name": "Texto",
+          "x": 66,
+          "y": 362,
+          "text": "O Ministério da Saúde reconhece isso há anos e tem uma política só para a saúde da população negra, criada em 2009.",
+          "font": "body",
+          "size": 38,
+          "color": "{ink.700}",
+          "anchor": "top",
+          "tracking": 0,
+          "w": 760,
+          "leading": 50,
+          "slot": "Texto",
+          "runs": [
+            {
+              "text": "O Ministério da Saúde reconhece isso há anos e tem "
+            },
+            {
+              "text": "uma política só para a saúde da população negra",
+              "style": {
+                "fontWeight": 600
+              }
+            },
+            {
+              "text": ", criada em 2009."
+            }
+          ]
+        },
+        {
+          "id": "cn009",
+          "type": "chip",
+          "name": "Chip",
+          "variant": "stat",
+          "title": "2009",
+          "x": 66,
+          "y": 544,
+          "tone": "light",
+          "anchor": "top",
+          "subtitle": "Política Nacional de Saúde Integral\nda População Negra",
+          "badge": "Ministério da Saúde",
+          "rotate": -0.7
+        },
+        {
+          "id": "cn010",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1248,
+          "text": "Dia da Consciência Negra. Saúde também é sobre isso.",
+          "font": "body",
+          "size": 25.36,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "tracking": 0,
+          "w": 760,
+          "leading": 32.28
+        },
+        {
+          "id": "cn011",
+          "type": "logo",
+          "name": "Símbolo",
+          "variant": "lockupViolet",
+          "x": 814,
+          "y": 1235,
+          "h": 58,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f3",
+      "name": "Pressão alta",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "cn012",
+          "type": "rect",
+          "name": "Faixa 4",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 881,
+          "style": {
+            "background": "#0D0C12",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn013",
+          "type": "rect",
+          "name": "Faixa 3",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 673,
+          "style": {
+            "background": "#282632",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn014",
+          "type": "rect",
+          "name": "Faixa 2",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 461,
+          "style": {
+            "background": "#55525F",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn015",
+          "type": "rect",
+          "name": "Faixa 1",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 244,
+          "style": {
+            "background": "#A29FB0",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn016",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 748,
+          "text": "Pressão alta",
+          "font": "display",
+          "size": 84,
+          "color": "{white}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "leading": 88,
+          "slot": "Título"
+        },
+        {
+          "id": "cn017",
+          "type": "text",
+          "name": "Texto",
+          "x": 80,
+          "y": 940,
+          "text": "É mais frequente entre pessoas negras. E quase nunca dá sinal: muita gente só descobre quando mede.",
+          "font": "body",
+          "size": 36,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "tracking": 0,
+          "w": 880,
+          "leading": 48,
+          "slot": "Texto",
+          "runs": [
+            {
+              "text": "É mais frequente entre pessoas negras. E quase nunca dá sinal: "
+            },
+            {
+              "text": "muita gente só descobre quando mede.",
+              "style": {
+                "fontWeight": 600
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn018",
+          "type": "chip",
+          "name": "Chip",
+          "variant": "pill",
+          "title": "Como saber: medir a pressão",
+          "x": 80,
+          "y": 1146,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "cn019",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1252,
+          "text": "Dia da Consciência Negra. Saúde também é sobre isso.",
+          "font": "body",
+          "size": 22,
+          "color": "{ink.900}",
+          "anchor": "bottom",
+          "tracking": 0,
+          "w": 760,
+          "leading": 28
+        },
+        {
+          "id": "cn020",
+          "type": "logo",
+          "name": "Símbolo",
+          "variant": "symbolViolet",
+          "x": 960,
+          "y": 1242,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f4",
+      "name": "Diabetes tipo 2",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "cn021",
+          "type": "rect",
+          "name": "Faixa 4",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 881,
+          "style": {
+            "background": "#037264",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn022",
+          "type": "rect",
+          "name": "Faixa 3",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 673,
+          "style": {
+            "background": "#008F7A",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn023",
+          "type": "rect",
+          "name": "Faixa 2",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 461,
+          "style": {
+            "background": "#00E6C1",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn024",
+          "type": "rect",
+          "name": "Faixa 1",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 244,
+          "style": {
+            "background": "#5CFFE2",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn025",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 748,
+          "text": "Diabetes tipo 2",
+          "font": "display",
+          "size": 84,
+          "color": "{white}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "leading": 88,
+          "slot": "Título"
+        },
+        {
+          "id": "cn026",
+          "type": "text",
+          "name": "Texto",
+          "x": 80,
+          "y": 940,
+          "text": "Também aparece mais na população negra. No começo, costuma ser silencioso. O exame de sangue é o jeito de saber.",
+          "font": "body",
+          "size": 36,
+          "color": "{spark.900}",
+          "anchor": "top",
+          "tracking": 0,
+          "w": 880,
+          "leading": 48,
+          "slot": "Texto",
+          "runs": [
+            {
+              "text": "Também aparece mais na população negra. No começo, costuma ser silencioso. "
+            },
+            {
+              "text": "O exame de sangue é o jeito de saber.",
+              "style": {
+                "fontWeight": 600
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn027",
+          "type": "chip",
+          "name": "Chip",
+          "variant": "pill",
+          "title": "Como saber: glicemia no check-up",
+          "x": 80,
+          "y": 1146,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "cn028",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1252,
+          "text": "Dia da Consciência Negra. Saúde também é sobre isso.",
+          "font": "body",
+          "size": 22,
+          "color": "{spark.900}",
+          "anchor": "bottom",
+          "tracking": 0,
+          "w": 760,
+          "leading": 28
+        },
+        {
+          "id": "cn029",
+          "type": "logo",
+          "name": "Símbolo",
+          "variant": "symbolViolet",
+          "x": 960,
+          "y": 1242,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f5",
+      "name": "Doença falciforme",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "cn030",
+          "type": "rect",
+          "name": "Faixa 4",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 881,
+          "style": {
+            "background": "#5719B6",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn031",
+          "type": "rect",
+          "name": "Faixa 3",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 673,
+          "style": {
+            "background": "#7E3BED",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn032",
+          "type": "rect",
+          "name": "Faixa 2",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 461,
+          "style": {
+            "background": "#9D6BF2",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn033",
+          "type": "rect",
+          "name": "Faixa 1",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 244,
+          "style": {
+            "background": "#BC9CF7",
+            "borderRadius": "0 0 44px 44px"
+          }
+        },
+        {
+          "id": "cn034",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 748,
+          "text": "Doença falciforme",
+          "font": "display",
+          "size": 84,
+          "color": "{white}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "leading": 88,
+          "slot": "Título"
+        },
+        {
+          "id": "cn035",
+          "type": "text",
+          "name": "Texto",
+          "x": 80,
+          "y": 940,
+          "text": "Uma das doenças genéticas mais comuns do mundo, atinge principalmente pessoas negras. O teste do pezinho identifica nos primeiros dias de vida.",
+          "font": "body",
+          "size": 36,
+          "color": "{violet.700}",
+          "anchor": "top",
+          "tracking": 0,
+          "w": 880,
+          "leading": 48,
+          "slot": "Texto",
+          "runs": [
+            {
+              "text": "Uma das doenças genéticas mais comuns do mundo, atinge principalmente pessoas negras. "
+            },
+            {
+              "text": "O teste do pezinho identifica nos primeiros dias de vida.",
+              "style": {
+                "fontWeight": 600
+              }
+            }
+          ]
+        },
+        {
+          "id": "cn036",
+          "type": "chip",
+          "name": "Chip",
+          "variant": "pill",
+          "title": "Como saber: teste do pezinho",
+          "x": 80,
+          "y": 1146,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "cn037",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1252,
+          "text": "Dia da Consciência Negra. Saúde também é sobre isso.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "tracking": 0,
+          "w": 760,
+          "leading": 28
+        },
+        {
+          "id": "cn038",
+          "type": "logo",
+          "name": "Símbolo",
+          "variant": "symbolViolet",
+          "x": 960,
+          "y": 1242,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f6",
+      "name": "Por quê",
+      "background": "{violet.950}",
+      "layers": [
+        {
+          "id": "cn039",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 200,
+          "text": "Por que aparecem mais?",
+          "font": "display",
+          "size": 84,
+          "color": "{white}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "w": 860,
+          "leading": 88,
+          "slot": "Título"
+        },
+        {
+          "id": "cn040",
+          "type": "rect",
+          "name": "Card 1",
+          "x": 80,
+          "y": 420,
+          "w": 920,
+          "h": 300,
+          "background": "rgb(255 255 255 / 0.07)",
+          "radius": 40
+        },
+        {
+          "id": "cn041",
+          "type": "text",
+          "name": "Card 1 número",
+          "x": 128,
+          "y": 468,
+          "text": "01",
+          "font": "mono",
+          "size": 30,
+          "color": "{primary-soft}",
+          "anchor": "top",
+          "tracking": 0
+        },
+        {
+          "id": "cn042",
+          "type": "text",
+          "name": "Card 1 título",
+          "x": 128,
+          "y": 530,
+          "text": "Herança genética",
+          "font": "display",
+          "size": 52,
+          "color": "{white}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "leading": 56
+        },
+        {
+          "id": "cn043",
+          "type": "text",
+          "name": "Card 1 texto",
+          "x": 128,
+          "y": 604,
+          "text": "Como na doença falciforme, que passa de pais para filhos.",
+          "font": "body",
+          "size": 30,
+          "color": "rgb(255 255 255 / 0.72)",
+          "anchor": "top",
+          "tracking": 0,
+          "w": 780,
+          "leading": 40
+        },
+        {
+          "id": "cn044",
+          "type": "rect",
+          "name": "Card 2",
+          "x": 80,
+          "y": 752,
+          "w": 920,
+          "h": 340,
+          "background": "rgb(255 255 255 / 0.07)",
+          "radius": 40
+        },
+        {
+          "id": "cn045",
+          "type": "text",
+          "name": "Card 2 número",
+          "x": 128,
+          "y": 800,
+          "text": "02",
+          "font": "mono",
+          "size": 30,
+          "color": "{primary-soft}",
+          "anchor": "top",
+          "tracking": 0
+        },
+        {
+          "id": "cn046",
+          "type": "text",
+          "name": "Card 2 título",
+          "x": 128,
+          "y": 862,
+          "text": "A vida real",
+          "font": "display",
+          "size": 52,
+          "color": "{white}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "leading": 56
+        },
+        {
+          "id": "cn047",
+          "type": "text",
+          "name": "Card 2 texto",
+          "x": 128,
+          "y": 936,
+          "text": "Renda, trabalho, alimentação e a distância até um bom atendimento também pesam.",
+          "font": "body",
+          "size": 30,
+          "color": "rgb(255 255 255 / 0.72)",
+          "anchor": "top",
+          "tracking": 0,
+          "w": 780,
+          "leading": 40
+        },
+        {
+          "id": "cn048",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1252,
+          "text": "Dia da Consciência Negra. Saúde também é sobre isso.",
+          "font": "body",
+          "size": 22,
+          "color": "rgb(255 255 255 / 0.6)",
+          "anchor": "bottom",
+          "tracking": 0,
+          "w": 760,
+          "leading": 28
+        },
+        {
+          "id": "cn049",
+          "type": "logo",
+          "name": "Símbolo",
+          "variant": "symbolWhite",
+          "x": 960,
+          "y": 1242,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f7",
+      "name": "Família",
+      "background": "{violet.950}",
+      "layers": [
+        {
+          "id": "cn050",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/familia-almoco-casa.jpg",
+          "fit": "cover",
+          "position": "50% 30%"
+        },
+        {
+          "id": "cn051",
+          "type": "rect",
+          "name": "Véu topo",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 260,
+          "style": {
+            "backgroundImage": "linear-gradient(180deg, #22084AAA 0%, #22084A00 100%)"
+          }
+        },
+        {
+          "id": "cn052",
+          "type": "rect",
+          "name": "Véu base",
+          "x": 0,
+          "y": 600,
+          "w": 1080,
+          "h": 750,
+          "style": {
+            "backgroundImage": "linear-gradient(180deg, #22084A00 0%, #22084ACC 45%, #22084AF2 100%)"
+          }
+        },
+        {
+          "id": "cn053",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 88,
+          "text": "Dia da Consciência Negra. Saúde também é sobre isso.",
+          "font": "body",
+          "size": 22,
+          "color": "rgb(255 255 255 / 0.85)",
+          "anchor": "top",
+          "tracking": 0,
+          "w": 760,
+          "leading": 28
+        },
+        {
+          "id": "cn054",
+          "type": "logo",
+          "name": "Símbolo",
+          "variant": "symbolWhite",
+          "x": 960,
+          "y": 80,
+          "h": 44,
+          "anchor": "top"
+        },
+        {
+          "id": "cn055",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 820,
+          "text": "Informação boa é a que vira cuidado",
+          "font": "display",
+          "size": 84,
+          "color": "{white}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "w": 820,
+          "leading": 88,
+          "slot": "Título"
+        },
+        {
+          "id": "cn056",
+          "type": "text",
+          "name": "Texto",
+          "x": 80,
+          "y": 1010,
+          "text": "Medir a pressão de vez em quando. Pedir glicemia no check-up. Conhecer o histórico da sua família.",
+          "font": "body",
+          "size": 34,
+          "color": "rgb(255 255 255 / 0.9)",
+          "anchor": "top",
+          "tracking": 0,
+          "w": 820,
+          "leading": 46,
+          "slot": "Texto"
+        },
+        {
+          "id": "cn057",
+          "type": "text",
+          "name": "Fontes",
+          "x": 80,
+          "y": 1234,
+          "text": "Fontes: Ministério da Saúde (Política Nacional de Saúde Integral da População Negra; Boletim Epidemiológico Saúde da População Negra, 2023).",
+          "font": "body",
+          "size": 18,
+          "color": "rgb(255 255 255 / 0.6)",
+          "anchor": "bottom",
+          "tracking": 0,
+          "w": 900,
+          "leading": 24
+        }
+      ]
+    },
+    {
+      "id": "f8",
+      "name": "Viva Mais",
+      "background": "{violet.500}",
+      "layers": [
+        {
+          "id": "cn058",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "text": "Ficou com dúvida? Fala com um médico agora.",
+          "font": "display",
+          "size": 80,
+          "color": "{white}",
+          "anchor": "top",
+          "tracking": -0.04,
+          "w": 900,
+          "leading": 84,
+          "slot": "Título"
+        },
+        {
+          "id": "cn059",
+          "type": "text",
+          "name": "Texto",
+          "x": 80,
+          "y": 320,
+          "text": "Plantão 24h no app, por vídeo ou chat. Sem sair de casa.",
+          "font": "body",
+          "size": 34,
+          "color": "rgb(255 255 255 / 0.85)",
+          "anchor": "top",
+          "tracking": 0,
+          "w": 520,
+          "leading": 46,
+          "slot": "Texto"
+        },
+        {
+          "id": "cn060",
+          "type": "phone",
+          "name": "Celular",
+          "slot": "Tela",
+          "screen": "plantao-hub--video",
+          "x": 560,
+          "y": 470,
+          "rotate": 4,
+          "w": 476,
+          "anchor": "bottom"
+        },
+        {
+          "id": "cn061",
+          "type": "chip",
+          "name": "Chip",
+          "variant": "bubble",
+          "title": "Pressão 14 por 9 é alta? O que eu faço?",
+          "x": 80,
+          "y": 620,
+          "tone": "light",
+          "anchor": "top",
+          "subtitle": "Pergunte à Viva"
+        },
+        {
+          "id": "cn062",
+          "type": "chip",
+          "name": "Chip",
+          "variant": "cta",
+          "title": "Baixe a Viva Mais",
+          "x": 80,
+          "y": 1100,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "cn063",
+          "type": "logo",
+          "name": "Símbolo",
+          "variant": "lockupWhite",
+          "x": 80,
+          "y": 1230,
+          "h": 48,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f9",
+      "name": "Compartilhe",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "cn064",
+          "type": "svg",
+          "name": "Seta",
+          "x": 196,
+          "y": 640,
+          "w": 64,
+          "h": 64,
+          "anchor": "center",
+          "markup": "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6 10h52L28 58 20 30z\" fill=\"#7E3BED\" stroke=\"#7E3BED\" stroke-width=\"8\" stroke-linejoin=\"round\"/></svg>"
+        },
+        {
+          "id": "cn065",
+          "type": "text",
+          "name": "Texto",
+          "x": 292,
+          "y": 628,
+          "text": "Manda para alguém que você quer ver se cuidando.",
+          "font": "body",
+          "size": 44,
+          "color": "{violet.700}",
+          "anchor": "center",
+          "tracking": 0,
+          "w": 600,
+          "leading": 56,
+          "slot": "Texto",
+          "runs": [
+            {
+              "text": "Manda para alguém que você quer ver "
+            },
+            {
+              "text": "se cuidando",
+              "style": {
+                "fontWeight": 600
+              }
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "id": "cn066",
+          "type": "logo",
+          "name": "Símbolo",
+          "variant": "symbolViolet",
+          "x": 512,
+          "y": 1220,
+          "h": 56,
+          "anchor": "bottom"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-24T22:23:15.713Z"
+}

@@ -1,0 +1,580 @@
+{
+  "id": "post-c1-plantao-ou-ps",
+  "name": "C1 · Plantão ou pronto-socorro?",
+  "kind": "post",
+  "format": "feed",
+  "style": "Conteúdo",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "k0svgsy",
+      "name": "C1 · Plantão ou pronto-socorro?",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "ki4orf5",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "text": "Plantão ou\npronto-socorro?",
+          "font": "display",
+          "size": 76,
+          "color": "{ink.900}",
+          "leading": 76,
+          "tracking": -0.045,
+          "w": 900,
+          "slot": "Título"
+        },
+        {
+          "id": "kdhx71g",
+          "type": "text",
+          "name": "Subtítulo",
+          "x": 80,
+          "y": 274,
+          "anchor": "top",
+          "text": "Um guia rápido pra decidir.",
+          "font": "body",
+          "size": 28,
+          "color": "{ink.600}",
+          "leading": 38,
+          "tracking": 0,
+          "w": 760,
+          "slot": "Subtítulo"
+        },
+        {
+          "id": "khqadk4",
+          "x": 60,
+          "y": 400,
+          "anchor": "top",
+          "type": "group",
+          "name": "Faz",
+          "w": 470,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "36px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "6px",
+            "paddingBlock": "34px",
+            "paddingInline": "32px"
+          },
+          "children": [
+            {
+              "id": "k8axfm8",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "12px",
+                "paddingBottom": "16px"
+              },
+              "children": [
+                {
+                  "id": "k3brra9",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#C6FFF4",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": 0,
+                    "height": "40px",
+                    "justifyContent": "center",
+                    "width": "40px"
+                  },
+                  "children": [
+                    {
+                      "id": "kaoehvi",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#008F78\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 20,
+                      "h": 20
+                    }
+                  ]
+                },
+                {
+                  "id": "k1g58rz",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Plantão no app",
+                  "font": "display",
+                  "size": 34,
+                  "color": "{ink.900}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz · título"
+                }
+              ]
+            },
+            {
+              "id": "kel1w7a",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "k71ler0",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Febre, gripe e tosse",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 1"
+                }
+              ]
+            },
+            {
+              "id": "ken9twe",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "kkdpwze",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Dor de garganta",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 1"
+                }
+              ]
+            },
+            {
+              "id": "kb8wkzj",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "k0t9t4b",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Enjoo e diarreia leve",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 1"
+                }
+              ]
+            },
+            {
+              "id": "ke3xia6",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "k4dbtlh",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Alergia e irritação na pele",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 1"
+                }
+              ]
+            },
+            {
+              "id": "k8uiiqv",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#E6E4EC",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "kdi7wie",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Renovar receita",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Faz 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kwzaa5w",
+          "x": 550,
+          "y": 400,
+          "anchor": "top",
+          "type": "group",
+          "name": "Não faz",
+          "w": 470,
+          "style": {
+            "backgroundColor": "#282632",
+            "borderRadius": "36px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "6px",
+            "paddingBlock": "34px",
+            "paddingInline": "32px"
+          },
+          "children": [
+            {
+              "id": "kd3zvwr",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "12px",
+                "paddingBottom": "16px"
+              },
+              "children": [
+                {
+                  "id": "k58uz07",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#403D4A",
+                    "borderRadius": "99px",
+                    "display": "flex",
+                    "flexShrink": 0,
+                    "height": "40px",
+                    "justifyContent": "center",
+                    "width": "40px"
+                  },
+                  "children": [
+                    {
+                      "id": "kw1muz7",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6 6l12 12M18 6L6 18\" fill=\"none\" stroke=\"#D2CFDB\" stroke-width=\"3\" stroke-linecap=\"round\"></path></svg>",
+                      "style": {
+                        "display": "inline-block",
+                        "flexShrink": 0
+                      },
+                      "w": 18,
+                      "h": 18
+                    }
+                  ]
+                },
+                {
+                  "id": "kzl3kjr",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Pronto-socorro",
+                  "font": "display",
+                  "size": 34,
+                  "color": "{white}",
+                  "leading": 40,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz · título"
+                }
+              ]
+            },
+            {
+              "id": "kxheh35",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "k7xcwc5",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Dor no peito",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 1"
+                }
+              ]
+            },
+            {
+              "id": "k3qxvzh",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "kq5hdsn",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Falta de ar forte",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 1"
+                }
+              ]
+            },
+            {
+              "id": "k3xb2bx",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "k38djsz",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Desmaio ou convulsão",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 1"
+                }
+              ]
+            },
+            {
+              "id": "kubtqb8",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "kesskqg",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Sangramento intenso",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 1"
+                }
+              ]
+            },
+            {
+              "id": "kera4jl",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "borderTopColor": "#403D4A",
+                "borderTopStyle": "solid",
+                "borderTopWidth": "1px",
+                "paddingBlock": "14px"
+              },
+              "children": [
+                {
+                  "id": "kbvoar4",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Acidente ou fratura",
+                  "font": "body",
+                  "size": 25,
+                  "color": "{white}/82",
+                  "leading": 32,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Não faz 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kpj5lbf",
+          "x": 60,
+          "y": 1170,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Aviso PS",
+          "w": 960,
+          "style": {
+            "backgroundColor": "#FEF3C7",
+            "borderRadius": "24px",
+            "display": "flex",
+            "gap": "16px",
+            "paddingBlock": "22px",
+            "paddingInline": "24px"
+          },
+          "children": [
+            {
+              "id": "k4xxv1r",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "SVG",
+              "markup": "<svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 9v4M12 17h.01\" fill=\"none\" stroke=\"#B45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z\" fill=\"none\" stroke=\"#B45309\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+              "style": {
+                "flexShrink": "0",
+                "display": "inline-block"
+              },
+              "w": 28,
+              "h": 28
+            },
+            {
+              "id": "ku5ky8n",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Dor no peito, falta …",
+              "text": "Em emergência, ligue 192 ou vá ao pronto-socorro mais próximo.",
+              "font": "body",
+              "size": 21,
+              "color": "#7C2D12",
+              "leading": 29,
+              "tracking": 0,
+              "weight": 400,
+              "slot": "Aviso"
+            }
+          ]
+        },
+        {
+          "id": "kr1wgsx",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupColor",
+          "x": 80,
+          "y": 1254,
+          "anchor": "bottom",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T23:30:57.385Z"
+}

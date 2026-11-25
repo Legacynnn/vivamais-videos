@@ -1,0 +1,106 @@
+{
+  "id": "post-k2-terceiro-fila",
+  "name": "K2 · Você é o 3º",
+  "kind": "post",
+  "format": "feed",
+  "style": "Gráfico",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "k71y8m3",
+      "name": "K2 · Você é o 3º",
+      "background": "radial-gradient(60% 75% at 92% 8%, #9531FF 0%, transparent 65%), radial-gradient(70% 80% at 0% 100%, #7A67F8 0%, transparent 62%), linear-gradient(160deg, #2B0B5C 0%, #451391 100%)",
+      "layers": [
+        {
+          "id": "ka1hsqc",
+          "type": "text",
+          "name": "Número",
+          "x": 40,
+          "y": 20,
+          "anchor": "top",
+          "text": "3º",
+          "font": "display",
+          "size": 560,
+          "color": "{white}",
+          "leading": 560,
+          "tracking": -0.045,
+          "slot": "Número"
+        },
+        {
+          "id": "ku65ypa",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 640,
+          "anchor": "top",
+          "text": "na fila do plantão,\nesperando no sofá.",
+          "font": "display",
+          "size": 52,
+          "color": "{white}",
+          "leading": 52,
+          "tracking": 0,
+          "slot": "Título"
+        },
+        {
+          "id": "kvloikc",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "src": "assets/posts/photos/sofa-noite.jpg",
+          "fit": "cover",
+          "position": "50%",
+          "x": 560,
+          "y": 760,
+          "w": 460,
+          "h": 560,
+          "anchor": "center",
+          "style": {
+            "borderRadius": "40px",
+            "boxShadow": "#22084A59 0px 40px 80px -30px"
+          },
+          "rotate": 4
+        },
+        {
+          "id": "kha673l",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-queue--position-3",
+          "photo": "kvloikc"
+        },
+        {
+          "id": "kqz55ni",
+          "type": "chip",
+          "name": "Espera estimada ~5 m",
+          "x": 110,
+          "y": 980,
+          "rotate": -4,
+          "anchor": "center",
+          "variant": "pill",
+          "title": "Espera estimada ~5 min",
+          "tone": "light",
+          "scale": 1.7
+        },
+        {
+          "id": "k39lo7a",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "x": 80,
+          "y": 1254,
+          "anchor": "bottom",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:36:24.446Z"
+}

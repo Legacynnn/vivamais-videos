@@ -1,0 +1,125 @@
+{
+  "id": "post-g3-medico-chamou",
+  "name": "G3 · Médico chamou",
+  "kind": "post",
+  "format": "feed",
+  "style": "Foto com UI",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "g76n7t",
+      "name": "G3 · Médico chamou",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "g7kn8s",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/maos-08.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "gbz6zv",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "account-type--default",
+          "photo": "g7kn8s"
+        },
+        {
+          "id": "gk8ukp",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 500,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #F5F0FEE0 0%, #F5F0FE80 55%, #F5F0FE00 100%)"
+          }
+        },
+        {
+          "id": "gvukx1",
+          "x": 64,
+          "y": 84,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 900,
+          "h": 220,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "18px"
+          },
+          "children": [
+            {
+              "id": "gg5421",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "O médico chamou.\nAtenda do sofá.",
+              "font": "display",
+              "size": 76,
+              "color": "{ink.900}",
+              "leading": 78,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "g4co0u",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Subtítulo",
+              "text": "Consulta por vídeo, sem sair de casa.",
+              "font": "body",
+              "size": 26,
+              "color": "{ink.600}",
+              "leading": 34,
+              "tracking": 0,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "gaylan",
+          "x": 64,
+          "y": 1270,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupViolet",
+          "h": 34
+        }
+      ]
+    }
+  ],
+  "source": "ai:bytedance/seedream-5-0-pro",
+  "updatedAt": "2026-11-22T19:57:10.488Z",
+  "overrides": {
+    "story": {
+      "gvukx1": {
+        "x": 63,
+        "y": 31,
+        "w": 900,
+        "h": 220
+      }
+    }
+  }
+}

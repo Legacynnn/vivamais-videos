@@ -1,0 +1,405 @@
+{
+  "id": "post-q3-pos-consulta",
+  "name": "Q3 · Mão estúdio + Pós-consulta",
+  "kind": "post",
+  "format": "feed",
+  "style": "Foto com UI",
+  "topics": [
+    "Documentos e receita"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pndxc",
+      "name": "Q3 · Mão estúdio + Pós-consulta",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "p0n1v",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/maos-02.jpg",
+          "fit": "cover",
+          "position": "50%",
+          "choices": [
+            "assets/posts/photos/maos-01.jpg",
+            "assets/posts/photos/maos-02.jpg",
+            "assets/posts/photos/maos-03.jpg",
+            "assets/posts/photos/maos-04.jpg",
+            "assets/posts/photos/maos-05.jpg",
+            "assets/posts/photos/maos-06.jpg",
+            "assets/posts/photos/maos-07.jpg",
+            "assets/posts/photos/maos-08.jpg"
+          ]
+        },
+        {
+          "id": "szksihp",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-called--calling",
+          "photo": "p0n1v"
+        },
+        {
+          "id": "p140q",
+          "x": 37,
+          "y": 10,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 300,
+          "h": 330,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "22px"
+          },
+          "children": [
+            {
+              "id": "p2g8z",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Depois da consulta, …",
+              "text": "Depois da consulta, tudo fica aqui.",
+              "font": "display",
+              "size": 62,
+              "color": "{ink.900}",
+              "leading": 62,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "p3ywd",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Resumo, receita, exa…",
+              "text": "Resumo, receita, exames e atestado no app.",
+              "font": "body",
+              "size": 22,
+              "color": "{ink.700}",
+              "leading": 30,
+              "tracking": 0,
+              "slot": "Subtítulo"
+            }
+          ],
+          "rotate": 0.4,
+          "scale": 0.78
+        },
+        {
+          "id": "p4chc",
+          "x": 720,
+          "y": 300,
+          "rotate": 5,
+          "anchor": "top",
+          "type": "group",
+          "name": "Saindo · receita",
+          "w": 300,
+          "h": 84,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "24px",
+            "boxShadow": "#22084A66 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "14px",
+            "paddingBlock": "18px",
+            "paddingInline": "20px"
+          },
+          "children": [
+            {
+              "id": "p5qk9",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#F5F0FE",
+                "borderRadius": "14px",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "48px",
+                "justifyContent": "center",
+                "width": "48px"
+              },
+              "children": [
+                {
+                  "id": "p6mpf",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Rx",
+                  "text": "Rx",
+                  "font": "body",
+                  "size": 22,
+                  "weight": 600,
+                  "color": "{violet.500}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "slot": "Chip 1"
+                }
+              ]
+            },
+            {
+              "id": "p7k4w",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "id": "p8urz",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Receita",
+                  "text": "Receita",
+                  "font": "body",
+                  "size": 21,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 26,
+                  "tracking": 0
+                },
+                {
+                  "id": "p9e18",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Assinada · ICP-Brasi…",
+                  "text": "Assinada · ICP-Brasil",
+                  "font": "body",
+                  "size": 17,
+                  "color": "{ink.600}",
+                  "leading": 22,
+                  "tracking": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "paq2z",
+          "x": 740,
+          "y": 500,
+          "rotate": -3,
+          "anchor": "top",
+          "type": "group",
+          "name": "Saindo · exame",
+          "w": 300,
+          "h": 84,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "24px",
+            "boxShadow": "#22084A66 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "14px",
+            "paddingBlock": "18px",
+            "paddingInline": "20px"
+          },
+          "children": [
+            {
+              "id": "pbhlp",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#E8FFFB",
+                "borderRadius": "14px",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "48px",
+                "justifyContent": "center",
+                "width": "48px"
+              },
+              "children": [
+                {
+                  "id": "pc1e0",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M9 2v6L4 18a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-10V2M8 2h8\" fill=\"none\" stroke=\"#008F78\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 24,
+                  "h": 24
+                }
+              ]
+            },
+            {
+              "id": "pdtxg",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "id": "pep2s",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Pedido de exame",
+                  "text": "Pedido de exame",
+                  "font": "body",
+                  "size": 21,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 26,
+                  "tracking": 0,
+                  "slot": "Chip 2"
+                },
+                {
+                  "id": "pfmma",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Hemograma completo",
+                  "text": "Hemograma completo",
+                  "font": "body",
+                  "size": 17,
+                  "color": "{ink.600}",
+                  "leading": 22,
+                  "tracking": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pgt8u",
+          "x": 720,
+          "y": 700,
+          "rotate": 4,
+          "anchor": "center",
+          "type": "group",
+          "name": "Saindo · atestado",
+          "w": 300,
+          "h": 84,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#17151E",
+            "borderRadius": "24px",
+            "boxShadow": "#22084A80 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "14px",
+            "paddingBlock": "18px",
+            "paddingInline": "20px"
+          },
+          "children": [
+            {
+              "id": "phzdo",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#2D195C",
+                "borderRadius": "14px",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "48px",
+                "justifyContent": "center",
+                "width": "48px"
+              },
+              "children": [
+                {
+                  "id": "pit1n",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\" fill=\"none\" stroke=\"#C6BDF5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M14 2v6h6M8 13h8M8 17h5\" fill=\"none\" stroke=\"#C6BDF5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 24,
+                  "h": 24
+                }
+              ]
+            },
+            {
+              "id": "pjk9u",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "id": "pk5my",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Atestado",
+                  "text": "Atestado",
+                  "font": "body",
+                  "size": 21,
+                  "weight": 600,
+                  "color": "{white}",
+                  "leading": 26,
+                  "tracking": 0,
+                  "slot": "Chip 3"
+                },
+                {
+                  "id": "plsdf",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "2 dias · enviado",
+                  "text": "2 dias · enviado",
+                  "font": "body",
+                  "size": 17,
+                  "color": "{white}/70",
+                  "leading": 22,
+                  "tracking": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pmk3m",
+          "x": 64,
+          "y": 1240,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupColor",
+          "h": 32
+        }
+      ]
+    }
+  ],
+  "source": "paper:1ASW-0",
+  "updatedAt": "2026-11-22T19:15:58.976Z"
+}

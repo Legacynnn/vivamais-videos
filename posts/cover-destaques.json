@@ -1,0 +1,178 @@
+{
+  "id": "cover-destaques",
+  "name": "Destaques do perfil",
+  "kind": "cover",
+  "format": "highlight",
+  "style": "Marca",
+  "topics": [
+    "Institucional"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1920
+  },
+  "frames": [
+    {
+      "id": "p1ydm",
+      "name": "Plantão",
+      "background": "{violet.100}",
+      "layers": [
+        {
+          "id": "p05ly",
+          "type": "image",
+          "name": "Ícone",
+          "slot": "Ícone",
+          "src": "assets/posts/highlights/plantao.svg",
+          "fit": "contain",
+          "x": 210,
+          "y": 630,
+          "w": 660,
+          "h": 660,
+          "anchor": "center"
+        }
+      ]
+    },
+    {
+      "id": "p36sz",
+      "name": "Especialidades",
+      "background": "{violet.100}",
+      "layers": [
+        {
+          "id": "p2n0w",
+          "type": "image",
+          "name": "Ícone",
+          "slot": "Ícone",
+          "src": "assets/posts/highlights/especialidades.svg",
+          "fit": "contain",
+          "x": 210,
+          "y": 630,
+          "w": 660,
+          "h": 660,
+          "anchor": "center"
+        }
+      ]
+    },
+    {
+      "id": "p5eju",
+      "name": "Planos",
+      "background": "{violet.100}",
+      "layers": [
+        {
+          "id": "p4c1h",
+          "type": "image",
+          "name": "Ícone",
+          "slot": "Ícone",
+          "src": "assets/posts/highlights/planos.svg",
+          "fit": "contain",
+          "x": 210,
+          "y": 630,
+          "w": 660,
+          "h": 660,
+          "anchor": "center"
+        }
+      ]
+    },
+    {
+      "id": "p7xww",
+      "name": "Empresas",
+      "background": "{violet.100}",
+      "layers": [
+        {
+          "id": "p6kch",
+          "type": "image",
+          "name": "Ícone",
+          "slot": "Ícone",
+          "src": "assets/posts/highlights/empresas.svg",
+          "fit": "contain",
+          "x": 210,
+          "y": 630,
+          "w": 660,
+          "h": 660,
+          "anchor": "center"
+        }
+      ]
+    },
+    {
+      "id": "p9m3c",
+      "name": "Viva IA",
+      "background": "{violet.100}",
+      "layers": [
+        {
+          "id": "p802n",
+          "type": "image",
+          "name": "Ícone",
+          "slot": "Ícone",
+          "src": "assets/posts/highlights/viva-ia.svg",
+          "fit": "contain",
+          "x": 210,
+          "y": 630,
+          "w": 660,
+          "h": 660,
+          "anchor": "center"
+        }
+      ]
+    },
+    {
+      "id": "pb1sx",
+      "name": "Receitas",
+      "background": "{violet.100}",
+      "layers": [
+        {
+          "id": "pa6hm",
+          "type": "image",
+          "name": "Ícone",
+          "slot": "Ícone",
+          "src": "assets/posts/highlights/receitas.svg",
+          "fit": "contain",
+          "x": 210,
+          "y": 630,
+          "w": 660,
+          "h": 660,
+          "anchor": "center"
+        }
+      ]
+    },
+    {
+      "id": "pdwtd",
+      "name": "Médicos",
+      "background": "{violet.100}",
+      "layers": [
+        {
+          "id": "pcv65",
+          "type": "image",
+          "name": "Ícone",
+          "slot": "Ícone",
+          "src": "assets/posts/highlights/medicos.svg",
+          "fit": "contain",
+          "x": 210,
+          "y": 630,
+          "w": 660,
+          "h": 660,
+          "anchor": "center"
+        }
+      ]
+    },
+    {
+      "id": "pfpci",
+      "name": "Dúvidas",
+      "background": "{violet.100}",
+      "layers": [
+        {
+          "id": "pem83",
+          "type": "image",
+          "name": "Ícone",
+          "slot": "Ícone",
+          "src": "assets/posts/highlights/duvidas.svg",
+          "fit": "contain",
+          "x": 210,
+          "y": 630,
+          "w": 660,
+          "h": 660,
+          "anchor": "center"
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AVH-0",
+  "updatedAt": "2026-11-22T18:56:33.582Z"
+}

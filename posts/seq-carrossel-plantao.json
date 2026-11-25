@@ -1,0 +1,1218 @@
+{
+  "id": "seq-carrossel-plantao",
+  "name": "Plantão em 5 telas",
+  "kind": "sequence",
+  "format": "carousel",
+  "style": "Mockup de celular",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pbp0r",
+      "name": "Capa",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "p0s8p",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.07,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "p1e9e",
+          "x": 180,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Glow",
+          "w": 1100,
+          "h": 1100,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED99 0%, #7E3BED2E 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "p2d9u",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "p3gsx",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Plantão 24h\nem 4 telas.",
+              "font": "display",
+              "size": 88,
+              "color": "{white}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "p49y8",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Do sintoma à receita, sem sair de casa.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p56ps",
+          "x": 520,
+          "y": 470,
+          "rotate": 4,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular (escala 1.15, 4°)",
+          "slot": "Tela",
+          "screen": "plantao-hub--video",
+          "image": "assets/posts/paper/3W37VBP64NE9KX8WEEJCRATJJZ.png",
+          "w": 476
+        },
+        {
+          "id": "p6tk3",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "h": 56
+        },
+        {
+          "id": "p7psr",
+          "x": 70,
+          "y": 560,
+          "rotate": -6,
+          "anchor": "bottom",
+          "type": "image",
+          "name": "Foto G3 (atrás, -6°)",
+          "src": "assets/posts/photos/retrato-03.jpg",
+          "fit": "cover",
+          "position": "50% 40%",
+          "w": 430,
+          "h": 574,
+          "style": {
+            "borderRadius": "28px",
+            "boxShadow": "#000000B3 0px 40px 80px -24px"
+          },
+          "slot": "Foto",
+          "choices": [
+            "assets/posts/photos/retrato-01.jpg",
+            "assets/posts/photos/retrato-02.jpg",
+            "assets/posts/photos/retrato-03.jpg",
+            "assets/posts/photos/retrato-04.jpg",
+            "assets/posts/photos/sofa-plantao.webp",
+            "assets/posts/photos/jovem-viva.jpg",
+            "assets/posts/photos/medica-perfil.jpg",
+            "assets/posts/photos/rua-analise.jpg",
+            "assets/posts/photos/noite-fila.jpg"
+          ]
+        },
+        {
+          "id": "p8mun",
+          "x": 860,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Seta",
+          "w": 135,
+          "h": 30,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "14px"
+          },
+          "children": [
+            {
+              "id": "p97j6",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Arraste",
+              "font": "body",
+              "size": 24,
+              "color": "{white}/70",
+              "leading": 30,
+              "tracking": 0
+            },
+            {
+              "id": "pa4v9",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "Vetor",
+              "markup": "<svg width=\"40\" height=\"20\" viewBox=\"0 0 40 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 10h34M28 3l8 7-8 7\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" stroke-linecap=\"round\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 40,
+              "h": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pt5x3",
+      "name": "Vídeo ou chat",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "pcplv",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.07,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "pdygi",
+          "x": 180,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Glow",
+          "w": 1100,
+          "h": 1100,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED99 0%, #7E3BED2E 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "per6s",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "pfes6",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Vídeo ou chat.\nVocê escolhe.",
+              "font": "display",
+              "size": 88,
+              "color": "{white}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "pg57a",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Sem câmera? Fale com o médico por mensagem.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "phad3",
+          "x": 520,
+          "y": 470,
+          "rotate": 4,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular (escala 1.15, 4°)",
+          "slot": "Tela",
+          "screen": "call-chat--open",
+          "image": "assets/posts/paper/0KNHMX4NY0HMV4P9211A7SG9EE.jpg",
+          "w": 476
+        },
+        {
+          "id": "pilm1",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "h": 56
+        },
+        {
+          "id": "pjkgz",
+          "x": 64,
+          "y": 500,
+          "rotate": -4,
+          "anchor": "center",
+          "type": "group",
+          "name": "Saindo · card vídeo",
+          "w": 300,
+          "h": 364,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "32px",
+            "boxShadow": "#7E3BED 0px 0px 0px 4px, #000000B3 0px 40px 80px -20px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "16px",
+            "paddingBottom": "22px",
+            "paddingInline": "12px",
+            "paddingTop": "12px"
+          },
+          "children": [
+            {
+              "id": "pkqsb",
+              "x": 0,
+              "y": 0,
+              "type": "image",
+              "name": "Hand holds smartphone",
+              "src": "assets/posts/paper/2M2D1B3E0QMVTMSTRT1482Z7ND.webp",
+              "fit": "cover",
+              "position": "50% 40%",
+              "style": {
+                "borderRadius": "22px",
+                "flexShrink": 0,
+                "height": "250px",
+                "width": "276px"
+              },
+              "slot": "Foto",
+              "choices": [
+                "assets/posts/photos/maos-01.jpg",
+                "assets/posts/photos/maos-02.jpg",
+                "assets/posts/photos/maos-03.jpg",
+                "assets/posts/photos/maos-04.jpg",
+                "assets/posts/photos/maos-05.jpg",
+                "assets/posts/photos/maos-06.jpg",
+                "assets/posts/photos/maos-07.jpg",
+                "assets/posts/photos/maos-08.jpg",
+                "assets/posts/photos/maos-inicio.jpg",
+                "assets/posts/photos/mao-pos-consulta.jpg"
+              ]
+            },
+            {
+              "id": "pll0q",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "6px",
+                "paddingInline": "10px"
+              },
+              "children": [
+                {
+                  "id": "pm8vo",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Vídeo",
+                  "text": "Vídeo",
+                  "font": "body",
+                  "size": 28,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "slot": "Chip 1",
+                  "style": {
+                    "whiteSpace": "nowrap"
+                  }
+                },
+                {
+                  "id": "pnocl",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "O médico vê e ouve você.",
+                  "text": "O médico vê e ouve você.",
+                  "font": "body",
+                  "size": 20,
+                  "color": "{ink.600}",
+                  "leading": 26,
+                  "tracking": 0,
+                  "slot": "Chip 2",
+                  "style": {
+                    "whiteSpace": "nowrap"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pogh3",
+          "x": 150,
+          "y": 920,
+          "rotate": 3,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Saindo · card chat",
+          "w": 300,
+          "h": 390,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "32px",
+            "boxShadow": "#000000B3 0px 40px 80px -20px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "16px",
+            "paddingBottom": "22px",
+            "paddingInline": "12px",
+            "paddingTop": "12px"
+          },
+          "children": [
+            {
+              "id": "pp233",
+              "x": 0,
+              "y": 0,
+              "type": "image",
+              "name": "Person holding smartphone",
+              "src": "assets/posts/paper/2SF0FKX3FW4C9B342Q2VJN9EWA.webp",
+              "fit": "cover",
+              "position": "50% 40%",
+              "style": {
+                "borderRadius": "22px",
+                "flexShrink": 0,
+                "height": "250px",
+                "width": "276px"
+              },
+              "slot": "Foto",
+              "choices": [
+                "assets/posts/photos/maos-01.jpg",
+                "assets/posts/photos/maos-02.jpg",
+                "assets/posts/photos/maos-03.jpg",
+                "assets/posts/photos/maos-04.jpg",
+                "assets/posts/photos/maos-05.jpg",
+                "assets/posts/photos/maos-06.jpg",
+                "assets/posts/photos/maos-07.jpg",
+                "assets/posts/photos/maos-08.jpg",
+                "assets/posts/photos/maos-inicio.jpg",
+                "assets/posts/photos/mao-pos-consulta.jpg"
+              ]
+            },
+            {
+              "id": "pqowx",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "6px",
+                "paddingInline": "10px"
+              },
+              "children": [
+                {
+                  "id": "prttu",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Chat",
+                  "text": "Chat",
+                  "font": "body",
+                  "size": 28,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "slot": "Chip 3",
+                  "style": {
+                    "whiteSpace": "nowrap"
+                  }
+                },
+                {
+                  "id": "psaac",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Por mensagem, sem câmera.",
+                  "text": "Por mensagem, sem câmera.",
+                  "font": "body",
+                  "size": 20,
+                  "color": "{ink.600}",
+                  "leading": 26,
+                  "tracking": 0,
+                  "slot": "Chip 4",
+                  "style": {
+                    "whiteSpace": "nowrap"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p17wdt",
+      "name": "Fila",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "pux9w",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.07,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "pvifo",
+          "x": 180,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Glow",
+          "w": 1100,
+          "h": 1100,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED99 0%, #7E3BED2E 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "pwmh3",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "pxz8v",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Espere onde\nestiver.",
+              "font": "display",
+              "size": 88,
+              "color": "{white}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "pywu8",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Sua posição e a espera estimada, ao vivo.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "pzyr2",
+          "x": 520,
+          "y": 470,
+          "rotate": 4,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular (escala 1.15, 4°)",
+          "slot": "Tela",
+          "screen": "plantao-queue--position-3",
+          "image": "assets/posts/paper/2GRZV1VZ43EBWQHKZYRQJCQEK1.jpg",
+          "w": 476
+        },
+        {
+          "id": "p104e7",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "h": 56
+        },
+        {
+          "id": "p11v3r",
+          "x": 60,
+          "y": 840,
+          "rotate": -4,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Saindo · posição",
+          "w": 460,
+          "h": 196,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "30px",
+            "boxShadow": "#000000B3 0px 40px 80px -20px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "10px",
+            "paddingBlock": "26px",
+            "paddingInline": "32px"
+          },
+          "children": [
+            {
+              "id": "p1283x",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "p134ov",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Rectangle",
+                  "style": {
+                    "backgroundColor": "#00B597",
+                    "borderRadius": "99px",
+                    "flexShrink": 0,
+                    "height": "12px",
+                    "width": "12px"
+                  }
+                },
+                {
+                  "id": "p14pqo",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Plantão 24h · ao vivo",
+                  "text": "Plantão 24h · ao vivo",
+                  "font": "body",
+                  "size": 22,
+                  "color": "{ink.600}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "slot": "Chip 1",
+                  "style": {
+                    "whiteSpace": "nowrap"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p15fen",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Você é o 3º",
+              "text": "Você é o 3º",
+              "font": "display",
+              "size": 68,
+              "weight": 500,
+              "color": "{ink.900}",
+              "leading": 68,
+              "tracking": -0.04,
+              "slot": "Chip 2",
+              "style": {
+                "whiteSpace": "nowrap"
+              }
+            },
+            {
+              "id": "p16d46",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Espera estimada ~5 min",
+              "text": "Espera estimada ~5 min",
+              "font": "body",
+              "size": 22,
+              "color": "{ink.600}",
+              "leading": 28,
+              "tracking": 0,
+              "slot": "Chip 3",
+              "style": {
+                "whiteSpace": "nowrap"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1ti3p",
+      "name": "Viva na fila",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "p18if2",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.07,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "p19y2r",
+          "x": 180,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Glow",
+          "w": 1100,
+          "h": 1100,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED99 0%, #7E3BED2E 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "p1amuf",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 276,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "p1bngw",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Na fila, a Viva\nte ajuda.",
+              "font": "display",
+              "size": 88,
+              "color": "{white}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "p1c2mw",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Organize o que sente antes de entrar na chamada.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p1dtd2",
+          "x": 520,
+          "y": 470,
+          "rotate": 4,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular (escala 1.15, 4°)",
+          "slot": "Tela",
+          "screen": "",
+          "image": "assets/posts/paper/0TN70FF3JDCHXP54F8KYBFAK23.png",
+          "w": 476
+        },
+        {
+          "id": "p1ez97",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "h": 56
+        },
+        {
+          "id": "p1frnt",
+          "x": 60,
+          "y": 620,
+          "rotate": -3,
+          "anchor": "center",
+          "type": "group",
+          "name": "Saindo · pergunta",
+          "w": 420,
+          "h": 110,
+          "style": {
+            "backgroundColor": "#7E3BED",
+            "borderBottomLeftRadius": "30px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "30px",
+            "borderTopRightRadius": "30px",
+            "boxShadow": "#7E3BEDB3 0px 30px 60px -20px",
+            "paddingBlock": "22px",
+            "paddingInline": "26px"
+          },
+          "children": [
+            {
+              "id": "p1gbrz",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Pergunta",
+              "text": "Me ajuda a organizar o que sinto pro médico?",
+              "font": "body",
+              "size": 25,
+              "color": "{white}",
+              "leading": 33,
+              "tracking": 0,
+              "slot": "Chip 1",
+              "style": {}
+            }
+          ]
+        },
+        {
+          "id": "p1h10g",
+          "x": 40,
+          "y": 830,
+          "rotate": 2,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Saindo · resposta Viva",
+          "w": 470,
+          "h": 183,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "30px",
+            "borderTopLeftRadius": "30px",
+            "borderTopRightRadius": "30px",
+            "boxShadow": "#000000B3 0px 40px 80px -20px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "12px",
+            "paddingBlock": "24px",
+            "paddingInline": "26px"
+          },
+          "children": [
+            {
+              "id": "p1ijmp",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "p1j7rp",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "AI Orb",
+                  "style": {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "30px",
+                    "justifyContent": "center",
+                    "position": "relative",
+                    "width": "30px"
+                  },
+                  "children": [
+                    {
+                      "id": "p1kan3",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundImage": "radial-gradient(circle farthest-corner at 50% 50% in oklab, #9D6BF2 0%, #9D6BF200 65%)",
+                        "borderRadius": "999px",
+                        "filter": "blur(3.6px)",
+                        "height": "48px",
+                        "left": "-9px",
+                        "opacity": "0.35",
+                        "position": "absolute",
+                        "top": "-9px",
+                        "width": "48px"
+                      }
+                    },
+                    {
+                      "id": "p1l8c1",
+                      "x": 0,
+                      "y": 0,
+                      "type": "group",
+                      "name": "Grupo",
+                      "style": {
+                        "backgroundColor": "#F5F0FE",
+                        "borderRadius": "999px",
+                        "boxShadow": "#7E3BED59 0px 2.4px 7.2px -1.8px",
+                        "height": "30px",
+                        "left": "0px",
+                        "overflow": "clip",
+                        "position": "absolute",
+                        "top": "0px",
+                        "width": "30px"
+                      },
+                      "children": [
+                        {
+                          "id": "p1moox",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundColor": "#12FFD7",
+                            "borderRadius": "999px",
+                            "filter": "blur(3.9px)",
+                            "height": "17.4px",
+                            "left": "1.5px",
+                            "opacity": "0.7",
+                            "position": "absolute",
+                            "top": "9.9px",
+                            "width": "17.4px"
+                          }
+                        },
+                        {
+                          "id": "p1nwh3",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundColor": "#9531FF",
+                            "borderRadius": "999px",
+                            "filter": "blur(3.9px)",
+                            "height": "17.4px",
+                            "left": "11.1px",
+                            "opacity": "0.85",
+                            "position": "absolute",
+                            "top": "6.3px",
+                            "width": "17.4px"
+                          }
+                        },
+                        {
+                          "id": "p1o5rt",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundColor": "#9D6BF2",
+                            "borderRadius": "999px",
+                            "filter": "blur(3.9px)",
+                            "height": "17.4px",
+                            "left": "6.3px",
+                            "opacity": "0.9",
+                            "position": "absolute",
+                            "top": "1.2px",
+                            "width": "17.4px"
+                          }
+                        },
+                        {
+                          "id": "p1p7x2",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundImage": "radial-gradient(circle farthest-corner at 32% 22% in oklab, #FFFFFFE6 0%, #FFFFFF00 38%), radial-gradient(circle farthest-corner at 50% 52% in oklab, #FFFFFF00 26%, #FFFFFF80 62%, #FFFFFFD9 100%)",
+                            "borderRadius": "999px",
+                            "boxShadow": "#FFFFFFB3 0px 0px 0px 1px inset, #7E3BED1F 0px -1.8px 4.8px inset",
+                            "height": "30px",
+                            "left": "0px",
+                            "position": "absolute",
+                            "top": "0px",
+                            "width": "30px"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "p1q39y",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg viewBox=\"69.92 1.23 19.84 19.84\" width=\"19.84\" height=\"19.84\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:13.8px;height:13.8px;filter:drop-shadow(#7E3BED73 0px 0px 1.2px)\"><path d=\"M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z\" fill=\"rgb(255 255 255 / 95%)\"></path></svg>",
+                      "style": {
+                        "width": "13.8px",
+                        "height": "13.8px",
+                        "display": "inline-block",
+                        "position": "relative",
+                        "flexShrink": 0,
+                        "filter": "drop-shadow(#7E3BED73 0px 0px 1.2px)"
+                      },
+                      "w": 19.84,
+                      "h": 19.84
+                    }
+                  ]
+                },
+                {
+                  "id": "p1rgjf",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Viva",
+                  "text": "Viva",
+                  "font": "body",
+                  "size": 21,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 26,
+                  "tracking": 0,
+                  "slot": "Chip 2",
+                  "style": {
+                    "whiteSpace": "nowrap"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p1svw8",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Resposta",
+              "text": "Sua cola pra consulta: dor de cabeça há 2 ou 3 dias, dor 6 de 10, com náusea.",
+              "font": "body",
+              "size": 23,
+              "color": "{ink.700}",
+              "leading": 31,
+              "tracking": 0,
+              "slot": "Chip 3",
+              "style": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p23e5b",
+      "name": "CTA",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "p1uama",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.07,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "p1vxqg",
+          "x": 180,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Glow",
+          "w": 1100,
+          "h": 1100,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED99 0%, #7E3BED2E 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "p1wfjs",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "p1xj3a",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Febre às 3h?\nAbra o app.",
+              "font": "display",
+              "size": 88,
+              "color": "{white}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "p1yfgg",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Plantão 24h no app Viva Mais.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p1zwge",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "h": 56
+        },
+        {
+          "id": "p204u7",
+          "x": 380,
+          "y": 520,
+          "anchor": "bottom",
+          "type": "svg",
+          "name": "Marca gigante (corte)",
+          "markup": "<svg viewBox=\"35 36 92 90\" width=\"92\" height=\"90\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:920px;height:900px\"><path fill-rule=\"evenodd\" d=\"M80.4 125.28C70.72 125.28 62.85 117.41 62.85 107.73V99.86C62.85 99.07 62.2 98.42 61.41 98.42H53.54C43.86 98.42 35.99 90.55 35.99 80.87C35.99 71.19 43.86 63.32 53.54 63.32H61.41C62.2 63.32 62.85 62.67 62.85 61.88V54.01C62.85 44.33 70.72 36.46 80.4 36.46C90.08 36.46 97.95 44.33 97.95 54.01V61.88C97.95 62.67 98.6 63.32 99.39 63.32H107.26C116.94 63.32 124.81 71.19 124.81 80.87C124.81 90.55 116.94 98.42 107.26 98.42H99.39C98.6 98.42 97.95 99.07 97.95 99.86V107.73C97.95 117.41 90.08 125.28 80.4 125.28Z M53.55 71.57C48.42 71.57 44.24 75.75 44.24 80.88C44.24 86.01 48.42 90.19 53.55 90.19H61.42C66.76 90.19 71.1 94.53 71.1 99.87V107.74C71.1 112.87 75.28 117.05 80.41 117.05C85.54 117.05 89.72 112.87 89.72 107.74V99.87C89.72 94.53 94.06 90.19 99.4 90.19H107.27C112.4 90.19 116.58 86.01 116.58 80.88C116.58 75.75 112.4 71.57 107.27 71.57H99.4C94.06 71.57 89.72 67.23 89.72 61.89V54.02C89.72 48.89 85.54 44.71 80.41 44.71C75.28 44.71 71.1 48.89 71.1 54.02V61.89C71.1 67.23 66.76 71.57 61.42 71.57H53.55Z\" fill=\"#7E3BED\"></path><path d=\"M125.76 47.15C125.76 47.46 125.51 47.71 125.2 47.71H122.46C119.12 47.71 116.4 50.43 116.4 53.77V56.51C116.4 56.82 116.15 57.07 115.84 57.07C115.53 57.07 115.28 56.82 115.28 56.51V53.77C115.28 50.43 112.56 47.71 109.22 47.71H106.48C106.17 47.71 105.92 47.46 105.92 47.15C105.92 46.84 106.17 46.59 106.48 46.59H109.22C112.56 46.59 115.28 43.87 115.28 40.53V37.79C115.28 37.48 115.53 37.23 115.84 37.23C116.15 37.23 116.4 37.48 116.4 37.79V40.53C116.4 43.87 119.12 46.59 122.46 46.59H125.2C125.51 46.59 125.76 46.84 125.76 47.15Z\" fill=\"#12FFD7\"></path></svg>",
+          "w": 920,
+          "h": 900
+        },
+        {
+          "id": "p21biw",
+          "x": 80,
+          "y": 420,
+          "anchor": "top",
+          "type": "group",
+          "name": "CTA pill",
+          "w": 257,
+          "h": 88,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "999px",
+            "paddingBlock": "26px",
+            "paddingInline": "44px"
+          },
+          "children": [
+            {
+              "id": "p22u9e",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Baixe o app",
+              "text": "Baixe o app",
+              "font": "body",
+              "size": 30,
+              "weight": 600,
+              "color": "{ink.900}",
+              "leading": 36,
+              "tracking": 0,
+              "slot": "Botão"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AJH-0",
+  "updatedAt": "2026-11-22T18:57:24.291Z"
+}

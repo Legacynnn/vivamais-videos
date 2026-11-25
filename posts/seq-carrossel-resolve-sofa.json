@@ -1,0 +1,1048 @@
+{
+  "id": "seq-carrossel-resolve-sofa",
+  "name": "Carrossel · 4 casos pro plantão",
+  "kind": "sequence",
+  "format": "carousel",
+  "style": "Conteúdo",
+  "topics": [
+    "Plantão",
+    "Saúde"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "source": "Referência: Vittude Awards (carrossel numerado)",
+  "frames": [
+    {
+      "id": "f70",
+      "name": "Capa",
+      "background": "{violet.700}",
+      "layers": [
+        {
+          "id": "rs064",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.06
+        },
+        {
+          "id": "rs065",
+          "type": "rect",
+          "name": "Bloco",
+          "x": 80,
+          "y": 96,
+          "w": 300,
+          "h": 620,
+          "background": "{violet.400}",
+          "radius": 36
+        },
+        {
+          "id": "rs066",
+          "type": "image",
+          "name": "Foto",
+          "src": "assets/posts/photos/retrato-03.jpg",
+          "x": 200,
+          "y": 168,
+          "w": 800,
+          "h": 620,
+          "fit": "cover",
+          "position": "60% 40%",
+          "slot": "Foto",
+          "style": {
+            "borderRadius": "36px"
+          }
+        },
+        {
+          "id": "rs067",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 860,
+          "w": 900,
+          "text": "Dá pra resolver no plantão?",
+          "font": "display",
+          "size": 96,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 96,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Dá pra resolver "
+            },
+            {
+              "text": "no plantão?",
+              "style": {
+                "color": "{violet.200}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "rs068",
+          "type": "text",
+          "name": "Sub",
+          "x": 80,
+          "y": 1072,
+          "w": 700,
+          "text": "4 casos que um médico atende por vídeo, do seu sofá.",
+          "font": "body",
+          "size": 32,
+          "color": "{white}/70",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0
+        },
+        {
+          "id": "rs069",
+          "type": "svg",
+          "name": "Seta",
+          "markup": "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"32\" cy=\"32\" r=\"29\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"3\"/><path d=\"M27 21l11 11-11 11\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+          "x": 936,
+          "y": 1196,
+          "w": 64,
+          "h": 64
+        }
+      ]
+    },
+    {
+      "id": "f81",
+      "name": "Febre e gripe",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "rs071",
+          "type": "rect",
+          "name": "Bloco",
+          "x": 80,
+          "y": 96,
+          "w": 300,
+          "h": 400,
+          "background": "{violet.500}",
+          "radius": 36
+        },
+        {
+          "id": "rs072",
+          "type": "text",
+          "name": "Número",
+          "x": 120,
+          "y": 120,
+          "w": 240,
+          "text": "1",
+          "font": "display",
+          "size": 300,
+          "color": "{violet.300}",
+          "anchor": "top",
+          "leading": 300,
+          "tracking": -0.06
+        },
+        {
+          "id": "rs073",
+          "type": "rect",
+          "name": "Cartão tela",
+          "x": 300,
+          "y": 96,
+          "w": 700,
+          "h": 600,
+          "background": "{violet.900}",
+          "radius": 36,
+          "style": {
+            "overflow": "hidden",
+            "borderRadius": "36px"
+          }
+        },
+        {
+          "id": "rs074",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "plantao-anamnese--symptom",
+          "x": 490,
+          "y": 140,
+          "w": 340,
+          "rotate": -3
+        },
+        {
+          "id": "rs075",
+          "type": "rect",
+          "name": "Corte",
+          "x": 280,
+          "y": 696,
+          "w": 800,
+          "h": 420,
+          "background": "{violet.50}"
+        },
+        {
+          "id": "rs076",
+          "type": "svg",
+          "name": "Ícone thermo",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"64\" height=\"64\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#6A24DB\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 30V10a4 4 0 018 0v20a8 8 0 11-8 0z\"/><path d=\"M24 30V18\"/></svg>",
+          "x": 80,
+          "y": 800,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "id": "rs077",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 890,
+          "w": 900,
+          "text": "Febre e gripe.",
+          "font": "display",
+          "size": 76,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 80,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "rs078",
+          "type": "text",
+          "name": "Texto",
+          "x": 80,
+          "y": 1000,
+          "w": 780,
+          "text": "Conte há quanto tempo e quanto marcou o termômetro. O médico orienta o que tomar e quando voltar.",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.700}",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0,
+          "runs": [
+            {
+              "text": "Conte há quanto tempo e "
+            },
+            {
+              "text": "quanto marcou o termômetro.",
+              "style": {
+                "fontWeight": 600
+              }
+            },
+            {
+              "text": " O médico orienta o que tomar e quando voltar."
+            }
+          ]
+        },
+        {
+          "id": "rs079",
+          "type": "svg",
+          "name": "Seta",
+          "markup": "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"32\" cy=\"32\" r=\"29\" fill=\"none\" stroke=\"#5719B6\" stroke-width=\"3\"/><path d=\"M27 21l11 11-11 11\" fill=\"none\" stroke=\"#5719B6\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+          "x": 936,
+          "y": 1196,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "id": "rs080",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Dá pra resolver no plantão? Muita coisa, sim.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        }
+      ]
+    },
+    {
+      "id": "f92",
+      "name": "Dor de garganta e tosse",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "rs082",
+          "type": "rect",
+          "name": "Bloco",
+          "x": 80,
+          "y": 96,
+          "w": 300,
+          "h": 400,
+          "background": "{violet.500}",
+          "radius": 36
+        },
+        {
+          "id": "rs083",
+          "type": "text",
+          "name": "Número",
+          "x": 120,
+          "y": 120,
+          "w": 240,
+          "text": "2",
+          "font": "display",
+          "size": 300,
+          "color": "{violet.300}",
+          "anchor": "top",
+          "leading": 300,
+          "tracking": -0.06
+        },
+        {
+          "id": "rs084",
+          "type": "rect",
+          "name": "Cartão tela",
+          "x": 300,
+          "y": 96,
+          "w": 700,
+          "h": 600,
+          "background": "{violet.900}",
+          "radius": 36,
+          "style": {
+            "overflow": "hidden",
+            "borderRadius": "36px"
+          }
+        },
+        {
+          "id": "rs085",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "plantao-hub--video",
+          "x": 490,
+          "y": 140,
+          "w": 340,
+          "rotate": -3
+        },
+        {
+          "id": "rs086",
+          "type": "rect",
+          "name": "Corte",
+          "x": 280,
+          "y": 696,
+          "w": 800,
+          "h": 420,
+          "background": "{violet.50}"
+        },
+        {
+          "id": "rs087",
+          "type": "svg",
+          "name": "Ícone chat",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"64\" height=\"64\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#6A24DB\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 12h32v20H20l-8 7v-7H8z\"/></svg>",
+          "x": 80,
+          "y": 800,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "id": "rs088",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 890,
+          "w": 900,
+          "text": "Dor de garganta e tosse.",
+          "font": "display",
+          "size": 76,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 80,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "rs089",
+          "type": "text",
+          "name": "Texto",
+          "x": 80,
+          "y": 1000,
+          "w": 780,
+          "text": "Pelo vídeo, o médico vê sua garganta e pergunta o que importa: febre, catarro, há quantos dias.",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.700}",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0,
+          "runs": [
+            {
+              "text": "Pelo vídeo, o médico "
+            },
+            {
+              "text": "vê sua garganta",
+              "style": {
+                "fontWeight": 600
+              }
+            },
+            {
+              "text": " e pergunta o que importa: febre, catarro, há quantos dias."
+            }
+          ]
+        },
+        {
+          "id": "rs090",
+          "type": "svg",
+          "name": "Seta",
+          "markup": "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"32\" cy=\"32\" r=\"29\" fill=\"none\" stroke=\"#5719B6\" stroke-width=\"3\"/><path d=\"M27 21l11 11-11 11\" fill=\"none\" stroke=\"#5719B6\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+          "x": 936,
+          "y": 1196,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "id": "rs091",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Dá pra resolver no plantão? Muita coisa, sim.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        }
+      ]
+    },
+    {
+      "id": "f103",
+      "name": "Alergia e irritação na pele",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "rs093",
+          "type": "rect",
+          "name": "Bloco",
+          "x": 80,
+          "y": 96,
+          "w": 300,
+          "h": 400,
+          "background": "{violet.500}",
+          "radius": 36
+        },
+        {
+          "id": "rs094",
+          "type": "text",
+          "name": "Número",
+          "x": 120,
+          "y": 120,
+          "w": 240,
+          "text": "3",
+          "font": "display",
+          "size": 300,
+          "color": "{violet.300}",
+          "anchor": "top",
+          "leading": 300,
+          "tracking": -0.06
+        },
+        {
+          "id": "rs095",
+          "type": "rect",
+          "name": "Cartão tela",
+          "x": 300,
+          "y": 96,
+          "w": 700,
+          "h": 600,
+          "background": "{violet.900}",
+          "radius": 36,
+          "style": {
+            "overflow": "hidden",
+            "borderRadius": "36px"
+          }
+        },
+        {
+          "id": "rs096",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "call-chat--photo",
+          "x": 490,
+          "y": 140,
+          "w": 340,
+          "rotate": -3
+        },
+        {
+          "id": "rs097",
+          "type": "rect",
+          "name": "Corte",
+          "x": 280,
+          "y": 696,
+          "w": 800,
+          "h": 420,
+          "background": "{violet.50}"
+        },
+        {
+          "id": "rs098",
+          "type": "svg",
+          "name": "Ícone sparkle",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"64\" height=\"64\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#6A24DB\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M24 6l4 12 12 4-12 4-4 12-4-12-12-4 12-4z\"/></svg>",
+          "x": 80,
+          "y": 800,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "id": "rs099",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 890,
+          "w": 900,
+          "text": "Alergia e irritação na pele.",
+          "font": "display",
+          "size": 76,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 80,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "rs100",
+          "type": "text",
+          "name": "Texto",
+          "x": 80,
+          "y": 1000,
+          "w": 780,
+          "text": "Mande foto no chat da consulta. O médico vê o que você descreve.",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.700}",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0,
+          "runs": [
+            {
+              "text": "Mande "
+            },
+            {
+              "text": "foto no chat",
+              "style": {
+                "fontWeight": 600
+              }
+            },
+            {
+              "text": " da consulta. O médico vê o que você descreve."
+            }
+          ]
+        },
+        {
+          "id": "rs101",
+          "type": "svg",
+          "name": "Seta",
+          "markup": "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"32\" cy=\"32\" r=\"29\" fill=\"none\" stroke=\"#5719B6\" stroke-width=\"3\"/><path d=\"M27 21l11 11-11 11\" fill=\"none\" stroke=\"#5719B6\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+          "x": 936,
+          "y": 1196,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "id": "rs102",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Dá pra resolver no plantão? Muita coisa, sim.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        }
+      ]
+    },
+    {
+      "id": "f114",
+      "name": "Enjoo e diarreia leve",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "rs104",
+          "type": "rect",
+          "name": "Bloco",
+          "x": 80,
+          "y": 96,
+          "w": 300,
+          "h": 400,
+          "background": "{violet.500}",
+          "radius": 36
+        },
+        {
+          "id": "rs105",
+          "type": "text",
+          "name": "Número",
+          "x": 120,
+          "y": 120,
+          "w": 240,
+          "text": "4",
+          "font": "display",
+          "size": 300,
+          "color": "{violet.300}",
+          "anchor": "top",
+          "leading": 300,
+          "tracking": -0.06
+        },
+        {
+          "id": "rs106",
+          "type": "rect",
+          "name": "Cartão tela",
+          "x": 300,
+          "y": 96,
+          "w": 700,
+          "h": 600,
+          "background": "{violet.900}",
+          "radius": 36,
+          "style": {
+            "overflow": "hidden",
+            "borderRadius": "36px"
+          }
+        },
+        {
+          "id": "rs107",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "consultation-record--documents",
+          "x": 490,
+          "y": 140,
+          "w": 340,
+          "rotate": -3
+        },
+        {
+          "id": "rs108",
+          "type": "rect",
+          "name": "Corte",
+          "x": 280,
+          "y": 696,
+          "w": 800,
+          "h": 420,
+          "background": "{violet.50}"
+        },
+        {
+          "id": "rs109",
+          "type": "svg",
+          "name": "Ícone pill",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"64\" height=\"64\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#6A24DB\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"8\" y=\"17\" width=\"32\" height=\"14\" rx=\"7\" transform=\"rotate(-35 24 24)\"/><path d=\"M19 17l10 14\"/></svg>",
+          "x": 80,
+          "y": 800,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "id": "rs110",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 890,
+          "w": 900,
+          "text": "Enjoo e diarreia leve.",
+          "font": "display",
+          "size": 76,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 80,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "rs111",
+          "type": "text",
+          "name": "Texto",
+          "x": 80,
+          "y": 1000,
+          "w": 780,
+          "text": "Hidratação, o que evitar e receita digital assinada, pronta pra farmácia.",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.700}",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0,
+          "runs": [
+            {
+              "text": "Hidratação, o que evitar e "
+            },
+            {
+              "text": "receita digital assinada",
+              "style": {
+                "fontWeight": 600
+              }
+            },
+            {
+              "text": ", pronta pra farmácia."
+            }
+          ]
+        },
+        {
+          "id": "rs112",
+          "type": "svg",
+          "name": "Seta",
+          "markup": "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"32\" cy=\"32\" r=\"29\" fill=\"none\" stroke=\"#5719B6\" stroke-width=\"3\"/><path d=\"M27 21l11 11-11 11\" fill=\"none\" stroke=\"#5719B6\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
+          "x": 936,
+          "y": 1196,
+          "w": 64,
+          "h": 64
+        },
+        {
+          "id": "rs113",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Dá pra resolver no plantão? Muita coisa, sim.",
+          "font": "body",
+          "size": 22,
+          "color": "{violet.700}",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        }
+      ]
+    },
+    {
+      "id": "f131",
+      "name": "Emergência",
+      "background": "{ink.900}",
+      "layers": [
+        {
+          "id": "rs115",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 880,
+          "text": "E quando não é caso de plantão?",
+          "font": "display",
+          "size": 84,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 88,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "rs116",
+          "type": "rect",
+          "name": "Linha 1",
+          "x": 80,
+          "y": 420,
+          "w": 920,
+          "h": 108,
+          "radius": 24,
+          "style": {
+            "background": "#FFFFFF10",
+            "boxShadow": "inset 0 0 0 1.5px #FFFFFF26",
+            "borderRadius": "24px"
+          }
+        },
+        {
+          "id": "rs117",
+          "type": "rect",
+          "name": "Ponto",
+          "x": 116,
+          "y": 462,
+          "w": 24,
+          "h": 24,
+          "background": "{danger}",
+          "radius": 12
+        },
+        {
+          "id": "rs118",
+          "type": "text",
+          "name": "Dor no peito",
+          "x": 168,
+          "y": 452,
+          "w": 760,
+          "text": "Dor no peito",
+          "font": "body",
+          "size": 38,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0,
+          "weight": 500
+        },
+        {
+          "id": "rs119",
+          "type": "rect",
+          "name": "Linha 2",
+          "x": 80,
+          "y": 552,
+          "w": 920,
+          "h": 108,
+          "radius": 24,
+          "style": {
+            "background": "#FFFFFF10",
+            "boxShadow": "inset 0 0 0 1.5px #FFFFFF26",
+            "borderRadius": "24px"
+          }
+        },
+        {
+          "id": "rs120",
+          "type": "rect",
+          "name": "Ponto",
+          "x": 116,
+          "y": 594,
+          "w": 24,
+          "h": 24,
+          "background": "{danger}",
+          "radius": 12
+        },
+        {
+          "id": "rs121",
+          "type": "text",
+          "name": "Falta de ar forte",
+          "x": 168,
+          "y": 584,
+          "w": 760,
+          "text": "Falta de ar forte",
+          "font": "body",
+          "size": 38,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0,
+          "weight": 500
+        },
+        {
+          "id": "rs122",
+          "type": "rect",
+          "name": "Linha 3",
+          "x": 80,
+          "y": 684,
+          "w": 920,
+          "h": 108,
+          "radius": 24,
+          "style": {
+            "background": "#FFFFFF10",
+            "boxShadow": "inset 0 0 0 1.5px #FFFFFF26",
+            "borderRadius": "24px"
+          }
+        },
+        {
+          "id": "rs123",
+          "type": "rect",
+          "name": "Ponto",
+          "x": 116,
+          "y": 726,
+          "w": 24,
+          "h": 24,
+          "background": "{danger}",
+          "radius": 12
+        },
+        {
+          "id": "rs124",
+          "type": "text",
+          "name": "Desmaio ou convulsão",
+          "x": 168,
+          "y": 716,
+          "w": 760,
+          "text": "Desmaio ou convulsão",
+          "font": "body",
+          "size": 38,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0,
+          "weight": 500
+        },
+        {
+          "id": "rs125",
+          "type": "rect",
+          "name": "Linha 4",
+          "x": 80,
+          "y": 816,
+          "w": 920,
+          "h": 108,
+          "radius": 24,
+          "style": {
+            "background": "#FFFFFF10",
+            "boxShadow": "inset 0 0 0 1.5px #FFFFFF26",
+            "borderRadius": "24px"
+          }
+        },
+        {
+          "id": "rs126",
+          "type": "rect",
+          "name": "Ponto",
+          "x": 116,
+          "y": 858,
+          "w": 24,
+          "h": 24,
+          "background": "{danger}",
+          "radius": 12
+        },
+        {
+          "id": "rs127",
+          "type": "text",
+          "name": "Acidente ou fratura",
+          "x": 168,
+          "y": 848,
+          "w": 760,
+          "text": "Acidente ou fratura",
+          "font": "body",
+          "size": 38,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0,
+          "weight": 500
+        },
+        {
+          "id": "rs128",
+          "type": "text",
+          "name": "Orientação",
+          "x": 80,
+          "y": 1000,
+          "w": 900,
+          "text": "Ligue 192 ou vá ao pronto-socorro mais próximo.",
+          "font": "body",
+          "size": 40,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 54,
+          "tracking": 0,
+          "runs": [
+            {
+              "text": "Ligue "
+            },
+            {
+              "text": "192",
+              "style": {
+                "fontWeight": 600
+              }
+            },
+            {
+              "text": " ou vá ao pronto-socorro mais próximo."
+            }
+          ]
+        },
+        {
+          "id": "rs129",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Dá pra resolver no plantão? Muita coisa, sim.",
+          "font": "body",
+          "size": 22,
+          "color": "{white}/70",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "rs130",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f138",
+      "name": "CTA",
+      "background": "radial-gradient(60% 75% at 92% 8%, #9531FF 0%, transparent 65%), radial-gradient(70% 80% at 0% 100%, #7A67F8 0%, transparent 62%), linear-gradient(160deg, #2B0B5C 0%, #451391 100%)",
+      "layers": [
+        {
+          "id": "rs132",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.06
+        },
+        {
+          "id": "rs133",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 820,
+          "text": "Febre às 23h? Abra o app.",
+          "font": "display",
+          "size": 92,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 94,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Febre às 23h? "
+            },
+            {
+              "text": "Abra o app.",
+              "style": {
+                "color": "{violet.300}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "rs134",
+          "type": "text",
+          "name": "Sub",
+          "x": 80,
+          "y": 442,
+          "w": 560,
+          "text": "Médico por vídeo ou chat, a qualquer hora.",
+          "font": "body",
+          "size": 32,
+          "color": "{white}/70",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0
+        },
+        {
+          "id": "rs135",
+          "type": "chip",
+          "name": "CTA",
+          "variant": "cta",
+          "title": "Baixe a Viva Mais",
+          "x": 80,
+          "y": 620,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "rs136",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "plantao-queue--position-3",
+          "x": 560,
+          "y": 560,
+          "w": 420,
+          "rotate": -6
+        },
+        {
+          "id": "rs137",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "x": 80,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-24T17:14:33.319Z"
+}

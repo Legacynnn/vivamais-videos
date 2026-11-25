@@ -1,0 +1,235 @@
+{
+  "id": "post-p4-medicos-de-verdade",
+  "name": "P4 · Médicos de verdade",
+  "kind": "post",
+  "format": "square",
+  "style": "Gráfico",
+  "topics": [
+    "Médicos"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1080
+  },
+  "frames": [
+    {
+      "id": "pc9g2",
+      "name": "Quadrado",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "p0sma",
+          "x": 0,
+          "y": 599,
+          "anchor": "center",
+          "type": "rect",
+          "name": "Linha",
+          "w": 1080,
+          "h": 2,
+          "style": {
+            "backgroundColor": "#D6C3FB"
+          }
+        },
+        {
+          "id": "p1kpt",
+          "x": 380,
+          "y": 280,
+          "anchor": "center",
+          "type": "rect",
+          "name": "Glow",
+          "w": 640,
+          "h": 640,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #9D6BF259 0%, #9D6BF200 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "p2e74",
+          "x": 560,
+          "y": 300,
+          "anchor": "center",
+          "type": "image",
+          "name": "Cruz · braço vertical",
+          "src": "assets/posts/photos/avatar-julia.webp",
+          "fit": "cover",
+          "position": "-160px 0px",
+          "w": 280,
+          "h": 600,
+          "style": {
+            "borderRadius": "140px"
+          },
+          "slot": "Foto",
+          "choices": [
+            "assets/posts/photos/avatar-julia.webp",
+            "assets/people/doctors/julia.jpg",
+            "assets/people/doctors/camila-rocha.jpg",
+            "assets/people/doctors/camila.jpg",
+            "assets/people/doctors/mariana.jpg",
+            "assets/people/doctors/rafael.jpg",
+            "assets/posts/photos/medica-perfil.jpg"
+          ]
+        },
+        {
+          "id": "p32gf",
+          "x": 400,
+          "y": 460,
+          "anchor": "center",
+          "type": "image",
+          "name": "Cruz · braço horizontal",
+          "src": "assets/posts/photos/avatar-julia.webp",
+          "fit": "cover",
+          "position": "0px -160px",
+          "w": 600,
+          "h": 280,
+          "style": {
+            "borderRadius": "140px"
+          },
+          "slot": "Foto",
+          "choices": [
+            "assets/posts/photos/avatar-julia.webp",
+            "assets/people/doctors/julia.jpg",
+            "assets/people/doctors/camila-rocha.jpg",
+            "assets/people/doctors/camila.jpg",
+            "assets/people/doctors/mariana.jpg",
+            "assets/people/doctors/rafael.jpg",
+            "assets/posts/photos/medica-perfil.jpg"
+          ]
+        },
+        {
+          "id": "p4y4p",
+          "x": 80,
+          "y": 88,
+          "anchor": "top",
+          "w": 602,
+          "type": "text",
+          "name": "Título",
+          "text": "Médicos de verdade.",
+          "font": "display",
+          "size": 76,
+          "color": "{ink.900}",
+          "leading": 76,
+          "tracking": -0.045,
+          "slot": "Título",
+          "weight": 400,
+          "runs": [
+            {
+              "text": "Médicos de verdade.",
+              "style": {
+                "fontFamily": "\"Space Grotesk\", sans-serif",
+                "fontWeight": 400
+              }
+            }
+          ]
+        },
+        {
+          "id": "p5ycr",
+          "x": 80,
+          "y": 270,
+          "anchor": "top",
+          "w": 302,
+          "type": "text",
+          "name": "Sub",
+          "text": "CRM e RQE no perfil de cada um, antes de você marcar.",
+          "font": "body",
+          "size": 26,
+          "color": "{ink.600}",
+          "leading": 36,
+          "tracking": 0,
+          "slot": "Subtítulo",
+          "weight": 400
+        },
+        {
+          "id": "p6oph",
+          "x": 80,
+          "y": 800,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Chip · CRM",
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "999px",
+            "boxShadow": "#22084A59 0px 20px 44px -16px, #E6E4EC 0px 0px 0px 1px",
+            "display": "flex",
+            "gap": "14px",
+            "paddingBlock": "16px",
+            "paddingLeft": "18px",
+            "paddingRight": "26px"
+          },
+          "children": [
+            {
+              "id": "p7xwo",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "SVG",
+              "markup": "<svg width=\"36\" height=\"36\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2.5l2.4 1.8 3-.2.9 2.9 2.5 1.7-1 2.8 1 2.8-2.5 1.7-.9 2.9-3-.2L12 21.5l-2.4-1.8-3 .2-.9-2.9-2.5-1.7 1-2.8-1-2.8 2.5-1.7.9-2.9 3 .2z\" fill=\"#7E3BED\"></path><path d=\"M8.5 12.2l2.3 2.3 4.7-4.8\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 36,
+              "h": 36
+            },
+            {
+              "id": "p8grg",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "id": "p9rv6",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Dra. Júlia · Clínica…",
+                  "text": "Dra. Júlia · Clínica geral",
+                  "font": "body",
+                  "size": 24,
+                  "weight": 500,
+                  "color": "{ink.900}",
+                  "leading": 30,
+                  "tracking": 0,
+                  "slot": "Chip 1"
+                },
+                {
+                  "id": "pah2e",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Verificado pela Viva…",
+                  "text": "Verificado pela Viva Mais",
+                  "font": "body",
+                  "size": 20,
+                  "color": "{ink.500}",
+                  "leading": 26,
+                  "tracking": 0,
+                  "weight": 400,
+                  "slot": "Chip 2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pbf69",
+          "x": 80,
+          "y": 960,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupColor",
+          "h": 32
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AID-0",
+  "updatedAt": "2026-11-22T19:03:53.945Z"
+}

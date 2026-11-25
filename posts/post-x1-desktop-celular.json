@@ -1,0 +1,322 @@
+{
+  "id": "post-x1-desktop-celular",
+  "name": "X1 · Misto desktop + celular",
+  "kind": "post",
+  "format": "feed",
+  "style": "Mockup de celular",
+  "topics": [
+    "Institucional"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pjqid",
+      "name": "Feed",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "p09qi",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 276,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "p10rh",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "No celular ou\nno com…",
+              "text": "No celular ou\nno computador.",
+              "font": "display",
+              "size": 88,
+              "color": "{ink.900}",
+              "leading": 88,
+              "tracking": -0.045,
+              "weight": 400,
+              "slot": "Título",
+              "runs": [
+                {
+                  "text": "No celular ou\nno computador.",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p2s7b",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sua conta, seus médi…",
+              "text": "Sua conta, seus médicos e seus documentos nos dois lugares.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "620px"
+              },
+              "weight": 400,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p3poq",
+          "x": 260,
+          "y": 480,
+          "anchor": "center",
+          "type": "group",
+          "name": "Desktop",
+          "w": 1000,
+          "h": 673,
+          "children": [
+            {
+              "id": "p4bfw",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Navegador",
+              "style": {
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": "20px",
+                "boxShadow": "#17151E14 0px 0px 0px 1px, #22084A73 0px 60px 120px -30px, #0D0C1240 0px 20px 40px -16px",
+                "display": "flex",
+                "flexDirection": "column",
+                "overflow": "clip",
+                "width": "1000px"
+              },
+              "children": [
+                {
+                  "id": "p53p8",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Barra",
+                  "style": {
+                    "alignItems": "center",
+                    "backgroundColor": "#F2F1F6",
+                    "borderBottomColor": "#E6E4EC",
+                    "borderBottomStyle": "solid",
+                    "borderBottomWidth": "1px",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "gap": "16px",
+                    "height": "48px",
+                    "paddingInline": "18px"
+                  },
+                  "children": [
+                    {
+                      "id": "p6eei",
+                      "x": 0,
+                      "y": 0,
+                      "type": "group",
+                      "name": "Frame",
+                      "style": {
+                        "display": "flex",
+                        "gap": "8px"
+                      },
+                      "children": [
+                        {
+                          "id": "p7j51",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Rectangle",
+                          "style": {
+                            "backgroundColor": "#FF5F57",
+                            "borderRadius": "99px",
+                            "flexShrink": 0,
+                            "height": "12px",
+                            "width": "12px"
+                          }
+                        },
+                        {
+                          "id": "p8p74",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Rectangle",
+                          "style": {
+                            "backgroundColor": "#FEBC2E",
+                            "borderRadius": "99px",
+                            "flexShrink": 0,
+                            "height": "12px",
+                            "width": "12px"
+                          }
+                        },
+                        {
+                          "id": "p92xq",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Rectangle",
+                          "style": {
+                            "backgroundColor": "#28C840",
+                            "borderRadius": "99px",
+                            "flexShrink": 0,
+                            "height": "12px",
+                            "width": "12px"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "patkm",
+                      "x": 0,
+                      "y": 0,
+                      "type": "group",
+                      "name": "Frame",
+                      "style": {
+                        "display": "flex",
+                        "flexBasis": "0%",
+                        "flexGrow": "1",
+                        "justifyContent": "center"
+                      },
+                      "children": [
+                        {
+                          "id": "pb9kd",
+                          "x": 0,
+                          "y": 0,
+                          "type": "group",
+                          "name": "Frame",
+                          "style": {
+                            "alignItems": "center",
+                            "backgroundColor": "#FFFFFF",
+                            "borderRadius": "8px",
+                            "display": "flex",
+                            "flexShrink": 0,
+                            "gap": "8px",
+                            "height": "28px",
+                            "justifyContent": "center",
+                            "width": "380px"
+                          },
+                          "children": [
+                            {
+                              "id": "pct38",
+                              "x": 0,
+                              "y": 0,
+                              "type": "svg",
+                              "name": "SVG",
+                              "markup": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"5\" y=\"11\" width=\"14\" height=\"10\" rx=\"2\" fill=\"none\" stroke=\"#726F80\" stroke-width=\"2.4\"></rect><path d=\"M8 11V7a4 4 0 0 1 8 0v4\" fill=\"none\" stroke=\"#726F80\" stroke-width=\"2.4\"></path></svg>",
+                              "style": {
+                                "display": "inline-block",
+                                "flexShrink": 0
+                              },
+                              "w": 12,
+                              "h": 12
+                            },
+                            {
+                              "id": "pdggu",
+                              "x": 0,
+                              "y": 0,
+                              "type": "text",
+                              "name": "app.vivamaisdoc.com.…",
+                              "text": "app.vivamaisdoc.com.br",
+                              "font": "body",
+                              "size": 14,
+                              "color": "{ink.600}",
+                              "leading": 18,
+                              "tracking": 0,
+                              "weight": 400
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "pe8lx",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "flexShrink": 0,
+                        "width": "52px"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "pfzo9",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "⇄ Tela · cole um frame (escale p/ 1000 de largura)",
+                  "style": {
+                    "backgroundColor": "#FAFAFE",
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "flexShrink": 0,
+                    "height": "625px",
+                    "minHeight": "0px",
+                    "overflow": "clip",
+                    "width": "1000px"
+                  },
+                  "children": [
+                    {
+                      "id": "pgcf5",
+                      "x": 0,
+                      "y": 0,
+                      "type": "image",
+                      "name": "Tela atual",
+                      "src": "assets/posts/paper/09F1FHWDC4SE553847GREYSMZJ.png",
+                      "fit": "cover",
+                      "position": "50%",
+                      "style": {
+                        "flexShrink": "0",
+                        "height": "679px",
+                        "width": "1000px"
+                      },
+                      "slot": "Tela desktop"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "phdfa",
+          "x": 70,
+          "y": 620,
+          "rotate": -4,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular (frente, -4°)",
+          "slot": "Tela",
+          "screen": "",
+          "image": "assets/posts/paper/3R1DHDTQ6ZRTRX18YT2MT7FZQ9.png",
+          "w": 414
+        },
+        {
+          "id": "piphf",
+          "x": 80,
+          "y": 400,
+          "anchor": "top",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupColor",
+          "h": 32
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AOD-0",
+  "updatedAt": "2026-11-22T18:59:10.292Z"
+}

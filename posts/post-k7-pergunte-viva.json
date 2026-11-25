@@ -1,0 +1,102 @@
+{
+  "id": "post-k7-pergunte-viva",
+  "name": "K7 · Pergunte à Viva",
+  "kind": "post",
+  "format": "feed",
+  "style": "Gráfico",
+  "topics": [
+    "Pergunte à Viva"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "knajnab",
+      "name": "K7 · Pergunte à Viva",
+      "background": "linear-gradient(150deg, #5719B6 0%, #350E6F 100%)",
+      "layers": [
+        {
+          "id": "k7tvywa",
+          "type": "rect",
+          "name": "Glow",
+          "x": 300,
+          "y": 900,
+          "w": 1000,
+          "h": 1000,
+          "anchor": "center",
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #9531FF80 0%, #9531FF22 45%, #9531FF00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "kzuomui",
+          "type": "text",
+          "name": "Título",
+          "x": 72,
+          "y": 80,
+          "anchor": "top",
+          "text": "Pergunte\nà Viva.",
+          "font": "display",
+          "size": 160,
+          "color": "{white}",
+          "leading": 160,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "k4cuppf",
+          "type": "phone",
+          "name": "Celular",
+          "slot": "Tela",
+          "screen": "ai-chat--answer",
+          "x": 560,
+          "y": 520,
+          "w": 420,
+          "anchor": "center",
+          "rotate": 5
+        },
+        {
+          "id": "kf8pjhg",
+          "type": "chip",
+          "name": "Posso tomar algo pra",
+          "x": 90,
+          "y": 720,
+          "rotate": -3,
+          "anchor": "center",
+          "variant": "bubble",
+          "title": "Posso tomar algo pra\ndor de cabeça?",
+          "tone": "violet",
+          "scale": 1.5
+        },
+        {
+          "id": "kys5dwx",
+          "type": "chip",
+          "name": "Me conta há quanto t",
+          "x": 80,
+          "y": 960,
+          "rotate": 2,
+          "anchor": "center",
+          "variant": "bubble",
+          "title": "Me conta há quanto tempo dói\ne se tem febre.",
+          "tone": "light",
+          "scale": 1.5,
+          "subtitle": "Viva"
+        },
+        {
+          "id": "k0wlbjk",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "x": 80,
+          "y": 1254,
+          "anchor": "bottom",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:36:24.446Z"
+}

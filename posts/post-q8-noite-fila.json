@@ -1,0 +1,272 @@
+{
+  "id": "post-q8-noite-fila",
+  "name": "Q8 · Noite + Viva na fila",
+  "kind": "post",
+  "format": "feed",
+  "style": "Foto com UI",
+  "topics": [
+    "Plantão",
+    "Pergunte à Viva"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pgle1",
+      "name": "Q8 · Noite + Viva na fila",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "p0khq",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/maos-06.jpg",
+          "fit": "cover",
+          "position": "50%",
+          "choices": [
+            "assets/posts/photos/maos-01.jpg",
+            "assets/posts/photos/maos-02.jpg",
+            "assets/posts/photos/maos-03.jpg",
+            "assets/posts/photos/maos-04.jpg",
+            "assets/posts/photos/maos-05.jpg",
+            "assets/posts/photos/maos-06.jpg",
+            "assets/posts/photos/maos-07.jpg",
+            "assets/posts/photos/maos-08.jpg"
+          ]
+        },
+        {
+          "id": "siulgwv",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-queue-countdown--position-2",
+          "photo": "p0khq"
+        },
+        {
+          "id": "p1bb0",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu topo",
+          "w": 1080,
+          "h": 460,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #0D0C12D9 0%, #0D0C1266 60%, #0D0C1200 100%)"
+          }
+        },
+        {
+          "id": "p23dv",
+          "x": 64,
+          "y": 84,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 900,
+          "h": 220,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "18px"
+          },
+          "children": [
+            {
+              "id": "p3f85",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "1h da manhã.\nVocê já…",
+              "text": "1h da manhã.\nVocê já é o 2º.",
+              "font": "display",
+              "size": 84,
+              "color": "{white}",
+              "leading": 84,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "p4hb6",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "E a Viva monta sua c…",
+              "text": "E a Viva monta sua cola pra consulta.",
+              "font": "body",
+              "size": 26,
+              "color": "{white}/78",
+              "leading": 34,
+              "tracking": 0,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p5ysl",
+          "x": 600,
+          "y": 760,
+          "rotate": 4,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Saindo · cola",
+          "w": 420,
+          "h": 188,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "28px",
+            "boxShadow": "#000000B3 0px 40px 80px -20px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "12px",
+            "paddingBlock": "24px",
+            "paddingInline": "26px"
+          },
+          "children": [
+            {
+              "id": "p6sf0",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "space-between"
+              },
+              "children": [
+                {
+                  "id": "p7016",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Sua cola pra consult…",
+                  "text": "Sua cola pra consulta",
+                  "font": "display",
+                  "size": 26,
+                  "color": "{ink.900}",
+                  "leading": 30,
+                  "tracking": 0,
+                  "slot": "Chip 1"
+                }
+              ]
+            },
+            {
+              "id": "p8oof",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "p9d2y",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 18,
+                  "h": 18
+                },
+                {
+                  "id": "payok",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Dor de cabeça há 2 d…",
+                  "text": "Dor de cabeça há 2 dias",
+                  "font": "body",
+                  "size": 20,
+                  "color": "{ink.900}",
+                  "leading": 26,
+                  "tracking": 0
+                }
+              ]
+            },
+            {
+              "id": "pbvx2",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "pcr44",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "SVG",
+                  "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 18,
+                  "h": 18
+                },
+                {
+                  "id": "pd7p0",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Dor 6 de 10, com náu…",
+                  "text": "Dor 6 de 10, com náusea",
+                  "font": "body",
+                  "size": 20,
+                  "color": "{ink.900}",
+                  "leading": 26,
+                  "tracking": 0
+                }
+              ]
+            },
+            {
+              "id": "pet7a",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Só você vê. Leve pra…",
+              "text": "Só você vê. Leve pra chamada.",
+              "font": "body",
+              "size": 17,
+              "color": "{ink.500}",
+              "leading": 22,
+              "tracking": 0
+            }
+          ]
+        },
+        {
+          "id": "pf259",
+          "x": 64,
+          "y": 1250,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 34
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AUZ-0",
+  "updatedAt": "2026-11-22T18:58:45.064Z"
+}

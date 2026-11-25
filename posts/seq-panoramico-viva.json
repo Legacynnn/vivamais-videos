@@ -1,0 +1,1348 @@
+{
+  "id": "seq-panoramico-viva",
+  "name": "A Viva antes e depois",
+  "kind": "sequence",
+  "format": "panorama",
+  "style": "Mockup de celular",
+  "topics": [
+    "Pergunte à Viva"
+  ],
+  "base": {
+    "width": 5400,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "p2a6ly",
+      "name": "Panorama",
+      "background": "linear-gradient(in oklab 90deg, #F5F0FE 0%, #FFFFFF 35%, #F5F0FE 60%, #EBE1FD 100%)",
+      "layers": [
+        {
+          "id": "p09c6",
+          "x": 0,
+          "y": 0,
+          "anchor": "center",
+          "type": "svg",
+          "name": "Linha contínua",
+          "markup": "<svg viewBox=\"0 0 5400 1350\" width=\"5400\" height=\"1350\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:5400px;height:1350px\"><path d=\"M820 980 C 1000 1180, 1300 1220, 1600 1180 S 2200 1000, 2700 1160 S 3400 1260, 3800 1120 S 4400 980, 4700 1100\" fill=\"none\" stroke=\"#BC9CF7\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-dasharray=\"1 14\"></path></svg>",
+          "w": 5400,
+          "h": 1350
+        },
+        {
+          "id": "p1tlt",
+          "x": 560,
+          "y": 440,
+          "anchor": "center",
+          "type": "group",
+          "name": "S1 · Orb (AiOrb real)",
+          "w": 560,
+          "h": 560,
+          "children": [
+            {
+              "id": "p2l5n",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "height": "560px",
+                "justifyContent": "center",
+                "position": "relative",
+                "width": "560px"
+              },
+              "children": [
+                {
+                  "id": "p3rdo",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Forma",
+                  "style": {
+                    "backgroundImage": "radial-gradient(circle farthest-corner at 50% 50% in oklab, #9D6BF2 0%, #9D6BF200 65%)",
+                    "borderRadius": "999px",
+                    "filter": "blur(67.2px)",
+                    "height": "896px",
+                    "left": "-168px",
+                    "opacity": "0.35",
+                    "position": "absolute",
+                    "top": "-168px",
+                    "width": "896px"
+                  }
+                },
+                {
+                  "id": "p4x7b",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "backgroundColor": "#F5F0FE",
+                    "borderRadius": "999px",
+                    "boxShadow": "#7E3BED59 0px 44.8px 134.4px -33.6px",
+                    "height": "560px",
+                    "left": "0px",
+                    "overflow": "clip",
+                    "position": "absolute",
+                    "top": "0px",
+                    "width": "560px"
+                  },
+                  "children": [
+                    {
+                      "id": "p5k0p",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#12FFD7",
+                        "borderRadius": "999px",
+                        "filter": "blur(72.8px)",
+                        "height": "324.8px",
+                        "left": "28px",
+                        "opacity": "0.7",
+                        "position": "absolute",
+                        "top": "184.8px",
+                        "width": "324.8px"
+                      }
+                    },
+                    {
+                      "id": "p6ezn",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#9531FF",
+                        "borderRadius": "999px",
+                        "filter": "blur(72.8px)",
+                        "height": "324.8px",
+                        "left": "207.2px",
+                        "opacity": "0.85",
+                        "position": "absolute",
+                        "top": "117.6px",
+                        "width": "324.8px"
+                      }
+                    },
+                    {
+                      "id": "p7fgp",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#9D6BF2",
+                        "borderRadius": "999px",
+                        "filter": "blur(72.8px)",
+                        "height": "324.8px",
+                        "left": "117.6px",
+                        "opacity": "0.9",
+                        "position": "absolute",
+                        "top": "22.4px",
+                        "width": "324.8px"
+                      }
+                    },
+                    {
+                      "id": "p80hm",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundImage": "radial-gradient(circle farthest-corner at 32% 22% in oklab, #FFFFFFE6 0%, #FFFFFF00 38%), radial-gradient(circle farthest-corner at 50% 52% in oklab, #FFFFFF00 26%, #FFFFFF80 62%, #FFFFFFD9 100%)",
+                        "borderRadius": "999px",
+                        "boxShadow": "#FFFFFFB3 0px 0px 0px 6px inset, #7E3BED1F 0px -33.6px 89.6px inset",
+                        "height": "560px",
+                        "left": "0px",
+                        "position": "absolute",
+                        "top": "0px",
+                        "width": "560px"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "p9ith",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "Vetor",
+                  "markup": "<svg viewBox=\"69.92 1.23 19.84 19.84\" width=\"19.84\" height=\"19.84\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:257.6px;height:257.6px;filter:drop-shadow(#7E3BED73 0px 0px 22.4px)\"><path d=\"M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z\" fill=\"rgb(255 255 255 / 95%)\"></path></svg>",
+                  "style": {
+                    "width": "257.6px",
+                    "height": "257.6px",
+                    "display": "inline-block",
+                    "position": "relative",
+                    "flexShrink": 0,
+                    "filter": "drop-shadow(#7E3BED73 0px 0px 22.4px)"
+                  },
+                  "w": 19.84,
+                  "h": 19.84
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pa7ze",
+          "x": 80,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S1 · Texto",
+          "w": 760,
+          "h": 398,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "26px"
+          },
+          "children": [
+            {
+              "id": "pbygy",
+              "type": "logo",
+              "name": "Logo",
+              "x": 0,
+              "y": 0,
+              "h": 32,
+              "variant": "lockupColor"
+            },
+            {
+              "id": "pceuf",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Conheça a Viva.",
+              "text": "Conheça\na Viva.",
+              "font": "display",
+              "size": 104,
+              "color": "{ink.900}",
+              "leading": 100,
+              "tracking": -0.05,
+              "slot": "Título S1"
+            },
+            {
+              "id": "pd8va",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "A inteligência do app",
+              "text": "A inteligência do app que cuida de você antes e depois da consulta.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "420px"
+              },
+              "slot": "Subtítulo S1"
+            }
+          ]
+        },
+        {
+          "id": "penr5",
+          "x": 80,
+          "y": 1220,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "S1 · Seta",
+          "w": 135,
+          "h": 30,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "14px"
+          },
+          "children": [
+            {
+              "id": "pfavo",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Arraste",
+              "font": "body",
+              "size": 24,
+              "color": "{ink.500}",
+              "leading": 30,
+              "tracking": 0
+            },
+            {
+              "id": "pge9l",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "Vetor",
+              "markup": "<svg width=\"40\" height=\"20\" viewBox=\"0 0 40 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 10h34M28 3l8 7-8 7\" fill=\"none\" stroke=\"#17151E\" stroke-width=\"2.4\" stroke-linecap=\"round\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 40,
+              "h": 20
+            }
+          ]
+        },
+        {
+          "id": "phqvh",
+          "x": 1240,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S2 · Texto",
+          "w": 860,
+          "h": 218,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "22px"
+          },
+          "children": [
+            {
+              "id": "pi6rf",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Na fila, ela organiza",
+              "text": "Na fila, ela organiza\no que você sente.",
+              "font": "display",
+              "size": 80,
+              "color": "{ink.900}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título S2"
+            },
+            {
+              "id": "pjbg6",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "E monta uma cola",
+              "text": "E monta uma cola pra você levar pra chamada.",
+              "font": "body",
+              "size": 26,
+              "color": "{ink.600}",
+              "leading": 36,
+              "tracking": 0,
+              "slot": "Subtítulo S2"
+            }
+          ]
+        },
+        {
+          "id": "pkx1e",
+          "x": 1420,
+          "y": 430,
+          "rotate": -4,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "S2 · Celular",
+          "slot": "Tela 1",
+          "screen": "",
+          "image": "assets/posts/paper/0TN70FF3JDCHXP54F8KYBFAK23.png",
+          "w": 414
+        },
+        {
+          "id": "plret",
+          "x": 1860,
+          "y": 800,
+          "rotate": 3,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "S2 · Saindo · cola (cruza S2→S3)",
+          "w": 500,
+          "h": 204,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "30px",
+            "boxShadow": "#22084A59 0px 40px 80px -24px, #EBE1FD 0px 0px 0px 1px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "12px",
+            "paddingBlock": "26px",
+            "paddingInline": "28px"
+          },
+          "children": [
+            {
+              "id": "pmr6y",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "space-between"
+              },
+              "children": [
+                {
+                  "id": "pnem8",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Sua cola pra consulta",
+                  "font": "display",
+                  "size": 28,
+                  "color": "{ink.900}",
+                  "leading": 32,
+                  "tracking": 0,
+                  "slot": "Chip 1"
+                },
+                {
+                  "id": "poa0r",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "gap": "6px"
+                  },
+                  "children": [
+                    {
+                      "id": "pp04i",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundColor": "#9D6BF2",
+                        "borderRadius": "9px",
+                        "flexShrink": 0,
+                        "height": "8px",
+                        "width": "8px"
+                      }
+                    },
+                    {
+                      "id": "pqwb5",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "montando",
+                      "font": "body",
+                      "size": 16,
+                      "color": "{ink.500}",
+                      "leading": 20,
+                      "tracking": 0,
+                      "slot": "Chip 2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "prdjc",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "psidp",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "Vetor",
+                  "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 18,
+                  "h": 18
+                },
+                {
+                  "id": "ptrec",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Dor de cabeça há 2 ou 3 dias",
+                  "font": "body",
+                  "size": 21,
+                  "color": "{ink.900}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "slot": "Chip 3"
+                }
+              ]
+            },
+            {
+              "id": "puwn1",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "pvvzz",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "Vetor",
+                  "markup": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 12l5 5 9-10\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 18,
+                  "h": 18
+                },
+                {
+                  "id": "pwutb",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Dor 6 de 10, com náusea",
+                  "font": "body",
+                  "size": 21,
+                  "color": "{ink.900}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "slot": "Chip 4"
+                }
+              ]
+            },
+            {
+              "id": "pxlxy",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "pyt5f",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Forma",
+                  "style": {
+                    "borderColor": "#C6BDF5",
+                    "borderRadius": "99px",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "flexShrink": 0,
+                    "height": "18px",
+                    "width": "18px"
+                  }
+                },
+                {
+                  "id": "pzhqw",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Remédios que já tomou",
+                  "font": "body",
+                  "size": 21,
+                  "color": "{ink.400}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "slot": "Chip 5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p100gk",
+          "x": 2320,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S3 · Texto",
+          "w": 860,
+          "h": 218,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "22px"
+          },
+          "children": [
+            {
+              "id": "p11qa3",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Só você vê essa conversa.",
+              "text": "Só você vê\nessa conversa.",
+              "font": "display",
+              "size": 80,
+              "color": "{ink.900}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título S3"
+            },
+            {
+              "id": "p12wk1",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Pergunte sem vergonha",
+              "text": "Pergunte sem vergonha. Pode até mandar foto.",
+              "font": "body",
+              "size": 26,
+              "color": "{ink.600}",
+              "leading": 36,
+              "tracking": 0,
+              "slot": "Subtítulo S3"
+            }
+          ]
+        },
+        {
+          "id": "p135t6",
+          "x": 2680,
+          "y": 470,
+          "rotate": 3,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "S3 · Celular",
+          "slot": "Tela 2",
+          "screen": "",
+          "image": "assets/posts/paper/2QKG2GMJYGN6F1ZH3DEBSXGWC6.png",
+          "w": 414
+        },
+        {
+          "id": "p14gtt",
+          "x": 2260,
+          "y": 470,
+          "rotate": -4,
+          "anchor": "top",
+          "type": "group",
+          "name": "S3 · Saindo · privado",
+          "w": 368,
+          "h": 84,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#17151E",
+            "borderRadius": "999px",
+            "boxShadow": "#17151E80 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "14px",
+            "paddingBlock": "18px",
+            "paddingLeft": "18px",
+            "paddingRight": "28px"
+          },
+          "children": [
+            {
+              "id": "p15lme",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#2D195C",
+                "borderRadius": "99px",
+                "display": "flex",
+                "flexShrink": 0,
+                "height": "48px",
+                "justifyContent": "center",
+                "width": "48px"
+              },
+              "children": [
+                {
+                  "id": "p16bjw",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "Vetor",
+                  "markup": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"5\" y=\"11\" width=\"14\" height=\"10\" rx=\"2\" fill=\"none\" stroke=\"#12FFD7\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></rect><path d=\"M8 11V7a4 4 0 0 1 8 0v4\" fill=\"none\" stroke=\"#12FFD7\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 24,
+                  "h": 24
+                }
+              ]
+            },
+            {
+              "id": "p1710i",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Privado · só no seu app",
+              "font": "body",
+              "size": 24,
+              "weight": 500,
+              "color": "{white}",
+              "leading": 30,
+              "tracking": 0,
+              "slot": "Chip 6"
+            }
+          ]
+        },
+        {
+          "id": "p18xhe",
+          "x": 2290,
+          "y": 600,
+          "rotate": 2,
+          "anchor": "center",
+          "type": "group",
+          "name": "S3 · Saindo · foto",
+          "w": 334,
+          "h": 76,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "999px",
+            "boxShadow": "#22084A59 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "14px",
+            "paddingBlock": "16px",
+            "paddingLeft": "16px",
+            "paddingRight": "26px"
+          },
+          "children": [
+            {
+              "id": "p19bs7",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#F5F0FE",
+                "borderRadius": "99px",
+                "display": "flex",
+                "flexShrink": 0,
+                "height": "44px",
+                "justifyContent": "center",
+                "width": "44px"
+              },
+              "children": [
+                {
+                  "id": "p1a86o",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "Vetor",
+                  "markup": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"13\" r=\"3\" fill=\"none\" stroke=\"#7E3BED\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></circle></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 22,
+                  "h": 22
+                }
+              ]
+            },
+            {
+              "id": "p1b580",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Escreva ou mande foto",
+              "font": "body",
+              "size": 22,
+              "color": "{ink.900}",
+              "leading": 28,
+              "tracking": 0,
+              "slot": "Chip 7"
+            }
+          ]
+        },
+        {
+          "id": "p1cdn3",
+          "x": 3400,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S4 · Texto",
+          "w": 860,
+          "h": 218,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "22px"
+          },
+          "children": [
+            {
+              "id": "p1djep",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Depois, ela explica a sua consulta.",
+              "text": "Depois, ela explica\na sua consulta.",
+              "font": "display",
+              "size": 80,
+              "color": "{ink.900}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título S4"
+            },
+            {
+              "id": "p1edrk",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Com a sua anamnese",
+              "text": "Com a sua anamnese e o resumo do médico anexados.",
+              "font": "body",
+              "size": 26,
+              "color": "{ink.600}",
+              "leading": 36,
+              "tracking": 0,
+              "slot": "Subtítulo S4"
+            }
+          ]
+        },
+        {
+          "id": "p1f59k",
+          "x": 3700,
+          "y": 440,
+          "rotate": 4,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "S4 · Celular",
+          "slot": "Tela 3",
+          "screen": "",
+          "image": "assets/posts/paper/3R1DHDTQ6ZRTRX18YT2MT7FZQ9.png",
+          "w": 414
+        },
+        {
+          "id": "p1ghb3",
+          "x": 3080,
+          "y": 520,
+          "rotate": -3,
+          "anchor": "center",
+          "type": "group",
+          "name": "S4 · Saindo · consulta anexada (cruza S3→S4)",
+          "w": 363,
+          "h": 106,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "28px",
+            "boxShadow": "#22084A59 0px 40px 80px -24px, #EBE1FD 0px 0px 0px 1px",
+            "display": "flex",
+            "gap": "16px",
+            "paddingBlock": "18px",
+            "paddingLeft": "18px",
+            "paddingRight": "26px"
+          },
+          "children": [
+            {
+              "id": "p1hmjo",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#F5F0FE",
+                "borderRadius": "18px",
+                "display": "flex",
+                "flexShrink": 0,
+                "height": "56px",
+                "justifyContent": "center",
+                "width": "56px"
+              },
+              "children": [
+                {
+                  "id": "p1inbp",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexShrink": "0",
+                    "height": "34px",
+                    "justifyContent": "center",
+                    "position": "relative",
+                    "width": "34px"
+                  },
+                  "children": [
+                    {
+                      "id": "p1jtun",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Forma",
+                      "style": {
+                        "backgroundImage": "radial-gradient(circle farthest-corner at 50% 50% in oklab, #9D6BF2 0%, #9D6BF200 65%)",
+                        "borderRadius": "999px",
+                        "filter": "blur(4.1px)",
+                        "height": "54.4px",
+                        "left": "-10.2px",
+                        "opacity": "0.35",
+                        "position": "absolute",
+                        "top": "-10.2px",
+                        "width": "54.4px"
+                      }
+                    },
+                    {
+                      "id": "p1kcdm",
+                      "x": 0,
+                      "y": 0,
+                      "type": "group",
+                      "name": "Grupo",
+                      "style": {
+                        "backgroundColor": "#F5F0FE",
+                        "borderRadius": "999px",
+                        "boxShadow": "#7E3BED59 0px 2.7px 8.2px -2px",
+                        "height": "34px",
+                        "left": "0px",
+                        "overflow": "clip",
+                        "position": "absolute",
+                        "top": "0px",
+                        "width": "34px"
+                      },
+                      "children": [
+                        {
+                          "id": "p1l6g9",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundColor": "#12FFD7",
+                            "borderRadius": "999px",
+                            "filter": "blur(4.4px)",
+                            "height": "19.7px",
+                            "left": "1.7px",
+                            "opacity": "0.7",
+                            "position": "absolute",
+                            "top": "11.2px",
+                            "width": "19.7px"
+                          }
+                        },
+                        {
+                          "id": "p1mnf9",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundColor": "#9531FF",
+                            "borderRadius": "999px",
+                            "filter": "blur(4.4px)",
+                            "height": "19.7px",
+                            "left": "12.6px",
+                            "opacity": "0.85",
+                            "position": "absolute",
+                            "top": "7.1px",
+                            "width": "19.7px"
+                          }
+                        },
+                        {
+                          "id": "p1nuf7",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundColor": "#9D6BF2",
+                            "borderRadius": "999px",
+                            "filter": "blur(4.4px)",
+                            "height": "19.7px",
+                            "left": "7.1px",
+                            "opacity": "0.9",
+                            "position": "absolute",
+                            "top": "1.4px",
+                            "width": "19.7px"
+                          }
+                        },
+                        {
+                          "id": "p1o5iv",
+                          "x": 0,
+                          "y": 0,
+                          "type": "rect",
+                          "name": "Forma",
+                          "style": {
+                            "backgroundImage": "radial-gradient(circle farthest-corner at 32% 22% in oklab, #FFFFFFE6 0%, #FFFFFF00 38%), radial-gradient(circle farthest-corner at 50% 52% in oklab, #FFFFFF00 26%, #FFFFFF80 62%, #FFFFFFD9 100%)",
+                            "borderRadius": "999px",
+                            "boxShadow": "#FFFFFFB3 0px 0px 0px 1px inset, #7E3BED1F 0px -2px 5.4px inset",
+                            "height": "34px",
+                            "left": "0px",
+                            "position": "absolute",
+                            "top": "0px",
+                            "width": "34px"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "p1p0zc",
+                      "x": 0,
+                      "y": 0,
+                      "type": "svg",
+                      "name": "Vetor",
+                      "markup": "<svg viewBox=\"69.92 1.23 19.84 19.84\" width=\"19.84\" height=\"19.84\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:15.6px;height:15.6px;filter:drop-shadow(#7E3BED73 0px 0px 1.4px)\"><path d=\"M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z\" fill=\"rgb(255 255 255 / 95%)\"></path></svg>",
+                      "style": {
+                        "width": "15.6px",
+                        "height": "15.6px",
+                        "display": "inline-block",
+                        "position": "relative",
+                        "flexShrink": 0,
+                        "filter": "drop-shadow(#7E3BED73 0px 0px 1.4px)"
+                      },
+                      "w": 19.84,
+                      "h": 19.84
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "p1q6lg",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "8px"
+              },
+              "children": [
+                {
+                  "id": "p1r21l",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Consulta anexada",
+                  "font": "body",
+                  "size": 23,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "slot": "Chip 8"
+                },
+                {
+                  "id": "p1sgyd",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "display": "flex",
+                    "gap": "8px"
+                  },
+                  "children": [
+                    {
+                      "id": "p1tl91",
+                      "x": 0,
+                      "y": 0,
+                      "type": "group",
+                      "name": "Grupo",
+                      "style": {
+                        "backgroundColor": "#F2F1F6",
+                        "borderRadius": "99px",
+                        "paddingBlock": "6px",
+                        "paddingInline": "14px"
+                      },
+                      "children": [
+                        {
+                          "id": "p1ujdq",
+                          "x": 0,
+                          "y": 0,
+                          "type": "text",
+                          "name": "Texto",
+                          "text": "14/11, 09:00",
+                          "font": "body",
+                          "size": 18,
+                          "color": "{ink.700}",
+                          "leading": 22,
+                          "tracking": 0,
+                          "slot": "Chip 9"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "p1vwph",
+                      "x": 0,
+                      "y": 0,
+                      "type": "group",
+                      "name": "Grupo",
+                      "style": {
+                        "backgroundColor": "#F2F1F6",
+                        "borderRadius": "99px",
+                        "paddingBlock": "6px",
+                        "paddingInline": "14px"
+                      },
+                      "children": [
+                        {
+                          "id": "p1wh8w",
+                          "x": 0,
+                          "y": 0,
+                          "type": "text",
+                          "name": "Texto",
+                          "text": "Anamnese",
+                          "font": "body",
+                          "size": 18,
+                          "color": "{ink.700}",
+                          "leading": 22,
+                          "tracking": 0,
+                          "slot": "Chip 10"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p1xq79",
+          "x": 4480,
+          "y": 110,
+          "anchor": "top",
+          "type": "group",
+          "name": "S5 · CTA",
+          "w": 840,
+          "h": 538,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "30px"
+          },
+          "children": [
+            {
+              "id": "p1ynqy",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Ela orienta.",
+              "text": "Ela orienta.\nQuem decide\né o médico.",
+              "font": "display",
+              "size": 96,
+              "color": "{ink.900}",
+              "leading": 94,
+              "tracking": -0.05,
+              "slot": "Título S5"
+            },
+            {
+              "id": "p1zzk3",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "A Viva não diagnostica",
+              "text": "A Viva não diagnostica nem receita. Ela te ajuda a chegar melhor na consulta e a entender o que o médico disse.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "600px"
+              },
+              "slot": "Subtítulo S5"
+            },
+            {
+              "id": "p20pil",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "display": "flex"
+              },
+              "children": [
+                {
+                  "id": "p21zus",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Grupo",
+                  "style": {
+                    "backgroundColor": "#7E3BED",
+                    "borderRadius": "999px",
+                    "paddingBlock": "24px",
+                    "paddingInline": "40px"
+                  },
+                  "children": [
+                    {
+                      "id": "p220ou",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Texto",
+                      "text": "Converse com a Viva no app",
+                      "font": "body",
+                      "size": 28,
+                      "weight": 600,
+                      "color": "{white}",
+                      "leading": 34,
+                      "tracking": 0,
+                      "slot": "Botão"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p235zm",
+          "x": 4800,
+          "y": 740,
+          "rotate": 3,
+          "anchor": "bottom",
+          "type": "image",
+          "name": "S5 · Foto real c/ IA",
+          "src": "assets/posts/photos/rua-analise.jpg",
+          "fit": "cover",
+          "position": "50% 55%",
+          "w": 520,
+          "h": 620,
+          "style": {
+            "borderRadius": "36px",
+            "boxShadow": "#22084A73 0px 50px 100px -30px"
+          },
+          "slot": "Foto",
+          "choices": [
+            "assets/posts/photos/retrato-01.jpg",
+            "assets/posts/photos/retrato-02.jpg",
+            "assets/posts/photos/retrato-03.jpg",
+            "assets/posts/photos/retrato-04.jpg",
+            "assets/posts/photos/sofa-plantao.webp",
+            "assets/posts/photos/jovem-viva.jpg",
+            "assets/posts/photos/medica-perfil.jpg",
+            "assets/posts/photos/rua-analise.jpg",
+            "assets/posts/photos/noite-fila.jpg"
+          ]
+        },
+        {
+          "id": "ma5vr9",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "ai-chat--answer",
+          "photo": "p235zm"
+        },
+        {
+          "id": "p24u55",
+          "x": 4060,
+          "y": 960,
+          "rotate": -2,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "S4 · Saindo · Perguntar à IA (cruza S4→S5)",
+          "w": 470,
+          "h": 126,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "30px",
+            "boxShadow": "#D6C3FB 0px 0px 0px 3px, #22084A66 0px 40px 80px -24px",
+            "display": "flex",
+            "gap": "18px",
+            "paddingBlock": "22px",
+            "paddingInline": "26px"
+          },
+          "children": [
+            {
+              "id": "p253sv",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "alignItems": "center",
+                "backgroundImage": "linear-gradient(in oklab 135deg, #12FFD7 0%, #9D6BF2 55%, #7E3BED 100%)",
+                "borderRadius": "99px",
+                "display": "flex",
+                "flexShrink": "0",
+                "height": "64px",
+                "justifyContent": "center",
+                "width": "64px"
+              },
+              "children": [
+                {
+                  "id": "p26koo",
+                  "x": 0,
+                  "y": 0,
+                  "type": "svg",
+                  "name": "Vetor",
+                  "markup": "<svg width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12.6 8.4 15.6 11.4 22 12 15.6 12.6 12.6 15.6 12 22 11.4 15.6 8.4 12.6 2 12 8.4 11.4 11.4 8.4 12 2z\" fill=\"#FFFFFF\"></path></svg>",
+                  "style": {
+                    "display": "inline-block",
+                    "flexShrink": 0
+                  },
+                  "w": 30,
+                  "h": 30
+                }
+              ]
+            },
+            {
+              "id": "p2737r",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Grupo",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "2px"
+              },
+              "children": [
+                {
+                  "id": "p28rqy",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Perguntar à IA",
+                  "font": "body",
+                  "size": 24,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 30,
+                  "tracking": 0,
+                  "slot": "Chip 11"
+                },
+                {
+                  "id": "p29x1q",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Texto",
+                  "text": "Tire dúvidas sobre remédios e exames.",
+                  "font": "body",
+                  "size": 19,
+                  "color": "{ink.600}",
+                  "leading": 25,
+                  "tracking": 0,
+                  "slot": "Chip 12"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AZ6-0",
+  "updatedAt": "2026-11-22T18:59:35.927Z"
+}

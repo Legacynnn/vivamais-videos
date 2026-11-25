@@ -1,0 +1,243 @@
+{
+  "id": "post-q5-receita-celular",
+  "name": "Q5 · Mãos idosas + Receita",
+  "kind": "post",
+  "format": "feed",
+  "style": "Foto com UI",
+  "topics": [
+    "Documentos e receita"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pd4uq",
+      "name": "Q5 · Mãos idosas + Receita",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "p0bay",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/maos-03.jpg",
+          "fit": "cover",
+          "position": "50%",
+          "choices": [
+            "assets/posts/photos/maos-01.jpg",
+            "assets/posts/photos/maos-02.jpg",
+            "assets/posts/photos/maos-03.jpg",
+            "assets/posts/photos/maos-04.jpg",
+            "assets/posts/photos/maos-05.jpg",
+            "assets/posts/photos/maos-06.jpg",
+            "assets/posts/photos/maos-07.jpg",
+            "assets/posts/photos/maos-08.jpg"
+          ]
+        },
+        {
+          "id": "sg42h70",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "consultation-record--documents",
+          "photo": "p0bay"
+        },
+        {
+          "id": "p19bz",
+          "x": 0,
+          "y": 820,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Véu base",
+          "w": 1080,
+          "h": 530,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #17151E00 0%, #17151EA6 45%, #17151ED9 100%)"
+          }
+        },
+        {
+          "id": "p282z",
+          "x": 72,
+          "y": 1010,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Título",
+          "w": 940,
+          "h": 152,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "16px"
+          },
+          "children": [
+            {
+              "id": "p3ud1",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Receita no celular.\n…",
+              "text": "Receita no celular.\nNa farmácia, é só mostrar.",
+              "font": "display",
+              "size": 76,
+              "color": "{white}",
+              "leading": 76,
+              "tracking": -0.045,
+              "slot": "Título"
+            }
+          ]
+        },
+        {
+          "id": "p4gxp",
+          "x": 60,
+          "y": 400,
+          "rotate": -4,
+          "anchor": "top",
+          "type": "group",
+          "name": "Saindo · renovação",
+          "w": 320,
+          "h": 149,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "24px",
+            "boxShadow": "#17151E73 0px 30px 60px -18px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "8px",
+            "paddingBlock": "20px",
+            "paddingInline": "22px"
+          },
+          "children": [
+            {
+              "id": "p5i3p",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "display": "flex",
+                "gap": "10px"
+              },
+              "children": [
+                {
+                  "id": "p6tru",
+                  "x": 0,
+                  "y": 0,
+                  "type": "rect",
+                  "name": "Rectangle",
+                  "style": {
+                    "backgroundColor": "#00B597",
+                    "borderRadius": "99px",
+                    "flexShrink": 0,
+                    "height": "12px",
+                    "width": "12px"
+                  }
+                },
+                {
+                  "id": "p7oil",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Uso contínuo",
+                  "text": "Uso contínuo",
+                  "font": "body",
+                  "size": 21,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 26,
+                  "tracking": 0,
+                  "slot": "Chip 1"
+                }
+              ]
+            },
+            {
+              "id": "p8qvh",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Renove a receita com…",
+              "text": "Renove a receita com o mesmo médico, sem nova consulta.",
+              "font": "body",
+              "size": 19,
+              "color": "{ink.600}",
+              "leading": 25,
+              "tracking": 0
+            }
+          ]
+        },
+        {
+          "id": "p9ppf",
+          "x": 760,
+          "y": 620,
+          "rotate": 5,
+          "anchor": "center",
+          "type": "group",
+          "name": "Saindo · QR",
+          "w": 216,
+          "h": 68,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#17151E",
+            "borderRadius": "999px",
+            "boxShadow": "#00000080 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "12px",
+            "paddingBlock": "14px",
+            "paddingLeft": "14px",
+            "paddingRight": "22px"
+          },
+          "children": [
+            {
+              "id": "paeos",
+              "x": 0,
+              "y": 0,
+              "type": "rect",
+              "name": "Rectangle",
+              "style": {
+                "background": "repeating-linear-gradient(90deg, rgb(255, 255, 255) 0px, rgb(255, 255, 255) 3px, rgb(23, 21, 30) 3px, rgb(23, 21, 30) 5px) 0% 0%",
+                "borderRadius": "8px",
+                "flexShrink": 0,
+                "height": "40px",
+                "width": "40px"
+              }
+            },
+            {
+              "id": "pbooy",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "ICP-Brasil",
+              "text": "ICP-Brasil",
+              "font": "body",
+              "size": 21,
+              "weight": 500,
+              "color": "{white}",
+              "leading": 26,
+              "tracking": 0,
+              "slot": "Chip 2"
+            }
+          ]
+        },
+        {
+          "id": "pcu20",
+          "x": 72,
+          "y": 72,
+          "anchor": "top",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 34
+        }
+      ]
+    }
+  ],
+  "source": "paper:1ATM-0",
+  "updatedAt": "2026-11-22T18:58:42.559Z"
+}

@@ -1,0 +1,633 @@
+{
+  "id": "seq-carrossel-empresas",
+  "name": "Carrossel · Saúde na equipe",
+  "kind": "sequence",
+  "format": "carousel",
+  "style": "Foto com UI",
+  "topics": [
+    "Empresas"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "clxep2h",
+      "name": "Capa",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "cahhv2n",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/home-office.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "cmlvyz2",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "client-home--default",
+          "photo": "cahhv2n"
+        },
+        {
+          "id": "czbl7zv",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #0D0C12E6 0%, #0D0C1299 50%, #0D0C1200 100%)"
+          }
+        },
+        {
+          "id": "cob0juq",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "ch4j45q",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Saúde no\nbenefício\nda equipe.",
+              "font": "display",
+              "size": 80,
+              "color": "{white}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "cgn9zkx",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Viva Mais para empresas.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "cnp2mx6",
+          "x": 860,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Seta",
+          "w": 135,
+          "h": 30,
+          "style": {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "14px"
+          },
+          "children": [
+            {
+              "id": "cdtekl0",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Texto",
+              "text": "Arraste",
+              "font": "body",
+              "size": 24,
+              "color": "{white}/70",
+              "leading": 30,
+              "tracking": 0
+            },
+            {
+              "id": "cdq57us",
+              "x": 0,
+              "y": 0,
+              "type": "svg",
+              "name": "Vetor",
+              "markup": "<svg width=\"40\" height=\"20\" viewBox=\"0 0 40 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 10h34M28 3l8 7-8 7\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" stroke-linecap=\"round\"></path></svg>",
+              "style": {
+                "display": "inline-block",
+                "flexShrink": 0
+              },
+              "w": 40,
+              "h": 20
+            }
+          ]
+        },
+        {
+          "id": "cdlt7g2",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "cp6zi1a",
+      "name": "Operação",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "cembya9",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/uniforme-intervalo.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "cb493hy",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "plantao-hub--video",
+          "photo": "cembya9"
+        },
+        {
+          "id": "ciojvvx",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #0D0C12E6 0%, #0D0C1299 50%, #0D0C1200 100%)"
+          }
+        },
+        {
+          "id": "cfyonq4",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "c13om8p",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Do escritório\nà operação.",
+              "font": "display",
+              "size": 80,
+              "color": "{white}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "c988ffl",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Médico no celular, onde a pessoa estiver.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "cj7lvl2",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "cvn61x1",
+      "name": "Plantão",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "cpf9qn3",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.07,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "cny65z1",
+          "x": 180,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Glow",
+          "w": 1100,
+          "h": 1100,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED99 0%, #7E3BED2E 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "cw8ul93",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "ck6tbf9",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Plantão 24h\npra todo mundo.",
+              "font": "display",
+              "size": 88,
+              "color": "{white}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "cvha8tm",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Vídeo ou chat, sem sala de espera.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "czvnmgq",
+          "type": "chip",
+          "name": "Plantão 24h · ao viv",
+          "x": 300,
+          "y": 700,
+          "rotate": -4,
+          "anchor": "center",
+          "variant": "pill",
+          "title": "Plantão 24h · ao vivo",
+          "tone": "light",
+          "scale": 2
+        },
+        {
+          "id": "c9kbbff",
+          "type": "chip",
+          "name": "Sem sala de espera",
+          "x": 470,
+          "y": 860,
+          "rotate": 3,
+          "anchor": "center",
+          "variant": "pill",
+          "title": "Sem sala de espera",
+          "tone": "violet",
+          "scale": 2
+        },
+        {
+          "id": "ce991qp",
+          "type": "chip",
+          "name": "Receita digital assi",
+          "x": 360,
+          "y": 1020,
+          "rotate": -2,
+          "anchor": "center",
+          "variant": "pill",
+          "title": "Receita digital assinada",
+          "tone": "light",
+          "scale": 2
+        },
+        {
+          "id": "c8kxv5c",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "cnxtpto",
+      "name": "Farmácia",
+      "background": "{violet.50}",
+      "layers": [
+        {
+          "id": "cds511r",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/farmacia-balcao.jpg",
+          "fit": "cover",
+          "position": "50%"
+        },
+        {
+          "id": "cqhsn30",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "consultation-record--documents",
+          "photo": "cds511r"
+        },
+        {
+          "id": "cdzxcz4",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 560,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #F5F0FEE6 0%, #F5F0FE99 50%, #F5F0FE00 100%)"
+          }
+        },
+        {
+          "id": "c3x35tv",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "cd1vby4",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Receita no app,\ndireto pro balcão.",
+              "font": "display",
+              "size": 80,
+              "color": "{ink.900}",
+              "leading": 80,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "cvx35xs",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Documentos da consulta salvos e prontos.",
+              "font": "body",
+              "size": 28,
+              "color": "{ink.600}",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "cfes3l8",
+          "x": 80,
+          "y": 1260,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupViolet",
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "crdmgtr",
+      "name": "CTA",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "cnx2it1",
+          "x": 0,
+          "y": 0,
+          "opacity": 0.07,
+          "fill": true,
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "fit": "cover",
+          "position": "50%",
+          "w": 1080,
+          "h": 1350
+        },
+        {
+          "id": "c21ycbz",
+          "x": 180,
+          "y": 420,
+          "anchor": "bottom",
+          "type": "rect",
+          "name": "Glow",
+          "w": 1100,
+          "h": 1100,
+          "style": {
+            "backgroundImage": "radial-gradient(ellipse 50% 50% at 50% 50% in oklab, #7E3BED99 0%, #7E3BED2E 45%, #7E3BED00 70%)",
+            "borderRadius": "999px"
+          }
+        },
+        {
+          "id": "cbm9nno",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "type": "group",
+          "name": "Texto",
+          "w": 920,
+          "h": 238,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px"
+          },
+          "children": [
+            {
+              "id": "c4j5tkf",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Fale com\na gente.",
+              "font": "display",
+              "size": 88,
+              "color": "{white}",
+              "leading": 88,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "cldmhld",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Sub",
+              "text": "Planos Viva Mais para empresas.",
+              "font": "body",
+              "size": 28,
+              "color": "{white}/70",
+              "leading": 38,
+              "tracking": 0,
+              "style": {
+                "width": "640px"
+              },
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "caw7rej",
+          "x": 80,
+          "y": 420,
+          "anchor": "top",
+          "type": "group",
+          "name": "CTA pill",
+          "w": 293,
+          "h": 88,
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "999px",
+            "paddingBlock": "26px",
+            "paddingInline": "44px"
+          },
+          "children": [
+            {
+              "id": "cp39vc7",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Baixe o app",
+              "text": "Quero saber",
+              "font": "body",
+              "size": 30,
+              "weight": 600,
+              "color": "{ink.900}",
+              "leading": 36,
+              "tracking": 0,
+              "slot": "Botão",
+              "style": {
+                "whiteSpace": "nowrap"
+              }
+            }
+          ]
+        },
+        {
+          "id": "c8whjbm",
+          "x": 380,
+          "y": 520,
+          "anchor": "bottom",
+          "type": "svg",
+          "name": "Marca gigante (corte)",
+          "markup": "<svg viewBox=\"35 36 92 90\" width=\"92\" height=\"90\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:920px;height:900px\"><path fill-rule=\"evenodd\" d=\"M80.4 125.28C70.72 125.28 62.85 117.41 62.85 107.73V99.86C62.85 99.07 62.2 98.42 61.41 98.42H53.54C43.86 98.42 35.99 90.55 35.99 80.87C35.99 71.19 43.86 63.32 53.54 63.32H61.41C62.2 63.32 62.85 62.67 62.85 61.88V54.01C62.85 44.33 70.72 36.46 80.4 36.46C90.08 36.46 97.95 44.33 97.95 54.01V61.88C97.95 62.67 98.6 63.32 99.39 63.32H107.26C116.94 63.32 124.81 71.19 124.81 80.87C124.81 90.55 116.94 98.42 107.26 98.42H99.39C98.6 98.42 97.95 99.07 97.95 99.86V107.73C97.95 117.41 90.08 125.28 80.4 125.28Z M53.55 71.57C48.42 71.57 44.24 75.75 44.24 80.88C44.24 86.01 48.42 90.19 53.55 90.19H61.42C66.76 90.19 71.1 94.53 71.1 99.87V107.74C71.1 112.87 75.28 117.05 80.41 117.05C85.54 117.05 89.72 112.87 89.72 107.74V99.87C89.72 94.53 94.06 90.19 99.4 90.19H107.27C112.4 90.19 116.58 86.01 116.58 80.88C116.58 75.75 112.4 71.57 107.27 71.57H99.4C94.06 71.57 89.72 67.23 89.72 61.89V54.02C89.72 48.89 85.54 44.71 80.41 44.71C75.28 44.71 71.1 48.89 71.1 54.02V61.89C71.1 67.23 66.76 71.57 61.42 71.57H53.55Z\" fill=\"#7E3BED\"></path><path d=\"M125.76 47.15C125.76 47.46 125.51 47.71 125.2 47.71H122.46C119.12 47.71 116.4 50.43 116.4 53.77V56.51C116.4 56.82 116.15 57.07 115.84 57.07C115.53 57.07 115.28 56.82 115.28 56.51V53.77C115.28 50.43 112.56 47.71 109.22 47.71H106.48C106.17 47.71 105.92 47.46 105.92 47.15C105.92 46.84 106.17 46.59 106.48 46.59H109.22C112.56 46.59 115.28 43.87 115.28 40.53V37.79C115.28 37.48 115.53 37.23 115.84 37.23C116.15 37.23 116.4 37.48 116.4 37.79V40.53C116.4 43.87 119.12 46.59 122.46 46.59H125.2C125.51 46.59 125.76 46.84 125.76 47.15Z\" fill=\"#12FFD7\"></path></svg>",
+          "w": 920,
+          "h": 900
+        },
+        {
+          "id": "cnn0d3f",
+          "x": 80,
+          "y": 1210,
+          "anchor": "bottom",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "h": 40
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T21:16:52.674Z"
+}

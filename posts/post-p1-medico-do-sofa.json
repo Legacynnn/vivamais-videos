@@ -1,0 +1,254 @@
+{
+  "id": "post-p1-medico-do-sofa",
+  "name": "P1 · Plantão do sofá",
+  "kind": "post",
+  "format": "feed",
+  "style": "Mockup de celular",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pea5i",
+      "name": "Feed",
+      "background": "{violet.950}",
+      "layers": [
+        {
+          "id": "p0scn",
+          "x": 0,
+          "y": 0,
+          "fill": true,
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "src": "assets/posts/photos/sofa-plantao.webp",
+          "fit": "cover",
+          "position": "72%",
+          "w": 1080,
+          "h": 1350,
+          "choices": [
+            "assets/posts/photos/sofa-plantao.webp",
+            "assets/posts/photos/",
+            "assets/posts/photos/retrato-",
+            "assets/posts/photos/story-fila.webp"
+          ]
+        },
+        {
+          "id": "p1fh7",
+          "x": 0,
+          "y": 0,
+          "fill": true,
+          "type": "rect",
+          "name": "Véu",
+          "w": 1080,
+          "h": 1350,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #0D0C12B8 0%, #22084A2E 38%, #22084A0D 60%, #0D0C1299 100%)"
+          }
+        },
+        {
+          "id": "p2mel",
+          "x": 80,
+          "y": 88,
+          "anchor": "top",
+          "type": "group",
+          "name": "Topo",
+          "w": 920,
+          "h": 348,
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "36px"
+          },
+          "children": [
+            {
+              "id": "logo1",
+              "type": "logo",
+              "name": "Logo",
+              "x": 0,
+              "y": 0,
+              "variant": "lockupWhite",
+              "w": 168,
+              "h": 36,
+              "style": {
+                "flexShrink": 0
+              }
+            },
+            {
+              "id": "p4egh",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Título",
+              "text": "Médico agora.\nDo seu sofá.",
+              "font": "display",
+              "size": 104,
+              "color": "{white}",
+              "leading": 100,
+              "tracking": -0.045,
+              "weight": 400,
+              "slot": "Título",
+              "runs": [
+                {
+                  "text": "Médico agora.\nDo seu sofá.",
+                  "style": {
+                    "fontFamily": "\"Space Grotesk\", sans-serif",
+                    "fontWeight": 400
+                  }
+                }
+              ]
+            },
+            {
+              "id": "p5c1u",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Subtítulo",
+              "text": "Plantão 24h por vídeo ou chat, a qualquer hora.",
+              "font": "body",
+              "size": 30,
+              "color": "{white}/78",
+              "leading": 40,
+              "tracking": 0,
+              "style": {
+                "width": "680px"
+              },
+              "weight": 400,
+              "slot": "Subtítulo"
+            }
+          ]
+        },
+        {
+          "id": "p61r4",
+          "x": 88,
+          "y": 640,
+          "rotate": -6,
+          "anchor": "bottom",
+          "type": "phone",
+          "name": "Celular (escala 1.12, -6°)",
+          "slot": "Tela",
+          "screen": "plantao-queue--position-3",
+          "image": "assets/posts/paper/2GRZV1VZ43EBWQHKZYRQJCQEK1.jpg",
+          "w": 464
+        },
+        {
+          "id": "p7alb",
+          "x": 540,
+          "y": 900,
+          "anchor": "bottom",
+          "type": "group",
+          "name": "Chip · médico online",
+          "h": 92,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFFF0",
+            "borderRadius": "999px",
+            "boxShadow": "#0D0C1280 0px 24px 48px -16px",
+            "display": "flex",
+            "gap": "18px",
+            "paddingBlock": "16px",
+            "paddingLeft": "16px",
+            "paddingRight": "28px",
+            "whiteSpace": "nowrap"
+          },
+          "children": [
+            {
+              "id": "p8g7m",
+              "x": 0,
+              "y": 0,
+              "type": "image",
+              "name": "Brown haired doctor",
+              "src": "assets/posts/photos/avatar-julia.webp",
+              "fit": "cover",
+              "position": "50% 30%",
+              "style": {
+                "borderRadius": "999px",
+                "flexShrink": "0",
+                "height": "60px",
+                "width": "60px"
+              }
+            },
+            {
+              "id": "p99na",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "2px"
+              },
+              "children": [
+                {
+                  "id": "pa26b",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Dra. Júlia entrou",
+                  "text": "Dra. Júlia entrou",
+                  "font": "body",
+                  "size": 24,
+                  "weight": 500,
+                  "color": "{ink.900}",
+                  "leading": 30,
+                  "tracking": 0,
+                  "slot": "Chip 1"
+                },
+                {
+                  "id": "pb4gi",
+                  "x": 0,
+                  "y": 0,
+                  "type": "group",
+                  "name": "Frame",
+                  "style": {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "gap": "8px"
+                  },
+                  "children": [
+                    {
+                      "id": "pcbtg",
+                      "x": 0,
+                      "y": 0,
+                      "type": "rect",
+                      "name": "Rectangle",
+                      "style": {
+                        "backgroundColor": "#00E0BC",
+                        "borderRadius": "999px",
+                        "flexShrink": 0,
+                        "height": "10px",
+                        "width": "10px"
+                      }
+                    },
+                    {
+                      "id": "pdiqp",
+                      "x": 0,
+                      "y": 0,
+                      "type": "text",
+                      "name": "Sua consulta começou",
+                      "text": "Sua consulta começou",
+                      "font": "body",
+                      "size": 20,
+                      "color": "{ink.600}",
+                      "leading": 26,
+                      "tracking": 0,
+                      "weight": 400,
+                      "slot": "Chip 2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1AGQ-0",
+  "updatedAt": "2026-11-22T21:31:34.488Z"
+}

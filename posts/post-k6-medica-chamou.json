@@ -1,0 +1,99 @@
+{
+  "id": "post-k6-medica-chamou",
+  "name": "K6 · A médica chamou",
+  "kind": "post",
+  "format": "feed",
+  "style": "Gráfico",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "k9m89sx",
+      "name": "K6 · A médica chamou",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "kv2yaqj",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/medica-consultorio.jpg",
+          "fit": "cover",
+          "position": "50% 30%"
+        },
+        {
+          "id": "klxual1",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "post-consultation--ready",
+          "photo": "kv2yaqj"
+        },
+        {
+          "id": "ktfrju5",
+          "type": "rect",
+          "name": "Véu",
+          "x": 0,
+          "y": 730,
+          "anchor": "bottom",
+          "w": 1080,
+          "h": 620,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 0deg, #0D0C12F2 0%, #0D0C1299 55%, #0D0C1200 100%)"
+          }
+        },
+        {
+          "id": "knv1hoi",
+          "type": "text",
+          "name": "Título",
+          "x": 72,
+          "y": 900,
+          "anchor": "top",
+          "text": "É a sua vez.",
+          "font": "display",
+          "size": 130,
+          "color": "{white}",
+          "leading": 130,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "k4a125x",
+          "type": "text",
+          "name": "Subtítulo",
+          "x": 80,
+          "y": 1060,
+          "anchor": "top",
+          "text": "Médicos com CRM no perfil, por vídeo.",
+          "font": "body",
+          "size": 32,
+          "color": "{white}/70",
+          "leading": 43,
+          "tracking": 0,
+          "slot": "Subtítulo"
+        },
+        {
+          "id": "kp1rskb",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "x": 80,
+          "y": 96,
+          "anchor": "top",
+          "h": 36
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-22T22:10:19.477Z"
+}

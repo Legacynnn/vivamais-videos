@@ -1,0 +1,842 @@
+{
+  "id": "seq-carrossel-quatro-esperas",
+  "name": "Carrossel · Quatro esperas",
+  "kind": "sequence",
+  "format": "carousel",
+  "style": "Gráfico",
+  "topics": [
+    "Plantão"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "source": "Referência: Conexa · Novembro Azul (faixas de escala)",
+  "frames": [
+    {
+      "id": "f145",
+      "name": "Capa",
+      "background": "{violet.950}",
+      "layers": [
+        {
+          "id": "fe139",
+          "type": "image",
+          "name": "Foto",
+          "src": "assets/posts/photos/sala-espera.jpg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fit": "cover",
+          "position": "50% 50%",
+          "slot": "Foto",
+          "fill": true,
+          "blur": 6
+        },
+        {
+          "id": "fe140",
+          "type": "rect",
+          "name": "Vidro",
+          "x": 80,
+          "y": 120,
+          "w": 920,
+          "h": 1110,
+          "radius": 32,
+          "style": {
+            "background": "#22084A59",
+            "boxShadow": "inset 0 0 0 2px #FFFFFF66",
+            "borderRadius": "32px"
+          },
+          "backdropBlur": 24
+        },
+        {
+          "id": "fe141",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 140,
+          "y": 190,
+          "h": 52,
+          "anchor": "top"
+        },
+        {
+          "id": "fe142",
+          "type": "text",
+          "name": "Título",
+          "x": 140,
+          "y": 700,
+          "w": 800,
+          "text": "Uma febre. Quatro esperas.",
+          "font": "display",
+          "size": 92,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 94,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Uma febre. "
+            },
+            {
+              "text": "Quatro esperas.",
+              "style": {
+                "color": "{violet.200}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "fe143",
+          "type": "text",
+          "name": "Sub",
+          "x": 140,
+          "y": 920,
+          "w": 680,
+          "text": "Quanto do seu dia vai embora numa ida ao pronto-socorro?",
+          "font": "body",
+          "size": 32,
+          "color": "{white}/80",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0
+        },
+        {
+          "id": "fe144",
+          "type": "chip",
+          "name": "Chip",
+          "variant": "pill",
+          "title": "Arraste para o lado",
+          "x": 140,
+          "y": 1100,
+          "tone": "light",
+          "anchor": "top"
+        }
+      ]
+    },
+    {
+      "id": "f160",
+      "name": "Esperas",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "fe159",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 96,
+          "w": 900,
+          "text": "Quatro esperas, uma em cima da outra.",
+          "font": "display",
+          "size": 64,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 68,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "fe146",
+          "type": "rect",
+          "name": "Faixa Trânsito",
+          "x": 0,
+          "y": 330,
+          "w": 1080,
+          "h": 210,
+          "style": {
+            "background": "#D6C3FB",
+            "borderRadius": "40px 40px 0 0"
+          }
+        },
+        {
+          "id": "fe147",
+          "type": "svg",
+          "name": "Ícone car",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"56\" height=\"56\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#350E6F\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 30l4-12h24l4 12v8H8z\"/><circle cx=\"15\" cy=\"38\" r=\"3\"/><circle cx=\"33\" cy=\"38\" r=\"3\"/></svg>",
+          "x": 80,
+          "y": 400,
+          "w": 56,
+          "h": 56
+        },
+        {
+          "id": "fe148",
+          "type": "text",
+          "name": "Trânsito",
+          "x": 160,
+          "y": 406,
+          "w": 600,
+          "text": "Trânsito",
+          "font": "display",
+          "size": 44,
+          "color": "{violet.900}",
+          "anchor": "top",
+          "leading": 48,
+          "tracking": -0.045
+        },
+        {
+          "id": "fe149",
+          "type": "rect",
+          "name": "Faixa Triagem",
+          "x": 0,
+          "y": 500,
+          "w": 1080,
+          "h": 210,
+          "style": {
+            "background": "#BC9CF7",
+            "borderRadius": "40px 40px 0 0"
+          }
+        },
+        {
+          "id": "fe150",
+          "type": "svg",
+          "name": "Ícone clip",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"56\" height=\"56\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#350E6F\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"12\" y=\"8\" width=\"24\" height=\"34\" rx=\"3\"/><path d=\"M19 8V5h10v3M18 20h12M18 28h8\"/></svg>",
+          "x": 80,
+          "y": 570,
+          "w": 56,
+          "h": 56
+        },
+        {
+          "id": "fe151",
+          "type": "text",
+          "name": "Triagem",
+          "x": 160,
+          "y": 576,
+          "w": 600,
+          "text": "Triagem",
+          "font": "display",
+          "size": 44,
+          "color": "{violet.900}",
+          "anchor": "top",
+          "leading": 48,
+          "tracking": -0.045
+        },
+        {
+          "id": "fe152",
+          "type": "rect",
+          "name": "Faixa Sala de espera",
+          "x": 0,
+          "y": 670,
+          "w": 1080,
+          "h": 510,
+          "style": {
+            "background": "#7E3BED",
+            "borderRadius": "40px 40px 0 0"
+          }
+        },
+        {
+          "id": "fe153",
+          "type": "svg",
+          "name": "Ícone chair",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"56\" height=\"56\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 8v20h20V8M10 28h28M14 28v12M34 28v12\"/></svg>",
+          "x": 80,
+          "y": 740,
+          "w": 56,
+          "h": 56
+        },
+        {
+          "id": "fe154",
+          "type": "text",
+          "name": "Sala de espera",
+          "x": 160,
+          "y": 746,
+          "w": 600,
+          "text": "Sala de espera",
+          "font": "display",
+          "size": 44,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 48,
+          "tracking": -0.045
+        },
+        {
+          "id": "fe155",
+          "type": "rect",
+          "name": "Faixa Consulta",
+          "x": 0,
+          "y": 1140,
+          "w": 1080,
+          "h": 210,
+          "style": {
+            "background": "#451391",
+            "borderRadius": "40px 40px 0 0"
+          }
+        },
+        {
+          "id": "fe156",
+          "type": "svg",
+          "name": "Ícone steth",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"56\" height=\"56\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 6v12a8 8 0 0016 0V6\"/><path d=\"M20 26v4a10 10 0 0020 0v-4\"/><circle cx=\"40\" cy=\"22\" r=\"4\"/></svg>",
+          "x": 80,
+          "y": 1210,
+          "w": 56,
+          "h": 56
+        },
+        {
+          "id": "fe158",
+          "type": "text",
+          "name": "Nota",
+          "x": 160,
+          "y": 810,
+          "w": 600,
+          "text": "o maior pedaço",
+          "font": "body",
+          "size": 28,
+          "color": "{white}/70",
+          "anchor": "top",
+          "leading": 38,
+          "tracking": 0
+        },
+        {
+          "id": "fe157",
+          "type": "text",
+          "name": "Consulta",
+          "x": 160,
+          "y": 1216,
+          "w": 600,
+          "text": "Consulta",
+          "font": "display",
+          "size": 44,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 48,
+          "tracking": -0.045
+        }
+      ]
+    },
+    {
+      "id": "f165",
+      "name": "Virada",
+      "background": "{violet.600}",
+      "layers": [
+        {
+          "id": "fe161",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.08
+        },
+        {
+          "id": "fe162",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 380,
+          "w": 900,
+          "text": "E se três delas sumissem?",
+          "font": "display",
+          "size": 140,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 138,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "fe163",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Uma febre. Quatro esperas. Ou uma.",
+          "font": "body",
+          "size": 22,
+          "color": "{white}/70",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "fe164",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f181",
+      "name": "Uma espera",
+      "background": "{white}",
+      "layers": [
+        {
+          "id": "fe166",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 96,
+          "w": 900,
+          "text": "No Plantão 24h, sobra uma.",
+          "font": "display",
+          "size": 64,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 68,
+          "tracking": -0.045,
+          "slot": "Título"
+        },
+        {
+          "id": "fe167",
+          "type": "rect",
+          "name": "Faixa Trânsito",
+          "x": 80,
+          "y": 260,
+          "w": 920,
+          "h": 76,
+          "background": "{ink.100}",
+          "radius": 20
+        },
+        {
+          "id": "fe168",
+          "type": "svg",
+          "name": "Ícone car",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"40\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#A29FB0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 30l4-12h24l4 12v8H8z\"/><circle cx=\"15\" cy=\"38\" r=\"3\"/><circle cx=\"33\" cy=\"38\" r=\"3\"/></svg>",
+          "x": 110,
+          "y": 278,
+          "w": 40,
+          "h": 40
+        },
+        {
+          "id": "fe169",
+          "type": "text",
+          "name": "Trânsito",
+          "x": 172,
+          "y": 278,
+          "w": 600,
+          "text": "Trânsito",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.400}",
+          "anchor": "top",
+          "leading": 40,
+          "tracking": 0,
+          "style": {
+            "textDecoration": "line-through"
+          }
+        },
+        {
+          "id": "fe170",
+          "type": "rect",
+          "name": "Faixa Triagem",
+          "x": 80,
+          "y": 356,
+          "w": 920,
+          "h": 76,
+          "background": "{ink.100}",
+          "radius": 20
+        },
+        {
+          "id": "fe171",
+          "type": "svg",
+          "name": "Ícone clip",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"40\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#A29FB0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"12\" y=\"8\" width=\"24\" height=\"34\" rx=\"3\"/><path d=\"M19 8V5h10v3M18 20h12M18 28h8\"/></svg>",
+          "x": 110,
+          "y": 374,
+          "w": 40,
+          "h": 40
+        },
+        {
+          "id": "fe172",
+          "type": "text",
+          "name": "Triagem",
+          "x": 172,
+          "y": 374,
+          "w": 600,
+          "text": "Triagem",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.400}",
+          "anchor": "top",
+          "leading": 40,
+          "tracking": 0,
+          "style": {
+            "textDecoration": "line-through"
+          }
+        },
+        {
+          "id": "fe173",
+          "type": "rect",
+          "name": "Faixa Sala de espera",
+          "x": 80,
+          "y": 452,
+          "w": 920,
+          "h": 76,
+          "background": "{ink.100}",
+          "radius": 20
+        },
+        {
+          "id": "fe174",
+          "type": "svg",
+          "name": "Ícone chair",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"40\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#A29FB0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 8v20h20V8M10 28h28M14 28v12M34 28v12\"/></svg>",
+          "x": 110,
+          "y": 470,
+          "w": 40,
+          "h": 40
+        },
+        {
+          "id": "fe175",
+          "type": "text",
+          "name": "Sala de espera",
+          "x": 172,
+          "y": 470,
+          "w": 600,
+          "text": "Sala de espera",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.400}",
+          "anchor": "top",
+          "leading": 40,
+          "tracking": 0,
+          "style": {
+            "textDecoration": "line-through"
+          }
+        },
+        {
+          "id": "fe176",
+          "type": "rect",
+          "name": "Faixa Consulta",
+          "x": 0,
+          "y": 590,
+          "w": 1080,
+          "h": 760,
+          "style": {
+            "background": "#451391",
+            "borderRadius": "40px 40px 0 0"
+          }
+        },
+        {
+          "id": "fe177",
+          "type": "svg",
+          "name": "Ícone house",
+          "markup": "<svg viewBox=\"0 0 48 48\" width=\"56\" height=\"56\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 22L24 8l18 14\"/><path d=\"M11 19v21h26V19\"/><path d=\"M20 40V28h8v12\"/></svg>",
+          "x": 80,
+          "y": 650,
+          "w": 56,
+          "h": 56
+        },
+        {
+          "id": "fe178",
+          "type": "text",
+          "name": "Consulta",
+          "x": 80,
+          "y": 740,
+          "w": 520,
+          "text": "Consulta, de onde você estiver.",
+          "font": "display",
+          "size": 60,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 64,
+          "tracking": -0.045
+        },
+        {
+          "id": "fe179",
+          "type": "text",
+          "name": "Sub",
+          "x": 80,
+          "y": 900,
+          "w": 440,
+          "text": "Você entra na fila pelo app e espera no sofá.",
+          "font": "body",
+          "size": 30,
+          "color": "{white}/70",
+          "anchor": "top",
+          "leading": 42,
+          "tracking": 0
+        },
+        {
+          "id": "fe180",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "plantao-queue--position-3",
+          "x": 600,
+          "y": 680,
+          "w": 400,
+          "rotate": 3
+        }
+      ]
+    },
+    {
+      "id": "f192",
+      "name": "Aviso",
+      "background": "radial-gradient(60% 75% at 92% 8%, #9531FF 0%, transparent 65%), radial-gradient(70% 80% at 0% 100%, #7A67F8 0%, transparent 62%), linear-gradient(160deg, #2B0B5C 0%, #451391 100%)",
+      "layers": [
+        {
+          "id": "fe182",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.06
+        },
+        {
+          "id": "fe183",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 880,
+          "text": "O app avisa quando é sua vez.",
+          "font": "display",
+          "size": 84,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 88,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "O app "
+            },
+            {
+              "text": "avisa",
+              "style": {
+                "color": "{violet.300}"
+              }
+            },
+            {
+              "text": " quando é sua vez."
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "fe184",
+          "type": "rect",
+          "name": "Notificação",
+          "x": 80,
+          "y": 520,
+          "w": 920,
+          "h": 200,
+          "radius": 36,
+          "style": {
+            "background": "#FFFFFFF2",
+            "boxShadow": "0 40px 80px -30px #0D0C1299",
+            "borderRadius": "36px"
+          }
+        },
+        {
+          "id": "fe185",
+          "type": "svg",
+          "name": "Ícone app",
+          "markup": "<svg viewBox=\"0 0 96 96\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"96\" height=\"96\" rx=\"24\" fill=\"#7E3BED\"/><path d=\"M48 22v52M22 48h52\" stroke=\"#fff\" stroke-width=\"12\" stroke-linecap=\"round\"/></svg>",
+          "x": 120,
+          "y": 568,
+          "w": 96,
+          "h": 96
+        },
+        {
+          "id": "fe186",
+          "type": "text",
+          "name": "App",
+          "x": 248,
+          "y": 560,
+          "w": 600,
+          "text": "Viva Mais · agora",
+          "font": "body",
+          "size": 24,
+          "color": "{ink.500}",
+          "anchor": "top",
+          "leading": 30,
+          "tracking": 0
+        },
+        {
+          "id": "fe187",
+          "type": "text",
+          "name": "Mensagem",
+          "x": 248,
+          "y": 600,
+          "w": 700,
+          "text": "É a sua vez. A Dra. Júlia entrou na chamada.",
+          "font": "body",
+          "size": 32,
+          "color": "{ink.900}",
+          "anchor": "top",
+          "leading": 42,
+          "tracking": 0,
+          "weight": 500
+        },
+        {
+          "id": "fe188",
+          "type": "chip",
+          "name": "Médica",
+          "variant": "person",
+          "title": "Dra. Júlia",
+          "x": 300,
+          "y": 790,
+          "tone": "light",
+          "anchor": "top",
+          "badge": "assets/people/doctors/julia.jpg",
+          "subtitle": "Clínica geral · vídeo",
+          "rotate": -3,
+          "scale": 1.5
+        },
+        {
+          "id": "fe189",
+          "type": "text",
+          "name": "Sub",
+          "x": 80,
+          "y": 1000,
+          "w": 760,
+          "text": "Enquanto isso, a Viva organiza seus sintomas pro médico.",
+          "font": "body",
+          "size": 32,
+          "color": "{white}/80",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0
+        },
+        {
+          "id": "fe190",
+          "type": "text",
+          "name": "Rodapé",
+          "x": 80,
+          "y": 1262,
+          "w": 760,
+          "text": "Uma febre. Quatro esperas. Ou uma.",
+          "font": "body",
+          "size": 22,
+          "color": "{white}/70",
+          "anchor": "bottom",
+          "leading": 28,
+          "tracking": 0
+        },
+        {
+          "id": "fe191",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "symbolWhite",
+          "x": 956,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    },
+    {
+      "id": "f200",
+      "name": "CTA",
+      "background": "radial-gradient(60% 75% at 92% 8%, #9531FF 0%, transparent 65%), radial-gradient(70% 80% at 0% 100%, #7A67F8 0%, transparent 62%), linear-gradient(160deg, #2B0B5C 0%, #451391 100%)",
+      "layers": [
+        {
+          "id": "fe193",
+          "type": "image",
+          "name": "Padrão cruzes",
+          "src": "assets/posts/patterns/cruzes.svg",
+          "x": 0,
+          "y": 0,
+          "w": 1080,
+          "h": 1350,
+          "fill": true,
+          "fit": "cover",
+          "opacity": 0.06
+        },
+        {
+          "id": "fe194",
+          "type": "text",
+          "name": "Título",
+          "x": 80,
+          "y": 120,
+          "w": 820,
+          "text": "Fique no sofá. A fila anda.",
+          "font": "display",
+          "size": 92,
+          "color": "{white}",
+          "anchor": "top",
+          "leading": 94,
+          "tracking": -0.045,
+          "runs": [
+            {
+              "text": "Fique no sofá. "
+            },
+            {
+              "text": "A fila anda.",
+              "style": {
+                "color": "{violet.300}"
+              }
+            }
+          ],
+          "slot": "Título"
+        },
+        {
+          "id": "fe195",
+          "type": "text",
+          "name": "Sub",
+          "x": 80,
+          "y": 442,
+          "w": 560,
+          "text": "Plantão 24h no app Viva Mais.",
+          "font": "body",
+          "size": 32,
+          "color": "{white}/70",
+          "anchor": "top",
+          "leading": 44,
+          "tracking": 0
+        },
+        {
+          "id": "fe196",
+          "type": "chip",
+          "name": "CTA",
+          "variant": "cta",
+          "title": "Baixe a Viva Mais",
+          "x": 80,
+          "y": 620,
+          "tone": "light",
+          "anchor": "top"
+        },
+        {
+          "id": "fe197",
+          "type": "phone",
+          "name": "Celular",
+          "screen": "plantao-called--calling",
+          "x": 560,
+          "y": 560,
+          "w": 420,
+          "rotate": -6
+        },
+        {
+          "id": "fe199",
+          "type": "text",
+          "name": "Aviso",
+          "x": 80,
+          "y": 1080,
+          "w": 420,
+          "text": "Em emergência, ligue 192 ou vá ao pronto-socorro mais próximo.",
+          "font": "body",
+          "size": 22,
+          "color": "{white}/60",
+          "anchor": "top",
+          "leading": 30,
+          "tracking": 0
+        },
+        {
+          "id": "fe198",
+          "type": "logo",
+          "name": "Logo",
+          "variant": "lockupWhite",
+          "x": 80,
+          "y": 1250,
+          "h": 44,
+          "anchor": "bottom"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-23T15:42:06.797429+00:00"
+}

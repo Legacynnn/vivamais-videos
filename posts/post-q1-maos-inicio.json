@@ -1,0 +1,284 @@
+{
+  "id": "post-q1-maos-inicio",
+  "name": "Q1 · Mãos + Início",
+  "kind": "post",
+  "format": "feed",
+  "style": "Foto com UI",
+  "topics": [
+    "Institucional"
+  ],
+  "base": {
+    "width": 1080,
+    "height": 1350
+  },
+  "frames": [
+    {
+      "id": "pf3tu",
+      "name": "Q1 · Mãos + Início",
+      "background": "{ink.950}",
+      "layers": [
+        {
+          "id": "p0yvv",
+          "type": "image",
+          "name": "Foto",
+          "slot": "Foto",
+          "fill": true,
+          "x": 0,
+          "y": 0,
+          "src": "assets/posts/photos/maos-01.jpg",
+          "fit": "cover",
+          "position": "50%",
+          "choices": [
+            "assets/posts/photos/maos-01.jpg",
+            "assets/posts/photos/maos-02.jpg",
+            "assets/posts/photos/maos-03.jpg",
+            "assets/posts/photos/maos-04.jpg",
+            "assets/posts/photos/maos-05.jpg",
+            "assets/posts/photos/maos-06.jpg",
+            "assets/posts/photos/maos-07.jpg",
+            "assets/posts/photos/maos-08.jpg"
+          ]
+        },
+        {
+          "id": "ss0drs1",
+          "type": "screen",
+          "name": "Tela no celular",
+          "slot": "Tela",
+          "x": 0,
+          "y": 0,
+          "screen": "client-home--default",
+          "photo": "p0yvv"
+        },
+        {
+          "id": "p1dny",
+          "x": 0,
+          "y": 0,
+          "anchor": "top",
+          "type": "rect",
+          "name": "Véu topo",
+          "w": 1080,
+          "h": 520,
+          "style": {
+            "backgroundImage": "linear-gradient(in oklab 180deg, #FFFFFFEB 0%, #FFFFFF99 55%, #FFFFFF00 100%)"
+          }
+        },
+        {
+          "id": "p2ef4",
+          "x": 72,
+          "y": 80,
+          "anchor": "top",
+          "type": "group",
+          "name": "Título",
+          "w": 900,
+          "h": 168,
+          "style": {
+            "alignItems": "start",
+            "display": "flex",
+            "justifyContent": "space-between"
+          },
+          "children": [
+            {
+              "id": "p3aj6",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Seu médico\ncabe na m…",
+              "text": "Seu médico\ncabe na mão.",
+              "font": "display",
+              "size": 84,
+              "color": "{ink.900}",
+              "leading": 84,
+              "tracking": -0.045,
+              "slot": "Título"
+            },
+            {
+              "id": "p4go1",
+              "x": 0,
+              "y": 0,
+              "type": "image",
+              "name": "Black logo with heart star",
+              "src": "assets/posts/paper/7GMD36KB6FP8JXHTSEP5A9EYQD.png",
+              "fit": "contain",
+              "position": "100%",
+              "style": {
+                "flexShrink": 0,
+                "height": "32px",
+                "marginTop": "14px",
+                "width": "150px"
+              }
+            }
+          ]
+        },
+        {
+          "id": "p56wa",
+          "x": 640,
+          "y": 470,
+          "rotate": 4,
+          "anchor": "top",
+          "type": "group",
+          "name": "Saindo · plantão",
+          "w": 326,
+          "h": 62,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "999px",
+            "boxShadow": "#22084A73 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "12px",
+            "paddingBlock": "16px",
+            "paddingLeft": "16px",
+            "paddingRight": "24px"
+          },
+          "children": [
+            {
+              "id": "p62rq",
+              "x": 0,
+              "y": 0,
+              "type": "rect",
+              "name": "Rectangle",
+              "style": {
+                "backgroundColor": "#00B597",
+                "borderRadius": "99px",
+                "boxShadow": "#C6FFF4 0px 0px 0px 6px",
+                "flexShrink": 0,
+                "height": "14px",
+                "width": "14px"
+              }
+            },
+            {
+              "id": "p7t5i",
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "name": "Plantão 24h · ao viv…",
+              "text": "Plantão 24h · ao vivo",
+              "font": "body",
+              "size": 24,
+              "weight": 500,
+              "color": "{ink.900}",
+              "leading": 30,
+              "tracking": 0,
+              "slot": "Chip 1"
+            }
+          ]
+        },
+        {
+          "id": "p8thu",
+          "x": 90,
+          "y": 700,
+          "rotate": -4,
+          "anchor": "center",
+          "type": "group",
+          "name": "Saindo · consulta",
+          "w": 311,
+          "h": 88,
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": "26px",
+            "boxShadow": "#22084A73 0px 30px 60px -18px",
+            "display": "flex",
+            "gap": "14px",
+            "paddingBlock": "16px",
+            "paddingLeft": "16px",
+            "paddingRight": "26px"
+          },
+          "children": [
+            {
+              "id": "p9xxa",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "alignItems": "center",
+                "backgroundColor": "#F5F0FE",
+                "borderRadius": "16px",
+                "display": "flex",
+                "flexDirection": "column",
+                "flexShrink": 0,
+                "height": "56px",
+                "justifyContent": "center",
+                "width": "56px"
+              },
+              "children": [
+                {
+                  "id": "pa591",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "NOV",
+                  "text": "NOV",
+                  "font": "body",
+                  "size": 12,
+                  "weight": 600,
+                  "color": "{violet.500}",
+                  "leading": 14,
+                  "tracking": 0
+                },
+                {
+                  "id": "pbs08",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "14",
+                  "text": "14",
+                  "font": "display",
+                  "size": 24,
+                  "weight": 500,
+                  "color": "{ink.900}",
+                  "leading": 26,
+                  "tracking": 0
+                }
+              ]
+            },
+            {
+              "id": "pcfxj",
+              "x": 0,
+              "y": 0,
+              "type": "group",
+              "name": "Frame",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column"
+              },
+              "children": [
+                {
+                  "id": "pdymt",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Sexta, às 09:00",
+                  "text": "Sexta, às 09:00",
+                  "font": "body",
+                  "size": 22,
+                  "weight": 600,
+                  "color": "{ink.900}",
+                  "leading": 28,
+                  "tracking": 0,
+                  "slot": "Chip 2"
+                },
+                {
+                  "id": "pes8r",
+                  "x": 0,
+                  "y": 0,
+                  "type": "text",
+                  "name": "Clínica geral · víde…",
+                  "text": "Clínica geral · vídeo",
+                  "font": "body",
+                  "size": 19,
+                  "color": "{ink.600}",
+                  "leading": 24,
+                  "tracking": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "paper:1ASH-0",
+  "updatedAt": "2026-11-22T21:32:03.042Z"
+}
