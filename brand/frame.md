@@ -5,10 +5,10 @@ colors:
   primary: "#7E3BED"
   primaryStrong: "#6A24DB"
   primarySoft: "#F5F0FE"
-  secondary: "#4EEB8C"
-  secondaryStrong: "#0D883F"
+  secondary: "#12FFD7"
+  secondaryStrong: "#008F7A"
   iris: "#9681EB"
-  aqua: "#45CFDD"
+  azure: "#5A9AF0"
   foreground: "#17151E"
   mutedForeground: "#726F80"
   border: "#E6E4EC"
@@ -55,16 +55,16 @@ Warm, human healthcare. Energetic and calm at once; never cold, bureaucratic, fi
 
 ## Color
 
-Names match the product (`packages/theme/tokens.json` in the monorepo): scales `violet`, `ink`, plus brand-only `iris`, `aqua`, `green`, each 50–950 (`--vm-violet-500`). Roles point at scale steps (`--vm-foreground` = `ink-900`).
+Colours are generated from the product (`packages/theme/tokens.json` in the monorepo, via `npm run sync:monorepo`): scales `violet`, `spark`, `ink`, `iris`, `azure`, each 50–950 (`--vm-violet-500`). Roles point at scale steps (`--vm-foreground` = `ink-900`).
 
-- Violet dominates (`primary` = violet-500 #7E3BED). Green is the secondary accent (`secondary` = green-400 #4EEB8C; `secondary-strong` green-700 for green text or fills on light): tags, checks, highlighted words on dark. Iris #9681EB and aqua #45CFDD are supporting tones for illustration, charts, and a third value when needed; never large fills.
-- Backgrounds are violet or white/`canvas`, never green/aqua. Dark frames use `--vm-grad-escuro` (purple only). Cards on light frames use `tile` #F6F5F9 with no border, product style; white wells inside a tile when content needs a second level.
-- Text on light: `foreground` ink-900, body ink-600, `muted-foreground` ink-500. Text on dark: white, green for emphasis.
+- Violet dominates (`primary` = violet-500 #7E3BED). Spark is the secondary accent (`secondary` = spark-400 #12FFD7; `secondary-strong` spark-700 for spark text or fills on light): tags, checks, highlighted words on dark. Iris #9681EB and azure #5A9AF0 are supporting tones for illustration, charts, and a third value when needed; never large fills.
+- Backgrounds are violet or white/`canvas`, never spark/azure. Dark frames use `--vm-grad-escuro` (purple only). Cards on light frames use `tile` #F6F5F9 with no border, product style; white wells inside a tile when content needs a second level.
+- Text on light: `foreground` ink-900, body ink-600, `muted-foreground` ink-500. Text on dark: white, spark for emphasis.
 - Solid fills by default. No gradient text except the cover/closing headline. `logo-aqua` → `logo-purple` belongs to the logo only.
 
 ## Type
 
-- Space Grotesk for titles and big numbers. DM Sans for everything readable (captions, UI, labels).
+- Space Grotesk for titles and big numbers, weight 400, tracking -0.035em, like the site headlines (`apps/site`). DM Sans for everything readable (captions, UI, labels).
 - One headline per frame. Few words, large, with air.
 
 ## Logo

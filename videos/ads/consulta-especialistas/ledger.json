@@ -1,0 +1,154 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "hook-carrossel",
+      "exit": {
+        "selector": "#el-hook .hk-rows",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-carrossel .ce-rail",
+        "axis": "x",
+        "dir": -1
+      },
+      "technique": "specialty rows accelerate LEFT and hand off to the carousel rail at matched velocity"
+    },
+    {
+      "id": "carrossel-busca",
+      "cut": 8.75,
+      "technique": "shared element: the landed VIOLET Cardiologia pill (centre 540,1180, scale 0.6) keeps falling at its carrossel speed (about 1400 px/s), decelerates on power2.out while the phone rises in sync from the bottom; the specialty field meets the pill at about 0.3s and the pill morphs (background, text colour, radius, shadow) into the field chip as it docks, so it reads as one object; no crossfade, blur max 4px",
+      "exit": {
+        "selector": "#el-carrossel .ce-pick",
+        "axis": "y",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-busca .ce-pick",
+        "axis": "y",
+        "dir": 1
+      }
+    },
+    {
+      "id": "busca-horario",
+      "cut": 11.0,
+      "technique": "phone continuity: horario frame 0 is the exact busca end state (same phone position, profile scrolled, 14:30 selected, Agendar visible); no camera move at the cut",
+      "exit": {
+        "selector": "#el-busca .dev",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-horario .dev",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "horario-anamnese",
+      "cut": 14.25,
+      "technique": "exit LEFT with motion blur: the phone (confirmation screen) carries LEFT through the cut, the anamnese question card enters from the right carrying LEFT",
+      "exit": {
+        "selector": "#el-horario .dev",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-anamnese .ce-ask",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "anamnese-tempo",
+      "cut": 20.5,
+      "technique": "exit LEFT: anamnese carries LEFT; tempo's flip-calendar card enters from the right carrying LEFT",
+      "exit": {
+        "selector": "#el-anamnese .ce-ask",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-tempo .tm-cal",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "tempo-chamada",
+      "cut": 22.75,
+      "technique": "glass notification settled at left 80, top 720, 920x212; chamada builds from that end state",
+      "exit": {
+        "selector": "#el-tempo .ce-glass",
+        "axis": "y",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-chamada .ce-glass",
+        "axis": "y",
+        "dir": 1
+      }
+    },
+    {
+      "id": "chamada-assinatura",
+      "cut": 28.25,
+      "technique": "the call ends and becomes the document: the Consulta encerrada pill morphs into a blank white page at frame centre while the phone sinks away; assinatura starts from the same page",
+      "exit": {
+        "selector": "#el-chamada .ce-endpage",
+        "axis": "z",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-assinatura .as-startpage",
+        "axis": "z",
+        "dir": -1
+      }
+    },
+    {
+      "id": "assinatura-resumo",
+      "cut": 31.0,
+      "technique": "camera pan LEFT: the doctor-to-patient graph pans out LEFT; the patient card keeps travelling and arrives centred as the hub of resumo, entering from the right",
+      "exit": {
+        "selector": "#el-assinatura .ce-graph",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-resumo .ce-hub",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "resumo-documentos",
+      "cut": 34.5,
+      "technique": "zoom-through: a tap on the Prontuário source chip inside the AI chat, then the camera scales through that chip with blur and it becomes the first document page (Prontuário) of documentos, Z-forward",
+      "exit": {
+        "selector": "#el-resumo [aria-label=\"Abrir fonte: Prontuário\"]",
+        "axis": "z",
+        "dir": 1
+      },
+      "entry": {
+        "selector": "#el-documentos .ce-page",
+        "axis": "z",
+        "dir": 1
+      }
+    },
+    {
+      "id": "documentos-fim",
+      "cut": 36.5,
+      "technique": "exit LEFT: the last page (Encaminhamento) flies LEFT with blur; fim's specialty icons enter from the right carrying LEFT and swing into orbit",
+      "exit": {
+        "selector": "#el-documentos .ce-page",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-fim .ce-orbit",
+        "axis": "x",
+        "dir": -1
+      }
+    }
+  ]
+}

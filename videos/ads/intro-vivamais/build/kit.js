@@ -73,7 +73,7 @@ function VMKit(cfg) {
       n.scrollLeft = Number(n.getAttribute("data-vm-left") || 0);
     });
     let best = null;
-    all("[data-vm-scroll]", el).forEach((n) => {
+    all("[data-vm-scroll], .rn-scroll", el).forEach((n) => {
       if (n.clientWidth < 300 || n.scrollHeight - n.clientHeight < 20) return;
       if (!best || n.clientHeight > best.clientHeight) best = n;
     });
@@ -867,7 +867,7 @@ function VMKit(cfg) {
   const marks = [];
   function mark(t, target, o) {
     const opt = o || {};
-    ensure(t, target, { fit: true, stay: opt.stay });
+    ensure(t, target, { fit: true, stay: opt.stay, noScroll: opt.noScroll });
     const el0 = target instanceof Element ? target : target && target.el;
     let r = el0 ? rect(el0) : target;
     if (opt.dy || opt.maxW) {

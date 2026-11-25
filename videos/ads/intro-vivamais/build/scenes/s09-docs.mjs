@@ -12,7 +12,7 @@ export default {
   tail: 0.5,
   seam: { axis: "z", dir: 1, technique: "signature plus", sig: true },
   layers: { tf: `<div class="tfade"></div>` },
-  states: [["pos-skel", 0], ["pos", 0]],
+  states: [["pos-skel", 0, "post-consultation preparing"], ["pos", 0, "post-consultation ready"]],
   stage: "",
   hud: DOCS_HTML,
   css: DOCS_CSS + `
@@ -38,25 +38,24 @@ export default {
   ],
   frame: {
     title: "Os documentos chegam",
-    scene: "Pós-consulta real carrega em skeleton; lista de documentos; receita, pedido de exames e atestado abrem como papéis ao lado do iPhone com assinatura desenhada, selo e QR; selo ICP-Brasil; receita vai para a farmácia e o atestado para o RH",
+    scene: "Pós-consulta real com documentos em preparo; ficam prontos e a lista de documentos aparece; receita, pedido de exames e atestado abrem como papéis ao lado do iPhone com assinatura desenhada, selo e QR; selo ICP-Brasil; receita vai para a farmácia e o atestado para o RH",
     motion: "wipe seam, skeleton → content, scroll, tap, stacked papers swapping with a tab pill, signature draw, seal stamp, papers flying into destination pills",
-    body: "O painel sobe. O pós-consulta carrega e rola até os documentos. Em “Receita” o dedo toca e o papel abre à direita, a assinatura se desenha e o selo bate. Pedido de exames e atestado entram por cima trocando a aba. Em “Assinados digitalmente” o selo ICP-Brasil aparece. Em “farmácia” e “RH” a receita e o atestado encolhem e voam para os seus destinos.",
+    body: "O painel sobe. O pós-consulta mostra os documentos em preparo, ficam prontos e a tela rola até os documentos. Em “Receita” o dedo toca e o papel abre à direita, a assinatura se desenha e o selo bate. Pedido de exames e atestado entram por cima trocando a aba. Em “Assinados digitalmente” o selo ICP-Brasil aparece. Em “farmácia” e “RH” a receita e o atestado encolhem e voam para os seus destinos.",
   },
   run: function (S, A) {
     gsap.set(S.one(".vmk-device"), { opacity: 1 });
     S.boot("pos-skel");
-    try {
-      S.setText(0, S.pick("pos", /^R\$ [\d,]+ · pago$/, { hit: false }), "R$ 59,90 · Pix");
-    } catch (e) {}
     S.cam(0, { x: 201, y: 437, zoom: 1.65, ax: 540, ay: 1180, free: true }, 0.01);
     S.show(A.w("consulta") - 0.1, "pos", { fade: 0.3 });
-    var rx = S.pick("pos", "Receita simples", { hit: false });
-    var ex = S.pick("pos", "Pedido de exames", { hit: false });
-    var at = S.pick("pos", "Atestado médico", { hit: false });
-    var list = rx;
-    while (list.parentElement && !/Prontuário da consulta/.test(list.textContent)) list = list.parentElement;
+    var pos = S.state("pos");
+    var rx = S.one('[aria-label="Abrir Receita: Receita simples"]', pos);
+    var ex = S.one('[aria-label="Abrir Pedido de exame: Pedido de exames"]', pos);
+    var at = S.one('[aria-label="Abrir Atestado: Atestado médico"]', pos);
+    var rail = rx.closest(".rn-scroll");
+    var list = rail;
+    while (list.parentElement && !/^Documentos/.test(list.textContent.trim())) list = list.parentElement;
     var tch = A.w("chegam") - 0.3;
-    S.scroll(tch, ["pos"], 820, 0.9);
+    S.scroll(tch, ["pos"], 430, 0.9);
     var tfade = S.layer("tf");
     gsap.set(tfade, { autoAlpha: 0 });
     S.add(function (tl) {
@@ -105,7 +104,15 @@ export default {
       });
     }
     toPaper(A.w("pedido") - 0.1, 1, ex);
-    toPaper(A.w("atestado") - 0.1, 2, at);
+    var rr = S.rect(rail);
+    var ar = S.rect(at);
+    var slide = Math.max(0, Math.min(rail.scrollWidth - rail.clientWidth, ar.x + ar.w - (rr.x + rr.w) + 16));
+    var ta = A.w("atestado") - 0.1;
+    S.add(function (tl) {
+      tl.fromTo(rail, { scrollLeft: 0 }, { scrollLeft: slide, duration: 0.4, ease: "power2.inOut", immediateRender: false }, ta - 0.75);
+    });
+    var atAt = { x: ar.x - slide, y: ar.y, w: ar.w, h: ar.h, cx: ar.cx - slide, cy: ar.cy };
+    toPaper(ta, 2, atAt);
     S.cursorExit(A.w("atestado") + 0.3, "down", 0.4);
     A.pop(A.w("Assinados") - 0.1, "sig", { y: 20 });
     A.tw(function (tl) {

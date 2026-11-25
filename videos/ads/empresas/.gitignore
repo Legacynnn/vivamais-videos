@@ -1,0 +1,37 @@
+# sync:start
+/assets/brand/
+/assets/icons/specialties/cardio.png
+/assets/icons/specialties/derma.png
+/assets/icons/specialties/medico.png
+/assets/icons/specialties/nutrologista.png
+/assets/icons/specialties/pediatria.png
+/assets/icons/specialties/psicologia.png
+/assets/illustrations/plantao-24h.webp
+/assets/illustrations/records/atestado.webp
+/assets/illustrations/records/exames.webp
+/assets/illustrations/records/receita.webp
+/assets/kit/motion.css
+/assets/kit/motion.js
+/assets/kit/screens.css
+/assets/kit/screens.js
+/assets/logos/pharmacies/drogaria-sao-paulo.svg
+/assets/logos/pharmacies/drogasil.svg
+/assets/logos/pharmacies/pague-menos.svg
+/assets/logos/pharmacies/panvel.svg
+/assets/logos/pharmacies/raia.png
+/assets/people/doctors/camila-rocha.jpg
+/assets/people/doctors/d1.jpeg
+/assets/people/doctors/d4.jpeg
+/assets/people/doctors/julia.jpg
+/assets/people/doctors/mariana.jpg
+/assets/people/doctors/rafael.jpg
+/assets/people/family/conjuge.png
+/assets/people/family/filho.png
+/assets/people/family/mae.png
+/assets/people/patients/01.png
+/assets/people/patients/02.png
+/assets/people/patients/03.png
+/assets/people/patients/04.png
+/assets/people/patients/05.png
+/assets/screens/
+# sync:end

@@ -49,7 +49,7 @@ O notebook ocupa a direita, a coluna de texto à esquerda. A planilha voa até a
 
 ## Frame 4 — Primeiro acesso
 
-- scene: iPhone sobe com a tela bloqueada; notificação “Bem-vinda à Viva Mais, Ana!”; toque abre o app, skeleton, Início real; à direita “Primeiro acesso.” e o cartão da Ana
+- scene: iPhone sobe com a tela bloqueada; notificação “Bem-vinda à Viva Mais, Ana!”; toque abre o app, esqueleto do Início, Início real do colaborador; à direita “Primeiro acesso.” e o cartão da Ana
 - duration: 9s
 - transition_in: cut-the-curve UP
 - status: animated
@@ -62,59 +62,59 @@ O iPhone sobe pela esquerda com a tela bloqueada e a notificação da Viva Mais 
 
 ## Frame 5 — Tudo que a empresa oferece
 
-- scene: Início real rola até Seus benefícios; toque revela a tela de benefícios (Plantão 24h por R$ 0,00, especialistas, exames, farmácias); cada benefício salta do celular como um cartão à direita no ritmo da narração; fecha com “Tudo no bolso.”
+- scene: Início real do colaborador rola até o painel Viva+ Empresarial; toque em Ver plano revela Meu plano (crédito da empresa, especialistas, Super Inteligência, farmácias); cada benefício salta do celular como cartão no ritmo da narração; fecha com “Tudo no bolso.”
 - duration: 15.75s
 - transition_in: match cut: same phone, same framing
 - status: animated
 - src: compositions/s05-beneficios.html
-- motion: scroll with steady camera, circular reveal, inner scroll, cards breaking out of the device in a staggered cascade synced to VO, slam
+- motion: scroll with steady camera, circular reveal, marks synced to VO, cards breaking out of the device in a staggered cascade, slam
 - voiceover: "E ali está tudo que a empresa oferece pra ela. Plantão vinte e quatro horas. Especialistas com desconto. Exames, farmácias. Tudo no bolso."
 - start: 47.25s
 
-O mesmo iPhone continua do corte. O Início rola até o cartão Seus benefícios e o dedo toca. A tela de benefícios abre num círculo a partir do toque. Em “Plantão vinte e quatro horas”, “Especialistas com desconto”, “Exames, farmácias”, cada benefício é destacado na tela e salta como cartão à direita, em escada. “Tudo no bolso.” bate grande embaixo.
+O mesmo iPhone continua do corte. O Início rola até o painel Viva+ Empresarial e o dedo toca Ver plano. Meu plano abre num círculo a partir do toque. Em “Plantão vinte e quatro horas”, “Especialistas com desconto”, “Exames, farmácias”, cada benefício é destacado na tela e salta como cartão, em escada. “Tudo no bolso.” bate grande em cima.
 
 ## Frame 6 — Ficha e IA de saúde
 
-- scene: Ficha de saúde real a 100% com peso, altura e IMC; volta ao Início, toque em “Dúvida sobre remédios”; chat da IA com a pergunta digitada e a resposta chegando palavra por palavra
+- scene: Ficha de saúde real a 100% com peso, altura e IMC; volta ao Início, toque na sugestão “Posso tomar dipirona com paracetamol?” da Super Inteligência; chat real da IA com a pergunta e a resposta chegando palavra por palavra
 - duration: 9.75s
 - transition_in: signature plus
 - status: animated
 - src: compositions/s06-ia.html
-- motion: violet wipe seam, count-up ring, mark, horizontal chip scroll, tap, slide-in chat, typing dots, word-by-word streaming, text swap with mask rise
+- motion: violet wipe seam, marks, horizontal chip scroll, tap, slide-in chat, word-by-word streaming, text swap with mask rise
 - voiceover: "A ficha de saúde fica guardada. E quando bate a dúvida, a IA da Viva Mais responde na hora."
 - start: 63s
 
-O painel violeta passa. A ficha de saúde da Ana aparece a 100%, com as medidas destacadas. Em “quando bate a dúvida” o Início rola a fileira da IA até “Dúvida sobre remédios” e o dedo toca. O chat abre, a pergunta entra, os três pontos pulsam e a resposta chega palavra por palavra em “responde na hora”.
+O painel violeta passa. A ficha de saúde da Ana aparece a 100%, com as medidas destacadas. Em “quando bate a dúvida” o Início rola a fileira da Super Inteligência até “Posso tomar dipirona com paracetamol?” e o dedo toca. O chat abre, a pergunta entra e a resposta chega palavra por palavra em “responde na hora”.
 
 ## Frame 7 — Quando o corpo avisa
 
-- scene: Quebra de padrão: tela preta, “38,2°” gigante e “E quando o corpo avisa?” em lima, batida de coração, a música para; o preto fecha num círculo e revela o iPhone no plantão; Começar, checkout, Pix com desconto do plano, “−25% com o plano”; motivo digitado na anamnese
+- scene: Quebra de padrão: tela preta, “38,2°” gigante e “E quando o corpo avisa?”, batida de coração, a música para; o preto fecha num círculo e revela o iPhone no Plantão real (Vídeo); Entrar, Confirmar com Crédito da empresa, folha “Pagar com crédito da empresa”, “R$ 0 do bolso.”, tela “Pronto, você está no plantão” com “Contar o que estou sentindo”
 - duration: 16.5s
 - transition_in: hard cut to black (pattern break)
 - status: animated
 - src: compositions/s07-plantao.html
-- motion: pattern break with music drop, slam, iris close into the phone, taps with ripple, native push transitions, xxl slam, typing
+- motion: pattern break with music drop, slam, iris close into the phone, taps with ripple, native push, bottom sheet rise, xxl slam, mark
 - voiceover: "E quando o corpo avisa? Ela abre o plantão e paga com o crédito da empresa. Zero reais do bolso. Depois, é só contar o que sente."
 - start: 72.75s
 
-Corte seco para o preto: a febre “38,2°” bate enorme, “E quando o corpo avisa?” sobe em lima e o coração bate. Em “Ela abre o plantão” o preto se abre num círculo a partir do iPhone, já na tela do plantão. O dedo toca Começar, o checkout abre, toca em Crédito da empresa, o limite de R$ 300,00 aparece e a confirmação sai. “R$ 0 do bolso.” bate à direita. Em “Depois, é só contar o que sente” a anamnese sobe e o motivo é digitado.
+Corte seco para o preto: a febre “38,2°” bate enorme, “E quando o corpo avisa?” sobe e o coração bate. Em “Ela abre o plantão” o preto se abre num círculo a partir do iPhone, já na tela do Plantão. O dedo toca Entrar, o checkout abre, toca em Crédito da empresa e em Pagar; a folha do crédito da empresa sobe com o limite de R$ 300,00 e o dedo confirma. “R$ 0 do bolso.” bate em cima. A tela “Pronto, você está no plantão” entra e, em “contar o que sente”, o botão “Contar o que estou sentindo” é destacado e tocado.
 
 ## Frame 8 — Anamnese completa
 
-- scene: O iPhone percorre a anamnese inteira do plantão: digita o motivo, marca a cabeça no corpo e a intensidade, diz desde quando e como está evoluindo, confirma remédios e alergias, pula os anexos, revisa e envia
+- scene: O iPhone percorre a anamnese real do plantão: sintomas (Dor de cabeça), desde quando (Ontem), onde dói (Cabeça), como é e quanto dói (Latejante, 7), alergias e remédios, compartilhar o histórico, enviar; volta para a fila do plantão
 - duration: 30.75s
 - transition_in: cut-the-curve UP
 - status: animated
 - src: compositions/s07b-anamnese.html
-- motion: typing, taps with press, bottom sheet, state slides, one headline swap per step, slow push per step
+- motion: taps with press, state pushes, one headline swap per step, slow push per step
 - voiceover: —
 - start: 89.25s
 
-Cinco passos reais do app, um título por passo: “Conta o que sente.”, “Onde dói.”, “Desde quando.”, “Remédios e alergias.” e, na revisão e no envio, “Ela já chega sabendo.”
+Os passos reais do app, um título por passo: “Conta o que sente.”, “Desde quando.”, “Onde dói.”, “Remédios e alergias.” e, no compartilhamento e no envio, “Ela já chega sabendo.” Ao enviar, a fila do plantão volta com a Ana em 3º.
 
 ## Frame 9 — A médica já está ali
 
-- scene: Fila do plantão real (posição 1), médica encontrada; a mesma notificação do gancho cai no topo do iPhone; toque abre a chamada com a Dra. Camila em vídeo, câmera da Ana no canto, controles
+- scene: Fila do plantão real (Você é o 1º), “Encontramos seu médico” com a Dra. Camila Rocha; a mesma notificação do gancho cai no topo do iPhone; toque abre a chamada com a Dra. Camila em vídeo, câmera da Ana no canto, controles
 - duration: 9.75s
 - transition_in: cut-the-curve LEFT
 - status: animated
@@ -123,11 +123,11 @@ Cinco passos reais do app, um título por passo: “Conta o que sente.”, “On
 - voiceover: "Quatro minutos, lembra? A médica já está ali. Consulta por vídeo, de onde ela estiver."
 - start: 120s
 
-A fila mostra a Ana em primeiro e a médica é encontrada. Em “lembra?” a mesma notificação do começo cai no topo da tela e “Lembra?” bate à direita. O dedo toca, a chamada abre num círculo a partir da notificação: Dra. Camila em vídeo, a Ana no canto, legenda ligada. A câmera empurra para a chamada em “consulta por vídeo”.
+A fila mostra a Ana em 1º e o app avisa “Encontramos seu médico”. Em “lembra?” a mesma notificação do começo cai no topo da tela e “Lembra?” bate à direita. O dedo toca, a chamada abre num círculo a partir da notificação: Dra. Camila em vídeo, a Ana no canto, legenda ligada. A câmera empurra para a chamada em “consulta por vídeo”.
 
 ## Frame 10 — Os documentos chegam
 
-- scene: Pós-consulta real carrega em skeleton; lista de documentos; receita, pedido de exames e atestado abrem como papéis ao lado do iPhone com assinatura desenhada, selo e QR; selo ICP-Brasil; receita vai para a farmácia e o atestado para o RH
+- scene: Pós-consulta real com documentos em preparo; ficam prontos e a lista de documentos aparece; receita, pedido de exames e atestado abrem como papéis ao lado do iPhone com assinatura desenhada, selo e QR; selo ICP-Brasil; receita vai para a farmácia e o atestado para o RH
 - duration: 15s
 - transition_in: signature plus
 - status: animated
@@ -136,7 +136,7 @@ A fila mostra a Ana em primeiro e a médica é encontrada. Em “lembra?” a me
 - voiceover: "Acabou a consulta, chegam os documentos. Receita, pedido de exames, atestado. Assinados digitalmente, prontos pra farmácia e pro RH."
 - start: 129.75s
 
-O painel sobe. O pós-consulta carrega e rola até os documentos. Em “Receita” o dedo toca e o papel abre à direita, a assinatura se desenha e o selo bate. Pedido de exames e atestado entram por cima trocando a aba. Em “Assinados digitalmente” o selo ICP-Brasil aparece. Em “farmácia” e “RH” a receita e o atestado encolhem e voam para os seus destinos.
+O painel sobe. O pós-consulta mostra os documentos em preparo, ficam prontos e a tela rola até os documentos. Em “Receita” o dedo toca e o papel abre à direita, a assinatura se desenha e o selo bate. Pedido de exames e atestado entram por cima trocando a aba. Em “Assinados digitalmente” o selo ICP-Brasil aparece. Em “farmácia” e “RH” a receita e o atestado encolhem e voam para os seus destinos.
 
 ## Frame 11 — Nada passa batido
 

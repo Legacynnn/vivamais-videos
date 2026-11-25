@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/ce.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #burst .ce-rail { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; will-change: transform, filter; }
+        #burst .ce-hub {
+          left: 0; top: 0; width: 60px; height: 60px; border-radius: 30px; background: var(--ce-accent);
+          display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; z-index: 5;
+        }
+        #burst .hub-in { display: flex; flex-direction: column; align-items: center; opacity: 0; white-space: nowrap; }
+        #burst .hub-num { font: 700 200px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.04em; color: var(--ce-accent); }
+        #burst .hub-sub { margin-top: 6px; font: 500 52px/1.1 var(--vm-font-text, "DM Sans"), sans-serif; color: var(--ce-body); }
+        #burst .sat { left: 0; top: 0; z-index: 6; opacity: 0; will-change: transform, filter, opacity; }
+        #burst .ce-icon { position: absolute; width: 150px; height: 150px; border-radius: 40px; background: var(--ce-white); box-shadow: var(--ce-shadow-soft); display: flex; align-items: center; justify-content: center; }
+        #burst .ce-icon img { width: 100px; height: 100px; object-fit: contain; }
+        #burst .ce-chip {
+          position: absolute; display: inline-flex; align-items: center; height: 100px; padding: 0 44px; border-radius: 999px; white-space: nowrap;
+          background: var(--ce-white); box-shadow: var(--ce-shadow-soft); font: 500 50px/1 var(--vm-font-text, "DM Sans"), sans-serif; color: var(--ce-ink);
+        }
+        #burst .ce-chip--slot { background: var(--ce-accent-soft); color: var(--ce-accent-deep); }
+        #burst .ce-chip .star { width: 44px; height: 44px; margin-right: 14px; fill: var(--ce-accent); }
+        #burst .ce-links { z-index: 1; }
+        #burst .ce-rail { z-index: 2; }
+      </style>
+      <div id="burst" class="vm-scene ce-scene" data-composition-id="burst" data-start="0" data-duration="2.5" data-width="1080" data-height="1920">
+        <div class="ce-stage"></div>
+        <div class="ce-halo"></div>
+        <img class="ce-logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+        <svg class="ce-links" viewBox="0 0 1080 1920" data-layout-allow-overflow></svg>
+        <div class="ce-rail" data-layout-allow-overflow>
+          <div class="ce-card ce-hub">
+            <div class="hub-in"><span class="hub-num">+40</span><span class="hub-sub">especialidades disponíveis</span></div>
+          </div>
+          <img class="sat ce-avatar" data-x="220" data-y="500" src="assets/people/doctors/camila-rocha.jpg" alt="">
+          <span class="sat ce-chip" data-x="540" data-y="400"><svg class="star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3L7 14.2 2 9.3l6.9-1z"/></svg>4,9</span>
+          <img class="sat ce-avatar" data-x="860" data-y="500" src="assets/people/doctors/rafael.jpg" alt="">
+          <span class="sat ce-pill" data-x="235" data-y="1100" style="height:100px;padding:0 44px">Vídeo</span>
+          <div class="sat ce-icon" data-x="540" data-y="1120"><img src="assets/icons/specialties/cardio.png" alt=""></div>
+          <span class="sat ce-pill" data-x="830" data-y="1100" style="height:100px;padding:0 44px">Chat</span>
+          <span class="sat ce-chip ce-chip--slot" data-x="330" data-y="1262">Seg · 14:30</span>
+          <div class="sat ce-icon" data-x="740" data-y="1270"><img src="assets/icons/specialties/pediatria.png" alt=""></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="burst"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const m = VMMotion.create({ root, tl });
+            const q = (s) => root.querySelector(s);
+            const hub = q(".ce-hub");
+            const rail = q(".ce-rail");
+            const svg = q(".ce-links");
+            const sats = Array.from(root.querySelectorAll(".sat"));
+            const HX = 540, HY = 820;
+
+            gsap.set(hub, { x: 540, y: 900, xPercent: -50, yPercent: -50 });
+            sats.forEach((s) => gsap.set(s, { x: HX, y: HY, xPercent: -50, yPercent: -50, scale: 0.4 }));
+
+            const links = sats.map((s) => {
+              const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+              p.setAttribute("d", `M${HX} ${HY} L${s.dataset.x} ${s.dataset.y}`);
+              svg.appendChild(p);
+              const len = p.getTotalLength();
+              gsap.set(p, { strokeDasharray: len, strokeDashoffset: len, opacity: 0 });
+              return { p, len };
+            });
+
+            tl.to(hub, { width: 760, height: 360, borderRadius: 40, y: HY, backgroundColor: getComputedStyle(root).getPropertyValue("--vm-white").trim(), duration: 0.55, ease: "power4.out" }, 0);
+            tl.to(q(".hub-in"), { opacity: 1, duration: 0.2, ease: "power2.out" }, 0.15);
+            m.count(q(".hub-num"), 0.15, 40, { dur: 0.7, fmt: (v) => "+" + Math.round(v) });
+
+            sats.forEach((s, i) => {
+              const t = 0.8 + i * 0.04;
+              tl.to(s, { opacity: 1, duration: 0.15, ease: "power2.out" }, t);
+              tl.to(s, { scale: 1, duration: 0.6, ease: "power4.out" }, t);
+              tl.to(s, { x: +s.dataset.x, y: +s.dataset.y, duration: 0.6, ease: "back.out(1.4)" }, t);
+            });
+            links.forEach((l, i) => { tl.set(l.p, { opacity: 1 }, 1.2 + i * 0.02); tl.to(l.p, { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" }, 1.2 + i * 0.02); });
+
+            links.forEach((l, i) => { tl.to(l.p, { strokeDashoffset: l.len, duration: 0.25, ease: "power3.in" }, 2.0 + i * 0.01); tl.set(l.p, { opacity: 0 }, 2.26 + i * 0.01); });
+
+            const RY = 900;
+            const hubScale = 0.5;
+            let cursor = 540 + 0 - 40;
+            const hubX = 300;
+            cursor = hubX + (760 * hubScale) / 2 + 60;
+            tl.to(hub, { x: hubX, y: RY, scale: hubScale, duration: 0.35, ease: "power3.inOut" }, 2.0);
+            sats.forEach((s, i) => {
+              const w = s.offsetWidth;
+              const cx = cursor + w / 2;
+              cursor += w + 60;
+              tl.to(s, { x: cx, y: RY, scale: 1, duration: 0.35, ease: "power3.inOut" }, 2.0 + i * 0.015);
+            });
+            tl.to(q(".ce-logo"), { x: -400, filter: "blur(4px)", opacity: 0.6, duration: 0.35, ease: "power2.in" }, 2.15);
+            tl.to(rail, { x: -1100, filter: "blur(4px)", duration: 0.35, ease: "power2.in" }, 2.15);
+
+            window.__timelines["burst"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

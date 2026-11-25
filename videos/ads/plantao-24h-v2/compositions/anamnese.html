@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        #anamnese .an-cam { position: absolute; inset: 0; transform-origin: 540px 900px; }
+        #anamnese .v2-line { left: 80px; right: 80px; top: 360px; height: 180px; z-index: 10; will-change: transform, filter, opacity; }
+        #anamnese .an-wd { display: inline-block; white-space: nowrap; }
+        #anamnese .an-c { display: inline-block; transform-origin: 50% 50% -0.5em; will-change: transform, opacity; }
+        #anamnese .an-l { position: absolute; left: 0; right: 0; top: 0; will-change: transform, filter, opacity; }
+        #anamnese .an-chip { position: absolute; left: 160px; width: 760px; height: 112px; box-sizing: border-box; display: flex; align-items: center; gap: 24px; padding: 0 36px 0 16px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 0 0 2px rgba(53, 14, 111, 0.05), 0 2px 4px rgba(23, 21, 30, 0.04), 0 26px 50px -20px rgba(53, 14, 111, 0.32); font: 500 44px/1 "DM Sans", sans-serif; letter-spacing: -0.01em; color: #17151E; white-space: nowrap; will-change: transform, filter, opacity; }
+        #anamnese .an-ico { flex: none; width: 80px; height: 80px; border-radius: 50%; background: #EBE1FD; color: #22084A; display: grid; place-items: center; }
+        #anamnese .an-ico svg { width: 46px; height: 46px; display: block; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+        #anamnese .an-ico svg .a { stroke: #7E3BED; }
+        #anamnese .an-scale { margin-left: auto; display: flex; align-items: flex-end; gap: 6px; height: 48px; }
+        #anamnese .an-scale i { display: block; width: 17px; border-radius: 5px; background: #E4E0EE; }
+        #anamnese .an-scale i:nth-child(1) { height: 14px; } #anamnese .an-scale i:nth-child(2) { height: 18px; } #anamnese .an-scale i:nth-child(3) { height: 22px; } #anamnese .an-scale i:nth-child(4) { height: 26px; } #anamnese .an-scale i:nth-child(5) { height: 30px; } #anamnese .an-scale i:nth-child(6) { height: 34px; } #anamnese .an-scale i:nth-child(7) { height: 38px; } #anamnese .an-scale i:nth-child(8) { height: 42px; } #anamnese .an-scale i:nth-child(9) { height: 45px; } #anamnese .an-scale i:nth-child(10) { height: 48px; }
+        #anamnese .an-file { position: absolute; top: 770px; width: 270px; height: 330px; box-sizing: border-box; padding: 10px 10px 0; border-radius: 36px; background: #FFFFFF; box-shadow: 0 0 0 2px rgba(23, 21, 30, 0.06), 0 2px 4px rgba(23, 21, 30, 0.04), 0 30px 60px -22px rgba(53, 14, 111, 0.4); will-change: transform, filter, opacity; }
+        #anamnese .an-th { position: relative; width: 250px; height: 200px; border-radius: 28px; overflow: hidden; background: #EBE1FD; display: grid; place-items: center; }
+        #anamnese .an-th img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; display: block; }
+        #anamnese .an-th svg { width: 110px; height: 110px; fill: none; stroke: #7E3BED; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        #anamnese .an-tag { position: absolute; left: 12px; top: 12px; padding: 6px 12px; border-radius: 999px; background: #FFFFFF; font: 700 22px/1 "DM Sans", sans-serif; color: #22084A; }
+        #anamnese .an-fn { margin: 16px 8px 0; font: 500 30px/1.1 "DM Sans", sans-serif; color: #17151E; letter-spacing: -0.01em; }
+        #anamnese .an-fs { margin: 6px 8px 0; font: 400 24px/1 "DM Sans", sans-serif; color: #4A4658; }
+        #anamnese .an-doc { position: absolute; left: 100px; top: 700px; width: 880px; height: 220px; box-sizing: border-box; display: flex; align-items: center; gap: 32px; padding: 0 36px 0 40px; border-radius: 56px; background: #FFFFFF; box-shadow: 0 0 0 2px rgba(23, 21, 30, 0.06), 0 2px 4px rgba(23, 21, 30, 0.04), 0 40px 80px -28px rgba(53, 14, 111, 0.45); will-change: transform, filter, opacity; }
+        #anamnese .an-doc::before { content: ""; position: absolute; inset: -50px; z-index: -1; border-radius: 100px; background: radial-gradient(closest-side, rgba(126, 59, 237, 0.22), rgba(126, 59, 237, 0)); pointer-events: none; }
+        #anamnese .an-av { flex: none; width: 150px; height: 150px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 5px #EBE1FD; }
+        #anamnese .an-av img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
+        #anamnese .an-dn { font: 500 48px/1.05 "Space Grotesk", sans-serif; letter-spacing: -0.03em; color: #17151E; }
+        #anamnese .an-ds { margin-top: 10px; font: 400 30px/1.1 "DM Sans", sans-serif; color: #4A4658; }
+        #anamnese .an-ok { position: absolute; left: 0; width: 1080px; top: 956px; display: flex; justify-content: center; }
+        #anamnese .an-okp { display: inline-flex; align-items: center; gap: 16px; padding: 14px 40px 14px 16px; border-radius: 999px; background: #EBE1FD; font: 500 40px/1 "DM Sans", sans-serif; color: #22084A; will-change: transform, filter, opacity; }
+        #anamnese .an-okp b { width: 56px; height: 56px; border-radius: 50%; background: #7E3BED; display: grid; place-items: center; }
+        #anamnese .an-okp svg { width: 32px; height: 32px; fill: none; stroke: #FFFFFF; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+      </style>
+      <div id="anamnese" class="vm-scene v2-scene" data-composition-id="anamnese" data-start="0" data-duration="5.625" data-width="1080" data-height="1920">
+        <div class="v2-stage">
+          <div class="v2-halo" id="an-halo" data-layout-allow-overflow></div>
+          <div class="v2-floor"></div>
+        </div>
+        <h2 class="v2-line v2-line--top" id="an-line" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+          <span data-layout-allow-overlap class="an-l" id="an-l1">Antes da <em>consulta</em>,<br>você informa</span>
+          <span data-layout-allow-overlap class="an-l" id="an-l2">e envia exames, fotos e <em>documentos</em></span>
+          <span data-layout-allow-overlap class="an-l" id="an-l3">para a médica ver <em>antes</em> da consulta</span>
+        </h2>
+        <div class="an-cam" id="an-cam" data-layout-allow-overflow data-layout-allow-overlap data-layout-allow-occlusion>
+          <div data-layout-allow-overlap data-layout-allow-occlusion class="an-chip" style="top: 570px"><span class="an-ico"><svg viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/></svg></span><span>Sua dor</span><span class="an-scale"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          <div data-layout-allow-overlap data-layout-allow-occlusion class="an-chip" style="top: 698px"><span class="an-ico"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10l-4.5 4v-4H4z"/><path class="a" d="M8.5 10.8h7"/></svg></span><span>Motivo</span></div>
+          <div data-layout-allow-overlap data-layout-allow-occlusion class="an-chip" style="top: 826px"><span class="an-ico"><svg viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path class="a" d="M12 10v4.5M12 17.2v.1"/></svg></span><span>Alergias</span></div>
+          <div data-layout-allow-overlap data-layout-allow-occlusion class="an-chip" style="top: 954px"><span class="an-ico"><svg viewBox="0 0 24 24"><rect x="3.5" y="8.5" width="17" height="7.5" rx="3.75" transform="rotate(-40 12 12)"/><path class="a" d="M12 8.6l3.2 3.2" /></svg></span><span>Medicamentos em uso</span></div>
+          <div data-layout-allow-overlap data-layout-allow-occlusion class="an-file" id="an-f0" style="left: 120px"><div class="an-th"><img src="assets/footage/dipirona-caixa.jpg" alt=""><span class="an-tag">JPG</span></div><div data-layout-allow-overlap class="an-fn">Foto da caixa</div><div data-layout-allow-overlap class="an-fs">Dipirona 500 mg</div></div>
+          <div data-layout-allow-overlap data-layout-allow-occlusion class="an-file" id="an-f1" style="left: 405px"><div class="an-th"><img src="assets/docs/exames.png" alt=""><span class="an-tag">PDF</span></div><div data-layout-allow-overlap class="an-fn">Hemograma.pdf</div><div data-layout-allow-overlap class="an-fs">Exame de sangue</div></div>
+          <div data-layout-allow-overlap data-layout-allow-occlusion class="an-file" id="an-f2" style="left: 690px"><div class="an-th"><svg viewBox="0 0 24 24"><path d="M12 3c-3 0-5 2.5-5 6 0 2 .6 3.4.6 5.2 0 2-.8 3.3-.8 6.3h10.4c0-3-.8-4.300-.8-6.300 0-1.800.6-3.200.6-5.200 0-3.500-2-6-5-6z"/><path d="M12 6v14"/><path d="M8.600 10h6.800M8.400 13.500h7.200"/></svg><span class="an-tag">IMG</span></div><div data-layout-allow-overlap class="an-fn">Exame de imagem</div><div data-layout-allow-overlap class="an-fs">Raio-X de tórax</div></div>
+          <div data-layout-allow-overlap data-layout-allow-occlusion class="an-doc" id="an-doc"><span class="an-av"><img src="assets/screens/img/camila-rocha-NHQUBBYX.jpg" alt=""></span><div><div data-layout-allow-overlap class="an-dn">Dra. Camila Rocha</div><div data-layout-allow-overlap class="an-ds">Clínica geral · CRM-SP</div></div></div>
+          <div class="an-ok"><span class="an-okp" id="an-okp"><b><svg viewBox="0 0 24 24"><path d="M5.500 12.500l4.500 4.500 8.500-9.500"/></svg></b>Já recebeu tudo</span></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          document.fonts.ready.then(function () {
+            const B = 0.46875;
+            const tl = gsap.timeline({ paused: true });
+            const chips = [...document.querySelectorAll("#anamnese .an-chip")];
+            const files = ["#an-f0", "#an-f1", "#an-f2"];
+            const bars = [...document.querySelectorAll("#anamnese .an-scale i")];
+            const lineSel = ["#an-l1", "#an-l2", "#an-l3"];
+            const lines = lineSel.map(function (sel) {
+              const root = document.querySelector(sel);
+              const walk = function (node) {
+                [...node.childNodes].forEach(function (n) {
+                  if (n.nodeType === 3) {
+                    const frag = document.createDocumentFragment();
+                    n.textContent.split(/(\s+)/).forEach(function (part) {
+                      if (!part) return;
+                      if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(" ")); return; }
+                      const wd = document.createElement("span");
+                      wd.className = "an-wd";
+                      [...part].forEach(function (ch) {
+                        const c = document.createElement("span");
+                        c.className = "an-c";
+                        c.textContent = ch;
+                        wd.appendChild(c);
+                      });
+                      frag.appendChild(wd);
+                    });
+                    n.replaceWith(frag);
+                  } else if (n.nodeName === "EM") {
+                    walk(n);
+                  }
+                });
+              };
+              walk(root);
+              return [...root.querySelectorAll(".an-c")];
+            });
+            const allChars = [].concat(lines[0], lines[1], lines[2]);
+            gsap.set(allChars, { transformPerspective: 600, backfaceVisibility: "hidden" });
+            gsap.set(allChars, { rotationX: -90, opacity: 0 });
+            const swapOut = function (idx, t) {
+              const chars = lines[idx];
+              const st = Math.min(0.016, 0.3 / chars.length);
+              tl.to(chars, { rotationX: 90, duration: 0.28, ease: "power2.in", stagger: st }, t);
+              tl.to(chars, { opacity: 0, duration: 0.168, ease: "none", stagger: st }, t);
+            };
+            const swapIn = function (idx, t) {
+              const chars = lines[idx];
+              const st = Math.min(0.016, 0.3 / chars.length);
+              tl.to(chars, { rotationX: 0, duration: 0.34, ease: "power3.out", stagger: st }, t);
+              tl.to(chars, { opacity: 1, duration: 0.136, ease: "none", stagger: st }, t);
+            };
+gsap.set("#an-line", { x: 1150, opacity: 0 });
+            gsap.set(chips, { opacity: 0, y: 70, scale: 0.9, filter: "blur(12px)", transformOrigin: "50% 50%" });
+            gsap.set(bars, { backgroundColor: "#E4E0EE" });
+            gsap.set(files, { opacity: 0, y: 760, rotation: 0, scale: 0.9, transformOrigin: "50% 50%" });
+            gsap.set("#an-doc", { opacity: 0, y: 80, scale: 0.9, filter: "blur(14px)" });
+            gsap.set("#an-okp", { opacity: 0, y: 30, scale: 0.85, filter: "blur(10px)" });
+
+            tl.to("#an-line", { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 0);
+            swapIn(0, 0);
+            chips.forEach(function (el, i) {
+              tl.to(el, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, B + i * (B / 2));
+            });
+            bars.forEach(function (el, i) {
+              if (i < 7) tl.to(el, { backgroundColor: "#7E3BED", duration: 0.12, ease: "none" }, 1.05 + i * 0.045);
+            });
+
+            const CX = [-226, 226, -226, 226];
+            const CY = [610, 610, 680, 680];
+            chips.forEach(function (el, i) {
+              const baseY = 570 + i * 128 + 56;
+              tl.to(el, { x: CX[i], y: CY[i] - baseY, scale: 0.56, duration: 0.55, ease: "expo.inOut" }, 1.8 + i * 0.06);
+            });
+
+            swapOut(0, 1.6);
+            swapIn(1, 1.82);
+
+const FR = [-8, 0, 8];
+            const FY = [0, -36, 0];
+            const FT = [2.1, 2.34, 2.58];
+            files.forEach(function (f, i) {
+              tl.to(f, { opacity: 1, y: FY[i], rotation: FR[i], scale: 1, duration: 0.7, ease: "expo.out" }, FT[i]);
+            });
+
+            swapOut(1, 3.3);
+            swapIn(2, 3.52);
+
+            tl.to("#an-doc", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 3.28);
+            const DCX = 540, DCY = 810;
+            files.forEach(function (f, i) {
+              const cx = 255 + i * 285, cy = 770 + 165;
+              tl.to(f, { x: DCX - cx, y: DCY - cy + FY[i] * 0, scale: 0.25, rotation: 0, opacity: 0, duration: 0.5, ease: "power3.in" }, 3.4 + i * (B / 4));
+            });
+            chips.forEach(function (el, i) {
+              const baseY = 570 + i * 128 + 56;
+              tl.to(el, { x: DCX - 540 + 0, y: DCY - baseY, scale: 0.2, opacity: 0, duration: 0.5, ease: "power3.in" }, 3.4 + i * (B / 4) + 0.12);
+            });
+            for (let k = 0; k < 4; k++) {
+              const t = 3.85 + k * 0.1;
+              tl.to("#an-doc", { scale: 1.025, duration: 0.07, ease: "sine.out" }, t);
+              tl.to("#an-doc", { scale: 1, duration: 0.1, ease: "sine.in" }, t + 0.07);
+            }
+            tl.to("#an-okp", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "back.out(1.6)" }, 4.22);
+
+            tl.to("#an-line", { x: -1150, opacity: 0, duration: 0.47, ease: "power3.in" }, 5.156);
+            tl.to("#an-cam", { x: -1150, opacity: 0, filter: "blur(22px)", duration: 0.47, ease: "power3.in" }, 5.156);
+            tl.fromTo("#an-halo", { scale: 1 }, { scale: 1.08, duration: 5.625, ease: "none" }, 0);
+            window.__timelines["anamnese"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

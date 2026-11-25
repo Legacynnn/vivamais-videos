@@ -1,0 +1,20 @@
+{
+  "assets/kit/motion.js": "@kit/motion/motion.js",
+  "assets/kit/motion.css": "@kit/motion/motion.css",
+  "assets/kit/screens.js": "@kit/screens/screens.js",
+  "assets/kit/screens.css": "@kit/screens/screens.css",
+  "assets/footage/dipirona-caixa.jpg": "footage/dipirona-caixa.jpg",
+  "assets/illustrations/stories/channel.webp": "app/illustrations/plantao-stories/channel.webp",
+  "assets/illustrations/stories/anamnese.webp": "app/illustrations/plantao-stories/anamnese.webp",
+  "assets/illustrations/stories/call.webp": "app/illustrations/plantao-stories/call.webp",
+  "assets/illustrations/stories/documents.webp": "app/illustrations/plantao-stories/documents.webp",
+  "assets/illustrations/stories/assistant.webp": "app/illustrations/plantao-stories/assistant.webp",
+  "assets/illustrations/records/receita.webp": "app/illustrations/records/receita.webp",
+  "assets/illustrations/records/exames.webp": "app/illustrations/records/exames.webp",
+  "assets/illustrations/records/atestado.webp": "app/illustrations/records/atestado.webp",
+  "assets/illustrations/records/laudo.webp": "app/illustrations/records/laudo.webp",
+  "assets/people/doctors/d0.png": "people/doctors/d0.png",
+  "assets/people/doctors/d1.jpeg": "people/doctors/d1.jpeg",
+  "assets/people/doctors/d2.png": "people/doctors/d2.png",
+  "assets/people/doctors/d4.jpeg": "people/doctors/d4.jpeg"
+}

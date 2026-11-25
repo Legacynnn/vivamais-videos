@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        #documentos .dc-line { z-index: 60; }
+        #documentos .ce-page {
+          position: absolute; left: 230px; top: 420px; width: 620px; height: 820px; border-radius: 40px;
+          background: var(--ce-white); transform-origin: 50% 130%;
+          box-shadow: 0 2px 4px color-mix(in srgb, var(--ce-violet-900) 6%, transparent), 0 18px 36px -12px color-mix(in srgb, var(--ce-violet-900) 16%, transparent), 0 60px 120px -40px color-mix(in srgb, var(--ce-violet-900) 34%, transparent);
+          font-family: var(--vm-font-text, "DM Sans"), sans-serif; color: var(--ce-ink); will-change: transform, filter, opacity;
+        }
+        #documentos .dc-abs { position: absolute; margin: 0; }
+        #documentos .dc-logo { left: 44px; top: 34px; height: 36px; width: auto; }
+        #documentos .dc-date { right: 44px; top: 36px; font-size: 26px; line-height: 32px; color: var(--ce-muted); font-variant-numeric: tabular-nums; }
+        #documentos .dc-hair { left: 44px; right: 44px; height: 2px; background: var(--ce-violet-100); }
+        #documentos .dc-eyebrow { left: 44px; top: 112px; font-size: 26px; line-height: 30px; font-weight: 500; letter-spacing: 0.14em; color: var(--ce-accent); }
+        #documentos .dc-title { left: 44px; top: 148px; font: 500 52px/1.1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.03em; color: var(--ce-ink); white-space: nowrap; }
+        #documentos .dc-meta { left: 44px; right: 44px; top: 236px; display: grid; grid-template-columns: 220px 312px; row-gap: 16px; }
+        #documentos .dc-meta div { white-space: nowrap; }
+        #documentos .dc-k { display: block; font-size: 26px; line-height: 30px; color: var(--ce-muted); }
+        #documentos .dc-v { display: block; font-size: 32px; line-height: 40px; font-weight: 500; color: var(--ce-ink); font-variant-numeric: tabular-nums; }
+        #documentos .dc-block { left: 44px; right: 44px; top: 410px; height: 232px; border-radius: 28px; background: var(--ce-tile); box-sizing: border-box; padding: 24px 28px; }
+        #documentos .dc-rows { display: grid; row-gap: 18px; }
+        #documentos .dc-row { display: flex; align-items: center; gap: 20px; white-space: nowrap; }
+        #documentos .dc-ico { flex: none; width: 64px; height: 64px; border-radius: 20px; background: var(--ce-accent); display: grid; place-items: center; }
+        #documentos .dc-ico svg { width: 36px; height: 36px; }
+        #documentos .dc-big { font: 500 52px/1.1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.03em; color: var(--ce-ink); white-space: nowrap; }
+        #documentos .dc-sub { font-size: 30px; line-height: 38px; color: var(--ce-body); }
+        #documentos .dc-sign { left: 44px; right: 44px; top: 664px; height: 64px; }
+        #documentos .dc-seal { position: absolute; right: 0; top: 10px; display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 18px 0 8px; border-radius: 999px; background: var(--ce-accent-soft); color: var(--ce-accent-deep); font-size: 26px; font-weight: 500; white-space: nowrap; }
+        #documentos .dc-seal svg { width: 30px; height: 30px; }
+        #documentos .dc-hair2 { top: 734px; }
+        #documentos .dc-by { left: 44px; top: 748px; font-size: 26px; line-height: 32px; color: var(--ce-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+        #documentos .dc-qr { right: 44px; top: 744px; width: 40px; height: 40px; }
+        #documentos .dc-chips { position: absolute; left: 0; top: 1268px; width: 1080px; height: 88px; display: grid; justify-items: center; z-index: 70; }
+        #documentos .ce-chip {
+          grid-area: 1 / 1; display: inline-flex; align-items: center; gap: 16px; height: 88px; padding: 0 40px 0 14px; border-radius: 999px;
+          background: var(--ce-accent); color: var(--ce-white); box-shadow: var(--ce-shadow-soft); white-space: nowrap;
+          font: 500 40px/1 var(--vm-font-text, "DM Sans"), sans-serif; opacity: 0; will-change: opacity, filter;
+        }
+        #documentos .ce-chip img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; background: var(--ce-white); padding: 6px; box-sizing: border-box; }
+      </style>
+      <div id="documentos" class="vm-scene ce-scene" data-composition-id="documentos" data-start="0" data-duration="3.5" data-width="1080" data-height="1920">
+        <div class="ce-stage ce-stage--mist"><div class="ce-halo"></div></div>
+        <h1 class="ce-line dc-line" id="dc-line">Tudo no seu <em>app</em></h1>
+        <div id="dc-deck"></div>
+        <div class="dc-chips" id="dc-chips"></div>
+      </div>
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          const CHK = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+          const CHKV = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+          const PILL = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="9" width="18" height="8" rx="4" transform="rotate(-40 12 13)"/><path d="M9.2 7.8l6.8 6.8" transform="rotate(0 12 12)"/></svg>';
+          const kv = function (k, v) { return '<div><span class="dc-k">' + k + '</span><span class="dc-v">' + v + '</span></div>'; };
+          const row = function (k, v) { return '<div><span class="dc-k">' + k + '</span><span class="dc-v">' + v + '</span></div>'; };
+          const chk = function (t) { return '<div class="dc-row"><span class="dc-ico" style="width:48px;height:48px;border-radius:50%">' + CHK.replace('<svg', '<svg style="width:28px;height:28px"') + '</span><span class="dc-v" style="font-size:34px">' + t + '</span></div>'; };
+          const BP = [[0, 70], [1, 48], [2, 58], [3, 30]];
+          const chart = (function () {
+            const pts = BP.map(function (p) { return [24 + p[0] * 144, p[1] + 20]; });
+            return '<svg viewBox="0 0 480 120" width="476" height="120" fill="none"><path d="M' + pts.map(function (p) { return p[0] + ' ' + p[1]; }).join(' L') + '" stroke="#7E3BED" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>' +
+              pts.map(function (p, i) { return '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="' + (i === 3 ? 9 : 6) + '" fill="' + (i === 3 ? '#7E3BED' : '#fff') + '" stroke="#7E3BED" stroke-width="4"/>'; }).join('') + '</svg>';
+          })();
+          const DOCS = [
+            { t: "Prontuário", e: "PRONTUÁRIO", i: "laudo", b: '<div class="dc-rows">' + row("Queixa", "Falta de ar aos esforços") + row("Conduta", "ECG e ajuste de dose") + '</div>' },
+            { t: "Receita médica", n: "Receita", e: "RECEITA", i: "receita", b: '<div class="dc-row" style="gap:24px;margin-top:14px"><span class="dc-ico" style="width:88px;height:88px;border-radius:28px">' + PILL.replace('<svg', '<svg style="width:52px;height:52px"') + '</span><div><div class="dc-v" style="font-size:38px;line-height:46px">Losartana 50 mg</div><div class="dc-sub">1 comprimido · 1x ao dia</div><div class="dc-sub" style="color:var(--ce-accent-deep)">Uso contínuo</div></div></div>' },
+            { t: "Pedido de exame", n: "Pedido de exame", e: "EXAMES", i: "exames", b: '<div class="dc-rows" style="margin-top:22px;row-gap:26px">' + chk("Eletrocardiograma") + chk("Ecocardiograma") + '</div>' },
+            { t: "Atestado", e: "ATESTADO", i: "atestado", b: '<span class="dc-k">Afastamento</span><div class="dc-big" style="font-size:60px;margin:8px 0 22px">1 dia</div><span class="dc-k">A partir de</span><span class="dc-v">16/11/2026</span>' },
+            { t: "Acompanhamento", e: "ACOMPANHAMENTO", i: "laudo", b: '<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="dc-k">Pressão arterial</span><span class="dc-v">128/82</span></div><div style="margin-top:10px">' + chart + '</div>' },
+            { t: "Encaminhamento", e: "ENCAMINHAMENTO", i: "laudo", b: '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px"><div><span class="dc-k">Para</span><div class="dc-big" style="font-size:56px;margin-top:6px">Nutrologia</div></div><span class="dc-ico" style="width:88px;height:88px;border-radius:50%"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>' }
+          ];
+          const QR = '<svg class="dc-abs dc-qr" viewBox="0 0 10 10" fill="#17151E" opacity="0.85"><path d="M0 0h4v4H0zM6 0h4v4H6zM0 6h4v4H0zM1 1v2h2V1zM7 1v2h2V1zM1 7v2h2V7zM6 6h2v2H6zM9 6h1v1H9zM8 8h2v2H8zM6 9h1v1H6z" fill-rule="evenodd"/></svg>';
+          const SIG = '<svg class="dc-abs" style="left:0;top:0" width="230" height="64" viewBox="0 0 230 64" fill="none"><path d="M6 46c10-26 20-40 26-34 7 8-12 36-4 36 10 0 18-24 28-24 8 0 0 22 8 22 10 0 14-16 24-16 6 0 2 12 10 12 12 0 22-14 40-14 12 0 20 4 36 2" stroke="#350E6F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+          const deck = document.getElementById("dc-deck");
+          deck.innerHTML = DOCS.map(function (d, n) {
+            return '<div class="ce-page" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap id="dc-p' + n + '" style="z-index:' + (10 + n) + '">' +
+              '<img class="dc-abs dc-logo" src="assets/brand/lockup-cor.svg" alt="">' +
+              '<span class="dc-abs dc-date">16/11/2026</span><div class="dc-abs dc-hair" style="top:88px"></div>' +
+              '<span class="dc-abs dc-eyebrow">' + d.e + '</span>' +
+              '<h2 class="dc-abs dc-title">' + d.t + '</h2>' +
+              '<div class="dc-abs dc-meta">' + kv("Paciente", "Helena Souza") + kv("Médica", "Dra. Camila Rocha") + kv("Especialidade", "Cardiologia") + kv("CRM", "SP 184302") + '</div>' +
+              '<div class="dc-abs dc-block">' + d.b + '</div>' +
+              '<div class="dc-abs dc-sign">' + SIG + '<span class="dc-seal">' + CHKV + 'Assinado digitalmente</span></div>' +
+              '<div class="dc-abs dc-hair dc-hair2"></div>' +
+              '<span class="dc-abs dc-by">Dra. Camila Rocha · CRM-SP 184302</span>' + QR + '</div>';
+          }).join("");
+          deck.querySelectorAll(".ce-page *").forEach(function (el) {
+            el.setAttribute("data-layout-allow-overlap", "");
+            el.setAttribute("data-layout-allow-occlusion", "");
+            el.setAttribute("data-layout-allow-overflow", "");
+          });
+          document.getElementById("dc-chips").innerHTML = DOCS.map(function (d, n) {
+            return '<span class="ce-chip" id="dc-c' + n + '"><img src="assets/illustrations/records/' + d.i + '.webp" alt="">' + (d.n || d.t) + '</span>';
+          }).join("");
+
+          document.fonts.ready.then(function () {
+            const tl = gsap.timeline({ paused: true });
+            const pages = DOCS.map(function (d, n) { return document.getElementById("dc-p" + n); });
+            const C = [0.35, 0.8, 1.25, 1.7, 2.15, 2.6];
+            const E = "power3.out";
+
+            tl.fromTo(pages[0], { scale: 0.75, opacity: 0.85, filter: "blur(22px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, 0);
+            for (let n = 1; n < pages.length; n++) {
+              tl.fromTo(pages[n], { x: 900, rotation: 12, opacity: 1, filter: "blur(10px)" }, { x: 0, rotation: 0, filter: "blur(0px)", duration: 0.4, ease: E }, C[n] - 0.35);
+            }
+            for (let n = 0; n < pages.length - 1; n++) {
+              for (let j = n + 1; j < pages.length; j++) {
+                const k = j - n;
+                tl.to(pages[n], {
+                  x: -90 * k, rotation: -5 * k, scale: 1 - 0.04 * k,
+                  opacity: k <= 2 ? 1 : 0.5, duration: 0.4, ease: E
+                }, C[j] - 0.35);
+              }
+            }
+
+            DOCS.forEach(function (d, n) {
+              const c = document.getElementById("dc-c" + n);
+              const inT = n === 0 ? 0.2 : C[n] - 0.15;
+              tl.fromTo(c, { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, inT);
+              if (n < DOCS.length - 1) tl.to(c, { opacity: 0, filter: "blur(8px)", duration: 0.15, ease: "power2.in" }, C[n + 1] - 0.3);
+              else tl.to(c, { opacity: 0, filter: "blur(10px)", duration: 0.3, ease: "power2.in" }, 3.0);
+            });
+
+            const line = document.getElementById("dc-line");
+            tl.fromTo(line, { opacity: 0, x: 140, filter: "blur(16px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.45, ease: "power4.out" }, 0.2);
+            tl.to(line, { opacity: 0, x: -160, filter: "blur(12px)", duration: 0.4, ease: "power3.in" }, 3.0);
+
+            const last = pages.length - 1;
+            tl.to(pages[last], { x: -1400, rotation: -12, filter: "blur(14px)", duration: 0.4, ease: "power3.in" }, 3.15);
+            for (let n = 0; n < last; n++) {
+              tl.to(pages[n], { x: -1500, filter: "blur(14px)", duration: 0.4, ease: "power3.in" }, 3.15);
+            }
+            window.__timelines["documentos"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

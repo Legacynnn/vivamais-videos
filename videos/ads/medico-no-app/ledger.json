@@ -1,0 +1,55 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "fila-chamada",
+      "cut": 6.2,
+      "technique": "match cut on the free queue hero: the window on plantao-queue position-1 (left 80, top 500, y -14, scale 2.139, 860x977.5, radius 20 app px) is identical on both sides, with L2, the corner logo and the stories row (x -62 app px, drifting 10 px/s); on frame 0 of chamada it starts leaving left and uncovers the doctor card that was behind it",
+      "type": "match-cut",
+      "carrier": {
+        "out": "#el-fila .fl-hero",
+        "in": "#el-chamada .ch-hero"
+      }
+    },
+    {
+      "id": "chamada-documentos",
+      "cut": 13.8,
+      "technique": "matched-velocity push LEFT: the video card (.ch-video, footage still playing) leaves left on power3.in, about 3200 px/s at the cut with its right edge 260px inside the frame; the 'Consulta concluída' header (.dc-head) and the Resumo card are already 200px inside from the right on frame 0 at about 2900 px/s and decelerate on power3.out; stage and aurora drift identical on both sides",
+      "exit": {
+        "selector": "#el-chamada .ch-video",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-documentos .dc-head",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "documentos-especialistas",
+      "cut": 20.4,
+      "technique": "matched-velocity push LEFT: the prescription page and the prescription window (.dc-win) leave left on power3.in, about 3000 px/s at the cut with the page's right edge 240px inside the frame; the marquee rails (.es-rails) are already 200px inside from the right at about 2900 px/s and decelerate into rows that keep flowing left for the whole scene",
+      "exit": {
+        "selector": "#el-documentos .dc-win",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-especialistas .es-rails",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "especialistas-fim",
+      "cut": 25.9,
+      "technique": "match cut on a shared glyph: the '+' of '+40' (.mn-plus, Space Grotesk 300px, violet) is alone on the stage at centre (510, 700), scale 1, on both sides; in fim the real mark draws its outline around it from frame 0 and the glyph dissolves inside the fill",
+      "type": "match-cut",
+      "carrier": {
+        "out": "#el-especialistas .mn-plus",
+        "in": "#el-fim .mn-plus"
+      }
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        #fim .fim-cam { position: absolute; inset: 0; transform-origin: 540px 950px; }
+        #fim .v2-logo { left: 50%; margin-left: -95px; width: 190px; top: 440px; }
+        #fim .v2-line { left: 80px; right: 80px; top: 508px; font-size: 120px; z-index: 5; }
+        #fim .fim-t24 { display: inline-block; will-change: transform; }
+        #fim .fim-glow { position: absolute; left: 140px; top: 475px; width: 800px; height: 240px; border-radius: 50%; background: radial-gradient(closest-side, rgba(126, 59, 237, 0.30), rgba(126, 59, 237, 0.10) 60%, rgba(126, 59, 237, 0)); pointer-events: none; will-change: transform, opacity; }
+        #fim .fim-sub { margin: 0; position: absolute; left: 0; right: 0; top: 656px; text-align: center; font: 500 44px/1 "DM Sans", sans-serif; color: #4A4658; letter-spacing: -0.01em; will-change: transform, filter, opacity; }
+        #fim .fim-sub em { font-style: normal; color: #7E3BED; }
+        #fim .fim-rail { position: absolute; left: 0; width: 1080px; height: 112px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 160px, #000 calc(100% - 160px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 160px, #000 calc(100% - 160px), transparent 100%); will-change: transform, filter, opacity; }
+        #fim .fim-strip { position: absolute; left: 0; top: 0; display: flex; gap: 20px; will-change: transform; }
+        #fim .fim-pill { flex: none; height: 112px; box-sizing: border-box; display: flex; align-items: center; gap: 22px; padding: 0 44px 0 16px; border-radius: 999px; background: #F4F3F8; box-shadow: 0 0 0 2px rgba(53, 14, 111, 0.05); font: 500 44px/1 "DM Sans", sans-serif; letter-spacing: -0.01em; color: #17151E; white-space: nowrap; }
+        #fim .fim-ico { flex: none; width: 80px; height: 80px; border-radius: 50%; background: #FFFFFF; display: grid; place-items: center; box-shadow: 0 1px 3px rgba(53, 14, 111, 0.1); }
+        #fim .fim-ico img { width: 56px; height: 56px; display: block; }
+        #fim .fim-chip { position: absolute; will-change: transform, filter, opacity; z-index: 6; }
+        #fim .fim-card { display: flex; align-items: center; gap: 14px; padding: 9px 28px 9px 9px; border-radius: 999px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 0 0 2px rgba(23, 21, 30, 0.06), 0 2px 4px rgba(23, 21, 30, 0.04), 0 26px 50px -20px rgba(53, 14, 111, 0.32); will-change: transform; }
+        #fim .fim-badge { flex: none; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: #EBE1FD; color: #22084A; }
+        #fim .fim-badge img { width: 78%; height: 78%; object-fit: contain; display: block; }
+        #fim .fim-badge svg { width: 58%; height: 58%; display: block; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+        #fim .fim-badge svg .a { stroke: #7E3BED; }
+        #fim .fim-t { white-space: nowrap; font: 500 32px/1.15 "DM Sans", sans-serif; color: #17151E; letter-spacing: -0.01em; }
+        #fim .fim-cta { position: absolute; left: 0; right: 0; top: 1062px; display: flex; flex-direction: column; align-items: center; }
+        #fim .fim-link { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 22px; padding: 36px 64px; border-radius: 999px; background: #7E3BED; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.28), 0 4px 10px rgba(126, 59, 237, 0.30), 0 18px 36px -10px rgba(126, 59, 237, 0.45), 0 40px 80px -24px rgba(53, 14, 111, 0.45); font: 500 64px/1 "Space Grotesk", sans-serif; letter-spacing: -0.02em; color: #FFFFFF; will-change: transform, filter, opacity, box-shadow; }
+        #fim .fim-link svg { width: 52px; height: 52px; display: block; fill: none; stroke: #FFFFFF; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+        #fim .fim-ring { position: absolute; inset: 0; border-radius: 999px; border: 5px solid #7E3BED; background: rgba(126, 59, 237, 0.10); opacity: 0; pointer-events: none; z-index: -1; }
+        #fim .fim-tap { position: absolute; left: 66%; top: 62%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(23, 21, 30, 0.22); box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85); opacity: 0; pointer-events: none; z-index: 3; }
+      </style>
+      <div id="fim" class="vm-scene v2-scene" data-composition-id="fim" data-start="0" data-duration="5.625" data-width="1080" data-height="1920">
+        <div class="v2-stage">
+          <div class="v2-halo"></div>
+          <div class="v2-floor"></div>
+        </div>
+        <div class="fim-cam" id="fim-cam" data-layout-allow-overflow>
+          <img class="v2-logo" id="fim-logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+          <div class="fim-glow" id="fim-glow"></div>
+          <h2 class="v2-line v2-line--top" id="fim-line"><span class="fim-t24" id="fim-t24">Plantão <em>24/7</em></span></h2>
+          <p class="fim-sub" id="fim-sub"><em>+40</em> especialidades</p>
+          <div class="fim-rail" style="top: 740px"><div class="fim-strip" id="fim-strip-0"><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/cardio.png" alt=""></span>Cardiologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/pediatria.png" alt=""></span>Pediatria</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/ortopedia.png" alt=""></span>Ortopedia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/endocrino.png" alt=""></span>Endocrinologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/urologista.png" alt=""></span>Urologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/geriatra.png" alt=""></span>Geriatria</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/fonoaudiologa.png" alt=""></span>Fonoaudiologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/cardio.png" alt=""></span>Cardiologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/pediatria.png" alt=""></span>Pediatria</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/ortopedia.png" alt=""></span>Ortopedia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/endocrino.png" alt=""></span>Endocrinologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/urologista.png" alt=""></span>Urologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/geriatra.png" alt=""></span>Geriatria</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/fonoaudiologa.png" alt=""></span>Fonoaudiologia</span></div></div>
+          <div class="fim-rail" style="top: 866px"><div class="fim-strip" id="fim-strip-1"><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/derma.png" alt=""></span>Dermatologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/ginecologia.png" alt=""></span>Ginecologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/neurologia.png" alt=""></span>Neurologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/nutrologista.png" alt=""></span>Nutrologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/psicologia.png" alt=""></span>Psicologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/alergia.png" alt=""></span>Alergologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/medico.png" alt=""></span>Clínica geral</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/derma.png" alt=""></span>Dermatologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/ginecologia.png" alt=""></span>Ginecologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/neurologia.png" alt=""></span>Neurologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/nutrologista.png" alt=""></span>Nutrologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/psicologia.png" alt=""></span>Psicologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/alergia.png" alt=""></span>Alergologia</span><span class="fim-pill"><span class="fim-ico"><img src="assets/img/specialties/medico.png" alt=""></span>Clínica geral</span></div></div>
+          <div data-layout-allow-overlap class="fim-chip" style="left: 130px; top: 1270px">
+            <div class="fim-card">
+              <span class="fim-badge"><img src="assets/landing/plantao-24h.webp" alt=""></span>
+              <span data-layout-allow-overlap class="fim-t">Atendimento 24h</span>
+            </div>
+          </div>
+          <div data-layout-allow-overlap class="fim-chip" style="right: 100px; top: 1286px">
+            <div class="fim-card">
+              <span class="fim-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M10 2.5h4M12 2.5V5"/><path class="a" d="M12 13V9.5M12 13l2.5 2.5"/></svg></span>
+              <span data-layout-allow-overlap class="fim-t">Médico em até 5 min</span>
+            </div>
+          </div>
+          <div data-layout-allow-overlap class="fim-chip" style="left: 90px; top: 1348px">
+            <div class="fim-card">
+              <span class="fim-badge"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path class="a" d="M9 14.5l2 2 4-4"/></svg></span>
+              <span data-layout-allow-overlap class="fim-t">Receita digital</span>
+            </div>
+          </div>
+          <div data-layout-allow-overlap class="fim-chip" style="right: 160px; top: 1364px">
+            <div class="fim-card">
+              <span class="fim-badge"><svg viewBox="0 0 24 24"><path d="M12 2.5c.5 3.6 2 5.1 5.5 5.5-3.5.4-5 1.9-5.5 5.5-.5-3.6-2-5.1-5.5-5.5 3.5-.4 5-1.9 5.5-5.5z"/><path d="M3 19.5h18"/><circle class="a" cx="15" cy="19.5" r="2.25" fill="#EBE1FD"/></svg></span>
+              <span data-layout-allow-overlap class="fim-t">IA para dúvidas</span>
+            </div>
+          </div>
+          <div class="fim-cta">
+            <span class="fim-link" id="fim-link" aria-label="Consulte agora"><svg viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>Consulte agora<span class="fim-ring" id="fim-ring"></span><span class="fim-tap" id="fim-tap"></span></span>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          document.fonts.ready.then(function () {
+            const B = 0.46875;
+            const D = 5.625;
+            const tl = gsap.timeline({ paused: true });
+            const rails = [...document.querySelectorAll("#fim .fim-rail")];
+            const chips = [...document.querySelectorAll("#fim .fim-chip")];
+            gsap.set("#fim-logo", { opacity: 0 });
+            gsap.set("#fim-line", { opacity: 0, scale: 1.12, filter: "blur(18px)", transformOrigin: "50% 50%" });
+            gsap.set(rails, { opacity: 0, y: 50, filter: "blur(12px)" });
+            gsap.set(chips, { opacity: 0, scale: 0.88, filter: "blur(14px)" });
+            gsap.set("#fim-glow", { opacity: 0 });
+            gsap.set("#fim-sub", { opacity: 0, y: 20, filter: "blur(10px)" });
+            gsap.set("#fim-link", { opacity: 0, y: 30, filter: "blur(14px)" });
+
+            tl.to("#fim-line", { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0);
+            tl.to("#fim-glow", { opacity: 0.55, duration: 0.6, ease: "power2.out" }, 0.1);
+            tl.to("#fim-sub", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.35);
+            tl.to("#fim-logo", { opacity: 1, duration: 0.6, ease: "power2.out" }, 0.15);
+            rails.forEach(function (el, i) { tl.to(el, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "power4.out" }, 0.45 + i * 0.12); });
+            tl.fromTo("#fim-strip-0", { x: -90 }, { x: -90 - 140 * D, duration: D, ease: "none", immediateRender: true }, 0);
+            tl.fromTo("#fim-strip-1", { x: -1500 }, { x: -1500 + 140 * D, duration: D, ease: "none", immediateRender: true }, 0);
+            const DX = [6, -5, 5, -6];
+            const DY = [-7, 7, -6, 7];
+            chips.forEach(function (el, i) {
+              tl.to(el, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 0.9 + i * 0.2);
+              tl.fromTo(el.firstElementChild, { x: -DX[i], y: -DY[i] }, { x: DX[i], y: DY[i], duration: D, ease: "sine.inOut", immediateRender: true }, 0);
+            });
+            tl.to("#fim-link", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "power4.out" }, 1.1);
+            const P = 2 * B;
+            const P0 = 1.8;
+            const n = Math.ceil((D - P0) / P);
+            for (let i = 0; i < n; i++) {
+              const t = P0 + i * P;
+              tl.fromTo("#fim-ring", { scale: 1, opacity: 0.28 }, { scale: 1.15, opacity: 0, duration: 0.85, ease: "power2.out", immediateRender: false }, t);
+              tl.to("#fim-link", { scale: 1.03, duration: B / 2, ease: "sine.out" }, t);
+              tl.to("#fim-link", { scale: 1, duration: B / 2, ease: "sine.in" }, t + B / 2);
+              tl.to("#fim-link", { boxShadow: "inset 0 2px 0 rgba(255,255,255,0.28), 0 6px 14px rgba(126,59,237,0.38), 0 24px 48px -10px rgba(126,59,237,0.55), 0 50px 90px -24px rgba(53,14,111,0.5)", duration: B / 2, ease: "sine.out" }, t);
+              tl.to("#fim-link", { boxShadow: "inset 0 2px 0 rgba(255,255,255,0.28), 0 4px 10px rgba(126,59,237,0.30), 0 18px 36px -10px rgba(126,59,237,0.45), 0 40px 80px -24px rgba(53,14,111,0.45)", duration: B / 2, ease: "sine.in" }, t + B / 2);
+            }
+            const TAP = 4.2;
+            tl.to("#fim-tap", { opacity: 1, duration: 0.12, ease: "power2.out" }, TAP - 0.12);
+            tl.to("#fim-link", { scale: 0.96, duration: 0.12, ease: "power2.in", overwrite: "auto" }, TAP);
+            tl.fromTo("#fim-ring", { scale: 1, opacity: 0.45 }, { scale: 1.22, opacity: 0, duration: 0.5, ease: "power2.out", immediateRender: false }, TAP);
+            tl.to("#fim-link", { scale: 1, duration: 0.25, ease: "back.out(2)" }, TAP + 0.12);
+            tl.to("#fim-tap", { opacity: 0, duration: 0.25, ease: "power2.in" }, TAP + 0.25);
+            const TP = 0.7;
+            const m = Math.ceil((D - TP) / P);
+            for (let i = 0; i < m; i++) {
+              const t = TP + i * P;
+              tl.to("#fim-t24", { scale: 1.04, duration: B, ease: "sine.inOut" }, t);
+              tl.to("#fim-t24", { scale: 1, duration: B, ease: "sine.inOut" }, t + B);
+              tl.to("#fim-glow", { opacity: 0.95, scale: 1.08, duration: B, ease: "sine.inOut" }, t);
+              tl.to("#fim-glow", { opacity: 0.55, scale: 1, duration: B, ease: "sine.inOut" }, t + B);
+            }
+            tl.fromTo("#fim-cam", { scale: 1 }, { scale: 1.025, duration: D, ease: "none" }, 0);
+            window.__timelines["fim"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

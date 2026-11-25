@@ -1,0 +1,133 @@
+{
+  "fps": 30,
+  "families": {
+    "M": "shared-element morph/dock: one element keeps identical geometry on both sides of the cut and morphs (width, height, radius, fill, text swap) into the next scene's hero; no crossfade",
+    "L": "cut-the-curve LEFT, velocity matched: outgoing group x 0 to -230 on power4.in 0.34s (opacity done by ~30% of travel, blur 0 to 4px max); incoming group x +230 to 0 on power4.out 0.44s, igniting at opacity 0.35 mid-path; the cut lands mid-motion on both sides",
+    "W": "white settle (once, into the end): outgoing wrapper carries LEFT while the stage colour tweens to pure white, so the cut lands on an empty white frame"
+  },
+  "seams": [
+    {
+      "id": "hero-plano",
+      "cut": 4.0,
+      "family": "M",
+      "technique": "shared element: the '+40 Especialidades' chip detaches from marquee row B (left edge x 120 +-20, top 1060, 132 tall pill) at hero 3.6 and glides + grows (3.6-4.0, power3.inOut) to the Completo plan row rect (left 80, top 964, 860x248, radius 40, white, --em-shadow-soft); badge fades, label swaps upward (swapText) to 'Completo', empty radio ring (64px, 4px ink-200) appears at its left, all finishing on the cut. plano frame 0 draws the identical row and holds it still while its own cascade runs above. Headline, sub, logo and both marquee wrappers carry LEFT out by 3.95",
+      "exit": {
+        "selector": "#el-hero .em-morph",
+        "axis": "y",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-plano .em-morph",
+        "axis": "y",
+        "dir": -1
+      },
+      "type": "morph",
+      "carrier": {
+        "out": "#el-hero .em-morph",
+        "in": "#el-plano .em-morph"
+      }
+    },
+    {
+      "id": "plano-regras",
+      "cut": 12.5,
+      "family": "L",
+      "technique": "cut-the-curve LEFT: the 'Plano Completo' chip, vidas card and step-3 line leave from plano 8.15; regras line and the three badges enter from +230 already moving left, badges peeling in 0.2/0.35/0.48",
+      "exit": {
+        "selector": "#el-plano .em-card",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-regras .em-badges",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "regras-time",
+      "cut": 16.5,
+      "family": "L",
+      "technique": "cut-the-curve LEFT (replaces the 'Cancele quando quiser' morph): line and the three checked badges leave from regras 2.6, badges peeling 0.03 apart; the phone (.cam, already showing plantao-hub video) and line (a) enter from +230 already moving left, settled by 0.44; the glass card follows at 0.3",
+      "exit": {
+        "selector": "#el-regras .em-badges",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-time .cam",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "time-empresa",
+      "cut": 27.1,
+      "family": "L",
+      "technique": "cut-the-curve LEFT: phone (dependents screen), family card and line (f) leave from time 9.85; empresa line and the six unchecked chips enter from +230 already moving left, chips staggered 0.07",
+      "exit": {
+        "selector": "#el-time .cam",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-empresa .em-chip",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "empresa-proposta",
+      "cut": 32.5,
+      "family": "M",
+      "technique": "shared element: the giant '10x' (.em-price, centred x 540, top 410, 280px Space Grotesk 500 gradient text) re-rolls its digits upward to 'R$ 9,90' (empresa 5.45-5.8, rolling tracks, cubic-bezier(0.23,1,0.32,1)) while easing 280px to 200px and top 410 to 430; it ends settled at centre x 540, top 430, 200px, gradient at rest position. proposta frame 0 shows the same settled 'R$ 9,90'; 'Até', the line and both cell rows carry LEFT out by 5.75",
+      "exit": {
+        "selector": "#el-empresa .em-price",
+        "axis": "y",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-proposta .em-price",
+        "axis": "y",
+        "dir": -1
+      },
+      "type": "morph",
+      "carrier": {
+        "out": "#el-empresa .em-price",
+        "in": "#el-proposta .em-price"
+      }
+    },
+    {
+      "id": "proposta-provas",
+      "cut": 36.5,
+      "family": "L",
+      "technique": "cut-the-curve LEFT: price block, 24h line, track and logo leave from proposta 3.6; provas header and the four metric cells enter from +230 already moving left, cells staggered 0.06; quote rows rise in after (0.55)",
+      "exit": {
+        "selector": "#el-proposta .em-track",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-provas .em-metrics",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "provas-fim",
+      "cut": 42.5,
+      "family": "W",
+      "technique": "white settle: the provas wrapper (.em-proof: header, metrics, both quote marquees; strips keep drifting inside) speeds off LEFT (5.5-5.95, power2.in, blur up to 4px) while .em-stage tweens to --vm-white (5.4-6.0); fim frame 0 is pure white and the benefit rows rise from 0.05",
+      "exit": {
+        "selector": "#el-provas .em-proof",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-fim .em-benefits",
+        "axis": "y",
+        "dir": -1
+      },
+      "type": "white-settle"
+    }
+  ]
+}

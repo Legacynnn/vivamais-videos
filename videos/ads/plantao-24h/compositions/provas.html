@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        #provas {
+          --vm-safe-t: 300px; --vm-safe-r: 140px; --vm-safe-b: 680px; --vm-safe-l: 80px;
+          --vm-fs-head: 96px; --vm-fs-sub: 84px; --vm-fs-copy: 52px; --vm-fs-label: 52px;
+          --vm-logo-w: 210px; --vm-head-w: 860px;
+          color: #17151E; background: #F9F8FB;
+        }
+        #provas .pv-ground { position: absolute; inset: 0; overflow: hidden; background: #F9F8FB; }
+        #provas .pv-shader { position: absolute; inset: 0; -webkit-mask-image: radial-gradient(130% 100% at 50% 40%, #000 55%, transparent 100%); mask-image: radial-gradient(130% 100% at 50% 40%, #000 55%, transparent 100%); }
+        #provas .pv-mesh { position: absolute; border-radius: 50%; will-change: transform; }
+        #provas .pv-m1 { left: -520px; top: -260px; width: 1500px; height: 1500px; background: radial-gradient(closest-side, #E2D3FC 0%, rgba(226, 211, 252, 0) 100%); }
+        #provas .pv-m2 { left: 280px; top: 520px; width: 1400px; height: 1400px; background: radial-gradient(closest-side, #D6C3FB 0%, rgba(214, 195, 251, 0.55) 45%, rgba(214, 195, 251, 0) 100%); }
+        #provas .pv-m3 { left: -480px; top: 1020px; width: 1300px; height: 1300px; background: radial-gradient(closest-side, #EBE1FD 0%, rgba(235, 225, 253, 0) 100%); }
+        #provas .pv-m4 { left: 380px; top: -340px; width: 1100px; height: 1100px; background: radial-gradient(closest-side, #F5F0FE 0%, rgba(245, 240, 254, 0) 100%); }
+        #provas .pv-dither { position: absolute; inset: 0; opacity: 0.16; mix-blend-mode: multiply; background-image: radial-gradient(circle at 50% 50%, #9D6BF2 0 1.6px, transparent 2.1px); background-size: 9px 9px; -webkit-mask-image: radial-gradient(34% 30% at 50% 48%, transparent 40%, #000 100%); mask-image: radial-gradient(34% 30% at 50% 48%, transparent 40%, #000 100%); }
+        #provas .pv-halo { position: absolute; left: 50%; top: 940px; width: 1700px; height: 1700px; margin: -850px 0 0 -850px; background: radial-gradient(closest-side, rgba(249, 248, 251, 0.96), rgba(249, 248, 251, 0.82) 55%, rgba(249, 248, 251, 0)); pointer-events: none; }
+        #provas .p24-cam { position: absolute; inset: 0; transform-origin: 50% 45%; }
+        #provas .pv-head { position: absolute; left: 0; width: 1080px; top: 842px; margin: 0; text-align: center; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 112px; line-height: 1.02; letter-spacing: -0.035em; color: #17151E; }
+        #provas .pv-line { display: block; white-space: nowrap; }
+        #provas .pv-word { display: inline-block; overflow: clip; padding-bottom: 0.12em; margin-bottom: -0.12em; vertical-align: top; }
+        #provas .pv-word > span { display: inline-block; }
+        #provas .pv-word.is-hi > span { color: #7E3BED; }
+        #provas .pv-li { position: absolute; }
+        #provas .pv-card { display: flex; align-items: center; gap: 30px; padding: 22px 56px 22px 22px; border-radius: 999px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); white-space: nowrap; box-shadow: 0 0 0 2px rgba(23, 21, 30, 0.06), 0 2px 5px rgba(23, 21, 30, 0.04), 0 30px 70px -26px rgba(53, 14, 111, 0.36); }
+        #provas .pv-badge { flex: none; width: 124px; height: 124px; border-radius: 50%; overflow: hidden; background: #EBE1FD; display: flex; align-items: center; justify-content: center; }
+        #provas .pv-badge img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        #provas .pv-badge--plantao img { width: 100%; height: 100%; object-fit: cover; object-position: 12% 60%; transform: scale(1.7); transform-origin: 12% 62%; }
+        #provas .pv-badge--trio { width: 296px; border-radius: 0; background: none; overflow: visible; justify-content: flex-start; }
+        #provas .pv-av { flex: none; width: 112px; height: 112px; border-radius: 50%; background: #F5F0FE; box-shadow: 0 0 0 5px #fff; display: flex; align-items: center; justify-content: center; margin-left: -28px; }
+        #provas .pv-av:first-child { margin-left: 6px; }
+        #provas .pv-av img { width: 80%; height: 80%; object-fit: contain; }
+        #provas .pv-badge--icon { background: #7E3BED; }
+        #provas .pv-badge--icon svg { width: 62px; height: 62px; display: block; }
+        #provas .pv-col { display: flex; flex-direction: column; gap: 4px; }
+        #provas .pv-t { display: flex; align-items: center; gap: 14px; font-family: "DM Sans", sans-serif; font-weight: 500; font-size: 46px; line-height: 1.1; color: #17151E; }
+        #provas .pv-s { font-family: "DM Sans", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.1; color: #726F80; }
+        #provas .pv-dot { width: 18px; height: 18px; border-radius: 50%; background: #7E3BED; }
+        #provas .pv-card--more { padding: 16px 52px 16px 16px; }
+        #provas .pv-card--more .pv-badge { width: 92px; height: 92px; }
+        #provas .pv-card--more .pv-badge svg { width: 48px; height: 48px; }
+        #provas .pv-wipe { position: absolute; inset: 0 0 0 0; background: linear-gradient(160deg, #22084A 0%, #350E6F 55%, #451391 100%); box-shadow: 40px 0 80px rgba(34, 8, 74, 0.45); }
+      </style>
+      <div id="provas" class="vm-scene" data-composition-id="provas" data-start="0" data-duration="3.75" data-width="1080" data-height="1920">
+        <div class="pv-ground">
+          <div class="pv-shader">
+            <div id="pv-m1" class="pv-mesh pv-m1"></div>
+            <div id="pv-m2" class="pv-mesh pv-m2"></div>
+            <div id="pv-m3" class="pv-mesh pv-m3"></div>
+            <div id="pv-m4" class="pv-mesh pv-m4"></div>
+          </div>
+          <div class="pv-dither"></div>
+          <div class="pv-halo"></div>
+        </div>
+        <div id="pv-cam" class="p24-cam">
+          <img class="vm-logo" src="assets/brand/lockup-violeta.svg" alt="Viva Mais">
+          <h2 class="pv-head" id="pv-head">
+            <span class="pv-line"><span class="pv-word"><span>Tudo</span></span> <span class="pv-word"><span>isso</span></span> <span class="pv-word"><span>no</span></span></span>
+            <span class="pv-line"><span class="pv-word is-hi"><span>Viva</span></span> <span class="pv-word is-hi"><span>Mais</span></span></span>
+          </h2>
+
+          <div class="pv-li" id="pv-p1" style="left:48px;top:430px"><div class="pv-card"><span class="pv-badge pv-badge--plantao"><img src="assets/site/plantao-24h.webp" alt=""></span><span class="pv-col"><span class="pv-t">Plantão 24/7<span class="pv-dot"></span></span><span class="pv-s">com clínico geral</span></span></div></div>
+
+          <div class="pv-li" id="pv-p2" style="right:48px;top:622px"><div class="pv-card"><span class="pv-badge pv-badge--trio"><span class="pv-av"><img src="assets/site/cardio.png" alt=""></span><span class="pv-av"><img src="assets/site/derma.png" alt=""></span><span class="pv-av"><img src="assets/site/pediatria.png" alt=""></span></span><span class="pv-col"><span class="pv-t">+40 especialidades</span><span class="pv-s">por agendamento</span></span></div></div>
+
+          <div class="pv-li" id="pv-p3" style="left:48px;top:1112px"><div class="pv-card"><span class="pv-badge"><img src="assets/site/consulta.webp" alt=""></span><span class="pv-col"><span class="pv-t">Dados e documentos</span><span class="pv-s">num só lugar</span></span></div></div>
+
+          <div class="pv-li" id="pv-p4" style="right:48px;top:1292px"><div class="pv-card"><span class="pv-badge"><img src="assets/site/ia.webp" alt="" style="object-position:50% 25%"></span><span class="pv-col"><span class="pv-t">IA: planos, análises</span><span class="pv-s">e o médico ideal</span></span></div></div>
+
+          <div class="pv-li" id="pv-p5" style="left:130px;top:1474px"><div class="pv-card pv-card--more"><span class="pv-badge pv-badge--icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14" /> <path d="M5 12h14" /></svg></span><span class="pv-col"><span class="pv-t">e muito mais</span></span></div></div>
+        </div>
+        <div id="pv-wipe" class="pv-wipe"></div>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="provas"]');
+          const tl = gsap.timeline({ paused: true });
+          const END = 3.45;
+
+          tl.fromTo("#pv-wipe", { x: 0 }, { x: -1240, duration: 0.55, ease: "power3.out" }, 0);
+          tl.fromTo("#pv-cam", { x: 120, filter: "blur(8px)" }, { x: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0);
+          tl.set("#pv-cam", { filter: "none" }, 0.52);
+
+          tl.fromTo("#pv-m1", { x: 0, y: 0 }, { x: 160, y: 120, duration: END, ease: "none" }, 0);
+          tl.fromTo("#pv-m2", { x: 0, y: 0 }, { x: -220, y: -140, duration: END, ease: "none" }, 0);
+          tl.fromTo("#pv-m3", { x: 0, y: 0 }, { x: 200, y: -100, duration: END, ease: "none" }, 0);
+          tl.fromTo("#pv-m4", { x: 0, y: 0 }, { x: -140, y: 160, duration: END, ease: "none" }, 0);
+
+          const words = [...root.querySelectorAll(".pv-word > span")];
+          tl.fromTo(words, { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: "power3.out", stagger: 0.08 }, 0.35);
+
+          const cards = [
+            { id: "#pv-p1", at: 0.5, fx: 8, fy: 18, d: 3.0 },
+            { id: "#pv-p2", at: 0.62, fx: -10, fy: -16, d: 3.3 },
+            { id: "#pv-p3", at: 0.74, fx: 12, fy: -18, d: 3.1 },
+            { id: "#pv-p4", at: 0.86, fx: -8, fy: 16, d: 3.4 },
+            { id: "#pv-p5", at: 0.98, fx: 10, fy: 14, d: 2.9 }
+          ];
+          cards.forEach((c) => {
+            tl.fromTo(c.id + " .pv-card", { opacity: 0, scale: 0.86, filter: "blur(8px)", transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.75, ease: "expo.out" }, c.at);
+            tl.set(c.id + " .pv-card", { filter: "none" }, c.at + 0.76);
+            tl.fromTo(c.id, { x: 0, y: 0 }, { x: c.fx, y: c.fy, duration: c.d, ease: "sine.inOut" }, 0.5);
+          });
+
+          tl.fromTo("#pv-cam", { scale: 1, filter: "blur(0px)" }, { scale: 0.82, filter: "blur(14px)", duration: 0.3, ease: "power4.in", immediateRender: false }, END);
+
+          window.__timelines = window.__timelines || {};
+          window.__timelines["provas"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

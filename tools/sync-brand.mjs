@@ -24,9 +24,9 @@ const groups = [vars("vm", colors)].concat(
 writeFileSync(brand("tokens.css"), `${faces}\n\n:root {\n${groups.join("\n")}\n}\n`);
 console.log("brand/tokens.css");
 
-const app = fileURLToPath(new URL("../../vivamaisa-app/src/theme/tokens.json", import.meta.url));
+const app = fileURLToPath(new URL("../.monorepo/packages/theme/tokens.json", import.meta.url));
 if (!existsSync(app)) {
-  console.log("skip brand/app-ui.css: ../vivamaisa-app not checked out");
+  console.log("skip brand/app-ui.css: run `npm run sync:monorepo`");
   process.exit(0);
 }
 const appTokens = JSON.parse(readFileSync(app, "utf8"));

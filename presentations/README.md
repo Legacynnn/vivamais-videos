@@ -23,7 +23,7 @@ Open `index.html` in a browser. Arrow keys jump between slides.
 
 Tokens come from `brand/tokens.json` (`@import` of `assets/brand/tokens.css` at the top of `shared/deck.css`); the deck's `:root` aliases use the same role names (`--primary`, `--secondary`, `--tile`, `--foreground`…) mapped onto `--vm-*`. Change brand values in `brand/tokens.json`, never in `deck.css`. Inside the `.dash` / `.dnp` app mockups `--muted` is the product's muted background, not text.
 
-- Violet dominates. Green (`--secondary`) is the accent. Iris and aqua are supporting tones, never fills.
+- Violet dominates. Spark (`--secondary`) is the accent. Iris and azure are supporting tones, never fills.
 - Light slides sit on white (`--white`). Cards on them use `--tile` (#F6F5F9), no border.
 - Text: `--foreground` (ink-900), `--body` (ink-600), `--muted-foreground` (ink-500).
 - Solid fills. The cover/closing headline gradient is the only gradient on content; slide backgrounds keep soft violet glows.

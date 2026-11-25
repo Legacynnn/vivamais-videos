@@ -5,6 +5,7 @@ import { measure } from "../../../kit/measure.mjs";
 const root = new URL("../", import.meta.url);
 const read = (p) => readFileSync(new URL(p, root), "utf8");
 const write = (p, s) => writeFileSync(new URL(p, root), s);
+const SCREENS = new URL("../../../screens/dist/assets/screens/html/", root);
 
 const FW = 1080;
 const FH = 1920;
@@ -42,7 +43,13 @@ const ICON = (name) => read(`node_modules/lucide-static/icons/${name}.svg`).repl
 async function deviceScene(scene, baked) {
   const g = GEO.iphone;
   const states = [];
-  for (const [name, scroll] of scene.states) {
+  for (const [name, scroll, lib] of scene.states) {
+    if (lib) {
+      const [id, st = "default"] = lib.split(" ");
+      const fragment = readFileSync(new URL(`${id}--${st}.html`, SCREENS), "utf8").trim();
+      states.push(`<div class="vmk-state" data-state="${name}" data-scroll="${scroll || 0}"><div class="vmk-lib"><!-- screen:${id} ${st} -->${fragment}<!-- /screen --></div></div>`);
+      continue;
+    }
     const st = await buildState(name, `${scene.id}-${name}`);
     states.push(`<div class="vmk-state" data-state="${name}" data-scroll="${scroll || 0}"><div class="${g.scope}-body">${st.html}</div></div>`);
   }
@@ -70,10 +77,11 @@ async function deviceScene(scene, baked) {
 <html lang="pt-BR"><head><meta charset="UTF-8"><title>${scene.id}</title></head>
 <body><template>
 <link rel="stylesheet" href="vm-kit.css">
-<link rel="stylesheet" href="${g.css}">
+<link rel="stylesheet" href="${g.css}">${scene.states.some((s) => s[2]) ? `\n<link rel="stylesheet" href="assets/screens/screens.css">` : ""}
 <style>
 ${FONTS}
 #root{position:absolute;inset:0;overflow:hidden}
+.vmk-lib{position:absolute;left:0;top:0;width:402px;height:874px}
 ${scene.css || ""}
 </style>
 <div id="root" data-composition-id="${scene.id}" data-width="${FW}" data-height="${FH}" data-duration="${scene.duration}">

@@ -14,7 +14,7 @@ Contract:
 - Root element `data-composition-id`, `data-start="0"`, `data-duration` = row length, `data-width`/`data-height` from `index.html`.
 - Motion only through `VMMotion` / `VMKit` and gsap on the same timeline. Deterministic: no `Math.random`, `Date.now`, network. Use a seeded generator for confetti.
 - Per-format layout through the CSS vars in `motion.css`; never `html[...]` selectors inside the scene.
-- App screens recreated from the app source the row names: same copy, tokens (`var(--vm-*)`), fonts; simplified to the beat. Images only from `assets/` (map new library files in `assets.json`, then `npm run sync -- <slug>` from the repo root).
+- App screens come from the screen library: put `<!-- screen:id state --><!-- /screen -->` inside `.scr` for the screen and state the row names, then sync (`screens/README.md`). Target taps by `aria-label` or `data-testid`. If the row names a screen or state the library lacks, report it instead of redrawing; hand-built HTML only when the row says the library cannot render it. Images only from `assets/` (map new library files in `assets.json`, then `npm run sync -- <slug>` from the repo root).
 - Respect the seam: if the row exits with `plusCover`, end with it at the scene's last second; if the previous row covered, start with `plusReveal(0)`.
 
 Verify inside the video folder: `npm run check` must pass with no errors on your file; fix contrast and occlusion findings, mark intentional overflow with `data-layout-*` attributes. Then `npx hyperframes snapshot --at <3–5 key times of your scene in absolute seconds>` and look at `snapshots/contact-sheet.jpg`.

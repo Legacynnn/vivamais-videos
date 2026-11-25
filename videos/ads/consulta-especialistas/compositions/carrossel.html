@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/ce.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #carrossel .ce-halo { top: 47%; }
+        #carrossel .ce-rail { position: absolute; left: 0; top: 842px; height: 116px; display: flex; align-items: center; gap: 0; will-change: transform; }
+        #carrossel .cr-slot { position: relative; flex: none; width: 580px; margin-right: 24px; height: 116px; will-change: transform, filter, opacity; }
+        #carrossel .cr-slot .ce-pill { position: relative; width: 580px; box-sizing: border-box; }
+        #carrossel .cr-slot .ce-pill > img { position: relative; z-index: 2; }
+        #carrossel .cr-focus { position: absolute; left: -16px; right: -16px; top: -16px; bottom: -16px; border-radius: 999px; opacity: 0; z-index: 0; pointer-events: none; box-shadow: 0 0 0 8px color-mix(in srgb, var(--ce-accent) 22%, transparent), 0 0 90px 20px color-mix(in srgb, var(--ce-accent) 40%, transparent); }
+        #carrossel .cr-check { position: absolute; left: 28px; top: 20px; width: 76px; height: 76px; border-radius: 50%; background: var(--ce-white); color: var(--ce-accent); display: flex; align-items: center; justify-content: center; opacity: 0; z-index: 3; }
+        #carrossel .cr-slot .ce-pill--on { z-index: 1;position: absolute; left: 0; top: 0; width: 100%; height: 100%; box-sizing: border-box; opacity: 0; box-shadow: none; }
+      </style>
+      <div id="carrossel" class="vm-scene ce-scene" data-composition-id="carrossel" data-start="0" data-duration="3" data-width="1080" data-height="1920">
+        <div class="ce-stage">
+          <div class="ce-halo"></div>
+        </div>
+        <div class="ce-rail" id="cr-rail" data-layout-allow-overflow>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/medico.png" alt="">Clínica geral</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/derma.png" alt="">Dermatologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/pediatria.png" alt="">Pediatria</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/ginecologia.png" alt="">Ginecologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/ortopedia.png" alt="">Ortopedia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/neurologia.png" alt="">Neurologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/psicologia.png" alt="">Psicologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/endocrino.png" alt="">Endocrinologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/nutrologista.png" alt="">Nutrologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/urologista.png" alt="">Urologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/geriatra.png" alt="">Geriatria</div></div>
+          <div class="cr-slot ce-pick" id="cr-pick" data-layout-allow-overflow><i class="cr-focus" id="cr-focus"></i><div class="ce-pill" id="cr-pick-pill"><img id="cr-heart" src="assets/icons/specialties/cardio.png" alt="">Cardiologia<span class="cr-check" id="cr-check"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div class="ce-pill ce-pill--on" id="cr-on"><span style="width:76px;height:76px"></span>Cardiologia</div></div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/alergia.png" alt="">Alergologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/fonoaudiologa.png" alt="">Fonoaudiologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/medico.png" alt="">Clínica geral</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/derma.png" alt="">Dermatologia</div></div>
+          <div class="cr-slot" data-layout-allow-overflow><div class="ce-pill"><img src="assets/icons/specialties/pediatria.png" alt="">Pediatria</div></div>
+        </div>
+        <div class="ce-tap-ring" id="cr-ring" style="left: 0; top: 0; opacity: 0"></div>
+        <div class="ce-tap" id="cr-tap" style="left: 0; top: 0; opacity: 0"></div>
+      </div>
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          (function () {
+            const tl = gsap.timeline({ paused: true });
+            const rail = document.getElementById("cr-rail");
+            const slots = [...rail.querySelectorAll(".cr-slot")];
+            const pick = document.getElementById("cr-pick");
+            const SW = 580;
+            const PITCH = 604;
+            const metrics = slots.map(function (s, i) { return { left: i * PITCH, w: SW, pill: s.querySelector(".ce-pill"), slot: s }; });
+            const pi = slots.indexOf(pick);
+            const pm = metrics[pi];
+            const T = 1.2;
+            const keys = [[0, 7700], [0.08, 7700], [0.3, 2800], [0.9, 700], [1.2, 0]];
+            const N = 480;
+            const table = [0];
+            const ss = function (u) { return u * u * (3 - 2 * u); };
+            function vel(t) {
+              for (let k = 1; k < keys.length; k++) {
+                if (t <= keys[k][0]) {
+                  const u = (t - keys[k - 1][0]) / (keys[k][0] - keys[k - 1][0]);
+                  return keys[k - 1][1] + (keys[k][1] - keys[k - 1][1]) * ss(u);
+                }
+              }
+              return 0;
+            }
+            for (let i = 1; i <= N; i++) table.push(table[i - 1] + (vel((i - 0.5) / N * T)) * (T / N));
+            const D = table[N];
+            const x1 = 540 - (pm.left + pm.w / 2);
+            const x0 = x1 + D;
+            const state = { t: 0 };
+
+            function apply() {
+              const f = Math.min(Math.max(state.t, 0), 1) * N;
+              const i = Math.min(Math.floor(f), N - 1);
+              const s = table[i] + (table[i + 1] - table[i]) * (f - i);
+              const v = vel(state.t * T);
+              const x = x0 - s;
+              const blur = 3 * Math.min(Math.max((v - 1800) / 4000, 0), 1);
+              gsap.set(rail, { x: x });
+              metrics.forEach(function (m) {
+                const cx = x + m.left + m.w / 2;
+                const d = Math.min(Math.abs(cx - 540) / 700, 1);
+                gsap.set(m.pill, { scale: 0.84 + 0.16 * (1 - d), filter: blur > 0.05 ? "blur(" + blur.toFixed(2) + "px)" : "none", opacity: 1 - 0.38 * d, transformOrigin: "50% 50%" });
+              });
+            }
+            apply();
+            tl.to(state, { t: 1, duration: T, ease: "none", onUpdate: apply, immediateRender: false }, 0);
+
+            slots.forEach(function (sl, i) {
+              if (sl === pick) return;
+              const sign = i < pi ? -1 : 1;
+              tl.to(sl, { opacity: 0.38, x: sign * 120, duration: 0.45, ease: "power2.out" }, 1.0);
+              tl.to(sl, { opacity: 0, duration: 0.4, ease: "power2.in" }, 2.4);
+            });
+
+            tl.set(pick, { transformOrigin: "50% 50%" }, 0);
+            tl.to(pick, { scale: 1.25, duration: 0.4, ease: "power2.out" }, 0.9);
+            tl.to("#cr-focus", { opacity: 1, duration: 0.4, ease: "power2.out" }, 1.0);
+
+            const tap = "#cr-tap";
+            const ring = "#cr-ring";
+            const tx = 540 + pm.w * 0.625 - 40;
+            const ty = 900;
+            tl.fromTo(tap, { x: 960, y: 1300, opacity: 0, scale: 1 }, { x: tx, y: ty, opacity: 1, duration: 0.5, ease: "power3.inOut", immediateRender: false }, 1.2);
+            tl.to(tap, { scale: 0.96, duration: 0.08, ease: "power2.out" }, 1.7);
+            tl.to(tap, { scale: 1, duration: 0.12, ease: "power2.out" }, 1.78);
+            tl.fromTo(ring, { x: tx, y: ty, scale: 1, opacity: 0.6 }, { scale: 1.9, opacity: 0, duration: 0.5, ease: "power2.out", immediateRender: false }, 1.7);
+            tl.to(tap, { opacity: 0, y: ty + 40, duration: 0.2, ease: "power2.in" }, 1.9);
+            tl.to(pick, { scale: 1.2, duration: 0.08, ease: "power2.out" }, 1.7);
+            tl.to(pick, { scale: 1.25, duration: 0.16, ease: "power2.out" }, 1.78);
+            tl.to("#cr-on", { opacity: 1, duration: 0.08, ease: "power2.out" }, 1.72);
+            tl.to("#cr-heart", { opacity: 0, duration: 0.1 }, 1.8);
+            tl.fromTo("#cr-check", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, 1.8);
+            tl.to("#cr-check", { opacity: 0, duration: 0.15 }, 2.3);
+            tl.to("#cr-heart", { opacity: 1, duration: 0.15 }, 2.3);
+            tl.to("#cr-focus", { opacity: 0, duration: 0.3, ease: "power2.in" }, 2.4);
+
+            tl.to(pick, { scale: 0.6, y: 280, duration: 0.6, ease: "power3.in" }, 2.4);
+            window.__timelines["carrossel"] = tl;
+          })();
+        })();
+      </script>
+    </template>
+  </body>
+</html>

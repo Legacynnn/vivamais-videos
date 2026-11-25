@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/ce.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+
+        #busca .ce-line { opacity: 0; }
+        #busca .cam { left: 221px; top: 543px; width: 639px; height: 1347px; }
+        #busca .dev { transform: scale(1.5); transform-origin: 0 0; }
+        #busca .scr { font-family: var(--vm-font-text, "DM Sans"), sans-serif; color: var(--vm-ink-900); background: var(--vm-white); }
+        #busca .ic { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        #busca .bs-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+        #busca .ce-slot {
+          --u: 1.5;
+          position: relative; display: flex; align-items: center; justify-content: center; flex: none;
+          width: calc(76px * var(--u)); height: calc(44px * var(--u)); border-radius: calc(22px * var(--u));
+          background: var(--vm-ink-100); color: var(--vm-ink-900);
+          font: 500 calc(15px * var(--u))/1 var(--vm-font-text, "DM Sans"), sans-serif; font-variant-numeric: tabular-nums; white-space: nowrap;
+        }
+        #busca .ce-slot--on { background: var(--vm-violet-500); color: var(--vm-white); font-weight: 700; }
+        #busca .dev .ce-slot { --u: 1; flex: 1; width: auto; }
+        #busca #bs-pick { left: 0; top: 0; z-index: 20; box-shadow: none; }
+        #busca .bs-pk-sh { position: absolute; inset: 0; border-radius: inherit; box-shadow: var(--ce-shadow-soft); pointer-events: none; }
+
+        #busca .status { color: var(--vm-ink-900); }
+        #busca .bs-status--light { color: var(--vm-white); z-index: 31; }
+        #busca .bs-status--light .status-icons i { background: var(--vm-white); }
+
+        #busca .bs-top { position: absolute; left: 0; right: 0; top: 54px; display: flex; align-items: center; gap: 10px; padding: 8px 16px; }
+        #busca .bs-back { width: 44px; height: 44px; border-radius: 50%; background: var(--vm-ink-100); display: flex; align-items: center; justify-content: center; color: var(--vm-ink-900); }
+        #busca .bs-field { position: relative; flex: 1; height: 44px; border-radius: 12px; background: var(--vm-tile); }
+        #busca .bs-field-in { position: absolute; inset: 0; display: flex; align-items: center; gap: 8px; padding: 0 12px; opacity: 0; }
+        #busca .bs-field-in img { width: 22px; height: 22px; object-fit: contain; flex: none; }
+        #busca .bs-field-in b { font-weight: 500; font-size: 15px; color: var(--vm-ink-900); }
+        #busca .bs-field-in .bs-ch { margin-left: auto; display: flex; align-items: center; gap: 4px; font-size: 13px; color: var(--vm-ink-600); }
+        #busca .bs-field-in .bs-ch .ic { width: 14px; height: 14px; }
+        #busca .bs-chips-row { position: absolute; left: 0; right: 0; top: 114px; display: flex; gap: 8px; align-items: center; padding: 0 16px; }
+        #busca .bs-chip { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-radius: 999px; background: var(--vm-violet-100); color: var(--vm-violet-800); font-weight: 500; font-size: 14px; white-space: nowrap; }
+        #busca .bs-chip .ic { width: 14px; height: 14px; stroke-width: 2.4; color: var(--vm-violet-700); }
+        #busca .bs-clear { height: 32px; padding: 0 12px; display: flex; align-items: center; border-radius: 999px; font-weight: 500; font-size: 13px; color: var(--vm-ink-600); }
+        #busca .bs-rowsclip { position: absolute; left: 0; right: 0; top: 164px; bottom: 0; overflow: hidden; }
+        #busca .bs-rows { position: relative; padding-bottom: 300px; }
+        #busca .bs-row { margin: 0 16px 12px; padding: 8px; border-radius: 20px; background: var(--vm-tile); }
+        #busca .bs-well { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; background: var(--vm-white); }
+        #busca .bs-av { outline: 1px solid color-mix(in srgb, var(--vm-ink-950) 8%, transparent); outline-offset: -1px; width: 52px; height: 52px; border-radius: 12px; object-fit: cover; flex: none; }
+        #busca .bs-bd { flex: 1; min-width: 0; }
+        #busca .bs-nm { font-weight: 700; font-size: 16px; line-height: 20px; color: var(--vm-ink-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        #busca .bs-sp { margin-top: 2px; font-size: 13px; line-height: 16px; color: var(--vm-ink-600); }
+        #busca .bs-rt { margin-top: 4px; display: flex; align-items: center; gap: 4px; font-size: 13px; line-height: 16px; color: var(--vm-ink-600); }
+        #busca .bs-rt .ic { width: 12px; height: 12px; fill: var(--vm-ink-900); stroke: var(--vm-ink-900); }
+        #busca .bs-rt b { font-weight: 500; }
+        #busca .bs-rt span { color: var(--vm-ink-600); }
+        #busca .bs-pr { text-align: right; flex: none; }
+        #busca .bs-pr s { display: block; font-size: 12px; line-height: 14px; color: var(--vm-ink-600); }
+        #busca .bs-pr b { display: block; font-weight: 700; font-size: 16px; line-height: 20px; color: var(--vm-ink-900); }
+        #busca .bs-pr span { display: block; margin-top: 2px; font-size: 12px; line-height: 14px; color: var(--vm-ink-600); }
+        #busca .bs-ft { display: flex; justify-content: flex-end; padding: 8px 8px 2px; }
+        #busca .bs-slotbtn { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 999px; background: var(--vm-white); border: 1px solid var(--vm-ink-200); font-weight: 500; font-size: 13px; color: var(--vm-ink-900); }
+        #busca .bs-slotbtn .ic { width: 14px; height: 14px; color: var(--vm-violet-500); }
+
+        #busca .bs-scroll { position: absolute; left: 0; right: 0; top: 0; padding-bottom: 300px; }
+        #busca .bs-hero { position: relative; height: 300px; overflow: hidden; background: var(--vm-violet-800); }
+        #busca .bs-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+        #busca .bs-hero-sc { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 32%, color-mix(in srgb, var(--vm-violet-950) 88%, transparent) 100%); }
+        #busca .bs-circ { position: absolute; top: 58px; width: 40px; height: 40px; border-radius: 50%; background: color-mix(in srgb, var(--vm-white) 20%, transparent); display: flex; align-items: center; justify-content: center; color: var(--vm-white); }
+        #busca .bs-id { position: absolute; left: 20px; right: 20px; bottom: 16px; color: var(--vm-white); }
+        #busca .bs-id h2 { margin: 0; font: 500 26px/30px var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; color: var(--vm-white); }
+        #busca .bs-meta { margin-top: 4px; display: flex; align-items: center; gap: 6px; font-size: 13px; line-height: 18px; color: var(--vm-violet-100); }
+        #busca .bs-meta .ic { width: 12px; height: 12px; fill: var(--vm-white); stroke: var(--vm-white); }
+        #busca .bs-meta b { font-weight: 500; color: var(--vm-white); }
+        #busca .bs-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--vm-violet-300); }
+        #busca .bs-pills { margin-top: 10px; display: flex; gap: 8px; }
+        #busca .bs-pill { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px 0 6px; border-radius: 999px; background: color-mix(in srgb, var(--vm-white) 16%, transparent); font-weight: 500; font-size: 13px; color: var(--vm-white); }
+        #busca .bs-pill img { width: 22px; height: 22px; border-radius: 50%; background: var(--vm-white); padding: 3px; object-fit: contain; }
+        #busca .bs-pill .ic { width: 15px; height: 15px; margin-left: 6px; color: var(--vm-white); }
+        #busca .bs-panel { margin: 12px 16px 0; padding: 8px; border-radius: 20px; background: var(--vm-tile); }
+        #busca .bs-pn-h { display: flex; align-items: center; justify-content: space-between; padding: 4px 4px 10px; font-weight: 500; font-size: 14px; color: var(--vm-ink-600); }
+        #busca .bs-cal { height: 32px; padding: 0 12px; display: flex; align-items: center; gap: 6px; border-radius: 999px; background: var(--vm-white); border: 1px solid var(--vm-ink-200); font-weight: 500; font-size: 13px; color: var(--vm-primary-strong); }
+        #busca .bs-cal .ic { width: 15px; height: 15px; }
+        #busca .bs-price { display: flex; align-items: center; justify-content: space-between; padding: 14px; border-radius: 12px; background: var(--vm-white); }
+        #busca .bs-price .l { font-size: 14px; line-height: 18px; color: var(--vm-ink-600); }
+        #busca .bs-price .l b { display: block; font-weight: 700; font-size: 15px; color: var(--vm-ink-900); }
+        #busca .bs-price .r { display: flex; align-items: baseline; gap: 8px; }
+        #busca .bs-price s { font-size: 14px; color: var(--vm-muted-foreground); }
+        #busca .bs-price strong { font: 700 24px/28px var(--vm-font-display, "Space Grotesk"), sans-serif; color: var(--vm-ink-900); letter-spacing: -0.02em; }
+        #busca .bs-days { display: flex; gap: 8px; }
+        #busca .bs-day { width: 64px; padding: 10px 0; border-radius: 16px; background: var(--vm-white); display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        #busca .bs-day i { font-style: normal; font-weight: 500; font-size: 12px; line-height: 16px; color: var(--vm-ink-500); }
+        #busca .bs-day b { font: 500 22px/28px var(--vm-font-display, "Space Grotesk"), sans-serif; color: var(--vm-ink-900); }
+        #busca .bs-day span { font-size: 11px; line-height: 14px; color: var(--vm-ink-500); }
+        #busca .bs-day.on { background: var(--vm-violet-500); }
+        #busca .bs-day.on i, #busca .bs-day.on span { color: var(--vm-violet-50); }
+        #busca .bs-day.on b { color: var(--vm-white); }
+        #busca .bs-slots { padding: 12px; border-radius: 12px; background: var(--vm-white); display: flex; flex-direction: column; gap: 14px; }
+        #busca .bs-per { display: flex; gap: 6px; }
+        #busca .bs-per div { flex: 1; height: 36px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; background: var(--vm-ink-100); font-weight: 500; font-size: 14px; color: var(--vm-ink-600); }
+        #busca .bs-per div span { font-weight: 400; font-size: 12px; color: var(--vm-ink-700); }
+        #busca .bs-per div.on { background: var(--vm-violet-100); color: var(--vm-violet-800); }
+        #busca .bs-per div.on span { color: var(--vm-violet-900); }
+        #busca .bs-srow { display: flex; gap: 8px; }
+        #busca .bs-slotwrap { position: relative; flex: 1; }
+        #busca .bs-slotwrap .ce-slot { width: 100%; }
+        #busca .bs-slotwrap .bs-on { position: absolute; inset: 0; border-radius: 22px; background: var(--vm-violet-500); opacity: 0; }
+        #busca .bs-slotwrap .bs-ton { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 700 15px/1 var(--vm-font-text, "DM Sans"), sans-serif; font-variant-numeric: tabular-nums; color: var(--vm-white); opacity: 0; }
+        #busca .bs-about { padding: 14px; border-radius: 12px; background: var(--vm-white); font-size: 14px; line-height: 20px; color: var(--vm-ink-600); }
+        #busca .bs-pinbar { position: absolute; left: 0; right: 0; top: 0; height: 176px; z-index: 28; background: var(--vm-violet-800); opacity: 0; display: flex; align-items: center; gap: 14px; padding: 54px 20px 0; color: var(--vm-white); }
+        #busca .bs-pinbar img { outline: 1px solid color-mix(in srgb, var(--vm-ink-950) 8%, transparent); outline-offset: -1px; width: 84px; height: 84px; border-radius: 20px; object-fit: cover; flex: none; }
+        #busca .bs-pn-t { flex: 1; min-width: 0; }
+        #busca .bs-pn-t b { display: block; font: 500 22px/26px var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; color: var(--vm-white); white-space: nowrap; }
+        #busca .bs-pn-t span { display: flex; align-items: center; gap: 5px; margin-top: 3px; font-size: 13px; line-height: 18px; color: var(--vm-violet-100); white-space: nowrap; }
+        #busca .bs-pn-t span .ic { width: 12px; height: 12px; fill: var(--vm-white); stroke: var(--vm-white); }
+        #busca .bs-pn-p { text-align: right; flex: none; }
+        #busca .bs-pn-p s { display: block; font-size: 12px; line-height: 14px; color: var(--vm-violet-200); }
+        #busca .bs-pn-p strong { display: block; font: 700 20px/24px var(--vm-font-display, "Space Grotesk"), sans-serif; color: var(--vm-white); letter-spacing: -0.02em; }
+        #busca .bs-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 27; display: flex; align-items: center; gap: 12px; padding: 12px 20px 30px; background: var(--vm-white); border-top: 1px solid var(--vm-ink-200); opacity: 0; }
+        #busca .bs-bar .sm { flex: 1; min-width: 0; }
+        #busca .bs-bar .sm b { display: block; font-weight: 700; font-size: 15px; line-height: 18px; color: var(--vm-ink-900); white-space: nowrap; }
+        #busca .bs-bar .sm span { display: block; margin-top: 2px; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); white-space: nowrap; }
+        #busca .bs-bar .sm span em { font-style: normal; font-weight: 500; color: var(--vm-ink-900); }
+        #busca .bs-bar .go { height: 48px; padding: 0 24px; border-radius: 999px; background: var(--vm-violet-500); color: var(--vm-white); display: flex; align-items: center; font-weight: 500; font-size: 16px; }
+      </style>
+      <div id="busca" class="vm-scene ce-scene" data-composition-id="busca" data-start="0" data-duration="4.5" data-width="1080" data-height="1920">
+        <div class="ce-stage"></div>
+        <div class="ce-halo"></div>
+        <svg class="bs-sprite" aria-hidden="true">
+          <symbol id="bs-i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+          <symbol id="bs-i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+          <symbol id="bs-i-video" viewBox="0 0 24 24"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+          <symbol id="bs-i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+          <symbol id="bs-i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+          <symbol id="bs-i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></symbol>
+          <symbol id="bs-i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+          <symbol id="bs-i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3L7 14.2 2 9.3l6.9-1z"/></symbol>
+          <symbol id="bs-i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+        </svg>
+
+        <h2 id="bs-line" class="ce-line">Agende seu <em>horário</em></h2>
+
+        <div class="cam" data-layout-allow-overflow>
+          <div class="dev">
+            <div class="bezel" data-layout-allow-overflow data-layout-allow-occlusion></div>
+            <div class="screen" data-layout-allow-overflow>
+              <div class="island"></div>
+
+              <div id="bs-list" class="scr" data-layout-allow-overlap data-layout-allow-occlusion>
+                <div class="status"><span>9:41</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                <div id="bs-under">
+                <div class="bs-top">
+                  <div class="bs-back"><svg class="ic"><use href="#bs-i-left"/></svg></div>
+                  <div id="bs-field" class="bs-field" role="button" aria-label="Especialidade, Cardiologia, Vídeo. Trocar" data-testid="specialty-field">
+                    <div class="bs-field-in">
+                      <img src="assets/icons/specialties/cardio.png" alt="">
+                      <b>Cardiologia</b>
+                      <span class="bs-ch"><svg class="ic"><use href="#bs-i-video"/></svg>Vídeo<svg class="ic"><use href="#bs-i-down"/></svg></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bs-chips-row">
+                  <span class="bs-chip">Cardiologia<svg class="ic"><use href="#bs-i-x"/></svg></span>
+                  <span class="bs-chip">Vídeo<svg class="ic"><use href="#bs-i-x"/></svg></span>
+                  <span class="bs-clear">Limpar</span>
+                </div>
+                <div class="bs-rowsclip"><div class="bs-rows" id="bs-rows">
+                  <div class="bs-row">
+                    <div class="bs-well">
+                      <img class="bs-av" src="assets/people/doctors/rafael.jpg" alt="">
+                      <div class="bs-bd">
+                        <div class="bs-nm">Dr. Rafael Martins</div>
+                        <div class="bs-sp">Cardiologia</div>
+                        <div class="bs-rt"><svg class="ic"><use href="#bs-i-star"/></svg><b>4,8</b><span>(96)</span></div>
+                      </div>
+                      <div class="bs-pr"><b>R$ 99,00</b><span>por consulta</span></div>
+                    </div>
+                    <div class="bs-ft"><span class="bs-slotbtn"><svg class="ic"><use href="#bs-i-cal"/></svg>Seg · 15:00</span></div>
+                  </div>
+                  <div class="bs-row">
+                    <div class="bs-well">
+                      <img class="bs-av" src="assets/people/doctors/d0.png" alt="">
+                      <div class="bs-bd">
+                        <div class="bs-nm">Dr. André Tavares</div>
+                        <div class="bs-sp">Cardiologia</div>
+                        <div class="bs-rt"><svg class="ic"><use href="#bs-i-star"/></svg><b>4,9</b><span>(143)</span></div>
+                      </div>
+                      <div class="bs-pr"><b>R$ 110,00</b><span>por consulta</span></div>
+                    </div>
+                    <div class="bs-ft"><span class="bs-slotbtn"><svg class="ic"><use href="#bs-i-cal"/></svg>Seg · 13:30</span></div>
+                  </div>
+                  <div class="bs-row" id="bs-row1">
+                    <div class="bs-well" id="bs-well1" role="button" aria-label="Dra. Camila Rocha, Cardiologia, R$ 89,00, próximo horário Seg · 14:30" data-testid="doctor-row-camila">
+                      <img class="bs-av" src="assets/people/doctors/camila-rocha.jpg" alt="">
+                      <div class="bs-bd">
+                        <div class="bs-nm">Dra. Camila Rocha</div>
+                        <div class="bs-sp">Cardiologia</div>
+                        <div class="bs-rt"><svg class="ic"><use href="#bs-i-star"/></svg><b>4,9</b><span>(128)</span></div>
+                      </div>
+                      <div class="bs-pr"><s>R$ 120,00</s><b>R$ 89,00</b><span>por consulta</span></div>
+                    </div>
+                    <div class="bs-ft"><span class="bs-slotbtn"><svg class="ic"><use href="#bs-i-cal"/></svg>Seg · 14:30</span></div>
+                  </div>
+                  <div class="bs-row">
+                    <div class="bs-well">
+                      <img class="bs-av" src="assets/people/doctors/d1.jpeg" alt="">
+                      <div class="bs-bd">
+                        <div class="bs-nm">Dr. Paulo Lima</div>
+                        <div class="bs-sp">Cardiologia</div>
+                        <div class="bs-rt"><svg class="ic"><use href="#bs-i-star"/></svg><b>4,7</b><span>(61)</span></div>
+                      </div>
+                      <div class="bs-pr"><b>R$ 95,00</b><span>por consulta</span></div>
+                    </div>
+                    <div class="bs-ft"><span class="bs-slotbtn"><svg class="ic"><use href="#bs-i-cal"/></svg>Ter · 10:00</span></div>
+                  </div>
+                  <div class="bs-row">
+                    <div class="bs-well">
+                      <img class="bs-av" src="assets/people/doctors/julia.jpg" alt="">
+                      <div class="bs-bd">
+                        <div class="bs-nm">Dra. Júlia Prado</div>
+                        <div class="bs-sp">Cardiologia</div>
+                        <div class="bs-rt"><svg class="ic"><use href="#bs-i-star"/></svg><b>4,7</b><span>(52)</span></div>
+                      </div>
+                      <div class="bs-pr"><b>R$ 120,00</b><span>por consulta</span></div>
+                    </div>
+                    <div class="bs-ft"><span class="bs-slotbtn"><svg class="ic"><use href="#bs-i-cal"/></svg>Seg · 16:30</span></div>
+                  </div>
+                  <div class="bs-row">
+                    <div class="bs-well">
+                      <img class="bs-av" src="assets/people/doctors/mariana.jpg" alt="">
+                      <div class="bs-bd">
+                        <div class="bs-nm">Dra. Mariana Lopes</div>
+                        <div class="bs-sp">Cardiologia</div>
+                        <div class="bs-rt"><svg class="ic"><use href="#bs-i-star"/></svg><b>4,9</b><span>(74)</span></div>
+                      </div>
+                      <div class="bs-pr"><b>R$ 85,00</b><span>por consulta</span></div>
+                    </div>
+                    <div class="bs-ft"><span class="bs-slotbtn"><svg class="ic"><use href="#bs-i-cal"/></svg>Ter · 09:30</span></div>
+                  </div>
+                </div></div>
+                </div>
+              </div>
+
+              <div id="bs-profile" class="scr" data-layout-allow-overlap data-layout-allow-occlusion>
+                <div class="bs-scroll" id="bs-scroll">
+                  <div class="bs-hero">
+                    <img src="assets/people/doctors/camila-rocha.jpg" alt="">
+                    <div class="bs-hero-sc"></div>
+                    <div class="bs-circ" style="left:16px"><svg class="ic"><use href="#bs-i-left"/></svg></div>
+                    <div class="bs-circ" style="right:16px"><svg class="ic"><use href="#bs-i-heart"/></svg></div>
+                    <div class="bs-id">
+                      <h2>Dra. Camila Rocha</h2>
+                      <div class="bs-meta">CRM-SP 184302<span class="bs-dot"></span><svg class="ic"><use href="#bs-i-star"/></svg><b>4,9</b>128 avaliações</div>
+                      <div class="bs-pills">
+                        <span class="bs-pill"><img src="assets/icons/specialties/cardio.png" alt="">Cardiologia</span>
+                        <span class="bs-pill">Vídeo</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-panel">
+                    <div class="bs-price">
+                      <div class="l">Valor da consulta<b>por vídeo</b></div>
+                      <div class="r"><s>R$ 120,00</s><strong>R$ 89,00</strong></div>
+                    </div>
+                  </div>
+                  <div class="bs-panel">
+                    <div class="bs-pn-h">Escolha o dia<span class="bs-cal"><svg class="ic"><use href="#bs-i-cal"/></svg>Calendário</span></div>
+                    <div class="bs-days">
+                      <div class="bs-day on"><i>Seg</i><b>16</b><span>4 vagas</span></div>
+                      <div class="bs-day"><i>Ter</i><b>17</b><span>6 vagas</span></div>
+                      <div class="bs-day"><i>Qua</i><b>18</b><span>3 vagas</span></div>
+                      <div class="bs-day"><i>Qui</i><b>19</b><span>5 vagas</span></div>
+                      <div class="bs-day"><i>Sex</i><b>20</b><span>1 vaga</span></div>
+                    </div>
+                  </div>
+                  <div class="bs-panel">
+                    <div class="bs-pn-h">Horários · Seg, 16 de nov</div>
+                    <div class="bs-slots">
+                      <div class="bs-per"><div>Manhã<span>3</span></div><div class="on">Tarde<span>4</span></div><div>Noite<span>2</span></div></div>
+                      <div class="bs-srow">
+                        <div class="bs-slotwrap"><div class="ce-slot" aria-label="14:00">14:00</div></div>
+                        <div class="bs-slotwrap" id="bs-slot1430" role="radio" aria-label="14:30" data-testid="slot-1430"><div class="ce-slot">14:30</div><i class="bs-on"></i><span class="bs-ton">14:30</span></div>
+                        <div class="bs-slotwrap"><div class="ce-slot" aria-label="15:00">15:00</div></div>
+                        <div class="bs-slotwrap"><div class="ce-slot" aria-label="15:30">15:30</div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bs-panel">
+                    <div class="bs-pn-h">Sobre a médica</div>
+                    <div class="bs-about">Cardiologista com foco em prevenção, pressão alta e saúde do coração. Atende adultos e idosos por vídeo.</div>
+                  </div>
+                  <div class="bs-panel">
+                    <div class="bs-pn-h">Avaliações</div>
+                    <div class="bs-about">Atendimento atencioso, explicou tudo com calma e clareza.</div>
+                  </div>
+                  <div class="bs-panel">
+                    <div class="bs-pn-h">Como funciona</div>
+                    <div class="bs-about">Consulta por vídeo de 30 minutos. Ao final, resumo e documentos prontos no app.</div>
+                  </div>
+                </div>
+                <div class="status bs-status--light"><span>9:41</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                <div id="bs-pinbar" class="bs-pinbar"><img src="assets/people/doctors/camila-rocha.jpg" alt=""><div class="bs-pn-t"><b>Dra. Camila Rocha</b><span>Cardiologia · <svg class="ic"><use href="#bs-i-star"/></svg>4,9 (128)</span></div><div class="bs-pn-p"><s>R$ 120,00</s><strong>R$ 89,00</strong></div></div>
+                <div id="bs-bar" class="bs-bar">
+                  <div class="sm"><b>Seg, 16 de nov · 14:30</b><span>Vídeo · <em>R$ 89,00</em></span></div>
+                  <div id="bs-go" class="go" role="button" aria-label="Agendar" data-testid="book">Agendar</div>
+                </div>
+              </div>
+            </div>
+            <div class="lift"></div>
+          </div>
+        </div>
+
+        <div id="bs-pick" class="ce-pill ce-pill--on ce-pick"><i class="bs-pk-sh"></i><img src="assets/icons/specialties/cardio.png" alt="">Cardiologia</div>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="busca"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const m = VMMotion.create({ root, tl });
+            const k = VMKit.create({ root, tl });
+            const $ = (s) => root.querySelector(s);
+            const $$ = (s) => [...root.querySelectorAll(s)];
+            const CAM = { left: 221, top: 543, s: 1.5 };
+            const sceneOf = (sx, sy) => ({ x: CAM.left + (12 + sx) * CAM.s, y: CAM.top + (12 + sy) * CAM.s });
+
+            $$("#bs-list *, #bs-profile *").forEach((n) => { n.setAttribute("data-layout-allow-overlap", ""); n.setAttribute("data-layout-allow-occlusion", ""); });
+            k.screens(["bs-list", "bs-profile"]);
+
+            const cam = $(".cam");
+            const row = k.center("#bs-well1");
+            const chip = k.center("#bs-slot1430");
+
+            const field = $("#bs-field");
+            const fieldIn = $(".bs-field-in");
+            const fc = k.center(field);
+            const pick = $("#bs-pick");
+            const pw = pick.offsetWidth;
+            const endScale = 0.46;
+            const fl = sceneOf(fc.p.x, fc.p.y);
+            const tx = fl.x + 18 - 28 * endScale + (pw * endScale) / 2;
+            const ty = fl.y + (fc.p.h * CAM.s) / 2;
+            const dockT = 0.3;
+            const dockY = 1330;
+            const offM = dockY - ty;
+            const vB = (3 * offM) / 0.65;
+            const dA = (vB * dockT) / 2;
+            tl.fromTo(cam, { y: offM + dA }, { y: offM, duration: dockT, ease: "power1.in" }, 0);
+            tl.to(cam, { y: 0, duration: 0.65, ease: "power2.out" }, dockT);
+            const pickBg = getComputedStyle(pick).backgroundColor;
+            const pickFg = getComputedStyle(pick).color;
+            const fieldBg = getComputedStyle(field).backgroundColor;
+            const fieldFg = getComputedStyle(fieldIn.querySelector("b")).color;
+            tl.set(pick, { xPercent: -50, yPercent: -50, x: 540, y: 1180, scale: 0.6, transformOrigin: "50% 50%" }, 0);
+            tl.to(pick, { y: dockY, duration: dockT, ease: "power2.out" }, 0);
+            tl.to(pick, { x: tx, duration: dockT, ease: "power2.out" }, 0);
+            tl.to(pick, { scale: endScale, duration: dockT, ease: "power4.out" }, 0);
+            tl.fromTo(pick, { backgroundColor: pickBg, color: pickFg, borderRadius: "999px" }, { backgroundColor: fieldBg, color: fieldFg, borderRadius: "22px", duration: dockT, ease: "power2.out", immediateRender: true }, 0);
+            tl.to(pick.querySelector(".bs-pk-sh"), { opacity: 0, duration: dockT, ease: "power2.out" }, 0);
+            tl.set(pick, { opacity: 0 }, dockT);
+            tl.set(fieldIn, { opacity: 1 }, dockT);
+
+            tl.fromTo($$(".bs-chips-row, .bs-row"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out", stagger: 0.015, immediateRender: true }, 0);
+
+            m.rise("#bs-line", 0.3);
+
+            const listY = Math.round(row.y - 250);
+            tl.to("#bs-rows", { y: -listY, duration: 1.0, ease: "power3.out" }, 0.95);
+
+            const tapT = 2.15;
+            k.tap(row.x, 250, tapT, "#bs-well1");
+            k.push("bs-list", "bs-profile", tapT);
+
+            const wantY = 470;
+            const offset = Math.round(chip.y - wantY);
+            tl.to("#bs-scroll", { y: -offset, duration: 0.8, ease: "power2.inOut" }, 2.55);
+            tl.fromTo("#bs-pinbar", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out", immediateRender: true }, 2.75);
+
+            k.tap(chip.x, wantY, 3.75, "#bs-slot1430");
+            tl.to("#bs-slot1430 .bs-on", { opacity: 1, duration: 0.14, ease: "power2.out" }, 3.75);
+            tl.to("#bs-slot1430 .bs-ton", { opacity: 1, duration: 0.14, ease: "power2.out" }, 3.75);
+            tl.fromTo("#bs-bar", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "power4.out", immediateRender: true }, 3.75);
+
+            window.__timelines["busca"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

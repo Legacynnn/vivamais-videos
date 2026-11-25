@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/screens/screens.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #vez { position: absolute; inset: 0; overflow: hidden; font-family: "DM Sans", sans-serif; }
+        #vez .vz-3d { position: absolute; inset: 0; }
+        #vez .v2-plane { left: 0; top: 0; width: 1080px; height: 1920px; }
+        #vez .vz-cam { position: absolute; left: 0; top: 0; width: 733px; height: 1545px; transform-origin: 0 0; will-change: transform; }
+        #vez .status { color: #FFFFFF; }
+        #vez .status-icons i { background: currentColor; }
+        #vez .vz-match { position: absolute; left: 0; top: 0; width: 402px; height: 874px; overflow: hidden; background: #22084A; color: #FFFFFF; box-sizing: border-box; }
+        #vez .vz-match * { box-sizing: border-box; }
+        #vez .vz-glow { position: absolute; left: 61px; top: -120px; width: 280px; height: 280px; border-radius: 50%; transform: scale(2); background: radial-gradient(circle, rgba(157, 107, 242, 0.55), rgba(126, 59, 237, 0.18) 45%, rgba(126, 59, 237, 0) 70%); }
+        #vez .vz-glow2 { position: absolute; left: 51px; top: 420px; width: 300px; height: 300px; border-radius: 50%; transform: scale(2); background: radial-gradient(circle, rgba(126, 59, 237, 0.28), rgba(126, 59, 237, 0) 68%); }
+        #vez .vz-row { position: absolute; z-index: 3; left: 0; top: 275px; width: 402px; height: 150px; }
+        #vez .vz-rg { position: absolute; left: 138px; top: 12px; width: 126px; height: 126px; border-radius: 50%; border: 2px solid rgba(18, 255, 215, 0.6); opacity: 0; }
+        #vez .vz-orb { position: absolute; left: 179px; top: 53px; width: 44px; height: 44px; border-radius: 50%; border: 3px solid #FFFFFF; overflow: hidden; background: #FFFFFF; box-shadow: 0 10px 22px rgba(10, 2, 30, 0.45); opacity: 0; }
+        #vez .vz-orb img, #vez .vz-av img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        #vez .vz-av { position: absolute; left: 138px; top: 12px; width: 126px; height: 126px; border-radius: 50%; padding: 4px; background: #FFFFFF; box-shadow: 0 18px 40px rgba(10, 2, 30, 0.5); }
+        #vez .vz-ck { position: absolute; left: 177px; top: 104px; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: #12FFD7; color: #22084A; box-shadow: 0 0 0 5px #2A0B5A; }
+        #vez .vz-ck svg { width: 24px; height: 24px; }
+        #vez .vz-txt { position: absolute; left: 0; top: 447px; width: 402px; padding: 0 28px; text-align: center; }
+        #vez .vz-txt b { display: block; font: 500 31px/38px "Space Grotesk", sans-serif; letter-spacing: -0.03em; }
+        #vez .vz-txt span { display: block; margin-top: 4px; font: 400 16px/24px "DM Sans", sans-serif; color: rgba(255, 255, 255, 0.75); }
+        #vez .vz-facts { position: absolute; left: 24px; right: 24px; top: 537px; display: flex; flex-direction: column; gap: 6px; }
+        #vez .vz-fact { display: flex; align-items: center; gap: 12px; height: 50px; padding: 0 16px; border-radius: 16px; background: rgba(255, 255, 255, 0.14); font: 500 15px/20px "DM Sans", sans-serif; }
+        #vez .vz-fact svg { width: 18px; height: 18px; flex: none; color: #12FFD7; }
+        #vez .vz-cap { position: absolute; left: 0; top: 264px; width: 1080px; height: 72px; display: flex; align-items: center; justify-content: center; gap: 18px; z-index: 6; }
+        #vez .vz-cap img { display: block; width: 72px; height: 72px; flex: none; }
+        #vez .vz-plabel { display: block; white-space: nowrap; font: 500 60px/72px "Space Grotesk", sans-serif; letter-spacing: -0.035em; color: var(--v2-ink); perspective: 600px; }
+        #vez .vz-plabel em { font-style: normal; color: #7E3BED; }
+        #vez .vz-ch { display: inline-block; transform-origin: 50% 100%; backface-visibility: hidden; }
+        #vez .vz-flash { position: absolute; left: 61px; top: 210px; width: 280px; height: 280px; border-radius: 50%; opacity: 0; z-index: 1; background: radial-gradient(circle, rgba(233, 221, 253, 0.85), rgba(157, 107, 242, 0.35) 40%, rgba(126, 59, 237, 0) 70%); }
+        #vez .vz-burst { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 2; }
+        #vez .vz-pc { position: absolute; opacity: 0; backface-visibility: visible; will-change: transform; }
+        #vez .vz-star { clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+      </style>
+      <div id="vez" class="vm-scene v2-scene" data-composition-id="vez" data-start="0" data-duration="2.8125" data-width="1080" data-height="1920">
+        <div class="v2-stage" data-layout-ignore>
+          <div class="v2-halo"></div>
+          <div class="v2-floor"></div>
+        </div>
+        <div class="vz-cap" id="vz-cap"><img class="vz-sym" alt="" src="assets/brand/simbolo-cor.svg"><span class="vz-plabel" id="vz-plabel">Plantão <em>24/7</em></span></div>
+        <div class="vz-3d v2-crop-fade-tb" data-layout-allow-overflow data-layout-ignore>
+          <div class="v2-plane" id="vz-plane" data-layout-allow-overflow>
+            <div class="cam vz-cam" id="vz-cam" data-layout-allow-overflow>
+              <div class="dev" data-layout-allow-overflow>
+                <div class="bezel" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow></div>
+                <div class="screen" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>
+                  <div class="island"></div>
+                  <div class="status"><span>9:41</span><span class="status-icons"><i></i><i class="b"></i></span></div>
+                  <div class="scr" data-layout-ignore>
+                    <div class="vz-match" id="vz-match">
+                      <span class="vz-glow"></span>
+                      <span class="vz-glow2"></span>
+                      <div class="vz-row">
+                        <span class="vz-rg"></span><span class="vz-rg"></span><span class="vz-rg"></span><span class="vz-rg vz-rg-m"></span>
+                        <span class="vz-av vz-pat"><img alt="" src="assets/img/helena.jpg"></span>
+                        <span class="vz-av vz-doc"><img alt="" style="object-position:50% 17%" src="assets/screens/img/camila-rocha-NHQUBBYX.jpg"></span>
+                        <span class="vz-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                      </div>
+                      <div class="vz-txt vz-t2"><b>Médica encontrada</b><span>Dra. Camila Rocha vai atender você agora.</span></div>
+                      <div class="vz-facts">
+                        <span class="vz-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Ela já recebeu sua anamnese</span>
+                        <span class="vz-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>CRM ativo, conferido no CFM</span>
+                      </div>
+                      <span class="vz-flash" id="vz-flash"></span>
+                      <div class="vz-burst" id="vz-burst"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lift"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="vez"]');
+          const q = (s) => root.querySelector(s);
+          const qa = (s) => [...root.querySelectorAll(s)];
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const cam = q("#vz-cam");
+            const plane = q("#vz-plane");
+            const match = q("#vz-match");
+            const F = (S) => ({ x: 540 - S * 366.5, y: 396, scale: S });
+            const c0 = F(0.9);
+            const c1 = F(0.94);
+
+            const pat = q(".vz-pat");
+            const doc = q(".vz-doc");
+            const ck = q(".vz-ck");
+            const rings = qa(".vz-rg");
+            const t2 = q(".vz-t2");
+            const facts = qa(".vz-fact");
+
+
+            gsap.set(cam, Object.assign({ transformOrigin: "0 0" }, c0));
+            gsap.set(pat, { transformOrigin: "50% 50%", x: -170, scale: 0.7, opacity: 0 });
+            gsap.set(doc, { x: 170, rotation: 14, opacity: 0 });
+            gsap.set(ck, { scale: 0, rotation: -90 });
+            gsap.set(t2, { opacity: 0, y: 16 });
+            gsap.set(facts, { opacity: 0, y: 14 });
+
+            const T = 0;
+            const plabel = q("#vz-plabel");
+            const flash = q("#vz-flash");
+            const fchecks = qa(".vz-fact svg");
+            const sym = q(".vz-sym");
+            const splitChars = (node) => {
+              [...node.childNodes].forEach((n) => {
+                if (n.nodeType === 3) {
+                  const f = document.createDocumentFragment();
+                  [...n.textContent].forEach((c) => { const sp = document.createElement("span"); sp.className = "vz-ch"; sp.textContent = c === " " ? "\u00a0" : c; f.appendChild(sp); });
+                  n.replaceWith(f);
+                } else splitChars(n);
+              });
+            };
+            splitChars(plabel);
+            const chars = qa("#vz-plabel .vz-ch");
+            gsap.set(sym, { scale: 0.4, rotation: -18, opacity: 0, transformOrigin: "50% 50%" });
+            gsap.set(chars, { rotationX: -90, opacity: 0 });
+            gsap.set(fchecks, { scale: 0, transformOrigin: "50% 50%" });
+
+            tl.fromTo(plane, { scale: 1.45, opacity: 0, filter: "blur(16px)", transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0);
+            tl.fromTo(match, { scale: 1.12, filter: "blur(8px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0);
+            tl.to(cam, Object.assign({ duration: 2.8, ease: "power1.inOut" }, c1), 0);
+
+            tl.to(pat, { x: -52, rotation: -6, scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 0.05);
+            tl.to(doc, { x: 52, rotation: 6, opacity: 1, duration: 0.4, ease: "back.out(1.5)" }, 0.08);
+            tl.to(ck, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.6)" }, 0.2);
+            tl.fromTo(rings[3], { scale: 0.6, opacity: 0.9 }, { scale: 1.6, opacity: 0.0, duration: 0.9, ease: "power1.out", immediateRender: false }, 0.25);
+            tl.to(t2, { opacity: 1, y: 0, duration: 0.4, ease: "power4.out" }, 0.45);
+            tl.to(facts, { opacity: 1, y: 0, duration: 0.4, ease: "power4.out", stagger: 0.2 }, 0.75);
+            tl.to(fchecks, { scale: 1, duration: 0.35, ease: "back.out(2.4)", stagger: 0.2 }, 1.0);
+            tl.to(sym, { scale: 1, rotation: 0, opacity: 1, duration: 0.6, ease: "back.out(1.8)" }, 0.1);
+            tl.to(chars, { rotationX: 0, opacity: 1, duration: 0.34, ease: "power3.out", stagger: 0.025 }, 0.16);
+            tl.fromTo(flash, { scale: 0.3, opacity: 0 }, { scale: 1.7, opacity: 0.9, duration: 0.3, ease: "power2.out", immediateRender: false }, 0.3);
+            tl.to(flash, { opacity: 0, duration: 0.6, ease: "power1.in" }, 0.6);
+
+            const W = 402;
+            const H = 874;
+            const cv = document.createElement("canvas");
+            cv.width = W * 2;
+            cv.height = H * 2;
+            cv.style.cssText = "position:absolute;left:0;top:0;width:" + W + "px;height:" + H + "px;";
+            q("#vz-burst").appendChild(cv);
+            const ctx = cv.getContext("2d");
+            const PAL = [[126, 59, 237], [149, 49, 255], [183, 148, 246], [233, 221, 253], [255, 255, 255], [126, 59, 237], [183, 148, 246], [149, 49, 255], [255, 255, 255], [18, 255, 215]];
+            const build = () => {
+              let seed = 20261112;
+              const rnd = () => { seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+              const rng = (a, b) => a + (b - a) * rnd();
+              const list = [];
+              const add = (n, start, ox, oy, center, spread, v0, v1) => {
+                for (let i = 0; i < n; i++) {
+                  const k = rnd();
+                  const kind = k < 0.62 ? 0 : k < 0.82 ? 1 : k < 0.92 ? 2 : 3;
+                  let ci = Math.floor(rnd() * 9);
+                  if (rnd() < 0.08) ci = 9;
+                  const ang = center === null ? rng(0, Math.PI * 2) : (center + rng(-spread / 2, spread / 2)) * Math.PI / 180;
+                  list.push({
+                    start: start + Math.floor(rng(0, 5)), x: ox, y: oy, v: rng(v0, v1), ang, drag: rng(0.925, 0.945),
+                    wob: rng(0, Math.PI * 2), wobSpeed: rng(0.07, 0.12), wobAmp: rng(6, 10), tilt: rng(0, Math.PI * 2), tiltSpeed: 0.1,
+                    kind, sc: kind === 3 ? 1 : rng(1.25, 1.7), rd: kind === 3 ? 1.4 : rng(3.5, 5), col: PAL[ci], life: Math.floor(rng(200, 260)), tick: 0
+                  });
+                }
+              };
+              const S = 1.2;
+              add(48, 18, -6, H - 8, -60, 55, 35 * S, 55 * S);
+              add(48, 18, W + 6, H - 8, -120, 55, 35 * S, 55 * S);
+              add(44, 19, 201, 350, null, 0, 24, 40);
+              add(26, 30, -6, H - 8, -62, 50, 32 * S, 50 * S);
+              add(26, 30, W + 6, H - 8, -118, 50, 32 * S, 50 * S);
+              add(16, 32, 201, 350, null, 0, 20, 32);
+              return list;
+            };
+            let parts = build();
+            let simTick = -1;
+            const step = (p, tk) => {
+              if (tk < p.start || p.tick >= p.life) return;
+              p.tick++;
+              p.x += Math.cos(p.ang) * p.v;
+              p.y += Math.sin(p.ang) * p.v + Math.min(2.2 + p.tick * 0.012, 4.2);
+              p.v *= p.drag;
+              p.wob += p.wobSpeed;
+              p.x += Math.cos(p.wob) * p.wobAmp * 0.18;
+              p.tilt += p.tiltSpeed;
+            };
+            const paint = (p) => {
+              if (p.tick === 0 || p.tick >= p.life || p.y > H + 30) return;
+              const prog = p.tick / p.life;
+              const alpha = prog > 0.75 ? 1 - (prog - 0.75) / 0.25 : 1;
+              const light = 0.6 + 0.4 * Math.abs(Math.cos(p.wob));
+              ctx.fillStyle = "rgba(" + Math.round(p.col[0] * light) + "," + Math.round(p.col[1] * light) + "," + Math.round(p.col[2] * light) + "," + alpha.toFixed(3) + ")";
+              const ts = Math.sin(p.tilt);
+              const tc = Math.cos(p.tilt);
+              const len = (p.kind === 3 ? 22 : 10) * p.sc;
+              const wx = p.x + len * Math.cos(p.wob);
+              const wy = p.y + len * Math.sin(p.wob);
+              ctx.beginPath();
+              if (p.kind === 1) {
+                const rx = Math.max(1.5, 5 * p.sc * Math.abs(Math.cos(p.wob)));
+                ctx.ellipse(p.x, p.y, rx, 4.5 * p.sc, p.tilt, 0, Math.PI * 2);
+              } else {
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(wx, p.y + p.rd * ts);
+                ctx.lineTo(wx + p.rd * tc, wy + p.rd * ts);
+                ctx.lineTo(p.x + p.rd * tc, wy);
+                ctx.closePath();
+              }
+              ctx.fill();
+            };
+            const draw = (t) => {
+              const target = Math.floor(t * 60 + 1e-6);
+              if (target < simTick) { parts = build(); simTick = -1; }
+              while (simTick < target) {
+                simTick++;
+                for (let i = 0; i < parts.length; i++) step(parts[i], simTick);
+              }
+              ctx.setTransform(2, 0, 0, 2, 0, 0);
+              ctx.clearRect(0, 0, W, H);
+              for (let i = 0; i < parts.length; i++) paint(parts[i]);
+            };
+            const proxy = { t: 0 };
+            tl.to(proxy, { t: 2.8, duration: 2.8, ease: "none", onUpdate: () => draw(proxy.t) }, 0);
+
+            tl.to(chars, { rotationX: 90, opacity: 0, duration: 0.2, ease: "power2.in", stagger: 0.012 }, 2.12);
+            tl.to(sym, { scale: 0.6, opacity: 0, duration: 0.25, ease: "power2.in" }, 2.17);
+            tl.to(plane, { x: -1250, filter: "blur(18px)", duration: 0.47, ease: "power3.in" }, 2.3425);
+
+            window.__timelines["vez"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

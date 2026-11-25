@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/screens/screens.css">
+      <style>
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+
+        #ia {
+          --vm-safe-t: 300px; --vm-safe-r: 140px; --vm-safe-b: 680px; --vm-safe-l: 80px;
+          --vm-fs-head: 92px; --vm-fs-sub: 50px; --vm-fs-copy: 52px; --vm-fs-label: 52px;
+          --vm-logo-w: 210px; --vm-head-w: 860px; --vm-dev-scale: 2.15;
+          color: #fff;
+        }
+        #ia .p24-bg { inset: -90px; }
+        #ia .p24-cam { position: absolute; inset: 0; transform-origin: 50% 45%; }
+        #ia .bezel { box-shadow: var(--p24-shadow), inset 0 0 0 2px #3a3644, inset 0 0 0 5px rgba(255,255,255,0.08); }
+        #ia .vm-head { font-weight: 400; letter-spacing: -0.035em; }
+        #ia .vm-head em { color: var(--p24-hi-dark); font-style: normal; }
+        #ia .ia-head { position: absolute; left: 80px; top: 362px; width: 860px; font-size: 88px; line-height: 1.02; text-wrap: balance; }
+        #ia .ia-sub { position: absolute; left: 80px; top: 414px; width: 920px; font-family: var(--vm-font-text); font-weight: 500; font-size: 48px; line-height: 1.1; color: rgba(255,255,255,0.9); white-space: nowrap; }
+        #ia .cam { left: 80px; top: 555px; transform-origin: 50% 70%; }
+        #ia .scr { background: #fff; }
+        #ia .iw, #ia .ic { opacity: 0; }
+      </style>
+
+      <div id="ia" class="vm-scene" data-composition-id="ia" data-start="0" data-duration="4.21875" data-width="1080" data-height="1920">
+        <div id="ia-bg" class="p24-bg p24-bg--deep">
+          <div id="ia-ba" class="p24-blob p24-blob--a" style="left: 420px; top: -380px;"></div>
+          <div id="ia-bb" class="p24-blob p24-blob--b" style="left: -420px; top: 1100px;"></div>
+          <div id="ia-bc" class="p24-blob p24-blob--c" style="left: -120px; top: 520px;"></div>
+          <div id="ia-bd" class="p24-blob p24-blob--d" style="left: 380px; top: 880px;"></div>
+          <div id="ia-bp" class="p24-plus" style="left: 520px; top: 700px; width: 1000px; height: 1000px;"></div>
+          <div class="p24-grain"></div>
+        </div>
+        <div id="ia-layer" class="p24-cam">
+          <img class="vm-logo" src="assets/brand/lockup-branco.svg" alt="Viva Mais">
+          <h2 id="ia-head" class="vm-head ia-head">Tire dúvidas com a <em>IA</em></h2>
+          <p id="ia-sub" class="ia-sub">sobre sua receita e recomendações</p>
+
+          <div id="ia-cam" class="cam">
+            <div class="dev">
+              <div class="bezel"></div>
+              <div class="screen">
+                <div class="island"></div>
+                <div class="status"><span>9:41</span><span class="status-icons"><i></i><i class="b"></i></span></div>
+                <div class="scr" id="ia-scr"><!-- screen:ai-chat answer --><div class="vms" data-screen="ai-chat" data-state="answer" data-layout-ignore><div class="rn-view" style="flex: 1 1 0%; background-color: rgb(255, 255, 255); padding-top: 59px;"><div class="rn-view" style="flex-direction: row; align-items: center; gap: 6px; background-color: rgb(255, 255, 255); padding-left: 8px; padding-right: 8px; padding-bottom: 8px; z-index: 1;"><div class="rn-view active:opacity-60" aria-label="Voltar" role="button" style="width: 44px; height: 44px; align-items: center; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></div><div class="rn-view" aria-label="Super IA disponível" style="align-items: center; justify-content: center; width: 30px; height: 30px;"><div class="rn-view" style="position: absolute; width: 48px; height: 48px; left: -9px; top: -9px; opacity: 0.35;"><svg width="48" height="48"><defs><radialGradient id="_r_0_-halo" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9D6BF2" stop-opacity="1"></stop><stop offset="65%" stop-color="#9D6BF2" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-halo)"></circle></svg></div><div class="rn-view" style="position: absolute; inset: 0px; border-radius: 30px; border-width: 1.5px; border-color: rgb(156, 255, 236); opacity: 0; transform: scale(1);"></div><div class="rn-view" style="position: absolute; inset: 0px; background-color: rgb(245, 240, 254); border-radius: 30px; box-shadow: rgba(106, 36, 219, 0.35) 0px 2.4px 7.2px;"><div class="rn-view" style="position: absolute; inset: 0px; overflow: hidden; border-radius: 30px;"><div class="rn-view" style="position: absolute; inset: 0px; transform: rotate(0deg);"><div class="rn-view" style="position: absolute; width: 25.5px; height: 25.5px; left: 2.25px; top: 2.25px; opacity: 0.7; transform: translateX(-4.8px) translateY(3.6px);"><svg width="25.5" height="25.5"><defs><radialGradient id="_r_0_-a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#12FFD7" stop-opacity="1"></stop><stop offset="45%" stop-color="#12FFD7" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#12FFD7" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-a)"></circle></svg></div><div class="rn-view" style="position: absolute; width: 25.5px; height: 25.5px; left: 2.25px; top: 2.25px; opacity: 0.85; transform: translateX(4.8px) translateY(0px);"><svg width="25.5" height="25.5"><defs><radialGradient id="_r_0_-p" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9531FF" stop-opacity="1"></stop><stop offset="45%" stop-color="#9531FF" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#9531FF" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-p)"></circle></svg></div><div class="rn-view" style="position: absolute; width: 25.5px; height: 25.5px; left: 2.25px; top: 2.25px; opacity: 0.9; transform: translateX(0px) translateY(-5.1px);"><svg width="25.5" height="25.5"><defs><radialGradient id="_r_0_-v" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9D6BF2" stop-opacity="1"></stop><stop offset="45%" stop-color="#9D6BF2" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#9D6BF2" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-v)"></circle></svg></div><div class="rn-view" style="position: absolute; width: 25.5px; height: 25.5px; left: 2.25px; top: 2.25px; opacity: 0; transform: translateX(1.2px) translateY(5.1px);"><svg width="25.5" height="25.5"><defs><radialGradient id="_r_0_-s" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9CFFEC" stop-opacity="1"></stop><stop offset="45%" stop-color="#9CFFEC" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#9CFFEC" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-s)"></circle></svg></div></div><svg width="30" height="30" style="position: absolute;"><defs><radialGradient id="_r_0_-hi" cx="32%" cy="22%" rx="38%" ry="30%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"></stop><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"></stop></radialGradient><radialGradient id="_r_0_-rim" cx="50%" cy="52%" r="50%"><stop offset="52%" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="81%" stop-color="#FFFFFF" stop-opacity="0.5"></stop><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.85"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-rim)"></circle><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-hi)"></circle><circle cx="50%" cy="50%" r="14.5" fill="none" stroke="rgba(255, 255, 255, 0.7)" stroke-width="1"></circle></svg></div></div><div class="rn-view" style="position: absolute; inset: 0px; align-items: center; justify-content: center; box-shadow: rgba(106, 36, 219, 0.45) 0px 0px 1.2px;"><div class="rn-view" style="transform: rotate(0deg);"><svg width="13.8" height="13.8" viewBox="69.92 1.23 19.84 19.84"><path d="M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z" fill="rgba(255, 255, 255, 0.95)"></path></svg></div></div></div><div class="rn-view" style="flex: 1 1 0%; min-width: 0px; padding-left: 4px; padding-right: 4px; justify-content: center;"><div class="rn-text text-foreground font-text-medium text-[16px] leading-[20px]" style="color: rgb(23, 21, 30); display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">Como tomar a receita</div></div><div class="rn-view active:opacity-60" aria-label="Histórico de conversas" role="button" style="width: 44px; height: 44px; align-items: center; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div><div class="rn-view" style="position: absolute; left: 0px; right: 0px; bottom: 0px; height: 0.5px; background-color: rgb(230, 228, 236); opacity: 0;"></div></div><div class="rn-view" style="flex: 1 1 0%;"><div class="rn-view" style="flex: 1 1 0%;"><div class="rn-view rn-scroll" style="flex: 1 1 0%;"><div class="rn-view rn-scroll-content" style="flex-grow: 1; justify-content: flex-end; padding-top: 8px; padding-bottom: 24px;"><div class="rn-view" style="padding-left: 16px; padding-right: 16px; padding-bottom: 18px; align-items: flex-end; gap: 4px;"><div class="rn-view" style="background-color: rgb(126, 59, 237); border-radius: 20px 20px 8px; padding: 11px 15px; max-width: 86%; gap: 8px;"><div class="rn-text text-[17px] leading-6 text-foreground" style="color: rgb(255, 255, 255); font-size: 15.5px; line-height: 22px;">Como tomo a receita?</div></div><div class="rn-text text-foreground font-text text-[12px]" style="color: rgb(162, 159, 176);">10:01</div></div><div class="rn-view" style="padding-left: 16px; padding-right: 16px; padding-bottom: 18px; gap: 10px;"><div class="rn-view" style="flex-direction: row; align-items: center; gap: 8px;"><div class="rn-text text-foreground font-text-medium text-[13px]" style="color: rgb(114, 111, 128);">Super Inteligência</div><div class="rn-view rounded-full bg-violet-100 px-1.5 py-px" aria-label="Inteligência artificial"><div class="rn-text font-text-bold text-[10px] leading-[14px] tracking-[0.4px] text-violet-700">IA</div></div><div class="rn-text text-foreground font-text text-[12px]" style="color: rgb(162, 159, 176);">10:02</div></div><div class="rn-view"><div class="rn-view"><div class="rn-text" style="color: rgb(13, 12, 18); font-size: 15.5px; line-height: 23px; font-family: DMSans_400Regular; margin-top: 0px;">Dipirona 500 mg de 6 em 6 horas, se tiver dor.</div></div><div class="rn-view"><div class="rn-text" style="color: rgb(13, 12, 18); font-size: 15.5px; line-height: 23px; font-family: DMSans_400Regular; margin-top: 0px;">É o que está na sua <span class="rn-text-in" style="font-family: DMSans_700Bold;">receita</span> da consulta com a Dra. Camila Rocha, de 11 de novembro.</div></div></div><div class="rn-view" style="flex-direction: row; align-items: center; gap: 8px;"><div class="rn-view" style="transform: scale(1);"><div class="rn-view flex-row items-center justify-center gap-1.5 rounded-full h-8 px-3 bg-muted active:bg-ink-200" aria-label="Copiar resposta" role="button"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7.5 14.5C7.5 11.2002 7.5 9.55025 8.52513 8.52513C9.55025 7.5 11.2002 7.5 14.5 7.5C17.7998 7.5 19.4497 7.5 20.4749 8.52513C21.5 9.55025 21.5 11.2002 21.5 14.5C21.5 17.7998 21.5 19.4497 20.4749 20.4749C19.4497 21.5 17.7998 21.5 14.5 21.5C11.2002 21.5 9.55025 21.5 8.52513 20.4749C7.5 19.4497 7.5 17.7998 7.5 14.5Z" stroke="#17151E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><path d="M7.5 16.5C6.10355 16.5 5.40533 16.5 4.84402 16.3036C3.83866 15.9518 3.0482 15.1613 2.69641 14.156C2.5 13.5947 2.5 12.8964 2.5 11.5V9.5C2.5 6.20017 2.5 4.55025 3.52513 3.52513C4.55025 2.5 6.20017 2.5 9.5 2.5H11.5C12.8964 2.5 13.5947 2.5 14.156 2.69641C15.1613 3.0482 15.9518 3.83866 16.3036 4.84402C16.5 5.40533 16.5 6.10355 16.5 7.5" stroke="#17151E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg><div class="rn-text font-text-medium text-[13px] leading-[18px] text-foreground" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">Copiar</div></div></div></div></div></div></div></div><div class="rn-view" style="background-color: rgb(255, 255, 255);"><div class="rn-view" style="position: absolute; left: 0px; right: 0px; top: -24px; height: 24px; background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));"></div><div class="rn-view" style="padding-bottom: 34px;"><div class="rn-view" style="background-color: rgb(255, 255, 255); padding-left: 12px; padding-right: 12px; padding-top: 8px; gap: 6px;"><div class="rn-view"><div class="rn-view" style="border-radius: 26px; padding: 6px; gap: 4px; background-color: rgb(246, 245, 249);"><div class="rn-view" style="position: absolute; inset: 0px; overflow: hidden; border-radius: 26px; opacity: 0.55;"></div><div class="rn-view" style="padding-left: 40px; padding-right: 84px; padding-bottom: 0px; min-height: 40px;"><div class="rn-text rn-input rn-input-multi" aria-label="Mensagem para a Super IA" style="flex-grow: 1; font-size: 17px; line-height: 22px; min-height: 40px; color: rgb(162, 159, 176); font-family: DMSans_400Regular; padding: 9px 10px; max-height: 152px;">Pergunte sobre sua saúde</div></div><div class="rn-view" style="position: absolute; left: 6px; right: 6px; bottom: 6px; flex-direction: row; align-items: center; gap: 4px;"><div class="rn-view active:bg-muted" aria-label="Anexar arquivo ou foto" role="button" style="width: 40px; height: 40px; border-radius: 20px; align-items: center; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#282632" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></div><div class="rn-view" style="flex: 1 1 0%;"></div><div class="rn-view active:bg-muted" aria-label="Gravar áudio" role="button" style="width: 40px; height: 40px; border-radius: 20px; align-items: center; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#282632" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mic" aria-hidden="true"><path d="M12 19v3"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><rect x="9" y="2" width="6" height="13" rx="3"></rect></svg></div><div class="rn-view" aria-label="Enviar mensagem" role="button" style="width: 40px; height: 40px; border-radius: 20px; align-items: center; justify-content: center; overflow: hidden; background-color: rgb(242, 241, 246); transform: scale(1);"><div class="rn-view" style="position: absolute; inset: 0px; opacity: 0;"><div class="rn-view" style="position: absolute; inset: 0px; background-image: linear-gradient(45deg, rgb(18, 255, 215), rgb(126, 59, 237), rgb(149, 49, 255));"></div></div><div class="rn-view" style="transform: scale(0.9);"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></div></div></div></div><div class="rn-view" style="position: absolute; left: -10px; top: -10px; opacity: 0;"></div></div></div></div></div></div></div></div><!-- /screen --></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="ia"]');
+          window.__timelines = window.__timelines || {};
+          const q = (s) => root.querySelector(s);
+          const qa = (s) => [...root.querySelectorAll(s)];
+          const END = 4.21875;
+          const EXIT = 3.92;
+
+          document.fonts.ready.then(async () => {
+            await Promise.all([...document.fonts].map((f) => f.load().catch(() => null)));
+            const tl = gsap.timeline({ paused: true });
+            const scr = q("#ia-scr");
+
+            const leaf = (txt) => [...scr.querySelectorAll("div")].find((e) => !e.children.length && e.textContent === txt);
+            const qText = leaf("Como tomo a receita?");
+            const userBlock = qText.parentElement.parentElement;
+            const aiBlock = userBlock.nextElementSibling;
+            const aiLabel = aiBlock.children[0];
+            const aiBody = aiBlock.children[1];
+            const copyRow = aiBlock.children[2];
+            const paras = [...aiBody.children];
+
+            const split = (el, cls, perChar) => {
+              const out = [];
+              const walk = (node) => {
+                [...node.childNodes].forEach((c) => {
+                  if (c.nodeType === 3) {
+                    const frag = document.createDocumentFragment();
+                    c.textContent.split(perChar ? /()/ : /(\s+)/).forEach((tok) => {
+                      if (!tok) return;
+                      if (!perChar && /^\s+$/.test(tok)) { frag.appendChild(document.createTextNode(tok)); return; }
+                      const s = document.createElement("span");
+                      s.className = cls;
+                      s.style.opacity = "0";
+                      s.textContent = tok;
+                      frag.appendChild(s);
+                      out.push(s);
+                    });
+                    c.replaceWith(frag);
+                  } else if (c.nodeType === 1) walk(c);
+                });
+              };
+              walk(el);
+              return out;
+            };
+            const chars = split(qText, "ic", true);
+            const words = paras.flatMap((p) => split(p, "iw", false));
+
+            const spin = scr.querySelector('[aria-label="Super IA disponível"] [style*="rotate(0deg)"]');
+
+            qa("#ia-cam *, #ia-head, #ia-sub, #ia-bg, #ia-bg *").forEach((n) => {
+              n.setAttribute("data-layout-allow-overlap", "");
+              n.setAttribute("data-layout-allow-occlusion", "");
+              n.setAttribute("data-layout-allow-overflow", "");
+            });
+            q("#ia-cam").setAttribute("data-layout-allow-overflow", "");
+
+            const layer = q("#ia-layer");
+            tl.fromTo(layer, { x: 130, filter: "blur(10px)" }, { x: 0, filter: "blur(0px)", duration: 0.38, ease: "power4.out" }, 0);
+            tl.fromTo("#ia-bg", { x: 65 }, { x: 0, duration: 0.38, ease: "power4.out" }, 0);
+
+            tl.fromTo("#ia-ba", { x: 0 }, { x: -260, duration: END, ease: "none" }, 0);
+            tl.fromTo("#ia-bb", { x: 0 }, { x: -200, duration: END, ease: "none" }, 0);
+            tl.fromTo("#ia-bc", { x: 0 }, { x: -140, duration: END, ease: "none" }, 0);
+            tl.fromTo("#ia-bd", { x: 0 }, { x: -180, duration: END, ease: "none" }, 0);
+            tl.fromTo("#ia-bp", { rotation: 0, scale: 1 }, { rotation: -8, scale: 1.08, duration: END, ease: "none" }, 0);
+
+            tl.fromTo("#ia-cam", { scale: 1 }, { scale: 1.035, duration: EXIT, ease: "none" }, 0);
+
+            if (spin) {
+              tl.fromTo(spin, { rotation: 0 }, { rotation: (360 / 25) * 0.85 + (360 / 1.7) * (1.85 - 0.85) + (360 / 25) * (END - 1.85), duration: END, ease: "none" }, 0);
+            }
+
+            const chat = scr.querySelector(".rn-scroll-content");
+            tl.fromTo(chat, { y: -150 }, { y: -150, duration: 0.01 }, 0);
+            tl.to(chat, { y: -300, duration: 0.9, ease: "power2.out" }, 1.0);
+
+            tl.set(userBlock, { opacity: 0 }, 0);
+            tl.fromTo(userBlock, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 0.5);
+            chars.forEach((c, i) => tl.set(c, { opacity: 1 }, 0.55 + (0.35 * i) / (chars.length - 1)));
+
+            tl.set(aiLabel, { opacity: 0 }, 0);
+            tl.fromTo(aiLabel, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 1.0);
+
+            const t0 = 1.25;
+            const t1 = 1.85;
+            words.forEach((w, i) => tl.set(w, { opacity: 1 }, t0 + ((t1 - t0) * i) / (words.length - 1)));
+
+            tl.set(copyRow, { opacity: 0 }, 0);
+            tl.fromTo(copyRow, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 1.9);
+
+            tl.fromTo(layer, { x: 0, filter: "blur(0px)" }, { x: -130, filter: "blur(10px)", duration: END - EXIT, ease: "power4.in", immediateRender: false }, EXIT);
+            tl.fromTo("#ia-bg", { x: 0 }, { x: -65, duration: END - EXIT, ease: "power4.in", immediateRender: false }, EXIT);
+
+            window.__timelines["ia"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

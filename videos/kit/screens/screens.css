@@ -15,7 +15,7 @@
 .cam { position: absolute; left: 173px; top: 318px; width: 733px; height: 1545px; }
 .dev { position: absolute; left: 0; top: 0; width: 426px; height: 898px; transform: scale(1.72); transform-origin: 0 0; }
 .bezel { position: absolute; inset: 0; border-radius: 66px; background: #17151E; box-shadow: 0 40px 90px rgba(53, 14, 111, 0.28), inset 0 0 0 2px #3a3644; }
-.screen { position: absolute; left: 12px; top: 12px; width: 402px; height: 874px; border-radius: 54px; overflow: hidden; background: #fff; }
+.screen { position: absolute; left: 12px; top: 12px; width: 402px; height: 874px; border-radius: 54px; overflow: hidden; background: #17151E; box-shadow: 0 0 0 1.5px #17151E; }
 .lift { position: absolute; left: 12px; top: 12px; width: 402px; height: 874px; overflow: visible; pointer-events: none; }
 .island { position: absolute; left: 138px; top: 11px; width: 126px; height: 37px; border-radius: 20px; background: #000; z-index: 30; }
 .status { position: absolute; left: 0; right: 0; top: 0; height: 54px; z-index: 29; display: flex; justify-content: space-between; align-items: center; padding: 6px 36px 0 52px; font-weight: 700; font-size: 16px; color: var(--vm-ink-900); }

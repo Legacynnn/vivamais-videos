@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/em.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #plano .pl-line { font-size: 68px; white-space: nowrap; right: auto; will-change: transform, filter, opacity; }
+        #plano .pl-line .em-step { width: 72px; height: 72px; margin-right: 18px; font-size: 42px; vertical-align: 4px; }
+        #plano .pl-line .em-word { vertical-align: top; }
+        #plano .pl-row, #plano .pl-main {
+          position: absolute; left: 80px; width: 860px; border-radius: 40px; box-sizing: border-box; overflow: hidden;
+          background: var(--em-white); box-shadow: var(--em-shadow-soft); will-change: transform, filter, opacity;
+          font-family: var(--vm-font-text, "DM Sans"), sans-serif; color: var(--em-ink);
+        }
+        #plano .pl-row { height: 182px; z-index: 2; }
+        #plano .pl-main { top: 964px; height: 248px; z-index: 3; }
+        #plano .pl-hd { position: absolute; left: 0; top: 0; width: 860px; height: 112px; z-index: 2; }
+        #plano .pl-ring { position: absolute; left: 24px; top: 24px; width: 64px; height: 64px; border-radius: 50%; box-sizing: border-box; border: 4px solid var(--em-hair); }
+        #plano .pl-ring i { position: absolute; inset: -4px; border-radius: 50%; background: var(--em-accent); transform: scale(0); display: grid; place-items: center; }
+        #plano .pl-ring i::after { content: ""; width: 24px; height: 24px; border-radius: 50%; background: var(--em-white); }
+        #plano .pl-name { position: absolute; left: 110px; top: 24px; height: 64px; display: flex; align-items: center; font: 500 52px/1 var(--vm-font-text, "DM Sans"), sans-serif; white-space: nowrap; }
+        #plano .pl-rec { position: absolute; right: 24px; top: 32px; height: 48px; padding: 0 20px; border-radius: 999px; display: flex; align-items: center; background: var(--em-violet-100); color: var(--em-accent-deep); font: 500 32px/1 var(--vm-font-text, "DM Sans"), sans-serif; white-space: nowrap; z-index: 6; opacity: 0; }
+        #plano .pl-chips { position: absolute; left: 24px; top: 102px; width: 812px; display: flex; flex-wrap: wrap; gap: 10px; z-index: 4; }
+        #plano .em-pchip { position: relative; display: inline-flex; align-items: center; gap: 8px; height: 56px; padding: 0 14px; border-radius: 999px; box-sizing: border-box; white-space: nowrap; font: 500 34px/1 var(--vm-font-text, "DM Sans"), sans-serif; color: var(--em-muted); will-change: transform, opacity; }
+        #plano .em-pchip .pl-pb { position: absolute; inset: 0; border-radius: 999px; background: var(--em-tile); z-index: 0; }
+        #plano .em-pchip svg { position: relative; z-index: 1; flex: none; width: 32px; height: 32px; color: var(--em-muted); }
+        #plano .em-pchip .pl-pt { position: relative; z-index: 1; color: var(--em-muted); }
+        #plano .pl-sel { position: absolute; left: 80px; top: 560px; width: 860px; height: 182px; border-radius: 40px; box-sizing: border-box; z-index: 6; pointer-events: none; opacity: 0;
+          background: color-mix(in srgb, var(--em-accent) 7%, transparent); box-shadow: inset 0 0 0 4px var(--em-accent); }
+        #plano .pl-cov { position: absolute; inset: 0; z-index: 3; }
+        #plano .pl-head { position: absolute; left: 40px; top: 20px; margin: 0; font: 500 60px/1.1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.03em; color: var(--em-ink); white-space: nowrap; opacity: 0; }
+        #plano .pl-cr { position: absolute; left: 24px; right: 24px; height: 104px; border-radius: 32px; box-sizing: border-box; padding: 0 16px; background: var(--em-tile); display: flex; align-items: center; gap: 20px; opacity: 0; font: 500 48px/1 var(--vm-font-text, "DM Sans"), sans-serif; white-space: nowrap; }
+        #plano .pl-tile { position: relative; flex: none; width: 72px; height: 72px; will-change: transform; }
+        #plano .pl-tile .pl-tbg { position: absolute; inset: 0; border-radius: 32%; background: var(--em-white); }
+        #plano .pl-tile svg { position: absolute; left: 17px; top: 17px; width: 38px; height: 38px; color: var(--em-muted); opacity: 0; }
+        #plano .pl-tg { position: relative; flex: none; margin-left: auto; width: 100px; height: 58px; border-radius: 999px; background: var(--em-hair); overflow: hidden; }
+        #plano .pl-tg b { position: absolute; inset: 0; border-radius: 999px; background: var(--em-accent); opacity: 0; }
+        #plano .pl-tg i { position: absolute; left: 6px; top: 6px; width: 46px; height: 46px; border-radius: 50%; background: var(--em-white); box-shadow: 0 4px 10px -2px color-mix(in srgb, var(--em-violet-900) 30%, transparent); will-change: transform; }
+        #plano .pl-cin { position: absolute; left: 0; top: 0; height: 132px; display: flex; align-items: center; gap: 26px; padding: 0 48px 0 16px; box-sizing: border-box; white-space: nowrap; opacity: 0; z-index: 5; font: 500 52px/1 var(--vm-font-text, "DM Sans"), sans-serif; }
+        #plano .pl-cin .em-badge svg { width: 54%; height: 54%; }
+        #plano .pl-vidas { left: 80px; top: 760px; width: 860px; height: 480px; opacity: 0; }
+        #plano .pl-num { position: absolute; left: 0; right: 0; top: 30px; display: flex; justify-content: center; font: 500 220px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; }
+        #plano .pl-num .em-roll { height: 1em; }
+        #plano .pl-num .em-roll-track span { padding: 0; box-sizing: border-box; }
+        #plano .pl-num .sz { visibility: hidden; display: block; }
+        #plano .pl-unit { position: absolute; left: 0; right: 0; top: 248px; text-align: center; font: 500 56px/1 var(--vm-font-text, "DM Sans"), sans-serif; color: var(--em-ink); }
+        #plano .pl-avs { position: absolute; left: 0; right: 0; top: 328px; height: 120px; display: flex; justify-content: center; align-items: center; }
+        #plano .pl-avs .em-avatar { margin-left: -28px; flex: none; will-change: transform, opacity; }
+        #plano .pl-avs .em-avatar:first-child { margin-left: 0; }
+        #plano .pl-more { flex: none; margin-left: -28px; height: 120px; padding: 0 36px; box-sizing: border-box; border-radius: 60px; background: var(--em-violet-100); color: var(--em-accent-deep); display: flex; align-items: center; box-shadow: 0 0 0 7px var(--em-white); font: 500 52px/1 var(--vm-font-text, "DM Sans"), sans-serif; will-change: transform, opacity; }
+      </style>
+      <div id="plano" class="vm-scene em-scene" data-composition-id="plano" data-start="0" data-duration="8.5" data-width="1080" data-height="1920">
+        <div class="em-stage"></div>
+        <div class="em-aurora" data-layout-allow-overflow><i class="a1" data-layout-allow-overflow></i><i class="a2" data-layout-allow-overflow></i><i class="a3" data-layout-allow-overflow></i></div>
+
+        <h1 class="em-line pl-line" id="pl-l1"><span class="em-word"><span class="em-step">1</span></span><span class="em-word">Escolha</span> <span class="em-word">o</span> <span class="em-word"><em>plano</em></span></h1>
+        <h1 class="em-line pl-line" id="pl-l2" data-layout-allow-overlap><span class="em-step">2</span><em>Personalize</em> a cobertura</h1>
+        <h1 class="em-line pl-line" id="pl-l3" data-layout-allow-overlap><span class="em-step">3</span>Defina o número de <em>vidas</em></h1>
+
+        <div class="pl-row" id="pl-r1" style="top: 560px" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>
+          <div class="pl-hd"><div class="pl-ring"></div><div class="pl-name">Plano Médico</div></div>
+          <div class="pl-chips" data-keys="clin"></div>
+        </div>
+        <div class="pl-row" id="pl-r2" style="top: 762px" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>
+          <div class="pl-hd"><div class="pl-ring"></div><div class="pl-name">Mente e Corpo</div></div>
+          <div class="pl-chips" data-keys="clin,psi,nut"></div>
+        </div>
+
+        <div class="em-morph pl-main" id="pl-main" aria-label="Completo" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>
+          <div class="pl-hd" id="pl-hd">
+            <div class="pl-ring" id="pl-ring"><i></i></div>
+            <div class="pl-name" id="pl-name">Completo</div>
+          </div>
+          <div class="pl-rec" id="pl-rec">Recomendado</div>
+          <p class="pl-head" id="pl-head">Completo</p>
+          <div class="pl-chips" id="pl-mchips" data-keys="clin,psi,nut,pro,esp"></div>
+          <div class="pl-cov" id="pl-cov"></div>
+          <div class="pl-cin" id="pl-cin"><span class="em-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span><span>Plano Completo</span></div>
+        </div>
+
+        <div class="pl-sel em-sel" id="pl-sel" data-layout-allow-overlap data-layout-allow-occlusion></div>
+
+        <div class="em-card pl-vidas" id="pl-vidas" data-layout-allow-overflow>
+          <div class="pl-num"><span class="em-roll" id="pl-roll"></span></div>
+          <div class="pl-unit">vidas</div>
+          <div class="pl-avs" id="pl-avs">
+            <img class="em-avatar" src="assets/people/patients/01.png" alt="">
+            <img class="em-avatar" src="assets/people/patients/02.png" alt="">
+            <img class="em-avatar" src="assets/people/patients/03.png" alt="">
+            <img class="em-avatar" src="assets/people/patients/04.png" alt="">
+            <img class="em-avatar" src="assets/people/patients/05.png" alt="">
+            <span class="pl-more">+245</span>
+          </div>
+        </div>
+
+        <div class="em-tap-ring" id="pl-ring-tap" style="left: 0; top: 0; opacity: 0" data-layout-allow-overlap data-layout-allow-occlusion></div>
+        <div class="em-tap" id="pl-tap" style="left: 0; top: 0; opacity: 0" data-layout-allow-overlap data-layout-allow-occlusion></div>
+        <i id="pl-probe" style="position: absolute; left: 0; top: 0; width: 1px; height: 1px; visibility: hidden" data-layout-ignore></i>
+      </div>
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          const P = {
+            clin: ['<path d="M11 2v2" /><path d="M5 2v2" /><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path d="M8 15a6 6 0 0 0 12 0v-3" /><circle cx="20" cy="10" r="2" />', "Clínico", "Clínico geral"],
+            psi: ['<path d="M12 18V5" /><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" /><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" /><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" /><path d="M18 18a4 4 0 0 0 2-7.464" /><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" /><path d="M6 18a4 4 0 0 1-2-7.464" /><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" />', "Psicologia", "Psicologia"],
+            nut: ['<path d="M12 6.528V3a1 1 0 0 1 1-1h0" /><path d="M18.237 21A15 15 0 0 0 22 11a6 6 0 0 0-10-4.472A6 6 0 0 0 2 11a15.1 15.1 0 0 0 3.763 10 3 3 0 0 0 3.648.648 5.5 5.5 0 0 1 5.178 0A3 3 0 0 0 18.237 21" />', "Nutrição", "Nutrição"],
+            pro: ['<path d="M7 18v-6a5 5 0 1 1 10 0v6" /><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z" /><path d="M21 12h1" /><path d="M18.5 4.5 18 5" /><path d="M2 12h1" /><path d="M12 2v1" /><path d="m4.929 4.929.707.707" /><path d="M12 12v6" />', "Pronto atendimento 24/7", "Pronto atendimento 24/7"],
+            esp: ['<path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />', "Especialidades", "Especialidades"]
+          };
+          const KEYS = ["clin", "psi", "nut", "pro", "esp"];
+          function icon(k) {
+            return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + P[k][0] + "</svg>";
+          }
+          function bez(x1, y1, x2, y2) {
+            return function (p) {
+              if (p <= 0) return 0;
+              if (p >= 1) return 1;
+              let lo = 0, hi = 1, t = p;
+              for (let i = 0; i < 28; i++) {
+                const x = 3 * (1 - t) * (1 - t) * t * x1 + 3 * (1 - t) * t * t * x2 + t * t * t;
+                if (x < p) lo = t; else hi = t;
+                t = (lo + hi) / 2;
+              }
+              return 3 * (1 - t) * (1 - t) * t * y1 + 3 * (1 - t) * t * t * y2 + t * t * t;
+            };
+          }
+          const SETTLE = bez(0.23, 1, 0.32, 1);
+          const SWAP = bez(0.25, 0.1, 0.25, 1);
+
+          document.fonts.ready.then(function () {
+            const root = document.getElementById("plano");
+            const $ = function (s) { return root.querySelector(s); };
+            const $$ = function (s) { return Array.prototype.slice.call(root.querySelectorAll(s)); };
+            const tl = gsap.timeline({ paused: true });
+            const probe = $("#pl-probe");
+            function col(v) { probe.style.color = v; return getComputedStyle(probe).color; }
+            const C = {
+              tile: col("var(--em-tile)"), v100: col("var(--em-violet-100)"), v700: col("var(--em-accent-deep)"),
+              acc: col("var(--em-accent)"), mut: col("var(--em-muted)"), ink: col("var(--em-ink)"), white: col("var(--em-white)")
+            };
+
+            $$(".pl-chips").forEach(function (c) {
+              c.dataset.keys.split(",").forEach(function (k) {
+                const el = document.createElement("span");
+                el.className = "em-pchip";
+                el.innerHTML = '<i class="pl-pb"></i>' + icon(k) + '<span class="pl-pt">' + P[k][1] + "</span>";
+                c.appendChild(el);
+              });
+            });
+
+            const cov = $("#pl-cov");
+            KEYS.forEach(function (k, i) {
+              const r = document.createElement("div");
+              r.className = "pl-cr";
+              r.style.top = 96 + 112 * i + "px";
+              r.innerHTML = '<span class="pl-tile"><i class="pl-tbg"></i>' + icon(k) + "</span><span>" + P[k][2] + '</span><span class="pl-tg"><b></b><i></i></span>';
+              cov.appendChild(r);
+            });
+
+            const roll = $("#pl-roll");
+            const tracks = [];
+            [0, 0, 0].forEach(function () {
+              const d = document.createElement("span");
+              d.className = "em-roll-digit";
+              const sz = document.createElement("span");
+              sz.className = "sz";
+              sz.textContent = "0";
+              const tr = document.createElement("span");
+              tr.className = "em-roll-track";
+              for (let i = 0; i <= 10; i++) { const s = document.createElement("span"); s.className = "em-grad-text"; s.textContent = String(i % 10); tr.appendChild(s); }
+              d.appendChild(sz);
+              d.appendChild(tr);
+              roll.appendChild(d);
+              tracks.push(tr);
+            });
+
+            const main = $("#pl-main"), r1 = $("#pl-r1"), r2 = $("#pl-r2"), sel = $("#pl-sel");
+            const l1 = $("#pl-l1"), l2 = $("#pl-l2"), l3 = $("#pl-l3");
+            const vidas = $("#pl-vidas");
+            const mChips = $$("#pl-mchips .em-pchip");
+            const r1Chips = $$("#pl-r1 .em-pchip");
+            const r2Chips = $$("#pl-r2 .em-pchip");
+            const covRows = $$(".pl-cr");
+            const tiles = $$(".pl-tile");
+            const tgs = $$(".pl-tg");
+            const avs = $$("#pl-avs .em-avatar, #pl-avs .pl-more");
+            const words = $$("#pl-l1 .em-word");
+            const tap = $("#pl-tap"), tapRing = $("#pl-ring-tap");
+            const cin = $("#pl-cin");
+
+            function offs(el, anc) {
+              let x = 0, y = 0, n = el;
+              while (n && n !== anc) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+              return { x: x, y: y };
+            }
+            const flies = mChips.map(function (ch, i) {
+              const sv = ch.querySelector("svg");
+              const a = offs(sv, main);
+              const b = offs(tiles[i], main);
+              return { sv: sv, dx: b.x + 36 - (a.x + 16), dy: b.y + 36 - (a.y + 16) };
+            });
+            const cinW = cin.querySelector("span:last-child").offsetWidth + 16 + 100 + 26 + 48;
+
+            gsap.set([l2, l3], { opacity: 0, filter: "blur(4px)" });
+            gsap.set(words, { opacity: 0 });
+            gsap.set([r1, r2], { opacity: 0 });
+            gsap.set([].concat(r1Chips, r2Chips, mChips), { opacity: 0 });
+            gsap.set(vidas, { opacity: 0 });
+            gsap.set(avs, { opacity: 0 });
+
+            const aur = $$(".em-aurora i");
+            tl.fromTo(aur, { x: -7 * 4, y: -3 * 4 }, { x: -7 * 12.5, y: -3 * 12.5, duration: 8.5, ease: "none" }, 0);
+
+            function sheen(em, t) {
+              tl.fromTo(em, { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: 1.4, ease: "power2.inOut", immediateRender: false }, t);
+            }
+            function swap(out, inn, t) {
+              const ho = out.offsetHeight, hi = inn.offsetHeight;
+              tl.fromTo(out, { opacity: 1, y: 0, filter: "blur(0px)" }, { opacity: 0, y: -ho * 0.4, filter: "blur(4px)", duration: 0.24, ease: SWAP, immediateRender: false }, t);
+              tl.fromTo(inn, { opacity: 0, y: hi * 0.4, filter: "blur(4px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.24, ease: SWAP, immediateRender: false }, t + 0.24);
+            }
+            function drive(el, a, b, t, dur, ease) {
+              const px = { p: 0 };
+              tl.fromTo(px, { p: 0 }, {
+                p: 1, duration: dur, ease: ease, immediateRender: false,
+                onUpdate: function () {
+                  Object.keys(b).forEach(function (k) {
+                    const v = a[k] + (b[k] - a[k]) * px.p;
+                    el.style[k] = v + "px";
+                  });
+                }
+              }, t);
+            }
+            function nudge(el, props, t0, dur) {
+              const segs = [[0.1, 0.2, "power3.in"], [0.65, 0.18, "none"], [0.25, 0.62, "power4.out"]];
+              let acc = 0, tt = t0;
+              segs.forEach(function (s) {
+                const a = {}, b = {};
+                Object.keys(props).forEach(function (k) {
+                  const x = props[k][0], y = props[k][1];
+                  a[k] = x + (y - x) * acc;
+                  b[k] = x + (y - x) * (acc + s[0]);
+                });
+                drive(el, a, b, tt, dur * s[1], s[2]);
+                acc += s[0];
+                tt += dur * s[1];
+              });
+            }
+            function light(ch, t, on) {
+              const pb = ch.querySelector(".pl-pb"), sv = ch.querySelector("svg"), pt = ch.querySelector(".pl-pt");
+              tl.fromTo(pb, { backgroundColor: on ? C.tile : C.v100 }, { backgroundColor: on ? C.v100 : C.tile, duration: 0.15, immediateRender: false }, t);
+              tl.fromTo(sv, { color: on ? C.mut : C.v700 }, { color: on ? C.v700 : C.mut, duration: 0.15, immediateRender: false }, t);
+              tl.fromTo(pt, { color: on ? C.mut : C.ink }, { color: on ? C.ink : C.mut, duration: 0.15, immediateRender: false }, t);
+              if (on) {
+                tl.fromTo(ch, { scale: 1 }, { scale: 1.08, duration: 0.08, ease: "power2.out", immediateRender: false }, t);
+                tl.fromTo(ch, { scale: 1.08 }, { scale: 1, duration: 0.14, ease: "power3.out", immediateRender: false }, t + 0.08);
+              }
+            }
+            function popIn(chs, t0, step) {
+              chs.forEach(function (ch, i) {
+                const t = t0 + i * step;
+                tl.set(ch, { opacity: 1 }, t);
+                tl.fromTo(ch, { scale: 0.8 }, { scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+              });
+            }
+
+            words.forEach(function (w, i) {
+              const t = 0.05 + i * 0.05;
+              tl.set(w, { opacity: 1 }, t);
+              tl.fromTo(w, { y: 60, filter: "blur(4px)" }, { y: 0, filter: "blur(0px)", duration: 0.4, ease: "power4.out", immediateRender: false }, t);
+            });
+            sheen($("#pl-l1 em"), 0.3);
+
+            tl.set(r1, { opacity: 1 }, 0.3);
+            tl.fromTo(r1, { y: 70, filter: "blur(4px)" }, { y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out", immediateRender: false }, 0.3);
+            tl.set(r2, { opacity: 1 }, 0.42);
+            tl.fromTo(r2, { y: 70, filter: "blur(4px)" }, { y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out", immediateRender: false }, 0.42);
+            popIn(mChips, 0.55, 0.05);
+            popIn(r1Chips, 0.62, 0.04);
+            popIn(r2Chips, 0.74, 0.04);
+            tl.set($("#pl-rec"), { opacity: 1 }, 0.5);
+            tl.fromTo($("#pl-rec"), { scale: 0.8 }, { scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, 0.5);
+
+            tl.fromTo(sel, { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power2.out", immediateRender: false }, 0.9);
+            light(r1Chips[0], 1.0, true);
+            light(r1Chips[0], 1.5, false);
+            nudge(sel, { top: [560, 762] }, 1.5, 0.5);
+            r2Chips.forEach(function (c, i) { light(c, 2.0 + i * 0.06, true); });
+            r2Chips.forEach(function (c) { light(c, 2.4, false); });
+            nudge(sel, { top: [762, 964], height: [182, 248] }, 2.4, 0.5);
+            mChips.forEach(function (c, i) { light(c, 2.85 + i * 0.04, true); });
+
+            tl.set(tap, { x: 860, y: 1190 }, 0);
+            tl.set(tapRing, { x: 136, y: 1020 }, 0);
+            tl.fromTo(tap, { opacity: 0 }, { opacity: 1, duration: 0.1, immediateRender: false }, 2.3);
+            tl.fromTo(tap, { x: 860, y: 1190 }, { x: 136, y: 1020, duration: 0.45, ease: "power3.inOut", immediateRender: false }, 2.4);
+            tl.fromTo(tap, { scale: 1 }, { scale: 0.86, duration: 0.05, ease: "power1.out", immediateRender: false }, 2.85);
+            tl.fromTo(tap, { scale: 0.86 }, { scale: 1, duration: 0.05, ease: "power1.in", immediateRender: false }, 2.9);
+            tl.fromTo(tapRing, { opacity: 0.6, scale: 1 }, { opacity: 0, scale: 1.8, duration: 0.5, ease: "power2.out", immediateRender: false }, 2.9);
+            tl.fromTo(tap, { opacity: 1 }, { opacity: 0, duration: 0.2, immediateRender: false }, 3.0);
+            tl.fromTo($("#pl-ring i"), { scale: 0 }, { scale: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: false }, 2.9);
+
+            swap(l1, l2, 3.0);
+            sheen($("#pl-l2 em"), 3.24);
+
+            tl.fromTo(r1, { y: 0, scale: 1, filter: "blur(0px)" }, { y: 404, scale: 0.96, filter: "blur(4px)", duration: 0.35, ease: "power3.in", immediateRender: false }, 3.0);
+            tl.fromTo(r1, { opacity: 1 }, { opacity: 0, duration: 0.18, ease: "power2.out", immediateRender: false }, 3.0);
+            tl.fromTo(r2, { opacity: 1 }, { opacity: 0, duration: 0.18, ease: "power2.out", immediateRender: false }, 3.0);
+            tl.fromTo(r2, { y: 0, scale: 1, filter: "blur(0px)" }, { y: 202, scale: 0.96, filter: "blur(4px)", duration: 0.35, ease: "power3.in", immediateRender: false }, 3.0);
+            drive(main, { top: 964, height: 248, borderRadius: 40 }, { top: 560, height: 680, borderRadius: 48 }, 3.0, 0.5, "power3.inOut");
+                        tl.fromTo(sel, { opacity: 1 }, { opacity: 0, duration: 0.08, ease: "power2.out", immediateRender: false }, 2.92);
+            tl.fromTo($("#pl-hd"), { opacity: 1, y: 0 }, { opacity: 0, y: -14, duration: 0.2, ease: "power2.out", immediateRender: false }, 3.0);
+            tl.fromTo($("#pl-head"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 3.15);
+
+            mChips.forEach(function (ch, i) {
+              const f = flies[i];
+              tl.fromTo(ch.querySelector(".pl-pb"), { opacity: 1 }, { opacity: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, 3.0);
+              tl.fromTo(ch.querySelector(".pl-pt"), { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, 3.0);
+              tl.fromTo(f.sv, { x: 0, y: 0, scale: 1, color: C.v700 }, { x: f.dx, y: f.dy, scale: 38 / 32, color: C.mut, duration: 0.5, ease: "power3.inOut", immediateRender: false }, 3.0);
+              tl.fromTo(f.sv, { opacity: 1 }, { opacity: 0, duration: 0.01, immediateRender: false }, 3.5);
+              tl.fromTo(tiles[i].querySelector("svg"), { opacity: 0 }, { opacity: 1, duration: 0.01, immediateRender: false }, 3.5);
+            });
+            covRows.forEach(function (r, i) {
+              tl.set(r, { opacity: 1 }, 3.45 + i * 0.04);
+              tl.fromTo(r, { y: 14 }, { y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 3.45 + i * 0.04);
+            });
+
+            tgs.forEach(function (tg, i) {
+              const t = 3.7 + i * 0.3;
+              const tile = tiles[i];
+              tl.fromTo(tg.querySelector("i"), { x: 0 }, { x: 42, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+              tl.fromTo(tg.querySelector("b"), { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, t);
+              tl.fromTo(tile.querySelector(".pl-tbg"), { backgroundColor: C.white }, { backgroundColor: C.acc, duration: 0.08, immediateRender: false }, t);
+              tl.fromTo(tile.querySelector("svg"), { color: C.mut }, { color: C.white, duration: 0.08, immediateRender: false }, t);
+              tl.fromTo(tile, { scale: 1 }, { scale: 1.15, duration: 0.12, ease: "power2.out", immediateRender: false }, t);
+              tl.fromTo(tile, { scale: 1.15 }, { scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, t + 0.12);
+            });
+
+            swap(l2, l3, 5.9);
+            sheen($("#pl-l3 em"), 6.14);
+            covRows.forEach(function (r, i) {
+              tl.fromTo(r, { opacity: 1, y: 0 }, { opacity: 0, y: -30, duration: 0.25, ease: "power3.in", immediateRender: false }, 5.9 + i * 0.03);
+            });
+            tl.fromTo($("#pl-head"), { opacity: 1 }, { opacity: 0, duration: 0.2, immediateRender: false }, 5.9);
+            tl.fromTo($("#pl-rec"), { opacity: 1 }, { opacity: 0, duration: 0.2, immediateRender: false }, 5.9);
+            drive(main, { height: 680, width: 860, borderRadius: 48 }, { height: 132, width: cinW, borderRadius: 66 }, 5.95, 0.4, "power3.inOut");
+            tl.fromTo(cin, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, 6.12);
+
+            tl.set(vidas, { opacity: 1 }, 6.2);
+            tl.fromTo(vidas, { y: 60, filter: "blur(4px)" }, { y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out", immediateRender: false }, 6.2);
+            [2, 5, 10].forEach(function (n, i) {
+              tl.fromTo(tracks[i], { y: 0 }, { y: -n * 220, duration: 0.9, ease: SETTLE, immediateRender: false }, 6.2);
+            });
+            tl.fromTo(roll.querySelectorAll(".em-roll-track span"), { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: 1.4, ease: "power2.inOut", immediateRender: false }, 6.85);
+            avs.forEach(function (a, i) {
+              const t = i < 5 ? 6.3 + i * 0.13 : 6.95;
+              tl.set(a, { opacity: 1 }, t);
+              tl.fromTo(a, { scale: 0.6 }, { scale: 1, duration: 0.35, ease: "back.out(1.5)", immediateRender: false }, t);
+            });
+
+            [main, vidas, l3].forEach(function (el) {
+              tl.fromTo(el, { x: 0 }, { x: -230, duration: 0.34, ease: "power4.in", immediateRender: false }, 8.15);
+              tl.fromTo(el, { filter: "blur(0px)" }, { filter: "blur(4px)", duration: 0.34, ease: "none", immediateRender: false }, 8.15);
+              tl.to(el, { opacity: 0, duration: 0.22, ease: "none", immediateRender: false }, 8.2);
+            });
+            tl.set({}, {}, 8.5);
+
+            window.__timelines["plano"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

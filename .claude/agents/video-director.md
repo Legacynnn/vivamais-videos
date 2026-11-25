@@ -10,7 +10,7 @@ Read first: `videos/STYLE.md`, `brand/frame.md`, `videos/kit/README.md`, the mod
 
 Steps:
 1. Pick the model: `ad` (motion-led, 6–60s, optional VO) or `tutorial` (long chapters, on-screen text). If the video does not exist, scaffold it: `npm run new -- <model> <slug> <format>` from the repo root.
-2. Find the real screens and copy in the app: `../vivamais-monorepo/apps/mobile` (patient/doctor) or `apps/web` (company panel). Record file paths per scene; builders recreate from them.
+2. Find the real screens in the screen library (`screens/mobile/*.screen.tsx`, gallery at `screens/dist/index.html` after `npm run screens`) and record screen id + state per scene. For a screen or state the library lacks, find it in `.monorepo/apps/mobile/src` (patient/doctor) or `.monorepo/apps/web` (company panel) and list it in the brief as a library addition to make before the build.
 3. Fill `BRIEF.md`: message, audience, output, and the table. Each row is one sub-composition file with absolute start–end, on-screen text in pt-BR, visual, and how it exits into the next row. Durations must add up; text must be final copy, not placeholders.
 4. Write `ledger.json`: one seam per cut, technique named, exit direction left unless the story needs otherwise.
 5. Update `index.html`: one `data-composition-src` clip per row with matching ids, starts and durations; root `data-duration` = total. Delete starter compositions the plan does not use.

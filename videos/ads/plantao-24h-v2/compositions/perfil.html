@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/screens/screens.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #perfil { position: absolute; inset: 0; overflow: hidden; font-family: "DM Sans", sans-serif; }
+        #perfil .pf-3d { position: absolute; inset: 0; }
+        #perfil .v2-plane { left: 0; top: 0; width: 1080px; height: 1920px; }
+        #perfil .pf-cam { position: absolute; left: 0; top: 0; width: 733px; height: 1545px; transform-origin: 0 0; will-change: transform; }
+        #perfil .pf-veil { position: absolute; left: 0; top: 0; width: 1080px; height: 800px; z-index: 10; pointer-events: none; opacity: 0; background: linear-gradient(180deg, #FAFAFE 0%, #FAFAFE 62%, rgba(250, 250, 254, 0) 100%); }
+        #perfil .v2-line { z-index: 15; }
+        #perfil .touch { background: rgba(255, 255, 255, 0.7); border: 3px solid #3B1A85; box-shadow: 0 6px 16px rgba(23, 21, 30, 0.3); }
+        #perfil .pf-s { position: absolute; inset: 0; background: #FFFFFF; color: #17151E; }
+        #perfil .pf-s * { box-sizing: border-box; }
+        #perfil .pf-hd { position: absolute; left: 0; top: 59px; width: 402px; height: 52px; display: flex; align-items: center; justify-content: center; font: 700 16px/24px "DM Sans", sans-serif; }
+        #perfil .pf-hd svg { position: absolute; right: 22px; top: 15px; width: 22px; height: 22px; }
+        #perfil .pf-photo { position: absolute; left: 16px; top: 116px; width: 370px; height: 184px; border-radius: 28px; overflow: hidden; background: #F5F0FE; box-shadow: 0 18px 40px rgba(87, 25, 182, 0.22); }
+        #perfil .pf-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 17%; }
+        #perfil .pf-live { position: absolute; top: 12px; right: 12px; height: 28px; padding: 0 10px; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; gap: 6px; font: 700 12px/16px "DM Sans", sans-serif; }
+        #perfil .pf-live i { display: block; width: 7px; height: 7px; border-radius: 50%; background: #00BFA1; box-shadow: 0 0 0 3px rgba(0, 191, 161, 0.3); }
+        #perfil .pf-name { position: absolute; left: 20px; top: 312px; display: flex; align-items: center; gap: 8px; font: 500 26px/32px "Space Grotesk", sans-serif; letter-spacing: -0.02em; }
+        #perfil .pf-name svg { width: 22px; height: 22px; flex: none; }
+        #perfil .pf-sub { position: absolute; left: 20px; top: 347px; font: 400 15px/20px "DM Sans", sans-serif; color: #726F80; }
+        #perfil .pf-chips { position: absolute; left: 20px; top: 377px; display: flex; gap: 8px; }
+        #perfil .pf-chip { height: 32px; padding: 0 12px; border-radius: 999px; background: #F6F5F9; display: flex; align-items: center; gap: 6px; font: 500 14px/20px "DM Sans", sans-serif; color: #17151E; }
+        #perfil .pf-chip svg { width: 14px; height: 14px; color: #F59E0B; }
+        #perfil .pf-tile { position: absolute; left: 16px; right: 16px; padding: 8px; border-radius: 20px; background: #F6F5F9; }
+        #perfil .pf-well { border-radius: 12px; background: #FFFFFF; padding: 14px; }
+        #perfil .pf-case { top: 421px; }
+        #perfil .pf-lab { display: flex; align-items: center; gap: 8px; font: 700 14px/20px "DM Sans", sans-serif; color: #7E3BED; }
+        #perfil .pf-lab svg { width: 16px; height: 16px; }
+        #perfil .pf-txt { margin-top: 4px; font: 400 16px/22px "DM Sans", sans-serif; color: #17151E; }
+        #perfil .pf-ms { top: 523px; }
+        #perfil .pf-mt { padding: 0 12px 6px; font: 500 14px/22px "DM Sans", sans-serif; color: #55525F; }
+        #perfil .pf-mw { padding: 12px 14px; }
+        #perfil .pf-r { position: relative; height: 30px; display: flex; align-items: flex-start; gap: 12px; }
+        #perfil .pf-c { position: relative; flex: none; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #D9D7E0; background: #FFFFFF; }
+        #perfil .pf-fill { position: absolute; inset: -2px; border-radius: 50%; background: #00BFA1; display: grid; place-items: center; }
+        #perfil .pf-fill svg { width: 12px; height: 12px; }
+        #perfil .pf-now { position: absolute; inset: -2px; border-radius: 50%; border: 6px solid #7E3BED; background: #FFFFFF; }
+        #perfil .pf-ln { position: absolute; left: 9px; top: 22px; width: 2px; height: 10px; background: #E5E3EB; }
+        #perfil .pf-ln i { position: absolute; inset: 0; background: #00BFA1; transform-origin: 50% 0; }
+        #perfil .pf-rt { font: 500 15px/20px "DM Sans", sans-serif; color: #A29FB0; }
+        #perfil .pf-rt.b { font-weight: 700; }
+        #perfil .pf-cd { position: absolute; left: 24px; right: 24px; top: 697px; display: flex; justify-content: center; align-items: center; gap: 4px; font: 500 15px/22px "DM Sans", sans-serif; color: #17151E; }
+        #perfil .pf-dg { position: relative; width: 14px; height: 22px; overflow: hidden; }
+        #perfil .pf-dg b { position: absolute; left: 0; top: 0; width: 100%; text-align: center; font-weight: 700; }
+        #perfil .pf-bar { position: absolute; left: 24px; right: 24px; top: 726px; height: 4px; border-radius: 4px; background: #EBE9F0; overflow: hidden; }
+        #perfil .pf-bar i { position: absolute; inset: 0; background: #7E3BED; border-radius: 4px; transform-origin: 0 50%; }
+        #perfil .pf-go { position: absolute; left: 20px; right: 20px; top: 740px; height: 52px; border-radius: 16px; background: #7E3BED; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 10px; font: 700 17px/24px "DM Sans", sans-serif; }
+        #perfil .pf-go svg { width: 22px; height: 22px; }
+        #perfil .pf-no { position: absolute; left: 20px; right: 20px; top: 798px; height: 40px; display: flex; align-items: center; justify-content: center; font: 500 15px/20px "DM Sans", sans-serif; color: #55525F; }
+      </style>
+      <div id="perfil" class="vm-scene v2-scene" data-composition-id="perfil" data-start="0" data-duration="3.75" data-width="1080" data-height="1920">
+        <div class="v2-stage" data-layout-ignore>
+          <div class="v2-halo"></div>
+          <div class="v2-floor"></div>
+        </div>
+        <div class="pf-3d v2-crop-fade-tb" data-layout-allow-overflow data-layout-ignore>
+          <div class="v2-plane" id="pf-plane" data-layout-allow-overflow>
+            <div class="cam pf-cam" id="pf-cam" data-layout-allow-overflow>
+              <div class="dev" data-layout-allow-overflow>
+                <div class="bezel" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow></div>
+                <div class="screen" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>
+                  <div class="island"></div>
+                  <div class="status"><span>9:41</span><span class="status-icons"><i></i><i class="b"></i></span></div>
+                  <div class="scr" data-layout-ignore>
+                    <div class="pf-s">
+                      <div class="pf-hd">Plantão 24h<svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
+                      <div class="pf-photo" id="pf-photo">
+                        <img alt="" src="assets/screens/img/camila-rocha-NHQUBBYX.jpg">
+                        <span class="pf-live"><i></i>Chamando você</span>
+                      </div>
+                      <div class="pf-name" id="pf-name">Dra. Camila Rocha<svg viewBox="0 0 24 24"><path fill="#7E3BED" d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                      <div class="pf-sub" id="pf-sub">Clínica geral · CRM-SP 123456</div>
+                      <div class="pf-chips" id="pf-chips">
+                        <span class="pf-chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>4,9</span>
+                        <span class="pf-chip">8 anos de experiência</span>
+                      </div>
+                      <div class="pf-tile pf-case" id="pf-case"><div class="pf-well">
+                        <div class="pf-lab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Já leu seu caso</div>
+                        <div class="pf-txt">Dor de cabeça forte desde ontem, 7/10</div>
+                      </div></div>
+                      <div class="pf-tile pf-ms" id="pf-ms">
+                        <div class="pf-mt">Seu atendimento</div>
+                        <div class="pf-well pf-mw">
+                          <div class="pf-r"><span class="pf-c"><span class="pf-fill"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span class="pf-ln"><i></i></span><span class="pf-rt">Médico encontrado</span></div>
+                          <div class="pf-r"><span class="pf-c"><span class="pf-fill"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><span class="pf-ln"><i></i></span><span class="pf-rt">Leitura do seu caso</span></div>
+                          <div class="pf-r"><span class="pf-c"><span class="pf-now"></span></span><span class="pf-rt b">Chamada de vídeo aberta</span></div>
+                        </div>
+                      </div>
+                      <div class="pf-cd" id="pf-cd"><span>Entrando na chamada em</span><span class="pf-dg"><b>3</b><b>2</b></span></div>
+                      <div class="pf-bar" id="pf-bar"><i></i></div>
+                      <div class="pf-go" id="pf-go" aria-label="Entrar na chamada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>Entrar na chamada</div>
+                      <div class="pf-no" id="pf-no">Cancelar</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lift"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="pf-veil" class="pf-veil" data-layout-ignore></div>
+        <p id="pf-line" class="v2-line v2-line--top" data-layout-allow-overlap data-layout-allow-occlusion><span class="v2-word">É</span> <span class="v2-word">a</span> <span class="v2-word">sua</span> <em><span class="v2-word">vez!</span></em></p>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="perfil"]');
+          const q = (s) => root.querySelector(s);
+          const qa = (s) => [...root.querySelectorAll(s)];
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const k = VMKit.create({ root, tl });
+            const cam = q("#pf-cam");
+            const plane = q("#pf-plane");
+            const F = (S, P, D) => ({ x: D.x - S * (20.64 + 1.72 * P.x), y: D.y - S * (20.64 + 1.72 * P.y), scale: S });
+            const A = F(1.3, { x: 201, y: 210 }, { x: 540, y: 880 });
+            const A2 = F(1.32, { x: 201, y: 214 }, { x: 540, y: 880 });
+            const B = F(1.3, { x: 201, y: 470 }, { x: 540, y: 1000 });
+            const C = F(1.38, { x: 201, y: 764 }, { x: 540, y: 1150 });
+
+            const line = q("#pf-line");
+            const words = qa("#pf-line .v2-word");
+            const rows = qa(".pf-r");
+            const fills = qa(".pf-fill");
+            const lns = qa(".pf-ln i");
+            const rts = qa(".pf-rt");
+            const now = q(".pf-now");
+            const dg = qa(".pf-dg b");
+            const btn = q("#pf-go");
+
+            gsap.set(cam, Object.assign({ transformOrigin: "0 0" }, A));
+            gsap.set(words, { opacity: 0, y: 24, filter: "blur(12px)" });
+            gsap.set(["#pf-chips .pf-chip"].flatMap((s) => qa(s)), { opacity: 0, y: 10, scale: 0.94 });
+            gsap.set(qa("#pf-case, #pf-ms"), { opacity: 0, y: 16 });
+            gsap.set(qa("#pf-cd, #pf-bar, #pf-go, #pf-no"), { opacity: 0, y: 16 });
+            gsap.set(fills, { scale: 0 });
+            gsap.set(now, { scale: 0 });
+            gsap.set(lns, { scaleY: 0 });
+            gsap.set(dg[1], { y: 22, opacity: 0 });
+
+            tl.fromTo(plane, { x: 900, filter: "blur(14px)" }, { x: 0, filter: "blur(0px)", duration: 0.75, ease: "power4.out" }, 0);
+            tl.to(q("#pf-veil"), { opacity: 1, duration: 0.4, ease: "power2.out" }, 0);
+            tl.to(words, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power4.out", stagger: 0.06 }, 0.46875);
+
+            tl.to(qa("#pf-chips .pf-chip"), { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)", stagger: 0.1 }, 0.7);
+            tl.to(q("#pf-case"), { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 0.85);
+            tl.to(q("#pf-ms"), { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 0.98);
+            tl.to(qa("#pf-cd, #pf-bar, #pf-go, #pf-no"), { opacity: 1, y: 0, duration: 0.6, ease: "power4.out", stagger: 0.07 }, 1.05);
+
+            tl.to(cam, Object.assign({ duration: 0.55, ease: "none" }, A2), 0.3);
+            tl.to(cam, Object.assign({ duration: 0.8, ease: "power2.inOut" }, B), 0.85);
+            tl.to(cam, Object.assign({ duration: 0.55, ease: "power2.inOut" }, C), 1.95);
+
+            tl.fromTo(q("#pf-bar i"), { scaleX: 1 }, { scaleX: 0.08, duration: 2.7, ease: "none" }, 0.2);
+
+            const pop = (i, at) => {
+              tl.to(fills[i], { scale: 1, duration: 0.4, ease: "back.out(2)" }, at);
+              tl.to(rts[i], { color: "#17151E", duration: 0.3 }, at);
+              if (lns[i]) tl.to(lns[i], { scaleY: 1, duration: 0.3, ease: "power2.out" }, at + 0.2);
+            };
+            pop(0, 1.2);
+            pop(1, 1.45);
+            tl.to(now, { scale: 1, duration: 0.45, ease: "back.out(2)" }, 1.7);
+            tl.to(rts[2], { color: "#17151E", duration: 0.3 }, 1.7);
+
+            tl.to(dg[0], { y: -22, opacity: 0, duration: 0.3, ease: "power2.inOut" }, 1.875);
+            tl.to(dg[1], { y: 0, opacity: 1, duration: 0.3, ease: "power2.inOut" }, 1.875);
+
+            k.tap(201, 766, 2.8125, btn);
+            tl.to(btn, { backgroundColor: "#6A24DB", duration: 0.1 }, 2.8125);
+
+            tl.to(line, { opacity: 0, y: -24, scale: 1.08, filter: "blur(12px)", duration: 0.4, ease: "power3.in" }, 2.95);
+            tl.fromTo(plane, { scale: 1, transformOrigin: "540px 1150px" }, { scale: 2, filter: "blur(18px)", duration: 0.8, ease: "power3.in", immediateRender: false }, 2.95);
+
+            window.__timelines["perfil"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

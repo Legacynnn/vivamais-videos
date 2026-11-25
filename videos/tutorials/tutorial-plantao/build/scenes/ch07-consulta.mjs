@@ -29,7 +29,7 @@ export default {
   speed: 1,
   hold: 0,
   tail: 1.0,
-  states: [["fila-ready", 0]],
+  states: [["chamando", 0, "plantao-called calling"]],
   data: { VA, CUES: CUE_TIMES, WHO: CUES.map((c) => c.who), P: VA + PAT_TALK.at, B: VA + DOC_B.at, END: VA + CALL_END, IDLE_A: VA + PAT_IDLE_A.at, IDLE_B: VA + PAT_IDLE_B.at, IDLE_B_END: VA + PAT_IDLE_B.at + PAT_IDLE_B.dur },
   layers: {
     join: `<div class="jn"><div class="jn-aura"></div><div class="jn-pic"><svg viewBox="0 0 200 200" fill="none"><circle class="bg" cx="100" cy="100" r="92"/><circle class="fg" cx="100" cy="100" r="92" transform="rotate(-90 100 100)"/></svg><img src="assets/doctors/camila.jpg" alt=""></div><h2 class="jn-t"><span>Entrando na sala</span><span>Dra. Camila entrou</span></h2><p class="jn-s">Consulta por vídeo · Plantão 24h</p><ul class="jn-steps"><li><i>${ICON.check}</i><span>Câmera ligada</span></li><li><i>${ICON.check}</i><span>Microfone ligado</span></li><li><i>${ICON.check}</i><span>Conexão criptografada</span><b class="jn-net"><u></u><u></u><u></u><u></u></b></li></ul></div>`,
@@ -161,7 +161,7 @@ export default {
   },
   run: function (S) {
     var D = DATA;
-    S.boot("fila-ready");
+    S.boot("chamando");
     var jn = S.layer("join");
     gsap.set(jn, { autoAlpha: 1 });
     S.status(0, true, { dur: 0.01 });

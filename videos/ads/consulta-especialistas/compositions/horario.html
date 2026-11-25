@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/ce.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+
+        #horario .cam { left: 221px; top: 543px; width: 639px; height: 1347px; }
+        #horario .dev { transform: scale(1.5); transform-origin: 0 0; }
+        #horario .scr { font-family: var(--vm-font-text, "DM Sans"), sans-serif; color: var(--vm-ink-900); background: var(--vm-white); }
+        #horario .ic { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        #horario .hz-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+        #horario .ce-slot {
+          --u: 1.5;
+          position: relative; display: flex; align-items: center; justify-content: center; flex: none;
+          width: calc(76px * var(--u)); height: calc(44px * var(--u)); border-radius: calc(22px * var(--u));
+          background: var(--vm-ink-100); color: var(--vm-ink-900);
+          font: 500 calc(15px * var(--u))/1 var(--vm-font-text, "DM Sans"), sans-serif; font-variant-numeric: tabular-nums; white-space: nowrap;
+        }
+        #horario .ce-slot--on { background: var(--vm-violet-500); color: var(--vm-white); font-weight: 700; }
+        #horario .dev .ce-slot { --u: 1; flex: 1; width: auto; }
+
+        #horario .status { color: var(--vm-ink-900); }
+        #horario .hz-status--light { color: var(--vm-white); z-index: 31; }
+        #horario .hz-status--light .status-icons i { background: var(--vm-white); }
+
+
+        #horario .hz-scroll { position: absolute; left: 0; right: 0; top: 0; padding-bottom: 300px; }
+        #horario .hz-hero { position: relative; height: 300px; overflow: hidden; background: var(--vm-violet-800); }
+        #horario .hz-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+        #horario .hz-hero-sc { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 32%, color-mix(in srgb, var(--vm-violet-950) 88%, transparent) 100%); }
+        #horario .hz-circ { position: absolute; top: 58px; width: 40px; height: 40px; border-radius: 50%; background: color-mix(in srgb, var(--vm-white) 20%, transparent); display: flex; align-items: center; justify-content: center; color: var(--vm-white); }
+        #horario .hz-id { position: absolute; left: 20px; right: 20px; bottom: 16px; color: var(--vm-white); }
+        #horario .hz-id h2 { margin: 0; font: 500 26px/30px var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; color: var(--vm-white); }
+        #horario .hz-meta { margin-top: 4px; display: flex; align-items: center; gap: 6px; font-size: 13px; line-height: 18px; color: var(--vm-violet-100); }
+        #horario .hz-meta .ic { width: 12px; height: 12px; fill: var(--vm-white); stroke: var(--vm-white); }
+        #horario .hz-meta b { font-weight: 500; color: var(--vm-white); }
+        #horario .hz-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--vm-violet-300); }
+        #horario .hz-pills { margin-top: 10px; display: flex; gap: 8px; }
+        #horario .hz-pill { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px 0 6px; border-radius: 999px; background: color-mix(in srgb, var(--vm-white) 16%, transparent); font-weight: 500; font-size: 13px; color: var(--vm-white); }
+        #horario .hz-pill img { width: 22px; height: 22px; border-radius: 50%; background: var(--vm-white); padding: 3px; object-fit: contain; }
+        #horario .hz-pill .ic { width: 15px; height: 15px; margin-left: 6px; color: var(--vm-white); }
+        #horario .hz-panel { margin: 12px 16px 0; padding: 8px; border-radius: 20px; background: var(--vm-tile); }
+        #horario .hz-pn-h { display: flex; align-items: center; justify-content: space-between; padding: 4px 4px 10px; font-weight: 500; font-size: 14px; color: var(--vm-ink-600); }
+        #horario .hz-cal { height: 32px; padding: 0 12px; display: flex; align-items: center; gap: 6px; border-radius: 999px; background: var(--vm-white); border: 1px solid var(--vm-ink-200); font-weight: 500; font-size: 13px; color: var(--vm-primary-strong); }
+        #horario .hz-cal .ic { width: 15px; height: 15px; }
+        #horario .hz-price { display: flex; align-items: center; justify-content: space-between; padding: 14px; border-radius: 12px; background: var(--vm-white); }
+        #horario .hz-price .l { font-size: 14px; line-height: 18px; color: var(--vm-ink-600); }
+        #horario .hz-price .l b { display: block; font-weight: 700; font-size: 15px; color: var(--vm-ink-900); }
+        #horario .hz-price .r { display: flex; align-items: baseline; gap: 8px; }
+        #horario .hz-price s { font-size: 14px; color: var(--vm-muted-foreground); }
+        #horario .hz-price strong { font: 700 24px/28px var(--vm-font-display, "Space Grotesk"), sans-serif; color: var(--vm-ink-900); letter-spacing: -0.02em; }
+        #horario .hz-days { display: flex; gap: 8px; }
+        #horario .hz-day { width: 64px; padding: 10px 0; border-radius: 16px; background: var(--vm-white); display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        #horario .hz-day i { font-style: normal; font-weight: 500; font-size: 12px; line-height: 16px; color: var(--vm-ink-500); }
+        #horario .hz-day b { font: 500 22px/28px var(--vm-font-display, "Space Grotesk"), sans-serif; color: var(--vm-ink-900); }
+        #horario .hz-day span { font-size: 11px; line-height: 14px; color: var(--vm-ink-500); }
+        #horario .hz-day.on { background: var(--vm-violet-500); }
+        #horario .hz-day.on i, #horario .hz-day.on span { color: var(--vm-violet-50); }
+        #horario .hz-day.on b { color: var(--vm-white); }
+        #horario .hz-slots { padding: 12px; border-radius: 12px; background: var(--vm-white); display: flex; flex-direction: column; gap: 14px; }
+        #horario .hz-per { display: flex; gap: 6px; }
+        #horario .hz-per div { flex: 1; height: 36px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; background: var(--vm-ink-100); font-weight: 500; font-size: 14px; color: var(--vm-ink-600); }
+        #horario .hz-per div span { font-weight: 400; font-size: 12px; color: var(--vm-ink-700); }
+        #horario .hz-per div.on { background: var(--vm-violet-100); color: var(--vm-violet-800); }
+        #horario .hz-per div.on span { color: var(--vm-violet-900); }
+        #horario .hz-srow { display: flex; gap: 8px; }
+        #horario .hz-slotwrap { position: relative; flex: 1; }
+        #horario .hz-slotwrap .ce-slot { width: 100%; }
+        #horario .hz-slotwrap .hz-on { position: absolute; inset: 0; border-radius: 22px; background: var(--vm-violet-500); opacity: 0; }
+        #horario .hz-slotwrap .hz-ton { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 700 15px/1 var(--vm-font-text, "DM Sans"), sans-serif; font-variant-numeric: tabular-nums; color: var(--vm-white); opacity: 0; }
+        #horario .hz-about { padding: 14px; border-radius: 12px; background: var(--vm-white); font-size: 14px; line-height: 20px; color: var(--vm-ink-600); }
+        #horario .hz-pinbar { position: absolute; left: 0; right: 0; top: 0; height: 176px; z-index: 28; background: var(--vm-violet-800); opacity: 0; display: flex; align-items: center; gap: 14px; padding: 54px 20px 0; color: var(--vm-white); }
+        #horario .hz-pinbar img { outline: 1px solid color-mix(in srgb, var(--vm-ink-950) 8%, transparent); outline-offset: -1px; width: 84px; height: 84px; border-radius: 20px; object-fit: cover; flex: none; }
+        #horario .hz-pn-t { flex: 1; min-width: 0; }
+        #horario .hz-pn-t b { display: block; font: 500 22px/26px var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; color: var(--vm-white); white-space: nowrap; }
+        #horario .hz-pn-t span { display: flex; align-items: center; gap: 5px; margin-top: 3px; font-size: 13px; line-height: 18px; color: var(--vm-violet-100); white-space: nowrap; }
+        #horario .hz-pn-t span .ic { width: 12px; height: 12px; fill: var(--vm-white); stroke: var(--vm-white); }
+        #horario .hz-pn-p { text-align: right; flex: none; }
+        #horario .hz-pn-p s { display: block; font-size: 12px; line-height: 14px; color: var(--vm-violet-200); }
+        #horario .hz-pn-p strong { display: block; font: 700 20px/24px var(--vm-font-display, "Space Grotesk"), sans-serif; color: var(--vm-white); letter-spacing: -0.02em; }
+        #horario .hz-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 27; display: flex; align-items: center; gap: 12px; padding: 12px 20px 30px; background: var(--vm-white); border-top: 1px solid var(--vm-ink-200); opacity: 0; }
+        #horario .hz-bar .sm { flex: 1; min-width: 0; }
+        #horario .hz-bar .sm b { display: block; font-weight: 700; font-size: 15px; line-height: 18px; color: var(--vm-ink-900); white-space: nowrap; }
+        #horario .hz-bar .sm span { display: block; margin-top: 2px; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); white-space: nowrap; }
+        #horario .hz-bar .sm span em { font-style: normal; font-weight: 500; color: var(--vm-ink-900); }
+        #horario .hz-bar .go { height: 48px; padding: 0 24px; border-radius: 999px; background: var(--vm-violet-500); color: var(--vm-white); display: flex; align-items: center; font-weight: 500; font-size: 16px; }
+
+        #horario .hz-line2 { opacity: 0; }
+        #horario .hz-go-in { position: relative; display: flex; align-items: center; justify-content: center; }
+        #horario .hz-lbl { display: block; }
+        #horario .hz-spin { position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; opacity: 0; }
+        #horario .hz-spin svg { width: 22px; height: 22px; display: block; fill: none; stroke: var(--vm-white); stroke-width: 3; stroke-linecap: round; }
+        #horario .hz-dn { position: absolute; inset: 0; padding: 150px 20px 0; display: flex; flex-direction: column; align-items: center; background: var(--vm-white); }
+        #horario .hz-dn-halo { position: absolute; left: 50%; top: 60px; width: 420px; height: 420px; margin-left: -210px; border-radius: 50%; background: radial-gradient(circle, var(--ce-glow) 0%, var(--ce-glow-faint) 45%, transparent 70%); }
+        #horario .hz-badge { position: relative; width: 104px; height: 104px; border-radius: 50%; background: var(--vm-violet-500); box-shadow: 0 0 0 14px var(--vm-violet-100); display: flex; align-items: center; justify-content: center; margin-top: 14px; }
+        #horario .hz-badge svg { width: 52px; height: 52px; fill: none; stroke: var(--vm-white); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+        #horario .hz-badge path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+        #horario .hz-dn h3 { position: relative; margin: 40px 0 0; font: 500 30px/34px var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; color: var(--vm-ink-900); }
+        #horario .hz-dcard { position: relative; align-self: stretch; margin-top: 28px; padding: 8px; border-radius: 20px; background: var(--vm-tile); display: flex; flex-direction: column; gap: 8px; }
+        #horario .hz-dw { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; background: var(--vm-white); }
+        #horario .hz-dw img { outline: 1px solid color-mix(in srgb, var(--vm-ink-950) 8%, transparent); outline-offset: -1px; width: 52px; height: 52px; border-radius: 12px; object-fit: cover; flex: none; }
+        #horario .hz-dw b { display: block; font-weight: 700; font-size: 16px; line-height: 20px; color: var(--vm-ink-900); }
+        #horario .hz-dw span { display: block; margin-top: 2px; font-size: 13px; line-height: 16px; color: var(--vm-ink-600); }
+        #horario .hz-dr { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; background: var(--vm-white); font-weight: 500; font-size: 16px; line-height: 20px; color: var(--vm-ink-900); font-variant-numeric: tabular-nums; }
+        #horario .hz-dr i { width: 36px; height: 36px; border-radius: 50%; background: var(--vm-violet-100); color: var(--vm-violet-700); display: flex; align-items: center; justify-content: center; flex: none; }
+        #horario .hz-dr i .ic { width: 18px; height: 18px; }
+        #horario .hz-cf { position: absolute; left: 0; top: 0; z-index: 60; pointer-events: none; }
+        #horario .hz-cf i { position: absolute; left: 0; top: 0; display: block; opacity: 0; will-change: transform, opacity; }
+      </style>
+      <div id="horario" class="vm-scene ce-scene" data-composition-id="horario" data-start="0" data-duration="3.25" data-width="1080" data-height="1920">
+        <div class="ce-stage"></div>
+        <div class="ce-halo"></div>
+        <svg class="hz-sprite" aria-hidden="true">
+          <symbol id="hz-i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+          <symbol id="hz-i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+          <symbol id="hz-i-video" viewBox="0 0 24 24"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+          <symbol id="hz-i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+          <symbol id="hz-i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+          <symbol id="hz-i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></symbol>
+          <symbol id="hz-i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+          <symbol id="hz-i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3L7 14.2 2 9.3l6.9-1z"/></symbol>
+          <symbol id="hz-i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+        </svg>
+
+
+        <h2 id="hz-line" class="ce-line">Agende seu <em>horário</em></h2>
+        <h2 id="hz-line2" class="ce-line hz-line2"><span class="ce-word">Consulta</span> <span class="ce-word"><em>confirmada</em></span></h2>
+
+        <div class="cam" data-layout-allow-overflow>
+          <div class="dev">
+            <div class="bezel" data-layout-allow-overflow data-layout-allow-occlusion></div>
+            <div class="screen" data-layout-allow-overflow>
+              <div class="island"></div>
+
+              <div id="hz-profile" class="scr" data-layout-allow-overlap data-layout-allow-occlusion>
+                <div class="hz-scroll" id="hz-scroll">
+                  <div class="hz-hero">
+                    <img src="assets/people/doctors/camila-rocha.jpg" alt="">
+                    <div class="hz-hero-sc"></div>
+                    <div class="hz-circ" style="left:16px"><svg class="ic"><use href="#hz-i-left"/></svg></div>
+                    <div class="hz-circ" style="right:16px"><svg class="ic"><use href="#hz-i-heart"/></svg></div>
+                    <div class="hz-id">
+                      <h2>Dra. Camila Rocha</h2>
+                      <div class="hz-meta">CRM-SP 184302<span class="hz-dot"></span><svg class="ic"><use href="#hz-i-star"/></svg><b>4,9</b>128 avaliações</div>
+                      <div class="hz-pills">
+                        <span class="hz-pill"><img src="assets/icons/specialties/cardio.png" alt="">Cardiologia</span>
+                        <span class="hz-pill">Vídeo</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hz-panel">
+                    <div class="hz-price">
+                      <div class="l">Valor da consulta<b>por vídeo</b></div>
+                      <div class="r"><s>R$ 120,00</s><strong>R$ 89,00</strong></div>
+                    </div>
+                  </div>
+                  <div class="hz-panel">
+                    <div class="hz-pn-h">Escolha o dia<span class="hz-cal"><svg class="ic"><use href="#hz-i-cal"/></svg>Calendário</span></div>
+                    <div class="hz-days">
+                      <div class="hz-day on"><i>Seg</i><b>16</b><span>4 vagas</span></div>
+                      <div class="hz-day"><i>Ter</i><b>17</b><span>6 vagas</span></div>
+                      <div class="hz-day"><i>Qua</i><b>18</b><span>3 vagas</span></div>
+                      <div class="hz-day"><i>Qui</i><b>19</b><span>5 vagas</span></div>
+                      <div class="hz-day"><i>Sex</i><b>20</b><span>1 vaga</span></div>
+                    </div>
+                  </div>
+                  <div class="hz-panel">
+                    <div class="hz-pn-h">Horários · Seg, 16 de nov</div>
+                    <div class="hz-slots">
+                      <div class="hz-per"><div>Manhã<span>3</span></div><div class="on">Tarde<span>4</span></div><div>Noite<span>2</span></div></div>
+                      <div class="hz-srow">
+                        <div class="hz-slotwrap"><div class="ce-slot" aria-label="14:00">14:00</div></div>
+                        <div class="hz-slotwrap" id="hz-slot1430" role="radio" aria-label="14:30" data-testid="slot-1430"><div class="ce-slot">14:30</div><i class="hz-on"></i><span class="hz-ton">14:30</span></div>
+                        <div class="hz-slotwrap"><div class="ce-slot" aria-label="15:00">15:00</div></div>
+                        <div class="hz-slotwrap"><div class="ce-slot" aria-label="15:30">15:30</div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hz-panel">
+                    <div class="hz-pn-h">Sobre a médica</div>
+                    <div class="hz-about">Cardiologista com foco em prevenção, pressão alta e saúde do coração. Atende adultos e idosos por vídeo.</div>
+                  </div>
+                  <div class="hz-panel">
+                    <div class="hz-pn-h">Avaliações</div>
+                    <div class="hz-about">Atendimento atencioso, explicou tudo com calma e clareza.</div>
+                  </div>
+                  <div class="hz-panel">
+                    <div class="hz-pn-h">Como funciona</div>
+                    <div class="hz-about">Consulta por vídeo de 30 minutos. Ao final, resumo e documentos prontos no app.</div>
+                  </div>
+                </div>
+                <div class="status hz-status--light"><span>9:41</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                <div id="hz-pinbar" class="hz-pinbar"><img src="assets/people/doctors/camila-rocha.jpg" alt=""><div class="hz-pn-t"><b>Dra. Camila Rocha</b><span>Cardiologia · <svg class="ic"><use href="#hz-i-star"/></svg>4,9 (128)</span></div><div class="hz-pn-p"><s>R$ 120,00</s><strong>R$ 89,00</strong></div></div>
+                <div id="hz-bar" class="hz-bar">
+                  <div class="sm"><b>Seg, 16 de nov · 14:30</b><span>Vídeo · <em>R$ 89,00</em></span></div>
+                  <div id="hz-go" class="go" role="button" aria-label="Agendar" data-testid="book"><span class="hz-go-in"><span class="hz-lbl" id="hz-golbl">Agendar</span><span class="hz-spin" id="hz-spin"><svg viewBox="0 0 22 22"><path d="M11 2 A9 9 0 1 1 2 11"/></svg></span></span></div>
+                </div>
+              </div>
+
+
+              <div id="hz-done" class="scr" data-layout-allow-overlap data-layout-allow-occlusion>
+                <div class="status"><span>9:41</span><span class="status-icons"><i></i><i></i><i class="b"></i></span></div>
+                <div class="hz-dn">
+                  <div class="hz-dn-halo"></div>
+                  <div id="hz-badge" class="hz-badge"><svg viewBox="0 0 48 48"><path pathLength="1" d="M13 25 L21 33 L35 16"/></svg></div>
+                  <h3 id="hz-dn-t">Consulta confirmada</h3>
+                  <div id="hz-dcard" class="hz-dcard">
+                    <div class="hz-dw"><img src="assets/people/doctors/camila-rocha.jpg" alt=""><div><b>Dra. Camila Rocha</b><span>Cardiologia</span></div></div>
+                    <div class="hz-dr"><i><svg class="ic"><use href="#hz-i-cal"/></svg></i>Seg, 16 de nov · 14:30</div>
+                    <div class="hz-dr"><i><svg class="ic"><use href="#hz-i-video"/></svg></i>Consulta por vídeo</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lift"></div>
+          </div>
+        </div>
+        <div id="hz-cf" class="hz-cf" data-layout-allow-overflow data-layout-allow-overlap data-layout-allow-occlusion></div>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="horario"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const m = VMMotion.create({ root, tl });
+            const k = VMKit.create({ root, tl });
+            const $ = (s) => root.querySelector(s);
+            const $$ = (s) => [...root.querySelectorAll(s)];
+            const CAM = { left: 221, top: 543, s: 1.5 };
+            const sceneOf = (sx, sy) => ({ x: CAM.left + (12 + sx) * CAM.s, y: CAM.top + (12 + sy) * CAM.s });
+
+            $$("#hz-profile *, #hz-done *").forEach((n) => { n.setAttribute("data-layout-allow-overlap", ""); n.setAttribute("data-layout-allow-occlusion", ""); });
+            k.screens(["hz-profile", "hz-done"]);
+
+            const chip = k.center("#hz-slot1430");
+            const go = k.center("#hz-go");
+            const badge = k.center("#hz-badge");
+            const offset = Math.round(chip.y - 470);
+            gsap.set("#hz-scroll", { y: -offset });
+            gsap.set("#hz-pinbar", { opacity: 1 });
+            gsap.set("#hz-bar", { opacity: 1, y: 0 });
+            gsap.set("#hz-slot1430 .hz-on, #hz-slot1430 .hz-ton", { opacity: 1 });
+            gsap.set("#hz-line", { opacity: 1 });
+
+            const cam = $(".cam");
+            const goBtn = $("#hz-go");
+
+            k.tap(go.x, go.y, 0.3, null);
+            tl.to(goBtn, { scale: 0.96, duration: 0.1, ease: "power2.in" }, 0.3);
+            tl.to(goBtn, { scale: 1, duration: 0.15, ease: "power2.out" }, 0.4);
+            tl.to("#hz-golbl", { opacity: 0, duration: 0.1, ease: "power2.out" }, 0.4);
+            tl.to("#hz-spin", { opacity: 1, duration: 0.1, ease: "power2.out" }, 0.4);
+            tl.to("#hz-spin", { rotation: 540, duration: 0.4, ease: "none" }, 0.4);
+
+            tl.to("#hz-line", { x: -140, opacity: 0, filter: "blur(4px)", duration: 0.35, ease: "power3.in" }, 0.55);
+            k.push("hz-profile", "hz-done", 0.8);
+
+            tl.set("#hz-line2", { opacity: 1 }, 0.95);
+            tl.fromTo($$("#hz-line2 .ce-word"), { x: 140, opacity: 0, filter: "blur(16px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power4.out", stagger: 0.08, immediateRender: true }, 0.95);
+
+            tl.fromTo("#hz-badge", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.6)", immediateRender: true }, 0.95);
+            tl.to("#hz-badge path", { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 1.1);
+            tl.fromTo("#hz-dn-t", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power4.out", immediateRender: true }, 1.1);
+            tl.fromTo("#hz-dcard", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power4.out", immediateRender: true }, 1.2);
+
+            const rnd = (() => { let a = 20261116; return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; })();
+            const o = sceneOf(badge.x, badge.y);
+            const cf = $("#hz-cf");
+            const cols = ["var(--vm-violet-500)", "var(--vm-violet-300)", "var(--vm-iris-300)", "var(--vm-iris-400)", "var(--vm-azure-300)", "var(--vm-violet-100)", "var(--vm-violet-500)"];
+            const T0 = 1.05;
+            for (let i = 0; i < 56; i++) {
+                const e = document.createElement("i");
+                e.setAttribute("data-layout-allow-overflow", "");
+                e.setAttribute("data-layout-allow-overlap", "");
+                e.setAttribute("data-layout-allow-occlusion", "");
+                const circle = rnd() < 0.35;
+                const w = circle ? 14 + rnd() * 8 : 12 + rnd() * 16;
+                const h = circle ? w : 7 + rnd() * 9;
+                const col = cols[Math.floor(rnd() * cols.length)];
+                e.style.cssText = `width:${w}px;height:${h}px;margin:${-h / 2}px 0 0 ${-w / 2}px;background:${col};border-radius:${circle ? "50%" : "3px"};` + (col.includes("violet-100") ? "box-shadow:0 0 0 1.5px var(--vm-violet-300);" : "");
+                cf.appendChild(e);
+                const ang = (-Math.PI * (0.05 + 0.9 * rnd())) + (rnd() < 0.2 ? Math.PI * 0.9 : 0);
+                const r = 260 + rnd() * 520;
+                const bx = Math.cos(ang) * r;
+                const by = Math.sin(ang) * r * 0.9;
+                const d1 = 0.45 + rnd() * 0.2;
+                const fall = 900 + rnd() * 700;
+                const drift = (rnd() - 0.5) * 220;
+                const rot = (rnd() - 0.5) * 720;
+                const t0 = T0 + rnd() * 0.08;
+                gsap.set(e, { x: o.x, y: o.y, rotation: rnd() * 360, scale: 0.4 });
+                tl.set(e, { opacity: 1 }, t0);
+                tl.to(e, { x: o.x + bx, y: o.y + by, rotation: "+=" + rot, scale: 1, duration: d1, ease: "power3.out" }, t0);
+                tl.to(e, { x: "+=" + drift, y: "+=" + fall, rotation: "+=" + rot, duration: 1.6, ease: "power2.in" }, t0 + d1);
+                tl.to(e, { opacity: 0, duration: 0.5, ease: "power1.in" }, t0 + d1 + 1.1);
+            }
+
+            m.exit("#hz-line2", 2.7, { dir: "left" });
+            tl.to("#hz-line2", { filter: "blur(4px)", duration: 0.4, ease: "power3.in" }, 2.7);
+            tl.to(cam, { x: -1200, filter: "blur(4px)", duration: 0.5, ease: "power3.in" }, 2.75);
+
+            window.__timelines["horario"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

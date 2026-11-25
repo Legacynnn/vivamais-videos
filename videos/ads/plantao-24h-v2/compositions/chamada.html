@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/screens/screens.css">
+      <style>
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        #chamada { position: absolute; inset: 0; overflow: hidden; font-family: "DM Sans", sans-serif; }
+        #chamada #ch-3d { position: absolute; inset: 0; }
+        #chamada .v2-plane { left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 50% 60%; }
+        #chamada .ch-cam { position: absolute; left: 0; top: 0; width: 733px; height: 1545px; transform-origin: 0 0; }
+        #chamada .ch-screen { background: #22084A; }
+        #chamada .ch-doc { position: absolute; left: -60px; top: 0; width: 522px; height: 874px; object-fit: cover; object-position: 78% 40%; }
+        #chamada .ch-top { position: absolute; left: 0; top: 0; width: 402px; height: 300px; background: linear-gradient(180deg, rgba(34,8,74,0.9) 0px, rgba(34,8,74,0.5) 120px, rgba(34,8,74,0) 300px); }
+        #chamada .ch-bot { position: absolute; left: 0; bottom: 0; width: 402px; height: 260px; background: linear-gradient(0deg, rgba(34,8,74,0.85) 0%, rgba(34,8,74,0) 100%); }
+        #chamada .ch-app { position: absolute; left: 0; top: 0; width: 402px; height: 874px; overflow: hidden; font-family: "DM Sans", sans-serif; }
+        #chamada .ch-lay { left: 0; top: 0; width: 402px; height: 874px; background: transparent; }
+        #chamada .ch-lay .vms { background: transparent; }
+        #chamada .ch-sheet .ch-lay [aria-label="Abrir chat da consulta"] { visibility: hidden; }
+        #chamada .ch-sheet .ch-lay [aria-label="Voltar para a chamada"] { display: none; }
+        #chamada .ch-cap { max-height: 552px !important; }
+        #chamada .ch-nohdr { display: none; }
+        #chamada .ch-sheet { position: absolute; left: 0; top: 0; width: 402px; height: 874px; }
+        #chamada .ch-scrim { position: absolute; left: 0; top: 0; width: 402px; height: 874px; background: rgba(13,12,18,0.32); }
+        #chamada .ch-min { position: absolute; left: 16px; top: 59px; width: 44px; height: 44px; border-radius: 22px; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; color: #fff; }
+        #chamada .ch-min svg { width: 20px; height: 20px; }
+        #chamada .ch-rec { position: absolute; left: 72px; top: 59px; height: 32px; padding: 0 12px; border-radius: 16px; background: rgba(23,21,30,0.64); display: flex; align-items: center; gap: 8px; color: #fff; font-size: 13px; font-weight: 500; }
+        #chamada .ch-recx { display: inline-block; max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0; }
+        #chamada .ch-rec i { width: 8px; height: 8px; border-radius: 4px; background: #EF4444; display: block; }
+        #chamada .ch-pip { position: absolute; left: 290px; top: 616px; width: 96px; height: 128px; border-radius: 16px; overflow: hidden; border: 2px solid rgba(255,255,255,0.9); box-sizing: border-box; background: #22084A; box-shadow: 0 6px 18px rgba(0,0,0,0.35); }
+        #chamada .ch-pip video { width: 100%; height: 100%; object-fit: cover; object-position: 55% 30%; display: block; }
+        #chamada .ch-ctrl { position: absolute; left: 0; width: 402px; top: 770px; display: flex; justify-content: center; gap: 14px; }
+        #chamada .ch-ctrl span { width: 56px; height: 56px; border-radius: 28px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.45); color: #fff; }
+        #chamada .ch-ctrl span.end { background: #EF4444; }
+        #chamada .ch-ctrl svg { width: 22px; height: 22px; }
+        #chamada .ch-sheet .rn-scroll { overflow: hidden !important; }
+        #chamada .ch-feed { display: flex; flex-direction: column; align-items: flex-end; padding: 0 12px 4px 56px; }
+        #chamada .ch-m { opacity: 0; width: 100%; display: flex; justify-content: flex-end; margin-bottom: 10px; }
+        #chamada .ch-b { background: #6A24DB; border-radius: 18px 18px 6px 18px; padding: 4px 4px 7px; color: #fff; }
+        #chamada .ch-b img.ph { display: block; width: 214px; height: 128px; border-radius: 14px; object-fit: cover; object-position: 50% 50%; }
+        #chamada .ch-ts { display: flex; justify-content: flex-end; align-items: center; gap: 3px; margin: 3px 6px 0 0; font-size: 11px; line-height: 14px; color: rgba(255,255,255,0.7); }
+        #chamada .ch-ts svg { width: 14px; height: 14px; }
+        #chamada .ch-doc-b { width: 292px; padding: 4px 4px 7px; }
+        #chamada .ch-dr { display: flex; gap: 10px; align-items: stretch; background: rgba(255,255,255,0.12); border-radius: 14px; padding: 8px; }
+        #chamada .ch-th { position: relative; width: 120px; height: 162px; flex: none; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(13,12,18,0.35); }
+        #chamada .ch-pg { position: absolute; left: 0; top: 0; width: 208px; height: 280px; transform: scale(0.5769); transform-origin: 0 0; background: #fff; color: #17151E; font-size: 10px; line-height: 13px; }
+        #chamada .ch-pg .hd1 { background: #2F6F8F; color: #fff; padding: 10px 12px 8px; }
+        #chamada .ch-pg .hd1 b { display: block; font-size: 13px; letter-spacing: 0.02em; line-height: 16px; }
+        #chamada .ch-pg .hd1 span { font-size: 8px; opacity: 0.85; }
+        #chamada .ch-pg .pt { padding: 8px 12px 4px; font-size: 9px; color: #4A4757; display: flex; justify-content: space-between; }
+        #chamada .ch-pg .pt b { color: #17151E; }
+        #chamada .ch-pg h4 { margin: 4px 12px 5px; font-size: 12px; line-height: 15px; font-weight: 700; color: #17151E; border-bottom: 1.5px solid #2F6F8F; padding-bottom: 3px; }
+        #chamada .ch-pg table { width: 184px; margin: 0 12px; border-collapse: collapse; font-size: 8.5px; line-height: 11px; }
+        #chamada .ch-pg th { text-align: left; font-weight: 700; color: #4A4757; padding: 2px 0; border-bottom: 1px solid #C9C6D3; }
+        #chamada .ch-pg td { padding: 3px 0; border-bottom: 1px solid #ECEAF2; }
+        #chamada .ch-pg td:nth-child(2) { font-weight: 700; }
+        #chamada .ch-pg td:nth-child(3) { color: #726F80; }
+        #chamada .ch-pg .ft { position: absolute; left: 12px; right: 12px; bottom: 10px; font-size: 7.5px; line-height: 10px; color: #726F80; border-top: 1px solid #ECEAF2; padding-top: 4px; }
+        #chamada .ch-di { display: flex; flex-direction: column; justify-content: center; gap: 3px; min-width: 0; }
+        #chamada .ch-di b { font-size: 14px; line-height: 18px; font-weight: 700; color: #fff; }
+        #chamada .ch-di span { font-size: 12px; line-height: 16px; color: rgba(255,255,255,0.78); }
+        #chamada .ch-pop { position: absolute; left: 10px; width: 382px; border-radius: 26px; background: #fff; box-shadow: 0 10px 34px rgba(34,8,76,0.28), 0 0 0 1px rgba(13,12,18,0.05); opacity: 0; padding: 14px 12px 14px; box-sizing: border-box; z-index: 6; }
+        #chamada .ch-tiles { display: flex; gap: 6px; }
+        #chamada .ch-tile { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 7px; font-size: 14px; line-height: 17px; font-weight: 500; color: #17151E; text-align: center; }
+        #chamada .ch-ti { width: 76px; height: 76px; border-radius: 24px; background: #F1EAFE; display: flex; align-items: center; justify-content: center; }
+        #chamada .ch-ti svg { width: 34px; height: 34px; }
+        #chamada .dx { position: absolute; left: 10px; width: 382px; border-radius: 26px; background: #fff; box-shadow: 0 10px 34px rgba(34,8,76,0.28), 0 0 0 1px rgba(13,12,18,0.05); opacity: 0; box-sizing: border-box; padding: 16px 0 8px; z-index: 6; overflow: hidden; }
+        #chamada .dx-title { font-size: 20px; line-height: 26px; font-weight: 700; color: #17151E; padding: 0 20px 10px; }
+        #chamada .dx-search { position: relative; margin: 0 20px 6px; height: 48px; border-radius: 14px; background: #F2F1F6; display: flex; align-items: center; gap: 8px; padding: 0 14px; box-sizing: border-box; font-size: 18px; color: #17151E; }
+        #chamada .dx-search svg { width: 20px; height: 20px; flex: none; }
+        #chamada .dx-ph { color: #A29FB0; }
+        #chamada .dx-q { position: absolute; left: 42px; top: 0; height: 48px; display: flex; align-items: center; }
+        #chamada .dx-q i { font-style: normal; opacity: 0; }
+        #chamada .dx-caret { position: absolute; top: 14px; width: 2px; height: 20px; background: #7E3BED; left: 42px; opacity: 0; }
+        #chamada .dx-list { padding-top: 4px; }
+        #chamada .dx-row { position: relative; height: 66px; box-sizing: border-box; display: flex; align-items: center; gap: 14px; padding: 10px 20px; overflow: hidden; }
+        #chamada .dx-row::after { content: ""; position: absolute; left: 78px; right: 0; bottom: 0; height: 1px; background: #E6E4EC; }
+        #chamada .dx-tile { width: 44px; height: 44px; border-radius: 14px; background: #F5F0FE; display: flex; align-items: center; justify-content: center; flex: none; }
+        #chamada .dx-tile svg { width: 28px; height: 28px; }
+        #chamada .dx-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+        #chamada .dx-text b { font-size: 18px; line-height: 22px; font-weight: 500; color: #17151E; white-space: nowrap; }
+        #chamada .dx-text span { font-size: 14px; line-height: 18px; color: #726F80; white-space: nowrap; }
+        #chamada .dx-row em { font-style: normal; font-size: 13px; color: #726F80; margin-left: 8px; }
+        #chamada .ch-tap { position: absolute; left: 0; top: 0; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%; background: rgba(126, 59, 237, 0.22); border: 2.5px solid rgba(126, 59, 237, 0.85); opacity: 0; z-index: 30; }
+        #chamada .ch-lifted { position: absolute; opacity: 0; box-shadow: 0 34px 70px rgba(53, 14, 111, 0.32); border-radius: 18px 18px 6px 18px; transform-origin: 100% 50%; }
+        #chamada .gx-grid { display: flex; gap: 6px; padding: 4px 20px 6px; }
+        #chamada .gx-t { flex: 1; height: 112px; border-radius: 10px; background-color: #E6E4EC; background-image: url("assets/footage/dipirona-caixa.jpg"); background-repeat: no-repeat; }
+        #chamada .ch-rep { opacity: 0; position: relative; width: 402px; margin-left: -56px; align-self: flex-start; }
+        #chamada .ch-rb { opacity: 0; }
+        #chamada .ch-ty { position: absolute; left: 48px; bottom: 12px; width: 60px; height: 38px; box-sizing: border-box; border-radius: 18px 18px 18px 6px; background: #fff; border: 1px solid #F2F1F6; display: flex; align-items: center; justify-content: center; gap: 5px; }
+        #chamada .ch-ty i { display: block; width: 8px; height: 8px; border-radius: 4px; background: #A29FB0; }
+        #chamada .ch-end { position: absolute; left: 0; top: 0; width: 402px; height: 874px; background: rgba(13,12,18,0.58); display: flex; align-items: center; justify-content: center; opacity: 0; z-index: 12; }
+        #chamada .ch-endp { padding: 11px 20px; border-radius: 999px; background: rgba(255,255,255,0.16); color: #fff; font-size: 15px; font-weight: 500; line-height: 20px; }
+        #chamada .ch-post { z-index: 40; box-shadow: 0 -18px 40px rgba(13,12,18,0.28); }
+        #chamada .ch-screen { overflow: hidden; }
+        #chamada .island { z-index: 50; }
+        #chamada .ch-line em { white-space: nowrap; }
+        #chamada .ch-line { top: 264px; }
+      </style>
+      <div id="chamada" class="vm-scene v2-scene" data-composition-id="chamada" data-start="0" data-duration="9.375" data-width="1080" data-height="1920">
+        <div class="v2-stage">
+          <div class="v2-halo v2-halo--low"></div>
+          <div class="v2-floor"></div>
+        </div>
+        <div id="ch-3d" data-layout-allow-overflow>
+          <div class="v2-plane" id="ch-ent" data-layout-allow-overflow>
+            <div class="cam ch-cam" id="ch-cam" data-layout-allow-overflow>
+              <div class="dev" data-layout-allow-overflow>
+                <div class="bezel" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow></div>
+                <div class="screen ch-screen" data-layout-allow-overflow data-layout-allow-overlap>
+                  <div class="island"></div>
+                  <video id="ch-doc" class="ch-doc clip" src="assets/video/doutora-call.mp4" muted playsinline data-start="0" data-duration="9.375" data-media-start="0" data-track-index="0"></video>
+                  <div class="ch-top"></div>
+                  <div class="ch-bot"></div>
+                  <div class="ch-app" id="ch-app" data-layout-ignore>
+                    <div class="ch-min" id="ch-min"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 10 7-7"/><path d="M20 10h-6V4"/><path d="m3 21 7-7"/><path d="M4 14h6v6"/></svg></div>
+                    <div class="ch-rec" id="ch-rec"><i id="ch-rec-dot"></i>Gravando<span class="ch-recx" id="ch-recx">&nbsp;consulta</span></div>
+                    <div id="ch-l-btn" class="scr ch-lay"><!-- screen:call-chat button --><div class="vms" data-screen="call-chat" data-state="button" data-layout-ignore><div class="rn-view" style="flex: 1 1 0%; align-items: flex-end; padding-top: 60px; padding-right: 16px;"><div class="rn-view flex-row items-center rounded-full active:opacity-80" aria-label="Abrir chat da consulta" role="button" style="gap: 6px; padding: 10px 14px; background-color: rgba(13, 12, 18, 0.5);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg><div class="rn-text font-text-medium text-[14px] text-white">Chat</div></div></div></div><!-- /screen --></div>
+                    <div class="ch-pip" id="ch-pip">
+                      <video id="ch-pat" class="clip" src="assets/video/paciente-pip.mp4" muted playsinline data-start="0" data-duration="9.375" data-media-start="0" data-track-index="1"></video>
+                    </div>
+                    <div class="ch-ctrl" id="ch-ctrl">
+                      <span id="ch-c-mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg></span>
+                      <span id="ch-c-cam"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>
+                      <span id="ch-c-flip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/><path d="M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5"/><circle cx="12" cy="12" r="3"/><path d="m18 22-3-3 3-3"/><path d="m6 2 3 3-3 3"/></svg></span>
+                      <span id="ch-c-spk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></svg></span>
+                      <span class="end"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.1 13.9a14 14 0 0 0 3.732 2.668 1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2 18 18 0 0 1-12.728-5.272"/><path d="M22 2 2 22"/><path d="M4.76 13.582A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 .244.473"/></svg></span>
+                    </div>
+                    <div class="ch-scrim" id="ch-scrim"></div>
+                    <div class="ch-sheet" id="ch-sheet">
+                      <div id="ch-l-open" class="scr ch-lay"><!-- screen:call-chat open --><div class="vms" data-screen="call-chat" data-state="open" data-layout-ignore><div class="rn-view" style="flex: 1 1 0%; align-items: flex-end; padding-top: 60px; padding-right: 16px;"><div class="rn-view flex-row items-center rounded-full active:opacity-80" aria-label="Abrir chat da consulta" role="button" style="gap: 6px; padding: 10px 14px; background-color: rgba(13, 12, 18, 0.5);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg><div class="rn-text font-text-medium text-[14px] text-white">Chat</div></div><div class="rn-view rn-modal"><div class="rn-view" style="flex: 1 1 0%;"><div class="rn-view" aria-label="Voltar para a chamada" role="button" style="position: absolute; inset: 0px; background-color: rgba(13, 12, 18, 0.32);"></div><div class="rn-view" style="flex: 1 1 0%; justify-content: flex-end;"><div class="rn-view" style="flex-grow: 1; background-color: rgb(250, 250, 254); border-top-left-radius: 24px; border-top-right-radius: 24px; overflow: hidden; max-height: 594px; margin-top: 59px;"><div class="rn-view items-center pb-1 pt-1.5"><div class="rn-view h-1 w-10 rounded-full bg-ink-200"></div></div><div class="rn-view flex-row items-center border-b border-ink-100 px-4 pb-3" style="gap: 10px;"><div class="rn-view" style="width: 36px; height: 36px; border-radius: 18px; overflow: hidden; background-color: rgb(242, 241, 246);"><img class="rn-image" alt="" src="assets/screens/img/camila-rocha-NHQUBBYX.jpg" style="width: 36px; height: 36px; object-fit: cover;"></div><div class="rn-view flex-1"><div class="rn-text font-text-bold text-[15px] text-ink-950" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">Dra. Camila Rocha</div><div class="rn-text font-text text-[12px] text-ink-500" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">Chat da consulta · a chamada segue ao fundo</div></div><div class="rn-view h-9 w-9 items-center justify-center rounded-full bg-ink-100 active:opacity-70" aria-label="Fechar chat" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div></div><div class="rn-view rn-scroll"><div class="rn-view rn-scroll-content" style="padding-top: 12px; padding-bottom: 12px;"><div class="rn-view" role="header" style="align-items: center; padding-top: 10px; padding-bottom: 10px;"><div class="rn-view" style="padding: 4px 12px; border-radius: 999px; background-color: rgb(255, 255, 255); border-width: 1px; border-color: rgb(242, 241, 246);"><div class="rn-text font-text-medium text-[12px] text-ink-500">Hoje</div></div></div><div class="rn-view" style="flex-direction: row; align-items: flex-end; justify-content: flex-start; padding-left: 12px; padding-right: 56px; margin-bottom: 12px; gap: 8px;"><div class="rn-view" style="width: 28px;"><div class="rn-view" style="width: 28px; height: 28px; border-radius: 14px; overflow: hidden; background-color: rgb(242, 241, 246);"><img class="rn-image" alt="" src="assets/screens/img/camila-rocha-NHQUBBYX.jpg" style="width: 28px; height: 28px; object-fit: cover;"></div></div><div class="rn-view" style="background-color: rgb(255, 255, 255); border-width: 1px; border-color: rgb(242, 241, 246); border-radius: 18px 18px 18px 6px; padding: 8px 12px; flex-shrink: 1;"><div class="rn-text text-foreground font-text text-[15px] leading-[21px]" style="color: rgb(13, 12, 18);">Oi, Helena! Pode me mandar uma foto do remédio que você tomou?</div><div class="rn-view" style="flex-direction: row; align-items: center; justify-content: flex-end; margin-top: 2px; gap: 3px;"><div class="rn-text text-foreground font-text text-[11px] leading-4" style="color: rgb(162, 159, 176);">09:31</div></div></div></div></div></div><div class="rn-view" style="background-color: rgb(255, 255, 255); padding-bottom: 26px;"><div class="rn-view flex-row items-end border-t border-ink-100 bg-white px-2 py-2" style="gap: 6px;"><div class="rn-view h-11 w-11 items-center justify-center rounded-full active:bg-ink-100" aria-label="Anexar arquivo" role="button" style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paperclip" aria-hidden="true"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"></path></svg></div><div class="rn-text rn-input rn-input-multi max-h-32 flex-1 bg-ink-50 px-4 font-text text-[15px] text-ink-900" aria-label="Mensagem" style="border-radius: 22px; min-height: 44px; padding-top: 12px; padding-bottom: 12px; line-height: 20px; color: rgb(162, 159, 176);">Digite uma mensagem...</div><div class="rn-view" data-testid="chat-action-slot" style="width: 44px; height: 44px;"><div class="rn-view"><div class="rn-view h-11 w-11 items-center justify-center rounded-full bg-violet-100 active:bg-violet-200" aria-label="Gravar áudio" role="button" style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mic" aria-hidden="true"><path d="M12 19v3"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><rect x="9" y="2" width="6" height="13" rx="3"></rect></svg></div></div></div></div></div></div></div></div></div></div></div><!-- /screen --></div>
+                    </div>
+                    <div class="ch-pop" id="ch-pop">
+                      <div class="ch-tiles">
+                      <div class="ch-tile" aria-label="Câmera" role="button"><div class="ch-ti"><svg viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></svg></div>Câmera</div>
+                      <div class="ch-tile" aria-label="Galeria" role="button"><div class="ch-ti"><svg viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div>Galeria</div>
+                      <div class="ch-tile" aria-label="Documentos" role="button"><div class="ch-ti"><svg viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div>Documentos</div>
+                      </div>
+                    </div>
+                    <div class="dx" id="ch-docs" aria-label="Documentos" role="dialog">
+                      <div class="dx-title">Do seu histórico</div>
+                      <div class="dx-search" aria-label="Buscar documentos"><svg viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="dx-ph" id="dx-ph">Buscar exame, receita…</span><span class="dx-q" id="dx-q"><i>h</i><i>e</i><i>m</i><i>o</i></span><span class="dx-caret" id="dx-caret"></span></div>
+                      <div class="dx-list">
+                      <div class="dx-row" id="dx-r1" aria-label="Hemograma completo, Exame · Dra. Camila Rocha, ago 2026" role="button"><div class="dx-tile"><svg viewBox="0 0 46 46"><path d="M12 9a3 3 0 0 1 3-3h12l9 9v24a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V9z" fill="#D6C3FB" stroke="#17151E" stroke-width="2.4" stroke-linejoin="round"/><path d="M27 6v9h9" fill="none" stroke="#17151E" stroke-width="2.4" stroke-linejoin="round"/><path d="M20 20h6M21 20v6l-4.5 8a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L25 26v-6" fill="none" stroke="#17151E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.6 31h8.8" fill="none" stroke="#17151E" stroke-width="2.2" stroke-linecap="round"/><circle cx="31" cy="35" r="2.6" fill="#12FFD7" stroke="#17151E" stroke-width="2"/></svg></div><div class="dx-text"><b>Hemograma completo</b><span>Exame · Dra. Camila Rocha</span></div><em>ago 2026</em></div>
+                      <div class="dx-row" id="dx-r2" aria-label="Glicemia em jejum, Exame · Dra. Camila Rocha, ago 2026" role="button"><div class="dx-tile"><svg viewBox="0 0 46 46"><path d="M12 9a3 3 0 0 1 3-3h12l9 9v24a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V9z" fill="#D6C3FB" stroke="#17151E" stroke-width="2.4" stroke-linejoin="round"/><path d="M27 6v9h9" fill="none" stroke="#17151E" stroke-width="2.4" stroke-linejoin="round"/><path d="M20 20h6M21 20v6l-4.5 8a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L25 26v-6" fill="none" stroke="#17151E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.6 31h8.8" fill="none" stroke="#17151E" stroke-width="2.2" stroke-linecap="round"/><circle cx="31" cy="35" r="2.6" fill="#12FFD7" stroke="#17151E" stroke-width="2"/></svg></div><div class="dx-text"><b>Glicemia em jejum</b><span>Exame · Dra. Camila Rocha</span></div><em>ago 2026</em></div>
+                      </div>
+                    </div>
+                    <div class="dx" id="ch-gal" aria-label="Galeria" role="dialog">
+                      <div class="dx-title">Recentes</div>
+                      <div class="gx-grid">
+                        <div class="gx-t" aria-label="Foto" role="button" style="background-size: 340%; background-position: 6% 95%;"></div>
+                        <div class="gx-t" id="gx-pick" aria-label="Foto da caixa de dipirona" role="button" style="background-size: cover; background-position: 50% 50%;"></div>
+                        <div class="gx-t" aria-label="Foto" role="button" style="background-size: 300%; background-position: 96% 10%;"></div>
+                      </div>
+                    </div>
+                    <div class="ch-end" id="ch-end"><div class="ch-endp" id="ch-endp">Chamada encerrada · 17 min</div></div>
+                    <div class="ch-tap" id="ch-tap"></div>
+                  </div>
+                  <div class="scr ch-post" id="ch-post"><!-- screen:post-consultation preparing --><div class="vms" data-screen="post-consultation" data-state="preparing" data-layout-ignore><div class="rn-view flex-1" style="background-color: rgb(250, 250, 254);"><div class="rn-view rn-scroll flex-1"><div class="rn-view rn-scroll-content" style="padding-top: 107px; padding-bottom: 66px;"><div class="rn-view" style="align-items: center; padding-left: 20px; padding-right: 20px; padding-bottom: 24px;"><div class="rn-view" style="position: absolute; top: -190px; align-self: center; transform: translateY(0px) scale(1);"><svg width="440" height="440" style="opacity: 1;"><defs><radialGradient id="aura-pos-consulta" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9D6BF2" stop-opacity="0.22"></stop><stop offset="55%" stop-color="#BC9CF7" stop-opacity="0.1"></stop><stop offset="100%" stop-color="#D6C3FB" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#aura-pos-consulta)"></circle></svg></div><div class="rn-view" style="opacity: 1; transform: translateY(0px) scale(1);"><div class="rn-view items-center justify-center rounded-full bg-white" style="width: 84px; height: 84px;"><div class="rn-view" style="width: 76px; height: 76px; border-radius: 38px; overflow: hidden; background-color: rgb(242, 241, 246);"><img class="rn-image" alt="" src="assets/screens/img/camila-rocha-NHQUBBYX.jpg" style="width: 76px; height: 76px; object-fit: cover;"></div></div><div class="rn-view absolute items-center justify-center rounded-full" style="right: -2px; bottom: -2px; width: 28px; height: 28px; background-color: rgb(126, 59, 237); border-width: 3px; border-color: rgb(250, 250, 254);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></div></div><div class="rn-view" style="align-items: center; align-self: stretch; opacity: 1; transform: translateY(0px);"><div class="rn-text mt-3.5 text-center font-brand text-[26px] leading-[30px] text-ink-900">Consulta concluída</div><div class="rn-text mt-1 text-center font-text text-[14px] text-ink-500" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">com <span class="rn-text-in font-text-bold text-[14px] text-ink-900">Dra. Camila Rocha</span> · Clínica geral</div><div class="rn-view mt-3 flex-row items-center rounded-full bg-white px-3 py-1.5" style="gap: 6px;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6A24DB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-video" aria-hidden="true"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg><div class="rn-text font-text-medium text-[13px] text-ink-700" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">Vídeo · 11 de novembro de 2026 · 17 min</div></div><div class="rn-view mt-3 flex-row flex-wrap justify-center" style="gap: 6px;"><div class="rn-view flex-row items-baseline rounded-full bg-white px-2.5 py-1" aria-label="1 remédio" role="text" style="gap: 4px;"><div class="rn-text font-text-bold text-[13px] text-violet-700">1</div><div class="rn-text font-text text-[13px] text-ink-500">remédio</div></div><div class="rn-view flex-row items-baseline rounded-full bg-white px-2.5 py-1" aria-label="1 exame" role="text" style="gap: 4px;"><div class="rn-text font-text-bold text-[13px] text-violet-700">1</div><div class="rn-text font-text text-[13px] text-ink-500">exame</div></div></div></div></div><div class="rn-view"><div class="rn-view mx-5 mb-5 flex-row border px-4 py-3.5 bg-violet-50 border-violet-100" role="text" style="border-radius: 20px;"><div class="rn-view mt-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6A24DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-clock" aria-hidden="true"><path d="M16 22h2a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v2.85"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M8 14v2.2l1.6 1"></path><circle cx="8" cy="16" r="6"></circle></svg></div><div class="rn-view ml-3 flex-1"><div class="rn-text font-text-medium text-[14px] text-ink-900">Documentos em preparo</div><div class="rn-text mt-0.5 font-text text-[13px] leading-[18px] text-ink-500">O médico ainda está finalizando. Eles aparecem aqui assim que forem assinados.</div></div></div></div><div class="rn-view"><div class="rn-view" style="margin-left: 20px; margin-right: 20px; margin-bottom: 24px; padding: 16px; gap: 18px; background-color: rgb(243, 237, 255); border-radius: 24px;"><div class="rn-view flex-row items-center justify-between px-1"><div class="rn-text font-brand text-[20px] text-ink-900">Resumo</div><div class="rn-view flex-row items-center rounded-full bg-white px-2.5 py-1" style="gap: 5px;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-off" aria-hidden="true"><path d="M16 2v3"></path><path d="m2 2 20 20"></path><path d="M21 9h-5.5"></path><path d="M3 9h6"></path><path d="M3.586 3.586A2 2 0 003 5v14a2 2 0 002 2h14a2 2 0 001.414-.586"></path><path d="M8.656 3H19a2 2 0 012 2v10.344"></path></svg><div class="rn-text font-text-medium text-[12px] text-ink-900">2 dias de afastamento</div></div></div><div class="rn-view px-1"><div class="rn-view"><div class="rn-text mb-2 font-text-medium text-[12px] uppercase tracking-[0.6px] text-violet-700">Orientações</div><div class="rn-text font-text text-[16px] leading-[24px] text-ink-900">Repouso e boa hidratação. Volte se houver febre ou piora da dor.</div></div></div><div class="rn-view"><div class="rn-view overflow-hidden bg-white" style="border-radius: 16px;"><div class="rn-view flex-row items-center px-3.5 py-3 " role="text"><div class="rn-view items-center justify-center" style="width: 32px; height: 32px; border-radius: 10.24px; background-color: rgb(235, 225, 253);"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pill" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg></div><div class="rn-view ml-3 flex-1"><div class="rn-text font-text-medium text-[15px] text-ink-900">Dipirona 500 mg</div><div class="rn-text mt-0.5 font-text text-[13px] leading-[18px] text-ink-500">1 comprimido de 6 em 6 horas, se tiver dor</div></div></div><div class="rn-view flex-row items-center px-3.5 py-3 border-t border-ink-100" aria-label="Exame: Hemograma completo" role="text"><div class="rn-view items-center justify-center" style="width: 32px; height: 32px; border-radius: 10.24px; background-color: rgb(235, 225, 253);"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flask-conical" aria-hidden="true"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"></path><path d="M6.453 15h11.094"></path><path d="M8.5 2h7"></path></svg></div><div class="rn-text ml-3 flex-1 font-text-medium text-[15px] leading-[20px] text-ink-900">Hemograma completo</div></div></div></div><div class="rn-view overflow-hidden bg-white" style="border-radius: 16px;"><div class="rn-view min-h-[52px] flex-row items-center px-3.5 py-3 active:bg-ink-50" aria-label="Ver diagnóstico" role="button"><div class="rn-view items-center justify-center" style="width: 32px; height: 32px; border-radius: 10.24px; background-color: rgb(235, 225, 253);"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stethoscope" aria-hidden="true"><path d="M11 2v2"></path><path d="M5 2v2"></path><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></svg></div><div class="rn-view ml-3 flex-1"><div class="rn-text font-text-medium text-[15px] text-ink-900">Diagnóstico</div><div class="rn-text font-text text-[13px] text-ink-500">Toque para ver</div></div><div class="rn-view" style="transform: rotate(0deg);"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div></div></div></div></div><div class="rn-view"><div class="rn-view" style="transform: scale(1); margin-left: 20px; margin-right: 20px; margin-bottom: 24px;"><div class="rn-view flex-row items-center border border-violet-200 bg-white px-4 py-4" aria-label="Perguntar à IA. Tire dúvidas sobre o que foi registrado nesta consulta." role="button" style="border-radius: 20px;"><div class="rn-view" aria-label="Super IA disponível" style="align-items: center; justify-content: center; width: 40px; height: 40px;"><div class="rn-view" style="position: absolute; width: 64px; height: 64px; left: -12px; top: -12px; opacity: 0.35;"><svg width="64" height="64"><defs><radialGradient id="_r_0_-halo" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9D6BF2" stop-opacity="1"></stop><stop offset="65%" stop-color="#9D6BF2" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-halo)"></circle></svg></div><div class="rn-view" style="position: absolute; inset: 0px; border-radius: 40px; border-width: 1.5px; border-color: rgb(156, 255, 236); opacity: 0; transform: scale(1);"></div><div class="rn-view" style="position: absolute; inset: 0px; background-color: rgb(245, 240, 254); border-radius: 40px; box-shadow: rgba(106, 36, 219, 0.35) 0px 3.2px 9.6px;"><div class="rn-view" style="position: absolute; inset: 0px; overflow: hidden; border-radius: 40px;"><div class="rn-view" style="position: absolute; inset: 0px; transform: rotate(0deg);"><div class="rn-view" style="position: absolute; width: 34px; height: 34px; left: 3px; top: 3px; opacity: 0.7; transform: translateX(-6.4px) translateY(4.8px);"><svg width="34" height="34"><defs><radialGradient id="_r_0_-a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#12FFD7" stop-opacity="1"></stop><stop offset="45%" stop-color="#12FFD7" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#12FFD7" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-a)"></circle></svg></div><div class="rn-view" style="position: absolute; width: 34px; height: 34px; left: 3px; top: 3px; opacity: 0.85; transform: translateX(6.4px) translateY(0px);"><svg width="34" height="34"><defs><radialGradient id="_r_0_-p" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9531FF" stop-opacity="1"></stop><stop offset="45%" stop-color="#9531FF" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#9531FF" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-p)"></circle></svg></div><div class="rn-view" style="position: absolute; width: 34px; height: 34px; left: 3px; top: 3px; opacity: 0.9; transform: translateX(0px) translateY(-6.8px);"><svg width="34" height="34"><defs><radialGradient id="_r_0_-v" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9D6BF2" stop-opacity="1"></stop><stop offset="45%" stop-color="#9D6BF2" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#9D6BF2" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-v)"></circle></svg></div><div class="rn-view" style="position: absolute; width: 34px; height: 34px; left: 3px; top: 3px; opacity: 0; transform: translateX(1.6px) translateY(6.8px);"><svg width="34" height="34"><defs><radialGradient id="_r_0_-s" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9CFFEC" stop-opacity="1"></stop><stop offset="45%" stop-color="#9CFFEC" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#9CFFEC" stop-opacity="0"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-s)"></circle></svg></div></div><svg width="40" height="40" style="position: absolute;"><defs><radialGradient id="_r_0_-hi" cx="32%" cy="22%" rx="38%" ry="30%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"></stop><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"></stop></radialGradient><radialGradient id="_r_0_-rim" cx="50%" cy="52%" r="50%"><stop offset="52%" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="81%" stop-color="#FFFFFF" stop-opacity="0.5"></stop><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.85"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-rim)"></circle><circle cx="50%" cy="50%" r="50%" fill="url(#_r_0_-hi)"></circle><circle cx="50%" cy="50%" r="19.5" fill="none" stroke="rgba(255, 255, 255, 0.7)" stroke-width="1"></circle></svg></div></div><div class="rn-view" style="position: absolute; inset: 0px; align-items: center; justify-content: center; box-shadow: rgba(106, 36, 219, 0.45) 0px 0px 1.6px;"><div class="rn-view" style="transform: rotate(0deg);"><svg width="18.400000000000002" height="18.400000000000002" viewBox="69.92 1.23 19.84 19.84"><path d="M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z" fill="rgba(255, 255, 255, 0.95)"></path></svg></div></div></div><div class="rn-view ml-3 flex-1"><div class="rn-text font-text-medium text-[15px] text-ink-900">Perguntar à IA</div><div class="rn-text mt-0.5 font-text text-[13px] leading-[18px] text-ink-500">Tire dúvidas sobre remédios, exames e o que foi registrado.</div></div><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D2CFDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></div></div></div><div class="rn-view"><div class="rn-view mb-6"><div class="rn-view mx-5 mb-2.5 flex-row items-baseline"><div class="rn-text text-foreground font-text-medium text-[14px]" style="color: rgb(85, 82, 95);">Documentos</div></div><div class="rn-view mx-5 flex-row items-center bg-white px-4 py-4" style="border-radius: 20px;"><div class="rn-view items-center justify-center" style="width: 40px; height: 40px; border-radius: 12.8px; background-color: rgb(235, 225, 253);"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-open" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"></path></svg></div><div class="rn-text ml-3.5 flex-1 font-text text-[14px] leading-[20px] text-ink-500">Os documentos aparecem quando o médico assinar o prontuário.</div></div></div></div><div class="rn-view"></div><div class="rn-view"></div><div class="rn-view"></div><div class="rn-view"><div class="rn-view mb-6"><div class="rn-view mx-5 mb-2.5 flex-row items-baseline"><div class="rn-text text-foreground font-text-medium text-[14px]" style="color: rgb(85, 82, 95);">Registro da consulta</div></div><div class="rn-view mx-5 flex-row flex-wrap" style="gap: 10px;"><div class="rn-view" style="transform: scale(1); flex-basis: 47%; flex-grow: 1;"><div class="rn-view flex-row items-center bg-white px-3 py-3" aria-label="Prontuário completo. Tudo o que o médico registrou nesta consulta." role="button" style="border-radius: 18px; min-height: 60px;"><div class="rn-view items-center justify-center" style="width: 36px; height: 36px; border-radius: 11.52px; background-color: rgb(235, 225, 253);"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stethoscope" aria-hidden="true"><path d="M11 2v2"></path><path d="M5 2v2"></path><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"></path><path d="M8 15a6 6 0 0 0 12 0v-3"></path><circle cx="20" cy="10" r="2"></circle></svg></div><div class="rn-text ml-2.5 flex-1 font-text-medium text-[14px] leading-[18px] text-ink-900" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Prontuário completo</div></div></div><div class="rn-view" style="transform: scale(1); flex-basis: 47%; flex-grow: 1;"><div class="rn-view flex-row items-center bg-white px-3 py-3" aria-label="Sua anamnese. As respostas que você enviou antes da consulta." role="button" style="border-radius: 18px; min-height: 60px;"><div class="rn-view items-center justify-center" style="width: 36px; height: 36px; border-radius: 11.52px; background-color: rgb(235, 225, 253);"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg></div><div class="rn-text ml-2.5 flex-1 font-text-medium text-[14px] leading-[18px] text-ink-900" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Sua anamnese</div></div></div></div></div></div><div class="rn-view"><div class="rn-view mb-6"><div class="rn-view mx-5 flex-row items-center bg-white px-4 py-4 active:opacity-90" aria-label="Avaliar o atendimento" role="button" style="border-radius: 20px;"><div class="rn-view flex-1"><div class="rn-text font-text-medium text-[14px] text-ink-900">Como foi o atendimento?</div><div class="rn-text mt-0.5 font-text text-[12px] text-ink-500">Sua nota ajuda outros pacientes a escolher.</div></div><div class="rn-view flex-row" style="gap: 3px;"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="#E6E4EC" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="#E6E4EC" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="#E6E4EC" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="#E6E4EC" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="#E6E4EC" stroke="#E6E4EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg></div></div></div></div><div class="rn-view"><div class="rn-view mx-5 mb-6 border-t border-ink-100 pt-4"><div class="rn-view flex-row items-center"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-receipt" aria-hidden="true"><path d="M12 17V7"></path><path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8"></path><path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"></path></svg><div class="rn-text ml-2.5 flex-1 font-text text-[13px] text-ink-500">R$ 59,90 · pago</div></div></div></div></div></div><div class="rn-view" style="position: absolute; top: 0px; left: 0px; right: 0px; z-index: 10;"><div class="rn-view" style="position: absolute; inset: 0px; background-color: rgb(250, 250, 254); border-bottom-width: 1px; border-bottom-color: rgb(242, 241, 246); opacity: 0;"></div><div class="rn-view flex-row items-center px-5" style="padding-top: 59px; height: 107px;"><div class="rn-view h-11 w-11 items-center justify-center rounded-full active:bg-ink-100 -ml-2.5" aria-label="Voltar" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left" aria-hidden="true" style="margin-left: -2px;"><path d="m15 18-6-6 6-6"></path></svg></div><div class="rn-view" style="flex: 1 1 0%; flex-direction: row; align-items: center; gap: 8px; opacity: 0; transform: translateY(8px);"><div class="rn-view" style="width: 28px; height: 28px; border-radius: 14px; overflow: hidden; background-color: rgb(242, 241, 246);"><img class="rn-image" alt="" src="assets/screens/img/camila-rocha-NHQUBBYX.jpg" style="width: 28px; height: 28px; object-fit: cover;"></div><div class="rn-view" style="flex: 1 1 0%; min-width: 0px;"><div class="rn-text font-text-bold text-[15px] text-ink-900" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">Consulta concluída</div><div class="rn-text font-text text-[12px] text-ink-500" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">Dra. Camila Rocha</div></div></div></div></div></div></div><!-- /screen --></div>
+                </div>
+                <div class="lift" id="ch-lift"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h1 id="ch-h1" class="v2-line v2-line--top ch-line" data-layout-allow-overlap data-layout-allow-occlusion>Consulta por <em>vídeo</em>, ao vivo</h1>
+        <h1 id="ch-h5" class="v2-line v2-line--top ch-line" data-layout-allow-overlap data-layout-allow-occlusion>Envie exames, documentos<br>e <em>fotos</em></h1>
+      </div>
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          const root = document.querySelector('[data-composition-id="chamada"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const m = VMMotion.create({ root, tl });
+            const q = (s) => root.querySelector(s);
+            const O = "power4.out";
+            const I = "power3.in";
+            const T = 9.375;
+            const D = 1.72;
+
+            root.querySelectorAll("#ch-app *").forEach((n) => { n.setAttribute("data-layout-allow-overlap", ""); n.setAttribute("data-layout-allow-overflow", ""); });
+
+            const CHK = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#5CFFE2\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 6 7 17l-5-5\"/><path d=\"m22 10-7.5 7.5L13 16\"/></svg>";
+            const page = (lab, exam, rows, date, ft) => '<div class="ch-pg"><div class="hd1"><b>LABORATÓRIO</b><span>Análises clínicas · Resultado de exame</span></div><div class="pt"><span>Paciente: <b>Helena Souza</b></span><span>34 anos</span></div><h4>' + exam + '</h4><table><tr><th>Exame</th><th>Resultado</th><th>Referência</th></tr>' + rows.map((r) => '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td></tr>').join("") + '</table><div class="ft">Coletado em ' + date + ' · ' + ft + '</div></div>';
+            const hem = page("", "Hemograma completo", [["Hemácias", "4,52", "4,0–5,2"], ["Hemoglobina", "13,4", "12–16"], ["Hematócrito", "40,1", "36–46"], ["Leucócitos", "6.800", "4–10 mil"], ["Plaquetas", "248", "150–450"], ["VCM", "88,6", "80–100"]], "14/08/2026", "Página 1 de 1");
+            const msg = (id, inner) => '<div class="ch-m" id="' + id + '">' + inner + '</div>';
+            const ts = (t) => '<div class="ch-ts">' + t + CHK + '</div>';
+            const feedEl = document.createElement("div");
+            feedEl.className = "ch-feed";
+            feedEl.innerHTML =
+              msg("ch-m-photo", '<div class="ch-b"><img class="ph" src="assets/footage/dipirona-caixa.jpg" alt="">' + ts("09:32") + '</div>') +
+              msg("ch-m-pdf", '<div class="ch-b ch-doc-b"><div class="ch-dr"><div class="ch-th">' + hem + '</div><div class="ch-di"><b>Hemograma - Helena Souza.pdf</b><span>PDF · 1 página</span></div></div>' + ts("09:33") + '</div>');
+            root.querySelectorAll("#ch-l-open .rn-view").forEach((n) => {
+              const st = n.getAttribute("style") || "";
+              if (st.includes("max-height: 594px")) n.classList.add("ch-cap");
+              if (n.getAttribute("role") === "header" && st.includes("padding-top: 10px")) n.classList.add("ch-nohdr");
+            });
+            const scrollC = q("#ch-l-open .rn-scroll-content");
+            const docImg = scrollC.querySelector("img.rn-image");
+            const docRow = docImg.parentElement.parentElement.parentElement;
+            const mkReply = (id, text, time) => {
+              const r = docRow.cloneNode(true);
+              r.id = id;
+              r.classList.add("ch-rep");
+              r.querySelectorAll("[id]").forEach((n) => n.removeAttribute("id"));
+              const b = r.children[1];
+              b.classList.add("ch-rb");
+              b.firstElementChild.textContent = text;
+              b.lastElementChild.lastElementChild.textContent = time;
+              const ty = document.createElement("div");
+              ty.className = "ch-ty";
+              ty.innerHTML = "<i></i><i></i><i></i>";
+              r.appendChild(ty);
+              return r;
+            };
+            const rep1 = mkReply("ch-m-r1", "Recebi! É dipirona 500 mg, certo?", "09:32");
+            const rep2 = mkReply("ch-m-r2", "Ótimo, já estou vendo seu hemograma.", "09:33");
+            const rep0 = mkReply("ch-m-r0", "Se tiver exames ou documentos, pode enviar por aqui também.", "09:31");
+            feedEl.insertBefore(rep1, feedEl.children[1]);
+            feedEl.appendChild(rep2);
+            feedEl.insertAdjacentHTML("afterbegin", msg("ch-m-p0", '<div class="ch-b" style="padding: 9px 14px 6px; font-size: 16px; line-height: 21px;">Claro! Já envio a foto e o hemograma.' + ts("09:31") + '</div>'));
+            feedEl.insertBefore(rep0, feedEl.firstChild);
+            scrollC.appendChild(feedEl);
+            scrollC.style.willChange = "transform";
+            const scrollEl = q("#ch-l-open .rn-scroll");
+            const appEl = q("#ch-app");
+
+            const K = appEl.getBoundingClientRect().width / 402;
+            const at = (el) => {
+              const a = appEl.getBoundingClientRect();
+              const r = el.getBoundingClientRect();
+              return { x: (r.left + r.width / 2 - a.left) / K, y: (r.top + r.height / 2 - a.top) / K };
+            };
+            const byLabel = (layer, label) => q("#ch-l-" + layer + ' [aria-label="' + label + '"]');
+            const att = byLabel("open", "Anexar arquivo");
+            const popBottom = (att.getBoundingClientRect().top - appEl.getBoundingClientRect().top) / K - 8;
+            ["#ch-pop", "#ch-docs", "#ch-gal"].forEach((id) => { const e = q(id); e.style.top = (popBottom - e.offsetHeight) + "px"; });
+            const dxTop = q("#ch-docs").offsetTop;
+
+            const P = {
+              chat: at(byLabel("btn", "Abrir chat da consulta")),
+              attach: at(att),
+              doc: at(q('#ch-pop [aria-label="Documentos"] .ch-ti')),
+              gal: at(q('#ch-pop [aria-label="Galeria"] .ch-ti')),
+              pick: at(q("#gx-pick")),
+              row: at(q("#dx-r1")),
+              close: at(byLabel("open", "Fechar chat")),
+              end: at(q("#ch-ctrl .end")),
+            };
+            const Lb = popBottom - 6;
+            const apt = appEl.getBoundingClientRect().top;
+            const botLy = (e) => (e.getBoundingClientRect().bottom - apt) / K;
+            const scrollTo = (id) => Math.min(0, Lb - botLy(q(id)));
+            const y0 = 0;
+            const pdfScroll = scrollTo("#ch-m-pdf");
+            const photoScroll = scrollTo("#ch-m-photo");
+            const r0Scroll = scrollTo("#ch-m-r0");
+            const p0Scroll = scrollTo("#ch-m-p0");
+            const r1Scroll = scrollTo("#ch-m-r1");
+            const r2Scroll = scrollTo("#ch-m-r2");
+            const bub = q("#ch-m-pdf .ch-b").getBoundingClientRect();
+            const pdfPos = { x: (bub.left - appEl.getBoundingClientRect().left) / K, y: (bub.top - apt) / K + pdfScroll, w: bub.width / K };
+            gsap.set(scrollC, { y: y0 });
+
+            const postEl = q("#ch-post");
+            const bannerEl = [...postEl.querySelectorAll(".rn-text")].find((n) => n.textContent.trim() === "Documentos em preparo");
+            const pk = postEl.getBoundingClientRect().width / 402;
+            const bannerY = (bannerEl.getBoundingClientRect().top - postEl.getBoundingClientRect().top) / pk;
+            const base = { x: 540 - D * 213 - 0.04 * D * 106, y: 150, scale: 1.04 * D };
+            const vTo = { x: 540 - 213 * 2.5, y: 860 - (12 + bannerY + 30) * 2.5, scale: 2.5 };
+            const fp = (2.18 - base.scale) / (vTo.scale - base.scale);
+            const pose0 = { x: base.x + (vTo.x - base.x) * fp, y: base.y + (vTo.y - base.y) * fp, scale: 2.18 };
+            const camTop = (z, top) => ({ x: 540 - z * D * 213, y: top, scale: z });
+            const camA = camTop(0.92, 500);
+            const camB = camTop(0.96, 400);
+            gsap.set("#ch-cam", camA);
+            tl.fromTo("#ch-ent", { x: 1250, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.6, ease: "power4.out" }, 0);
+                        tl.to("#ch-cam", { x: camB.x, y: camB.y, scale: camB.scale, duration: 1.2, ease: "power2.inOut" }, 0.85);
+            tl.to("#ch-cam", { scale: 0.99, x: 540 - 0.99 * D * 213, duration: 6.45, ease: "power1.inOut" }, 2.05);
+            tl.fromTo("#ch-min, #ch-rec", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.6, ease: O }, 0.3);
+            tl.fromTo("#ch-l-btn", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.6, ease: O }, 0.34);
+            tl.fromTo("#ch-pip", { opacity: 0, scale: 0.9, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, duration: 0.6, ease: O }, 0.4);
+            tl.fromTo("#ch-ctrl", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: O }, 0.45);
+
+            const chars = (sel) => {
+              const el = q(sel);
+              const out = [];
+              const walk = (parent) => {
+                Array.from(parent.childNodes).forEach((n) => {
+                  if (n.nodeType === 3) {
+                    const frag = document.createDocumentFragment();
+                    n.textContent.split(/(\s+)/).forEach((tok) => {
+                      if (!tok) return;
+                      if (/^\s+$/.test(tok)) { frag.appendChild(document.createTextNode(" ")); return; }
+                      const w = document.createElement("span");
+                      w.style.cssText = "display:inline-block;white-space:nowrap";
+                      Array.from(tok).forEach((c) => {
+                        const s = document.createElement("span");
+                        s.className = "v2-word";
+                        s.textContent = c;
+                        w.appendChild(s);
+                        out.push(s);
+                      });
+                      frag.appendChild(w);
+                    });
+                    n.replaceWith(frag);
+                  } else if (n.nodeType === 1 && n.tagName !== "BR") walk(n);
+                });
+              };
+              walk(el);
+              return out;
+            };
+            const hs = [1, 5].map((n) => chars("#ch-h" + n));
+            const h1El = q("#ch-h1");
+            const emEl = h1El.querySelector("em");
+            const sc = h1El.getBoundingClientRect().width / h1El.offsetWidth;
+            const oldW = emEl.getBoundingClientRect().width / sc;
+            const vChars = hs[0].filter((c) => emEl.contains(c));
+            const nw = document.createElement("span");
+            nw.style.cssText = "position:absolute;left:0;top:0;display:inline-block;white-space:nowrap";
+            const nChars = Array.from("chat").map((c) => {
+              const e = document.createElement("span");
+              e.className = "v2-word";
+              e.textContent = c;
+              nw.appendChild(e);
+              return e;
+            });
+            emEl.style.cssText = "position:relative;display:inline-block;width:" + oldW + "px";
+            emEl.appendChild(nw);
+            const newW = nw.getBoundingClientRect().width / sc;
+            const dx = (oldW - newW) / 2;
+            const kids = Array.from(h1El.children);
+            const ei = kids.indexOf(emEl);
+            const leftW = kids.slice(0, ei);
+            const rightW = kids.slice(ei + 1);
+            const firstV = hs[0].indexOf(vChars[0]);
+            const hsIn = [hs[0].slice(), hs[1]];
+            const hsOut = [hs[0].filter((c) => !vChars.includes(c)), hs[1]];
+            hsOut[0].splice(firstV, 0, ...nChars);
+            const stag = (n) => Math.min(0.016, 0.3 / n);
+            const cIn = (cs, t, st) => {
+              tl.fromTo(cs, { rotateX: -90 }, { rotateX: 0, duration: 0.34, ease: "power3.out", stagger: st, immediateRender: false }, t);
+              tl.fromTo(cs, { opacity: 0 }, { opacity: 1, duration: 0.136, ease: "none", stagger: st, immediateRender: false }, t);
+            };
+            const cOut = (cs, t, st) => {
+              tl.to(cs, { rotateX: 90, duration: 0.28, ease: "power2.in", stagger: st }, t);
+              tl.to(cs, { opacity: 0, duration: 0.168, ease: "none", stagger: st }, t);
+            };
+            const OT = [0, 6.62];
+            const SW = 3.45;
+            const fs1 = parseFloat(getComputedStyle(h1El).fontSize);
+            gsap.set(nChars, { transformPerspective: 600, transformOrigin: "50% 50% " + (-0.5 * fs1) + "px", backfaceVisibility: "hidden", rotateX: -90, opacity: 0 });
+            gsap.set(nw, { x: dx });
+            const swSt = stag(vChars.length);
+            cOut(vChars, SW, swSt);
+            cIn(nChars, SW + 0.22, swSt);
+            tl.to(leftW, { x: dx, duration: 0.5, ease: "power2.inOut" }, SW + 0.12);
+            tl.to(rightW, { x: -dx, duration: 0.5, ease: "power2.inOut" }, SW + 0.12);
+            hs.forEach((cs, i) => {
+              const id = "#ch-h" + [1, 5][i];
+              const fs = parseFloat(getComputedStyle(q(id)).fontSize);
+              const nIn = hsIn[i].length;
+              const nOut = hsOut[i].length;
+              const tIn = i ? OT[i] + 0.22 : 0;
+              gsap.set(cs, { transformPerspective: 600, transformOrigin: "50% 50% " + (-0.5 * fs) + "px", backfaceVisibility: "hidden", rotateX: -90, opacity: 0 });
+              gsap.set(id, { autoAlpha: 0 });
+              tl.set(id, { autoAlpha: 1 }, tIn - 0.01);
+              cIn(hsIn[i], tIn, stag(nIn));
+              if (i < hs.length - 1) {
+                cOut(hsOut[i], OT[i + 1], stag(nOut));
+                tl.set(id, { autoAlpha: 0 }, OT[i + 1] + (nOut - 1) * stag(nOut) + 0.3);
+              }
+            });
+            tl.to("#ch-cam", { y: 478, duration: 0.6, ease: "power2.inOut" }, 6.75);
+
+            tl.to("#ch-recx", { maxWidth: 190, opacity: 1, duration: 0.5, ease: O }, 3.55);
+            tl.to("#ch-rec", { scale: 1.06, transformOrigin: "0% 50%", duration: 0.25, ease: "power2.out" }, 3.55);
+            tl.to("#ch-rec", { scale: 1, duration: 0.35, ease: "power2.inOut" }, 3.8);
+            tl.fromTo("#ch-rec-dot", { scale: 1, opacity: 1 }, { scale: 1.7, opacity: 0.45, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 5, immediateRender: false }, 3.55);
+
+            let cur = null;
+            const tapTo = (p, tPress, glide, target) => {
+              const from = cur || { x: p.x + 120, y: p.y + 160 };
+              tl.fromTo("#ch-tap", { x: from.x, y: from.y, opacity: cur ? 1 : 0, scale: 1 }, { x: p.x, y: p.y, opacity: 1, duration: glide, ease: "power3.inOut", immediateRender: false }, tPress - glide);
+              tl.to("#ch-tap", { scale: 0.86, duration: 0.1, ease: "power2.out" }, tPress);
+              tl.to("#ch-tap", { scale: 1, duration: 0.15, ease: "power2.out" }, tPress + 0.1);
+              if (target) {
+                tl.to(target, { scale: 0.95, duration: 0.1, ease: "power2.out" }, tPress);
+                tl.to(target, { scale: 1, duration: 0.25, ease: "power2.out" }, tPress + 0.12);
+              }
+              cur = p;
+            };
+            const tapOut = (t) => {
+              tl.to("#ch-tap", { opacity: 0, duration: 0.2, ease: "power2.in" }, t);
+              cur = null;
+            };
+
+            tl.set("#ch-scrim", { opacity: 0 }, 0);
+            tl.set("#ch-sheet", { y: 874 }, 0);
+            tapTo(P.chat, 4.1, 0.4, "#ch-l-btn");
+            tapOut(4.26);
+            tl.fromTo("#ch-scrim", { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out", immediateRender: false }, 4.16);
+            tl.fromTo("#ch-sheet", { y: 874 }, { y: 0, duration: 0.7, ease: O, immediateRender: false }, 4.16);
+
+            const popIn = (id, t0) => tl.fromTo(id, { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.45, ease: O, immediateRender: false }, t0);
+            const popOut = (id, t0) => tl.to(id, { opacity: 0, y: 36, duration: 0.2, ease: "power2.in" }, t0);
+            const land = (id, t0, sc, from) => {
+              tl.fromTo(id, { opacity: 0, y: 40, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out", transformOrigin: "100% 100%", immediateRender: false }, t0);
+              tl.fromTo(scrollC, { y: from }, { y: sc, duration: 0.6, ease: "power2.out", immediateRender: false }, t0);
+            };
+            const reply = (rowId, t0, scFrom, scTo) => {
+              const row = "#" + rowId;
+              tl.set(row + " .ch-ty", { opacity: 0 }, 0);
+              tl.fromTo(row, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, t0);
+              tl.fromTo(row + " .ch-rb", { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: false }, t0 + 0.08);
+              tl.fromTo(scrollC, { y: scFrom }, { y: scTo, duration: 0.6, ease: "power2.out", immediateRender: false }, t0);
+            };
+
+            reply("ch-m-r0", 4.85, y0, r0Scroll);
+            land("#ch-m-p0", 5.5, p0Scroll, r0Scroll);
+
+            tapTo(P.attach, 6.5, 0.45);
+            popIn("#ch-pop", 6.52);
+            tapTo(P.gal, 6.8, 0.25, '#ch-pop [aria-label="Galeria"] .ch-ti');
+            popOut("#ch-pop", 6.87);
+            popIn("#ch-gal", 6.87);
+            tapTo(P.pick, 7.12, 0.25, "#gx-pick");
+            tapOut(7.24);
+            popOut("#ch-gal", 7.22);
+            land("#ch-m-photo", 7.24, photoScroll, p0Scroll);
+            reply("ch-m-r1", 7.4, photoScroll, r1Scroll);
+
+            tapTo(P.attach, 7.5, 0.3);
+            popIn("#ch-pop", 7.52);
+            tapTo(P.doc, 7.76, 0.22, '#ch-pop [aria-label="Documentos"] .ch-ti');
+            popOut("#ch-pop", 7.83);
+            popIn("#ch-docs", 7.83);
+            tapTo(P.row, 8.06, 0.22);
+            popOut("#ch-docs", 8.14);
+            land("#ch-m-pdf", 8.16, pdfScroll, r1Scroll);
+            reply("ch-m-r2", 8.28, pdfScroll, r2Scroll);
+
+            tapTo(P.close, 8.27, 0.18, '#ch-l-open [aria-label="Fechar chat"]');
+            tapOut(8.39);
+            tl.to("#ch-scrim", { opacity: 0, duration: 0.3, ease: "power2.inOut" }, 8.3);
+            tl.to("#ch-sheet", { y: 874, duration: 0.3, ease: "power3.inOut" }, 8.3);
+            tapTo(P.end, 8.6, 0.25, "#ch-ctrl .end");
+            tl.fromTo("#ch-tap", { scale: 1 }, { scale: 1.5, opacity: 0, duration: 0.3, ease: "power2.out", immediateRender: false }, 8.7);
+            cur = null;
+            tl.set("#ch-end", { opacity: 0 }, 0);
+            tl.fromTo("#ch-end", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out", immediateRender: false }, 8.64);
+            tl.fromTo("#ch-endp", { y: 10, scale: 0.94 }, { y: 0, scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 8.64);
+            tl.to("#ch-doc", { scale: 0.96, duration: 0.35, ease: "power2.out", transformOrigin: "50% 50%" }, 8.64);
+            tl.to("#ch-pip", { scale: 0.96, duration: 0.35, ease: "power2.out", transformOrigin: "100% 100%" }, 8.64);
+            tl.set("#ch-post", { y: 874 }, 0);
+            tl.fromTo("#ch-post", { y: 874 }, { y: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, 8.85);
+            tl.set("#ch-app", { autoAlpha: 0 }, 9.31);
+            tl.set("#ch-doc, #ch-top, .ch-top, .ch-bot", { autoAlpha: 0 }, 9.31);
+            const cs5 = hs[1];
+            cOut(cs5, 9.0, 0.2 / cs5.length);
+            tl.to({}, { duration: 0.001 }, T - 0.001);
+            window.__timelines["chamada"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -161,6 +161,7 @@
     function plusReveal(t, o = {}) {
       const p = plusLayer(o.color);
       const dur = o.dur ?? 0.6;
+      gsap.set(p, { scale: 48, rotation: 0, opacity: 1 });
       tl.set(p, { scale: 48, rotation: 0, opacity: 1 }, 0);
       tl.to(p, { scale: 0, rotation: 45, duration: dur, ease: "power3.out" }, t);
       tl.set(p, { opacity: 0 }, t + dur);

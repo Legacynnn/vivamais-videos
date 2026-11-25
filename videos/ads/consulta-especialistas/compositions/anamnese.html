@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/ce.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        #anamnese { position: absolute; inset: 0; overflow: hidden; }
+        #anamnese .an-group { position: absolute; inset: 0; will-change: transform, opacity, filter; }
+        #anamnese .an-l { z-index: 10; will-change: transform, filter, opacity; }
+        #anamnese .an-file { position: absolute; top: 656px; width: 270px; height: 280px; box-sizing: border-box; padding: 10px 10px 0; border-radius: 36px; background: var(--ce-white); box-shadow: 0 0 0 2px color-mix(in srgb, var(--ce-ink) 6%, transparent), 0 2px 4px color-mix(in srgb, var(--ce-ink) 4%, transparent), 0 30px 60px -22px color-mix(in srgb, var(--ce-violet-900) 40%, transparent); will-change: transform, filter, opacity; }
+        #anamnese .an-th { position: relative; width: 250px; height: 160px; border-radius: 28px; overflow: hidden; background: var(--ce-violet-100); display: grid; place-items: center; }
+        #anamnese .an-th svg { width: 90px; height: 90px; fill: none; stroke: var(--ce-accent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        #anamnese .an-tag { position: absolute; left: 12px; top: 12px; padding: 6px 12px; border-radius: 999px; background: var(--ce-white); font: 500 22px/1 "DM Sans", sans-serif; color: var(--ce-violet-900); }
+        #anamnese .an-fn { margin: 12px 8px 0; font: 500 28px/1.1 "DM Sans", sans-serif; color: var(--ce-ink); letter-spacing: -0.01em; }
+        #anamnese #an-f0 .an-fn { font-size: 23px; white-space: nowrap; margin-top: 18px; }
+        #anamnese .an-fs { margin: 6px 8px 0; font: 400 24px/1 "DM Sans", sans-serif; color: var(--ce-body); }
+        #anamnese .an-doc { position: absolute; left: 100px; top: 960px; width: 880px; height: 190px; box-sizing: border-box; display: flex; align-items: center; gap: 32px; padding: 0 36px 0 30px; border-radius: 56px; background: var(--ce-white); box-shadow: 0 0 0 2px color-mix(in srgb, var(--ce-ink) 6%, transparent), 0 2px 4px color-mix(in srgb, var(--ce-ink) 4%, transparent), 0 40px 80px -28px color-mix(in srgb, var(--ce-violet-900) 45%, transparent); will-change: transform, filter, opacity; }
+        #anamnese .an-bd { position: absolute; right: 30px; top: 50%; width: 84px; height: 84px; margin-top: -42px; border-radius: 50%; background: var(--ce-accent); color: var(--ce-white); font: 500 46px/1 "Space Grotesk", sans-serif; will-change: transform, opacity; }
+        #anamnese .an-bd span { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; }
+        #anamnese .an-sy { position: absolute; top: 540px; width: 440px; height: 96px; box-sizing: border-box; display: flex; align-items: center; gap: 20px; padding: 0 28px 0 12px; border-radius: 999px; background: var(--ce-white); color: var(--ce-ink); box-shadow: var(--ce-shadow-soft); font: 500 42px/1 "DM Sans", sans-serif; white-space: nowrap; will-change: transform, filter, opacity; }
+        #anamnese .an-sy .sx-i { width: 72px; height: 72px; border-radius: 50%; }
+        #anamnese .an-av { flex: none; width: 150px; height: 150px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 5px var(--ce-violet-100); }
+        #anamnese .an-av img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
+        #anamnese .an-dn { font: 500 48px/1.05 "Space Grotesk", sans-serif; letter-spacing: -0.03em; color: var(--ce-ink); }
+        #anamnese .an-ds { margin-top: 10px; font: 400 30px/1.1 "DM Sans", sans-serif; color: var(--ce-body); }
+        #anamnese .an-ok { position: absolute; left: 0; width: 1080px; top: 1168px; display: flex; justify-content: center; }
+        #anamnese .an-okp { display: inline-flex; align-items: center; gap: 16px; padding: 14px 40px 14px 16px; border-radius: 999px; background: var(--ce-violet-100); font: 500 40px/1 "DM Sans", sans-serif; color: var(--ce-violet-900); will-change: transform, filter, opacity; }
+        #anamnese .an-okp b { width: 56px; height: 56px; border-radius: 50%; background: var(--ce-accent); display: grid; place-items: center; }
+        #anamnese .an-okp svg { width: 32px; height: 32px; fill: none; stroke: var(--ce-white); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+        #anamnese .sx-card { position: absolute; left: 80px; top: 540px; width: 920px; box-sizing: border-box; padding: 30px; border-radius: 64px; background: var(--ce-white); box-shadow: var(--ce-shadow); will-change: transform, filter, opacity; }
+        #anamnese .sx-title { margin: 0 0 20px 6px; font: 500 54px/1.05 "Space Grotesk", sans-serif; letter-spacing: -0.03em; color: var(--ce-ink); }
+        #anamnese .sx-title em { font-style: normal; color: var(--ce-accent); }
+        #anamnese .sx-r { display: flex; align-items: center; gap: 24px; height: 100px; box-sizing: border-box; padding: 0 22px 0 14px; margin-bottom: 8px; border-radius: 34px; background: var(--ce-tile); color: var(--ce-ink); font: 500 42px/1 "DM Sans", sans-serif; letter-spacing: -0.01em; white-space: nowrap; will-change: transform, filter, opacity; }
+        #anamnese .sx-r:last-child { margin-bottom: 0; }
+        #anamnese .sx-i { flex: none; width: 72px; height: 72px; border-radius: 20px; background: var(--ce-violet-100); color: var(--ce-violet-900); display: grid; place-items: center; }
+        #anamnese .sx-i svg { width: 42px; height: 42px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+        #anamnese .sx-i svg .a { stroke: var(--ce-accent); }
+        #anamnese .sx-n { flex: 1; }
+        #anamnese .sx-b { flex: none; width: 60px; height: 60px; border-radius: 50%; background: var(--ce-white); box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--ce-ink) 14%, transparent); display: grid; place-items: center; }
+        #anamnese .sx-b svg { width: 36px; height: 36px; fill: none; stroke: var(--ce-white); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+        #anamnese .sx-tap { transform: scale(0.7); }
+      </style>
+      <div id="anamnese" class="vm-scene ce-scene" data-composition-id="anamnese" data-start="0" data-duration="4.5" data-width="1080" data-height="1920">
+        <div class="ce-stage"></div>
+        <div class="ce-halo" id="an-halo" data-layout-allow-overflow></div>
+        <div class="an-group ce-ask" id="an-ask" data-layout-allow-overflow data-layout-allow-overlap data-layout-allow-occlusion>
+          <p class="ce-line ce-line--center an-l" id="an-l1" data-layout-allow-overlap data-layout-allow-overflow>Antes da <em>consulta</em>,<br>você informa</p>
+          <p class="ce-line ce-line--center an-l" id="an-l2" data-layout-allow-overlap data-layout-allow-overflow>e envie exames, fotos e <em>documentos</em></p>
+          <p class="ce-line ce-line--center an-l" id="an-l3" data-layout-allow-overlap data-layout-allow-overflow>para a médica ver <em>antes</em> da consulta</p>
+          <div class="sx-card" id="sx-card" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+            <h3 class="sx-title" id="sx-title">O que você está <em>sentindo</em>?</h3>
+            <div class="sx-r" id="sx-c0" data-layout-allow-overlap data-layout-allow-occlusion><span class="sx-i"><svg viewBox="0 0 24 24"><path d="M3 9h10a3 3 0 1 0-3-3"/><path class="a" d="M3 15h14a3 3 0 1 1-3 3"/><path d="M3 12h6"/></svg></span><span class="sx-n">Falta de ar</span><span class="sx-b"><svg viewBox="0 0 24 24"><path d="M5.500 12.500l4.500 4.500 8.500-9.500"/></svg></span></div>
+            <div class="sx-r" id="sx-c1" data-layout-allow-overlap data-layout-allow-occlusion><span class="sx-i"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="15" height="8" rx="2.500"/><path d="M21 11v2"/><path class="a" d="M6 12h3"/></svg></span><span class="sx-n">Cansaço</span><span class="sx-b"><svg viewBox="0 0 24 24"><path d="M5.500 12.500l4.500 4.500 8.500-9.500"/></svg></span></div>
+            <div class="sx-r" id="sx-c2" data-layout-allow-overlap data-layout-allow-occlusion><span class="sx-i"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.500-7-10a4 4 0 0 1 7-2.500A4 4 0 0 1 19 10c0 5.500-7 10-7 10z"/></svg></span><span class="sx-n">Palpitação</span><span class="sx-b"><svg viewBox="0 0 24 24"><path d="M5.500 12.500l4.500 4.500 8.500-9.500"/></svg></span></div>
+            <div class="sx-r" id="sx-c3" data-layout-allow-overlap data-layout-allow-occlusion><span class="sx-i"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 3 10 2-5h7"/><path class="a" d="M3 12h2"/></svg></span><span class="sx-n">Dor no peito</span><span class="sx-b"><svg viewBox="0 0 24 24"><path d="M5.500 12.500l4.500 4.500 8.500-9.500"/></svg></span></div>
+            <div class="sx-r" id="sx-c4" data-layout-allow-overlap data-layout-allow-occlusion><span class="sx-i"><svg viewBox="0 0 24 24"><path d="M12 12a1.500 1.500 0 1 1 1.500 1.500 3.500 3.500 0 1 1-3.500-3.500 5.500 5.500 0 1 1 5.500 5.500"/></svg></span><span class="sx-n">Tontura</span><span class="sx-b"><svg viewBox="0 0 24 24"><path d="M5.500 12.500l4.500 4.500 8.500-9.500"/></svg></span></div>
+          </div>
+          <div class="ce-tap sx-tap" id="sx-tap" style="left:0;top:0;opacity:0"></div>
+          <div class="ce-tap-ring" id="sx-ring" style="left:0;top:0;opacity:0"></div>
+          <div class="an-sy" id="an-s0" style="left: 80px" data-layout-allow-overlap data-layout-allow-occlusion><span class="sx-i"><svg viewBox="0 0 24 24"><path d="M3 9h10a3 3 0 1 0-3-3"/><path class="a" d="M3 15h14a3 3 0 1 1-3 3"/><path d="M3 12h6"/></svg></span><span>Falta de ar</span></div>
+          <div class="an-sy" id="an-s1" style="left: 560px" data-layout-allow-overlap data-layout-allow-occlusion><span class="sx-i"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="15" height="8" rx="2.500"/><path d="M21 11v2"/><path class="a" d="M6 12h3"/></svg></span><span>Cansaço</span></div>
+          <div class="an-file" id="an-f0" data-layout-allow-overlap data-layout-allow-occlusion style="left: 120px"><div class="an-th"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path class="a" d="M8 14h2l1.200-3 1.800 6 1.200-3H16"/></svg><span class="an-tag">PDF</span></div><div class="an-fn" data-layout-allow-overlap>Eletrocardiograma.pdf</div><div class="an-fs" data-layout-allow-overlap>Exame anterior</div></div>
+          <div class="an-file" id="an-f1" data-layout-allow-overlap data-layout-allow-occlusion style="left: 405px"><div class="an-th"><svg viewBox="0 0 24 24"><path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l3.500-4.500"/><path class="a" d="M4 19.500h16"/></svg><span class="an-tag">IMG</span></div><div class="an-fn" data-layout-allow-overlap>Medição de pressão</div><div class="an-fs" data-layout-allow-overlap>Foto do aparelho</div></div>
+          <div class="an-file" id="an-f2" data-layout-allow-overlap data-layout-allow-occlusion style="left: 690px"><div class="an-th"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path class="a" d="M12 11.500c-1.500 1.800-2.500 2.800-2.500 4a2.500 2.500 0 0 0 5 0c0-1.200-1-2.200-2.500-4z"/></svg><span class="an-tag">PDF</span></div><div class="an-fn" data-layout-allow-overlap>Hemograma.pdf</div><div class="an-fs" data-layout-allow-overlap>Exame de sangue</div></div>
+          <div class="an-doc" id="an-doc" data-layout-allow-overlap data-layout-allow-occlusion><span class="an-av"><img src="assets/people/doctors/camila-rocha.jpg" alt=""></span><div><div class="an-dn" data-layout-allow-overlap>Dra. Camila Rocha</div><div class="an-ds" data-layout-allow-overlap>Cardiologia · CRM-SP</div></div><div class="an-bd" id="an-bd"><span id="an-n1">1</span><span id="an-n2">2</span><span id="an-n3">3</span><span id="an-n4">4</span><span id="an-n5">5</span></div></div>
+          <div class="an-ok"><span class="an-okp" id="an-okp"><b><svg viewBox="0 0 24 24"><path d="M5.500 12.500l4.500 4.500 8.500-9.500"/></svg></b>Já recebeu tudo</span></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const root = document.getElementById("anamnese");
+          window.__timelines = window.__timelines || {};
+          document.fonts.ready.then(function () {
+            const tl = gsap.timeline({ paused: true });
+            const probe = function (v) {
+              const p = document.createElement("div");
+              p.style.backgroundColor = "var(" + v + ")";
+              root.appendChild(p);
+              const c = getComputedStyle(p).backgroundColor;
+              p.remove();
+              return c;
+            };
+            const ACC = probe("--ce-accent");
+            const SOFT = probe("--ce-accent-soft");
+            const files = ["#an-f0", "#an-f1", "#an-f2"];
+            const symp = [].slice.call(root.querySelectorAll(".sx-r"));
+            const pos = function (el, fx) {
+              return { x: 80 + el.offsetLeft + el.offsetWidth * fx, y: 540 + el.offsetTop + el.offsetHeight * 0.5 };
+            };
+
+            gsap.set("#an-l2, #an-l3", { opacity: 0, y: 30, filter: "blur(4px)" });
+            gsap.set(files, { opacity: 0, y: 120, rotation: 0, scale: 0.9, transformOrigin: "50% 50%" });
+            gsap.set("#an-doc", { opacity: 0, y: 60, scale: 0.92, filter: "blur(4px)", transformOrigin: "50% 50%" });
+            gsap.set("#an-okp", { opacity: 0, y: 30, scale: 0.85, filter: "blur(4px)" });
+            gsap.set(symp, { opacity: 0, y: 24, filter: "blur(4px)", transformOrigin: "50% 50%" });
+            gsap.set(".sx-b svg", { scale: 0.4, transformOrigin: "50% 50%" });
+            gsap.set("#sx-title", { opacity: 0, y: 20, filter: "blur(4px)" });
+            gsap.set("#sx-card", { transformOrigin: "50% 50%" });
+            gsap.set("#an-s0, #an-s1", { opacity: 0, y: 50, scale: 0.9, filter: "blur(4px)", transformOrigin: "50% 50%" });
+            gsap.set("#an-bd", { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" });
+
+            tl.fromTo("#an-ask", { x: 1150, filter: "blur(4px)" }, { x: 0, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 0);
+            tl.to("#sx-title", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power4.out" }, 0.15);
+            symp.forEach(function (el, i) {
+              tl.to(el, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, ease: "power4.out" }, 0.25 + i * 0.05);
+            });
+
+            const pick = function (i, tp) {
+              const el = symp[i];
+              const p = pos(el, 0.88);
+              if (i === 0) {
+                tl.set("#sx-tap", { x: p.x + 160, y: p.y + 130, opacity: 0 }, 0);
+                tl.set("#sx-ring", { x: p.x, y: p.y, opacity: 0 }, 0);
+                tl.to("#sx-tap", { opacity: 1, duration: 0.15, ease: "power2.out" }, tp - 0.38);
+              }
+              tl.to("#sx-tap", { x: p.x, y: p.y, duration: 0.3, ease: "power3.inOut" }, tp - 0.3);
+              tl.to("#sx-tap", { scale: 0.58, duration: 0.1, ease: "power2.out" }, tp);
+              tl.to("#sx-tap", { scale: 0.7, duration: 0.2, ease: "power3.out" }, tp + 0.1);
+              tl.fromTo("#sx-ring", { x: p.x, y: p.y, scale: 1, opacity: 0.8 }, { scale: 1.8, opacity: 0, duration: 0.4, ease: "power3.out" }, tp);
+              tl.to(el, { scale: 0.97, duration: 0.1, ease: "power2.out" }, tp);
+              tl.to(el, { scale: 1, duration: 0.3, ease: "back.out(2)" }, tp + 0.1);
+              tl.to(el, { backgroundColor: SOFT, boxShadow: "inset 0 0 0 2px " + ACC, duration: 0.15, ease: "none" }, tp);
+              tl.to(el.querySelector(".sx-b"), { backgroundColor: ACC, boxShadow: "inset 0 0 0 0px " + ACC, duration: 0.12, ease: "none" }, tp);
+              tl.to(el.querySelector(".sx-b svg"), { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, tp);
+            };
+            pick(0, 0.8);
+            pick(1, 1.05);
+            tl.to("#sx-tap", { opacity: 0, duration: 0.2 }, 1.3);
+
+            const T2 = 1.75;
+            tl.to("#sx-card > *", { opacity: 0, filter: "blur(4px)", duration: 0.12, ease: "power2.in" }, T2 - 0.1);
+            tl.to("#sx-card", { scale: 0.7, y: -60, opacity: 0, duration: 0.22, ease: "power2.in" }, T2 - 0.05);
+            tl.to("#an-s0", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, T2);
+            tl.to("#an-s1", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, T2 + 0.06);
+            tl.to("#an-doc", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, T2 + 0.05);
+
+            tl.to("#an-l1", { opacity: 0, y: -26, filter: "blur(4px)", duration: 0.18, ease: "power2.in" }, T2 - 0.25);
+            tl.to("#an-l2", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, T2 - 0.03);
+
+            const FR = [-8, 0, 8];
+            const FY = [0, -20, 0];
+            files.forEach(function (f, i) {
+              tl.to(f, { opacity: 1, y: FY[i], rotation: FR[i], scale: 1, duration: 0.55, ease: "expo.out" }, T2 + 0.12 + i * 0.1);
+            });
+
+            const T3 = 2.7;
+            tl.to("#an-l2", { opacity: 0, y: -26, filter: "blur(4px)", duration: 0.18, ease: "power2.in" }, 2.92);
+            tl.to("#an-l3", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 3.12);
+
+            const DCX = 540, DCY = 1055, FD = 0.38, GAP = 0.14;
+            const items = [
+              { sel: "#an-s0", cx: 300, cy: 588 },
+              { sel: "#an-s1", cx: 780, cy: 588 },
+              { sel: "#an-f0", cx: 255, cy: 796 },
+              { sel: "#an-f1", cx: 540, cy: 796 },
+              { sel: "#an-f2", cx: 825, cy: 796 }
+            ];
+            items.forEach(function (it, i) {
+              const t = T3 + 0.05 + i * GAP;
+              tl.to(it.sel, { x: DCX - it.cx, y: DCY - it.cy, scale: 0.3, rotation: 0, opacity: 0, duration: FD, ease: "power3.in" }, t);
+              const tl_ = t + FD;
+              tl.to("#an-doc", { scale: 1.035, duration: 0.07, ease: "sine.out" }, tl_);
+              tl.to("#an-doc", { scale: 1, duration: 0.12, ease: "sine.in" }, tl_ + 0.07);
+              if (i === 0) tl.to("#an-bd", { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, tl_);
+              else tl.fromTo("#an-bd", { scale: 1.25 }, { scale: 1, duration: 0.18, ease: "power3.out" }, tl_);
+              if (i > 0) tl.set("#an-n" + i, { opacity: 0 }, tl_);
+              tl.set("#an-n" + (i + 1), { opacity: 1 }, tl_);
+            });
+            tl.to("#an-okp", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power4.out" }, 3.6);
+
+            tl.to("#an-ask", { x: -1150, opacity: 0, filter: "blur(4px)", duration: 0.35, ease: "power3.in" }, 4.15);
+            tl.fromTo("#an-halo", { scale: 1 }, { scale: 1.06, duration: 4.5, ease: "none" }, 0);
+
+            window.__timelines["anamnese"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

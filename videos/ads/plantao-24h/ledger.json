@@ -1,0 +1,111 @@
+{
+ "fps": 30,
+ "seams": [
+  {
+   "id": "consulte-preconsulta",
+   "cut": 11.71875,
+   "technique": "Z-forward zoom-through into the phone",
+   "exit": {
+    "selector": "#el-consulte .p24-cam",
+    "axis": "z",
+    "dir": 1
+   },
+   "entry": {
+    "selector": "#el-preconsulta .p24-cam",
+    "axis": "z",
+    "dir": 1
+   }
+  },
+  {
+   "id": "preconsulta-busca",
+   "cut": 16.40625,
+   "technique": "cut-the-curve LEFT",
+   "exit": {
+    "selector": "#el-preconsulta .p24-cam",
+    "axis": "x",
+    "dir": -1
+   },
+   "entry": {
+    "selector": "#el-busca .p24-cam",
+    "axis": "x",
+    "dir": -1
+   }
+  },
+  {
+   "id": "busca-chamada",
+   "cut": 22.5,
+   "technique": "cut-the-curve LEFT",
+   "exit": {
+    "selector": "#el-busca .p24-cam",
+    "axis": "x",
+    "dir": -1
+   },
+   "entry": {
+    "selector": "#el-chamada .p24-cam",
+    "axis": "x",
+    "dir": -1
+   }
+  },
+  {
+   "id": "chamada-pronto",
+   "cut": 26.25,
+   "technique": "signature plus mask, Z-forward",
+   "exit": {
+    "selector": "#el-chamada .p24-cam",
+    "axis": "z",
+    "dir": 1
+   },
+   "entry": {
+    "selector": "#el-pronto .p24-cam",
+    "axis": "z",
+    "dir": 1
+   },
+   "sig": "50% 45%"
+  },
+  {
+   "id": "pronto-ia",
+   "cut": 31.875,
+   "technique": "cut-the-curve LEFT",
+   "exit": {
+    "selector": "#el-pronto .p24-cam",
+    "axis": "x",
+    "dir": -1
+   },
+   "entry": {
+    "selector": "#el-ia .p24-cam",
+    "axis": "x",
+    "dir": -1
+   }
+  },
+  {
+   "id": "ia-provas",
+   "cut": 36.09375,
+   "technique": "cut-the-curve LEFT",
+   "exit": {
+    "selector": "#el-ia .p24-cam",
+    "axis": "x",
+    "dir": -1
+   },
+   "entry": {
+    "selector": "#el-provas .p24-cam",
+    "axis": "x",
+    "dir": -1
+   }
+  },
+  {
+   "id": "provas-fim",
+   "cut": 39.84375,
+   "technique": "inverse zoom-through (arrival)",
+   "exit": {
+    "selector": "#el-provas .p24-cam",
+    "axis": "z",
+    "dir": -1
+   },
+   "entry": {
+    "selector": "#el-fim .p24-cam",
+    "axis": "z",
+    "dir": -1
+   }
+  }
+ ]
+}

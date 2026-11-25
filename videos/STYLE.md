@@ -7,7 +7,7 @@ What every Viva Mais video keeps, whatever the model. `brand/frame.md` owns pale
 - pt-BR on-screen text. One headline per frame, few words, large, with air. Never many small texts in one frame.
 - Logo fixed top-left (transparent wordmark or vector mark from `brand/logos/`). Never `logo-full.png`, never the logo inside tooltips or on a gradient bar.
 - Space Grotesk for headlines and big numbers, DM Sans for everything readable. No label/eyebrow rows above titles.
-- Violet dominates; green only for chips, checks and emphasized words on dark. Cards are `--vm-tile`, no border.
+- Violet dominates; spark only for chips, checks and emphasized words on dark. Cards are `--vm-tile`, no border.
 - Nothing blinks: cuts stay opaque (never fade to the page background), app screens crossfade or push, no yoyo pumps, pulses, looping glows or full-screen wipe panels. Signature transition is the violet "+" (`plusCover` → `plusReveal` in `kit/motion`).
 - No dead static screens: something always performs (typing, scroll, camera, tap), but no idle wobble.
 - Hold 0.3–0.75s before a key result; stock footage holds ~4s with dissolves, never flashes.

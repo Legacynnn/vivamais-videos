@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/screens/screens.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+
+        #consulte {
+          --vm-safe-t: 300px; --vm-safe-r: 140px; --vm-safe-b: 680px; --vm-safe-l: 80px;
+          --vm-fs-head: 96px; --vm-fs-sub: 84px; --vm-fs-copy: 52px; --vm-fs-label: 52px;
+          --vm-logo-w: 210px; --vm-head-w: 860px;
+          --vm-cam-left: 231px; --vm-cam-top: 760px; --vm-dev-scale: 1.45;
+          color: #fff; background: #22084A;
+        }
+        #consulte .c-bg { position: absolute; inset: 0; transform-origin: 540px 700px; }
+        #consulte .p24-cam { position: absolute; inset: 0; transform-origin: 540px 700px; }
+        #consulte #c-push { position: absolute; inset: 0; transform-origin: 540px 900px; }
+        #consulte .p24-blob, #consulte .p24-plus { position: absolute; }
+        #consulte #b-a { left: 380px; top: -480px; }
+        #consulte #b-b { left: -520px; top: 1150px; }
+        #consulte #b-c { left: 640px; top: 1350px; }
+        #consulte #b-d { left: 140px; top: 920px; }
+        #consulte #b-plus { left: 420px; top: 240px; width: 1500px; height: 1500px; }
+
+
+        #consulte .hd { position: absolute; left: 80px; top: 400px; width: 900px; white-space: nowrap; }
+        #consulte .hd .vm-wm { padding-bottom: 0.22em; margin-bottom: -0.22em; }
+        #consulte .hd .vm-accent { padding: 0 0.04em 0.2em 0; margin-bottom: -0.2em; color: var(--p24-hi-dark); }
+        #consulte #c-p1 { font-size: 124px; }
+        #consulte #c-p2 { font-size: 104px; line-height: 1.04; }
+        #consulte #c-h1 { font-size: 112px; }
+        #consulte #c-h2 { top: 548px; font-size: 80px; line-height: 1; }
+        #consulte #c-h1 .vm-accent { background: linear-gradient(100deg, #FFFFFF 0%, #EBE1FD 40%, #BC9CF7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+        #consulte .cam { width: 426px; height: 898px; }
+        #consulte .bezel { box-shadow: var(--p24-shadow), 0 0 0 1.5px rgba(255, 255, 255, 0.2), inset 0 0 0 2px #3a3644; }
+        #consulte .screen::after { content: ""; position: absolute; inset: 0; z-index: 40; pointer-events: none; background: linear-gradient(112deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0) 34%); }
+        #consulte .scr { font-family: "DM Sans", sans-serif; color: var(--vm-ink-900); }
+        #consulte .status { background: #fff; transition: none; }
+        #consulte .touch { background: rgba(255, 255, 255, 0.6); border-color: #fff; z-index: 45; }
+        #consulte .sg { font-family: "Space Grotesk", sans-serif; font-weight: 500; }
+
+        #consulte #scr-t { clip-path: inset(54px 0 0 0); }
+        #consulte #t-page { position: absolute; left: 0; top: 0; width: 402px; padding-top: 54px; }
+        #consulte .t-pad { padding-top: 8px; display: flex; flex-direction: column; gap: 8px; }
+        #consulte .t-head { display: flex; align-items: flex-end; justify-content: space-between; padding: 8px 20px 4px; }
+        #consulte .t-kick { font-size: 14px; line-height: 20px; color: var(--vm-ink-500); }
+        #consulte .t-title { margin: 0; font-size: 28px; line-height: 34px; letter-spacing: -0.56px; color: var(--vm-ink-900); }
+        #consulte .t-how { display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 14px 0 10px; border-radius: 999px; background: var(--vm-muted); font-size: 13px; line-height: 18px; font-weight: 500; color: var(--vm-ink-900); white-space: nowrap; }
+        #consulte .t-how svg { width: 16px; height: 16px; display: block; }
+        #consulte .t-start { display: flex; flex-direction: column; gap: 8px; margin: 0 8px; }
+        #consulte .t-hero { position: relative; height: 178px; border-radius: 20px; overflow: hidden; background: var(--vm-violet-900); padding: 16px 20px; }
+        #consulte .t-hero .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+        #consulte .t-hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(34, 8, 74, 0.75) 0%, rgba(34, 8, 74, 0.35) 50%, rgba(34, 8, 74, 0) 75%); }
+        #consulte .t-hero .doc { position: absolute; right: -6px; bottom: 0; width: 150px; height: 178px; object-fit: contain; object-position: bottom; display: block; }
+        #consulte .t-hero .top { position: relative; max-width: 230px; display: flex; flex-direction: column; gap: 12px; }
+        #consulte .live { display: inline-flex; align-self: flex-start; align-items: center; gap: 4px; height: 22px; padding: 0 9px 0 4px; border-radius: 999px; background: rgba(255, 255, 255, 0.16); font-size: 11px; line-height: 14px; font-weight: 700; color: var(--vm-violet-200); }
+        #consulte .live .halo { width: 12px; height: 12px; border-radius: 6px; background: rgba(255, 255, 255, 0.25); display: grid; place-items: center; }
+        #consulte .live .halo i { width: 6px; height: 6px; border-radius: 3px; background: #fff; display: block; }
+        #consulte .t-hero h3 { margin: 0; font-size: 20px; line-height: 24px; color: #fff; }
+        #consulte .t-hero p { margin: 0; font-size: 13px; line-height: 18px; color: rgba(255, 255, 255, 0.72); }
+        #consulte .t-choice { display: flex; flex-direction: column; gap: 8px; padding: 8px; border-radius: 24px; background: var(--vm-tile); }
+        #consulte .t-ask { margin: 0; padding: 6px 12px 0; font-size: 14px; line-height: 20px; color: var(--vm-ink-500); }
+        #consulte .t-tiles { display: flex; gap: 8px; }
+        #consulte .t-tile { position: relative; flex: 1; display: flex; flex-direction: column; gap: 10px; padding: 6px 6px 14px; border-radius: 16px; background: #fff; }
+        #consulte .t-tile .ph { position: relative; height: 138px; border-radius: 12px; overflow: hidden; background: var(--vm-violet-100); }
+        #consulte .t-tile .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+        #consulte .t-tile .mk { position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 11px; border: 2px solid #fff; background: rgba(255, 255, 255, 0.25); display: grid; place-items: center; }
+        #consulte .t-tile.on .mk { background: var(--vm-violet-500); }
+        #consulte .t-tile .mk svg { width: 12px; height: 12px; display: none; }
+        #consulte .t-tile.on .mk svg { display: block; }
+        #consulte .t-tile .fr { position: absolute; inset: 0; border-radius: 16px; border: 2px solid var(--vm-violet-500); display: none; }
+        #consulte .t-tile.on .fr { display: block; }
+        #consulte .t-tile .cp { padding: 0 8px; }
+        #consulte .t-tile b { display: block; font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 16px; line-height: 20px; }
+        #consulte .t-tile span { display: block; margin-top: 3px; font-size: 12px; line-height: 16px; color: var(--vm-ink-600); }
+        #consulte #t-enter { height: 48px; border-radius: 999px; background: var(--vm-violet-500); color: #fff; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; line-height: 20px; font-weight: 500; }
+        #consulte #t-enter svg { width: 16px; height: 16px; display: block; }
+
+        #consulte .t-hist { margin: 0 16px; }
+        #consulte .t-hist .hh { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; font-size: 14px; line-height: 20px; font-weight: 500; color: var(--vm-ink-500); }
+        #consulte .t-hist .hh svg { width: 16px; height: 16px; display: block; }
+        #consulte .t-hist .hl { padding: 8px; border-radius: 24px; background: var(--vm-tile); }
+        #consulte .t-hist .hw { background: #fff; border-radius: 16px; }
+        #consulte .t-hist .hr { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--vm-ink-100); }
+        #consulte .t-hist .hr:last-child { border-bottom: 0; }
+        #consulte .t-hist .hr img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; display: block; }
+        #consulte .t-hist .hr div { flex: 1; }
+        #consulte .t-hist .hr b { display: block; font-size: 15px; line-height: 20px; font-weight: 700; }
+        #consulte .t-hist .hr span { display: block; font-size: 13px; line-height: 18px; color: var(--vm-ink-500); }
+        #consulte .t-hist .hr svg { width: 16px; height: 16px; display: block; }
+        #consulte .t-tile:nth-child(2) .ph::after { content: ""; position: absolute; inset: 0; background: #7E3BED; mix-blend-mode: color; opacity: 0.8; }
+        #consulte .t-tile .mk { z-index: 1; }
+        #consulte #c-live { position: absolute; left: 80px; top: 584px; height: 100px; padding: 0 44px 0 24px; border-radius: 50px; display: flex; align-items: center; gap: 22px; z-index: 5; }
+        #consulte #c-live .l-tx { font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 48px; line-height: 54px; color: #fff; white-space: nowrap; }
+        #consulte .orbhost { position: relative; flex: none; }
+        #consulte .orbhost > * { position: absolute; }
+        #consulte .o-halo { border-radius: 50%; background: radial-gradient(closest-side, #9D6BF2 0%, rgba(157, 107, 242, 0) 65%); opacity: 0.35; }
+        #consulte .o-shell { inset: 0; border-radius: 50%; background: #F5F0FE; }
+        #consulte .o-clip { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
+        #consulte .o-spin { position: absolute; inset: 0; }
+        #consulte .o-b { position: absolute; border-radius: 50%; }
+        #consulte .o-hi { position: absolute; inset: 0; background: radial-gradient(ellipse 38% 30% at 32% 22%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); }
+        #consulte .o-rim { position: absolute; inset: 0; display: block; }
+        #consulte .o-glyph { inset: 0; display: grid; place-items: center; }
+        #consulte .o-glyph svg { display: block; }
+        #consulte .o-orbit { position: absolute; inset: 0; opacity: 0; }
+        #consulte .o-orbit svg { position: absolute; }
+
+        #consulte .t-start { position: relative; }
+
+        #consulte .hd { z-index: 45; }
+      </style>
+      <div id="consulte" class="vm-scene" data-composition-id="consulte" data-start="0" data-duration="6.5625" data-width="1080" data-height="1920">
+        <div id="c-bg" class="p24-bg p24-bg--deep c-bg">
+          <div id="b-a" class="p24-blob p24-blob--a"></div>
+          <div id="b-b" class="p24-blob p24-blob--b"></div>
+          <div id="b-c" class="p24-blob p24-blob--c"></div>
+          <div id="b-glow" class="p24-blob" style="left:40px;top:780px;width:1000px;height:1000px;background:radial-gradient(closest-side,rgba(188,156,247,0.75),rgba(188,156,247,0))"></div>
+          <div id="b-d" class="p24-blob p24-blob--d"></div>
+          <div id="b-plus" class="p24-plus"></div>
+          <div class="p24-grain"></div>
+        </div>
+
+        <div id="c-layer" class="p24-cam">
+          <img class="vm-logo" src="assets/brand/lockup-branco.svg" alt="Viva Mais">
+          <div id="c-live" data-layout-allow-overflow data-layout-allow-occlusion class="p24-glass"><span id="l-orb" class="orbhost" style="width:64px;height:64px"></span><span class="l-tx">24h · online agora</span></div>
+          <h1 id="c-p1" data-layout-allow-occlusion class="vm-head hd" data-layout-allow-overlap>Passando <em>mal?</em></h1>
+          <h1 id="c-p2" data-layout-allow-occlusion class="vm-head hd" data-layout-allow-overlap>Precisa de<br><em>médico agora?</em></h1>
+          <h1 id="c-h1" data-layout-allow-occlusion class="vm-head hd" data-layout-allow-overlap>Consulte <em>já!</em></h1>
+          <h2 id="c-h2" data-layout-allow-occlusion class="vm-head hd" data-layout-allow-overlap>Médico online <em>24/7</em></h2>
+
+          <div id="c-push">
+          <div id="c-cam" class="cam" data-layout-allow-overflow>
+            <div class="dev">
+              <div class="bezel"></div>
+              <div class="screen" data-layout-allow-occlusion>
+                <div class="island"></div>
+                <div id="c-status" class="status"><span id="c-clock">9:41</span><span class="status-icons"><i></i><i class="b"></i></span></div>
+
+                <div id="scr-t" class="scr">
+                  <div id="t-page">
+                    <div class="t-pad">
+                      <div class="t-head">
+                        <div><div class="t-kick">Clínico geral · 24h</div><h3 class="t-title sg">Plantão</h3></div>
+                        <div class="t-how"><svg viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M10 8.5l5 3.5-5 3.5z"></path></svg>Ver como funciona</div>
+                      </div>
+                      <div class="t-start">
+                        <div class="t-hero">
+                          <img class="bg" src="assets/illustrations/plantao-hub-bg.webp" alt="">
+                          <div class="shade"></div>
+                          <img class="doc" src="assets/illustrations/plantao-hub-doctor.webp" alt="">
+                          <div class="top">
+                            <div class="live"><span class="halo"><i></i></span>Plantão aberto 24h</div>
+                            <div><h3 class="sg">Clínico geral</h3><p>Atendimento em minutos</p></div>
+                          </div>
+                        </div>
+                        <div class="t-choice">
+                          <p class="t-ask">Como quer ter sua consulta?</p>
+                          <div class="t-tiles">
+                            <div class="t-tile on" id="t-tile-vid" aria-label="Vídeo" data-testid="channel-video">
+                              <div class="ph"><img src="assets/illustrations/channel-video-photo.webp" alt=""><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></div>
+                              <div class="cp"><b>Vídeo</b><span>Voz, vídeo e mensagens em tempo real com o médico.</span></div>
+                              <i class="fr"></i>
+                            </div>
+                            <div class="t-tile" id="t-tile-chat" aria-label="Chat" data-testid="channel-chat">
+                              <div class="ph"><img src="assets/illustrations/channel-chat-photo.webp" alt="" style="object-position: 50% 22%"><span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></div>
+                              <div class="cp"><b>Chat</b><span>Troca de mensagens ao vivo com o médico, sem câmera.</span></div>
+                              <i class="fr"></i>
+                            </div>
+                          </div>
+                          <div id="t-enter" aria-label="Continuar com vídeo" data-testid="plantao-enter"><span>Entrar</span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></div>
+                        </div>
+                      </div>
+                      <div class="t-hist">
+                        <div class="hh"><svg viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5M12 8v4l3 2"></path></svg>Plantões passados<svg viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)"><path d="M6 9l6 6 6-6"></path></svg></div>
+                        <div class="hl"><div class="hw">
+                          <div class="hr"><img src="assets/people/d4.jpeg" alt=""><div><b>Clínico geral</b><span>Dra. Helena Souza · 12 de out</span></div><svg viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></div>
+                          <div class="hr"><img src="assets/people/d0.png" alt=""><div><b>Clínico geral</b><span>Dr. Paulo Mendes · 28 de set</span></div><svg viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></div>
+                          <div class="hr"><img src="assets/people/d2.png" alt=""><div><b>Clínico geral</b><span>Dra. Marta Alves · 3 de set</span></div><svg viewBox="0 0 24 24" fill="none" stroke="#A29FB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></div>
+                        </div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lift"></div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="consulte"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const m = VMMotion.create({ root, tl });
+            const k = VMKit.create({ root, tl });
+            const q = (s) => root.querySelector(s);
+            const qa = (s) => [...root.querySelectorAll(s)];
+            const END = 6.2075;
+
+            const lead = (target, from, to, dur, ld, start, easeName) => {
+              const E = gsap.parseEase(easeName);
+              const p0 = Math.min(0.999, Math.max(0, ld / dur));
+              const e0 = E(p0);
+              const f = {};
+              const t = {};
+              Object.keys(from).forEach((key) => {
+                f[key] = to[key] + (from[key] - to[key]) * (1 - e0);
+                t[key] = to[key];
+              });
+              t.duration = Math.max(0.01, dur * (1 - p0));
+              t.ease = (x) => (E(p0 + (1 - p0) * x) - e0) / (1 - e0 || 1);
+              tl.fromTo(target, f, t, start);
+            };
+
+            const SPARKLE = "M89.76 11.15C89.76 11.46 89.51 11.71 89.2 11.71H86.46C83.12 11.71 80.4 14.43 80.4 17.77V20.51C80.4 20.82 80.15 21.07 79.84 21.07C79.53 21.07 79.28 20.82 79.28 20.51V17.77C79.28 14.43 76.56 11.71 73.22 11.71H70.48C70.17 11.71 69.92 11.46 69.92 11.15C69.92 10.84 70.17 10.59 70.48 10.59H73.22C76.56 10.59 79.28 7.87 79.28 4.53V1.79C79.28 1.48 79.53 1.23 79.84 1.23C80.15 1.23 80.4 1.48 80.4 1.79V4.53C80.4 7.87 83.12 10.59 86.46 10.59H89.2C89.51 10.59 89.76 10.84 89.76 11.15Z";
+            const GLYPH = "rgba(255,255,255,0.95)";
+            const BLOBS = [
+              { c: "18,255,215", dx: -0.16, dy: 0.12, o: 0.7 },
+              { c: "149,49,255", dx: 0.16, dy: 0, o: 0.85 },
+              { c: "157,107,242", dx: 0, dy: -0.17, o: 0.9 }
+            ];
+            const buildOrb = (host, S, uid) => {
+              const d = S * 0.85;
+              const dot = S * 0.13;
+              const rad = S * 0.24;
+              const blobs = BLOBS.map((b) => '<i class="o-b" style="left:' + ((S - d) / 2) + "px;top:" + ((S - d) / 2) + "px;width:" + d + "px;height:" + d + "px;opacity:" + b.o + ";background:radial-gradient(closest-side,rgba(" + b.c + ",1) 0%,rgba(" + b.c + ",0.75) 45%,rgba(" + b.c + ',0) 100%)"></i>').join("");
+              const dots = [-1, 1].map((s) => '<svg viewBox="69.92 1.23 19.84 19.84" width="' + dot + '" height="' + dot + '" style="left:' + (S / 2 + s * rad - dot / 2) + "px;top:" + (S / 2 - dot / 2) + 'px"><path d="' + SPARKLE + '" fill="' + GLYPH + '"></path></svg>').join("");
+              host.innerHTML =
+                '<div class="o-halo" style="width:' + S * 1.6 + "px;height:" + S * 1.6 + "px;left:" + -S * 0.3 + "px;top:" + -S * 0.3 + 'px"></div>' +
+                '<div class="o-shell" style="box-shadow:0 ' + S * 0.08 + "px " + S * 0.4 + 'px rgba(106,36,219,0.35)"><div class="o-clip"><div class="o-spin">' + blobs + "</div>" +
+                '<svg class="o-rim" width="' + S + '" height="' + S + '"><defs><radialGradient id="' + uid + '-rim" cx="50%" cy="52%" r="50%"><stop offset="52%" stop-color="#fff" stop-opacity="0"></stop><stop offset="81%" stop-color="#fff" stop-opacity="0.5"></stop><stop offset="100%" stop-color="#fff" stop-opacity="0.85"></stop></radialGradient></defs><circle cx="50%" cy="50%" r="50%" fill="url(#' + uid + '-rim)"></circle></svg>' +
+                '<div class="o-hi"></div>' +
+                '<svg class="o-rim" width="' + S + '" height="' + S + '"><circle cx="50%" cy="50%" r="' + (S / 2 - 0.75) + '" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"></circle></svg></div></div>' +
+                '<div class="o-glyph" style="filter:drop-shadow(0 0 ' + S * 0.06 + 'px rgba(106,36,219,0.45))"><svg class="o-sp" viewBox="69.92 1.23 19.84 19.84" width="' + S * 0.46 + '" height="' + S * 0.46 + '"><path d="' + SPARKLE + '" fill="' + GLYPH + '"></path></svg><div class="o-orbit">' + dots + "</div></div>";
+              const o = {
+                S,
+                spin: host.querySelector(".o-spin"),
+                halo: host.querySelector(".o-halo"),
+                sp: host.querySelector(".o-sp"),
+                orbit: host.querySelector(".o-orbit"),
+                blobs: [...host.querySelectorAll(".o-b")].map((el, i) => ({ el, dx: BLOBS[i].dx, dy: BLOBS[i].dy }))
+              };
+              o.blobs.forEach((b) => gsap.set(b.el, { x: b.dx * S, y: b.dy * S }));
+              return o;
+            };
+            const animOrb = (o, thinkAt) => {
+              const idle = 360 / 25;
+              const fast = 360 / 1.7;
+              if (thinkAt == null) {
+                tl.fromTo(o.spin, { rotation: 0 }, { rotation: idle * END, duration: END, ease: "none" }, 0);
+                return;
+              }
+              const rest = END - thinkAt;
+              tl.fromTo(o.spin, { rotation: 0 }, { rotation: idle * thinkAt, duration: thinkAt, ease: "none" }, 0);
+              tl.to(o.spin, { rotation: idle * thinkAt + fast * rest, duration: rest, ease: "none" }, thinkAt);
+              o.blobs.forEach((b) => tl.to(b.el, { x: b.dx * o.S * 0.55, y: b.dy * o.S * 0.55, duration: 0.35, ease: "power2.out" }, thinkAt));
+              tl.to(o.halo, { opacity: 0.6, duration: 0.35, ease: "power2.out" }, thinkAt);
+              tl.fromTo(o.sp, { rotation: 0 }, { rotation: (360 / 1.6) * rest, duration: rest, ease: "none" }, thinkAt);
+              tl.set(o.orbit, { opacity: 1 }, thinkAt);
+              tl.fromTo(o.orbit, { rotation: 0 }, { rotation: (360 / 1.4) * rest, duration: rest, ease: "none" }, thinkAt);
+            };
+            qa(".screen *").forEach((n) => { n.setAttribute("data-layout-allow-overlap", ""); n.setAttribute("data-layout-allow-overflow", ""); });
+            qa("#c-live *").forEach((n) => { n.setAttribute("data-layout-allow-overlap", ""); n.setAttribute("data-layout-allow-overflow", ""); });
+
+            const orbL = buildOrb(q("#l-orb"), 64, "ol");
+            animOrb(orbL, 0.05);
+
+            gsap.set("#c-layer, #c-bg", { transformOrigin: "540px 700px" });
+            gsap.set("#c-push", { transformOrigin: "540px 900px" });
+
+            tl.to("#b-a", { x: -150, y: 60, duration: END, ease: "none" }, 0);
+            tl.to("#b-b", { x: -110, y: -40, duration: END, ease: "none" }, 0);
+            tl.to("#b-c", { x: -130, duration: END, ease: "none" }, 0);
+            tl.to("#b-d", { x: -90, y: 30, duration: END, ease: "none" }, 0);
+            tl.to("#b-glow", { scale: 1.18, y: -60, duration: END, ease: "none" }, 0);
+            tl.to("#b-plus", { rotation: -16, scale: 1.28, duration: END, ease: "none", transformOrigin: "50% 50%" }, 0);
+            tl.to("#b-d", { scale: 1.3, duration: 0.9, ease: "power3.out" }, 1.9);
+            tl.to("#b-b", { scale: 1.25, duration: 0.9, ease: "power3.out" }, 3.4);
+
+            tl.fromTo("#c-push", { scale: 1 }, { scale: 1.035, duration: END, ease: "none" }, 0);
+
+            const wordsOf = (id) => m.split(id);
+            const exitLine = (ws, at) => ws.forEach((w, i) => {
+              tl.to(w.parentNode, { y: -40, opacity: 0, filter: "blur(6px)", duration: 0.35, ease: "power2.in" }, at + i * 0.03);
+            });
+            const enterLine = (ws, at) => ws.forEach((w, i) => {
+              const acc = w.classList.contains("vm-accent");
+              tl.fromTo(w, { yPercent: 115, opacity: 0, filter: "blur(6px)", scale: acc ? 1.04 : 1 }, { yPercent: 0, opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "expo.out", immediateRender: false }, at + i * 0.06);
+            });
+
+            const p1 = wordsOf("#c-p1");
+            const p2 = wordsOf("#c-p2");
+            const h1 = wordsOf("#c-h1");
+            const h2 = wordsOf("#c-h2");
+            [p2, h1, h2].forEach((ws) => gsap.set(ws, { yPercent: 115, opacity: 0, filter: "blur(6px)", transformOrigin: "0% 70%" }));
+            p1.forEach((w, i) => {
+              const local = 0.3 - i * 0.06;
+              lead(w, { yPercent: 112 }, { yPercent: 0 }, 0.7, Math.max(0, local), Math.max(0, -local), "power4.out");
+            });
+            tl.to("#c-live", { x: -1100, duration: 0.34, ease: "power4.in" }, 1.08);
+            exitLine(p1, 1.1);
+            enterLine(p2, 1.52);
+            exitLine(p2, 3.5);
+            enterLine(h1, 3.98);
+            enterLine(h2, 4.12);
+            exitLine(h1, 5.5);
+            exitLine(h2, 5.52);
+
+            gsap.set("#c-cam", { transformPerspective: 2400, transformOrigin: "50% 45%" });
+            lead("#c-cam", { y: 300, rotationX: 14, rotationY: -9, scale: 0.94 }, { y: -40, rotationX: 0, rotationY: 0, scale: 1 }, 1.3, 0.35, 0, "power4.out");
+            tl.to("#c-cam", { scale: 1.13, duration: 2.0, ease: "power2.inOut" }, 1.5);
+
+
+            const enter = k.center("#t-enter");
+            k.tap(enter.x + 105, enter.y, 5.9);
+            tl.to("#t-enter", { scale: 0.93, duration: 0.09, ease: "power2.in", transformOrigin: "50% 50%" }, 5.9);
+            tl.to("#t-enter", { scale: 1, duration: 0.2, ease: "power3.out" }, 5.99);
+
+            tl.to("#c-layer", { scale: 1.6, filter: "blur(18px)", duration: 0.355, ease: "power4.in" }, END);
+            tl.to("#c-bg", { scale: 1.6, filter: "blur(18px)", duration: 0.355, ease: "power4.in" }, END);
+
+            window.__timelines["consulte"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

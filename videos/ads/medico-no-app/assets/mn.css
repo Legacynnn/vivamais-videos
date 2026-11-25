@@ -1,0 +1,66 @@
+.mn-scene {
+  --vm-safe-t: 220px;
+  --vm-safe-r: 140px;
+  --vm-safe-b: 680px;
+  --vm-safe-l: 80px;
+  --mn-accent: var(--vm-primary);
+  --mn-ink: var(--vm-foreground);
+  --mn-shadow: 0 60px 120px -40px color-mix(in srgb, var(--vm-violet-900) 32%, transparent), 0 18px 40px -18px color-mix(in srgb, var(--vm-violet-900) 20%, transparent);
+  --mn-shadow-soft: 0 30px 70px -30px color-mix(in srgb, var(--vm-violet-900) 24%, transparent);
+  position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden;
+}
+
+.mn-stage { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(180deg, var(--vm-canvas) 0%, var(--vm-mist) 100%); }
+
+.mn-aurora { position: absolute; left: 0; top: 0; width: 1700px; height: 1920px; pointer-events: none; will-change: transform; }
+.mn-aurora i { position: absolute; display: block; border-radius: 50%; filter: blur(70px); }
+.mn-aurora .a1 { width: 820px; height: 820px; left: -140px; top: 560px; background: color-mix(in srgb, var(--vm-violet-400) 46%, transparent); }
+.mn-aurora .a2 { width: 700px; height: 700px; left: 640px; top: 900px; background: color-mix(in srgb, var(--vm-iris-400) 40%, transparent); }
+.mn-aurora .a3 { width: 620px; height: 620px; left: 1180px; top: 420px; background: color-mix(in srgb, var(--vm-violet-300) 50%, transparent); }
+
+.mn-logo { position: absolute; left: 80px; top: 220px; width: 210px; height: auto; z-index: 40; }
+
+.mn-line {
+  position: absolute; left: 80px; right: 140px; top: 300px; margin: 0; z-index: 40;
+  font: 500 84px/1.04 var(--vm-font-display); letter-spacing: -0.035em; color: var(--mn-ink);
+}
+.mn-line em, .mn-line .vm-accent { font-style: normal; color: var(--mn-accent); }
+.mn-line--top { top: 220px; }
+.mn-line--over { top: 240px; --mn-ink: var(--vm-white); --mn-accent: var(--vm-violet-200); }
+
+.mn-persp { position: absolute; inset: 0; perspective: 2400px; perspective-origin: 50% 40%; pointer-events: none; }
+
+.mn-scene .cam { left: 50px; top: 520px; width: 980px; height: 2065px; transform-origin: 50% 0; will-change: transform; }
+.mn-scene .dev { transform: scale(2.3); transform-origin: 0 0; }
+
+.mn-near {
+  position: absolute; left: -2px; right: -2px; bottom: -2px; height: 62%; border-radius: 0 0 152px 152px; pointer-events: none; z-index: 60;
+  background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--vm-mist) 70%, transparent) 46%, var(--vm-mist) 82%);
+}
+
+.mn-scrim { position: absolute; left: 0; right: 0; top: 0; height: 760px; pointer-events: none; z-index: 30; background: linear-gradient(180deg, color-mix(in srgb, var(--vm-violet-950) 78%, transparent) 0%, color-mix(in srgb, var(--vm-violet-950) 40%, transparent) 52%, transparent 100%); }
+
+.mn-plus {
+  position: absolute; left: 510px; top: 700px; margin: 0; z-index: 20;
+  font: 500 300px/1 var(--vm-font-display); color: var(--vm-primary); will-change: transform, opacity;
+}
+
+.mn-src { position: absolute; left: 0; top: 0; width: 402px; height: 874px; visibility: hidden; pointer-events: none; }
+.mn-src .scr { position: absolute; inset: 0; }
+
+.mn-piece { position: absolute; transform-origin: 0 0; will-change: transform, opacity; }
+.mn-piece.is-card { box-shadow: var(--mn-shadow); }
+.mn-vms { position: relative; inset: auto; overflow: visible; background: transparent; }
+
+.mn-win { position: absolute; overflow: hidden; transform-origin: 0 0; will-change: transform; box-shadow: var(--mn-shadow); }
+.mn-win .scr { position: absolute; inset: auto; left: 0; width: 402px; height: 874px; }
+
+.mn-tap {
+  position: absolute; left: 0; top: 0; width: 132px; height: 132px; margin: -66px 0 0 -66px; border-radius: 50%; pointer-events: none; z-index: 50; opacity: 0;
+  background: color-mix(in srgb, var(--vm-white) 55%, transparent); border: 4px solid color-mix(in srgb, var(--vm-primary) 85%, transparent);
+  box-shadow: 0 18px 40px -12px color-mix(in srgb, var(--vm-violet-900) 45%, transparent);
+}
+.mn-tap-ring {
+  position: absolute; left: 0; top: 0; width: 132px; height: 132px; margin: -66px 0 0 -66px; border-radius: 50%; pointer-events: none; z-index: 49; opacity: 0;
+  border: 4px solid color-mix(in srgb, var(--vm-primary) 50%, transparent);
+}

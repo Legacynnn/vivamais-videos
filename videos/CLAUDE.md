@@ -16,7 +16,7 @@ Assign the model first; it decides the folder, template and reference.
 
 `npm run new -- <ad|tutorial> <slug> [portrait|square|landscape]` scaffolds from `templates/<model>/` (BRIEF, `index.html`, starter `compositions/`, `ledger.json`, `assets.json`) and syncs. `npm run list` shows every video.
 
-App screens are recreated in HTML from the app source (`../vivamais-monorepo/apps/mobile`, `apps/web`), never captured. The DOM-capture pipeline (`capture/webcap`, legacy kit) only serves the finished videos that already use it.
+App screens come from the screen library (`screens/`, see `screens/README.md`): a `<!-- screen:id state --><!-- /screen -->` marker inside `.scr` is filled by `npm run sync` with the real app screen. Add a missing screen or state to the library instead of redrawing it in the composition; hand-built HTML is only for screens the library cannot render. The DOM-capture pipeline (`capture/webcap`, legacy kit) only serves the finished videos that already use it.
 
 ## Shared pieces
 

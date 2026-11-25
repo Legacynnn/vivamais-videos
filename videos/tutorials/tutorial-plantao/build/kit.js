@@ -68,12 +68,12 @@ function VMKit(cfg) {
   all(".vmk-state").forEach((el) => {
     const name = el.getAttribute("data-state");
     states[name] = el;
-    all("[data-vm-scroll]", el).forEach((n) => {
+    all("[data-vm-scroll], .vms .rn-scroll", el).forEach((n) => {
       n.scrollTop = Number(n.getAttribute("data-vm-top") || 0);
       n.scrollLeft = Number(n.getAttribute("data-vm-left") || 0);
     });
     let best = null;
-    all("[data-vm-scroll]", el).forEach((n) => {
+    all("[data-vm-scroll], .vms .rn-scroll", el).forEach((n) => {
       if (n.clientWidth < 300 || n.scrollHeight - n.clientHeight < 20) return;
       if (!best || n.clientHeight > best.clientHeight) best = n;
     });

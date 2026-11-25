@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/em.css">
+      <script src="assets/em-fx.js"></script>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        #empresa { position: absolute; inset: 0; overflow: hidden; }
+        #empresa .em-chips { position: absolute; inset: 0; will-change: transform, opacity, filter; }
+        #empresa .em-chip { left: 80px; height: 100px; gap: 22px; padding: 0 44px 0 12px; }
+        #empresa .em-chip .em-check { width: 76px; height: 76px; }
+        #empresa .em-line { will-change: transform, opacity, filter; }
+        #empresa .em-l2 { top: 752px; }
+        #empresa .em-price {
+          position: absolute; left: 0; top: 480px; width: 1080px; height: 280px; display: flex; justify-content: center; align-items: flex-start;
+          font: 500 280px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: 0; font-variant-numeric: tabular-nums;
+          white-space: pre; opacity: 0; will-change: transform, opacity, filter;
+        }
+        #empresa .gt { font-style: normal; padding: 0; background: linear-gradient(100deg, var(--vm-violet-700) 0%, var(--vm-violet-600) 30%, var(--vm-violet-500) 42%, var(--vm-violet-300) 50%, var(--vm-violet-500) 58%, var(--vm-violet-600) 70%, var(--vm-violet-700) 100%) 100% 0% / 260% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+        #empresa .em-ps { display: block; flex: none; overflow: hidden; height: 1em; line-height: 1; }
+        #empresa .em-pt { display: flex; flex-direction: column; will-change: transform; }
+        #empresa .em-pt span { display: block; height: 1em; line-height: 1; }
+        #empresa .em-bl { position: absolute; left: 80px; margin: 0; font: 500 52px/1 var(--vm-font-text, "DM Sans"), sans-serif; color: var(--em-ink); white-space: nowrap; opacity: 0; will-change: transform, opacity, filter; }
+        #empresa .em-bl--a { color: var(--vm-ink-600, var(--em-body)); }
+        #empresa .em-cells { position: absolute; left: 80px; width: 860px; display: flex; justify-content: space-between; will-change: transform, opacity, filter; }
+        #empresa .em-cell { position: relative; display: block; width: 74px; height: 64px; border-radius: 18px; box-sizing: border-box; opacity: 0; will-change: transform, opacity; }
+        #empresa .em-cell--a { background: var(--vm-ink-300); transform-origin: 50% 100%; }
+        #empresa .em-cell--b { border: 2px solid var(--vm-ink-200); background: var(--em-tile); }
+        #empresa .em-cell--b b { position: absolute; inset: -2px; border-radius: 18px; background: var(--em-accent); opacity: 0; transform-origin: 50% 50%; }
+      </style>
+      <div id="empresa" class="vm-scene em-scene" data-composition-id="empresa" data-start="0" data-duration="5.4" data-width="1080" data-height="1920">
+        <div class="em-stage"></div>
+        <div class="em-aurora" data-layout-allow-overflow data-layout-allow-overlap><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+
+        <p class="em-line" id="em-l1" style="top:344px;font-size:66px;white-space:nowrap">O que a sua empresa <em>ganha</em>?</p>
+        <div class="em-chips" id="em-chips" data-layout-allow-overlap data-layout-allow-overflow>
+          <div class="em-chip" id="em-c0" style="top:477px"><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span>Retenção de talentos</span></div>
+          <div class="em-chip" id="em-c1" style="top:601px"><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span>Menos absenteísmo</span></div>
+          <div class="em-chip" id="em-c2" style="top:725px"><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span>Gestão da saúde</span></div>
+          <div class="em-chip" id="em-c3" style="top:849px"><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span>Mais produtividade</span></div>
+          <div class="em-chip" id="em-c4" style="top:973px"><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span>Adequação à NR-1</span></div>
+          <div class="em-chip" id="em-c5" style="top:1097px"><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span>Relatórios de uso</span></div>
+        </div>
+
+        <p class="em-line em-line--center" id="em-ate" style="top:400px;opacity:0">Até</p>
+        <div class="em-price" id="em-price" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>
+          <span class="em-ps" id="pp-p" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap><span class="gt" style="display:block">R$ </span></span>
+          <span class="em-ps" id="pp-d1" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap><span class="em-pt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>0</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>1</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>2</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>3</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>4</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>5</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>6</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>7</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>8</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>9</span></span></span>
+          <span class="em-ps" id="pp-c" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap><span class="gt" style="display:block">,</span></span>
+          <span class="em-ps" id="pp-d2" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap><span class="em-pt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>0</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>1</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>2</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>3</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>4</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>5</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>6</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>7</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>8</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>9</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>0</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>1</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>2</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>3</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>4</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>5</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>6</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>7</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>8</span><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>9</span></span></span>
+          <span class="em-ps" id="pp-d3" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap><span class="em-pt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap><span class="gt" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>0</span></span></span>
+          <span class="em-ps" id="pp-x" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap><span class="gt" style="display:block">x</span></span>
+        </div>
+        <p class="em-line em-line--center em-l2" id="em-l2" style="opacity:0;font-size:59px;white-space:nowrap">mais barato que <em>plano de saúde</em></p>
+        <p class="em-bl em-bl--a" id="em-bl1" style="top:858px">Plano de saúde</p>
+        <div class="em-cells" id="em-ca" style="top:926px" data-layout-allow-overlap><i class="em-cell em-cell--a"></i><i class="em-cell em-cell--a"></i><i class="em-cell em-cell--a"></i><i class="em-cell em-cell--a"></i><i class="em-cell em-cell--a"></i><i class="em-cell em-cell--a"></i><i class="em-cell em-cell--a"></i><i class="em-cell em-cell--a"></i><i class="em-cell em-cell--a"></i><i class="em-cell em-cell--a"></i></div>
+        <p class="em-bl" id="em-bl2" style="top:1026px">Viva Mais</p>
+        <div class="em-cells" id="em-cb" style="top:1094px" data-layout-allow-overlap><i class="em-cell em-cell--b"><b></b></i><i class="em-cell em-cell--b"><b></b></i><i class="em-cell em-cell--b"><b></b></i><i class="em-cell em-cell--b"><b></b></i><i class="em-cell em-cell--b"><b></b></i><i class="em-cell em-cell--b"><b></b></i><i class="em-cell em-cell--b"><b></b></i><i class="em-cell em-cell--b"><b></b></i><i class="em-cell em-cell--b"><b></b></i><i class="em-cell em-cell--b"><b></b></i></div>
+      </div>
+      <script>
+        (function () {
+          const root = document.getElementById("empresa");
+          window.__timelines = window.__timelines || {};
+          document.fonts.ready.then(function () {
+            const tl = gsap.timeline({ paused: true });
+            const S = 26.1;
+            const D = 5.4;
+            const q = function (s) { return root.querySelector(s); };
+            const qa = function (s) { return root.querySelectorAll(s); };
+            const bez = function (x1, y1, x2, y2) {
+              const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+              const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+              return function (p) {
+                if (p <= 0 || p >= 1) return p;
+                let t = p;
+                for (let i = 0; i < 8; i++) {
+                  const x = ((ax * t + bx) * t + cx) * t - p;
+                  const d = (3 * ax * t + 2 * bx) * t + cx;
+                  if (Math.abs(x) < 1e-5 || Math.abs(d) < 1e-6) break;
+                  t -= x / d;
+                }
+                t = Math.min(1, Math.max(0, t));
+                return ((ay * t + by) * t + cy) * t;
+              };
+            };
+            const EO = bez(0.23, 1, 0.32, 1);
+
+            qa(".em-aurora i").forEach(function (el) {
+              tl.fromTo(el, { x: -7 * S, y: -3 * S }, { x: -7 * (S + D), y: -3 * (S + D), duration: D, ease: "none" }, 0);
+            });
+
+            const sheen = function (sel, t) {
+              tl.fromTo(sel, { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: 1.4, ease: "power2.inOut" }, t);
+            };
+
+            const enter = function (sel, t) {
+              tl.fromTo(sel, { x: 230 }, { x: 0, duration: 0.44, ease: "power4.out" }, t);
+              tl.fromTo(sel, { opacity: 0.35 }, { opacity: 1, duration: 0.16, ease: "power2.out" }, t);
+              tl.fromTo(sel, { filter: "blur(4px)" }, { filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, t);
+            };
+            enter("#em-l1", 0);
+            sheen("#em-l1 em", 0.3);
+            const chips = qa(".em-chip");
+            chips.forEach(function (c, i) {
+              enter(c, i * 0.07);
+              window.EMFX.check(tl, c, 0.45 + i * 0.17);
+            });
+
+            tl.to("#em-l1", { opacity: 0, duration: 0.15, ease: "power2.in" }, 2.6);
+            tl.to("#em-l1", { x: -140, scale: 0.94, filter: "blur(4px)", duration: 0.25, ease: "power2.in", transformOrigin: "0% 50%" }, 2.6);
+            tl.to("#em-chips", { opacity: 0, duration: 0.15, ease: "power2.in" }, 2.6);
+            tl.to("#em-chips", { x: -140, scale: 0.94, filter: "blur(4px)", duration: 0.25, ease: "power2.in", transformOrigin: "0% 50%" }, 2.6);
+
+            const rise = function (sel, t, dur, dy) {
+              tl.fromTo(sel, { opacity: 0, y: dy, filter: "blur(4px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: dur, ease: "power4.out" }, t);
+            };
+            rise("#em-ate", 2.75, 0.5, 44);
+            rise("#em-price", 2.8, 0.5, 44);
+            rise("#em-l2", 2.95, 0.5, 44);
+            sheen("#em-price .gt", 2.8);
+            sheen("#em-l2 em", 3.0);
+
+            const ids = ["p", "d1", "c", "d2", "d3", "x"];
+            const w = {};
+            ids.forEach(function (k) { w[k] = q("#pp-" + k).offsetWidth / 280; });
+            gsap.set(["#pp-p", "#pp-d1", "#pp-c", "#pp-d3"], { width: "0em" });
+            gsap.set("#pp-d2", { width: w.d2 + "em" });
+            gsap.set("#pp-x", { width: w.x + "em" });
+            gsap.set("#pp-d1 .em-pt", { yPercent: -10 });
+            gsap.set("#pp-d2 .em-pt", { yPercent: -5 });
+            tl.fromTo("#pp-d2 .em-pt", { yPercent: -5 }, { yPercent: -50, duration: 0.65, ease: EO }, 2.8);
+            tl.fromTo("#pp-d1", { width: "0em" }, { width: w.d1 + "em", duration: 0.35, ease: EO }, 3.1);
+
+            tl.set("#em-bl1", { opacity: 1 }, 3.15);
+            tl.fromTo("#em-bl1", { y: 30, filter: "blur(4px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "power4.out" }, 3.15);
+            tl.set("#em-bl2", { opacity: 1 }, 3.25);
+            tl.fromTo("#em-bl2", { y: 30, filter: "blur(4px)" }, { y: 0, filter: "blur(0px)", duration: 0.45, ease: "power4.out" }, 3.25);
+
+            qa(".em-cell--a").forEach(function (c, i) {
+              const t = 3.3 + i * 0.04;
+              tl.set(c, { opacity: 1 }, t);
+              tl.fromTo(c, { scaleY: 0.4 }, { scaleY: 1, duration: 0.4, ease: EO }, t);
+            });
+            qa(".em-cell--b").forEach(function (c) {
+              tl.fromTo(c, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 3.3);
+            });
+            tl.set("#em-cb .em-cell--b b", { opacity: 0 }, 0);
+            tl.set("#em-cb .em-cell--b:first-child b", { opacity: 1 }, 3.85);
+            tl.fromTo("#em-cb .em-cell--b:first-child b", { scale: 0.6 }, { scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 3.85);
+
+            const T = 5.05;
+            const R = 0.35;
+            tl.to("#pp-d1 .em-pt", { yPercent: -90, duration: R, ease: EO }, T);
+            tl.to("#pp-d2 .em-pt", { yPercent: -95, duration: R, ease: EO }, T);
+            tl.to("#pp-p", { width: w.p + "em", duration: R, ease: EO }, T);
+            tl.to("#pp-c", { width: w.c + "em", duration: R, ease: EO }, T);
+            tl.to("#pp-d3", { width: w.d3 + "em", duration: R, ease: EO }, T);
+            tl.to("#pp-x", { width: "0em", duration: R, ease: EO }, T);
+            tl.to("#em-price", { y: -50, scale: 200 / 280, transformOrigin: "50% 0%", duration: R, ease: EO }, T);
+
+            const carry = ["#em-ate", "#em-l2", "#em-bl1", "#em-bl2", "#em-ca", "#em-cb"];
+            tl.to(carry, { x: -230, duration: 0.3, ease: "power4.in" }, T);
+            tl.to(carry, { opacity: 0, duration: 0.2, ease: "power2.in" }, T);
+            tl.to(carry, { filter: "blur(4px)", duration: 0.2, ease: "power2.in" }, T);
+
+            window.__timelines["empresa"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

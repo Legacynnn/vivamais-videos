@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand/tokens.css">
+    <link rel="stylesheet" href="assets/kit/screens.css">
+    <link rel="stylesheet" href="assets/kit/motion.css">
+    <link rel="stylesheet" href="assets/p24.css">
+    <script src="assets/kit/screens.js"></script>
+    <script src="assets/kit/motion.js"></script>
+    <style>
+      html, body, #root { width: 100%; height: 100%; }
+      html, body { margin: 0; overflow: hidden; background: var(--vm-violet-950); }
+      #root { position: relative; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="plantao-24h" data-start="0" data-duration="44.53125" data-width="1080" data-height="1920">
+      <div id="el-consulte" class="clip" data-composition-id="consulte" data-composition-src="compositions/consulte.html" data-start="0" data-duration="6.5625" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-busca" class="clip" data-composition-id="busca" data-composition-src="compositions/busca.html" data-start="11.25" data-duration="7.03125" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-preconsulta" class="clip" data-composition-id="preconsulta" data-composition-src="compositions/preconsulta.html" data-start="6.5625" data-duration="4.6875" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-chamada" class="clip" data-composition-id="chamada" data-composition-src="compositions/chamada.html" data-start="18.28125" data-duration="9.84375" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-pronto" class="clip" data-composition-id="pronto" data-composition-src="compositions/pronto.html" data-start="28.125" data-duration="5.625" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-ia" class="clip" data-composition-id="ia" data-composition-src="compositions/ia.html" data-start="33.75" data-duration="4.21875" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-provas" class="clip" data-composition-id="provas" data-composition-src="compositions/provas.html" data-start="37.96875" data-duration="3.75" data-track-index="0" data-width="1080" data-height="1920"></div>
+      <div id="el-fim" class="clip" data-composition-id="fim" data-composition-src="compositions/fim.html" data-start="41.71875" data-duration="2.8125" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="44.53125" data-media-start="0.485" data-volume="0.9" data-fade-out="0.8" data-track-index="20"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["plantao-24h"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

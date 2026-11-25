@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/screens/screens.css">
+      <link rel="stylesheet" href="assets/ce.css">
+      <style>
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        #chamada { position: absolute; inset: 0; overflow: hidden; font-family: "DM Sans", sans-serif; }
+        #chamada .cam { left: 173px; top: 600px; z-index: 2; opacity: 0; }
+        #chamada .ce-glass { left: 80px; top: 720px; z-index: 8; }
+        #chamada .ce-glass-text { min-width: 0; }
+        #chamada .ce-glass-title, #chamada .ce-glass-body { white-space: nowrap; }
+        #chamada .ch-end { left: 0; top: 0; z-index: 9; opacity: 0; box-sizing: border-box; overflow: hidden; gap: 20px; height: 108px; padding: 0 44px 0 16px; font-size: 46px; }
+        #chamada .ch-end i { width: 76px; height: 76px; border-radius: 50%; background: var(--vm-primary); color: var(--vm-white); display: flex; align-items: center; justify-content: center; }
+        #chamada .ch-end svg { width: 38px; height: 38px; }
+        #chamada .ce-aurora { z-index: 1; }
+        #chamada .ch-screen { background: var(--vm-violet-950); }
+        #chamada .ch-doc { position: absolute; left: -60px; top: 0; width: 522px; height: 874px; object-fit: cover; object-position: 78% 40%; }
+        #chamada .ch-top { position: absolute; left: 0; top: 0; width: 402px; height: 300px; background: linear-gradient(180deg, color-mix(in srgb, var(--vm-violet-950) 90%, transparent) 0px, color-mix(in srgb, var(--vm-violet-950) 50%, transparent) 120px, transparent 300px); }
+        #chamada .ch-bot { position: absolute; left: 0; bottom: 0; width: 402px; height: 260px; background: linear-gradient(0deg, color-mix(in srgb, var(--vm-violet-950) 85%, transparent) 0%, transparent 100%); }
+        #chamada .ch-app { position: absolute; left: 0; top: 0; width: 402px; height: 874px; overflow: hidden; }
+        #chamada .ch-lay { left: 0; top: 0; width: 402px; height: 874px; background: transparent; }
+        #chamada .ch-lay .vms { background: transparent; }
+        #chamada .ch-sheet .ch-lay [aria-label="Abrir chat da consulta"] { visibility: hidden; }
+        #chamada .ch-sheet .ch-lay [aria-label="Voltar para a chamada"] { display: none; }
+        #chamada .ch-cap { max-height: 552px !important; }
+        #chamada .ch-sheet { position: absolute; left: 0; top: 0; width: 402px; height: 874px; z-index: 1; }
+        #chamada .ch-flip { position: absolute; left: 0; top: 0; width: 733px; height: 1545px; transform-style: preserve-3d; }
+        #chamada .ch-face { position: absolute; left: 0; top: 0; width: 733px; height: 1545px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        #chamada .ch-faceb { transform: rotateY(180deg); }
+        #chamada .ch-bisl { z-index: 40; }
+        #chamada .ch-bscreen { background: var(--vm-white); }
+        #chamada .ch-bapp { background: var(--vm-white); }
+        #chamada .ch-bapp { height: 676px; }
+        #chamada .ch-bapp .ch-sheet, #chamada .ch-bapp .ch-lay { height: 676px; }
+        #chamada .ch-bapp .ch-cap { max-height: 676px !important; height: 676px; margin-top: 0 !important; border-radius: 0 !important; padding-top: 38px; box-sizing: border-box; }
+        #chamada .ch-bpip { width: 52px; height: 68px; border-radius: 12px; overflow: hidden; position: relative; flex: none; box-shadow: 0 0 0 2px var(--vm-primary); }
+        #chamada .ch-bpip img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+        #chamada .ch-bpip b { position: absolute; left: 4px; bottom: 4px; width: 8px; height: 8px; border-radius: 4px; background: var(--vm-destructive); }
+        #chamada .ch-tyrow { position: absolute; left: 48px; display: flex; opacity: 0; }
+        #chamada .ch-tyrow.me { left: auto; right: 12px; }
+        #chamada .ch-ty { display: flex; gap: 5px; padding: 14px 16px; background: var(--vm-white); border: 1px solid var(--vm-ink-100); border-radius: 18px 18px 18px 6px; }
+        #chamada .ch-tyrow.me .ch-ty { background: var(--vm-primary-strong); border-color: transparent; border-radius: 18px 18px 6px 18px; }
+        #chamada .ch-ty i { width: 8px; height: 8px; border-radius: 4px; background: var(--vm-ink-400); }
+        #chamada .ch-tyrow.me .ch-ty i { background: var(--vm-violet-200); }
+        #chamada .ch-pip { position: absolute; left: 290px; top: 616px; width: 96px; height: 128px; border-radius: 16px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--vm-white) 40%, transparent); box-sizing: border-box; background: var(--vm-violet-950); box-shadow: 0 6px 18px color-mix(in srgb, var(--vm-black) 35%, transparent); }
+        #chamada .ch-pip video { width: 100%; height: 100%; object-fit: cover; object-position: 55% 30%; display: block; }
+        #chamada .ch-ctrl { position: absolute; left: 0; width: 402px; top: 770px; display: flex; justify-content: center; gap: 14px; }
+        #chamada .ch-ctrl span { width: 56px; height: 56px; border-radius: 28px; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--vm-black) 45%, transparent); color: var(--vm-white); }
+        #chamada .ch-ctrl span.end { background: var(--vm-destructive); }
+        #chamada .ch-ctrl svg { width: 22px; height: 22px; }
+        #chamada .ch-sheet .rn-scroll { overflow: hidden !important; }
+        #chamada .ch-sheet .rn-scroll-content { position: relative; }
+        #chamada .ch-gr { opacity: 0; }
+        #chamada .ch-m { opacity: 0; width: 100%; display: flex; justify-content: flex-end; padding: 0 12px 4px 56px; box-sizing: border-box; }
+        #chamada .ch-b { background: var(--vm-primary-strong); border-radius: 18px 18px 6px 18px; padding: 4px 4px 7px; color: var(--vm-white); }
+        #chamada .ch-bt { padding: 5px 10px 0; font-size: 15px; line-height: 21px; max-width: 300px; }
+        #chamada .ch-ts { display: flex; justify-content: flex-end; align-items: center; gap: 3px; margin: 3px 6px 0 0; font-size: 11px; line-height: 14px; color: var(--vm-violet-200); }
+        #chamada .ch-ts svg { width: 14px; height: 14px; }
+        #chamada .ch-line em { white-space: nowrap; }
+        #chamada .ch-line { z-index: 8; }
+        #chamada #ch-h5 { font-size: 66px; white-space: nowrap; }
+        #chamada .ch-sk { position: absolute; z-index: 10; opacity: 0; }
+        #chamada .ch-sk.t { left: 362px; top: 650px; width: 140px; height: 22px; border-radius: 11px; background: var(--ce-violet-100); }
+        #chamada .ch-sk.g { left: 362px; height: 16px; border-radius: 8px; background: var(--ce-tile); }
+        #chamada .ch-tag { position: absolute; left: 16px; top: 724px; height: 32px; padding: 0 14px 0 10px; display: flex; align-items: center; gap: 8px; border-radius: 16px; background: color-mix(in srgb, var(--vm-black) 45%, transparent); color: var(--vm-white); font: 500 13px/1 "DM Sans", sans-serif; opacity: 0; }
+        #chamada .ch-vb { display: flex; align-items: center; gap: 2px; height: 16px; }
+        #chamada .ch-vb i { display: block; width: 3px; height: 16px; border-radius: 2px; background: var(--vm-violet-200); transform: scaleY(0.3); }
+        #chamada .ch-file { display: flex; align-items: center; gap: 10px; padding: 8px 12px 0 8px; }
+        #chamada .ch-file i { width: 40px; height: 40px; border-radius: 12px; background: color-mix(in srgb, var(--vm-white) 18%, transparent); display: flex; align-items: center; justify-content: center; flex: none; }
+        #chamada .ch-file svg { width: 20px; height: 20px; }
+        #chamada .ch-file b { display: block; font-weight: 700; font-size: 14px; line-height: 18px; }
+        #chamada .ch-file span { display: block; font-size: 12px; line-height: 16px; color: var(--vm-violet-200); }
+        #chamada .ch-img { position: relative; width: 204px; height: 112px; border-radius: 14px; overflow: hidden; }
+        #chamada .ch-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        #chamada .ch-img.ph { background: linear-gradient(160deg, var(--vm-violet-100) 0%, var(--vm-violet-50) 100%); }
+        #chamada .ch-img.ph svg { position: absolute; inset: 0; }
+        #chamada .ch-img.vid img { object-position: 50% 30%; }
+        #chamada .ch-img.vid::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--vm-violet-950) 35%, transparent); }
+        #chamada .ch-play { position: absolute; left: 80px; top: 34px; width: 44px; height: 44px; border-radius: 22px; background: var(--vm-white); z-index: 2; display: flex; align-items: center; justify-content: center; color: var(--vm-primary-strong); }
+        #chamada .ch-play svg { width: 18px; height: 18px; margin-left: 2px; }
+        #chamada .ch-dur { position: absolute; right: 8px; bottom: 8px; z-index: 2; padding: 3px 7px; border-radius: 10px; font-size: 11px; line-height: 14px; color: var(--vm-white); background: color-mix(in srgb, var(--vm-black) 45%, transparent); }
+        #chamada .ch-m.l { justify-content: flex-end; padding: 0 12px 6px 44px; }
+        #chamada .ch-hist { width: 292px; background: var(--vm-white); border: 1px solid var(--vm-ink-100); border-radius: 18px 18px 6px 18px; padding: 10px 12px 8px; box-sizing: border-box; color: var(--vm-ink-950); }
+        #chamada .ch-hh { display: flex; align-items: center; gap: 8px; padding-bottom: 8px; }
+        #chamada .ch-hh img { width: 30px; height: 30px; border-radius: 15px; object-fit: cover; }
+        #chamada .ch-hh b { display: block; font-size: 14px; line-height: 17px; font-weight: 700; }
+        #chamada .ch-hh span { display: block; font-size: 11px; line-height: 14px; color: var(--vm-ink-500); }
+        #chamada .ch-hr { display: flex; align-items: center; gap: 10px; height: 34px; font-size: 14px; font-weight: 500; }
+        #chamada .ch-hr i { width: 26px; height: 26px; border-radius: 8px; background: var(--vm-violet-100); color: var(--vm-primary-strong); display: flex; align-items: center; justify-content: center; flex: none; }
+        #chamada .ch-hr svg { width: 15px; height: 15px; }
+        #chamada .ch-hs { display: flex; align-items: center; gap: 8px; margin-top: 6px; padding: 8px 10px; border-radius: 12px; background: var(--vm-violet-50); color: var(--vm-primary-strong); font-size: 12.5px; line-height: 16px; font-weight: 700; opacity: 0; }
+        #chamada .ch-hs i { width: 20px; height: 20px; border-radius: 10px; background: var(--vm-primary-strong); color: var(--vm-white); display: flex; align-items: center; justify-content: center; flex: none; }
+        #chamada .ch-hs svg { width: 12px; height: 12px; }
+        #chamada .ch-pk { position: absolute; left: 0; top: 0; width: 402px; height: 676px; overflow: hidden; z-index: 30; pointer-events: none; }
+        #chamada .ch-pk-s { position: absolute; inset: 0; background: color-mix(in srgb, var(--vm-violet-950) 32%, transparent); opacity: 0; }
+        #chamada .ch-pk-p { position: absolute; left: 0; bottom: 0; width: 402px; height: 440px; padding: 14px 20px 0; box-sizing: border-box; background: var(--vm-canvas); border-radius: 24px 24px 0 0; }
+        #chamada .ch-pk-p h4 { margin: 0; font-size: 22px; line-height: 28px; font-weight: 700; color: var(--vm-ink-950); }
+        #chamada .ch-pk-p p { margin: 2px 0 8px; font-size: 13px; line-height: 17px; color: var(--vm-ink-500); }
+        #chamada .ch-pk-r { display: flex; align-items: center; gap: 14px; height: 74px; padding: 0 8px; border-radius: 16px; }
+        #chamada .ch-pk-r i { width: 48px; height: 48px; border-radius: 16px; background: var(--vm-violet-50); color: var(--vm-primary-strong); display: flex; align-items: center; justify-content: center; flex: none; }
+        #chamada .ch-pk-r i svg { width: 22px; height: 22px; }
+        #chamada .ch-pk-r div { flex: 1; }
+        #chamada .ch-pk-r b { display: block; font-size: 16px; line-height: 20px; font-weight: 500; color: var(--vm-ink-950); }
+        #chamada .ch-pk-r span { display: block; font-size: 12.5px; line-height: 16px; color: var(--vm-ink-500); }
+        #chamada .ch-pk-r > svg { width: 18px; height: 18px; color: var(--vm-ink-400); flex: none; }
+        #chamada .ce-tap, #chamada .ce-tap-ring { left: 0; top: 0; }
+      </style>
+      <div id="chamada" class="vm-scene ce-scene" data-composition-id="chamada" data-start="0" data-duration="11.8" data-width="1080" data-height="1920">
+        <div class="ce-stage"></div>
+        <div class="ce-halo" id="ch-halo" data-layout-allow-overflow></div>
+        <div class="ce-aurora" id="ch-aur" data-layout-ignore><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+        <div class="cam" id="ch-cam" data-layout-allow-overflow>
+          <div class="ch-flip" id="ch-flip" data-layout-allow-overflow>
+          <div class="ch-face" data-layout-allow-overflow>
+          <div class="dev" data-layout-allow-overflow>
+            <div class="bezel" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow></div>
+            <div class="screen ch-screen ce-call-tile" id="ch-tile" data-layout-allow-overflow data-layout-allow-overlap>
+              <div class="island"></div>
+              <video id="ch-doc" class="ch-doc clip" src="assets/footage/doutora-call.mp4" muted playsinline data-start="0" data-duration="11.8" data-media-start="0" data-track-index="0"></video>
+              <div class="ch-top"></div>
+              <div class="ch-bot"></div>
+              <div class="ch-app" id="ch-app" data-layout-ignore>
+                <div id="ch-l-btn" class="scr ch-lay"><!-- screen:call-chat button --><div class="vms" data-screen="call-chat" data-state="button" data-layout-ignore><div class="rn-view" style="flex: 1 1 0%; align-items: flex-end; padding-top: 60px; padding-right: 16px;"><div class="rn-view flex-row items-center rounded-full active:opacity-80" aria-label="Abrir chat da consulta" role="button" style="gap: 6px; padding: 10px 14px; background-color: rgba(13, 12, 18, 0.5);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg><div class="rn-text font-text-medium text-[14px] text-white">Chat</div></div></div></div><!-- /screen --></div>
+                <div class="ch-pip" id="ch-pip">
+                  <video id="ch-pat" class="clip" src="assets/footage/paciente-pip.mp4" muted playsinline data-start="0" data-duration="11.8" data-media-start="0" data-track-index="1"></video>
+                </div>
+                <div class="ch-tag" id="ch-tag"><span class="ch-vb" id="ch-vb"><i></i><i></i><i></i><i></i></span>Dra. Camila Rocha</div>
+                    <div class="ch-ctrl" id="ch-ctrl">
+                      <span id="ch-c-mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg></span>
+                      <span id="ch-c-cam"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>
+                      <span id="ch-c-flip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/><path d="M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5"/><circle cx="12" cy="12" r="3"/><path d="m18 22-3-3 3-3"/><path d="m6 2 3 3-3 3"/></svg></span>
+                      <span id="ch-c-spk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></svg></span>
+                      <span class="end"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.1 13.9a14 14 0 0 0 3.732 2.668 1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2 18 18 0 0 1-12.728-5.272"/><path d="M22 2 2 22"/><path d="M4.76 13.582A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 .244.473"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="ch-face ch-faceb" data-layout-allow-overflow>
+            <div class="dev" data-layout-allow-overflow>
+              <div class="bezel" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow></div>
+              <div class="screen ch-bscreen" data-layout-allow-overflow data-layout-allow-overlap>
+                <div class="island ch-bisl"></div>
+                <div class="ch-app ch-bapp" id="ch-bapp" data-layout-ignore>
+                <div class="ch-sheet" id="ch-sheet">
+                  <div id="ch-l-open" class="scr ch-lay"><!-- screen:call-chat open --><div class="vms" data-screen="call-chat" data-state="open" data-layout-ignore><div class="rn-view" style="flex: 1 1 0%; align-items: flex-end; padding-top: 60px; padding-right: 16px;"><div class="rn-view flex-row items-center rounded-full active:opacity-80" aria-label="Abrir chat da consulta" role="button" style="gap: 6px; padding: 10px 14px; background-color: rgba(13, 12, 18, 0.5);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg><div class="rn-text font-text-medium text-[14px] text-white">Chat</div></div><div class="rn-view rn-modal"><div class="rn-view" style="flex: 1 1 0%;"><div class="rn-view" aria-label="Voltar para a chamada" role="button" style="position: absolute; inset: 0px; background-color: rgba(13, 12, 18, 0.32);"></div><div class="rn-view" style="flex: 1 1 0%; justify-content: flex-end;"><div class="rn-view" style="flex-grow: 1; background-color: rgb(250, 250, 254); border-top-left-radius: 24px; border-top-right-radius: 24px; overflow: hidden; max-height: 594px; margin-top: 59px;"><div class="rn-view items-center pb-1 pt-1.5"><div class="rn-view h-1 w-10 rounded-full bg-ink-200"></div></div><div class="rn-view flex-row items-center border-b border-ink-100 px-4 pb-3" style="gap: 10px;"><div class="rn-view" style="width: 36px; height: 36px; border-radius: 18px; overflow: hidden; background-color: rgb(242, 241, 246);"><img class="rn-image" alt="" src="assets/screens/img/camila-rocha-NHQUBBYX.jpg" style="width: 36px; height: 36px; object-fit: cover;"></div><div class="rn-view flex-1"><div class="rn-text font-text-bold text-[15px] text-ink-950" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">Dra. Camila Rocha</div><div class="rn-text font-text text-[12px] text-ink-500" style="display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">Chat da consulta · a chamada segue ao fundo</div></div><div class="rn-view h-9 w-9 items-center justify-center rounded-full bg-ink-100 active:opacity-70" aria-label="Fechar chat" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#17151E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div></div><div class="rn-view rn-scroll"><div class="rn-view rn-scroll-content" style="padding-top: 12px; padding-bottom: 12px;"><div class="rn-view" role="header" style="align-items: center; padding-top: 10px; padding-bottom: 10px;"><div class="rn-view" style="padding: 4px 12px; border-radius: 999px; background-color: rgb(255, 255, 255); border-width: 1px; border-color: rgb(242, 241, 246);"><div class="rn-text font-text-medium text-[12px] text-ink-500">Hoje</div></div></div><div class="rn-view" style="flex-direction: row; align-items: flex-end; justify-content: flex-start; padding-left: 12px; padding-right: 56px; margin-bottom: 12px; gap: 8px;"><div class="rn-view" style="width: 28px;"><div class="rn-view" style="width: 28px; height: 28px; border-radius: 14px; overflow: hidden; background-color: rgb(242, 241, 246);"><img class="rn-image" alt="" src="assets/screens/img/camila-rocha-NHQUBBYX.jpg" style="width: 28px; height: 28px; object-fit: cover;"></div></div><div class="rn-view" style="background-color: rgb(255, 255, 255); border-width: 1px; border-color: rgb(242, 241, 246); border-radius: 18px 18px 18px 6px; padding: 8px 12px; flex-shrink: 1;"><div class="rn-text text-foreground font-text text-[15px] leading-[21px]" style="color: rgb(13, 12, 18);">Oi, Helena! Pode me mandar uma foto do remédio que você tomou?</div><div class="rn-view" style="flex-direction: row; align-items: center; justify-content: flex-end; margin-top: 2px; gap: 3px;"><div class="rn-text text-foreground font-text text-[11px] leading-4" style="color: rgb(162, 159, 176);">09:31</div></div></div></div></div></div><div class="rn-view" style="background-color: rgb(255, 255, 255); padding-bottom: 26px;"><div class="rn-view flex-row items-end border-t border-ink-100 bg-white px-2 py-2" style="gap: 6px;"><div class="rn-view h-11 w-11 items-center justify-center rounded-full active:bg-ink-100" aria-label="Anexar arquivo" role="button" style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#726F80" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paperclip" aria-hidden="true"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"></path></svg></div><div class="rn-text rn-input rn-input-multi max-h-32 flex-1 bg-ink-50 px-4 font-text text-[15px] text-ink-900" aria-label="Mensagem" style="border-radius: 22px; min-height: 44px; padding-top: 12px; padding-bottom: 12px; line-height: 20px; color: rgb(162, 159, 176);">Digite uma mensagem...</div><div class="rn-view" data-testid="chat-action-slot" style="width: 44px; height: 44px;"><div class="rn-view"><div class="rn-view h-11 w-11 items-center justify-center rounded-full bg-violet-100 active:bg-violet-200" aria-label="Gravar áudio" role="button" style="opacity: 1;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5719B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mic" aria-hidden="true"><path d="M12 19v3"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><rect x="9" y="2" width="6" height="13" rx="3"></rect></svg></div></div></div></div></div></div></div></div></div></div></div><!-- /screen --></div>
+                </div>
+<div class="ch-pk" id="ch-pk"><div class="ch-pk-s" id="ch-pk-s"></div><div class="ch-pk-p" id="ch-pk-p"><h4>Anexar</h4><p>O que você enviar entra na conversa e fica salvo na consulta.</p><div class="ch-pk-r" id="ch-pk-doc"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></i><div><b>Documento</b><span>PDF, Word, texto e outros</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div><div class="ch-pk-r" id="ch-pk-img"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></i><div><b>Foto</b><span>Galeria · até 10 MB</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div><div class="ch-pk-r" id="ch-pk-vid"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></i><div><b>Vídeo</b><span>Grave ou envie um vídeo</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div><div class="ch-pk-r" id="ch-pk-cam"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></svg></i><div><b>Câmera</b><span>Tire uma foto agora</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="ce-glass" id="ch-glass" data-layout-allow-overflow data-layout-allow-occlusion data-layout-allow-overlap>
+          <div class="ce-glass-icon"><img src="assets/brand/simbolo-branco.svg" alt=""></div>
+          <div class="ce-glass-text">
+            <div class="ce-glass-top"><span>VIVA MAIS</span><span>agora</span></div>
+            <div class="ce-glass-title">Sua consulta começa em 10 min</div>
+            <div class="ce-glass-body">Com a doutora Camila Rocha</div>
+          </div>
+        </div>
+        <div class="ce-pill ch-end ce-endpage" id="ch-end" data-layout-allow-overlap data-layout-allow-occlusion><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.1 13.9a14 14 0 0 0 3.732 2.668 1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2 18 18 0 0 1-12.728-5.272"/><path d="M22 2 2 22"/><path d="M4.76 13.582A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 .244.473"/></svg></i><span>Consulta encerrada</span></div>
+        <i class="ch-sk t"></i><i class="ch-sk g" style="top:700px;width:356px"></i><i class="ch-sk g" style="top:740px;width:300px"></i><i class="ch-sk g" style="top:780px;width:330px"></i>
+        <h1 id="ch-h1" class="ce-line ch-line" data-layout-allow-overlap data-layout-allow-occlusion>Fale com o médico<br>por <em>vídeo ou chat</em></h1>
+        <h1 id="ch-h2" class="ce-line ch-line" data-layout-allow-overlap data-layout-allow-occlusion>Tire todas as suas <em>dúvidas</em></h1>
+        <h1 id="ch-h3" class="ce-line ch-line" data-layout-allow-overlap data-layout-allow-occlusion>Abra o <em>chat</em> se precisar</h1>
+        <h1 id="ch-h4" class="ce-line ch-line" data-layout-allow-overlap data-layout-allow-occlusion>Envie documentos, <em>fotos e vídeos</em></h1>
+        <h1 id="ch-h5" class="ce-line ch-line" data-layout-allow-overlap data-layout-allow-occlusion>Envie seu <em>histórico de saúde</em></h1>
+        <div class="ce-tap-ring" id="ch-ring" style="opacity:0" data-layout-allow-overlap data-layout-allow-occlusion></div>
+        <div class="ce-tap" id="ch-tap" style="opacity:0" data-layout-allow-overlap data-layout-allow-occlusion></div>
+      </div>
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          const root = document.querySelector('[data-composition-id="chamada"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const m = VMMotion.create({ root, tl });
+            const q = (s) => root.querySelector(s);
+            const O = "power4.out";
+            const FT = 4.65;
+            const endW0 = q("#ch-end").offsetWidth;
+            const I = "power3.in";
+
+            root.querySelectorAll("#ch-app *, #ch-bapp *").forEach((n) => { n.setAttribute("data-layout-allow-overlap", ""); n.setAttribute("data-layout-allow-overflow", ""); });
+
+            const CHK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>';
+            const IC = (d) => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
+            root.querySelectorAll("#ch-l-open .rn-view").forEach((n) => {
+              if ((n.getAttribute("style") || "").includes("max-height: 594px")) n.classList.add("ch-cap");
+            });
+            const scrollC = q("#ch-l-open .rn-scroll-content");
+            const scrollV = q("#ch-l-open .rn-scroll");
+            const greet = scrollC.children[1];
+            [...greet.querySelectorAll(".rn-text")].find((n) => n.textContent.includes("Oi, Helena")).textContent = "Oi, Helena! Em que posso ajudar?";
+            greet.classList.add("ch-gr");
+            const reply = greet.cloneNode(true);
+            [...reply.querySelectorAll(".rn-text")].forEach((n) => { if (n.textContent.includes("Oi, Helena")) n.textContent = "Recebi, obrigada!"; else if (n.textContent === "09:31") n.textContent = "09:35"; });
+
+            const mine = (id, inner, ts) => {
+              const d = document.createElement("div");
+              d.className = "ch-m";
+              d.id = id;
+              d.innerHTML = '<div class="ch-b">' + inner + '<div class="ch-ts">' + ts + CHK + '</div></div>';
+              return d;
+            };
+            const pdf = mine("ch-m-pdf", '<div class="ch-file"><i>' + IC('<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>') + '</i><div><b>Eletrocardiograma.pdf</b><span>PDF · 184 KB</span></div></div>', "09:32");
+            const photo = mine("ch-m-photo", '<div class="ch-img ph"><svg viewBox="0 0 204 112" width="204" height="112" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="10" width="124" height="92" rx="18" fill="var(--vm-white)" stroke="var(--vm-violet-300)" stroke-width="2"/><rect x="52" y="20" width="100" height="48" rx="10" fill="var(--vm-violet-950)"/><text x="94" y="50" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="25" fill="var(--vm-white)">148/92</text><path d="M138 30c-3-2-5-3.500-5-5.500a2.500 2.500 0 0 1 5-.5 2.500 2.500 0 0 1 5 .5c0 2-2 3.500-5 5.500z" fill="var(--vm-violet-300)"/><circle cx="102" cy="86" r="9" fill="var(--vm-primary)"/><circle cx="102" cy="86" r="3.500" fill="var(--vm-white)"/></svg></div>', "09:32");
+            const vid = mine("ch-m-vid", '<div class="ch-img vid"><img src="assets/patient/helena.jpg" alt=""><span class="ch-play">' + IC('<polygon points="6 3 20 12 6 21 6 3" fill="currentColor"/>') + '</span><span class="ch-dur">0:12</span></div>', "09:33");
+            const hist = document.createElement("div");
+            hist.className = "ch-m";
+            hist.id = "ch-m-hist";
+            const rows = [
+              ['<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>', "Consultas anteriores"],
+              ['<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/>', "Exames"],
+              ['<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/>', "Receitas"],
+              ['<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 13h4"/><path d="M10 17h4"/>', "Anamnese"]
+            ];
+            hist.innerHTML = '<div class="ch-hist"><div class="ch-hh"><img src="assets/patient/helena.jpg" alt=""><div><b>Histórico Viva Mais</b><span>Helena Souza</span></div></div>' +
+              rows.map((r) => '<div class="ch-hr"><i>' + IC(r[0]) + '</i>' + r[1] + '</div>').join("") +
+              '<div class="ch-hs" id="ch-hs"><i>' + IC('<path d="M20 6 9 17l-5-5"/>') + '</i>Compartilhado com a Dra. Camila</div><div class="ch-ts" style="color: var(--vm-ink-400); margin-top: 6px">09:34' + CHK + '</div></div>';
+            [pdf, photo, vid, hist, reply].forEach((n) => scrollC.appendChild(n));
+
+            const bopen = q("#ch-l-open");
+            const hdr = bopen.querySelector(".border-b");
+            [...hdr.querySelectorAll(".rn-text")].find((n) => n.textContent.includes("Chat da consulta")).textContent = "Em chamada";
+            const xb = hdr.querySelector('[aria-label="Fechar chat"]');
+            const bpip = document.createElement("div");
+            bpip.className = "ch-bpip";
+            bpip.innerHTML = '<img src="assets/stills/camila-call.jpg" alt=""><b></b>';
+            xb.replaceWith(bpip);
+            const tyD = document.createElement("div");
+            tyD.className = "ch-tyrow";
+            tyD.innerHTML = '<div class="ch-ty"><i></i><i></i><i></i></div>';
+            scrollC.appendChild(tyD);
+            tyD.style.top = greet.offsetTop + 6 + "px";
+
+            root.querySelectorAll("#ch-app *, #ch-bapp *").forEach((n) => { n.setAttribute("data-layout-allow-overlap", ""); n.setAttribute("data-layout-allow-overflow", ""); });
+
+            const rr = root.getBoundingClientRect();
+            const S = rr.width / 1080;
+            const at = (el) => {
+              const r = el.getBoundingClientRect();
+              return { x: (r.left + r.width / 2 - rr.left) / S, y: (r.top + r.height / 2 - rr.top) / S };
+            };
+            const fr = q("#ch-flip").getBoundingClientRect();
+            const fcx = (fr.left + fr.width / 2 - rr.left) / S;
+            const flipped = (p) => ({ x: 2 * fcx - p.x, y: p.y });
+            const chatBtn = at(q('#ch-l-btn [aria-label="Abrir chat da consulta"]'));
+            const clipBtn = flipped(at(q('#ch-l-open [aria-label="Anexar arquivo"]')));
+            const docRow = flipped(at(q("#ch-pk-doc")));
+            const scr = q(".screen").getBoundingClientRect();
+            const D = scr.width / S / 402;
+            const target = { left: (scr.left - rr.left) / S, top: (scr.top - rr.top) / S, width: scr.width / S, height: scr.height / S, radius: 54 * D };
+            const pushPt = { x: 760, y: 826 };
+
+            const vh = scrollV.clientHeight;
+            const need = (el) => Math.min(0, vh - (el.offsetTop + el.offsetHeight + 14));
+            const sc1 = need(vid);
+            const sc2 = need(reply);
+
+            const words = (sel) => {
+              const el = q(sel);
+              const out = [];
+              const walk = (parent) => {
+                Array.from(parent.childNodes).forEach((n) => {
+                  if (n.nodeType === 3) {
+                    const parts = n.textContent.split(/\s+/).filter(Boolean);
+                    const frag = document.createDocumentFragment();
+                    if (/^\s/.test(n.textContent)) frag.appendChild(document.createTextNode(" "));
+                    parts.forEach((w, i) => {
+                      const s = document.createElement("span");
+                      s.className = "ce-word";
+                      s.textContent = w;
+                      out.push(s);
+                      frag.appendChild(s);
+                      if (i < parts.length - 1 || /\s$/.test(n.textContent)) frag.appendChild(document.createTextNode(" "));
+                    });
+                    n.replaceWith(frag);
+                  } else if (n.nodeType === 1) walk(n);
+                });
+              };
+              walk(el);
+              return out;
+            };
+            const W = [1, 2, 3, 4, 5].map((i) => words("#ch-h" + i));
+            const lineIn = (ws, t) => tl.fromTo(ws, { opacity: 0, x: 60, filter: "blur(4px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.4, ease: O, stagger: 0.025, immediateRender: false }, t);
+            const lineOut = (ws, t) => tl.to(ws, { opacity: 0, x: -50, filter: "blur(4px)", duration: 0.25, ease: "power2.in", stagger: 0.01 }, t);
+            gsap.set(W, { opacity: 0 });
+
+            gsap.set("#ch-pip, #ch-ctrl, #ch-tag", { opacity: 0 });
+            gsap.set("#ch-flip", { transformPerspective: 1800, transformOrigin: "366px 772px" });
+
+            const tapTo = (p, from, tPress, glide, target) => {
+              tl.fromTo("#ch-tap", { x: from.x, y: from.y, opacity: 0, scale: 1 }, { x: p.x, y: p.y, opacity: 1, duration: glide, ease: "power3.inOut", immediateRender: false }, tPress - glide);
+              tl.fromTo("#ch-ring", { x: p.x, y: p.y, opacity: 0, scale: 1 }, { opacity: 0.9, scale: 1, duration: 0.01, immediateRender: false }, tPress);
+              tl.to("#ch-ring", { scale: 1.8, opacity: 0, duration: 0.4, ease: "power2.out" }, tPress + 0.01);
+              tl.to("#ch-tap", { scale: 0.86, duration: 0.1, ease: "power2.out" }, tPress);
+              tl.to("#ch-tap", { scale: 1, duration: 0.15, ease: "power2.out" }, tPress + 0.1);
+              tl.to("#ch-tap", { opacity: 0, duration: 0.2, ease: "power2.in" }, tPress + 0.18);
+              if (target) {
+                tl.to(target, { scale: 0.96, duration: 0.1, ease: "power2.out" }, tPress);
+                tl.to(target, { scale: 1, duration: 0.25, ease: "power2.out" }, tPress + 0.12);
+              }
+            };
+
+            const bannerClip = "inset(" + [(720 - target.top) / D, (target.left + target.width - 1000) / D, (target.top + target.height - 932) / D, (80 - target.left) / D].map((v) => v.toFixed(2) + "px").join(" ") + " round " + (60 / D).toFixed(2) + "px)";
+            const fullClip = "inset(0px 0px 0px 0px round 54px)";
+            const EX = 0.58, ED = 0.55, EE = "power4.inOut";
+            gsap.set("#ch-tile", { transformOrigin: "0 0" });
+            gsap.set("#ch-tile", { clipPath: bannerClip, opacity: 0 });
+            gsap.set(".bezel, .island, .ch-top, .ch-bot, #ch-app", { opacity: 0 });
+            tl.set("#ch-end", { opacity: 0, x: 540 - endW0 / 2, y: 1216 }, 0);
+            gsap.set(".ch-sk", { opacity: 0 });
+
+            tapTo(pushPt, { x: pushPt.x + 90, y: pushPt.y + 120 }, 0.5, 0.35, "#ch-glass");
+
+            tl.set("#ch-cam", { opacity: 1 }, EX);
+            tl.to("#ch-tile", { opacity: 1, duration: 0.2, ease: "power1.out" }, EX + 0.02);
+            tl.to("#ch-tile", { clipPath: fullClip, duration: ED, ease: EE }, EX);
+            tl.set("#ch-tile", { clipPath: "none" }, EX + ED + 0.01);
+            tl.to("#ch-glass", { x: target.left - 80, y: target.top - 720, width: target.width, height: target.height, borderRadius: target.radius, duration: ED, ease: EE }, EX);
+            tl.to("#ch-glass .ce-glass-icon, #ch-glass .ce-glass-text", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, EX);
+            tl.to("#ch-glass", { opacity: 0, duration: 0.25, ease: "power1.inOut" }, EX + 0.3);
+            tl.to("#ch-aur", { scale: 1.8, opacity: 0, duration: 0.7, ease: "power2.inOut", transformOrigin: "50% 55%" }, EX);
+            tl.to(".bezel, .island, .ch-top, .ch-bot", { opacity: 1, duration: 0.25, ease: "power2.out" }, EX + 0.4);
+            tl.to(".ch-faceb .island, .ch-faceb .bezel", { opacity: 1, duration: 0.25 }, EX + 0.4);
+            tl.to("#ch-app", { opacity: 1, duration: 0.3, ease: "power2.out" }, EX + 0.5);
+            tl.to("#ch-pip", { opacity: 1, duration: 0.4, ease: O }, 1.15);
+            tl.to("#ch-ctrl", { opacity: 1, duration: 0.4, ease: O }, 1.2);
+            tl.to("#ch-tag", { opacity: 1, duration: 0.4, ease: O }, 1.2);
+            tl.fromTo("#ch-l-btn", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: O, immediateRender: false }, 1.2);
+
+            const bars = root.querySelectorAll("#ch-vb i");
+            bars.forEach((b, i) => {
+              const d = [0.17, 0.23, 0.2, 0.28][i];
+              const n = Math.floor(1.7 / d) - 1;
+              tl.fromTo(b, { scaleY: 0.3 }, { scaleY: [1, 0.8, 0.95, 0.7][i], duration: d, repeat: n, yoyo: true, ease: "sine.inOut", immediateRender: false }, 2.6 + i * 0.03);
+              tl.to(b, { scaleY: 0.3, duration: 0.15, ease: "power2.out" }, 4.35);
+            });
+
+            lineIn(W[0], 0.6); lineOut(W[0], 2.45);
+            lineIn(W[1], 2.6); lineOut(W[1], 4.5);
+            lineIn(W[2], 4.65); lineOut(W[2], 6.55);
+            lineIn(W[3], 6.7); lineOut(W[3], 8.5);
+            lineIn(W[4], 8.65); lineOut(W[4], 10.6);
+
+            tapTo(chatBtn, { x: chatBtn.x - 120, y: chatBtn.y + 220 }, 4.25, 0.4, "#ch-l-btn");
+            tl.to("#ch-flip", { rotationY: 180, duration: 0.6, ease: "power3.inOut" }, FT);
+            tl.to("#ch-flip", { scale: 0.96, duration: 0.3, ease: "power2.out" }, FT);
+            tl.to("#ch-flip", { scale: 1, duration: 0.3, ease: "power2.in" }, FT + 0.3);
+
+            const dots = (row, t0, t1) => {
+              const ds = row.querySelectorAll("i");
+              tl.fromTo(row, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, t0);
+              tl.fromTo(ds, { y: 0 }, { y: -4, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 3, stagger: 0.09, immediateRender: false }, t0 + 0.1);
+              tl.to(row, { opacity: 0, duration: 0.12, ease: "power1.in" }, t1 - 0.12);
+            };
+            const pop = (el, t) => tl.fromTo(el, { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out", transformOrigin: "100% 100%", immediateRender: false }, t);
+
+            dots(tyD, 4.85, 5.15);
+            tl.fromTo(greet, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, 5.15);
+
+            gsap.set("#ch-pk-p", { y: 460 });
+            gsap.set([pdf, photo, vid, hist, reply], { opacity: 0 });
+            tapTo(clipBtn, { x: clipBtn.x + 40, y: clipBtn.y - 220 }, 5.85, 0.45, '#ch-l-open [aria-label="Anexar arquivo"]');
+            tl.to("#ch-pk-s", { opacity: 1, duration: 0.4, ease: "power1.out" }, 5.9);
+            tl.to("#ch-pk-p", { y: 0, duration: 0.4, ease: "power4.out" }, 5.9);
+            tapTo(docRow, { x: docRow.x + 90, y: docRow.y + 150 }, 6.7, 0.35, null);
+            tl.to("#ch-pk-doc", { backgroundColor: "var(--vm-violet-50)", duration: 0.1 }, 6.7);
+            tl.to("#ch-pk-p", { y: 460, duration: 0.3, ease: "power3.in" }, 6.78);
+            tl.to("#ch-pk-s", { opacity: 0, duration: 0.3, ease: "power1.in" }, 6.78);
+            tl.to(scrollC, { y: sc1, duration: 0.5, ease: "power3.out" }, 6.8);
+            pop(pdf, 6.8); pop(photo, 7.05); pop(vid, 7.3);
+
+            tl.to(scrollC, { y: sc2, duration: 0.5, ease: "power3.out" }, 8.3);
+            pop(hist, 8.3);
+            tl.fromTo("#ch-hs", { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 8.6);
+            tl.fromTo("#ch-hs i", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 8.7);
+            tl.fromTo(reply, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, 8.8);
+
+            const endW = endW0;
+            tl.to("#ch-pk-s", { opacity: 1, duration: 0.15, ease: "power1.out" }, 10.05);
+            tl.to("#ch-sheet", { filter: "blur(5px)", duration: 0.15, ease: "power1.out" }, 10.05);
+            tl.fromTo("#ch-end", { opacity: 0, y: 1246, scale: 0.9 }, { opacity: 1, y: 1216, scale: 1, duration: 0.25, ease: O, immediateRender: false }, 10.2);
+            tl.to("#ch-cam", { y: 250, scale: 0.9, opacity: 0, filter: "blur(6px)", duration: 0.5, ease: "power3.in", transformOrigin: "50% 50%" }, 11.05);
+            tl.to("#ch-halo", { opacity: 0, duration: 0.4, ease: "power2.in" }, 11.1);
+            tl.to("#ch-end i, #ch-end span", { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power2.in" }, 11.05);
+            tl.set("#ch-end", { boxShadow: "var(--ce-shadow)" }, 11.05);
+            tl.fromTo("#ch-end", { x: 540 - endW / 2, y: 1216, width: endW, height: 108, borderRadius: 54, padding: 0 }, { x: 330, y: 610, width: 420, height: 580, borderRadius: 28, duration: 0.45, ease: "power3.inOut", immediateRender: false }, 11.05);
+            tl.fromTo(".ch-sk", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power1.out", stagger: 0.02, immediateRender: false }, 11.5);
+
+            window.__timelines["chamada"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

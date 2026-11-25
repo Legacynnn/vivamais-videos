@@ -1,0 +1,110 @@
+{
+ "fps": 30,
+ "seams": [
+  {
+   "id": "abertura-plantao",
+   "cut": 3.75,
+   "technique": "object zoom-through: the fanned documents stack (signature block landed by 3.3s) scales 2.8x about its centre with blur 20 and fades (3.34-3.71s) while the stopwatch (same silhouette as plantao) rises behind at 2.2x blur 34, then linear 1.9x to 1.45x blur 18 at the cut (-1.8/s, matching plantao's power2.out entry), Z-forward",
+   "exit": {
+    "selector": "#el-abertura .zoom",
+    "axis": "z",
+    "dir": 1
+   },
+   "entry": {
+    "selector": "#el-plantao .v2-clock",
+    "axis": "z",
+    "dir": 1
+   }
+  },
+  {
+   "id": "plantao-vez",
+   "cut": 6.5625,
+   "technique": "the clock scales toward camera and blurs, the match phone resolves out of it, Z-forward",
+   "exit": {
+    "selector": "#el-plantao .v2-clock",
+    "axis": "z",
+    "dir": 1
+   },
+   "entry": {
+    "selector": "#el-vez .v2-plane",
+    "axis": "z",
+    "dir": 1
+   }
+  },
+  {
+   "id": "vez-anamnese",
+   "cut": 9.375,
+   "technique": "match phone exits LEFT with motion blur, the anamnese kinetic-type line enters from the right carrying LEFT",
+   "exit": {
+    "selector": "#el-vez .v2-plane",
+    "axis": "x",
+    "dir": -1
+   },
+   "entry": {
+    "selector": "#el-anamnese .v2-line",
+    "axis": "x",
+    "dir": -1
+   }
+  },
+  {
+   "id": "anamnese-chamada",
+   "cut": 15.0,
+   "technique": "kinetic type + doctor card exit LEFT with blur, the call phone enters from the right carrying LEFT",
+   "exit": {
+    "selector": "#el-anamnese .v2-line",
+    "axis": "x",
+    "dir": -1
+   },
+   "entry": {
+    "selector": "#el-chamada .v2-plane",
+    "axis": "x",
+    "dir": -1
+   }
+  },
+  {
+   "id": "chamada-pronto",
+   "cut": 24.375,
+   "technique": "continuous in-app cut, one phone: chat closes, touch dot taps red end-call, the call UI crossfades to 'Consulta concluida' (post-consultation preparing) inside chamada while the camera pushes in (power2.in, scale 1.79 to 2.18); pronto opens on that identical frame and continues the same push straight toward the banner (power2.out, matched velocity ~1 scale/s, collinear path)",
+   "exit": {
+    "selector": "#el-chamada .v2-plane",
+    "axis": "z",
+    "dir": 1
+   },
+   "entry": {
+    "selector": "#el-pronto .cam",
+    "axis": "z",
+    "dir": 1
+   }
+  },
+  {
+   "id": "pronto-ia",
+   "cut": 31.875,
+   "technique": "shared element LEFT: the Perguntar à IA card isolates from the screen and carries across the cut as ia's hero",
+   "exit": {
+    "selector": "#el-pronto .v2-plane",
+    "axis": "x",
+    "dir": -1
+   },
+   "entry": {
+    "selector": "#el-ia .v2-hero",
+    "axis": "x",
+    "dir": -1
+   }
+  },
+  {
+   "id": "ia-fim",
+   "cut": 38.4375,
+   "technique": "inverse zoom-through (arrival): ia plane pulls back and blurs out, the fim headline resolves from blur",
+   "exit": {
+    "selector": "#el-ia .v2-plane",
+    "axis": "z",
+    "dir": -1
+   },
+   "entry": {
+    "selector": "#el-fim .v2-line",
+    "axis": "z",
+    "dir": -1
+   }
+  }
+ ]
+}

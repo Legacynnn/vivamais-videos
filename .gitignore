@@ -15,3 +15,10 @@ capture/shots/
 capture/mock.log
 rive/out/
 _measure.html
+.monorepo/
+screens/.cache/
+screens/dist/
+studio/dist/
+
+assets/posts/generated/
+.env

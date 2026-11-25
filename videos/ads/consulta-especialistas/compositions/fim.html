@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        #fim .ce-halo { top: 640px; }
+        #fim .fim-orbit { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; will-change: transform; }
+        #fim .fim-const { position: absolute; left: 540px; top: 640px; width: 0; height: 0; will-change: transform; }
+        #fim .fim-ring, #fim .fim-swing { position: absolute; left: 0; top: 0; width: 0; height: 0; will-change: transform; }
+        #fim .fim-dot { fill: var(--ce-accent); opacity: 0; }
+        #fim .fim-links { position: absolute; left: -540px; top: -640px; pointer-events: none; overflow: visible; }
+        #fim .fim-link-l { stroke: var(--ce-line); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; fill: none; }
+        #fim .fim-slot { position: absolute; width: 112px; height: 112px; }
+        #fim .fim-enter { width: 112px; height: 112px; will-change: transform, filter, opacity; }
+        #fim .fim-ico { width: 112px; height: 112px; border-radius: 50%; background: var(--ce-white); box-shadow: var(--ce-shadow-soft); display: grid; place-items: center; will-change: transform; }
+        #fim .fim-ico img { width: 80px; height: 80px; object-fit: contain; display: block; }
+        #fim .fim-hub { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+        #fim .fim-sym { position: absolute; left: -120px; top: -120px; width: 240px; height: 240px; border-radius: 50%; background: var(--ce-white); box-shadow: var(--ce-shadow); display: grid; place-items: center; will-change: transform, filter, opacity; }
+        #fim .fim-sym img { width: 140px; height: auto; display: block; }
+        #fim .fim-count { position: absolute; left: 80px; right: 80px; top: 1096px; margin: 0; text-align: center; font: 500 92px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.035em; color: var(--ce-ink); will-change: transform, filter, opacity; }
+        #fim .fim-count em { font-style: normal; color: var(--ce-accent); }
+        #fim .fim-lead { position: absolute; left: 80px; width: 860px; top: 1050px; text-align: center; font: 500 46px/1 var(--vm-font-text, "DM Sans"), sans-serif; letter-spacing: -0.01em; color: var(--ce-body); will-change: transform, filter, opacity; }
+        #fim .fim-words { position: absolute; left: 80px; width: 860px; top: 1104px; height: 90px; overflow: hidden; }
+        #fim .fim-w { position: absolute; left: 0; right: 0; top: 0; height: 90px; display: flex; align-items: center; justify-content: center; gap: 22px; white-space: nowrap; opacity: 0; will-change: transform, filter, opacity; }
+        #fim .fim-w img { width: 84px; height: 84px; object-fit: contain; display: block; }
+        #fim .fim-w b { font: 500 68px/90px var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.035em; color: var(--ce-accent); }
+        #fim .fim-btn-wrap { position: absolute; left: 180px; width: 720px; top: 1224px; height: 124px; will-change: transform, filter, opacity; }
+        #fim .fim-btn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 24px; border-radius: 999px; background: var(--ce-accent); box-shadow: var(--ce-shadow-soft); font: 700 54px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; color: var(--ce-white); will-change: transform; }
+        #fim .fim-btn svg { width: 56px; height: 56px; display: block; fill: none; stroke: var(--ce-white); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+        #fim .fim-pulse { position: absolute; inset: 0; border-radius: 999px; border: 6px solid var(--ce-accent); opacity: 0; pointer-events: none; }
+        #fim .fim-stores { position: absolute; left: 0; width: 1080px; top: 1376px; height: 96px; }
+        #fim .fim-store { position: absolute; top: 0; width: 380px; height: 96px; box-sizing: border-box; display: flex; align-items: center; gap: 22px; padding: 0 28px 0 36px; border-radius: 999px; background: var(--ce-ink); color: var(--ce-white); box-shadow: var(--ce-shadow-soft); will-change: transform, filter, opacity; }
+        #fim .fim-store svg { width: 52px; height: 52px; flex: none; display: block; }
+        #fim .fim-store i { display: block; font-style: normal; font: 400 24px/1 var(--vm-font-text, "DM Sans"), sans-serif; opacity: 0.8; margin-bottom: 6px; }
+        #fim .fim-store b { display: block; font: 700 38px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; }
+        #fim .fim-sym-pulse { position: absolute; left: -120px; top: -120px; width: 240px; height: 240px; border-radius: 50%; border: 6px solid var(--ce-accent); opacity: 0; pointer-events: none; }
+      </style>
+      <div id="fim" class="vm-scene ce-scene" data-composition-id="fim" data-start="0" data-duration="5" data-width="1080" data-height="1920">
+        <div class="ce-stage"><div class="ce-halo"></div></div>
+        <div class="fim-orbit ce-orbit" id="fim-orbit" data-layout-allow-overflow><div class="fim-const" id="fim-const"><div class="fim-ring fim-ring-in"><div class="fim-swing"><svg class="fim-links" viewBox="-540 -640 1080 1920" width="1080" height="1920"><line class="fim-link-l" x1="0" y1="0" x2="0.0" y2="-168.0" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="145.5" y2="-84.0" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="145.5" y2="84.0" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="0.0" y2="168.0" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="-145.5" y2="84.0" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="-145.5" y2="-84.0" pathLength="1"/></svg><div class="fim-slot" style="left:-56.0px;top:-286.0px"><div class="fim-enter"><div class="fim-ico fim-ico-in"><img src="assets/icons/specialties/cardio.png" alt=""></div></div></div><div class="fim-slot" style="left:143.2px;top:-171.0px"><div class="fim-enter"><div class="fim-ico fim-ico-in"><img src="assets/icons/specialties/pediatria.png" alt=""></div></div></div><div class="fim-slot" style="left:143.2px;top:59.0px"><div class="fim-enter"><div class="fim-ico fim-ico-in"><img src="assets/icons/specialties/derma.png" alt=""></div></div></div><div class="fim-slot" style="left:-56.0px;top:174.0px"><div class="fim-enter"><div class="fim-ico fim-ico-in"><img src="assets/icons/specialties/ginecologia.png" alt=""></div></div></div><div class="fim-slot" style="left:-255.2px;top:59.0px"><div class="fim-enter"><div class="fim-ico fim-ico-in"><img src="assets/icons/specialties/ortopedia.png" alt=""></div></div></div><div class="fim-slot" style="left:-255.2px;top:-171.0px"><div class="fim-enter"><div class="fim-ico fim-ico-in"><img src="assets/icons/specialties/neurologia.png" alt=""></div></div></div></div></div><div class="fim-ring fim-ring-out"><div class="fim-swing"><svg class="fim-links" viewBox="-540 -640 1080 1920" width="1080" height="1920"><line class="fim-link-l" x1="0" y1="0" x2="107.2" y2="-258.7" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="258.7" y2="-107.2" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="258.7" y2="107.2" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="107.2" y2="258.7" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="-107.2" y2="258.7" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="-258.7" y2="107.2" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="-258.7" y2="-107.2" pathLength="1"/><line class="fim-link-l" x1="0" y1="0" x2="-107.2" y2="-258.7" pathLength="1"/></svg><div class="fim-slot" style="left:74.9px;top:-372.0px"><div class="fim-enter"><div class="fim-ico fim-ico-out"><img src="assets/icons/specialties/psicologia.png" alt=""></div></div></div><div class="fim-slot" style="left:260.0px;top:-186.9px"><div class="fim-enter"><div class="fim-ico fim-ico-out"><img src="assets/icons/specialties/endocrino.png" alt=""></div></div></div><div class="fim-slot" style="left:260.0px;top:74.9px"><div class="fim-enter"><div class="fim-ico fim-ico-out"><img src="assets/icons/specialties/nutrologista.png" alt=""></div></div></div><div class="fim-slot" style="left:74.9px;top:260.0px"><div class="fim-enter"><div class="fim-ico fim-ico-out"><img src="assets/icons/specialties/urologista.png" alt=""></div></div></div><div class="fim-slot" style="left:-186.9px;top:260.0px"><div class="fim-enter"><div class="fim-ico fim-ico-out"><img src="assets/icons/specialties/geriatra.png" alt=""></div></div></div><div class="fim-slot" style="left:-372.0px;top:74.9px"><div class="fim-enter"><div class="fim-ico fim-ico-out"><img src="assets/icons/specialties/alergia.png" alt=""></div></div></div><div class="fim-slot" style="left:-372.0px;top:-186.9px"><div class="fim-enter"><div class="fim-ico fim-ico-out"><img src="assets/icons/specialties/fonoaudiologa.png" alt=""></div></div></div><div class="fim-slot" style="left:-186.9px;top:-372.0px"><div class="fim-enter"><div class="fim-ico fim-ico-out"><img src="assets/icons/specialties/medico.png" alt=""></div></div></div></div></div><div class="fim-hub"><div class="fim-sym-pulse" id="fim-sym-pulse"></div><div class="fim-sym" id="fim-sym"><img src="assets/brand/simbolo-cor.svg" alt="Viva Mais"></div></div></div></div>
+        <p class="fim-count" id="fim-count"><em>+40</em> especialidades</p>
+        <span class="fim-lead" id="fim-lead">Consulte com</span>
+        <div class="fim-words" id="fim-words" data-layout-allow-overlap><span class="fim-w"><img src="assets/icons/specialties/psicologia.png" alt=""><b>psicólogo</b></span><span class="fim-w"><img src="assets/icons/specialties/nutrologista.png" alt=""><b>nutricionista</b></span><span class="fim-w"><img src="assets/icons/specialties/endocrino.png" alt=""><b>endocrinologista</b></span><span class="fim-w"><img src="assets/icons/specialties/cardio.png" alt=""><b>cardiologista</b></span><span class="fim-w"><img src="assets/icons/specialties/derma.png" alt=""><b>dermatologista</b></span><span class="fim-w"><b>+40 especialidades</b></span></div>
+        <div class="fim-btn-wrap" id="fim-btn-wrap"><span class="fim-pulse" id="fim-pulse"></span><div class="fim-btn" id="fim-btn" role="button" aria-label="Consultar agora"><span>Consultar agora</span><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></div></div>
+        <div class="fim-stores"><div class="fim-store" id="fim-st1" style="left:148px" aria-label="Baixe na App Store"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><i>Baixe na</i><b>App Store</b></span></div><div class="fim-store" id="fim-st2" style="left:552px" aria-label="Disponível no Google Play"><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="#4285F4" d="M3.6 1.8 13.4 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1Z"/><path fill="#34A853" d="M3.6 1.8c.3-.1.7-.1 1 .1l11.8 7-3 3.1-9.8-10.2Z"/><path fill="#FBBC04" d="m16.4 8.9 4 2.3c.8.4.8 1.2 0 1.6l-4 2.3-3-3.1 3-3.1Z"/><path fill="#EA4335" d="m13.4 12 3 3.1-11.8 7c-.3.2-.7.2-1 .1L13.4 12Z"/></svg><span><i>Disponível no</i><b>Google Play</b></span></div></div>
+      </div>
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          document.fonts.ready.then(function () {
+            const B = 0.46875;
+            const D = 5;
+            const tl = gsap.timeline({ paused: true });
+            const NS = "http://www.w3.org/2000/svg";
+            const enters = gsap.utils.toArray("#fim .fim-enter");
+            const rings = [
+              { ring: "#fim .fim-ring-in", ico: "#fim .fim-ico-in", spin: 60, swing: 50, t0: 0.2 },
+              { ring: "#fim .fim-ring-out", ico: "#fim .fim-ico-out", spin: 36, swing: 28, t0: 0.38 }
+            ];
+            gsap.set("#fim-orbit", { x: 460 });
+            tl.to("#fim-orbit", { x: 0, duration: 0.9, ease: "power4.out" }, 0);
+            gsap.set(enters, { x: 220, opacity: 0, scale: 0.8, filter: "blur(4px)" });
+            gsap.set("#fim-sym", { opacity: 0, scale: 0.4, filter: "blur(4px)" });
+            gsap.set("#fim-count", { opacity: 0, y: 24, filter: "blur(4px)" });
+            gsap.set("#fim-lead", { opacity: 0, y: 26, filter: "blur(4px)" });
+            gsap.set("#fim-btn-wrap", { opacity: 0, y: 30, scale: 0.94, filter: "blur(4px)" });
+            gsap.set(["#fim-st1", "#fim-st2"], { opacity: 0, y: 26, filter: "blur(4px)" });
+            tl.to("#fim-sym", { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "back.out(1.7)" }, 0.05);
+            rings.forEach(function (r) {
+              tl.fromTo(r.ring, { rotation: 0 }, { rotation: r.spin, duration: D, ease: "none", immediateRender: true }, 0);
+              tl.fromTo(r.ring + " .fim-swing", { rotation: -r.swing }, { rotation: 0, duration: 1.4, ease: "power3.out", immediateRender: true }, 0);
+              tl.fromTo(r.ico, { rotation: 0 }, { rotation: -r.spin, duration: D, ease: "none", immediateRender: true }, 0);
+              const rootEnters = gsap.utils.toArray(r.ring + " .fim-enter");
+              rootEnters.forEach(function (el, i) {
+                gsap.set(el, { rotation: r.swing });
+                tl.to(el, { rotation: 0, duration: 1.4, ease: "power3.out" }, 0);
+                tl.to(el, { x: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.75, ease: "power4.out" }, r.t0 - 0.2 + i * 0.045);
+              });
+              const svg = document.querySelector(r.ring + " .fim-links");
+              const ls = svg.querySelectorAll(".fim-link-l");
+              const slots = document.querySelectorAll(r.ring + " .fim-slot");
+              ls.forEach(function (ln, i) {
+                const st = r.t0 + 0.1 + i * 0.07;
+                tl.to(ln, { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" }, st);
+                const dot = document.createElementNS(NS, "circle");
+                dot.setAttribute("class", "fim-dot");
+                dot.setAttribute("r", "9");
+                dot.setAttribute("cx", "0");
+                dot.setAttribute("cy", "0");
+                svg.appendChild(dot);
+                const x2 = parseFloat(ln.getAttribute("x2"));
+                const y2 = parseFloat(ln.getAttribute("y2"));
+                tl.set(dot, { opacity: 1 }, st + 0.2);
+                tl.to(dot, { attr: { cx: x2, cy: y2 }, duration: 0.4, ease: "power2.inOut" }, st + 0.2);
+                tl.to(dot, { opacity: 0, duration: 0.15, ease: "power1.in" }, st + 0.47);
+                tl.to(slots[i], { scale: 1.12, duration: 0.18, ease: "power2.out" }, st + 0.55);
+                tl.to(slots[i], { scale: 1, duration: 0.3, ease: "power2.inOut" }, st + 0.73);
+              });
+            });
+            tl.to("#fim-count", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.6);
+            tl.to("#fim-count", { opacity: 0, y: -16, filter: "blur(4px)", duration: 0.3, ease: "power3.in" }, 1.1);
+            tl.to("#fim-const", { y: 11, scale: 0.82, duration: 0.55, ease: "power3.inOut" }, 1.2);
+            tl.to("#fim-lead", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, ease: "power4.out" }, 1.6);
+            const words = gsap.utils.toArray("#fim .fim-w");
+            const starts = [1.66, 2.06, 2.46, 2.86, 3.26, 3.66];
+            gsap.set(words, { y: 80, filter: "blur(3px)" });
+            words.forEach(function (w, i) {
+              const t = starts[i];
+              const last = i === words.length - 1;
+              tl.set(w, { opacity: 1 }, t);
+              tl.to(w, { y: 0, filter: "blur(0px)", duration: last ? 0.34 : 0.3, ease: "power3.out" }, t);
+              if (!last) tl.to(w, { y: -80, opacity: 0, filter: "blur(3px)", duration: 0.12, ease: "power2.in" }, starts[i + 1] - 0.1);
+            });
+            tl.to("#fim-btn-wrap", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power4.out" }, 1.85);
+            tl.to("#fim-st1", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 2.3);
+            tl.to("#fim-st2", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 2.5);
+            tl.to("#fim-sym", { scale: 1.12, duration: 0.45, ease: "back.out(2)" }, 1.2);
+            [1.55, 2.35, 3.15].forEach(function (t) { tl.fromTo("#fim-sym-pulse", { scale: 1, opacity: 0.5 }, { scale: 1.9, opacity: 0, duration: 0.8, ease: "power2.out", immediateRender: false }, t); });
+                        const P = 0.7;
+            const P0 = 2.1;
+            const n = Math.ceil((D - P0) / P);
+            for (let i = 0; i < n; i++) {
+              const t = P0 + i * P;
+              tl.fromTo("#fim-pulse", { scale: 1, opacity: 0.55 }, { scale: 1.18, opacity: 0, duration: 0.65, ease: "power2.out", immediateRender: false }, t);
+              tl.to("#fim-btn", { scale: 1.03, duration: P / 2, ease: "sine.out" }, t);
+              tl.to("#fim-btn", { scale: 1, duration: P / 2, ease: "sine.in" }, t + P / 2);
+            }
+            window.__timelines["fim"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

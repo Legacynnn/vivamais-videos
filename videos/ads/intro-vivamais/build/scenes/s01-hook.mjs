@@ -11,7 +11,7 @@ export default {
   tail: 0,
   noDrift: true,
   data: T,
-  states: [["fila-3", 0], ["fila-2", 0], ["fila-1", 0], ["fila-paired", 0]],
+  states: [["fila-3", 0, "plantao-queue position-3"], ["fila-2", 0, "plantao-queue-countdown position-2"], ["fila-1", 0, "plantao-queue position-1"], ["fila-paired", 0, "plantao-called reading"]],
   sfx: [
     { name: "tick", at: 0.35, vol: 0.4 },
     { name: "whoosh", at: T.clinic - 0.1, vol: 0.4 },
@@ -91,6 +91,7 @@ ${mask("Para a sua equipe, hoje, a resposta é uma destas duas.", "h1-q-f")}
     var dev = one(".vmk-device");
     gsap.set(dev, { opacity: 1 });
     S.boot("fila-3");
+    S.status(0, true, { dur: 0.01 });
     S.cam(0, { x: 201, y: 437, zoom: 1.28, ax: 790, ay: 1590, free: true }, 0.01);
     var top = one(".h1-top");
     var bot = one(".h1-bot");
@@ -140,16 +141,15 @@ ${mask("Para a sua equipe, hoje, a resposta é uma destas duas.", "h1-q-f")}
       rise(tl, ".h1-sub.b .aw", tb + 1.3, 0.07);
     });
 
-    function pos(name, n) {
-      var card = S.pick(name, "Sua posição na fila", { hit: false });
-      while (card.parentElement && !/antes de você|próximo/.test(card.textContent)) card = card.parentElement;
-      return S.pick(name, String(n), { within: card, hit: false });
+    function pos(name) {
+      return S.one('[aria-label^="Você é o"] > .rn-view', S.state(name));
     }
     S.show(T.two, "fila-2");
-    S.popIn(T.two, pos("fila-2", 2), { from: 1.25, dur: 0.5, origin: "50% 50%" });
+    S.popIn(T.two, pos("fila-2"), { from: 1.25, dur: 0.5, origin: "50% 50%" });
     S.show(T.one, "fila-1");
-    S.popIn(T.one, pos("fila-1", 1), { from: 1.25, dur: 0.5, origin: "50% 50%" });
+    S.popIn(T.one, pos("fila-1"), { from: 1.25, dur: 0.5, origin: "50% 50%" });
     S.show(T.found, "fila-paired", { fade: 0.35 });
+    S.status(T.found, false);
 
     var tx = T.exit;
     A.tw(function (tl) {

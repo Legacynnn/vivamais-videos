@@ -15,7 +15,7 @@ const MSGS = [
 export default {
   id: "s10-avisos",
   device: "iphone",
-  states: [["home", 0]],
+  states: [["home", 0, "client-home-company default"]],
   vo: "l10",
   voAt: 0.3,
   tail: 0.05,

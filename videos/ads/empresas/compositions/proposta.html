@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/em.css">
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        #proposta { position: absolute; inset: 0; overflow: hidden; }
+        #proposta .pr-group { position: absolute; inset: 0; will-change: transform, opacity, filter; }
+        #proposta .pr-pre { top: 330px; will-change: transform, filter, opacity; }
+        #proposta .pr-price { position: absolute; top: 430px; left: 154.29px; width: 771.43px; text-align: center; font: 500 200px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        #proposta .pr-pillrow { position: absolute; left: 0; width: 1080px; top: 660px; display: flex; justify-content: center; }
+        #proposta .pr-pill { display: inline-flex; align-items: center; height: 96px; padding: 0 48px; box-sizing: border-box; border-radius: 999px; background: var(--em-violet-100); font: 500 52px/1 var(--vm-font-text, "DM Sans"), sans-serif; color: var(--em-ink); white-space: nowrap; will-change: transform, filter, opacity; }
+        #proposta .pr-rule { position: absolute; left: 240px; width: 600px; top: 831px; height: 4px; border-radius: 2px; background: var(--em-hair); transform-origin: 0 50%; transform: scaleX(0); }
+        #proposta .pr-l2 { top: 906px; left: 80px; right: 140px; text-align: center; font-size: 52px; letter-spacing: -0.03em; white-space: nowrap; }
+        #proposta .pr-l2 em { background: none; -webkit-text-fill-color: initial; color: inherit; padding-bottom: 0; }
+        #proposta .pr-l2 .em-word { padding-bottom: 0.08em; }
+        #proposta .em-track { position: absolute; inset: 0; }
+        #proposta .pr-hair { position: absolute; left: 230px; width: 620px; top: 1058px; height: 4px; border-radius: 2px; background: var(--em-hair); transform-origin: 0 50%; }
+        #proposta .pr-fill { position: absolute; left: 230px; width: 620px; top: 1057px; height: 6px; border-radius: 3px; background: var(--em-accent); transform-origin: 0 50%; transform: scaleX(0); }
+        #proposta .pr-node { position: absolute; top: 1000px; width: 260px; text-align: center; will-change: transform, opacity, filter; }
+        #proposta .pr-tile { position: relative; width: 120px; height: 120px; margin: 0 auto; box-shadow: 0 0 0 10px var(--em-mist); }
+        #proposta .pr-on { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 32%; background: var(--em-accent); color: var(--em-white); opacity: 0; }
+        #proposta .pr-on svg { width: 52%; height: 52%; stroke-width: 1.9; }
+        #proposta .pr-lb { margin-top: 24px; font: 500 52px/1 var(--vm-font-text, "DM Sans"), sans-serif; color: var(--em-ink); white-space: nowrap; }
+      </style>
+      <div id="proposta" class="vm-scene em-scene" data-composition-id="proposta" data-start="0" data-duration="4" data-width="1080" data-height="1920">
+        <div class="em-stage"></div>
+        <div class="em-aurora" data-layout-allow-overflow><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+        <div class="pr-group" id="pr-group" data-layout-allow-overlap data-layout-allow-overflow>
+          <img class="em-logo" id="pr-logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+          <p class="em-line em-line--center pr-pre" id="pr-pre">Planos a partir de</p>
+          <div class="pr-price em-price em-grad-text" id="pr-price">R$ 9,90</div>
+          <div class="pr-pillrow"><span class="pr-pill" id="pr-pill">com consultas ilimitadas</span></div>
+          <div class="pr-rule" id="pr-rule"></div>
+          <p class="em-line pr-l2" id="pr-l2"><span class="em-word">Do</span> <span class="em-word">contrato</span> <span class="em-word">à</span> <span class="em-word">consulta</span> <span class="em-word">em</span> <em><span class="em-word em-grad-text">24</span> <span class="em-word em-grad-text">horas</span></em></p>
+          <div class="em-track" id="pr-track">
+            <div class="pr-hair" id="pr-hair"></div>
+            <div class="pr-fill" id="pr-fill"></div>
+          <div class="pr-node" id="pr-n0" style="left:100px"><div class="pr-tile em-tile" id="pr-t0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14.364 13.634a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506l4.013-4.009a1 1 0 0 0-3.004-3.004z" /> <path d="M14.487 7.858A1 1 0 0 1 14 7V2" /> <path d="M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516" /> <path d="M8 18h1" /></svg><div class="pr-on" id="pr-on0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14.364 13.634a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506l4.013-4.009a1 1 0 0 0-3.004-3.004z" /> <path d="M14.487 7.858A1 1 0 0 1 14 7V2" /> <path d="M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516" /> <path d="M8 18h1" /></svg></div></div><div class="pr-lb">Contrato</div></div>
+          <div class="pr-node" id="pr-n1" style="left:410px"><div class="pr-tile em-tile" id="pr-t1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg><div class="pr-on" id="pr-on1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg></div></div><div class="pr-lb">Cadastro</div></div>
+          <div class="pr-node" id="pr-n2" style="left:720px"><div class="pr-tile em-tile" id="pr-t2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /> <rect x="2" y="6" width="14" height="12" rx="2" /></svg><div class="pr-on" id="pr-on2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /> <rect x="2" y="6" width="14" height="12" rx="2" /></svg></div></div><div class="pr-lb">Consulta</div></div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          document.fonts.ready.then(function () {
+            const tl = gsap.timeline({ paused: true });
+            const S = 31.5, D = 4;
+            gsap.set(["#proposta .a1", "#proposta .a2", "#proposta .a3"], { x: -7 * S, y: -3 * S });
+            tl.to(["#proposta .a1", "#proposta .a2", "#proposta .a3"], { x: -7 * (S + D), y: -3 * (S + D), duration: D, ease: "none" }, 0);
+
+            tl.fromTo("#pr-logo", { opacity: 0, y: 14, filter: "blur(4px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power4.out" }, 0.15);
+            tl.fromTo("#pr-pre", { opacity: 0, y: 40, filter: "blur(4px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "power4.out" }, 0);
+            tl.fromTo("#pr-pill", { opacity: 0, y: 30, filter: "blur(4px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "power4.out" }, 0.05);
+
+            tl.to("#pr-rule", { scaleX: 1, duration: 0.3, ease: "power2.out" }, 0.7);
+
+            const words = gsap.utils.toArray("#pr-l2 .em-word");
+            words.forEach(function (w, i) {
+              tl.fromTo(w, { opacity: 0, y: 36, filter: "blur(4px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "power4.out" }, 0.8 + i * 0.05);
+            });
+            tl.fromTo("#pr-l2 em .em-word", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: 1.4, ease: "power2.inOut" }, 1.0);
+
+            ["#pr-n0", "#pr-n1", "#pr-n2"].forEach(function (s, i) {
+              tl.fromTo(s, { opacity: 0, y: 40, filter: "blur(4px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "power4.out" }, 0.85 + i * 0.06);
+            });
+            tl.fromTo("#pr-hair", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 0.9);
+            tl.fromTo("#pr-fill", { scaleX: 0 }, { scaleX: 1, duration: 1.0, ease: "cubic-bezier(0.23,1,0.32,1)" }, 1.2);
+            [1.2, 1.7, 2.2].forEach(function (t, i) {
+              tl.to("#pr-on" + i, { opacity: 1, duration: 0.12, ease: "power2.out" }, t);
+              tl.fromTo("#pr-t" + i, { scale: 1 }, { scale: 1.14, duration: 0.12, ease: "power2.out" }, t);
+              tl.to("#pr-t" + i, { scale: 1, duration: 0.2, ease: "power3.out" }, t + 0.12);
+            });
+
+            tl.to("#pr-group", { x: -230, duration: 0.34, ease: "power4.in" }, 3.6);
+            tl.to("#pr-group", { filter: "blur(4px)", duration: 0.34, ease: "power4.in" }, 3.6);
+            tl.to("#pr-group", { opacity: 0, duration: 0.06, ease: "none" }, 3.88);
+
+            window.__timelines["proposta"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

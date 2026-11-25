@@ -1,0 +1,47 @@
+<template>
+  <style>
+    @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+    @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+    #s08-pagamento { position: absolute; inset: 0; overflow: hidden; background: var(--vm-primary-strong); color: var(--vm-white); }
+    #s08-pagamento .chev-row { position: absolute; left: 0; right: 0; top: 50%; height: 0; display: flex; justify-content: center; gap: 56px; }
+    #s08-pagamento .chev { width: 120px; height: 120px; margin-top: -60px; flex: none; color: rgba(255, 255, 255, 0.16); opacity: 0; }
+    #s08-pagamento .chev svg { width: 100%; height: 100%; display: block; }
+    #s08-pagamento .vm-stage { z-index: 5; }
+    #s08-pagamento #s08-head { text-align: center; opacity: 0; }
+    #s08-pagamento .line { display: block; }
+    #s08-pagamento .vm-head em, #s08-pagamento .vm-head .vm-accent { color: var(--vm-secondary); }
+    #s08-pagamento .check { width: 132px; height: 132px; border-radius: 50%; background: var(--vm-secondary); color: var(--vm-secondary-foreground); display: flex; align-items: center; justify-content: center; opacity: 0; }
+    #s08-pagamento .check svg { width: 70px; height: 70px; }
+  </style>
+  <div id="s08-pagamento" data-composition-id="s08-pagamento" data-start="0" data-duration="2.5" data-width="1080" data-height="1920">
+    <img class="vm-logo" src="assets/brand/lockup-branco.svg" alt="Viva Mais">
+    <div class="chev-row" data-layout-allow-overflow>
+      <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4l8 8-8 8"/></svg></div>
+      <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4l8 8-8 8"/></svg></div>
+      <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4l8 8-8 8"/></svg></div>
+    </div>
+    <div class="vm-stage center">
+      <div id="s08-words" data-layout-allow-overflow>
+        <h2 id="s08-head" class="vm-head"><span class="line">Pagamento</span><span class="line"><em>confirmado</em></span></h2>
+      </div>
+      <div id="s08-check" class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const root = document.querySelector('[data-composition-id="s08-pagamento"]');
+      window.__timelines = window.__timelines || {};
+      document.fonts.ready.then(() => {
+        const tl = gsap.timeline({ paused: true });
+        const m = VMMotion.create({ root, tl });
+        m.plusReveal(0);
+        m.rise("#s08-head", 0.3);
+        tl.fromTo("#s08-check", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, 0.9);
+        tl.fromTo(root.querySelectorAll(".chev"), { opacity: 0, x: 420 }, { opacity: 1, x: -420, duration: 1.3, ease: "none", stagger: 0.12 }, 0.3);
+        tl.to(root.querySelectorAll(".chev"), { opacity: 0, duration: 0.2, overwrite: "auto" }, 1.45);
+        tl.to("#s08-head, #s08-check", { x: -160, opacity: 0.4, duration: 0.5, ease: "power2.in" }, 2.05);
+        window.__timelines["s08-pagamento"] = tl;
+      });
+    })();
+  </script>
+</template>

@@ -1,5 +1,10 @@
 import { VF_HTML, VF_CSS, vfLife } from "../../../../kit/parts/vf.mjs";
 
+const price = (src) => src.replace(/79,90/g, "59,90").replace(/220,10/g, "240,10");
+const VF = price(VF_HTML);
+const life = { toString: () => vfLife.toString().replace("220.1", "240.1") };
+const SHEET = `.vmk-state[data-state="credito-proc"]{background:#3a3747}.vmk-state[data-state="credito-proc"] .vmk-lib{top:58px;height:816px;border-radius:14px 14px 0 0;overflow:hidden}`;
+
 export default {
   id: "ch04-cobertura",
   device: "iphone",
@@ -8,32 +13,34 @@ export default {
   lines: ["Pago", "pela empresa"],
   lead: "O app confere conta e crédito da empresa e reserva sua vaga.",
   tail: 0.5,
-  states: [["credito-proc", 0], ["sucesso", 0]],
-  layers: { vf: VF_HTML },
-  css: VF_CSS,
-  lib: [vfLife],
+  states: [["credito-proc", 0, "plantao-pay credit"], ["sucesso", 0, "plantao-success"]],
+  layers: { vf: VF },
+  css: VF_CSS + SHEET,
+  lib: [life],
   captions: [
     { title: "Conta verificada", body: "O app confirma que **é você** antes de reservar." },
     { title: "Crédito ativo", body: "R$ 300,00 de crédito da empresa **disponíveis** neste mês." },
-    { title: "Crédito aplicado", body: "Os **R$ 79,90** saem do crédito. Sobram **R$ 220,10**." },
-    { title: "Vaga reservada", body: "Sem cobrança para você. A vaga foi **paga pela empresa**." },
-    { title: "Tudo certo", body: "Sua vaga no **Plantão 24h** está reservada. Agora, a anamnese." },
+    { title: "Crédito aplicado", body: "Os **R$ 59,90** saem do crédito. Sobram **R$ 240,10**." },
+    { title: "Vaga reservada", body: "Nada sai do seu bolso. A vaga foi **paga pela empresa**." },
+    { title: "Tudo certo", body: "Você está no **Plantão 24h**. Antes da fila, conte o que sente." },
   ],
   frame: {
     title: "Pago pela empresa",
-    scene: "Tela de verificação com carteira animada, valor que cai de R$ 79,90 para R$ 0,00, quatro checagens do plano e vaga reservada com confete",
+    scene: "Folha Pagar com crédito da empresa, verificação com carteira animada e quatro checagens, crédito que cai de R$ 300,00 para R$ 240,10 e a tela Pronto, você está no plantão com confete",
     poster: 8,
     motion: "circular reveal from the tapped button, vector wallet performance (card, coins → ticket), sequenced checks, count-down number, confetti, native pushes",
-    body: "Título central. Do botão Confirmar atendimento nasce a tela de verificação: a carteira violeta sobe, o cartão do plano sai, moedas lima voam para o bilhete da vaga. Conta verificada, plano ativo (barra de cobertura enche), plantão incluso, vaga reservada; o valor rola de R$ 79,90 para R$ 0,00 e o título vira “Atendimento confirmado”. Revela “Sua vaga está reservada” com confete. Continuar para a anamnese: motivo, mapa do corpo, revisão e “Anamnese enviada”, com toque em Ir para a fila.",
+    body: "Título central. Do botão Confirmar · R$ 59,90 da folha Pagar com crédito da empresa nasce a verificação: a carteira violeta sobe, o cartão do plano sai, moedas lima voam para o bilhete da vaga. Conta verificada, crédito ativo, crédito aplicado (R$ 300,00 vira R$ 240,10), vaga reservada. Revela “Pronto, você está no plantão” com Pagamento confirmado e confete, e o toque em Contar o que estou sentindo.",
   },
   run: function (S) {
     S.boot("credito-proc");
     S.introIn(0.05);
     S.introOut(2.8);
     var vf = S.layer("vf");
-    var conf = S.pick("credito-proc", "Confirmar com crédito da empresa");
+    S.status(0, true, { dur: 0.01 });
+    var conf = S.one('[aria-label^="Confirmar ·"]', S.state("credito-proc"));
     var cr = S.rect(conf);
     var t = 3.4;
+    S.status(t + 0.3, false);
     S.cam(t - 0.3, { x: 201, y: 437, zoom: 1.22 }, 0.9);
     (function (t) {
     S.add(function (tl) {
@@ -53,13 +60,14 @@ export default {
     S.captionOut(t - 0.2);
     S.show(t, "sucesso");
     S.layerOut(t, "vf", { to: "zoom", dur: 0.45 });
-    var title = S.pick("sucesso", "Sua vaga está reservada");
+    S.status(t, false);
+    var title = S.pick("sucesso", /^Pronto, você está/);
     S.cam(t, { x: 201, y: 420, zoom: 1.45 }, 0.9);
     S.popIn(t + 0.2, title, { from: 0.9, dur: 0.45, origin: "50% 50%" });
     S.confetti(t + 0.35, S.rect(title), { count: 60, seed: 23, power: 0.8 });
     S.caption(t + 0.7, 4, { at: S.rect(title), side: "right" });
     t += 2.8;
-    var go = S.pick("sucesso", "Continuar para a anamnese");
+    var go = S.one('[aria-label="Contar o que estou sentindo"]', S.state("sucesso"));
     S.cam(t - 0.2, { x: 201, y: 560, zoom: 1.4 }, 0.8);
     S.cursorEnter(t, go, 0.5);
     S.click(t + 0.7, go, { press: true });

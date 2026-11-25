@@ -18,7 +18,7 @@ export default {
   voAt: 0.3,
   tail: 0.45,
   seam: { axis: "x", dir: -1, technique: "cut-the-curve LEFT" },
-  states: [["fila-1", 0], ["fila-paired", 0]],
+  states: [["fila-1", 0, "plantao-queue position-1"], ["fila-paired", 0, "plantao-called reading"]],
   layers: {
     ban: `<div class="bn8">${noteHtml({ title: "Dra. Camila está pronta", body: "Sua consulta do plantão começa agora. Toque para entrar." })}</div>`,
     call: `<div class="c8">
@@ -65,18 +65,19 @@ ${vid("doctor-call", { id: "s08-doc", cls: "c8-v", at: VA, dur: 5.2 })}
   ],
   frame: {
     title: "A médica já está ali",
-    scene: "Fila do plantão real (posição 1), médica encontrada; a mesma notificação do gancho cai no topo do iPhone; toque abre a chamada com a Dra. Camila em vídeo, câmera da Ana no canto, controles",
+    scene: "Fila do plantão real (Você é o 1º), “Encontramos seu médico” com a Dra. Camila Rocha; a mesma notificação do gancho cai no topo do iPhone; toque abre a chamada com a Dra. Camila em vídeo, câmera da Ana no canto, controles",
     motion: "cut-the-curve seam, pop, notification drop (callback to the hook), circular reveal into the call, push-in on the call, mask rise, text swap",
-    body: "A fila mostra a Ana em primeiro e a médica é encontrada. Em “lembra?” a mesma notificação do começo cai no topo da tela e “Lembra?” bate à direita. O dedo toca, a chamada abre num círculo a partir da notificação: Dra. Camila em vídeo, a Ana no canto, legenda ligada. A câmera empurra para a chamada em “consulta por vídeo”.",
+    body: "A fila mostra a Ana em 1º e o app avisa “Encontramos seu médico”. Em “lembra?” a mesma notificação do começo cai no topo da tela e “Lembra?” bate à direita. O dedo toca, a chamada abre num círculo a partir da notificação: Dra. Camila em vídeo, a Ana no canto, legenda ligada. A câmera empurra para a chamada em “consulta por vídeo”.",
   },
   run: function (S, A) {
     gsap.set(S.one(".vmk-device"), { opacity: 1 });
     S.boot("fila-1");
     S.cam(0, { x: 201, y: 437, zoom: 1.65, ax: 540, ay: 1180, free: true }, 0.01);
-    var card = S.pick("fila-1", "Sua posição na fila");
-    while (card.parentElement && !/Aguardando há/.test(card.textContent)) card = card.parentElement;
+    S.status(0, true, { dur: 0.01 });
+    var card = S.one('[aria-label^="Você é o"]', S.state("fila-1"));
     S.mark(0.2, card, { hold: Math.max(0.3, A.w("minutos") - 0.1 - 0.2 - 0.5), pad: 4, radius: 22 });
     S.show(A.w("minutos") - 0.1, "fila-paired", { fade: 0.25 });
+    S.status(A.w("minutos") - 0.1, false);
     var ban = S.layer("ban");
     var note = S.one(".lk-note", ban);
     gsap.set(ban, { autoAlpha: 0 });

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/em.css">
+      <script src="assets/em-fx.js"></script>
+      <style>
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        #regras { position: absolute; inset: 0; overflow: hidden; }
+        #regras .rg-line { z-index: 10; font-size: 57px; white-space: nowrap; right: auto; top: 319px; will-change: transform, filter, opacity; }
+        #regras .em-badges { position: absolute; inset: 0; pointer-events: none; }
+        #regras .rg-chip { height: 100px; padding-left: 12px; gap: 28px; font-size: 52px; }
+      </style>
+      <div id="regras" class="vm-scene em-scene" data-composition-id="regras" data-start="0" data-duration="4" data-width="1080" data-height="1920">
+        <div class="em-stage"></div>
+        <div class="em-aurora" data-layout-allow-overflow data-layout-allow-occlusion><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+        <p class="em-line rg-line" id="rg-line" data-layout-allow-overflow data-layout-allow-overlap>Seu time consulta <em>quando quiser</em></p>
+        <div class="em-badges" id="rg-badges" data-layout-allow-overflow data-layout-allow-overlap data-layout-allow-occlusion>
+          <div class="em-chip rg-chip" id="rg-b0" style="left:80px;top:438px" data-layout-allow-overflow data-layout-allow-overlap><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="rg-t">Sem carência</span></div>
+          <div class="em-chip rg-chip" id="rg-b1" style="left:80px;top:552px" data-layout-allow-overflow data-layout-allow-overlap><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="rg-t">Sem coparticipação</span></div>
+          <div class="em-chip rg-chip" id="rg-b2" style="left:80px;top:666px" data-layout-allow-overflow data-layout-allow-overlap><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="rg-t">Cancele quando quiser</span></div>
+          <div class="em-chip rg-chip" id="rg-b3" style="left:80px;top:780px" data-layout-allow-overflow data-layout-allow-overlap><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="rg-t">Sem precisar agendar</span></div>
+          <div class="em-chip rg-chip" id="rg-b4" style="left:80px;top:894px" data-layout-allow-overflow data-layout-allow-overlap><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="rg-t">Consulta de onde estiver</span></div>
+          <div class="em-chip rg-chip" id="rg-b5" style="left:80px;top:1008px" data-layout-allow-overflow data-layout-allow-overlap><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="rg-t">Dependentes no mesmo plano</span></div>
+          <div class="em-chip rg-chip" id="rg-b6" style="left:80px;top:1122px" data-layout-allow-overflow data-layout-allow-overlap><span class="em-check"><svg viewBox="0 0 24 24"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="rg-t">Receitas e atestados digitais</span></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const root = document.getElementById("regras");
+          window.__timelines = window.__timelines || {};
+          document.fonts.ready.then(function () {
+            const tl = gsap.timeline({ paused: true });
+            const S = 12.5, D = 4;
+            const q = function (s) { return root.querySelector(s); };
+
+            root.querySelectorAll(".em-aurora i").forEach(function (el) {
+              tl.fromTo(el, { x: -7 * S, y: -3 * S }, { x: -7 * (S + D), y: -3 * (S + D), duration: D, ease: "none" }, 0);
+            });
+
+            gsap.set("#rg-line em", { backgroundPosition: "100% 0%" });
+            tl.set("#rg-line", { x: 230, opacity: 0.35, filter: "blur(4px)" }, 0);
+            tl.to("#rg-line", { x: 0, filter: "blur(0px)", duration: 0.44, ease: "power4.out" }, 0);
+            tl.to("#rg-line", { opacity: 1, duration: 0.16, ease: "none" }, 0);
+            tl.fromTo("#rg-line em", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: 1.4, ease: "power2.inOut" }, 0.3);
+
+            const ids = [0, 1, 2, 3, 4, 5, 6].map(function (i) { return "#rg-b" + i; });
+            const starts = [0.2, 0.32, 0.43, 0.52, 0.6, 0.67, 0.73];
+            const checks = ids.map(function (_, i) { return 0.5 + i * 0.17; });
+            tl.set("#rg-badges", { x: 230 }, 0);
+            tl.to("#rg-badges", { x: 0, duration: 0.44, ease: "power4.out" }, 0);
+            ids.forEach(function (id, i) {
+              const t = starts[i];
+              tl.set(id, { opacity: 0, x: 90 }, 0);
+              tl.set(id, { opacity: 0.35, filter: "blur(4px)" }, t);
+              tl.to(id, { x: 0, filter: "blur(0px)", duration: 0.44, ease: "power4.out" }, t);
+              tl.to(id, { opacity: 1, duration: 0.15, ease: "none" }, t);
+
+              window.EMFX.check(tl, root.querySelector(id), checks[i]);
+            });
+
+            tl.to("#rg-line", { x: -230, filter: "blur(4px)", duration: 0.34, ease: "power4.in" }, 3.66);
+            tl.to("#rg-line", { opacity: 0, duration: 0.2, ease: "power2.in" }, 3.72);
+            tl.to("#rg-badges", { x: -230, duration: 0.34, ease: "power4.in" }, 3.66);
+            ids.forEach(function (id, i) {
+              const t = 3.66 + i * 0.02;
+              tl.to(id, { x: -40, filter: "blur(4px)", duration: 0.34 - i * 0.02, ease: "power4.in" }, t);
+              tl.to(id, { opacity: 0, duration: 0.16, ease: "power2.in" }, t + 0.02);
+            });
+
+            window.__timelines["regras"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

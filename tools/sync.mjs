@@ -6,6 +6,7 @@ const root = fileURLToPath(new URL("..", import.meta.url));
 const brand = join(root, "brand");
 const library = join(root, "assets");
 const kit = join(root, "videos/kit");
+const screens = join(root, "screens/dist/assets/screens");
 const START = "# sync:start";
 const END = "# sync:end";
 
@@ -43,6 +44,32 @@ function syncLibrary(dir) {
   return entries.map(([local]) => `/${local}`);
 }
 
+const MARKER = /(<!-- screen:([\w-]+)(?: ([\w-]+))? -->)[\s\S]*?(<!-- \/screen -->)/g;
+
+function syncScreens(dir) {
+  const pages = [dir, join(dir, "compositions")]
+    .filter((folder) => existsSync(folder))
+    .flatMap((folder) => readdirSync(folder).filter((name) => name.endsWith(".html")).map((name) => join(folder, name)));
+  let used = false;
+  for (const page of pages) {
+    const html = readFileSync(page, "utf8");
+    if (!html.includes("<!-- screen:")) continue;
+    used = true;
+    const next = html.replace(MARKER, (_, open, id, state = "default", close) => {
+      const fragment = join(screens, "html", `${id}--${state}.html`);
+      if (!existsSync(fragment)) throw new Error(`${relative(root, page)}: no screen ${id} ${state}; run \`npm run screens\``);
+      const body = readFileSync(fragment, "utf8").trim();
+      for (const [, file] of body.matchAll(/assets\/screens\/(img\/[^"')\s]+)/g)) copy(join(screens, file), join(dir, "assets/screens", file));
+      return `${open}${body}${close}`;
+    });
+    if (next !== html) writeFileSync(page, next);
+  }
+  if (!used) return [];
+  copy(join(screens, "screens.css"), join(dir, "assets/screens/screens.css"));
+  for (const file of readdirSync(join(screens, "fonts"))) copy(join(screens, "fonts", file), join(dir, "assets/screens/fonts", file));
+  return ["/assets/screens/"];
+}
+
 function writeIgnore(dir, lines) {
   const file = join(dir, ".gitignore");
   const current = existsSync(file) ? readFileSync(file, "utf8") : "";
@@ -52,7 +79,7 @@ function writeIgnore(dir, lines) {
 }
 
 for (const dir of targets(process.argv.slice(2))) {
-  const lines = [...syncBrand(dir), ...syncLibrary(dir)];
+  const lines = [...syncBrand(dir), ...syncLibrary(dir), ...syncScreens(dir)];
   writeIgnore(dir, lines);
   console.log(`${relative(root, dir)}: ${lines.length - 1} library files + brand`);
 }

@@ -4,6 +4,7 @@ import { buildState } from "./ui-css.mjs";
 import { buildWebState } from "./ui-web.mjs";
 import { measure } from "../../../kit/measure.mjs";
 import { PACE } from "./parts/stock.mjs";
+import { screen as libScreen } from "./parts/screen.mjs";
 
 const root = new URL("../", import.meta.url);
 const read = (p) => readFileSync(new URL(p, root), "utf8");
@@ -82,8 +83,10 @@ async function deviceScene(scene, baked) {
   const g = GEO[scene.device];
   const phone = scene.device === "iphone";
   const states = [];
-  for (const [name, scroll] of scene.states) {
-    if (phone) {
+  for (const [name, scroll, lib] of scene.states) {
+    if (lib) {
+      states.push(`<div class="vmk-state" data-state="${name}" data-scroll="${scroll || 0}">${libScreen(lib)}</div>`);
+    } else if (phone) {
       const st = await buildState(name, `${scene.id}-${name}`);
       states.push(`<div class="vmk-state" data-state="${name}" data-scroll="${scroll || 0}"><div class="${g.scope}-body">${st.html}</div></div>`);
     } else {
@@ -135,6 +138,7 @@ ${layers}
 <body><template>
 <link rel="stylesheet" href="vm-kit.css">
 ${g.css.map((c) => `<link rel="stylesheet" href="${c}">`).join("\n")}
+${screen.includes("<!-- screen:") ? '<link rel="stylesheet" href="assets/screens/screens.css">' : ""}
 <link rel="stylesheet" href="vm-ad.css">
 <style>
 ${FONTS}

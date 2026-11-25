@@ -1,0 +1,108 @@
+<template>
+  <link rel="stylesheet" href="assets/brand/tokens.css">
+  <link rel="stylesheet" href="assets/ce.css">
+  <style>
+    @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+    @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+    @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+    @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+    #tempo { position: absolute; inset: 0; overflow: hidden; font-family: "DM Sans", sans-serif; }
+    #tempo .tm-cal { position: absolute; left: 280px; top: 570px; width: 520px; height: 520px; z-index: 4; perspective: 1600px; }
+    #tempo .tm-pg { left: 0; top: 0; width: 520px; height: 520px; transform-origin: 50% 0; backface-visibility: hidden; overflow: hidden; }
+    #tempo .tm-wk { position: absolute; left: 0; right: 0; top: 112px; text-align: center; font: 700 48px/1 "DM Sans", sans-serif; letter-spacing: 0.1em; color: var(--ce-muted); }
+    #tempo .tm-num { position: absolute; left: 0; right: 0; top: 168px; text-align: center; font: 500 250px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.05em; color: var(--ce-ink); }
+    #tempo .tm-mo { position: absolute; left: 0; right: 0; top: 444px; text-align: center; font: 500 52px/1 "DM Sans", sans-serif; color: var(--ce-body); }
+    #tempo .tm-pg--on .tm-wk, #tempo .tm-pg--on .tm-num { color: var(--ce-accent); }
+    #tempo .tm-shade { position: absolute; inset: 0; background: var(--ce-violet-900); opacity: 0; }
+    #tempo .tm-bind { position: absolute; left: 0; top: 0; width: 520px; height: 84px; border-radius: 40px 40px 0 0; background: var(--ce-accent); z-index: 30; }
+    #tempo .tm-bind i { position: absolute; top: 27px; width: 30px; height: 30px; box-sizing: border-box; border-radius: 50%; border: 7px solid var(--ce-violet-100); background: var(--ce-accent-deep); }
+    #tempo .tm-chip { position: absolute; left: 80px; top: 1112px; width: 920px; box-sizing: border-box; z-index: 4; padding: 22px 40px; border-radius: 52px; background: var(--ce-accent-soft); box-shadow: var(--ce-shadow-soft); text-align: center; font: 500 40px/1.2 "DM Sans", sans-serif; color: var(--ce-accent-deep); }
+    #tempo .tm-chip b { display: block; font-weight: 700; }
+    #tempo .ce-glass { left: 80px; top: 720px; z-index: 8; }
+    #tempo #tm-line { right: 60px; font-size: 66px; white-space: nowrap; }
+    #tempo #tm-wa .ce-glass-body { white-space: normal; text-wrap: balance; font-size: 36px; line-height: 1.15; }
+    #tempo #tm-wa { z-index: 7; transform-origin: 50% 100%; }
+    #tempo .tm-wa-tile { width: 116px; height: 116px; border-radius: 28px; background: #25D366; display: grid; place-items: center; box-shadow: 0 6px 16px -6px rgba(0,0,0,.3); }
+    #tempo .tm-wa-tile svg { width: 80px; height: 80px; }
+    #tempo .ce-glass-text { min-width: 0; }
+    #tempo .ce-glass-title, #tempo .ce-glass-body { white-space: nowrap; }
+  </style>
+  <div data-hf-id="hf-jieq" id="tempo" class="vm-scene ce-scene" data-composition-id="tempo" data-start="0" data-duration="4.6" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-xu48" class="ce-stage" data-layout-ignore=""><div data-hf-id="hf-uyhv" class="ce-halo"></div></div>
+    <div data-hf-id="hf-pp04" class="ce-aurora" data-layout-ignore=""><i data-hf-id="hf-eqem" class="a1"></i><i data-hf-id="hf-asal" class="a2"></i><i data-hf-id="hf-a0ms" class="a3"></i></div>
+    <h2 class="ce-line" id="tm-line">No dia da consulta,<br>te notificamos no <em>WhatsApp</em><br>e dentro do <em>app</em></h2>
+    <div class="tm-cal" id="tm-cal" data-layout-allow-overflow data-layout-allow-overlap>
+      <div class="ce-card tm-pg" id="tm-p12" style="z-index:5" data-layout-allow-overflow data-layout-allow-overlap><div class="tm-wk" data-layout-allow-overlap>QUI</div><div class="tm-num" data-layout-allow-overlap>12</div><div class="tm-mo" data-layout-allow-overlap>novembro</div><div class="tm-shade"></div></div>
+      <div class="ce-card tm-pg" id="tm-p13" style="z-index:4" data-layout-allow-overflow data-layout-allow-overlap><div class="tm-wk" data-layout-allow-overlap>SEX</div><div class="tm-num" data-layout-allow-overlap>13</div><div class="tm-mo" data-layout-allow-overlap>novembro</div><div class="tm-shade"></div></div>
+      <div class="ce-card tm-pg" id="tm-p14" style="z-index:3" data-layout-allow-overflow data-layout-allow-overlap><div class="tm-wk" data-layout-allow-overlap>SÁB</div><div class="tm-num" data-layout-allow-overlap>14</div><div class="tm-mo" data-layout-allow-overlap>novembro</div><div class="tm-shade"></div></div>
+      <div class="ce-card tm-pg" id="tm-p15" style="z-index:2" data-layout-allow-overflow data-layout-allow-overlap><div class="tm-wk" data-layout-allow-overlap>DOM</div><div class="tm-num" data-layout-allow-overlap>15</div><div class="tm-mo" data-layout-allow-overlap>novembro</div><div class="tm-shade"></div></div>
+      <div class="ce-card tm-pg tm-pg--on" id="tm-p16" style="z-index:1" data-layout-allow-overflow data-layout-allow-overlap><div class="tm-wk" data-layout-allow-overlap>SEG</div><div class="tm-num" data-layout-allow-overlap>16</div><div class="tm-mo" data-layout-allow-overlap>novembro</div><div class="tm-shade"></div></div>
+      <div class="tm-bind"><i style="left:130px"></i><i style="left:360px"></i></div>
+    </div>
+    <div data-hf-id="hf-o9jz" class="tm-chip" id="tm-chip" data-layout-allow-overlap=""><b data-hf-id="hf-rxqu">Seg, 16 · 14:30</b>Consulta com a Dra. Camila</div>
+    <div data-hf-id="hf-gqs2" class="ce-glass" id="tm-wa" data-layout-allow-overflow="" data-layout-allow-occlusion="" data-layout-allow-overlap="">
+      <div data-hf-id="hf-zkwz" class="tm-wa-tile"><svg data-hf-id="hf-bvey" viewBox="0 0 24 24" fill="none" stroke="#FBF9FF" stroke-width="1.5" stroke-linejoin="round"><path data-hf-id="hf-dhe2" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.3789 2.27907 14.6926 2.78382 15.8877C3.06278 16.5481 3.20226 16.8784 3.21953 17.128C3.2368 17.3776 3.16334 17.6521 3.01642 18.2012L2 22L5.79877 20.9836C6.34788 20.8367 6.62244 20.7632 6.87202 20.7805C7.12161 20.7977 7.45185 20.9372 8.11235 21.2162C9.30745 21.7209 10.6211 22 12 22Z" /><path data-hf-id="hf-93pd" d="M8.58815 12.3773L9.45909 11.2956C9.82616 10.8397 10.2799 10.4153 10.3155 9.80826C10.3244 9.65494 10.2166 8.96657 10.0008 7.58986C9.91601 7.04881 9.41086 7 8.97332 7C8.40314 7 8.11805 7 7.83495 7.12931C7.47714 7.29275 7.10979 7.75231 7.02917 8.13733C6.96539 8.44196 7.01279 8.65187 7.10759 9.07169C7.51023 10.8548 8.45481 12.6158 9.91948 14.0805C11.3842 15.5452 13.1452 16.4898 14.9283 16.8924C15.3481 16.9872 15.558 17.0346 15.8627 16.9708C16.2477 16.8902 16.7072 16.5229 16.8707 16.165C17 15.8819 17 15.5969 17 15.0267C17 14.5891 16.9512 14.084 16.4101 13.9992C15.0334 13.7834 14.3451 13.6756 14.1917 13.6845C13.5847 13.7201 13.1603 14.1738 12.7044 14.5409L11.6227 15.4118" /></svg></div>
+      <div data-hf-id="hf-oocx" class="ce-glass-text">
+        <div data-hf-id="hf-dsjp" class="ce-glass-top"><span data-hf-id="hf-kpmb">WHATSAPP</span><span data-hf-id="hf-204f">agora</span></div>
+        <div data-hf-id="hf-s33k" class="ce-glass-title">Viva Mais</div>
+        <div data-hf-id="hf-8m8c" class="ce-glass-body">Lembrete: consulta com a Dra. Camila hoje às 14:30</div>
+      </div>
+    </div>
+    <div data-hf-id="hf-jj3y" class="ce-glass" id="tm-glass" data-layout-allow-overflow="" data-layout-allow-occlusion="" data-layout-allow-overlap="">
+      <div data-hf-id="hf-aojr" class="ce-glass-icon"><img data-hf-id="hf-ngod" src="assets/brand/simbolo-branco.svg" alt=""></div>
+      <div data-hf-id="hf-dsqt" class="ce-glass-text">
+        <div data-hf-id="hf-sf15" class="ce-glass-top"><span data-hf-id="hf-1r2q">APP VIVA MAIS</span><span data-hf-id="hf-t0nz">agora</span></div>
+        <div data-hf-id="hf-0ghv" class="ce-glass-title">Sua consulta começa em 10 min</div>
+        <div data-hf-id="hf-6h0g" class="ce-glass-body">Com a doutora Camila Rocha</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const root = document.querySelector('[data-composition-id="tempo"]');
+      const q = (s) => root.querySelector(s);
+      window.__timelines = window.__timelines || {};
+      document.fonts.ready.then(() => {
+        const tl = gsap.timeline({ paused: true });
+        window.__timelines["tempo"] = tl;
+        const m = VMMotion.create({ root, tl });
+        const cal = q("#tm-cal"), line = q("#tm-line"), chip = q("#tm-chip"), glass = q("#tm-glass"), wa = q("#tm-wa");
+        const pg = (d) => q("#tm-p" + d);
+
+        gsap.set(cal, { x: 760, opacity: 0 });
+        gsap.set(chip, { x: 760, opacity: 0 });
+        gsap.set(glass, { y: 150, opacity: 0 });
+        gsap.set(wa, { y: -60, opacity: 0, scale: 0.96 });
+        gsap.set(q(".a1"), { x: -90 });
+        gsap.set(q(".a2"), { x: 80 });
+        gsap.set(q(".a3"), { y: 70 });
+
+        tl.to(q(".a1"), { x: 0, duration: 2.3, ease: "power1.out" }, 0);
+        tl.to(q(".a2"), { x: 0, duration: 2.3, ease: "power1.out" }, 0);
+        tl.to(q(".a3"), { y: 0, duration: 2.3, ease: "power1.out" }, 0);
+
+        tl.to(cal, { x: 0, opacity: 1, duration: 0.45, ease: "power4.out" }, 0);
+        m.rise(line, 0.05);
+
+        [[12, 0.3, 0.16], [13, 0.74, 0.17], [14, 1.19, 0.18], [15, 1.65, 0.2]].forEach(([d, t, du]) => {
+          const p = pg(d);
+          tl.to(p, { rotateX: -100, duration: du, ease: "power2.in" }, t);
+          tl.to(p.querySelector(".tm-shade"), { opacity: 0.22, duration: du, ease: "power1.in" }, t);
+          tl.fromTo(p, { filter: "blur(0px)" }, { filter: "blur(2.5px)", duration: du, ease: "power1.in", immediateRender: false }, t);
+          tl.set(p, { opacity: 0 }, t + du);
+        });
+        tl.fromTo(pg(16), { scale: 1 }, { scale: 1.06, duration: 0.1, ease: "power2.out", immediateRender: false }, 1.85);
+        tl.to(pg(16), { scale: 1, duration: 0.2, ease: "back.out(2.2)" }, 1.95);
+        tl.to(chip, { x: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 1.85);
+
+        tl.to(line, { opacity: 0, y: -30, filter: "blur(4px)", duration: 0.3, ease: "power2.in" }, 4.0);
+        tl.to([cal, chip], { y: -90, scale: 0.94, opacity: 0, filter: "blur(4px)", duration: 0.35, ease: "power2.inOut" }, 2.25);
+        tl.to(wa, { y: 0, scale: 1, duration: 0.4, ease: "back.out(1.4)" }, 2.25);
+        tl.to(wa, { opacity: 1, duration: 0.2, ease: "power2.out" }, 2.25);
+        tl.to(glass, { y: 236, opacity: 1, duration: 0.35, ease: "power3.out" }, 3.1);
+        tl.to(wa, { y: -260, opacity: 0, duration: 0.3, ease: "power2.in" }, 4.05);
+        tl.to(glass, { y: 0, duration: 0.3, ease: "power3.inOut" }, 4.05);
+      });
+    })();
+  </script>
+</template>

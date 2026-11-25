@@ -10,7 +10,7 @@ export default {
   voAt: 1.4,
   tail: 0.15,
   seam: { axis: "y", dir: -1, technique: "cut-the-curve UP" },
-  states: [["home-skel", 0], ["home", 0]],
+  states: [["home-skel", 0, "client-home-company loading"], ["home", 0, "client-home-company default"]],
   layers: {
     lock: lockInner({ time: "9:41", notes: [{ title: "Bem-vinda à Viva Mais, Ana!", body: "Sua empresa liberou seu plano Viva+ Empresarial. Toque para começar." }] }),
   },
@@ -32,7 +32,7 @@ export default {
   ],
   frame: {
     title: "Primeiro acesso",
-    scene: "iPhone sobe com a tela bloqueada; notificação “Bem-vinda à Viva Mais, Ana!”; toque abre o app, skeleton, Início real; à direita “Primeiro acesso.” e o cartão da Ana",
+    scene: "iPhone sobe com a tela bloqueada; notificação “Bem-vinda à Viva Mais, Ana!”; toque abre o app, esqueleto do Início, Início real do colaborador; à direita “Primeiro acesso.” e o cartão da Ana",
     motion: "device rise, notification drop, tap ripple, lock screen slides up, skeleton → content, mask rise, pill pop",
     body: "O iPhone sobe pela esquerda com a tela bloqueada e a notificação da Viva Mais cai. O dedo toca, a tela bloqueada sobe, o Início carrega em skeleton e entra o conteúdo real. À direita, “Primeiro acesso.” e o cartão com a foto da Ana.",
   },
@@ -69,9 +69,8 @@ export default {
       tl.to(lock, { y: -874, duration: 0.55, ease: "power3.inOut" }, ta + 0.25);
       tl.set(lock, { autoAlpha: 0 }, ta + 0.8);
     });
-    S.status(ta + 0.45, false);
     S.cursorExit(ta + 0.35, "down", 0.4);
-    S.show(A.w("primeira") - 0.2, "home", { fade: 0.35 });
+    S.show(A.w("primeira") - 0.2, "home", { fade: 0.2 });
     var ex = A.end + 0.05;
     A.out(ex, "t1", { dir: "up" });
     S.add(function (tl) {

@@ -1,0 +1,12 @@
+{
+  "name": "consulta-especialistas",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.8.142 preview",
+    "check": "npx --yes hyperframes@0.8.142 check",
+    "render": "npx --yes hyperframes@0.8.142 render",
+    "publish": "npx --yes hyperframes@0.8.142 publish",
+    "seams": "node $HOME/.claude/skills/motion-doctrine/scripts/seam-gate.mjs verify --ledger ledger.json --project ."
+  }
+}

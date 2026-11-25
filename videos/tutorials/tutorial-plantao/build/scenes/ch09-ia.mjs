@@ -8,7 +8,7 @@ export default {
   lines: ["A IA explica", "a consulta"],
   lead: "Resumo, plano de cuidado e a conversa inteira, em linguagem simples.",
   tail: 0.6,
-  states: [["pos", 5000]],
+  states: [["pos", 5000, "post-consultation ready"]],
   layers: { ai: AI_HTML },
   css: AI_CSS,
   captions: [

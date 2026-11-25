@@ -1,0 +1,126 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "s01-abertura→s02-entrada",
+      "cut": 4.0,
+      "technique": "device hold (match cut on the phone); headlines swap off the device",
+      "type": "match-cut",
+      "carrier": {
+        "out": "#el-s01-abertura .dev",
+        "in": "#el-s02-entrada .dev"
+      }
+    },
+    {
+      "id": "s02-entrada→s03-beneficios",
+      "cut": 9.5,
+      "technique": "device hold (match cut on the phone); headlines swap off the device",
+      "type": "match-cut",
+      "carrier": {
+        "out": "#el-s02-entrada .dev",
+        "in": "#el-s03-beneficios .dev"
+      }
+    },
+    {
+      "id": "s03-beneficios→s04-medicos",
+      "cut": 15.0,
+      "technique": "screen push LEFT across the cut",
+      "exit": {
+        "selector": "#s03-sA",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#s04-sA",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "s04-medicos→s05-especialidade",
+      "cut": 20.0,
+      "technique": "sheet rise UP across the cut",
+      "exit": {
+        "selector": "#s04-sheet",
+        "axis": "y",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#s05-sheet",
+        "axis": "y",
+        "dir": -1
+      },
+      "note": "seam-gate onscreen test assumes a 1920x1080 page; both sheets sit below y=1080 in portrait, so visible-FAIL is a gate false positive. Vectors y- both sides, ratio 1.14, verified by frames."
+    },
+    {
+      "id": "s05-especialidade→s06-filtros",
+      "cut": 25.0,
+      "technique": "device hold (match cut on the phone); headlines swap off the device",
+      "type": "match-cut",
+      "carrier": {
+        "out": "#el-s05-especialidade .dev",
+        "in": "#el-s06-filtros .dev"
+      }
+    },
+    {
+      "id": "s06-filtros→s07-perfil-horario",
+      "cut": 30.0,
+      "technique": "screen push LEFT across the cut",
+      "exit": {
+        "selector": "#s06-sD",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#s07-sA",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "s07-perfil-horario→s08-pagamento",
+      "cut": 37.5,
+      "technique": "violet plus match cut (plusCover → plusReveal)",
+      "type": "match-cut",
+      "carrier": {
+        "out": "#el-s07-perfil-horario .vm-plus",
+        "in": "#el-s08-pagamento .vm-plus"
+      }
+    },
+    {
+      "id": "s08-pagamento→s09-anamnese",
+      "cut": 40.0,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#s08-head",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#el-s09-anamnese .dev",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "s09-anamnese→s10-consulta",
+      "cut": 48.0,
+      "technique": "device hold (match cut on the phone); headlines swap off the device",
+      "type": "match-cut",
+      "carrier": {
+        "out": "#el-s09-anamnese .dev",
+        "in": "#el-s10-consulta .dev"
+      }
+    },
+    {
+      "id": "s10-consulta→s11-fim",
+      "cut": 55.0,
+      "technique": "violet plus match cut (plusCover → plusReveal)",
+      "type": "match-cut",
+      "carrier": {
+        "out": "#el-s10-consulta .vm-plus",
+        "in": "#el-s11-fim .vm-plus"
+      }
+    }
+  ]
+}

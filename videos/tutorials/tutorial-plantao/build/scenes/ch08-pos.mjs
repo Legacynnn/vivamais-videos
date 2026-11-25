@@ -8,75 +8,73 @@ export default {
   lines: ["Depois da", "consulta"],
   lead: "Resumo, documentos assinados e avaliação, tudo no app.",
   tail: 0.5,
-  states: [["pos-skel", 0], ["pos", 0]],
+  states: [["pos-skel", 0, "post-consultation preparing"], ["pos", 0, "post-consultation ready"]],
   stage: DOCS_HTML,
   css: DOCS_CSS,
   captions: [
-    { title: "Carregando", body: "O resumo da consulta aparece **em segundos**." },
+    { title: "Documentos em preparo", body: "A médica ainda está assinando. Eles **aparecem aqui sozinhos**." },
     { title: "Consulta concluída", body: "Médica, canal, data e **duração** no topo." },
-    { title: "Resumo", body: "Afastamento, remédios e exames **num só lugar**." },
+    { title: "Resumo", body: "Afastamento, orientações, remédio e exame **num só lugar**." },
     { title: "Documentos", body: "Tudo o que a médica emitiu, **assinado digitalmente**." },
     { title: "Receita simples", body: "Pronta para a farmácia, com **QR de validação**." },
     { title: "Pedido de exames", body: "Com **preparo e indicação** para o laboratório." },
     { title: "Atestado", body: "Válido e assinado. Mande direto **para o RH**." },
     { title: "Avalie", body: "Sua nota ajuda **outros pacientes** a escolher." },
-    { title: "Remédios e exames", body: "Doses, horários e **preparo dos exames**, sem decorar nada." },
     { title: "Pergunte à IA", body: "Dúvida sobre um remédio? A IA responde **com base nesta consulta**." },
     { title: "Registro completo", body: "Prontuário e a sua anamnese ficam **guardados aqui**." },
   ],
   frame: {
     title: "Depois da consulta",
-    scene: "Pós-consulta em skeleton e completo, resumo, lista de documentos, documentos reais abertos ao lado do iPhone (receita, pedido de exames, atestado) e avaliação com cinco estrelas",
+    scene: "Pós-consulta com Documentos em preparo e depois completo: resumo, Perguntar à IA, lista de documentos, documentos abertos ao lado do iPhone (receita, pedido de exames, atestado), registro e avaliação com cinco estrelas",
     poster: 14,
-    motion: "skeleton → content, scroll tour, phone slides left and documents open at the right (stacked papers, signature draws, seal stamps), tab pill, star rating with confetti",
-    body: "Título central. O iPhone mostra o pós-consulta carregando e depois “Consulta concluída”. A página rola pelo resumo até Documentos. Toque em Receita simples: o iPhone vai para a esquerda e a receita abre à direita como papel timbrado, com remédios, assinatura que se desenha, selo ICP-Brasil e QR de validação. Pedido de exames e Atestado entram por cima, trocando a aba. Os papéis saem e a avaliação recebe cinco estrelas com confete.",
+    motion: "preparing → ready, scroll tour, phone slides left and documents open at the right (stacked papers, signature draws, seal stamps), tab pill, star rating with confetti",
+    body: "Título central. O iPhone mostra o pós-consulta com Documentos em preparo e depois “Consulta concluída” com 4 documentos. A página rola pelo resumo, pelo card Perguntar à IA e por Documentos. Toque em Receita simples: o iPhone vai para a esquerda e a receita abre à direita como papel timbrado, com remédios, assinatura que se desenha, selo ICP-Brasil e QR de validação. Pedido de exames e Atestado entram por cima, trocando a aba. Os papéis saem, a página mostra o Registro da consulta e a avaliação recebe cinco estrelas com confete.",
   },
   run: function (S) {
     S.boot("pos-skel");
-    try { S.setText(0, S.pick("pos", /^R\$ [\d,]+ · pago$/, { hit: false }), "R$ 79,90 · crédito da empresa"); } catch (e) {}
+    var scr = S.state("pos").querySelector(".rn-scroll");
+    var yOf = function (el) {
+      var sr = scr.getBoundingClientRect();
+      var k = sr.height / scr.clientHeight;
+      return Math.max(0, Math.round((el.getBoundingClientRect().top - sr.top) / k + scr.scrollTop - 150));
+    };
     S.introIn(0.05);
     S.introOut(2.9);
     var t = 3.9;
-    S.cam(t - 0.2, { x: 201, y: 300, zoom: 1.5 }, 1.0);
-    S.caption(t + 0.3, 0, { at: S.rect(S.pick("pos-skel", "Consulta concluída")) });
-    t += 1.8;
+    var prep = S.pick("pos-skel", "Documentos em preparo");
+    while (prep.parentElement && prep.getBoundingClientRect().height < 50) prep = prep.parentElement;
+    S.cam(t - 0.2, { x: 201, y: 330, zoom: 1.5 }, 1.0);
+    S.caption(t + 0.3, 0, { at: S.rect(prep) });
+    S.mark(t + 0.5, prep, { hold: 1.2, pad: 4, radius: 18 });
+    t += 2.2;
     S.show(t, "pos", { fade: 0.35 });
     var head = S.pick("pos", "Consulta concluída");
     var headBox = head;
-    while (headBox.parentElement && !/14 min/.test(headBox.textContent)) headBox = headBox.parentElement;
+    while (headBox.parentElement && !/17 min/.test(headBox.textContent)) headBox = headBox.parentElement;
+    S.cam(t, { x: 201, y: 280, zoom: 1.45 }, 0.8);
     S.caption(t + 0.4, 1, { at: S.rect(headBox) });
     S.mark(t + 0.6, headBox, { hold: 1.3, pad: 6, radius: 16 });
     t += 2.6;
-    var res = S.pick("pos", "1 dia de afastamento", { hit: false });
+    var res = S.pick("pos", "Resumo", { hit: false });
     var resBox = res;
-    while (resBox.parentElement && !/Glicemia/.test(resBox.textContent)) resBox = resBox.parentElement;
-    S.scroll(t, ["pos"], 300, 1.0);
-    S.cam(t, { x: 201, y: 480, zoom: 1.4 }, 1.0);
+    while (resBox.parentElement && !/Diagnóstico/.test(resBox.textContent)) resBox = resBox.parentElement;
+    S.scroll(t, ["pos"], yOf(resBox), 1.0);
+    S.cam(t, { x: 201, y: 460, zoom: 1.4 }, 1.0);
     S.caption(t + 0.9, 2, { at: S.rect(resBox), side: "right" });
     S.mark(t + 1.0, resBox, { hold: 1.3, pad: 4, radius: 18, noScroll: true });
-    t += 2.8;
-    var dip = S.pick("pos", "Dipirona 500 mg", { hit: false });
-    var medBox = dip;
-    while (medBox.parentElement && !/Jejum de 8 horas/.test(medBox.textContent)) medBox = medBox.parentElement;
-    S.scroll(t, ["pos"], 560, 1.0);
-    S.cam(t, { x: 201, y: 470, zoom: 1.4 }, 1.0);
-    S.caption(t + 0.9, 8, { at: S.rect(medBox), side: "right" });
-    S.mark(t + 1.0, medBox, { hold: 1.4, pad: 4, radius: 18, noScroll: true });
     t += 2.9;
-    var ai = S.pick("pos", "Perguntar à IA", { hit: false });
-    var aiBox = ai;
-    while (aiBox.parentElement && aiBox.getBoundingClientRect().height < 70) aiBox = aiBox.parentElement;
-    S.scroll(t, ["pos"], 700, 0.9);
-    S.cam(t, { x: 201, y: 480, zoom: 1.4 }, 0.9);
-    S.caption(t + 0.8, 9, { at: S.rect(aiBox), side: "right" });
+    var aiBox = S.one('[aria-label^="Perguntar à IA"]', S.state("pos"));
+    S.scroll(t, ["pos"], yOf(aiBox) - 120, 0.9);
+    S.cam(t, { x: 201, y: 400, zoom: 1.4 }, 0.9);
+    S.caption(t + 0.8, 8, { at: S.rect(aiBox), side: "right" });
     S.mark(t + 0.9, aiBox, { hold: 1.3, pad: 4, radius: 18, noScroll: true });
     t += 2.6;
     var rx = S.pick("pos", "Receita simples", { hit: false });
     var ex = S.pick("pos", "Pedido de exames", { hit: false });
     var at = S.pick("pos", "Atestado médico", { hit: false });
-    var list = rx;
-    while (list.parentElement && !/Prontuário da consulta/.test(list.textContent)) list = list.parentElement;
-    S.scroll(t, ["pos"], 820, 1.1);
+    var list = S.pick("pos", /^Documentos ?4$/, { hit: false });
+    while (list.parentElement && !/Laudo médico/.test(list.textContent)) list = list.parentElement;
+    S.scroll(t, ["pos"], yOf(list) - 60, 1.1);
     S.cam(t, { x: 201, y: 520, zoom: 1.4 }, 1.1);
     S.caption(t + 1.0, 3, { at: S.rect(list) });
     S.mark(t + 1.1, list, { hold: 1.3, pad: 4, radius: 20, noScroll: true });
@@ -148,17 +146,15 @@ export default {
     var reg = S.pick("pos", "Registro da consulta", { hit: false });
     var regBox = reg;
     while (regBox.parentElement && !/Sua anamnese/.test(regBox.textContent)) regBox = regBox.parentElement;
-    S.scroll(t, ["pos"], 1250, 1.1);
+    S.scroll(t, ["pos"], yOf(regBox) - 60, 1.1);
     S.cam(t, { x: 201, y: 480, zoom: 1.4 }, 1.1);
-    S.caption(t + 1.0, 10, { at: S.rect(regBox), side: "right" });
+    S.caption(t + 1.0, 9, { at: S.rect(regBox), side: "right" });
     S.mark(t + 1.1, regBox, { hold: 1.3, pad: 4, radius: 18, noScroll: true });
     t += 2.8;
     S.captionOut(t - 0.1);
     S.scroll(t, ["pos"], 5000, 1.2);
     S.cam(t, { x: 201, y: 560, zoom: 1.45 }, 1.2);
-    var rate = S.pick("pos", "Como foi o atendimento?", { hit: false });
-    var box = rate;
-    while (box.parentElement && S.all("svg", box).length < 5) box = box.parentElement;
+    var box = S.one('[aria-label="Avaliar o atendimento"]', S.state("pos"));
     var stars = S.all("svg", box).slice(-5);
     S.caption(t + 1.3, 7, { at: S.rect(box), side: "right" });
     var last = stars[4];

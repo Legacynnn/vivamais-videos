@@ -69,7 +69,7 @@ Frame 1080x1920. `.cam` at left 173, top 318, 733x1545. `.dev` 426x898 scaled 1.
 
 ## Tokens (from `assets/brand/tokens.css`)
 
-`--vm-canvas`, `--vm-foreground`, `--vm-primary` (violet title word), `--vm-secondary` (green spark), `--vm-violet-50/100/300/500/600`, `--vm-ink-100/200/300/400/500/600/900`, `--vm-tile`, `--vm-green-800`. Literal: success `#22C55E`, focus violet `#7E3BED`. Fonts: Space Grotesk 500/700 headings, DM Sans 400/500/700 body.
+`--vm-canvas`, `--vm-foreground`, `--vm-primary` (violet title word), `--vm-secondary` (green spark), `--vm-violet-50/100/300/500/600`, `--vm-ink-100/200/300/400/500/600/900`, `--vm-tile`, `--vm-spark-800`. Literal: success `#22C55E`, focus violet `#7E3BED`. Fonts: Space Grotesk 500/700 headings, DM Sans 400/500/700 body.
 
 ## Verify
 

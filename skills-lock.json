@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "skills": {
+    "remocn": {
+      "source": "Remocn/remocn",
+      "commit": "995f1be586da7107600d5f2664f969d465359d6a",
+      "sourceType": "github",
+      "skillPath": "plugins/remocn/skills/remocn/SKILL.md",
+      "computedHash": "e40fb0f473eb925219e8109e183264a69ebb94a8e80249fbbeb1404c30e8706c"
+    }
+  }
+}

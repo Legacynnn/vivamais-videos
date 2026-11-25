@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/brand/tokens.css">
+      <link rel="stylesheet" href="assets/ce.css">
+      <style>
+        @font-face { font-family: "DM Sans"; font-weight: 400; font-display: block; src: url("assets/brand/fonts/DMSans-Regular.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "DM Sans"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/DMSans-Bold.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+        @font-face { font-family: "Space Grotesk"; font-weight: 700; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+        #assinatura { position: absolute; inset: 0; overflow: hidden; font-family: "DM Sans", sans-serif; }
+        #assinatura .ce-graph { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+        #assinatura .ce-line { opacity: 0; top: 300px; font-size: 72px; }
+        #assinatura .as-doc-hub { left: 220px; top: 548px; width: 640px; height: 112px; display: flex; align-items: center; gap: 24px; padding: 0 32px; box-sizing: border-box; z-index: 9; border-radius: 40px; }
+        #assinatura .as-doc-hub img { position: static; width: 84px; height: 84px; box-shadow: none; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 1px color-mix(in srgb, var(--vm-ink-950) 8%, transparent); }
+        #assinatura .as-lbl { display: block; font: 500 34px/1.1 "DM Sans", sans-serif; color: var(--ce-body); margin-bottom: 6px; }
+        #assinatura .as-doc-hub b { display: block; font: 700 44px/1.1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; }
+        #assinatura .as-page { position: absolute; width: 620px; height: 876px; transform-origin: 50% 50%; will-change: transform, filter, opacity; z-index: 8; }
+        #assinatura #as-p2, #assinatura #as-p3 { z-index: 7; }
+        #assinatura .as-startpage { position: absolute; left: 330px; top: 610px; width: 420px; height: 580px; border-radius: 28px; background: var(--ce-white); box-shadow: var(--ce-shadow); z-index: 7; }
+        #assinatura .as-startpage i { position: absolute; display: block; }
+        #assinatura .as-pg { position: absolute; inset: 0; box-sizing: border-box; padding: 48px 48px 40px; border-radius: 32px; background: var(--ce-white); box-shadow: var(--ce-shadow); color: var(--ce-ink); }
+        #assinatura .as-pg-logo { height: 44px; width: auto; display: block; }
+        #assinatura .as-pg h3 { margin: 36px 0 26px; font: 700 52px/1.05 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; color: var(--ce-accent-deep); }
+        #assinatura .as-meta { display: flex; flex-direction: column; margin-bottom: 14px; font-size: 26px; line-height: 1.2; }
+        #assinatura .as-meta span { color: var(--ce-body); font-size: 22px; }
+        #assinatura .as-meta b { font-weight: 500; }
+        #assinatura .as-body { margin-top: 26px; padding-top: 24px; border-top: 3px solid var(--ce-tile); }
+        #assinatura .as-body p { margin: 0 0 18px; font-size: 26px; line-height: 1.25; color: var(--ce-body); }
+        #assinatura .as-body p.main { font-weight: 700; color: var(--ce-ink); font-size: 30px; }
+        #assinatura .as-signline { position: absolute; left: 48px; right: 48px; bottom: 40px; height: 150px; }
+        #assinatura .as-signline i { position: absolute; left: 0; right: 0; bottom: 38px; height: 3px; background: var(--ce-muted); }
+        #assinatura .as-signline em { position: absolute; left: 0; bottom: 0; font-style: normal; font-size: 24px; color: var(--ce-body); }
+        #assinatura .as-sig { position: absolute; left: 10px; bottom: 36px; width: 300px; height: 110px; overflow: visible; }
+        #assinatura .as-stroke { stroke: var(--ce-accent-deep); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+        #assinatura .as-pen { position: absolute; left: 0; top: 0; width: 34px; height: 100px; color: var(--ce-violet-900); transform-origin: 50% 100%; transform: rotate(32deg); opacity: 0; }
+        #assinatura .as-tag { position: absolute; left: 330px; top: 1160px; width: 420px; height: 64px; border-radius: 999px; background: var(--ce-accent); color: var(--ce-white); font: 500 36px/64px "DM Sans", sans-serif; text-align: center; z-index: 9; opacity: 0; box-shadow: var(--ce-shadow-soft); }
+        #assinatura .as-car { position: absolute; left: 0; top: 580px; width: 1080px; height: 420px; perspective: 1400px; z-index: 6; opacity: 0; }
+        #assinatura .as-card { position: absolute; left: 350px; top: 0; width: 380px; height: 420px; box-sizing: border-box; padding: 24px 20px 24px; border-radius: 36px; background: var(--ce-white); box-shadow: var(--ce-shadow); display: flex; flex-direction: column; align-items: center; text-align: center; will-change: transform, opacity, filter; }
+        #assinatura .as-ic { flex: none; width: 100%; height: 190px; border-radius: 28px; background: var(--ce-violet-100); display: grid; place-items: center; color: var(--ce-accent); }
+        #assinatura .as-ic svg { width: 112px; height: 112px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+        #assinatura .as-nm { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; }
+        #assinatura .as-nm b { font: 700 44px/1.05 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.055em; color: var(--ce-ink); white-space: nowrap; }
+        #assinatura .as-sub { font: 500 26px/1.1 "DM Sans", sans-serif; color: var(--ce-muted); }
+        #assinatura .as-dots { position: absolute; left: 0; top: 1040px; width: 1080px; height: 20px; display: flex; justify-content: center; align-items: center; gap: 14px; z-index: 6; opacity: 0; }
+        #assinatura .as-dots i { display: block; height: 16px; width: 16px; border-radius: 8px; background: var(--ce-accent); opacity: 0.3; }
+        #assinatura .as-patient { left: 220px; top: 1112px; width: 640px; height: 128px; display: flex; align-items: center; gap: 26px; padding: 0 36px 0 8px; box-sizing: border-box; border-radius: 72px; z-index: 6; }
+        #assinatura .as-ph { position: relative; width: 112px; height: 112px; flex: none; }
+        #assinatura .as-ph img { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ce-ink) 8%, transparent); }
+        #assinatura .as-ring { position: absolute; inset: -3px; border-radius: 50%; box-shadow: 0 0 0 4px var(--ce-accent); opacity: 0; }
+        #assinatura .as-patient b { font: 700 44px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; }
+        #assinatura .as-badge { position: absolute; right: -14px; top: -34px; width: 78px; height: 78px; border-radius: 50%; background: var(--ce-accent); color: var(--ce-white); font: 700 44px/78px "Space Grotesk", sans-serif; text-align: center; box-shadow: var(--ce-shadow-soft); opacity: 0; }
+      </style>
+      <div id="assinatura" class="vm-scene ce-scene" data-composition-id="assinatura" data-start="0" data-duration="3.25" data-width="1080" data-height="1920">
+        <div class="ce-stage"><div class="ce-halo"></div></div>
+        <div class="as-startpage" id="as-start"><i style="left:32px;top:40px;width:140px;height:22px;border-radius:11px;background:var(--ce-violet-100)"></i><i style="left:32px;top:90px;width:356px;height:16px;border-radius:8px;background:var(--ce-tile)"></i><i style="left:32px;top:130px;width:300px;height:16px;border-radius:8px;background:var(--ce-tile)"></i><i style="left:32px;top:170px;width:330px;height:16px;border-radius:8px;background:var(--ce-tile)"></i></div>
+        <div class="ce-graph" data-layout-allow-overflow>
+          <h1 class="ce-line" id="as-line">Todos os documentos<br><em>na hora</em> no aplicativo</h1>
+          <div class="ce-card ce-doc-hub as-doc-hub" id="as-hub"><img class="as-avatar" src="assets/people/doctors/camila-rocha.jpg" alt=""><div class="as-hub-txt"><span class="as-lbl">Médica · Cardiologia</span><b>Dra. Camila Rocha</b></div></div>
+<div class="as-page" id="as-p1" data-layout-allow-overlap><div class="as-pg" data-layout-allow-overlap>
+<img class="as-pg-logo" src="assets/brand/lockup-cor.svg" alt="">
+<h3>Receita</h3>
+<div class="as-meta" data-layout-allow-overlap><span>Paciente</span><b>Helena Souza</b></div>
+<div class="as-meta" data-layout-allow-overlap><span data-layout-allow-overlap>Médica</span><b data-layout-allow-overlap>Dra. Camila Rocha · Cardiologia · CRM</b></div>
+<div class="as-meta" data-layout-allow-overlap><span>Data</span><b>16/11/2026</b></div>
+<div class="as-body"><p class="main">Losartana 50 mg · 1 vez ao dia</p><p>Tomar 1 comprimido pela manhã</p><p>Uso contínuo</p></div>
+<div class="as-signline"><svg class="as-sig" viewBox="0 0 300 110" fill="none"><path class="as-stroke" pathLength="1" d="M8 78 C30 10 52 10 58 58 C62 92 82 92 96 44 C104 18 118 26 114 64 C112 88 140 90 160 40 C168 18 188 22 180 60 C176 80 206 84 232 34 L292 30"/></svg><svg class="as-pen" viewBox="0 0 40 120" fill="none"><path d="M20 118 L8 84 L8 14 Q8 4 20 4 Q32 4 32 14 L32 84 Z" fill="currentColor"/></svg><i></i><em>Assinado digitalmente</em></div>
+</div></div>
+          <div class="as-tag" id="as-tag">Assinado digitalmente</div>
+<div class="as-car" id="as-app"><div class="as-card"><span class="as-ic"><svg viewBox="0 0 48 48"><rect x="10" y="9" width="28" height="34" rx="5"/><rect x="17" y="5" width="14" height="8" rx="3"/><path d="M14 29h6l3-6 4 11 3-5h4"/></svg></span><div class="as-nm"><b>Prontuário</b></div><span class="as-sub">Assinado · Dra. Camila</span></div><div class="as-card"><span class="as-ic"><svg viewBox="0 0 48 48"><rect x="9" y="5" width="30" height="38" rx="5"/><path d="M15 25V12h6a4 4 0 0 1 0 8h-6M21 20l6 7M27 12l8 11M35 12l-8 11M15 35h14"/></svg></span><div class="as-nm"><b>Prescrição</b></div><span class="as-sub">Assinado · Dra. Camila</span></div><div class="as-card"><span class="as-ic"><svg viewBox="0 0 48 48"><path d="M18 6h12M20 6v28a4 4 0 0 0 8 0V6M20 22h8"/><circle cx="24" cy="31" r="1.6"/></svg></span><div class="as-nm"><b>Pedido de exame</b></div><span class="as-sub">Assinado · Dra. Camila</span></div><div class="as-card"><span class="as-ic"><svg viewBox="0 0 48 48"><rect x="7" y="10" width="34" height="31" rx="5"/><path d="M7 19h34M16 6v8M32 6v8M13 34l7-7 5 4 9-9"/></svg></span><div class="as-nm"><b>Acompanhamento</b></div><span class="as-sub">Assinado · Dra. Camila</span></div><div class="as-card"><span class="as-ic"><svg viewBox="0 0 48 48"><rect x="6" y="5" width="20" height="26" rx="4"/><path d="M11 13h10M11 19h6M8 40h16M19 35l5 5-5 5"/><circle cx="38" cy="22" r="5"/><path d="M31 41a7 7 0 0 1 14 0"/></svg></span><div class="as-nm"><b>Encaminhamento</b></div><span class="as-sub">Assinado · Dra. Camila</span></div><div class="as-card"><span class="as-ic"><svg viewBox="0 0 48 48"><rect x="9" y="5" width="30" height="38" rx="5"/><path d="M16 14h16"/><circle cx="24" cy="29" r="8"/><path d="M20 29l3 3 5-6"/></svg></span><div class="as-nm"><b>Atestado</b></div><span class="as-sub">Assinado · Dra. Camila</span></div><div class="as-card"><span class="as-ic"><svg viewBox="0 0 48 48"><rect x="8" y="5" width="28" height="38" rx="5"/><path d="M15 14h12M15 20h8"/><circle cx="28" cy="29" r="8" fill="var(--ce-violet-100)"/><path d="M34 35l8 8"/></svg></span><div class="as-nm"><b>Laudo</b></div><span class="as-sub">Assinado · Dra. Camila</span></div></div><div class="as-dots" id="as-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const root = document.querySelector('[data-composition-id="assinatura"]');
+          document.fonts.ready.then(() => {
+            const tl = gsap.timeline({ paused: true });
+            const m = VMMotion.create({ root, tl });
+            const q = (s) => root.querySelector(s);
+            const S = 0.38, BIG = 0.67;
+            const P1 = q("#as-p1");
+            gsap.set(P1, { left: 540 - 310, top: 895 - 438, scale: BIG, opacity: 0, y: 900 - 895 });
+            const cards = Array.from(root.querySelectorAll(".as-card"));
+            const dots = Array.from(root.querySelectorAll(".as-dots i"));
+            const prox = { p: 0 };
+            const upd = () => {
+              cards.forEach((r, i) => {
+                const d = i - prox.p, a = Math.abs(d), c = Math.min(a, 1), sg = d < 0 ? -1 : 1;
+                gsap.set(r, { x: sg * (c * 350 + Math.max(0, a - 1) * 250), scale: 1 - 0.18 * c - Math.max(0, a - 1) * 0.1, rotateY: -sg * 26 * c, zIndex: 100 - Math.round(a * 10), opacity: a <= 1 ? 1 - 0.4 * a : Math.max(0, 0.6 - (a - 1) * 0.6), filter: "blur(" + (3 * c).toFixed(2) + "px)" });
+              });
+              dots.forEach((dt, i) => {
+                const w = Math.max(0, 1 - Math.abs(i - prox.p));
+                gsap.set(dt, { width: 16 + 28 * w, opacity: 0.3 + 0.7 * w });
+              });
+            };
+            upd();
+            tl.fromTo(q("#as-hub"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.4)" }, 0);
+            m.rise("#as-line", 0.05, { stagger: 0.05 });
+            tl.to(P1, { opacity: 1, duration: 0.2, ease: "power2.out" }, 0);
+            tl.to(q("#as-start"), { opacity: 0, duration: 0.1 }, 0.15);
+            const pen = q(".as-pen");
+            tl.set(pen, { opacity: 0 }, 0);
+            tl.set(pen, { opacity: 1 }, 0.2);
+            tl.to(q(".as-stroke"), { strokeDashoffset: 0, duration: 0.32, ease: "power1.inOut" }, 0.22);
+            tl.fromTo(pen, { x: 10, y: 50 }, { x: 285, y: 15, duration: 0.32, ease: "power1.inOut" }, 0.22);
+            tl.to(pen, { opacity: 0, duration: 0.08 }, 0.52);
+            tl.fromTo(q("#as-tag"), { opacity: 0, scale: 0.5, y: 16 }, { opacity: 1, scale: 1, y: 0, duration: 0.25, ease: "back.out(1.4)", transformOrigin: "50% 50%" }, 0.4);
+            tl.to(q("#as-tag"), { opacity: 0, duration: 0.15, ease: "power3.in" }, 0.68);
+            tl.to(P1, { y: 790 - 895, scale: 0.2, opacity: 0, duration: 0.3, ease: "power3.in" }, 0.6);
+            tl.to(q("#as-hub"), { opacity: 0, y: -18, duration: 0.2, ease: "power2.in" }, 0.55);
+            tl.fromTo(q("#as-app"), { opacity: 0, y: 40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "power4.out" }, 0.62);
+            tl.fromTo(q("#as-dots"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.75);
+            const durs = [0.2, 0.2, 0.22, 0.22, 0.24, 0.34];
+            let t = 0.85;
+            durs.forEach((d, i) => {
+              const last = i === durs.length - 1;
+              tl.to(prox, { p: i + 1, duration: d, ease: last ? "power3.out" : "power2.inOut", onUpdate: upd }, t);
+              t += d;
+            });
+            tl.to(q(".ce-graph"), { x: -1100, filter: "blur(14px)", duration: 0.5, ease: "power3.in" }, 2.72);
+            window.__timelines["assinatura"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

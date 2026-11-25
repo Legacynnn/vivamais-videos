@@ -1,0 +1,114 @@
+<template>
+  <link rel="stylesheet" href="assets/brand/tokens.css">
+  <link rel="stylesheet" href="assets/em.css">
+  <style>
+    @font-face { font-family: "Space Grotesk"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+    @font-face { font-family: "DM Sans"; font-weight: 500; font-display: block; src: url("assets/brand/fonts/DMSans-Medium.ttf") format("truetype"); }
+    #fim { position: absolute; inset: 0; overflow: hidden; }
+    #fim .fm-logo { position: absolute; left: 430px; top: 200px; width: 220px; height: auto; opacity: 0; will-change: transform, opacity, filter; }
+    #fim .fm-layer { position: absolute; inset: 0; pointer-events: none; will-change: transform; }
+    #fim .em-chip { height: 104px; gap: 16px; padding: 0 36px 0 12px; font-size: 48px; opacity: 0; background: var(--em-white); }
+    #fim .em-badge { width: 76px; height: 76px; }
+    #fim .em-badge--stack { width: auto; padding: 0 4px; }
+    #fim .em-badge--stack span { width: 62px; height: 62px; margin-left: -16px; box-shadow: 0 0 0 4px var(--em-white); }
+    #fim .em-badge--stack span:first-child { margin-left: 0; }
+    #fim .fm-price { position: absolute; left: 80px; right: 80px; top: 1062px; margin: 0; text-align: center; font: 500 52px/1.1 var(--vm-font-text, "DM Sans"), sans-serif; color: var(--em-body); opacity: 0; will-change: transform, opacity, filter; }
+    #fim .fm-price b { font: 500 56px/1 var(--vm-font-display, "Space Grotesk"), sans-serif; letter-spacing: -0.02em; display: inline-block; }
+    #fim .em-btn, #fim .em-ring { left: 540px; top: 960px; width: 760px; height: 150px; padding: 0; }
+    #fim .em-ring { position: absolute; border-radius: 75px; border: 6px solid var(--em-accent); box-sizing: border-box; opacity: 0; pointer-events: none; }
+    #fim .em-btn { opacity: 0; }
+    #fim .em-btn-label { display: block; opacity: 0; }
+  </style>
+  <div id="fim" class="vm-scene em-scene" data-composition-id="fim" data-start="0" data-duration="4.5" data-width="1080" data-height="1920">
+    <div class="em-stage em-stage--white" data-layout-ignore></div>
+    <img class="fm-logo" id="fm-logo" src="assets/brand/lockup-cor.svg" alt="Viva Mais">
+    <div class="fm-layer" id="fm-top" data-layout-allow-overflow data-layout-allow-overlap></div>
+    <div class="fm-layer" id="fm-bot" data-layout-allow-overflow data-layout-allow-overlap></div>
+    <p class="fm-price" id="fm-price">Planos a partir de <b class="em-grad-text" id="fm-pe">R$ 9,90</b></p>
+    <div class="em-ring" id="fim-ring" data-layout-ignore></div>
+    <div class="em-btn" id="fim-btn" aria-label="Solicite proposta agora"><span class="em-btn-label" id="fim-label">Solicite proposta agora</span></div>
+  </div>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      const root = document.getElementById("fim");
+      const svg = function (d) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + d + "</svg>"; };
+      const img = function (s) { return '<img src="' + s + '" alt="">'; };
+      const badge = function (h) { return '<span class="em-badge">' + h + "</span>"; };
+      const STACK = '<span class="em-badge em-badge--stack"><span>' + img("assets/icons/specialties/cardio.png") + "</span><span>" + img("assets/icons/specialties/derma.png") + "</span><span>" + img("assets/icons/specialties/pediatria.png") + "</span></span>";
+      const I = {
+        check: svg('<path d="M20 6 9 17l-5-5"/>'),
+        inf: svg('<path d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8"/>'),
+        pill: svg('<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/>'),
+        doc: svg('<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/>'),
+        x: svg('<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>')
+      };
+      const T = [
+        { h: badge(img("assets/illustrations/plantao-24h.webp")) + "<span>Médico 24/7</span>", x: 100, y: 330, r: -2, s: 1 },
+        { h: badge(img("assets/icons/specialties/nutrologista.png")) + "<span>Nutrição</span>", x: 560, y: 350, r: 3, s: 0.84 },
+        { h: STACK + "<span>+40 Especialidades</span>", x: 220, y: 480, r: 1.5, s: 1 },
+        { h: badge(img("assets/icons/specialties/psicologia.png")) + "<span>Psicologia</span>", x: 100, y: 630, r: 2.5, s: 0.86 },
+        { h: badge(I.check) + "<span>Sem carência</span>", x: 470, y: 640, r: -3, s: 1 }
+      ];
+      const B = [
+        { h: badge(I.inf) + "<span>Dependentes no plano</span>", x: 150, y: 1210, r: 2, s: 1 },
+        { h: badge(I.pill) + "<span>Até 40% em farmácias</span>", x: 330, y: 1340, r: -2.5, s: 0.86 },
+        { h: badge(I.x) + "<span>Sem coparticipação</span>", x: 100, y: 1470, r: 3, s: 1 },
+        { h: badge(I.doc) + "<span>Receitas digitais</span>", x: 460, y: 1600, r: -1.5, s: 0.86 }
+      ];
+      const mk = function (layer, list, base) {
+        return list.map(function (o, i) {
+          const c = document.createElement("div");
+          c.className = "em-chip";
+          c.innerHTML = o.h;
+          c.style.left = o.x + "px";
+          c.style.top = o.y + "px";
+          layer.appendChild(c);
+          o.c = c;
+          return o;
+        });
+      };
+      const top = mk(document.getElementById("fm-top"), T);
+      const bot = mk(document.getElementById("fm-bot"), B);
+      document.fonts.ready.then(function () {
+        const tl = gsap.timeline({ paused: true });
+        const D = 4.5;
+
+        tl.set("#fm-logo", { opacity: 1 }, 0.05);
+        tl.fromTo("#fm-logo", { y: 24, filter: "blur(4px)", opacity: 0 }, { y: 0, filter: "blur(0px)", opacity: 1, duration: 0.45, ease: "power4.out" }, 0.05);
+
+        tl.fromTo("#fm-top", { x: -24 }, { x: 24, duration: D, ease: "none" }, 0);
+        tl.fromTo("#fm-bot", { x: 24 }, { x: -24, duration: D, ease: "none" }, 0);
+
+        top.concat(bot).forEach(function (o, i) {
+          const j = (i % 2) ? 4 - (i >> 1) : (i >> 1);
+          const t = 0.1 + i * 0.06;
+          const dy = o.y < 960 ? -36 : 36;
+          gsap.set(o.c, { scale: o.s * 0.55, rotation: o.r * 3, y: dy, filter: "blur(4px)", transformOrigin: "50% 50%" });
+          tl.set(o.c, { opacity: 1 }, t);
+          tl.to(o.c, { scale: o.s, rotation: o.r, y: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, t);
+        });
+
+        gsap.set(["#fim-btn", "#fim-ring"], { xPercent: -50, yPercent: -50, transformOrigin: "50% 50%" });
+        gsap.set("#fim-btn", { width: 24, height: 24, borderRadius: 12 });
+        gsap.set("#fim-label", { y: 24 });
+        tl.set("#fim-btn", { opacity: 1 }, 0.6);
+        tl.to("#fim-btn", { width: 760, height: 150, borderRadius: 75, duration: 0.45, ease: "back.out(1.4)" }, 0.6);
+        tl.to("#fim-label", { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 0.8);
+
+        gsap.set("#fm-price", { y: 28, filter: "blur(4px)" });
+        tl.set("#fm-price", { opacity: 1 }, 1.0);
+        tl.to("#fm-price", { y: 0, filter: "blur(0px)", duration: 0.4, ease: "power4.out" }, 1.0);
+        tl.fromTo("#fm-pe", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: 1.4, ease: "power2.inOut", immediateRender: false }, 1.1);
+
+        const P = 0.9;
+        [1.3, 1.3 + P, 1.3 + 2 * P].forEach(function (t) {
+          tl.fromTo("#fim-ring", { scale: 1, opacity: 0.35 }, { scale: 1.25, opacity: 0, duration: P, ease: "power2.out", immediateRender: false }, t);
+          tl.to("#fim-btn", { scale: 1.04, duration: P / 2, ease: "sine.inOut" }, t);
+          tl.to("#fim-btn", { scale: 1, duration: P / 2, ease: "sine.inOut" }, t + P / 2);
+        });
+        window.__timelines["fim"] = tl;
+      });
+    })();
+  </script>
+</template>
