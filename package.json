@@ -9,6 +9,7 @@
     "sync:brand": "node tools/sync-brand.mjs && node tools/sync.mjs",
     "sync:monorepo": "node tools/sync-monorepo.mjs && node tools/sync-brand.mjs && node screens/build.mjs && node tools/sync.mjs",
     "monorepo:status": "node tools/sync-monorepo.mjs --status",
+    "setup:monorepo": "node tools/sync-monorepo.mjs --locked && node tools/sync-brand.mjs && node screens/build.mjs",
     "screens": "node screens/build.mjs",
     "new": "node tools/new-video.mjs",
     "check": "node tools/check.mjs",
