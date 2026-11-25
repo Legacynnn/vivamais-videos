@@ -1,0 +1,392 @@
+{
+  "client-home--default": {
+    "plan": {
+      "label": "Consultas e plantão inclusos"
+    },
+    "search": {
+      "label": "Buscar especialidade ou sintoma"
+    },
+    "placeholder": {
+      "label": "Especialidade ou sintoma"
+    },
+    "cardio": {
+      "label": "Buscar Cardiologia"
+    }
+  },
+  "my-plan--company": {
+    "especialistas": {
+      "label": "Especialistas"
+    },
+    "chat": {
+      "label": "Chat com IA"
+    },
+    "farmacias": {
+      "label": "Farmácias parceiras"
+    },
+    "agendar": {
+      "label": "Agendar consulta",
+      "nth": 0
+    },
+    "rowEsp": {
+      "label": "Especialistas",
+      "climb": 340
+    },
+    "rowChat": {
+      "label": "Chat com IA",
+      "climb": 340
+    },
+    "rowFarm": {
+      "label": "Farmácias parceiras",
+      "climb": 340
+    }
+  },
+  "search-results--clinica": {
+    "chip": {
+      "label": "Clínica geral"
+    },
+    "row": {
+      "label": "Dra. Camila Rocha",
+      "climb": 360,
+      "crop": true
+    }
+  },
+  "specialty-picker--open": {
+    "sheet": {
+      "label": "@sheet"
+    },
+    "cardio": {
+      "label": "Cardiologia",
+      "scope": "sheet",
+      "climb": 80
+    }
+  },
+  "specialty-picker--cardio": {
+    "sheet": {
+      "label": "@sheet"
+    },
+    "cardio": {
+      "label": "Cardiologia",
+      "scope": "sheet",
+      "climb": 80,
+      "crop": true
+    },
+    "confirm": {
+      "label": "Confirmar",
+      "scope": "sheet"
+    }
+  },
+  "search-results--cardio": {
+    "filters": {
+      "label": "Filtros*"
+    }
+  },
+  "search-filters--default": {
+    "sheet": {
+      "label": "@sheet"
+    },
+    "amanha": {
+      "label": "Amanhã",
+      "scope": "sheet",
+      "climb": 50
+    },
+    "especialistas": {
+      "label": "Especialistas",
+      "scope": "sheet",
+      "climb": 80
+    }
+  },
+  "search-filters--set": {
+    "sheet": {
+      "label": "@sheet"
+    },
+    "amanha": {
+      "label": "Amanhã",
+      "scope": "sheet",
+      "climb": 50,
+      "crop": true
+    },
+    "especialistas": {
+      "label": "Especialistas",
+      "scope": "sheet",
+      "climb": 80,
+      "crop": true
+    },
+    "ver": {
+      "label": "Ver*",
+      "scope": "sheet"
+    }
+  },
+  "search-results--cardio-filtered": {
+    "rafael": {
+      "label": "Dr. Rafael Menezes",
+      "climb": 360,
+      "crop": true
+    },
+    "rafaelTap": {
+      "label": "Dr. Rafael Menezes"
+    }
+  },
+  "doctor-profile--default": {
+    "day": {
+      "label": "@tomorrow"
+    },
+    "hero": {
+      "label": "Dr. Rafael Menezes"
+    },
+    "_height": 1040,
+    "calBtn": {
+      "label": "Abrir calendário"
+    }
+  },
+  "doctor-profile--day": {
+    "tarde": {
+      "label": "Tarde*"
+    },
+    "_height": 1040
+  },
+  "doctor-profile--slot": {
+    "slot": {
+      "label": "14:30",
+      "climb": 60,
+      "crop": true
+    },
+    "agendar": {
+      "label": "Agendar"
+    },
+    "_height": 1040
+  },
+  "anamnese-fill--symptom": {
+    "dor": {
+      "label": "Dor de cabeça",
+      "climb": 60,
+      "crop": true
+    },
+    "next": {
+      "label": "Continuar"
+    }
+  },
+  "anamnese-fill--since": {
+    "ontem": {
+      "label": "Ontem",
+      "climb": 50
+    },
+    "next": {
+      "label": "Continuar"
+    }
+  },
+  "anamnese-fill--pain": {
+    "level": {
+      "label": "4",
+      "climb": 24,
+      "crop": true
+    },
+    "next": {
+      "label": "Continuar"
+    }
+  },
+  "anamnese-fill--health": {
+    "next": {
+      "label": "Continuar"
+    }
+  },
+  "anamnese-fill--sent": {
+    "done": {
+      "label": "Anamnese enviada"
+    }
+  },
+  "video-call--in-call": {
+    "mic": {
+      "label": "Desligar microfone"
+    },
+    "cam": {
+      "label": "Desligar câmera"
+    },
+    "swap": {
+      "label": "Trocar câmera"
+    },
+    "audio": {
+      "label": "Usar fone do aparelho"
+    },
+    "end": {
+      "label": "Sair da chamada"
+    },
+    "rec": {
+      "label": "Gravando",
+      "climb": 70
+    },
+    "chat": {
+      "label": "Chat",
+      "climb": 60
+    },
+    "self": {
+      "label": "Sua câmera"
+    },
+    "_overlay": "html,body,#root{background:transparent!important}[aria-label=\"Vídeo do médico\"],[aria-label=\"Sua câmera\"] img{visibility:hidden}#root .rn-view:has([aria-label=\"Vídeo do médico\"]){background-color:transparent!important}"
+  },
+  "search-benefit--especialistas": {
+    "filters": {
+      "label": "Filtros*"
+    },
+    "chip": {
+      "label": "Especialistas"
+    },
+    "rafaelTap": {
+      "label": "Dr. Rafael Menezes"
+    }
+  },
+  "doctor-calendar--open": {
+    "_height": 1040,
+    "sheet": {
+      "label": "@sheet"
+    },
+    "day": {
+      "label": "@tomorrow",
+      "scope": "sheet"
+    }
+  },
+  "doctor-calendar--picked": {
+    "_height": 1040,
+    "sheet": {
+      "label": "@sheet"
+    },
+    "ver": {
+      "label": "Ver horários*",
+      "scope": "sheet"
+    }
+  },
+  "doctor-profile--day-tarde": {
+    "_height": 1040,
+    "slot": {
+      "label": "14:30"
+    }
+  },
+  "client-home-specialties--default": {
+    "search": {
+      "label": "Buscar especialidade ou sintoma"
+    },
+    "placeholder": {
+      "label": "Especialidade ou sintoma"
+    },
+    "strip": {
+      "label": "Buscar Clínica geral",
+      "strip": true
+    },
+    "plan": {
+      "label": "Consultas e plantão inclusos"
+    },
+    "cardio": {
+      "label": "Buscar Cardiologia"
+    }
+  },
+  "ai-chat--empty": {
+    "duvida": {
+      "label": "Dúvida sobre medicamento"
+    },
+    "composer": {
+      "label": "Mensagem para a Super IA",
+      "climb": 380
+    },
+    "anexar": {
+      "label": "Anexar arquivo ou foto"
+    },
+    "enviar": {
+      "label": "Enviar mensagem"
+    },
+    "header": {
+      "label": "Super Inteligência",
+      "climb": 380
+    }
+  },
+  "ai-chat--answer": {
+    "user": {
+      "label": "Como tomo a receita?"
+    }
+  },
+  "search-benefit--preco": {
+    "chip": {
+      "label": "Especialistas"
+    },
+    "rafaelTap": {
+      "label": "Dr. Rafael Menezes"
+    }
+  },
+  "doctor-profile--preco-default": {
+    "day": {
+      "label": "@tomorrow"
+    },
+    "hero": {
+      "label": "Dr. Rafael Menezes"
+    },
+    "_height": 1040,
+    "calBtn": {
+      "label": "Abrir calendário"
+    }
+  },
+  "doctor-profile--preco-day": {
+    "tarde": {
+      "label": "Tarde*"
+    },
+    "_height": 1040
+  },
+  "doctor-profile--preco-day-tarde": {
+    "_height": 1040,
+    "slot": {
+      "label": "14:30"
+    }
+  },
+  "doctor-profile--preco-slot": {
+    "slot": {
+      "label": "14:30",
+      "climb": 60,
+      "crop": true
+    },
+    "agendar": {
+      "label": "Agendar"
+    },
+    "_height": 1040
+  },
+  "doctor-calendar--preco-open": {
+    "_height": 1040,
+    "sheet": {
+      "label": "@sheet"
+    },
+    "day": {
+      "label": "@tomorrow",
+      "scope": "sheet"
+    }
+  },
+  "doctor-calendar--preco-picked": {
+    "_height": 1040,
+    "sheet": {
+      "label": "@sheet"
+    },
+    "ver": {
+      "label": "Ver horários*",
+      "scope": "sheet"
+    }
+  },
+  "post-consultation--preparing": {
+    "_height": 1600
+  },
+  "post-consultation--ready": {
+    "_height": 1600,
+    "receita": {
+      "label": "Abrir Receita: Receita simples"
+    },
+    "docs": {
+      "label": "4 documentos"
+    }
+  },
+  "client-home--helena": {
+    "abrir": {
+      "label": "Conversar com a Super IA"
+    },
+    "painel": {
+      "label": "Conversar com a Super IA",
+      "climb": 360
+    },
+    "superia": {
+      "label": "Abrir Super IA"
+    }
+  }
+}
